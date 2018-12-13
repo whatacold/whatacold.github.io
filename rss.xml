@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <rss version="2.0">
 <channel>
-<title>Example.com</title>
-<description>Example.com</description>
-<link>http://whatacold.com/</link>
-<lastBuildDate>Thu, 13 Dec 2018 23:23:53 +0800</lastBuildDate>
+<title>whatacold's blog site</title>
+<description>whatacold's blog site</description>
+<link>https://whatacold.github.io/</link>
+<lastBuildDate>Thu, 13 Dec 2018 23:36:38 +0800</lastBuildDate>
 <item>
   <title>C++ 多态是如何实现的？</title>
   <description><![CDATA[
@@ -224,7 +224,7 @@ End of assembler dump.
 <div class="taglist"><a href="tags.html">Tags:</a> <a href="tag-c++.html">C++</a> <a href="tag-gdb.html">GDB</a> </div>]]></description>
   <category>C++</category>
   <category>GDB</category>
-  <link>http://whatacold.com/2018-12-10-how-polymorphism-works-in-cpp.html</link>
+  <link>https://whatacold.github.io/2018-12-10-how-polymorphism-works-in-cpp.html</link>
   <pubDate>Mon, 10 Dec 2018 00:16:00 +0800</pubDate>
 </item>
 </channel>
