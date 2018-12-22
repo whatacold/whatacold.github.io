@@ -12,6 +12,152 @@
 <div id="preamble" class="status"></div>
 <div id="content">
 <h1 class="title">Posts tagged "C++":</h1>
+<div class="post-date">22 Dec 2018</div><h1 class="post-title"><a href="2018-12-22-c-cpp-devel-with-lsp-in-emacs.html">在 Emacs 中使用 LSP 开发 C/C++ 工程</a></h1>
+<p>
+写代码的时候，如果能够基于当前的上下文提示补全，不仅能提高写代码的效率，还能提升体验，有种行云流水的感觉。
+Emacs 中之前我用 gtags 等静态的工具来辅助写代码，最大的问题是无法根据上下文补全，体验不好。
+有了 LSP 协议之后， Emacs 中现在也能实现这个功能了，体验相当不错。
+前段时间折腾了一下，在此作个小结。
+</p>
+
+<p>
+目前 Emacs 上有两个客户端实现： <a href="https://github.com/joaotavora/eglot">eglot</a> 和 <a href="https://github.com/emacs-lsp/lsp-mode">lsp-mode</a> ，由于 eglot 相对比较简洁，只需要很少的配置，因此我就选它了（暂时还没试过 lsp-mode ，等有需要时再看）。
+</p>
+
+<p>
+对于服务端，目前有三个选择 clangd,  <a href="https://github.com/cquery-project/cquery">cquery</a> 和 <a href="https://github.com/MaskRay/ccls">ccls</a> ， ccls 是在 cquery 的基础之上 fork 改进的。
+clangd 安装最简单，但功能据说比较弱，我没有试过；一开始我在自己电脑上编译了 ccls ，再把二进制文件拷贝到公司机器，
+但是补全始终有问题（怀疑必须在使用的机器上编译，直接拷贝行不通），没有找到具体的原因；
+后来在公司机器上直接编译了 cquery ，可以补全，就没有再折腾 ccls 了。
+</p>
+
+<p>
+选定了客户端和服务端之后，接下来就是对具体工程的配置了， cquery 和 ccls 都要求工程根目录有 compilation database 或者 <code>.cquery</code> / <code>.ccls</code> 文件。
+由于我们的工程都是用 GNU Make 进行构建的，没法使用 <code>cmake</code> 直接生成 compilation database 。
+其他方案比如 <a href="https://github.com/rizsotto/Bear">Bear</a> ，由于我们的工具链太老，没有 <code>cmake</code> 无法编译 <code>Bear</code> ，因此也派不上用场。
+至此由于无法生成服务器的配置文件，看来似乎与 LSP 无缘了。
+</p>
+
+<p>
+后来有一天，突然想到可以直接自己解析 <code>make</code> 的输出（就用 Elisp ），解析 <code>Entering directory</code> , <code>Leaving directory</code> 以及 <code>g++</code> 编译的相关行，
+提取生成为 <code>compile_commands.json</code> ，这样就无须再依赖其他软件。
+但是此方法有一个缺点，在新增文件的时候，得人工在 json 文件中增加一条记录，比较麻烦，不易维护。
+</p>
+
+<p>
+其实此种情况下直接用 <code>.cquery</code> 文件最好，无需指定特定的源码文件，
+只需要配置编译选项以及头文件目录，因此新增文件时不需要修改。
+举一个 cquery wiki 中的 <a href="https://github.com/cquery-project/cquery/wiki/.cquery">例子</a> ：
+</p>
+
+<pre class="example">
+# it will expend to clang/clang++ according to the extension name
+%clang
+
+# C specific options
+%c -std=gnu11
+
+# C++ specific options
+%cpp -std=gnu++14
+-pthread
+
+# Includes
+-I/work/cquery/third_party
+-I/work/cquery/another_third_party
+# -I space_is_not_allowed
+</pre>
+
+
+<p>
+到此似乎万事俱备，可以愉快地写代码了，最终却发现还有一个问题：由于历史原因，我们的工程源码都是使用 GBK 编码的，
+但是 LSP 只支持 UTF-8 ，导致由于编码问题无法显示类、函数注释的问题，当时还在 eglot 提了一个 <a href="https://github.com/joaotavora/eglot/issues/135">issue</a> （其实不是 eglot 的问题）。
+</p>
+
+<p>
+为了解决这个问题想过几种方法：
+</p>
+<ol class="org-ol">
+<li>cquery 中在输出之前，把内容转为 UTF-8 编码（利用 <code>iconv</code> 库）</li>
+<li><code>eglot</code> 在解析服务端返回的数据时，根据指定的编码进行 decode</li>
+</ol>
+
+<p>
+第一种方法适用面太窄，因为 LSP 的实现还不是非常成熟，有时需要切换到 <code>ccls</code> 来体验，
+这就意味着得在 <code>ccls</code> 中也用 <code>iconv</code> 再转一道，太麻烦，不符合 <code>DRY</code> 的原则。
+</p>
+
+<p>
+第二种方法，需要在 <code>eglot.el</code> 和其依赖的低层通信库 <code>jsonrpc.el</code> 中同时服务端传回数据的编码方式。
+当时也实现了，后来觉得不是很直接、优雅，就没再继续用了。另外，如果有一天改用 lsp-mode ，
+那又需要在 lsp-mode 中做一遍类似的修改，同样也不符合 <code>DRY</code> 原则。
+</p>
+
+<p>
+最后使用了适配器的 <a href="https://github.com/whatacold/lsa">方案</a> ，使用 Python 3 实现，既不动客户端也不动服务端，在中间加一层，用于转换服务端的编码。
+这样就是一个比较通用的方案了，能适配所有的客户端和服务端。
+</p>
+
+<p>
+在 eglot 中根据项目的编码情况（通过 <code>.dir-locals.el</code> 区分）决定是否使用此适配器：
+</p>
+
+<div class="org-src-container">
+<pre class="src src-elisp">
+(<span style="color: #859900; font-weight: bold;">defcustom</span> <span style="color: #268bd2;">ccls-init-args</span> nil
+  <span style="color: #2aa198;">"Init args for ccls, e.g. '(:clang (:extraArgs (\"-std=c++03\")))"</span>)
+
+(<span style="color: #859900; font-weight: bold;">defcustom</span> <span style="color: #268bd2;">eglot-ls-output-encoding</span> <span style="color: #2aa198;">"utf-8"</span>
+  <span style="color: #2aa198;">"The LS's output encoding"</span>)
+
+(<span style="color: #859900; font-weight: bold;">defcustom</span> <span style="color: #268bd2;">eglot-cpp-ls</span> <span style="color: #2aa198;">"cquery"</span>
+  <span style="color: #2aa198;">"The language server for C/C++."</span>)
+
+(<span style="color: #859900; font-weight: bold;">defun</span> <span style="color: #268bd2;">whatacold/eglot-ccls-contact</span> (interactive-p)
+  <span style="color: #2aa198;">"A contact function to assemble args for ccls.</span>
+<span style="color: #2aa198;">Argument INTERACTIVE-P indicates where it's called interactively."</span>
+  (<span style="color: #859900; font-weight: bold;">let</span> ((json-object-type 'plist)
+        (json-array-type 'list)
+        result)
+    (<span style="color: #859900; font-weight: bold;">cond</span> ((equal <span style="color: #2aa198;">"ccls"</span> eglot-cpp-ls)
+           (<span style="color: #859900; font-weight: bold;">push</span> (format <span style="color: #2aa198;">"-log-file=/tmp/ccls-%s.log"</span>
+                         (file-name-base
+                          (directory-file-name
+                           (car
+                            (project-roots
+                             (project-current))))))
+                 result)
+           (<span style="color: #859900; font-weight: bold;">when</span> ccls-init-args
+             (<span style="color: #859900; font-weight: bold;">push</span> (format <span style="color: #2aa198;">"-init=%s"</span> (json-encode
+                                       ccls-init-args))
+                   result))
+           (<span style="color: #859900; font-weight: bold;">push</span> <span style="color: #2aa198;">"ccls"</span> result))
+          ((equal <span style="color: #2aa198;">"cquery"</span> eglot-cpp-ls)
+           (<span style="color: #859900; font-weight: bold;">setq</span> result (list <span style="color: #2aa198;">"cquery"</span> <span style="color: #2aa198;">"--log-all-to-stderr"</span>)))
+          (t <span style="color: #586e75;">; </span><span style="color: #586e75;">e.g. clangd</span>
+           (<span style="color: #859900; font-weight: bold;">push</span> eglot-cpp-ls result)))
+    <span style="color: #586e75;">;; </span><span style="color: #586e75;">apply the adapter if necessary</span>
+    (<span style="color: #859900; font-weight: bold;">unless</span> (equal eglot-ls-output-encoding <span style="color: #2aa198;">"utf-8"</span>)
+      (<span style="color: #859900; font-weight: bold;">dolist</span> (item (reverse (list <span style="color: #2aa198;">"lsa.py"</span>
+                                   (concat <span style="color: #2aa198;">"--original-response-encoding="</span>
+                                           eglot-ls-output-encoding)
+                                   <span style="color: #2aa198;">"--log-level=DEBUG"</span>
+                                   <span style="color: #2aa198;">"--"</span>)))
+        (<span style="color: #859900; font-weight: bold;">push</span> item result)))
+    <span style="color: #586e75;">;; </span><span style="color: #586e75;">cquery should apply the specific class in eglot</span>
+    (<span style="color: #859900; font-weight: bold;">when</span> (equal <span style="color: #2aa198;">"cquery"</span> eglot-cpp-ls)
+      (<span style="color: #859900; font-weight: bold;">push</span> 'eglot-cquery result))
+    result))
+
+(eval-after-load 'eglot
+  '(<span style="color: #859900; font-weight: bold;">progn</span>
+     (add-to-list 'eglot-server-programs
+                  (cons '(c-mode c++-mode foo-mode) #'whatacold/eglot-ccls-contact))))
+</pre>
+</div>
+
+<p>
+至此 LSP 基本可用了。</p>
+<div class="taglist"><a href="tags.html">Tags:</a> <a href="tag-emacs.html">Emacs</a> <a href="tag-c++.html">C++</a> <a href="tag-python.html">Python</a> </div>
 <div class="post-date">10 Dec 2018</div><h1 class="post-title"><a href="2018-12-10-how-polymorphism-works-in-cpp.html">C++ 多态是如何实现的？</a></h1>
 <p>
 对于 OOP 编程，相信大家对于多态（ polymorphism ）肯定都耳熟能详。
