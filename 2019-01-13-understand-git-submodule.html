@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="alternate"
+      type="application/rss+xml"
+      href="https://whatacold.github.io/rss.xml"
+      title="RSS feed for https://whatacold.github.io/"/>
+<title>如何理解 Git submodule</title>
+</head>
+<body>
+<div id="preamble" class="status">
+</div>
+<div id="content">
+<div class="post-date">17 Feb 2019</div><h1 class="post-title"><a href="2019-01-13-understand-git-submodule.html">如何理解 Git submodule</a></h1>
+<p>
+Git 虽然很强大，但也有少数命令很难理解。
+submodule 就是这么一个例子，其文档教程也不少，比如 <a href="https://git-scm.com/book/en/v2/Git-Tools-Submodules">Git - Submodules - git-scm.com</a> ，
+但我之前始终没有真正领悟到如何使用。
+</p>
+
+<p>
+直到有天看了一条  <a href="https://stackoverflow.com/a/5814351/910978">StackOverflow Answer</a> ，茅塞顿开，才真正理解了 submodule 。
+</p>
+
+<p>
+submodule 涉及到两个仓库类型：
+</p>
+<dl class="org-dl">
+<dt>submodule</dt><dd>子模块，比如需要使用的第三方库</dd>
+<dt>superproject</dt><dd>主仓库，自己的工程，依赖子模块代码</dd>
+</dl>
+
+<p>
+Git submodule 本质上是两个独立的仓库，各自可以独立地像普通的 repo 一样操作。
+同时 superproject 有一个“指针”，记录了它使用的子模块的 commit revision 。
+这个“指针”对于从 SVN 转过来的同学来说会比较不适应，因为 SVN External 没有这个设计，
+所以 SVN 无法精确控制所使用的子模块 revision  ，更新主仓库时会自动更新其“子模块”的代码为最新的，
+如果“子模块”是外部的代码并且不稳定的话，会影响自己的代码。
+</p>
+
+<p>
+带着这个认知，在 superproject 中更新 submodule 的操作步骤示意如下：
+<img src="./images/2019-01-13-git-submodule-diagram.png" alt="2019-01-13-git-submodule-diagram.png">
+</p>
+
+<p>
+无论是 superproject 还是 submodule ，都像普通的 repo 一样进行 branch, add, push, diff 等等的操作，
+只是最后再通过 <code>git submodule</code> 命令再更新下新“指针”位置即可。</p>
+<div class="taglist"><a href="tags.html">Tags:</a> <a href="tag-git.html">Git</a> </div></div>
+<div id="postamble" class="status"></div>
+</body>
+</html>

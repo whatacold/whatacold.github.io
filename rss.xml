@@ -4,7 +4,91 @@
 <title>whatacold's blog site</title>
 <description>whatacold's blog site</description>
 <link>https://whatacold.github.io/</link>
-<lastBuildDate>Sun, 23 Dec 2018 00:14:52 +0800</lastBuildDate>
+<lastBuildDate>Sun, 17 Feb 2019 19:07:36 +0800</lastBuildDate>
+<item>
+  <title>记一个 Emacs Keyboard Macro 输入字符重复的 Bug</title>
+  <description><![CDATA[
+<p>
+工作中不时地会使用 Emacs keyboard macro 来解决重复性的编辑任务，
+但有时录制了再重放却出现输入的字符被重复了，导致出现非预期的结果。
+一般此时为了赶进度，只好忍了，放弃 keyboard macro ，通过其他方式编辑了。
+</p>
+
+<p>
+诡异的是等到有空闲的时候尝试重现却又重现不了，还一度以为是由于 keyboard macro 不支持输入 <code>M-x</code> 命令导致的，
+但又没看到其他 Emacser 提到有此限制。
+</p>
+
+<p>
+问题虽然偶尔才出现，但是一旦出现，工作流会被打断，很让人苦恼。
+好在春节期间终于被我重现出来了，在启用 <a href="https://github.com/tumashu/pyim">pyim</a> 输入法的情况下必现，比如在录制时输入 <code>nihao</code> 得到了 <code>你好</code> ，
+但是在 replay keyboard macro 的时候，得到的效果却相当于人工输入了 <code>nniihhaaoo</code> ，每个输入字符都被重复了一次，
+自然就没法得到 <code>你好</code> 二字，详细的重现步骤见这个 pyim <a href="https://github.com/tumashu/pyim/issues/247">issue</a> 。
+</p>
+
+<p>
+@tumashu 帮忙确认了 Emacs 自带的 quail-chinese 输入法也有此问题，建议我去 mailing list 问下看看。
+最后 Emacs maintainer Eli Zaretskii 在 <a href="http://lists.gnu.org/archive/html/bug-gnu-emacs/2019-02/msg00391.html">这个 thread</a> 告知半年前已经有人在 <a href="https://debbugs.gnu.org/cgi/bugreport.cgi?bug=32108">Bug #32108</a> 中报告了，
+且已经在 master 中修复了（ <a href="https://github.com/emacs-mirror/emacs/commit/03e3440dbbfea40b449a9f6f23a3630664275d11">commit 03e3440dbbfea40b449a9f6f23a3630664275d11</a> ），将会包含在 Emacs 27 发布中。
+</p>
+
+<p>
+修复原理大致是在内核中增加一个标记 <code>inhibit--record-char</code> ，由输入法根据情况设置为 <code>t/nil</code> ，
+当值为 <code>t</code> 时内核不会把事件记录到 <code>last-kbd-macro</code> 中（见 <code>record-char</code> 函数），
+这样输入法出于实现需要重放的用户输入字符，就不会被重复记录到 keyboard macro 中。
+</p>
+
+<p>
+Emacs 自带的输入法虽然已经解决了问题，但是 pyim 还没解决，接下来如果有时间再研究下如何解决（ Emacs 27 已经编译好了 :) ），
+在彻底解决之前，如果在录制 keyboard macro 时不需要输入中文，可以通过 <code>M-x toggle-input-method</code> 切换回英文输入来 workaround ，
+这样就能避开这个 bug ，继续用 keyboard macro 来编辑文本。</p>
+<div class="taglist"><a href="tags.html">Tags:</a> <a href="tag-emacs.html">Emacs</a> </div>]]></description>
+  <category>Emacs</category>
+  <link>https://whatacold.github.io/2019-02-03-emacs-kmacro-characters-repeated-bug.html</link>
+  <pubDate>Sun, 17 Feb 2019 18:05:00 +0800</pubDate>
+</item>
+<item>
+  <title>如何理解 Git submodule</title>
+  <description><![CDATA[
+<p>
+Git 虽然很强大，但也有少数命令很难理解。
+submodule 就是这么一个例子，其文档教程也不少，比如 <a href="https://git-scm.com/book/en/v2/Git-Tools-Submodules">Git - Submodules - git-scm.com</a> ，
+但我之前始终没有真正领悟到如何使用。
+</p>
+
+<p>
+直到有天看了一条  <a href="https://stackoverflow.com/a/5814351/910978">StackOverflow Answer</a> ，茅塞顿开，才真正理解了 submodule 。
+</p>
+
+<p>
+submodule 涉及到两个仓库类型：
+</p>
+<dl class="org-dl">
+<dt>submodule</dt><dd>子模块，比如需要使用的第三方库</dd>
+<dt>superproject</dt><dd>主仓库，自己的工程，依赖子模块代码</dd>
+</dl>
+
+<p>
+Git submodule 本质上是两个独立的仓库，各自可以独立地像普通的 repo 一样操作。
+同时 superproject 有一个“指针”，记录了它使用的子模块的 commit revision 。
+这个“指针”对于从 SVN 转过来的同学来说会比较不适应，因为 SVN External 没有这个设计，
+所以 SVN 无法精确控制所使用的子模块 revision  ，更新主仓库时会自动更新其“子模块”的代码为最新的，
+如果“子模块”是外部的代码并且不稳定的话，会影响自己的代码。
+</p>
+
+<p>
+带着这个认知，在 superproject 中更新 submodule 的操作步骤示意如下：
+<img src="./images/2019-01-13-git-submodule-diagram.png" alt="2019-01-13-git-submodule-diagram.png">
+</p>
+
+<p>
+无论是 superproject 还是 submodule ，都像普通的 repo 一样进行 branch, add, push, diff 等等的操作，
+只是最后再通过 <code>git submodule</code> 命令再更新下新“指针”位置即可。</p>
+<div class="taglist"><a href="tags.html">Tags:</a> <a href="tag-git.html">Git</a> </div>]]></description>
+  <category>Git</category>
+  <link>https://whatacold.github.io/2019-01-13-understand-git-submodule.html</link>
+  <pubDate>Sun, 17 Feb 2019 16:07:00 +0800</pubDate>
+</item>
 <item>
   <title>在 Emacs 中使用 LSP 开发 C/C++ 工程</title>
   <description><![CDATA[
