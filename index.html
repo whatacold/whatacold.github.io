@@ -12,6 +12,119 @@
 <div id="preamble" class="status"></div>
 <div id="content">
 
+<div class="post-date">10 Mar 2019</div><h1 class="post-title"><a href="2019-02-24-fine-tune-curly-brace-style-of-yasnippet-snippet-on-the-fly.html">Fine-tune curly braces style of yasnippet snippet on the fly</a></h1>
+<p>
+<a href="https://github.com/joaotavora/yasnippet">Yasnippet</a> is a good friend to help us type less and write more, whenever we write some text snippets repeatedly. And there is also an official repository called <a href="https://github.com/AndreaCrotti/yasnippet-snippets">yasnippet-snippets</a> that contains various snippets for many programming languages(modes), so that we can have many snippets in no time by installing it.
+</p>
+
+<p>
+But there is a little problem when it comes to conform to different coding styles. Take the <code>if</code> snippet for example, normally it will generate code like this:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-C"><span style="color: #2c3e50; font-style: italic;">if</span> (a) {
+    do_something();
+}
+</pre>
+</div>
+
+<p>
+This is fine for a K&amp;R style project, but will be kind of annoyed if we work on an allman style project,
+because we need to fine-tune the style for every <code>if</code> clauses generated to like this:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-C"><span style="color: #2c3e50; font-style: italic;">if</span> (a)
+{
+    do_something();
+}
+</pre>
+</div>
+
+<p>
+How to fine-tune the coding styles according to the project requirement? Or at least curly braces styles, which is the one that matters most for me.
+</p>
+
+<p>
+Maintaining two similar copies for every snippet is obviously not a good option, it's daunting and boring.
+</p>
+
+<p>
+Fortunately, yasnippet provides a hook called <code>yas-after-exit-snippet-hook</code>, which I can take advantage of to adjust the curly braces style when needed. Below is a trivial hook that I come up with, it assumes that the snippets are in K&amp;R style, which is the style that yasnippet-snippet takes, and I prepend <code>{</code> with newlines and surround <code>}</code> with newlines when this behaviour is asked by setting <code>(setq whatacold/yasnippet-c-style 'allman)</code> .
+</p>
+
+<div class="org-src-container">
+<pre class="src src-emacs-lisp">(<span style="color: #2c3e50; font-style: italic;">defun</span> <span style="color: #9b59b6;">whatacold/style-braces-in-allman</span> (snippet)
+  <span style="color: #16a085;">"Style the SNIPPET in allman brace style.</span>
+
+<span style="color: #16a085;">There are roughly 3 basic brace styles:</span>
+<span style="color: #16a085;">- Attached: The braces are attached to the end of the last line of the previous block. (Java).</span>
+<span style="color: #16a085;">- Broken: The braces are broken from the previous block. (Allman).</span>
+<span style="color: #16a085;">- Linux: The braces are attached except for the opening brace of a function, class, or namespace (K&amp;R, Linux).</span>
+
+<span style="color: #16a085;">http://astyle.sourceforge.net/astyle.html#_Basic_Brace_Styles"</span>
+  (<span style="color: #2c3e50; font-style: italic;">let</span> ((len (length snippet))
+        (i 0)
+        chars char new-str)
+    (<span style="color: #2c3e50; font-style: italic;">while</span> (&lt; i len)
+      (<span style="color: #2c3e50; font-style: italic;">setq</span> char (aref snippet i))
+      (<span style="color: #2c3e50; font-style: italic;">case</span> char
+        (?{
+         (<span style="color: #2c3e50; font-style: italic;">push</span> ?\n chars)
+         (<span style="color: #2c3e50; font-style: italic;">push</span> char chars))
+        (?}
+         (<span style="color: #2c3e50; font-style: italic;">push</span> ?\n chars)
+         (<span style="color: #2c3e50; font-style: italic;">push</span> char chars)
+         (<span style="color: #2c3e50; font-style: italic;">push</span> ?\n chars))
+        (t
+         (<span style="color: #2c3e50; font-style: italic;">push</span> char chars)))
+      (<span style="color: #2c3e50; font-style: italic;">setq</span> i (1+ i)))
+    (<span style="color: #2c3e50; font-style: italic;">setq</span> new-str (replace-regexp-in-string <span style="color: #16a085;">"[\n \t]+\n"</span>
+                                            <span style="color: #16a085;">"\n"</span>
+                                            (apply #'string (nreverse chars))))
+    new-str))
+
+(<span style="color: #2c3e50; font-style: italic;">defcustom</span> <span style="color: #3498db;">whatacold/yasnippet-c-style</span> nil
+  <span style="color: #16a085;">"Style of curly braces, e.g. 'allman."</span>
+  <span style="color: #2c3e50;">:type</span> '(symbol))
+
+(<span style="color: #2c3e50; font-style: italic;">defun</span> <span style="color: #9b59b6;">whatacold/yasnippet-exit-hook-c</span> ()
+  (<span style="color: #2c3e50; font-style: italic;">let*</span> ((text-marker <span style="color: #16a085;">"the-yasnippet-exit-point;"</span>) <span style="color: #95a5a6; font-style: italic;">; </span><span style="color: #95a5a6; font-style: italic;">workaround. text property is more elegant.</span>
+         (begin yas-snippet-beg)
+         (end yas-snippet-end)
+         (snippet (buffer-substring-no-properties begin end))
+         new-snippet)
+    (<span style="color: #2c3e50; font-style: italic;">when</span> (<span style="color: #2c3e50; font-style: italic;">and</span> (string-match <span style="color: #16a085;">"[{}]"</span> snippet)
+               (eq 'allman whatacold/yasnippet-c-style))
+      (insert text-marker)
+      (<span style="color: #2c3e50; font-style: italic;">setq</span> end (+ yas-snippet-end (length text-marker)))
+
+      (<span style="color: #2c3e50; font-style: italic;">setq</span> snippet (buffer-substring-no-properties begin end)) <span style="color: #95a5a6; font-style: italic;">; </span><span style="color: #95a5a6; font-style: italic;">re-fetch content</span>
+      (<span style="color: #2c3e50; font-style: italic;">setq</span> new-snippet (whatacold/style-braces-in-allman snippet))
+      (delete-region begin end)
+      (insert new-snippet)
+
+      (goto-char begin)
+      <span style="color: #95a5a6; font-style: italic;">;; </span><span style="color: #95a5a6; font-style: italic;">re-indent it in the context</span>
+      (indent-region begin (+ end (- (length new-snippet)
+                                     (length snippet))))
+      (re-search-forward text-marker)
+      (delete-char (- 0 (length text-marker))))))
+
+(<span style="color: #2c3e50; font-style: italic;">defun</span> <span style="color: #9b59b6;">whatacold/yasnippet-exit-hook</span> ()
+  <span style="color: #16a085;">"My yasnippet exit hook."</span>
+  (<span style="color: #2c3e50; font-style: italic;">case</span> major-mode
+    ((c-mode c++-mode)
+     (whatacold/yasnippet-exit-hook-c))))
+
+<span style="color: #95a5a6; font-style: italic;">;; </span><span style="color: #95a5a6; font-style: italic;">see https://github.com/joaotavora/yasnippet/issues/728</span>
+(add-to-list 'yas-after-exit-snippet-hook #'whatacold/yasnippet-exit-hook)
+</pre>
+</div>
+
+<p>
+Now the coding experience is much better :)</p>
+<div class="taglist"><a href="tags.html">Tags:</a> <a href="tag-emacs.html">Emacs</a> </div>
 <div class="post-date">17 Feb 2019</div><h1 class="post-title"><a href="2019-02-03-emacs-kmacro-characters-repeated-bug.html">记一个 Emacs Keyboard Macro 输入字符重复的 Bug</a></h1>
 <p>
 工作中不时地会使用 Emacs keyboard macro 来解决重复性的编辑任务，
