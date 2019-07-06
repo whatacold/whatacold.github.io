@@ -1,0 +1,23 @@
+
+.header{
+    font-size: 24px;
+    line-height: 40px;
+    font-weight: 200;
+    border: solid 3px transparent;
+    border-bottom-color: #aaa;
+    text-align: center;
+}
+
+.header a {
+    color: #eee;
+}
+
+.header a:hover {
+    color: #fff;
+}
+
+.sitelinks, .sitelinks a {
+    font-size: 12pt;
+    line-height: 30px;
+    color: #999;
+}
