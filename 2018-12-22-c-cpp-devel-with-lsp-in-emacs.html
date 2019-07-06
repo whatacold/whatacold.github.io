@@ -7,10 +7,15 @@
       href="https://whatacold.github.io/rss.xml"
       title="RSS feed for https://whatacold.github.io/"/>
 <title>在 Emacs 中使用 LSP 开发 C/C++ 工程</title>
-</head>
+<meta name="author" content="Guangwang Huang">
+<meta name="referrer" content="no-referrer">
+<link href= "static/style.css" rel="stylesheet" type="text/css" /></head>
 <body>
 <div id="preamble" class="status">
-</div>
+<div class="header">
+<div class="sitelinks">
+    <a href="https://stackoverflow.com/users/910978/whatacold">Stack Overflow</a> | <a href="https://github.com/whatacold">Github</a> | <a href="mailto:whatacold@gmail.com">Email</a> | <a href="/rss.xml">RSS</a>
+</div></div>
 <div id="content">
 <div class="post-date">22 Dec 2018</div><h1 class="post-title"><a href="2018-12-22-c-cpp-devel-with-lsp-in-emacs.html">在 Emacs 中使用 LSP 开发 C/C++ 工程</a></h1>
 <p>
@@ -103,53 +108,53 @@ clangd 安装最简单，但功能据说比较弱，我没有试过；一开始�
 
 <div class="org-src-container">
 <pre class="src src-elisp">
-(<span style="color: #859900; font-weight: bold;">defcustom</span> <span style="color: #268bd2;">ccls-init-args</span> nil
-  <span style="color: #2aa198;">"Init args for ccls, e.g. '(:clang (:extraArgs (\"-std=c++03\")))"</span>)
+(<span style="color: #2c3e50; font-style: italic;">defcustom</span> <span style="color: #3498db;">ccls-init-args</span> nil
+  <span style="color: #16a085;">"Init args for ccls, e.g. '(:clang (:extraArgs (\"-std=c++03\")))"</span>)
 
-(<span style="color: #859900; font-weight: bold;">defcustom</span> <span style="color: #268bd2;">eglot-ls-output-encoding</span> <span style="color: #2aa198;">"utf-8"</span>
-  <span style="color: #2aa198;">"The LS's output encoding"</span>)
+(<span style="color: #2c3e50; font-style: italic;">defcustom</span> <span style="color: #3498db;">eglot-ls-output-encoding</span> <span style="color: #16a085;">"utf-8"</span>
+  <span style="color: #16a085;">"The LS's output encoding"</span>)
 
-(<span style="color: #859900; font-weight: bold;">defcustom</span> <span style="color: #268bd2;">eglot-cpp-ls</span> <span style="color: #2aa198;">"cquery"</span>
-  <span style="color: #2aa198;">"The language server for C/C++."</span>)
+(<span style="color: #2c3e50; font-style: italic;">defcustom</span> <span style="color: #3498db;">eglot-cpp-ls</span> <span style="color: #16a085;">"cquery"</span>
+  <span style="color: #16a085;">"The language server for C/C++."</span>)
 
-(<span style="color: #859900; font-weight: bold;">defun</span> <span style="color: #268bd2;">whatacold/eglot-ccls-contact</span> (interactive-p)
-  <span style="color: #2aa198;">"A contact function to assemble args for ccls.</span>
-<span style="color: #2aa198;">Argument INTERACTIVE-P indicates where it's called interactively."</span>
-  (<span style="color: #859900; font-weight: bold;">let</span> ((json-object-type 'plist)
+(<span style="color: #2c3e50; font-style: italic;">defun</span> <span style="color: #9b59b6;">whatacold/eglot-ccls-contact</span> (interactive-p)
+  <span style="color: #16a085;">"A contact function to assemble args for ccls.</span>
+<span style="color: #16a085;">Argument INTERACTIVE-P indicates where it's called interactively."</span>
+  (<span style="color: #2c3e50; font-style: italic;">let</span> ((json-object-type 'plist)
         (json-array-type 'list)
         result)
-    (<span style="color: #859900; font-weight: bold;">cond</span> ((equal <span style="color: #2aa198;">"ccls"</span> eglot-cpp-ls)
-           (<span style="color: #859900; font-weight: bold;">push</span> (format <span style="color: #2aa198;">"-log-file=/tmp/ccls-%s.log"</span>
+    (<span style="color: #2c3e50; font-style: italic;">cond</span> ((equal <span style="color: #16a085;">"ccls"</span> eglot-cpp-ls)
+           (<span style="color: #2c3e50; font-style: italic;">push</span> (format <span style="color: #16a085;">"-log-file=/tmp/ccls-%s.log"</span>
                          (file-name-base
                           (directory-file-name
                            (car
                             (project-roots
                              (project-current))))))
                  result)
-           (<span style="color: #859900; font-weight: bold;">when</span> ccls-init-args
-             (<span style="color: #859900; font-weight: bold;">push</span> (format <span style="color: #2aa198;">"-init=%s"</span> (json-encode
+           (<span style="color: #2c3e50; font-style: italic;">when</span> ccls-init-args
+             (<span style="color: #2c3e50; font-style: italic;">push</span> (format <span style="color: #16a085;">"-init=%s"</span> (json-encode
                                        ccls-init-args))
                    result))
-           (<span style="color: #859900; font-weight: bold;">push</span> <span style="color: #2aa198;">"ccls"</span> result))
-          ((equal <span style="color: #2aa198;">"cquery"</span> eglot-cpp-ls)
-           (<span style="color: #859900; font-weight: bold;">setq</span> result (list <span style="color: #2aa198;">"cquery"</span> <span style="color: #2aa198;">"--log-all-to-stderr"</span>)))
-          (t <span style="color: #586e75;">; </span><span style="color: #586e75;">e.g. clangd</span>
-           (<span style="color: #859900; font-weight: bold;">push</span> eglot-cpp-ls result)))
-    <span style="color: #586e75;">;; </span><span style="color: #586e75;">apply the adapter if necessary</span>
-    (<span style="color: #859900; font-weight: bold;">unless</span> (equal eglot-ls-output-encoding <span style="color: #2aa198;">"utf-8"</span>)
-      (<span style="color: #859900; font-weight: bold;">dolist</span> (item (reverse (list <span style="color: #2aa198;">"lsa.py"</span>
-                                   (concat <span style="color: #2aa198;">"--original-response-encoding="</span>
+           (<span style="color: #2c3e50; font-style: italic;">push</span> <span style="color: #16a085;">"ccls"</span> result))
+          ((equal <span style="color: #16a085;">"cquery"</span> eglot-cpp-ls)
+           (<span style="color: #2c3e50; font-style: italic;">setq</span> result (list <span style="color: #16a085;">"cquery"</span> <span style="color: #16a085;">"--log-all-to-stderr"</span>)))
+          (t <span style="color: #95a5a6; font-style: italic;">; </span><span style="color: #95a5a6; font-style: italic;">e.g. clangd</span>
+           (<span style="color: #2c3e50; font-style: italic;">push</span> eglot-cpp-ls result)))
+    <span style="color: #95a5a6; font-style: italic;">;; </span><span style="color: #95a5a6; font-style: italic;">apply the adapter if necessary</span>
+    (<span style="color: #2c3e50; font-style: italic;">unless</span> (equal eglot-ls-output-encoding <span style="color: #16a085;">"utf-8"</span>)
+      (<span style="color: #2c3e50; font-style: italic;">dolist</span> (item (reverse (list <span style="color: #16a085;">"lsa.py"</span>
+                                   (concat <span style="color: #16a085;">"--original-response-encoding="</span>
                                            eglot-ls-output-encoding)
-                                   <span style="color: #2aa198;">"--log-level=DEBUG"</span>
-                                   <span style="color: #2aa198;">"--"</span>)))
-        (<span style="color: #859900; font-weight: bold;">push</span> item result)))
-    <span style="color: #586e75;">;; </span><span style="color: #586e75;">cquery should apply the specific class in eglot</span>
-    (<span style="color: #859900; font-weight: bold;">when</span> (equal <span style="color: #2aa198;">"cquery"</span> eglot-cpp-ls)
-      (<span style="color: #859900; font-weight: bold;">push</span> 'eglot-cquery result))
+                                   <span style="color: #16a085;">"--log-level=DEBUG"</span>
+                                   <span style="color: #16a085;">"--"</span>)))
+        (<span style="color: #2c3e50; font-style: italic;">push</span> item result)))
+    <span style="color: #95a5a6; font-style: italic;">;; </span><span style="color: #95a5a6; font-style: italic;">cquery should apply the specific class in eglot</span>
+    (<span style="color: #2c3e50; font-style: italic;">when</span> (equal <span style="color: #16a085;">"cquery"</span> eglot-cpp-ls)
+      (<span style="color: #2c3e50; font-style: italic;">push</span> 'eglot-cquery result))
     result))
 
 (eval-after-load 'eglot
-  '(<span style="color: #859900; font-weight: bold;">progn</span>
+  '(<span style="color: #2c3e50; font-style: italic;">progn</span>
      (add-to-list 'eglot-server-programs
                   (cons '(c-mode c++-mode foo-mode) #'whatacold/eglot-ccls-contact))))
 </pre>

@@ -7,9 +7,14 @@
       href="https://whatacold.github.io/rss.xml"
       title="RSS feed for https://whatacold.github.io/"/>
 <title>whatacold's blog site</title>
-</head>
+<meta name="author" content="Guangwang Huang">
+<meta name="referrer" content="no-referrer">
+<link href= "static/style.css" rel="stylesheet" type="text/css" /></head>
 <body>
-<div id="preamble" class="status"></div>
+<div id="preamble" class="status"><div class="header">
+<div class="sitelinks">
+    <a href="https://github.com/whatacold">Github</a> | <a href="https://stackoverflow.com/users/910978/whatacold">Stack Overflow</a> | <a href="mailto:whatacold@gmail.com">Email</a> | <a href="/rss.xml">RSS</a>
+</div></div>
 <div id="content">
 <h1 class="title">Posts tagged "GDB":</h1>
 <div class="post-date">10 Dec 2018</div><h1 class="post-title"><a href="2018-12-10-how-polymorphism-works-in-cpp.html">C++ 多态是如何实现的？</a></h1>
@@ -25,23 +30,23 @@
 </p>
 
 <div class="org-src-container">
-<pre class="src src-c++"><span style="color: #859900; font-weight: bold;">class</span> <span style="color: #b58900;">Base</span>
+<pre class="src src-c++"><span style="color: #2c3e50; font-style: italic;">class</span> <span style="color: #27ae60;">Base</span>
 {
-<span style="color: #859900; font-weight: bold;">public</span>:
-    <span style="color: #b58900;">int</span> <span style="color: #268bd2;">foo</span>() { <span style="color: #859900; font-weight: bold;">return</span> 1; }
+<span style="color: #2c3e50; font-style: italic;">public</span>:
+    <span style="color: #27ae60;">int</span> <span style="color: #9b59b6;">foo</span>() { <span style="color: #2c3e50; font-style: italic;">return</span> 1; }
 };
 
-<span style="color: #859900; font-weight: bold;">class</span> <span style="color: #b58900;">Derived</span>
+<span style="color: #2c3e50; font-style: italic;">class</span> <span style="color: #27ae60;">Derived</span>
 {
-<span style="color: #859900; font-weight: bold;">public</span>:
-    <span style="color: #b58900;">int</span> <span style="color: #268bd2;">bar</span>() { <span style="color: #859900; font-weight: bold;">return</span> 2; }
+<span style="color: #2c3e50; font-style: italic;">public</span>:
+    <span style="color: #27ae60;">int</span> <span style="color: #9b59b6;">bar</span>() { <span style="color: #2c3e50; font-style: italic;">return</span> 2; }
 };
 
-<span style="color: #b58900;">int</span> <span style="color: #268bd2;">main</span>(<span style="color: #b58900;">void</span>)
+<span style="color: #27ae60;">int</span> <span style="color: #9b59b6;">main</span>(<span style="color: #27ae60;">void</span>)
 {
-    <span style="color: #b58900;">Derived</span> <span style="color: #268bd2;">foo</span>;
+    <span style="color: #27ae60;">Derived</span> <span style="color: #3498db;">foo</span>;
 
-    <span style="color: #859900; font-weight: bold;">return</span> foo.bar();
+    <span style="color: #2c3e50; font-style: italic;">return</span> foo.bar();
 }
 </pre>
 </div>
@@ -86,24 +91,24 @@ End of assembler dump.
 </p>
 
 <div class="org-src-container">
-<pre class="src src-c++"><span style="color: #859900; font-weight: bold;">class</span> <span style="color: #b58900;">Base</span>
+<pre class="src src-c++"><span style="color: #2c3e50; font-style: italic;">class</span> <span style="color: #27ae60;">Base</span>
 {
-<span style="color: #859900; font-weight: bold;">public</span>:
-    <span style="color: #859900; font-weight: bold;">virtual</span> <span style="color: #b58900;">void</span> <span style="color: #268bd2;">foo</span>() {};
+<span style="color: #2c3e50; font-style: italic;">public</span>:
+    <span style="color: #2c3e50; font-style: italic;">virtual</span> <span style="color: #27ae60;">void</span> <span style="color: #9b59b6;">foo</span>() {};
 };
 
-<span style="color: #859900; font-weight: bold;">class</span> <span style="color: #b58900;">Derived</span> : <span style="color: #859900; font-weight: bold;">public</span> <span style="color: #b58900;">Base</span>
+<span style="color: #2c3e50; font-style: italic;">class</span> <span style="color: #27ae60;">Derived</span> : <span style="color: #2c3e50; font-style: italic;">public</span> <span style="color: #27ae60;">Base</span>
 {
-<span style="color: #859900; font-weight: bold;">public</span>:
-    <span style="color: #b58900;">void</span> <span style="color: #268bd2;">foo</span>() {};
+<span style="color: #2c3e50; font-style: italic;">public</span>:
+    <span style="color: #27ae60;">void</span> <span style="color: #9b59b6;">foo</span>() {};
 };
 
-<span style="color: #b58900;">int</span> <span style="color: #268bd2;">main</span>(<span style="color: #b58900;">void</span>)
+<span style="color: #27ae60;">int</span> <span style="color: #9b59b6;">main</span>(<span style="color: #27ae60;">void</span>)
 {
-    <span style="color: #b58900;">Base</span> *<span style="color: #268bd2;">p</span> = <span style="color: #859900; font-weight: bold;">new</span> <span style="color: #b58900;">Derived</span>;
+    <span style="color: #27ae60;">Base</span> *<span style="color: #3498db;">p</span> = <span style="color: #2c3e50; font-style: italic;">new</span> <span style="color: #27ae60;">Derived</span>;
     p-&gt;foo();
 
-    <span style="color: #859900; font-weight: bold;">return</span> 0;
+    <span style="color: #2c3e50; font-style: italic;">return</span> 0;
 }
 </pre>
 </div>

@@ -7,11 +7,61 @@
       href="https://whatacold.github.io/rss.xml"
       title="RSS feed for https://whatacold.github.io/"/>
 <title>whatacold's blog site</title>
-</head>
+<meta name="author" content="Guangwang Huang">
+<meta name="referrer" content="no-referrer">
+<link href= "static/style.css" rel="stylesheet" type="text/css" /></head>
 <body>
-<div id="preamble" class="status"></div>
+<div id="preamble" class="status"><div class="header">
+<div class="sitelinks">
+    <a href="https://github.com/whatacold">Github</a> | <a href="https://stackoverflow.com/users/910978/whatacold">Stack Overflow</a> | <a href="mailto:whatacold@gmail.com">Email</a> | <a href="/rss.xml">RSS</a>
+</div></div>
 <div id="content">
 
+<div class="post-date">06 Jul 2019</div><h1 class="post-title"><a href="2019-07-06-render-erd-on-the-web.html">Preview erd on the web</a></h1>
+<p>
+If you ever wonder how to plot ER diagrams in plain text, you may have already heard of <a href="https://github.com/BurntSushi/erd">erd</a>.
+It's a cool command line program written by Andrew Gallant in Haskell, to "compile" plain text files into nicely looking images,
+leveraging the power of GraphViz.
+</p>
+
+<p>
+I've used erd for some time, it's cool and the syntax is quite simple.
+It's also quite simple to install it on Linux, just install GraphViz and erd itself,
+by following the instructions in the README page.
+</p>
+
+<p>
+But there are times that there isn't an erd environment at hand:
+</p>
+<ul class="org-ul">
+<li>erd is hard to install, or we don't have the permission to install it.</li>
+<li>I shared the plain text file with my teammates, but they didn't know how to convert it to an image.</li>
+</ul>
+
+<p>
+So I think maybe it's useful to have a web application that folks can try it out online,
+here it is: <a href="https://serene-forest-18642.herokuapp.com/">erd-repl</a> , a simple Flask application hosted on Heroku.
+Although the name REPL, it's far from being a REPL, I think that a REPL helps ease the learning process, be it Emacs REPL, or Python REPL, as it gives you feedback as you type.
+</p>
+
+<p>
+It's so simple that there isn't any user authentication mechanism, and here are some caveats:
+</p>
+<ul class="org-ul">
+<li>the "source code" of plain text is simply stored in the browser cookie, together with your id.</li>
+<li>no edit features, you need to edit it somewhere, e.g. Emacs, and then copied to erd-repl if it's complex, to prevent data loss.</li>
+<li>only one image is stored per one user.</li>
+<li>imaged will be cleared if being not touched for a few days</li>
+</ul>
+
+<p>
+After hosting it on Heroku, I found that there is an <a href="https://github.com/BurntSushi/erd/issues/1">issue</a> discussing hosting a web service of erd on GitHub,
+take a look too if you're interested.
+</p>
+
+<p>
+P.S. I know the UI is ugly. I have basic knowledge of CSS, but I just don't have the sense to layout elements properly, what materials/practices would you recommend improving my front end skill at this stage? or any tips on the UI itself?</p>
+<div class="taglist"><a href="tags.html">Tags:</a> <a href="tag-python.html">Python</a> <a href="tag-tools.html">Tools</a> </div>
 <div class="post-date">10 Mar 2019</div><h1 class="post-title"><a href="2019-02-24-fine-tune-curly-brace-style-of-yasnippet-snippet-on-the-fly.html">Fine-tune curly braces style of yasnippet snippet on the fly</a></h1>
 <p>
 <a href="https://github.com/joaotavora/yasnippet">Yasnippet</a> is a good friend to help us type less and write more, whenever we write some text snippets repeatedly. And there is also an official repository called <a href="https://github.com/AndreaCrotti/yasnippet-snippets">yasnippet-snippets</a> that contains various snippets for many programming languages(modes), so that we can have many snippets in no time by installing it.
@@ -288,53 +338,53 @@ clangd 安装最简单，但功能据说比较弱，我没有试过；一开始�
 
 <div class="org-src-container">
 <pre class="src src-elisp">
-(<span style="color: #859900; font-weight: bold;">defcustom</span> <span style="color: #268bd2;">ccls-init-args</span> nil
-  <span style="color: #2aa198;">"Init args for ccls, e.g. '(:clang (:extraArgs (\"-std=c++03\")))"</span>)
+(<span style="color: #2c3e50; font-style: italic;">defcustom</span> <span style="color: #3498db;">ccls-init-args</span> nil
+  <span style="color: #16a085;">"Init args for ccls, e.g. '(:clang (:extraArgs (\"-std=c++03\")))"</span>)
 
-(<span style="color: #859900; font-weight: bold;">defcustom</span> <span style="color: #268bd2;">eglot-ls-output-encoding</span> <span style="color: #2aa198;">"utf-8"</span>
-  <span style="color: #2aa198;">"The LS's output encoding"</span>)
+(<span style="color: #2c3e50; font-style: italic;">defcustom</span> <span style="color: #3498db;">eglot-ls-output-encoding</span> <span style="color: #16a085;">"utf-8"</span>
+  <span style="color: #16a085;">"The LS's output encoding"</span>)
 
-(<span style="color: #859900; font-weight: bold;">defcustom</span> <span style="color: #268bd2;">eglot-cpp-ls</span> <span style="color: #2aa198;">"cquery"</span>
-  <span style="color: #2aa198;">"The language server for C/C++."</span>)
+(<span style="color: #2c3e50; font-style: italic;">defcustom</span> <span style="color: #3498db;">eglot-cpp-ls</span> <span style="color: #16a085;">"cquery"</span>
+  <span style="color: #16a085;">"The language server for C/C++."</span>)
 
-(<span style="color: #859900; font-weight: bold;">defun</span> <span style="color: #268bd2;">whatacold/eglot-ccls-contact</span> (interactive-p)
-  <span style="color: #2aa198;">"A contact function to assemble args for ccls.</span>
-<span style="color: #2aa198;">Argument INTERACTIVE-P indicates where it's called interactively."</span>
-  (<span style="color: #859900; font-weight: bold;">let</span> ((json-object-type 'plist)
+(<span style="color: #2c3e50; font-style: italic;">defun</span> <span style="color: #9b59b6;">whatacold/eglot-ccls-contact</span> (interactive-p)
+  <span style="color: #16a085;">"A contact function to assemble args for ccls.</span>
+<span style="color: #16a085;">Argument INTERACTIVE-P indicates where it's called interactively."</span>
+  (<span style="color: #2c3e50; font-style: italic;">let</span> ((json-object-type 'plist)
         (json-array-type 'list)
         result)
-    (<span style="color: #859900; font-weight: bold;">cond</span> ((equal <span style="color: #2aa198;">"ccls"</span> eglot-cpp-ls)
-           (<span style="color: #859900; font-weight: bold;">push</span> (format <span style="color: #2aa198;">"-log-file=/tmp/ccls-%s.log"</span>
+    (<span style="color: #2c3e50; font-style: italic;">cond</span> ((equal <span style="color: #16a085;">"ccls"</span> eglot-cpp-ls)
+           (<span style="color: #2c3e50; font-style: italic;">push</span> (format <span style="color: #16a085;">"-log-file=/tmp/ccls-%s.log"</span>
                          (file-name-base
                           (directory-file-name
                            (car
                             (project-roots
                              (project-current))))))
                  result)
-           (<span style="color: #859900; font-weight: bold;">when</span> ccls-init-args
-             (<span style="color: #859900; font-weight: bold;">push</span> (format <span style="color: #2aa198;">"-init=%s"</span> (json-encode
+           (<span style="color: #2c3e50; font-style: italic;">when</span> ccls-init-args
+             (<span style="color: #2c3e50; font-style: italic;">push</span> (format <span style="color: #16a085;">"-init=%s"</span> (json-encode
                                        ccls-init-args))
                    result))
-           (<span style="color: #859900; font-weight: bold;">push</span> <span style="color: #2aa198;">"ccls"</span> result))
-          ((equal <span style="color: #2aa198;">"cquery"</span> eglot-cpp-ls)
-           (<span style="color: #859900; font-weight: bold;">setq</span> result (list <span style="color: #2aa198;">"cquery"</span> <span style="color: #2aa198;">"--log-all-to-stderr"</span>)))
-          (t <span style="color: #586e75;">; </span><span style="color: #586e75;">e.g. clangd</span>
-           (<span style="color: #859900; font-weight: bold;">push</span> eglot-cpp-ls result)))
-    <span style="color: #586e75;">;; </span><span style="color: #586e75;">apply the adapter if necessary</span>
-    (<span style="color: #859900; font-weight: bold;">unless</span> (equal eglot-ls-output-encoding <span style="color: #2aa198;">"utf-8"</span>)
-      (<span style="color: #859900; font-weight: bold;">dolist</span> (item (reverse (list <span style="color: #2aa198;">"lsa.py"</span>
-                                   (concat <span style="color: #2aa198;">"--original-response-encoding="</span>
+           (<span style="color: #2c3e50; font-style: italic;">push</span> <span style="color: #16a085;">"ccls"</span> result))
+          ((equal <span style="color: #16a085;">"cquery"</span> eglot-cpp-ls)
+           (<span style="color: #2c3e50; font-style: italic;">setq</span> result (list <span style="color: #16a085;">"cquery"</span> <span style="color: #16a085;">"--log-all-to-stderr"</span>)))
+          (t <span style="color: #95a5a6; font-style: italic;">; </span><span style="color: #95a5a6; font-style: italic;">e.g. clangd</span>
+           (<span style="color: #2c3e50; font-style: italic;">push</span> eglot-cpp-ls result)))
+    <span style="color: #95a5a6; font-style: italic;">;; </span><span style="color: #95a5a6; font-style: italic;">apply the adapter if necessary</span>
+    (<span style="color: #2c3e50; font-style: italic;">unless</span> (equal eglot-ls-output-encoding <span style="color: #16a085;">"utf-8"</span>)
+      (<span style="color: #2c3e50; font-style: italic;">dolist</span> (item (reverse (list <span style="color: #16a085;">"lsa.py"</span>
+                                   (concat <span style="color: #16a085;">"--original-response-encoding="</span>
                                            eglot-ls-output-encoding)
-                                   <span style="color: #2aa198;">"--log-level=DEBUG"</span>
-                                   <span style="color: #2aa198;">"--"</span>)))
-        (<span style="color: #859900; font-weight: bold;">push</span> item result)))
-    <span style="color: #586e75;">;; </span><span style="color: #586e75;">cquery should apply the specific class in eglot</span>
-    (<span style="color: #859900; font-weight: bold;">when</span> (equal <span style="color: #2aa198;">"cquery"</span> eglot-cpp-ls)
-      (<span style="color: #859900; font-weight: bold;">push</span> 'eglot-cquery result))
+                                   <span style="color: #16a085;">"--log-level=DEBUG"</span>
+                                   <span style="color: #16a085;">"--"</span>)))
+        (<span style="color: #2c3e50; font-style: italic;">push</span> item result)))
+    <span style="color: #95a5a6; font-style: italic;">;; </span><span style="color: #95a5a6; font-style: italic;">cquery should apply the specific class in eglot</span>
+    (<span style="color: #2c3e50; font-style: italic;">when</span> (equal <span style="color: #16a085;">"cquery"</span> eglot-cpp-ls)
+      (<span style="color: #2c3e50; font-style: italic;">push</span> 'eglot-cquery result))
     result))
 
 (eval-after-load 'eglot
-  '(<span style="color: #859900; font-weight: bold;">progn</span>
+  '(<span style="color: #2c3e50; font-style: italic;">progn</span>
      (add-to-list 'eglot-server-programs
                   (cons '(c-mode c++-mode foo-mode) #'whatacold/eglot-ccls-contact))))
 </pre>
@@ -342,222 +392,7 @@ clangd 安装最简单，但功能据说比较弱，我没有试过；一开始�
 
 <p>
 至此 LSP 基本可用了。</p>
-<div class="taglist"><a href="tags.html">Tags:</a> <a href="tag-emacs.html">Emacs</a> <a href="tag-c++.html">C++</a> <a href="tag-python.html">Python</a> </div>
-<div class="post-date">10 Dec 2018</div><h1 class="post-title"><a href="2018-12-10-how-polymorphism-works-in-cpp.html">C++ 多态是如何实现的？</a></h1>
-<p>
-对于 OOP 编程，相信大家对于多态（ polymorphism ）肯定都耳熟能详。
-但是对于多态是如何实现的，我不知道大家是否清楚，但我发现自己并不是很了解，
-只知道在运行时通过一个 vtable 来确定应该调用哪个函数，
-实际上 vtable 真的存在吗？它是如何起作用的？
-</p>
-
-<p>
-首先我们来看下普通方法的调用情况，比如 <code>non-virtual-class.cpp</code> 有一个类及其方法调用：
-</p>
-
-<div class="org-src-container">
-<pre class="src src-c++"><span style="color: #859900; font-weight: bold;">class</span> <span style="color: #b58900;">Base</span>
-{
-<span style="color: #859900; font-weight: bold;">public</span>:
-    <span style="color: #b58900;">int</span> <span style="color: #268bd2;">foo</span>() { <span style="color: #859900; font-weight: bold;">return</span> 1; }
-};
-
-<span style="color: #859900; font-weight: bold;">class</span> <span style="color: #b58900;">Derived</span>
-{
-<span style="color: #859900; font-weight: bold;">public</span>:
-    <span style="color: #b58900;">int</span> <span style="color: #268bd2;">bar</span>() { <span style="color: #859900; font-weight: bold;">return</span> 2; }
-};
-
-<span style="color: #b58900;">int</span> <span style="color: #268bd2;">main</span>(<span style="color: #b58900;">void</span>)
-{
-    <span style="color: #b58900;">Derived</span> <span style="color: #268bd2;">foo</span>;
-
-    <span style="color: #859900; font-weight: bold;">return</span> foo.bar();
-}
-</pre>
-</div>
-
-<p>
-<code>g++ -g -O0 non-virtual-class.cpp</code> 编译之后，用 <code>gdb a.out</code> 查看它的汇编代码：
-</p>
-
-<pre class="example">
-(gdb) disas main
-Dump of assembler code for function main():
-   0x00000000004004b6 &lt;+0&gt;:	push   %rbp
-   0x00000000004004b7 &lt;+1&gt;:	mov    %rsp,%rbp
-   0x00000000004004ba &lt;+4&gt;:	sub    $0x10,%rsp
-   0x00000000004004be &lt;+8&gt;:	lea    -0x1(%rbp),%rax               ; &amp;foo
-   0x00000000004004c2 &lt;+12&gt;:	mov    %rax,%rdi
-   0x00000000004004c5 &lt;+15&gt;:	callq  0x4004ce &lt;Derived::bar()&gt; ; 确定的函数地址
-   0x00000000004004ca &lt;+20&gt;:	nop
-   0x00000000004004cb &lt;+21&gt;:	leaveq 
-   0x00000000004004cc &lt;+22&gt;:	retq   
-End of assembler dump.
-(gdb) disas Derived::bar
-Dump of assembler code for function Derived::bar():
-   0x00000000004004ce &lt;+0&gt;:	push   %rbp
-   0x00000000004004cf &lt;+1&gt;:	mov    %rsp,%rbp
-   0x00000000004004d2 &lt;+4&gt;:	mov    %rdi,-0x8(%rbp)
-   0x00000000004004d6 &lt;+8&gt;:	mov    $0x2,%eax                     ; return 2
-   0x00000000004004db &lt;+13&gt;:	pop    %rbp
-   0x00000000004004dc &lt;+14&gt;:	retq   
-End of assembler dump.
-</pre>
-
-<p>
-可以发现与普通的 C 函数调用类似，编译之后就已经确定好了调用 <code>Foo::incrNum</code> 方法，
-除了把对象自身地址作为隐藏的第一个参数传入之外并没有什么不同。
-也就是说对于普通不含虚函数的类对象，在编译过程中就确定了其方法的调用，没有运行时开销。
-</p>
-
-<p>
-那么，在多态场景下，类方法的调用又是怎样的呢？这里还是从汇编的角度观察。
-以同样参数编译如下 <code>virtual-class-polymorphism.cpp</code> 文件，然后用 gdb 观察运行时信息：
-</p>
-
-<div class="org-src-container">
-<pre class="src src-c++"><span style="color: #859900; font-weight: bold;">class</span> <span style="color: #b58900;">Base</span>
-{
-<span style="color: #859900; font-weight: bold;">public</span>:
-    <span style="color: #859900; font-weight: bold;">virtual</span> <span style="color: #b58900;">void</span> <span style="color: #268bd2;">foo</span>() {};
-};
-
-<span style="color: #859900; font-weight: bold;">class</span> <span style="color: #b58900;">Derived</span> : <span style="color: #859900; font-weight: bold;">public</span> <span style="color: #b58900;">Base</span>
-{
-<span style="color: #859900; font-weight: bold;">public</span>:
-    <span style="color: #b58900;">void</span> <span style="color: #268bd2;">foo</span>() {};
-};
-
-<span style="color: #b58900;">int</span> <span style="color: #268bd2;">main</span>(<span style="color: #b58900;">void</span>)
-{
-    <span style="color: #b58900;">Base</span> *<span style="color: #268bd2;">p</span> = <span style="color: #859900; font-weight: bold;">new</span> <span style="color: #b58900;">Derived</span>;
-    p-&gt;foo();
-
-    <span style="color: #859900; font-weight: bold;">return</span> 0;
-}
-</pre>
-</div>
-
-<p>
-这次我们通过在 GDB 运行时观察：
-</p>
-<pre class="example">
-;; 设置解析符号及断点，启动程序
-(gdb) set print asm-demangle on
-(gdb) set print demangle on
-(gdb) b main
-Breakpoint 1 at 0x40061f: file virtual-class-polymorphism.cpp, line 15.
-(gdb) r
-Starting program: /home/hgw/demo-code/cpp/vtable/a.out 
-Missing separate debuginfos, use: dnf debuginfo-install glibc-2.27-30.fc28.x86_64
-
-Breakpoint 1, main () at virtual-class-polymorphism.cpp:15
-15	    Base *p = new Derived;
-Missing separate debuginfos, use: dnf debuginfo-install libgcc-8.1.1-5.fc28.x86_64 libstdc++-8.1.1-5.fc28.x86_64
-(gdb) p p
-$1 = (Base *) 0x400530 &lt;_start&gt;
-(gdb) n
-16	    p-&gt;foo();
-
-(gdb) p p
-$2 = (Base *) 0x613e70
-(gdb) x/16xb p
-0x613e70:	0x40	0x07	0x40	0x00	0x00	0x00	0x00	0x00
-0x613e78:	0x00	0x00	0x00	0x00	0x00	0x00	0x00	0x00
-;; 可以看到对象中包含了一个 vptr ，指向 vtable 的一个偏移位置
-(gdb) p *p
-$3 = {_vptr.Base = 0x400740 &lt;vtable for Derived+16&gt;}
-
-;; 再看 vtable 中的内容，注意这里已经去掉了偏移量16
-;; 可以看到先是两个 vtable ，再是 typeinfo ， typeinfo name ，后两者是 RTTI 相关，本文暂不了解。
-(gdb) x/200xb 0x400730
-0x400730 &lt;vtable for Derived&gt;:	0x00	0x00	0x00	0x00	0x00	0x00	0x00	0x00
-0x400738 &lt;vtable for Derived+8&gt;:	0x60	0x07	0x40	0x00	0x00	0x00	0x00	0x00
-0x400740 &lt;vtable for Derived+16&gt;:	0x64	0x06	0x40	0x00	0x00	0x00	0x00	0x00
-0x400748 &lt;vtable for Base&gt;:	0x00	0x00	0x00	0x00	0x00	0x00	0x00	0x00
-0x400750 &lt;vtable for Base+8&gt;:	0x88	0x07	0x40	0x00	0x00	0x00	0x00	0x00
-0x400758 &lt;vtable for Base+16&gt;:	0x58	0x06	0x40	0x00	0x00	0x00	0x00	0x00
-0x400760 &lt;typeinfo for Derived&gt;:	0xa8	0x0d	0x60	0x00	0x00	0x00	0x00	0x00
-0x400768 &lt;typeinfo for Derived+8&gt;:	0x78	0x07	0x40	0x00	0x00	0x00	0x00	0x00
-0x400770 &lt;typeinfo for Derived+16&gt;:	0x88	0x07	0x40	0x00	0x00	0x00	0x00	0x00
-0x400778 &lt;typeinfo name for Derived&gt;:	0x37	0x44	0x65	0x72	0x69	0x76	0x65	0x64
-0x400780 &lt;typeinfo name for Derived+8&gt;:	0x00	0x00	0x00	0x00	0x00	0x00	0x00	0x00
-0x400788 &lt;typeinfo for Base&gt;:	0x50	0x0d	0x60	0x00	0x00	0x00	0x00	0x00
-0x400790 &lt;typeinfo for Base+8&gt;:	0x98	0x07	0x40	0x00	0x00	0x00	0x00	0x00
-0x400798 &lt;typeinfo name for Base&gt;:	0x34	0x42	0x61	0x73	0x65	0x00	0x00	0x00
-0x4007a0:	0x01	0x1b	0x03	0x3b	0x5c	0x00	0x00	0x00
-;; 这里省略一些无意义的输出
-
-;; 查看 &lt;vtable for Derived+16&gt; 地址中存储的内容，可以看到就是函数指针
-(gdb) info symbol 0x400664
-Derived::foo() in section .text of /home/hgw/demo-code/cpp/vtable/a.out
-;; 查看 &lt;vtable for Derived+8&gt; 地址中存储的内容，指向 typeinfo 内存位置
-(gdb) info symbol 0x400760
-typeinfo for Derived in section .rodata of /home/hgw/demo-code/cpp/vtable/a.out
-</pre>
-
-<p>
-现在再回过头来看静态的汇编代码，就容易理解了：
-</p>
-<pre class="example">
-(gdb) disas main
-Dump of assembler code for function main():
-   0x0000000000400616 &lt;+0&gt;:	push   %rbp
-   0x0000000000400617 &lt;+1&gt;:	mov    %rsp,%rbp
-   0x000000000040061a &lt;+4&gt;:	push   %rbx
-   0x000000000040061b &lt;+5&gt;:	sub    $0x18,%rsp
-   0x000000000040061f &lt;+9&gt;:	mov    $0x8,%edi                         ; sizeof Derived 变为了 8 字节
-   0x0000000000400624 &lt;+14&gt;:	callq  0x400520 &lt;_Znwm@plt&gt;          ; new 对象
-   0x0000000000400629 &lt;+19&gt;:	mov    %rax,%rbx                     ; 地址 p
-   0x000000000040062c &lt;+22&gt;:	mov    %rbx,%rdi
-   0x000000000040062f &lt;+25&gt;:	callq  0x400688 &lt;Derived::Derived()&gt; ; constructor
-   0x0000000000400634 &lt;+30&gt;:	mov    %rbx,-0x18(%rbp)
-   0x0000000000400638 &lt;+34&gt;:	mov    -0x18(%rbp),%rax              ; 地址 p ，指向对象存储空间
-   0x000000000040063c &lt;+38&gt;:	mov    (%rax),%rax                   ; 取对象内容，其实就是 vptr 值
-   0x000000000040063f &lt;+41&gt;:	mov    (%rax),%rax                   ; 取 vptr 指向地址的内容，就是上边看到的 &lt;vtable for Derived+16&gt;
-   0x0000000000400642 &lt;+44&gt;:	mov    -0x18(%rbp),%rdx
-   0x0000000000400646 &lt;+48&gt;:	mov    %rdx,%rdi                     ; 把地址 p 作为第一个参数（ this ）传入
-   0x0000000000400649 &lt;+51&gt;:	callq  *%rax                         ; 调用 vtable 中指定的函数
-   0x000000000040064b &lt;+53&gt;:	mov    $0x0,%eax
-   0x0000000000400650 &lt;+58&gt;:	add    $0x18,%rsp
-   0x0000000000400654 &lt;+62&gt;:	pop    %rbx
-   0x0000000000400655 &lt;+63&gt;:	pop    %rbp
-   0x0000000000400656 &lt;+64&gt;:	retq   
-End of assembler dump.
-</pre>
-
-<p>
-综上，可以把相关的内存布局绘制成如下图：
-</p>
-
-
-<figure>
-<img src="./images/2018-12-10-vtable.png" alt="2018-12-10-vtable.png">
-
-</figure>
-
-<p>
-从以上分析可以看出， vtable 确实存在，程序运行时根据 vtable 查找对应的函数（此过程叫做 dynamic dispatch ）。
-若在不必要的场景下定义了虚函数，一方面会使得对象占用的内存变大，
-另一方面在调用虚函数时，需要查找 vtable ，有一定的性能损耗，因此编程时应当避免此情况。
-</p>
-
-<p>
-延伸阅读、参考资料：
-</p>
-<ul class="org-ul">
-<li><p>
-<a href="https://shaharmike.com/cpp/vtable-part1/">C++ vtables - Part 1 - Basics | Shahar Mike's Web Spot - shaharmike.com</a>
-</p>
-
-<p>
-此系列文章深入讲解了 C++ 的 vtable 和 RTTI 实现原理，本文主要参考了其中的第一篇。
-</p></li>
-<li><a href="http://lifegoo.pluskid.org/upload/doc/object_models/C++%20Object%20Model.pdf">C++ Object Model.pdf - lifegoo.pluskid.org</a></li>
-<li>Stanley B·Lippman <a href="https://book.douban.com/subject/1091086/">Inside the C++ Object Model</a></li>
-</ul>
-<div class="taglist"><a href="tags.html">Tags:</a> <a href="tag-c++.html">C++</a> <a href="tag-gdb.html">GDB</a> </div><div id="archive">
+<div class="taglist"><a href="tags.html">Tags:</a> <a href="tag-emacs.html">Emacs</a> <a href="tag-c++.html">C++</a> <a href="tag-python.html">Python</a> </div><div id="archive">
 <a href="archive.html">Other posts</a>
 </div>
 </div>
