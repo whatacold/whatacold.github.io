@@ -4,7 +4,7 @@
     line-height: 40px;
     font-weight: 200;
     border: solid 3px transparent;
-    border-bottom-color: #aaa;
+    border-bottom-color: #7359b5;
     text-align: center;
 }
 
@@ -13,7 +13,7 @@
 }
 
 .header a:hover {
-    color: #fff;
+    color: #7359b5;
 }
 
 .sitelinks, .sitelinks a {
