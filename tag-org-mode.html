@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="alternate"
+      type="application/rss+xml"
+      href="https://whatacold.github.io/rss.xml"
+      title="RSS feed for https://whatacold.github.io/"/>
+<title>whatacold's blog site</title>
+<meta name="author" content="Guangwang Huang">
+<meta name="referrer" content="no-referrer">
+<link href= "static/style.css" rel="stylesheet" type="text/css" /></head>
+<body>
+<div id="preamble" class="status"><div class="header">
+<div class="sitelinks">
+    <a href="https://github.com/whatacold">GitHub</a> | <a href="https://stackoverflow.com/users/910978/whatacold">Stack Overflow</a> | <a href="mailto:whatacold@gmail.com">Email</a> | <a href="/rss.xml">RSS</a>
+</div></div>
+<div id="content">
+<h1 class="title">Posts tagged "Org-mode":</h1>
+<div class="post-date">20 Jul 2019</div><h1 class="post-title"><a href="2019-07-20-generating-org-mode-outlines-for-wikihow-articles.html">Generating org-mode outlines for wikiHow articles</a></h1>
+<p>
+Recently I found some great articles on <a href="https://www.wikihow.com">wikiHow</a>, then I want to keep notes of them in org-mode files.
+</p>
+
+<p>
+At first, I manually copied the ToC of articles, but soon I found it's tedious and takes a lot of time.
+Today I wrote a Python script to help me extract the ToCs into org-mode outlines. It takes two arguments, the first one is the URL, the second one is the containing heading's level for the generated ToC in org-mode.
+</p>
+
+<p>
+For example, I can run it from within an org-mode file under a heading called <code>* Test</code>, by executing <code>M-x python wikihow-org-outline.py https://www.wikihow.com/Improve-Your-English 1</code>, then the output outline will be put under the <code>* Test</code> heading.
+</p>
+
+<p>
+Here is the source code:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #95a5a6; font-style: italic;">#</span><span style="color: #95a5a6; font-style: italic;">!/usr/bin/env python</span>
+<span style="color: #95a5a6; font-style: italic;"># </span><span style="color: #95a5a6; font-style: italic;">-*- coding: utf-8 -*-</span>
+
+<span style="color: #2c3e50; font-style: italic;">from</span> bs4 <span style="color: #2c3e50; font-style: italic;">import</span> BeautifulSoup
+<span style="color: #2c3e50; font-style: italic;">import</span> requests
+<span style="color: #2c3e50; font-style: italic;">import</span> sys
+
+<span style="color: #2c3e50; font-style: italic;">def</span> <span style="color: #9b59b6;">gen_wikihow_org_outline</span>(url, containing_heading_level=0):
+<span style="background-color: #ecf0f1;"> </span>   <span style="color: #16a085;">'''Generating a org outline for the specified article at URL.'''</span>
+<span style="background-color: #ecf0f1;"> </span>   <span style="color: #3498db;">user_agent</span>=<span style="color: #16a085;">"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.103 Safari/537.36"</span>
+<span style="background-color: #ecf0f1;"> </span>   <span style="color: #3498db;">headers</span>={<span style="color: #16a085;">"User-Agent"</span>:user_agent}
+<span style="background-color: #ecf0f1;"> </span>   <span style="color: #3498db;">html</span> = requests.get(url, headers=headers).content
+
+<span style="background-color: #ecf0f1;"> </span>   <span style="color: #3498db;">soup</span> = BeautifulSoup(html, <span style="color: #16a085;">"html.parser"</span>)
+<span style="background-color: #ecf0f1;"> </span>   <span style="color: #3498db;">level_prefix</span> = <span style="color: #16a085;">'*'</span> * containing_heading_level
+
+<span style="background-color: #ecf0f1;"> </span>   <span style="color: #3498db;">title</span> = soup.select(<span style="color: #16a085;">"h1 &gt; a"</span>)[0].get_text()
+<span style="background-color: #ecf0f1;"> </span>   <span style="color: #2c3e50; font-style: italic;">print</span>(<span style="color: #16a085;">"{}* [[{}][{}]]"</span>.<span style="color: #2c3e50;">format</span>(level_prefix, url, title))
+
+<span style="background-color: #ecf0f1;"> </span>   <span style="color: #3498db;">sections</span> = soup.select(<span style="color: #16a085;">"h3 &gt; span"</span>)
+<span style="background-color: #ecf0f1;"> </span>   <span style="color: #2c3e50; font-style: italic;">for</span> section <span style="color: #2c3e50; font-style: italic;">in</span> sections:
+<span style="background-color: #ecf0f1;"> </span>   <span style="background-color: #ecf0f1;"> </span>   <span style="color: #2c3e50; font-style: italic;">print</span>(<span style="color: #16a085;">"{}** {}"</span>.<span style="color: #2c3e50;">format</span>(level_prefix, section.get_text()))
+<span style="background-color: #ecf0f1;"> </span>   <span style="background-color: #ecf0f1;"> </span>   <span style="color: #3498db;">subsections</span> = section.parent.parent.find_all(<span style="color: #16a085;">"b"</span>, class_=<span style="color: #16a085;">"whb"</span>)
+<span style="background-color: #ecf0f1;"> </span>   <span style="background-color: #ecf0f1;"> </span>   <span style="color: #2c3e50; font-style: italic;">for</span> subsection <span style="color: #2c3e50; font-style: italic;">in</span> subsections:
+<span style="background-color: #ecf0f1;"> </span>   <span style="background-color: #ecf0f1;"> </span>   <span style="background-color: #ecf0f1;"> </span>   <span style="color: #3498db;">subsection_title</span> = subsection.get_text()
+<span style="background-color: #ecf0f1;"> </span>   <span style="background-color: #ecf0f1;"> </span>   <span style="background-color: #ecf0f1;"> </span>   <span style="color: #2c3e50; font-style: italic;">if</span> <span style="color: #2c3e50;">len</span>(subsection_title) &lt; 3:
+<span style="background-color: #ecf0f1;"> </span>   <span style="background-color: #ecf0f1;"> </span>   <span style="background-color: #ecf0f1;"> </span>   <span style="background-color: #ecf0f1;"> </span>   <span style="color: #2c3e50; font-style: italic;">continue</span> <span style="color: #95a5a6; font-style: italic;"># </span><span style="color: #95a5a6; font-style: italic;">it may contain only ".", just work around it.</span>
+<span style="background-color: #ecf0f1;"> </span>   <span style="background-color: #ecf0f1;"> </span>   <span style="background-color: #ecf0f1;"> </span>   <span style="color: #2c3e50; font-style: italic;">print</span>(<span style="color: #16a085;">"{}*** {}"</span>.<span style="color: #2c3e50;">format</span>(level_prefix, subsection_title))
+
+<span style="color: #3498db;">containing_heading_level</span>=0
+
+<span style="color: #2c3e50; font-style: italic;">if</span> <span style="color: #2c3e50;">len</span>(sys.argv) &lt; 2:
+<span style="background-color: #ecf0f1;"> </span>   <span style="color: #2c3e50; font-style: italic;">print</span>(<span style="color: #16a085;">"Usage: {} &lt;url&gt; [containing heading level]"</span>.<span style="color: #2c3e50;">format</span>(sys.argv[0]))
+<span style="background-color: #ecf0f1;"> </span>   sys.<span style="color: #7f8c8d; font-style: italic;">exit</span>(1)
+
+<span style="color: #3498db;">url</span> = sys.argv[1]
+<span style="color: #2c3e50; font-style: italic;">if</span> <span style="color: #2c3e50;">len</span>(sys.argv) == 3:
+<span style="background-color: #ecf0f1;"> </span>   <span style="color: #3498db;">containing_heading_level</span> = <span style="color: #2c3e50;">int</span>(sys.argv[2])
+
+gen_wikihow_org_outline(url, containing_heading_level)
+</pre>
+</div>
+<div class="taglist"><a href="tags.html">Tags:</a> <a href="tag-org-mode.html">Org-mode</a> </div><div id="archive">
+<a href="archive.html">Other posts</a>
+</div>
+</div>
+</body>
+</html>
