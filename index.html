@@ -17,6 +17,35 @@
 </div></div>
 <div id="content">
 
+<div class="post-date">18 Aug 2019</div><h1 class="post-title"><a href="2019-08-18-how-to-rename-web-page-titles-in-a-lightweight-way.html">How to rename web page titles in a lightweight way</a></h1>
+<p>
+There are times that I need to open many web pages of some specific websites within a browser, there are so many tabs that I can't efficiently access one of them, as their favicons are all the same.
+</p>
+
+<p>
+So I tried to find a way to rename their titles, preferably in a lightweight way, so that I can spot them quickly with my eyes.
+</p>
+
+<p>
+The first thought came into my mind was to find some extensions to do the job. It was easy to install one with no time. But I was not very happy with the experience. It seems that it keeps the rule of renaming titles based on the URL so that the title will always be renamed if I refreshing it, which is not what I want. I'd rather want to do it in an ad-hoc way.
+</p>
+
+<p>
+Then I thought maybe it can be simply done with a bookmarklet, nevertheless, it's just a simple JavaScript statement of <code>document.title = "nice-title"</code>. With that in my mind, it didn't take me much time to write this bookmarklet:
+</p>
+<div class="org-src-container">
+<pre class="src src-js">javascript:
+(<span style="color: #2c3e50; font-style: italic;">function</span> ()
+ {
+     <span style="color: #2c3e50; font-style: italic;">var</span> <span style="color: #3498db;">title</span> = window.prompt(<span style="color: #16a085;">"Enter new title: "</span>, <span style="color: #16a085;">""</span>);
+     <span style="color: #2c3e50; font-style: italic;">if</span> (title)
+     {
+         document.title= title;
+     }
+ })()
+</pre>
+</div>
+<div class="taglist"><a href="tags.html">Tags:</a> <a href="tag-tools.html">Tools</a> </div>
 <div class="post-date">20 Jul 2019</div><h1 class="post-title"><a href="2019-07-20-generating-org-mode-outlines-for-wikihow-articles.html">Generating org-mode outlines for wikiHow articles</a></h1>
 <p>
 Recently I found some great articles on <a href="https://www.wikihow.com">wikiHow</a>, then I want to keep notes of them in org-mode files.
@@ -298,42 +327,6 @@ Fortunately, yasnippet provides a hook called <code>yas-after-exit-snippet-hook<
 
 <p>
 Now the coding experience is much better :)</p>
-<div class="taglist"><a href="tags.html">Tags:</a> <a href="tag-emacs.html">Emacs</a> </div>
-<div class="post-date">17 Feb 2019</div><h1 class="post-title"><a href="2019-02-03-emacs-kmacro-characters-repeated-bug.html">记一个 Emacs Keyboard Macro 输入字符重复的 Bug</a></h1>
-<p>
-工作中不时地会使用 Emacs keyboard macro 来解决重复性的编辑任务，
-但有时录制了再重放却出现输入的字符被重复了，导致出现非预期的结果。
-一般此时为了赶进度，只好忍了，放弃 keyboard macro ，通过其他方式编辑了。
-</p>
-
-<p>
-诡异的是等到有空闲的时候尝试重现却又重现不了，还一度以为是由于 keyboard macro 不支持输入 <code>M-x</code> 命令导致的，
-但又没看到其他 Emacser 提到有此限制。
-</p>
-
-<p>
-问题虽然偶尔才出现，但是一旦出现，工作流会被打断，很让人苦恼。
-好在春节期间终于被我重现出来了，在启用 <a href="https://github.com/tumashu/pyim">pyim</a> 输入法的情况下必现，比如在录制时输入 <code>nihao</code> 得到了 <code>你好</code> ，
-但是在 replay keyboard macro 的时候，得到的效果却相当于人工输入了 <code>nniihhaaoo</code> ，每个输入字符都被重复了一次，
-自然就没法得到 <code>你好</code> 二字，详细的重现步骤见这个 pyim <a href="https://github.com/tumashu/pyim/issues/247">issue</a> 。
-</p>
-
-<p>
-@tumashu 帮忙确认了 Emacs 自带的 quail-chinese 输入法也有此问题，建议我去 mailing list 问下看看。
-最后 Emacs maintainer Eli Zaretskii 在 <a href="http://lists.gnu.org/archive/html/bug-gnu-emacs/2019-02/msg00391.html">这个 thread</a> 告知半年前已经有人在 <a href="https://debbugs.gnu.org/cgi/bugreport.cgi?bug=32108">Bug #32108</a> 中报告了，
-且已经在 master 中修复了（ <a href="https://github.com/emacs-mirror/emacs/commit/03e3440dbbfea40b449a9f6f23a3630664275d11">commit 03e3440dbbfea40b449a9f6f23a3630664275d11</a> ），将会包含在 Emacs 27 发布中。
-</p>
-
-<p>
-修复原理大致是在内核中增加一个标记 <code>inhibit--record-char</code> ，由输入法根据情况设置为 <code>t/nil</code> ，
-当值为 <code>t</code> 时内核不会把事件记录到 <code>last-kbd-macro</code> 中（见 <code>record-char</code> 函数），
-这样输入法出于实现需要重放的用户输入字符，就不会被重复记录到 keyboard macro 中。
-</p>
-
-<p>
-Emacs 自带的输入法虽然已经解决了问题，但是 pyim 还没解决，接下来如果有时间再研究下如何解决（ Emacs 27 已经编译好了 :) ），
-在彻底解决之前，如果在录制 keyboard macro 时不需要输入中文，可以通过 <code>M-x toggle-input-method</code> 切换回英文输入来 workaround ，
-这样就能避开这个 bug ，继续用 keyboard macro 来编辑文本。</p>
 <div class="taglist"><a href="tags.html">Tags:</a> <a href="tag-emacs.html">Emacs</a> </div><div id="archive">
 <a href="archive.html">Other posts</a>
 </div>
