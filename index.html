@@ -17,6 +17,113 @@
 </div></div>
 <div id="content">
 
+<div class="post-date">24 Sep 2019</div><h1 class="post-title"><a href="2019-09-24-how-to-revert-a-series-of-commits-with-git.html">How to revert a series of commits with Git?</a></h1>
+<p>
+Sometimes, I need to revert a series of commits that are already pushed, doing a git hard reset is not an option, as someone may already have new commits based on mine.
+</p>
+
+<p>
+For example, assume that I've made a few commits like below:
+</p>
+
+<pre class="example">
+65a2c62 * commit 10
+25cad43 * commit 9
+72ad583 * commit 8
+ceebf9a * commit 7
+acf8a11 * commit 6
+28d526f * commit 5
+63af1e2 * commit 4
+982c71c * commit 3
+0fb4c2d * commit 2
+acf9da1 * commit 1
+b5f9933 * commit 0
+</pre>
+
+<p>
+Now for whatever reason, I need to "drop" the changes made by commit 6 to commit 10, that is, go back to commit 5 without deleting commit.
+</p>
+
+<p>
+How to do that?
+</p>
+
+<p>
+One way is to use <code>git revert 28d526f..HEAD</code> to reversely revert the commits, which results in below commit history:
+</p>
+
+<pre class="example">
+66808e5 * Revert "commit 6"
+2661e48 * Revert "commit 7"
+db86ec6 * Revert "commit 8"
+fde9cb5 * Revert "commit 9"
+3bf102f * Revert "commit 10"
+65a2c62 * commit 10
+25cad43 * commit 9
+72ad583 * commit 8
+ceebf9a * commit 7
+acf8a11 * commit 6
+28d526f * commit 5
+63af1e2 * commit 4
+982c71c * commit 3
+0fb4c2d * commit 2
+acf9da1 * commit 1
+</pre>
+
+<p>
+It works, but it makes too many commits, in many cases that's not what I want, I'd rather make only one commit.
+</p>
+
+<p>
+So is there a better way? The other day, I found the soft reset can suite my needs.
+</p>
+
+<p>
+But how is it possible? Generally, <code>git reset</code> is used to move HEAD around the commits and/or to reset the index and working tree. The magic is that a soft reset can reset HEAD to a specific commit but leave the index and working tree untouched, so if I soft-reset HEAD from "commit 5" to "commit 10", it will move HEAD directly to "commit 10", but let the index as is, so that the index has the diff from "commit 10" to "commit 5" at the same time (<a href="https://davidzych.com/difference-between-git-reset-soft-mixed-and-hard/">Difference between git reset soft, mixed and hard - davidzych.com</a> illustrates different kinds of reset in detail.)
+</p>
+
+<p>
+Here are the steps:
+</p>
+<div class="org-src-container">
+<pre class="src src-shell">git branch master-bak    <span style="color: #95a5a6; font-style: italic;"># </span><span style="color: #95a5a6; font-style: italic;">create a backup branch in case commits lost</span>
+git reset --hard 28d526f <span style="color: #95a5a6; font-style: italic;"># </span><span style="color: #95a5a6; font-style: italic;">the commit 5</span>
+git reset --soft master-bak
+git commit -m <span style="color: #16a085;">"Revert the commits [6,10]"</span>
+git diff 28d526f..HEAD   <span style="color: #95a5a6; font-style: italic;"># </span><span style="color: #95a5a6; font-style: italic;">confirm that it doesn't have any diffs</span>
+</pre>
+</div>
+
+<p>
+P.S. It's a bit boring to prepare git commits above, so I bake a helper script to do that:
+</p>
+<div class="org-src-container">
+<pre class="src src-shell"><span style="color: #95a5a6; font-style: italic;">#</span><span style="color: #95a5a6; font-style: italic;">!/bin/</span><span style="color: #2c3e50; font-style: italic;">bash</span>
+
+<span style="color: #3498db;">COUNT</span>=0
+<span style="color: #3498db;">REPO</span>=<span style="color: #16a085;">""</span>
+<span style="color: #2c3e50; font-style: italic;">if</span> [ $<span style="color: #3498db;">#</span> -ne 2 ]
+<span style="color: #2c3e50; font-style: italic;">then</span>
+    <span style="color: #2c3e50;">echo</span> <span style="color: #16a085;">"Usage: $0 &lt;REPO-DIR&gt; &lt;COUNT&gt;"</span>
+    <span style="color: #2c3e50; font-style: italic;">exit</span> 1
+<span style="color: #2c3e50; font-style: italic;">fi</span>
+<span style="color: #3498db;">REPO</span>=$<span style="color: #3498db;">1</span>
+<span style="color: #3498db;">COUNT</span>=$<span style="color: #3498db;">2</span>
+
+<span style="color: #2c3e50;">echo</span> <span style="color: #16a085;">"Creating the repo and cd'ing into it..."</span>
+mkdir -p $<span style="color: #3498db;">REPO</span> &amp;&amp; <span style="color: #2c3e50;">cd</span> $<span style="color: #3498db;">REPO</span>
+[ ! -d .git/ ] &amp;&amp; git init .
+
+<span style="color: #2c3e50;">echo</span> <span style="color: #16a085;">"Making commits..."</span>
+<span style="color: #2c3e50; font-style: italic;">for</span> i<span style="color: #2c3e50; font-style: italic;"> in</span> <span style="color: #ff00ff;">`seq 0 $COUNT`</span>;
+<span style="color: #2c3e50; font-style: italic;">do</span>
+    <span style="color: #2c3e50;">echo</span> <span style="color: #16a085;">"modification made by commit $i"</span> &gt;&gt; demo.txt
+    git add demo.txt
+    git commit -m <span style="color: #16a085;">"commit $i"</span>
+<span style="color: #2c3e50; font-style: italic;">done</span>
+</pre>
+</div>
+<div class="taglist"><a href="tags.html">Tags:</a> <a href="tag-git.html">Git</a> </div>
 <div class="post-date">18 Aug 2019</div><h1 class="post-title"><a href="2019-08-18-how-to-rename-web-page-titles-in-a-lightweight-way.html">How to rename web page titles in a lightweight way</a></h1>
 <p>
 There are times that I need to open many web pages of some specific websites within a browser, there are so many tabs that I can't efficiently access one of them, as their favicons are all the same.
@@ -214,120 +321,7 @@ take a look too if you're interested.
 
 <p>
 P.S. I know the UI is ugly. I have basic knowledge of CSS, but I just don't have the sense to layout elements properly, what materials/practices would you recommend improving my front end skill at this stage? or any tips on the UI itself?</p>
-<div class="taglist"><a href="tags.html">Tags:</a> <a href="tag-python.html">Python</a> <a href="tag-tools.html">Tools</a> </div>
-<div class="post-date">10 Mar 2019</div><h1 class="post-title"><a href="2019-02-24-fine-tune-curly-brace-style-of-yasnippet-snippet-on-the-fly.html">Fine-tune curly braces style of yasnippet snippet on the fly</a></h1>
-<p>
-<a href="https://github.com/joaotavora/yasnippet">Yasnippet</a> is a good friend to help us type less and write more, whenever we write some text snippets repeatedly. And there is also an official repository called <a href="https://github.com/AndreaCrotti/yasnippet-snippets">yasnippet-snippets</a> that contains various snippets for many programming languages(modes), so that we can have many snippets in no time by installing it.
-</p>
-
-<p>
-But there is a little problem when it comes to conform to different coding styles. Take the <code>if</code> snippet for example, normally it will generate code like this:
-</p>
-
-<div class="org-src-container">
-<pre class="src src-C"><span style="color: #2c3e50; font-style: italic;">if</span> (a) {
-    do_something();
-}
-</pre>
-</div>
-
-<p>
-This is fine for a K&amp;R style project, but will be kind of annoyed if we work on an allman style project,
-because we need to fine-tune the style for every <code>if</code> clauses generated to like this:
-</p>
-
-<div class="org-src-container">
-<pre class="src src-C"><span style="color: #2c3e50; font-style: italic;">if</span> (a)
-{
-    do_something();
-}
-</pre>
-</div>
-
-<p>
-How to fine-tune the coding styles according to the project requirement? Or at least curly braces styles, which is the one that matters most for me.
-</p>
-
-<p>
-Maintaining two similar copies for every snippet is obviously not a good option, it's daunting and boring.
-</p>
-
-<p>
-Fortunately, yasnippet provides a hook called <code>yas-after-exit-snippet-hook</code>, which I can take advantage of to adjust the curly braces style when needed. Below is a trivial hook that I come up with, it assumes that the snippets are in K&amp;R style, which is the style that yasnippet-snippet takes, and I prepend <code>{</code> with newlines and surround <code>}</code> with newlines when this behaviour is asked by setting <code>(setq whatacold/yasnippet-c-style 'allman)</code> .
-</p>
-
-<div class="org-src-container">
-<pre class="src src-emacs-lisp">(<span style="color: #2c3e50; font-style: italic;">defun</span> <span style="color: #9b59b6;">whatacold/style-braces-in-allman</span> (snippet)
-  <span style="color: #16a085;">"Style the SNIPPET in allman brace style.</span>
-
-<span style="color: #16a085;">There are roughly 3 basic brace styles:</span>
-<span style="color: #16a085;">- Attached: The braces are attached to the end of the last line of the previous block. (Java).</span>
-<span style="color: #16a085;">- Broken: The braces are broken from the previous block. (Allman).</span>
-<span style="color: #16a085;">- Linux: The braces are attached except for the opening brace of a function, class, or namespace (K&amp;R, Linux).</span>
-
-<span style="color: #16a085;">http://astyle.sourceforge.net/astyle.html#_Basic_Brace_Styles"</span>
-  (<span style="color: #2c3e50; font-style: italic;">let</span> ((len (length snippet))
-        (i 0)
-        chars char new-str)
-    (<span style="color: #2c3e50; font-style: italic;">while</span> (&lt; i len)
-      (<span style="color: #2c3e50; font-style: italic;">setq</span> char (aref snippet i))
-      (<span style="color: #2c3e50; font-style: italic;">case</span> char
-        (?{
-         (<span style="color: #2c3e50; font-style: italic;">push</span> ?\n chars)
-         (<span style="color: #2c3e50; font-style: italic;">push</span> char chars))
-        (?}
-         (<span style="color: #2c3e50; font-style: italic;">push</span> ?\n chars)
-         (<span style="color: #2c3e50; font-style: italic;">push</span> char chars)
-         (<span style="color: #2c3e50; font-style: italic;">push</span> ?\n chars))
-        (t
-         (<span style="color: #2c3e50; font-style: italic;">push</span> char chars)))
-      (<span style="color: #2c3e50; font-style: italic;">setq</span> i (1+ i)))
-    (<span style="color: #2c3e50; font-style: italic;">setq</span> new-str (replace-regexp-in-string <span style="color: #16a085;">"[\n \t]+\n"</span>
-                                            <span style="color: #16a085;">"\n"</span>
-                                            (apply #'string (nreverse chars))))
-    new-str))
-
-(<span style="color: #2c3e50; font-style: italic;">defcustom</span> <span style="color: #3498db;">whatacold/yasnippet-c-style</span> nil
-  <span style="color: #16a085;">"Style of curly braces, e.g. 'allman."</span>
-  <span style="color: #2c3e50;">:type</span> '(symbol))
-
-(<span style="color: #2c3e50; font-style: italic;">defun</span> <span style="color: #9b59b6;">whatacold/yasnippet-exit-hook-c</span> ()
-  (<span style="color: #2c3e50; font-style: italic;">let*</span> ((text-marker <span style="color: #16a085;">"the-yasnippet-exit-point;"</span>) <span style="color: #95a5a6; font-style: italic;">; </span><span style="color: #95a5a6; font-style: italic;">workaround. text property is more elegant.</span>
-         (begin yas-snippet-beg)
-         (end yas-snippet-end)
-         (snippet (buffer-substring-no-properties begin end))
-         new-snippet)
-    (<span style="color: #2c3e50; font-style: italic;">when</span> (<span style="color: #2c3e50; font-style: italic;">and</span> (string-match <span style="color: #16a085;">"[{}]"</span> snippet)
-               (eq 'allman whatacold/yasnippet-c-style))
-      (insert text-marker)
-      (<span style="color: #2c3e50; font-style: italic;">setq</span> end (+ yas-snippet-end (length text-marker)))
-
-      (<span style="color: #2c3e50; font-style: italic;">setq</span> snippet (buffer-substring-no-properties begin end)) <span style="color: #95a5a6; font-style: italic;">; </span><span style="color: #95a5a6; font-style: italic;">re-fetch content</span>
-      (<span style="color: #2c3e50; font-style: italic;">setq</span> new-snippet (whatacold/style-braces-in-allman snippet))
-      (delete-region begin end)
-      (insert new-snippet)
-
-      (goto-char begin)
-      <span style="color: #95a5a6; font-style: italic;">;; </span><span style="color: #95a5a6; font-style: italic;">re-indent it in the context</span>
-      (indent-region begin (+ end (- (length new-snippet)
-                                     (length snippet))))
-      (re-search-forward text-marker)
-      (delete-char (- 0 (length text-marker))))))
-
-(<span style="color: #2c3e50; font-style: italic;">defun</span> <span style="color: #9b59b6;">whatacold/yasnippet-exit-hook</span> ()
-  <span style="color: #16a085;">"My yasnippet exit hook."</span>
-  (<span style="color: #2c3e50; font-style: italic;">case</span> major-mode
-    ((c-mode c++-mode)
-     (whatacold/yasnippet-exit-hook-c))))
-
-<span style="color: #95a5a6; font-style: italic;">;; </span><span style="color: #95a5a6; font-style: italic;">see https://github.com/joaotavora/yasnippet/issues/728</span>
-(add-to-list 'yas-after-exit-snippet-hook #'whatacold/yasnippet-exit-hook)
-</pre>
-</div>
-
-<p>
-Now the coding experience is much better :)</p>
-<div class="taglist"><a href="tags.html">Tags:</a> <a href="tag-emacs.html">Emacs</a> </div><div id="archive">
+<div class="taglist"><a href="tags.html">Tags:</a> <a href="tag-python.html">Python</a> <a href="tag-tools.html">Tools</a> </div><div id="archive">
 <a href="archive.html">Other posts</a>
 </div>
 </div>
