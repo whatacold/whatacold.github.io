@@ -17,6 +17,111 @@
 </div></div>
 <div id="content">
 
+<div class="post-date">29 Sep 2019</div><h1 class="post-title"><a href="2019-09-29-how-to-run-the-bleeding-edge-code-of-qtile-within-virtualenv.html">How to run the bleeding-edge code of Qtile within a virtualenv</a></h1>
+<p>
+For having been using GNOME for quite a long time, I was considering trying some tiling window managers to see what it's like a few weeks ago. Along the way, I found a nice window manager written in Python: <a href="http://www.qtile.org">Qtile</a>, what interests me most is that it's a <b>hackable</b> window manager, which makes it flexible to extend or change its behaviors.
+</p>
+
+<p>
+Well, switching to use a tiling window manager is far simpler than I thought. There are two ways to have it:
+</p>
+<ol class="org-ol">
+<li>Installing it via the system's package manager, e.g. <code>dnf</code> for Fedora</li>
+<li>Installing it from the source code repo.</li>
+</ol>
+
+<p>
+If you just want to give it a try, you can just install it via a package manager, logout the current X session, and re-login with Qtile as your window manager (there are options when you log in), and you're done. It's that simple.
+</p>
+
+<p>
+As Qtile is still under development, I would like to run the bleeding-edge source code to catch up with Qtile.
+</p>
+
+<p>
+As in the <a href="http://docs.qtile.org/en/latest/manual/install/index.html#qtile">docs</a> , it's quite straight-forward to install it.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-shell">git clone git://github.com/qtile/qtile.git
+<span style="color: #2c3e50;">cd</span> qtile
+pip3 install .
+</pre>
+</div>
+
+<p>
+But it will pollute the environment, so I'd rather contain it within a virtualenv, here are the steps how to run it within a dedicated virtualenv for user <code>foo</code> on Fedora.
+</p>
+
+<ol class="org-ol">
+<li><p>
+Clone the repo
+</p>
+
+<div class="org-src-container">
+<pre class="src src-shell">mkdir -p ~/local/
+git clone https://github.com/qtile/qtile.git
+</pre>
+</div></li>
+
+<li><p>
+Create a new virtualenv, and install dependencies there
+</p>
+
+<div class="org-src-container">
+<pre class="src src-shell">python3 -m venv ~/local/qtile/qtile-env/
+<span style="color: #2c3e50;">source</span> ~/local/qtile/qtile-env/bin/activate
+
+<span style="color: #95a5a6; font-style: italic;"># </span><span style="color: #95a5a6; font-style: italic;">Install dependencies</span>
+pip install xcffib
+pip install --no-cache-dir cairocffi
+</pre>
+</div></li>
+
+<li><p>
+Make a glue shell script to use the virtualenv
+</p>
+
+<div class="org-src-container">
+<pre class="src src-shell">cat &gt; /home/foo/local/qtile/qtile-venv-entry &lt;&lt;EOF
+<span style="color: #16a085;">#!/bin/bash</span>
+
+<span style="color: #16a085;"># This glue shell is only needed when you want to</span>
+<span style="color: #16a085;"># run Qtile within a virtualenv</span>
+
+<span style="color: #16a085;">source ~/local/qtile/qtile-env/bin/activate</span>
+<span style="color: #16a085;">python ~/local/qtile/bin/qtile $*</span>
+<span style="color: #16a085;">EOF</span>
+</pre>
+</div>
+
+<p>
+Also, make sure to make it executable, that is, <code>chmod +x /home/foo/local/qtile/qtile-venv-entry</code>
+</p></li>
+
+<li><p>
+Make a entry desktop file for the display manager
+</p>
+
+<div class="org-src-container">
+<pre class="src src-shell">cat &gt;&gt; /usr/share/xsessions/qtile-venv.desktop &lt;&lt;EOF
+<span style="color: #16a085;">[Desktop Entry]</span>
+<span style="color: #16a085;">Name=Qtile(venv)</span>
+<span style="color: #16a085;">Comment=Qtile Session Within Venv</span>
+<span style="color: #16a085;">Exec=/home/foo/local/qtile/qtile-venv-entry</span>
+<span style="color: #16a085;">Type=Application</span>
+<span style="color: #16a085;">Keywords=wm;tiling</span>
+<span style="color: #16a085;">EOF</span>
+</pre>
+</div>
+
+<p>
+Pay attention to the <code>Exec</code> directive, it points to the glue script.
+</p></li>
+
+<li>Log out or reboot your system, then select “Qtile(venv)” as your window manager by clicking the setting icon when logging in.</li>
+</ol>
+<div class="taglist"><a href="tags.html">Tags:</a> <a href="tag-python.html">Python</a> </div>
 <div class="post-date">24 Sep 2019</div><h1 class="post-title"><a href="2019-09-24-how-to-revert-a-series-of-commits-with-git.html">How to revert a series of commits with Git?</a></h1>
 <p>
 Sometimes, I need to revert a series of commits that are already pushed, doing a git hard reset is not an option, as someone may already have new commits based on mine.
@@ -276,52 +381,7 @@ The link is: <a href="https://emacs.stackexchange.com/questions/2644/understandi
 
 
 </div>
-</div><div class="taglist"><a href="tags.html">Tags:</a> <a href="tag-emacs.html">Emacs</a> </div>
-<div class="post-date">06 Jul 2019</div><h1 class="post-title"><a href="2019-07-06-render-erd-on-the-web.html">Preview erd on the web</a></h1>
-<p>
-If you ever wonder how to plot ER diagrams in plain text, you may have already heard of <a href="https://github.com/BurntSushi/erd">erd</a>.
-It's a cool command line program written by Andrew Gallant in Haskell, to "compile" plain text files into nicely looking images,
-leveraging the power of GraphViz.
-</p>
-
-<p>
-I've used erd for some time, it's cool and the syntax is quite simple.
-It's also quite simple to install it on Linux, just install GraphViz and erd itself,
-by following the instructions in the README page.
-</p>
-
-<p>
-But there are times that there isn't an erd environment at hand:
-</p>
-<ul class="org-ul">
-<li>erd is hard to install, or we don't have the permission to install it.</li>
-<li>I shared the plain text file with my teammates, but they didn't know how to convert it to an image.</li>
-</ul>
-
-<p>
-So I think maybe it's useful to have a web application that folks can try it out online,
-here it is: <a href="https://serene-forest-18642.herokuapp.com/">erd-repl</a> , a simple Flask application hosted on Heroku.
-Although the name REPL, it's far from being a REPL, I think that a REPL helps ease the learning process, be it Emacs REPL, or Python REPL, as it gives you feedback as you type.
-</p>
-
-<p>
-It's so simple that there isn't any user authentication mechanism, and here are some caveats:
-</p>
-<ul class="org-ul">
-<li>the "source code" of plain text is simply stored in the browser cookie, together with your id.</li>
-<li>no edit features, you need to edit it somewhere, e.g. Emacs, and then copied to erd-repl if it's complex, to prevent data loss.</li>
-<li>only one image is stored per one user.</li>
-<li>imaged will be cleared if being not touched for a few days</li>
-</ul>
-
-<p>
-After hosting it on Heroku, I found that there is an <a href="https://github.com/BurntSushi/erd/issues/1">issue</a> discussing hosting a web service of erd on GitHub,
-take a look too if you're interested.
-</p>
-
-<p>
-P.S. I know the UI is ugly. I have basic knowledge of CSS, but I just don't have the sense to layout elements properly, what materials/practices would you recommend improving my front end skill at this stage? or any tips on the UI itself?</p>
-<div class="taglist"><a href="tags.html">Tags:</a> <a href="tag-python.html">Python</a> <a href="tag-tools.html">Tools</a> </div><div id="archive">
+</div><div class="taglist"><a href="tags.html">Tags:</a> <a href="tag-emacs.html">Emacs</a> </div><div id="archive">
 <a href="archive.html">Other posts</a>
 </div>
 </div>

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="alternate"
+      type="application/rss+xml"
+      href="https://whatacold.github.io/rss.xml"
+      title="RSS feed for https://whatacold.github.io/"/>
+<title>How to run the bleeding-edge code of Qtile within a virtualenv</title>
+<meta name="author" content="Guangwang Huang">
+<meta name="referrer" content="no-referrer">
+<link href= "static/style.css" rel="stylesheet" type="text/css" /></head>
+<body>
+<div id="preamble" class="status">
+<div class="header">
+<div class="sitelinks">
+    <a href="https://github.com/whatacold">GitHub</a> | <a href="https://stackoverflow.com/users/910978/whatacold">Stack Overflow</a> | <a href="mailto:whatacold@gmail.com">Email</a> | <a href="/rss.xml">RSS</a>
+</div></div>
+<div id="content">
+<div class="post-date">29 Sep 2019</div><h1 class="post-title"><a href="2019-09-29-how-to-run-the-bleeding-edge-code-of-qtile-within-virtualenv.html">How to run the bleeding-edge code of Qtile within a virtualenv</a></h1>
+<p>
+For having been using GNOME for quite a long time, I was considering trying some tiling window managers to see what it's like a few weeks ago. Along the way, I found a nice window manager written in Python: <a href="http://www.qtile.org">Qtile</a>, what interests me most is that it's a <b>hackable</b> window manager, which makes it flexible to extend or change its behaviors.
+</p>
+
+<p>
+Well, switching to use a tiling window manager is far simpler than I thought. There are two ways to have it:
+</p>
+<ol class="org-ol">
+<li>Installing it via the system's package manager, e.g. <code>dnf</code> for Fedora</li>
+<li>Installing it from the source code repo.</li>
+</ol>
+
+<p>
+If you just want to give it a try, you can just install it via a package manager, logout the current X session, and re-login with Qtile as your window manager (there are options when you log in), and you're done. It's that simple.
+</p>
+
+<p>
+As Qtile is still under development, I would like to run the bleeding-edge source code to catch up with Qtile.
+</p>
+
+<p>
+As in the <a href="http://docs.qtile.org/en/latest/manual/install/index.html#qtile">docs</a> , it's quite straight-forward to install it.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-shell">git clone git://github.com/qtile/qtile.git
+<span style="color: #2c3e50;">cd</span> qtile
+pip3 install .
+</pre>
+</div>
+
+<p>
+But it will pollute the environment, so I'd rather contain it within a virtualenv, here are the steps how to run it within a dedicated virtualenv for user <code>foo</code> on Fedora.
+</p>
+
+<ol class="org-ol">
+<li><p>
+Clone the repo
+</p>
+
+<div class="org-src-container">
+<pre class="src src-shell">mkdir -p ~/local/
+git clone https://github.com/qtile/qtile.git
+</pre>
+</div></li>
+
+<li><p>
+Create a new virtualenv, and install dependencies there
+</p>
+
+<div class="org-src-container">
+<pre class="src src-shell">python3 -m venv ~/local/qtile/qtile-env/
+<span style="color: #2c3e50;">source</span> ~/local/qtile/qtile-env/bin/activate
+
+<span style="color: #95a5a6; font-style: italic;"># </span><span style="color: #95a5a6; font-style: italic;">Install dependencies</span>
+pip install xcffib
+pip install --no-cache-dir cairocffi
+</pre>
+</div></li>
+
+<li><p>
+Make a glue shell script to use the virtualenv
+</p>
+
+<div class="org-src-container">
+<pre class="src src-shell">cat &gt; /home/foo/local/qtile/qtile-venv-entry &lt;&lt;EOF
+<span style="color: #16a085;">#!/bin/bash</span>
+
+<span style="color: #16a085;"># This glue shell is only needed when you want to</span>
+<span style="color: #16a085;"># run Qtile within a virtualenv</span>
+
+<span style="color: #16a085;">source ~/local/qtile/qtile-env/bin/activate</span>
+<span style="color: #16a085;">python ~/local/qtile/bin/qtile $*</span>
+<span style="color: #16a085;">EOF</span>
+</pre>
+</div>
+
+<p>
+Also, make sure to make it executable, that is, <code>chmod +x /home/foo/local/qtile/qtile-venv-entry</code>
+</p></li>
+
+<li><p>
+Make a entry desktop file for the display manager
+</p>
+
+<div class="org-src-container">
+<pre class="src src-shell">cat &gt;&gt; /usr/share/xsessions/qtile-venv.desktop &lt;&lt;EOF
+<span style="color: #16a085;">[Desktop Entry]</span>
+<span style="color: #16a085;">Name=Qtile(venv)</span>
+<span style="color: #16a085;">Comment=Qtile Session Within Venv</span>
+<span style="color: #16a085;">Exec=/home/foo/local/qtile/qtile-venv-entry</span>
+<span style="color: #16a085;">Type=Application</span>
+<span style="color: #16a085;">Keywords=wm;tiling</span>
+<span style="color: #16a085;">EOF</span>
+</pre>
+</div>
+
+<p>
+Pay attention to the <code>Exec</code> directive, it points to the glue script.
+</p></li>
+
+<li>Log out or reboot your system, then select “Qtile(venv)” as your window manager by clicking the setting icon when logging in.</li>
+</ol>
+<div class="taglist"><a href="tags.html">Tags:</a> <a href="tag-python.html">Python</a> </div></div>
+<div id="postamble" class="status"></div>
+</body>
+</html>
