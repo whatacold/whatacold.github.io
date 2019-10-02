@@ -1,4 +1,8 @@
 
+body {
+    margin: 0 100px;
+}
+
 .header{
     font-size: 24px;
     line-height: 40px;
