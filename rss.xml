@@ -4,7 +4,31 @@
 <title>whatacold's blog site</title>
 <description>whatacold's blog site</description>
 <link>https://whatacold.github.io/</link>
-<lastBuildDate>Tue, 01 Oct 2019 23:02:19 +0800</lastBuildDate>
+<lastBuildDate>Mon, 07 Oct 2019 20:47:38 +0800</lastBuildDate>
+<item>
+  <title>Build Docker Images for Qtile</title>
+  <description><![CDATA[
+<p>
+One of Docker's use cases is to set up identical development environments easily and quickly for a dev team.
+Recently, I had an opportunity to give it a try, and build Docker images for <a href="https://github.com/qtile/qtile">Qtile</a>, as it didn't have one yet as I get involved. With the images, it's easy to set up the environment to easily run the tests, and build the documentation.
+</p>
+
+<p>
+The best way to have a basic idea of Docker is to think it like a chroot environment, as Chris Tankersley stated in his <a href="https://leanpub.com/dockerfordevs">Docker for Developers</a>.
+And two basic concepts of Docker are image and container, containers to images are what objects to classes as in OOP terminology.
+</p>
+
+<p>
+The instructions for building a Docker image are put in a <code>Dockerfile</code>, every command builds a new layer on top of the previous one so that I can build my image "on the shoulders of giants".
+</p>
+
+<p>
+The final Dockerfiles for testing Qtile and building its documentation are hosted at <a href="https://github.com/whatacold/qtile-docker">https://github.com/whatacold/qtile-docker</a>, there is a brief README there about how to build them and use them.</p>
+<div class="taglist"><a href="tags.html">Tags:</a> <a href="tag-docker.html">Docker</a> </div>]]></description>
+  <category>Docker</category>
+  <link>https://whatacold.github.io/2019-10-07-build-docker-images-for-qtile.html</link>
+  <pubDate>Mon, 07 Oct 2019 13:25:00 +0800</pubDate>
+</item>
 <item>
   <title>用 Python Requests “一键”重启天翼路由器</title>
   <description><![CDATA[

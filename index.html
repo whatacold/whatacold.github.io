@@ -17,6 +17,24 @@
 </div></div>
 <div id="content">
 
+<div class="post-date">07 Oct 2019</div><h1 class="post-title"><a href="2019-10-07-build-docker-images-for-qtile.html">Build Docker Images for Qtile</a></h1>
+<p>
+One of Docker's use cases is to set up identical development environments easily and quickly for a dev team.
+Recently, I had an opportunity to give it a try, and build Docker images for <a href="https://github.com/qtile/qtile">Qtile</a>, as it didn't have one yet as I get involved. With the images, it's easy to set up the environment to easily run the tests, and build the documentation.
+</p>
+
+<p>
+The best way to have a basic idea of Docker is to think it like a chroot environment, as Chris Tankersley stated in his <a href="https://leanpub.com/dockerfordevs">Docker for Developers</a>.
+And two basic concepts of Docker are image and container, containers to images are what objects to classes as in OOP terminology.
+</p>
+
+<p>
+The instructions for building a Docker image are put in a <code>Dockerfile</code>, every command builds a new layer on top of the previous one so that I can build my image "on the shoulders of giants".
+</p>
+
+<p>
+The final Dockerfiles for testing Qtile and building its documentation are hosted at <a href="https://github.com/whatacold/qtile-docker">https://github.com/whatacold/qtile-docker</a>, there is a brief README there about how to build them and use them.</p>
+<div class="taglist"><a href="tags.html">Tags:</a> <a href="tag-docker.html">Docker</a> </div>
 <div class="post-date">01 Oct 2019</div><h1 class="post-title"><a href="2019-10-01-reboot-tianyi-router-using-python-requests.html">用 Python Requests “一键”重启天翼路由器</a></h1>
 <p>
 不知道什么原因，我的网络有时候会很慢，而通过重启天翼网关路由器（版本 V1.0 ）大概率能够恢复。这样重启的次数多了之后会觉得有点繁琐，本着偷懒的原则，就想写一个脚本来自动重启，那样的话会“方便”很多。
@@ -314,69 +332,7 @@ Then I thought maybe it can be simply done with a bookmarklet, nevertheless, it'
  })()
 </pre>
 </div>
-<div class="taglist"><a href="tags.html">Tags:</a> <a href="tag-tools.html">Tools</a> </div>
-<div class="post-date">20 Jul 2019</div><h1 class="post-title"><a href="2019-07-20-generating-org-mode-outlines-for-wikihow-articles.html">Generating org-mode outlines for wikiHow articles</a></h1>
-<p>
-Recently I found some great articles on <a href="https://www.wikihow.com">wikiHow</a>, then I want to keep notes of them in org-mode files.
-</p>
-
-<p>
-At first, I manually copied the ToC of articles, but soon I found it's tedious and takes a lot of time.
-Today I wrote a Python script to help me extract the ToCs into org-mode outlines. It takes two arguments, the first one is the URL, the second one is the containing heading's level for the generated ToC in org-mode.
-</p>
-
-<p>
-For example, I can run it from within an org-mode file under a heading called <code>* Test</code>, by executing <code>M-x python wikihow-org-outline.py https://www.wikihow.com/Improve-Your-English 1</code>, then the output outline will be put under the <code>* Test</code> heading.
-</p>
-
-<p>
-Here is the source code:
-</p>
-
-<div class="org-src-container">
-<pre class="src src-python"><span style="color: #95a5a6; font-style: italic;">#</span><span style="color: #95a5a6; font-style: italic;">!/usr/bin/env python</span>
-<span style="color: #95a5a6; font-style: italic;"># </span><span style="color: #95a5a6; font-style: italic;">-*- coding: utf-8 -*-</span>
-
-<span style="color: #2c3e50; font-style: italic;">from</span> bs4 <span style="color: #2c3e50; font-style: italic;">import</span> BeautifulSoup
-<span style="color: #2c3e50; font-style: italic;">import</span> requests
-<span style="color: #2c3e50; font-style: italic;">import</span> sys
-
-<span style="color: #2c3e50; font-style: italic;">def</span> <span style="color: #9b59b6;">gen_wikihow_org_outline</span>(url, containing_heading_level=0):
-<span style="background-color: #ecf0f1;"> </span>   <span style="color: #16a085;">'''Generating a org outline for the specified article at URL.'''</span>
-<span style="background-color: #ecf0f1;"> </span>   <span style="color: #3498db;">user_agent</span>=<span style="color: #16a085;">"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.103 Safari/537.36"</span>
-<span style="background-color: #ecf0f1;"> </span>   <span style="color: #3498db;">headers</span>={<span style="color: #16a085;">"User-Agent"</span>:user_agent}
-<span style="background-color: #ecf0f1;"> </span>   <span style="color: #3498db;">html</span> = requests.get(url, headers=headers).content
-
-<span style="background-color: #ecf0f1;"> </span>   <span style="color: #3498db;">soup</span> = BeautifulSoup(html, <span style="color: #16a085;">"html.parser"</span>)
-<span style="background-color: #ecf0f1;"> </span>   <span style="color: #3498db;">level_prefix</span> = <span style="color: #16a085;">'*'</span> * containing_heading_level
-
-<span style="background-color: #ecf0f1;"> </span>   <span style="color: #3498db;">title</span> = soup.select(<span style="color: #16a085;">"h1 &gt; a"</span>)[0].get_text()
-<span style="background-color: #ecf0f1;"> </span>   <span style="color: #2c3e50; font-style: italic;">print</span>(<span style="color: #16a085;">"{}* [[{}][{}]]"</span>.<span style="color: #2c3e50;">format</span>(level_prefix, url, title))
-
-<span style="background-color: #ecf0f1;"> </span>   <span style="color: #3498db;">sections</span> = soup.select(<span style="color: #16a085;">"h3 &gt; span"</span>)
-<span style="background-color: #ecf0f1;"> </span>   <span style="color: #2c3e50; font-style: italic;">for</span> section <span style="color: #2c3e50; font-style: italic;">in</span> sections:
-<span style="background-color: #ecf0f1;"> </span>   <span style="background-color: #ecf0f1;"> </span>   <span style="color: #2c3e50; font-style: italic;">print</span>(<span style="color: #16a085;">"{}** {}"</span>.<span style="color: #2c3e50;">format</span>(level_prefix, section.get_text()))
-<span style="background-color: #ecf0f1;"> </span>   <span style="background-color: #ecf0f1;"> </span>   <span style="color: #3498db;">subsections</span> = section.parent.parent.find_all(<span style="color: #16a085;">"b"</span>, class_=<span style="color: #16a085;">"whb"</span>)
-<span style="background-color: #ecf0f1;"> </span>   <span style="background-color: #ecf0f1;"> </span>   <span style="color: #2c3e50; font-style: italic;">for</span> subsection <span style="color: #2c3e50; font-style: italic;">in</span> subsections:
-<span style="background-color: #ecf0f1;"> </span>   <span style="background-color: #ecf0f1;"> </span>   <span style="background-color: #ecf0f1;"> </span>   <span style="color: #3498db;">subsection_title</span> = subsection.get_text()
-<span style="background-color: #ecf0f1;"> </span>   <span style="background-color: #ecf0f1;"> </span>   <span style="background-color: #ecf0f1;"> </span>   <span style="color: #2c3e50; font-style: italic;">if</span> <span style="color: #2c3e50;">len</span>(subsection_title) &lt; 3:
-<span style="background-color: #ecf0f1;"> </span>   <span style="background-color: #ecf0f1;"> </span>   <span style="background-color: #ecf0f1;"> </span>   <span style="background-color: #ecf0f1;"> </span>   <span style="color: #2c3e50; font-style: italic;">continue</span> <span style="color: #95a5a6; font-style: italic;"># </span><span style="color: #95a5a6; font-style: italic;">it may contain only ".", just work around it.</span>
-<span style="background-color: #ecf0f1;"> </span>   <span style="background-color: #ecf0f1;"> </span>   <span style="background-color: #ecf0f1;"> </span>   <span style="color: #2c3e50; font-style: italic;">print</span>(<span style="color: #16a085;">"{}*** {}"</span>.<span style="color: #2c3e50;">format</span>(level_prefix, subsection_title))
-
-<span style="color: #3498db;">containing_heading_level</span>=0
-
-<span style="color: #2c3e50; font-style: italic;">if</span> <span style="color: #2c3e50;">len</span>(sys.argv) &lt; 2:
-<span style="background-color: #ecf0f1;"> </span>   <span style="color: #2c3e50; font-style: italic;">print</span>(<span style="color: #16a085;">"Usage: {} &lt;url&gt; [containing heading level]"</span>.<span style="color: #2c3e50;">format</span>(sys.argv[0]))
-<span style="background-color: #ecf0f1;"> </span>   sys.<span style="color: #7f8c8d; font-style: italic;">exit</span>(1)
-
-<span style="color: #3498db;">url</span> = sys.argv[1]
-<span style="color: #2c3e50; font-style: italic;">if</span> <span style="color: #2c3e50;">len</span>(sys.argv) == 3:
-<span style="background-color: #ecf0f1;"> </span>   <span style="color: #3498db;">containing_heading_level</span> = <span style="color: #2c3e50;">int</span>(sys.argv[2])
-
-gen_wikihow_org_outline(url, containing_heading_level)
-</pre>
-</div>
-<div class="taglist"><a href="tags.html">Tags:</a> <a href="tag-org-mode.html">Org-mode</a> </div><div id="archive">
+<div class="taglist"><a href="tags.html">Tags:</a> <a href="tag-tools.html">Tools</a> </div><div id="archive">
 <a href="archive.html">Other posts</a>
 </div>
 </div>

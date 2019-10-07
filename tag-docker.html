@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="alternate"
+      type="application/rss+xml"
+      href="https://whatacold.github.io/rss.xml"
+      title="RSS feed for https://whatacold.github.io/"/>
+<title>whatacold's blog site</title>
+<meta name="author" content="Guangwang Huang">
+<meta name="referrer" content="no-referrer">
+<link href= "static/style.css" rel="stylesheet" type="text/css" /></head>
+<body>
+<div id="preamble" class="status"><div class="header">
+<div class="sitelinks">
+    <a href="https://github.com/whatacold">GitHub</a> | <a href="https://stackoverflow.com/users/910978/whatacold">Stack Overflow</a> | <a href="mailto:whatacold@gmail.com">Email</a> | <a href="/rss.xml">RSS</a>
+</div></div>
+<div id="content">
+<h1 class="title">Posts tagged "Docker":</h1>
+<div class="post-date">07 Oct 2019</div><h1 class="post-title"><a href="2019-10-07-build-docker-images-for-qtile.html">Build Docker Images for Qtile</a></h1>
+<p>
+One of Docker's use cases is to set up identical development environments easily and quickly for a dev team.
+Recently, I had an opportunity to give it a try, and build Docker images for <a href="https://github.com/qtile/qtile">Qtile</a>, as it didn't have one yet as I get involved. With the images, it's easy to set up the environment to easily run the tests, and build the documentation.
+</p>
+
+<p>
+The best way to have a basic idea of Docker is to think it like a chroot environment, as Chris Tankersley stated in his <a href="https://leanpub.com/dockerfordevs">Docker for Developers</a>.
+And two basic concepts of Docker are image and container, containers to images are what objects to classes as in OOP terminology.
+</p>
+
+<p>
+The instructions for building a Docker image are put in a <code>Dockerfile</code>, every command builds a new layer on top of the previous one so that I can build my image "on the shoulders of giants".
+</p>
+
+<p>
+The final Dockerfiles for testing Qtile and building its documentation are hosted at <a href="https://github.com/whatacold/qtile-docker">https://github.com/whatacold/qtile-docker</a>, there is a brief README there about how to build them and use them.</p>
+<div class="taglist"><a href="tags.html">Tags:</a> <a href="tag-docker.html">Docker</a> </div><div id="archive">
+<a href="archive.html">Other posts</a>
+</div>
+</div>
+</body>
+</html>
