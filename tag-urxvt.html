@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="alternate"
+      type="application/rss+xml"
+      href="https://whatacold.github.io/rss.xml"
+      title="RSS feed for https://whatacold.github.io/"/>
+<title>whatacold's blog site</title>
+<meta name="author" content="Guangwang Huang">
+<meta name="referrer" content="no-referrer">
+<link href= "static/style.css" rel="stylesheet" type="text/css" /></head>
+<body>
+<div id="preamble" class="status"><div class="header">
+<div class="sitelinks">
+    <a href="https://github.com/whatacold">GitHub</a> | <a href="https://stackoverflow.com/users/910978/whatacold">Stack Overflow</a> | <a href="mailto:whatacold@gmail.com">Email</a> | <a href="/rss.xml">RSS</a>
+</div></div>
+<div id="content">
+<h1 class="title">Posts tagged "urxvt":</h1>
+<div class="post-date">25 Nov 2019</div><h1 class="post-title"><a href="2019-11-25-start-a-new-terminal(urxvt)-at-current-buffer's-default-directory-on-emacs.html">Start a new terminal(urxvt) at current buffer's default-directory on Emacs</a></h1>
+<p>
+I have been really enjoying the more concentration workflow qtile, a tiling window manager, brings me, since I started using it a few months ago. I am more focus on the current task now as all the windows I care about are laid out on the same screen.
+</p>
+
+<p>
+As I get more used to qtile at every day's work, I noticed that I became more depend on short-life terminal sessions. Sometimes I need to quickly execute some commands on the current buffer on Emacs, such as searching text which having many matches and quit that terminal after I'm done. So I wondered what could be the best way to achieve that.
+</p>
+
+<p>
+At first, I think maybe I can bind some keys to qtile, which triggers a handler in Python to get the current directory of the current window, and then open a new terminal based on that directory. The problem is how to get the current directory of any window, so I suspend as there isn't a good way to do that.
+</p>
+
+<p>
+A few days later, I realized that I can just open a terminal from inside Emacs, where it's easy to get the current working directory with <code>default-directory</code>. (The idea was inspired by @ztlevi on Emacs China.) And then I found that I don't really have to open a terminal from any windows, but just from Emacs.
+</p>
+
+<p>
+With that idea, it didn't take much time to write a command to do that, which I name as <code>urxvt</code>:
+</p>
+<div class="org-src-container">
+<pre class="src src-elisp">(<span style="color: #2c3e50; font-style: italic;">defun</span> <span style="color: #9b59b6;">urxvt</span> ()
+  <span style="color: #16a085;">"Spawn a urxvt instance based on `</span><span style="color: #7f8c8d; font-style: italic;">default-directory</span><span style="color: #16a085;">' of current buffer."</span>
+  (<span style="color: #2c3e50; font-style: italic;">interactive</span>)
+  (<span style="color: #2c3e50; font-style: italic;">let</span> ((urxvt <span style="color: #16a085;">"urxvt256c-ml"</span>))
+    (start-process urxvt nil urxvt <span style="color: #16a085;">"-cd"</span> (expand-file-name <span style="color: #16a085;">"./"</span>))))
+</pre>
+</div>
+
+<p>
+Sometimes it's important to first clear your mind to figure out what exactly you want.
+</p>
+<div class="taglist"><a href="tags.html">Tags:</a> <a href="tag-tiling-wm.html">tiling-wm</a> <a href="tag-urxvt.html">urxvt</a> </div><div id="archive">
+<a href="archive.html">Other posts</a>
+</div>
+</div>
+</body>
+</html>
