@@ -4,7 +4,66 @@
 <title>whatacold's blog site</title>
 <description>whatacold's blog site</description>
 <link>https://whatacold.github.io/</link>
-<lastBuildDate>Tue, 26 Nov 2019 22:46:13 +0800</lastBuildDate>
+<lastBuildDate>Sun, 01 Dec 2019 16:01:55 +0800</lastBuildDate>
+<item>
+  <title>Why can't Git fetch remote branches other than master?</title>
+  <description><![CDATA[
+<p>
+Last week I came into a problem with Git, that I can't fetch the remote branch that I pushed to. It was so weird because I can push the local branch there. It never happens before, and it happened when I was in a rush to rebase my code, as someone in my team pushed his code.
+</p>
+
+<p>
+After searching, it seemed that the configuration of <code>fetch</code> of that repo was different(this <a href="https://stackoverflow.com/questions/11623862/fetch-in-git-doesnt-get-all-branches">Stack Overflow</a> thread for example) than before, it was specified that only <code>master</code> can be fetched. It worked after I changed it to <code>+refs/heads/*:refs/remotes/origin/*</code>.
+</p>
+
+<p>
+I reflected why it happened after work, the only difference I can remember was that I clone that repo with the option <code>--depth &lt;N&gt;</code>, that is, it was a shallow clone to save disk space.
+</p>
+
+<p>
+Today I had some time at hand, and I confirmed that the option is the problem by reading the git-clone(1) manpage, it notes that:
+</p>
+<pre class="example">
+--depth &lt;depth&gt;
+    Create a shallow clone with a history truncated to the specified number of commits. Implies --single-branch unless
+    --no-single-branch is given to fetch the histories near the tips of all branches.
+</pre>
+
+<p>
+Let's demonstrate it by cloning my dotfiles repo with different options, and it shows clearly that Git will only fetch <code>master</code> of the remote repo if only specifying <code>--depth</code>:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-shell">$ cd /tmp/
+$ git clone --depth 1 https://github.com/whatacold/dotfiles.git dotfiles-depth1
+$ git clone --no-single-branch --depth 1 https://github.com/whatacold/dotfiles.git dotfiles-no-single-branch
+$ git clone https://github.com/whatacold/dotfiles.git dotfiles-full
+
+$ grep <span style="color: #16a085;">'remote "origin"'</span> -A 2 dotfiles-depth1/.git/config 
+[remote <span style="color: #16a085;">"origin"</span>]
+    <span style="color: #3498db;">url</span> = https://github.com/whatacold/dotfiles.git
+    <span style="color: #3498db;">fetch</span> = +refs/heads/master:refs/remotes/origin/master
+
+$ grep <span style="color: #16a085;">'remote "origin"'</span> -A 2 dotfiles-no-single-branch/.git/config 
+[remote <span style="color: #16a085;">"origin"</span>]
+    <span style="color: #3498db;">url</span> = https://github.com/whatacold/dotfiles.git
+    <span style="color: #3498db;">fetch</span> = +refs/heads/*:refs/remotes/origin/*
+
+$ grep <span style="color: #16a085;">'remote "origin"'</span> -A 2 dotfiles-full/.git/config
+[remote <span style="color: #16a085;">"origin"</span>]
+    <span style="color: #3498db;">url</span> = https://github.com/whatacold/dotfiles.git
+    <span style="color: #3498db;">fetch</span> = +refs/heads/*:refs/remotes/origin/*
+</pre>
+</div>
+
+<p>
+I don't know why <code>--single-branch</code> should be implied by default, at least for me, I just want to fetch all the remote branches.
+</p>
+<div class="taglist"><a href="tags.html">Tags:</a> <a href="tag-git.html">Git</a> </div>]]></description>
+  <category>Git</category>
+  <link>https://whatacold.github.io/2019-12-01-why-can't-git-fetch-remote-branches-other-than-master.html</link>
+  <pubDate>Sun, 01 Dec 2019 16:00:00 +0800</pubDate>
+</item>
 <item>
   <title>Start a new terminal(urxvt) at current buffer's default-directory on Emacs</title>
   <description><![CDATA[
