@@ -6,17 +6,17 @@
       type="application/rss+xml"
       href="https://whatacold.github.io/rss.xml"
       title="RSS feed for https://whatacold.github.io/"/>
-<title>whatacold's blog site</title>
+<title>Manage SSH connections with =~/.ssh/config=</title>
 <meta name="author" content="Guangwang Huang">
 <meta name="referrer" content="no-referrer">
 <link href= "static/style.css" rel="stylesheet" type="text/css" /></head>
 <body>
-<div id="preamble" class="status"><div class="header">
+<div id="preamble" class="status">
+<div class="header">
 <div class="sitelinks">
     <a href="https://github.com/whatacold">GitHub</a> | <a href="https://stackoverflow.com/users/910978/whatacold">Stack Overflow</a> | <a href="mailto:whatacold@gmail.com">Email</a> | <a href="/rss.xml">RSS</a>
 </div></div>
 <div id="content">
-<h1 class="title">Posts tagged "Tools":</h1>
 <div class="post-date">22 Dec 2019</div><h1 class="post-title"><a href="2019-12-22-manage-ssh-connections-with-ssh-config.html">Manage SSH connections with =~/.ssh/config=</a></h1>
 <nav id="table-of-contents">
 <h2>Table of Contents</h2>
@@ -113,83 +113,7 @@ Host *
 </div>
 </div>
 </div>
-<div class="taglist"><a href="tags.html">Tags:</a> <a href="tag-tools.html">Tools</a> <a href="tag-tiling-wm.html">tiling-wm</a> </div>
-<div class="post-date">18 Aug 2019</div><h1 class="post-title"><a href="2019-08-18-how-to-rename-web-page-titles-in-a-lightweight-way.html">How to rename web page titles in a lightweight way</a></h1>
-<p>
-There are times that I need to open many web pages of some specific websites within a browser, there are so many tabs that I can't efficiently access one of them, as their favicons are all the same.
-</p>
-
-<p>
-So I tried to find a way to rename their titles, preferably in a lightweight way, so that I can spot them quickly with my eyes.
-</p>
-
-<p>
-The first thought came into my mind was to find some extensions to do the job. It was easy to install one with no time. But I was not very happy with the experience. It seems that it keeps the rule of renaming titles based on the URL so that the title will always be renamed if I refreshing it, which is not what I want. I'd rather want to do it in an ad-hoc way.
-</p>
-
-<p>
-Then I thought maybe it can be simply done with a bookmarklet, nevertheless, it's just a simple JavaScript statement of <code>document.title = "nice-title"</code>. With that in my mind, it didn't take me much time to write this bookmarklet:
-</p>
-<div class="org-src-container">
-<pre class="src src-js">javascript:
-(<span style="color: #2c3e50; font-style: italic;">function</span> ()
- {
-     <span style="color: #2c3e50; font-style: italic;">var</span> <span style="color: #3498db;">title</span> = window.prompt(<span style="color: #16a085;">"Enter new title: "</span>, <span style="color: #16a085;">""</span>);
-     <span style="color: #2c3e50; font-style: italic;">if</span> (title)
-     {
-         document.title= title;
-     }
- })()
-</pre>
-</div>
-<div class="taglist"><a href="tags.html">Tags:</a> <a href="tag-tools.html">Tools</a> </div>
-<div class="post-date">06 Jul 2019</div><h1 class="post-title"><a href="2019-07-06-render-erd-on-the-web.html">Preview erd on the web</a></h1>
-<p>
-If you ever wonder how to plot ER diagrams in plain text, you may have already heard of <a href="https://github.com/BurntSushi/erd">erd</a>.
-It's a cool command line program written by Andrew Gallant in Haskell, to "compile" plain text files into nicely looking images,
-leveraging the power of GraphViz.
-</p>
-
-<p>
-I've used erd for some time, it's cool and the syntax is quite simple.
-It's also quite simple to install it on Linux, just install GraphViz and erd itself,
-by following the instructions in the README page.
-</p>
-
-<p>
-But there are times that there isn't an erd environment at hand:
-</p>
-<ul class="org-ul">
-<li>erd is hard to install, or we don't have the permission to install it.</li>
-<li>I shared the plain text file with my teammates, but they didn't know how to convert it to an image.</li>
-</ul>
-
-<p>
-So I think maybe it's useful to have a web application that folks can try it out online,
-here it is: <a href="https://serene-forest-18642.herokuapp.com/">erd-repl</a> , a simple Flask application hosted on Heroku.
-Although the name REPL, it's far from being a REPL, I think that a REPL helps ease the learning process, be it Emacs REPL, or Python REPL, as it gives you feedback as you type.
-</p>
-
-<p>
-It's so simple that there isn't any user authentication mechanism, and here are some caveats:
-</p>
-<ul class="org-ul">
-<li>the "source code" of plain text is simply stored in the browser cookie, together with your id.</li>
-<li>no edit features, you need to edit it somewhere, e.g. Emacs, and then copied to erd-repl if it's complex, to prevent data loss.</li>
-<li>only one image is stored per one user.</li>
-<li>imaged will be cleared if being not touched for a few days</li>
-</ul>
-
-<p>
-After hosting it on Heroku, I found that there is an <a href="https://github.com/BurntSushi/erd/issues/1">issue</a> discussing hosting a web service of erd on GitHub,
-take a look too if you're interested.
-</p>
-
-<p>
-P.S. I know the UI is ugly. I have basic knowledge of CSS, but I just don't have the sense to layout elements properly, what materials/practices would you recommend improving my front end skill at this stage? or any tips on the UI itself?</p>
-<div class="taglist"><a href="tags.html">Tags:</a> <a href="tag-python.html">Python</a> <a href="tag-tools.html">Tools</a> </div><div id="archive">
-<a href="archive.html">Other posts</a>
-</div>
-</div>
+<div class="taglist"><a href="tags.html">Tags:</a> <a href="tag-tools.html">Tools</a> <a href="tag-tiling-wm.html">tiling-wm</a> </div></div>
+<div id="postamble" class="status"></div>
 </body>
 </html>

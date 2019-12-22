@@ -17,6 +17,103 @@
 </div></div>
 <div id="content">
 <h1 class="title">Posts tagged "tiling-wm":</h1>
+<div class="post-date">22 Dec 2019</div><h1 class="post-title"><a href="2019-12-22-manage-ssh-connections-with-ssh-config.html">Manage SSH connections with =~/.ssh/config=</a></h1>
+<nav id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#org2cb9538">1. How To Configure Connections</a></li>
+<li><a href="#org5833707">2. How To Use Identity Files</a></li>
+<li><a href="#orga1a8658">3. Common Configurations</a></li>
+</ul>
+</div>
+</nav>
+<p>
+I used to manage SSH connection with such GUI apps as MobaXterm, when I wrote code on Windows at work. As I changed my workflow to use a tiling window manager in a VirtualBox guest OS, I continued to improve my way of managing SSH connections, which I want to share here if you don't know yet.
+</p>
+
+<p>
+At first, I baked a helper Python script, which I named as qssh for "quick ssh", to help me assemble ssh arguments for me(such as username, Ip, port, etc.), so that I can easily access a host by giving it only one argument, e.g. <code>qssh foo</code>.
+</p>
+
+<p>
+Then as I understood it more, I surprisingly found that <code>ssh</code> itself can be configured to do that by just configuring <code>~/.ssh/config</code>. I wish I knew it from day one. Together with identity files, it's very easy to login remote host, copy files between hosts using <code>scp</code>.
+</p>
+
+<div id="outline-container-org2cb9538" class="outline-2">
+<h2 id="org2cb9538"><span class="section-number-2">1</span> How To Configure Connections</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+For every SSH connection, there are some specific arguments like IP, port, user name, etc. Let's assume there is a host with IP <code>10.1.2.3</code>, and I can ssh into it with <code>whatacold</code> as name and <code>foo123</code> as the password at port 2234. I had to type <code>ssh -p 2234 whatacold@10.1.2.3</code> literally, which is too many keys to type.
+</p>
+
+<p>
+Actually, all these connection details can be put in <code>~/.ssh/config</code> like below, it's organized in sections per hosts:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-conf">Host new-test
+     Hostname 10.1.2.3
+     Port 2234
+     User whatacold
+     IdentityFile ~/.ssh/id_dev
+</pre>
+</div>
+
+<p>
+Now I can do things straightly in a higher level:
+</p>
+<ol class="org-ol">
+<li><code>ssh new-test</code>, log in that host</li>
+<li><code>ssh new-test date</code>, log in it and run a command there</li>
+<li><code>scp /tmp/a.log new-test:/tmp</code>, copy a file to it</li>
+<li><code>rsync -e ssh /tmp/foo /tmp/</code>, even let <code>rsync</code> sync files over SSH</li>
+</ol>
+
+<p>
+There is one that hasn't be mentioned is <code>IdentityFile</code>, which means I can log in that host using public key authentication, so that I don't have to type a password when logging in the host anymore, which really smooths the workflow.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org5833707" class="outline-2">
+<h2 id="org5833707"><span class="section-number-2">2</span> How To Use Identity Files</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+First, generate a pair of keys if you haven't done yet, for example, <code>ssh-keygen -t rsa -b 4096 -f ~/.ssh/id_dev</code>, hit Enter when it prompts you to enter a password(using no password).
+</p>
+
+<p>
+Then copy the public key to the remote host by executing <code>ssh-copy-id -i ~/.ssh/id_dev new-test</code>, it will append the key to <code>~/.ssh/authorized_keys</code> file there.
+</p>
+
+<p>
+Now you can log in that host without entering passwords, try it with, for example, <code>ssh new-test ifconfig</code> to see if it prints the remote host's IP.
+</p>
+
+<p>
+(I still remember that I used to write a helper <code>expect</code> script to save me from typing passwords every time, it worked but it's not as simple and convenient as <code>~/.ssh/config</code>.)
+</p>
+</div>
+</div>
+
+<div id="outline-container-orga1a8658" class="outline-2">
+<h2 id="orga1a8658"><span class="section-number-2">3</span> Common Configurations</h2>
+<div class="outline-text-2" id="text-3">
+<p>
+If there are some common configurations for every host, they can be put under a default "section" named <code>Host *</code>. For example, I want to keep alive the connections, so I have these directives for all hosts:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-conf"><span style="color: #95a5a6; font-style: italic;"># </span><span style="color: #95a5a6; font-style: italic;">Default settings for all hosts</span>
+Host *
+    ServerAliveInterval 10
+    ServerAliveCountMax 100
+</pre>
+</div>
+</div>
+</div>
+<div class="taglist"><a href="tags.html">Tags:</a> <a href="tag-tools.html">Tools</a> <a href="tag-tiling-wm.html">tiling-wm</a> </div>
 <div class="post-date">25 Nov 2019</div><h1 class="post-title"><a href="2019-11-25-start-a-new-terminal(urxvt)-at-current-buffer's-default-directory-on-emacs.html">Start a new terminal(urxvt) at current buffer's default-directory on Emacs</a></h1>
 <p>
 I have been really enjoying the more concentration workflow qtile, a tiling window manager, brings me, since I started using it a few months ago. I am more focus on the current task now as all the windows I care about are laid out on the same screen.
