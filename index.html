@@ -17,6 +17,154 @@
 </div></div>
 <div id="content">
 
+<div class="post-date">04 Feb 2020</div><h1 class="post-title"><a href="2020-02-04-binary-search-algorithm-is-also-an-efficient-strategy-for-narrowing-down-problem-space.html">The binary search algorithm is also an efficient strategy for narrowing down problem space</a></h1>
+<p>
+<a href="https://en.wikipedia.org/wiki/Binary_search_algorithm">Binary search algorithm</a> is a search algorithm that finds the position of a target value within a sorted array. It cuts off the target array in half in a pass, so that it has a worst-case performance of <code>O(log n)</code>.
+</p>
+
+
+<figure>
+<object type="image/svg+xml" data="https://upload.wikimedia.org/wikipedia/commons/8/83/Binary_Search_Depiction.svg" class="org-svg">
+Sorry, your browser does not support SVG.</object>
+
+<figcaption><span class="figure-number">Figure 1: </span>Visualization of the binary search algorithm where 7 is the target value(@wikipedia)</figcaption>
+</figure>
+
+<p>
+We all know that it's an efficient searching algorithm, but the strategy behind it also applies for narrowing down other problem space, for example, finding out when a bug is first introduced in a series of git commits.
+</p>
+
+<p>
+Let's say I have a git repo of 8 commits, the first 5 of which are good, but then the 6th commit introduces a bug, so I have a git commit history looks like below:
+</p>
+<pre class="example">
+ |g|g|g|g|g|b|b|b|
+---------------------&gt; the git commit history
+</pre>
+
+<p>
+So I know that the first commit is good and the last (8th) commit is bad (these are initial problem space), by leveraging the strategy of binary search, it can quickly find out that the 6th commit is the first bad commit. (Check the 4th element first, then the 6th.)
+</p>
+
+<p>
+Well, that's basically how <code>git bisect</code> works, and it's more powerful, it can be run with a script to determine if current commit is good or not, saving time to verify it manually.
+</p>
+
+<p>
+Recently, I managed to use <code>git bisect</code> to find out a recession bug <a href="https://github.com/qtile/qtile/issues/1410">(#1410)</a> of qtile, which reports that <code>qtile-cmd</code> doesn't work anymore which the HEAD commit (<code>0617235c</code>), but it works with tag <code>v0.14.2</code>.
+</p>
+
+<p>
+With those in mind, here are the steps to catch the first bad commit:
+</p>
+<ol class="org-ol">
+<li><p>
+Start the bisect session: <code>git bisect start 0617235c v0.14.2</code>
+</p>
+
+<pre class="example">
+$ git bisect start 0617235c v0.14.2
+Bisecting: 88 revisions left to test after this (roughly 7 steps)
+[082e4c7248ac40b69dbe94cfdc4de6aecc5f74ba] Fix debian version
+</pre></li>
+
+<li><p>
+Make a judge script(attached at the end) and find out the commit by running <code>git bisect run ./scripts/git-bisect-judge</code>
+</p>
+
+<p>
+It only takes git 6 steps to find the first broken commit, the output is following with qtile logs being removed:
+</p>
+<pre class="example">
+$ git bisect run ./scripts/git-bisect-judge
+running ./scripts/git-bisect-judge
+Bisecting: 44 revisions left to test after this (roughly 6 steps)
+[fdb3a324aadb0f934080a703d6835a9a7d203720] Delay power renormalization
+running ./scripts/git-bisect-judge
+...
+
+Bisecting: 21 revisions left to test after this (roughly 5 steps)
+[0262fbc2ca23d27fa33c4903d7e8a9b8c14d42eb] Move around modules
+running ./scripts/git-bisect-judge
+...
+
+Bisecting: 10 revisions left to test after this (roughly 4 steps)
+[a3ae3c623859b247813fc1876b188c4d40e84df0] Move calls out of the command graph
+running ./scripts/git-bisect-judge
+...
+
+Bisecting: 5 revisions left to test after this (roughly 3 steps)
+[036dbcb1b7c5c0fff00fbfbb9688597e2d2f188c] Add tests to the command graph
+running ./scripts/git-bisect-judge
+...
+
+Bisecting: 2 revisions left to test after this (roughly 1 step)
+[9c3c78ca66905b4e11bfd7a155cfe883cbe12ad6] Create new command graph
+running ./scripts/git-bisect-judge
+...
+
+Bisecting: 0 revisions left to test after this (roughly 0 steps)
+[ed5eefbf3482481c1f0f4c1cb2eb79e571fec835] Use correct type annotations in IPC module
+running ./scripts/git-bisect-judge
+...
+
+ed5eefbf3482481c1f0f4c1cb2eb79e571fec835 is the first bad commit
+commit ed5eefbf3482481c1f0f4c1cb2eb79e571fec835
+Author: Sean Vig &lt;sean.v.775@gmail.com&gt;
+Date:   Wed Jun 19 22:33:45 2019 -0400
+
+    Use correct type annotations in IPC module
+
+    With python/typeshed#3061 making it into the most recent release of
+    mypy, remove the hacks on the type annotations around the marshal
+    module.
+
+:040000 040000 d21cc05b503a0f4658647adad3169efbd84eaa16 f80f29304abd86da9299dfaf22f6719698a37e63 M	libqtile
+bisect run success
+</pre></li>
+
+<li>End the session by running <code>git bisect reset</code>, git will restores your previouse HEAD commit.</li>
+</ol>
+
+<p>
+The judge script <code>git-bisect-judege</code> is below:
+</p>
+<div class="org-src-container">
+<pre class="src src-bash"><span style="color: #95a5a6; font-style: italic;">#</span><span style="color: #95a5a6; font-style: italic;">!/bin/</span><span style="color: #2c3e50; font-style: italic;">sh</span>
+
+<span style="color: #3498db;">HERE</span>=$(dirname $(readlink -f $<span style="color: #3498db;">0</span>))
+<span style="color: #3498db;">SCREEN_SIZE</span>=${<span style="color: #3498db;">SCREEN_SIZE</span>:-1000x800}
+<span style="color: #3498db;">XDISPLAY</span>=${<span style="color: #3498db;">XDISPLAY</span>:-:1}
+<span style="color: #3498db;">LOG_LEVEL</span>=${<span style="color: #3498db;">LOG_LEVEL</span>:-DEBUG}
+<span style="color: #3498db;">LOG_LEVEL</span>=INFO
+<span style="color: #2c3e50; font-style: italic;">if</span> [[ -z $<span style="color: #3498db;">PYTHON</span> ]]; <span style="color: #2c3e50; font-style: italic;">then</span>
+    <span style="color: #3498db;">PYTHON</span>=python
+<span style="color: #2c3e50; font-style: italic;">fi</span>
+
+./scripts/ffibuild
+
+<span style="color: #3498db;">CLIENT</span>=<span style="color: #16a085;">"urxvt"</span>
+
+Xephyr +extension RANDR -screen ${<span style="color: #3498db;">SCREEN_SIZE</span>} ${<span style="color: #3498db;">XDISPLAY</span>} -ac &amp;
+<span style="color: #3498db;">XEPHYR_PID</span>=$<span style="color: #3498db;">!</span>
+sleep 0.5
+<span style="color: #2c3e50;">source</span> ~/workspace/virtualenv/qtile-devel/bin/activate
+env <span style="color: #3498db;">DISPLAY</span>=${<span style="color: #3498db;">XDISPLAY</span>} ${<span style="color: #3498db;">PYTHON</span>} <span style="color: #16a085;">"${HERE}"</span>/../bin/qtile -l ${<span style="color: #3498db;">LOG_LEVEL</span>} $<span style="color: #3498db;">@</span> &amp;
+<span style="color: #3498db;">QTILE_PID</span>=$<span style="color: #3498db;">!</span>
+
+<span style="color: #2c3e50;">export</span> <span style="color: #3498db;">DISPLAY</span>=${<span style="color: #3498db;">XDISPLAY</span>}
+<span style="color: #2c3e50;">cd</span> ~/workspace/python/qtile
+sleep 0.5
+./bin/qtile-cmd -o screen -f info
+<span style="color: #3498db;">EXIT_CODE</span>=$<span style="color: #3498db;">?</span>
+
+<span style="color: #2c3e50;">kill</span> -9 $<span style="color: #3498db;">QTILE_PID</span>
+<span style="color: #2c3e50;">kill</span> $<span style="color: #3498db;">XEPHYR_PID</span>
+
+<span style="color: #2c3e50; font-style: italic;">exit</span> $<span style="color: #3498db;">EXIT_CODE</span>
+</pre>
+</div>
+<div class="taglist"><a href="tags.html">Tags:</a> <a href="tag-git.html">Git</a> <a href="tag-troubleshooting.html">troubleshooting</a> </div>
 <div class="post-date">22 Dec 2019</div><h1 class="post-title"><a href="2019-12-22-manage-ssh-connections-with-ssh-config.html">Manage SSH connections with =~/.ssh/config=</a></h1>
 <nav id="table-of-contents">
 <h2>Table of Contents</h2>
@@ -217,64 +365,7 @@ The instructions for building a Docker image are put in a <code>Dockerfile</code
 
 <p>
 The final Dockerfiles for testing Qtile and building its documentation are hosted at <a href="https://github.com/whatacold/qtile-docker">https://github.com/whatacold/qtile-docker</a>, there is a brief README there about how to build them and use them.</p>
-<div class="taglist"><a href="tags.html">Tags:</a> <a href="tag-docker.html">Docker</a> </div>
-<div class="post-date">01 Oct 2019</div><h1 class="post-title"><a href="2019-10-01-reboot-tianyi-router-using-python-requests.html">用 Python Requests “一键”重启天翼路由器</a></h1>
-<p>
-不知道什么原因，我的网络有时候会很慢，而通过重启天翼网关路由器（版本 V1.0 ）大概率能够恢复。这样重启的次数多了之后会觉得有点繁琐，本着偷懒的原则，就想写一个脚本来自动重启，那样的话会“方便”很多。
-</p>
-
-<p>
-经过一番折腾，查看其控制台的网页代码，最后终于搞定。通过使用 <a href="https://requests.kennethreitz.org/en/master/">Python Requests</a> 库串联登录及重启两个步骤，达到“一键”自动重启路由器的目的。 Python 脚本如下：
-</p>
-
-<div class="org-src-container">
-<pre class="src src-python"><span style="color: #95a5a6; font-style: italic;">#</span><span style="color: #95a5a6; font-style: italic;">!/usr/bin/env python3</span>
-<span style="color: #95a5a6; font-style: italic;"># </span><span style="color: #95a5a6; font-style: italic;">-*- coding: utf-8 -*-</span>
-
-<span style="color: #2c3e50; font-style: italic;">import</span> requests
-<span style="color: #2c3e50; font-style: italic;">import</span> re
-
-<span style="color: #95a5a6; font-style: italic;"># </span><span style="color: #95a5a6; font-style: italic;">&#36825;&#37324;&#30340;&#37197;&#32622;&#65292;&#35831;&#25353;&#38656;&#20462;&#25913;&#12290;</span>
-<span style="color: #3498db;">DEVICE_IP</span>=<span style="color: #16a085;">"192.168.1.1"</span>
-<span style="color: #3498db;">USERNAME</span>=<span style="color: #16a085;">'admin'</span>
-<span style="color: #3498db;">PASSWORD</span>=<span style="color: #16a085;">'foobar'</span>
-
-<span style="color: #2c3e50; font-style: italic;">def</span> <span style="color: #9b59b6;">reboot</span>():
-<span style="background-color: #ecf0f1;"> </span>   <span style="color: #16a085;">'''Reboot the Tianyi Gateway automatically'''</span>
-<span style="background-color: #ecf0f1;"> </span>   <span style="color: #3498db;">s</span> = requests.Session()
-<span style="background-color: #ecf0f1;"> </span>   <span style="color: #3498db;">login_data</span> = <span style="color: #16a085;">"username={}&amp;password={}"</span>.<span style="color: #2c3e50;">format</span>(USERNAME, PASSWORD)
-<span style="background-color: #ecf0f1;"> </span>   <span style="color: #3498db;">response</span> = s.post(<span style="color: #16a085;">"http://{}/login.cgi"</span>.<span style="color: #2c3e50;">format</span>(DEVICE_IP), login_data)
-<span style="background-color: #ecf0f1;"> </span>   <span style="color: #3498db;">response_html</span> = response.text
-<span style="background-color: #ecf0f1;"> </span>   <span style="color: #3498db;">matches</span> = re.findall(<span style="color: #16a085;">'var mysessionid=([0-9]+);'</span>, response_html)
-<span style="background-color: #ecf0f1;"> </span>   <span style="color: #2c3e50; font-style: italic;">if</span> 1 != <span style="color: #2c3e50;">len</span>(matches):
-<span style="background-color: #ecf0f1;"> </span>   <span style="background-color: #ecf0f1;"> </span>   <span style="color: #2c3e50; font-style: italic;">raise</span> <span style="color: #16a085;">"No session id matched!"</span>
-
-<span style="background-color: #ecf0f1;"> </span>   <span style="color: #3498db;">session_id</span> = matches[0]
-<span style="background-color: #ecf0f1;"> </span>   <span style="color: #95a5a6; font-style: italic;"># </span><span style="color: #95a5a6; font-style: italic;">session_id = 1111 # It doesn't care what it REALLY is</span>
-<span style="background-color: #ecf0f1;"> </span>   <span style="color: #3498db;">response</span> = s.post(<span style="color: #16a085;">"http://{}/restartGateWay.json?sessionKey={}"</span>.<span style="color: #2c3e50;">format</span>(DEVICE_IP,
-<span style="background-color: #ecf0f1;"> </span>   <span style="background-color: #ecf0f1;"> </span>   <span style="background-color: #ecf0f1;"> </span>   <span style="background-color: #ecf0f1;"> </span>   <span style="background-color: #ecf0f1;"> </span>   <span style="background-color: #ecf0f1;"> </span>   <span style="background-color: #ecf0f1;"> </span>   <span style="background-color: #ecf0f1;"> </span>   <span style="background-color: #ecf0f1;"> </span>   <span style="background-color: #ecf0f1;"> </span>   <span style="background-color: #ecf0f1;"> </span>   <span style="background-color: #ecf0f1;"> </span>   <span style="background-color: #ecf0f1;"> </span>   <span style="background-color: #ecf0f1;"> </span>   <span style="background-color: #ecf0f1;"> </span>   <span style="background-color: #ecf0f1;"> </span>   <span style="background-color: #ecf0f1;"> </span>   <span style="background-color: #ecf0f1;"> </span>   <span style="background-color: #ecf0f1;"> </span>  session_id),
-<span style="background-color: #ecf0f1;"> </span>   <span style="background-color: #ecf0f1;"> </span>   <span style="background-color: #ecf0f1;"> </span>   <span style="background-color: #ecf0f1;"> </span>   <span style="background-color: #ecf0f1;"> </span>   <span style="background-color: #ecf0f1;"> </span> <span style="color: #16a085;">"action=restartGateWay&amp;actionid=8"</span>)
-<span style="background-color: #ecf0f1;"> </span>   <span style="color: #3498db;">text</span> = response.text <span style="color: #95a5a6; font-style: italic;"># </span><span style="color: #95a5a6; font-style: italic;">{ "status": "success", "actionid": "8" }</span>
-<span style="background-color: #ecf0f1;"> </span>   <span style="color: #3498db;">return_object</span> = response.json()
-<span style="background-color: #ecf0f1;"> </span>   <span style="color: #2c3e50; font-style: italic;">if</span> <span style="color: #16a085;">"success"</span> == return_object[<span style="color: #16a085;">"status"</span>]:
-<span style="background-color: #ecf0f1;"> </span>   <span style="background-color: #ecf0f1;"> </span>   <span style="color: #2c3e50; font-style: italic;">print</span>(<span style="color: #16a085;">"Device rebooted successfully, wait a minute!"</span>)
-<span style="background-color: #ecf0f1;"> </span>   <span style="color: #2c3e50; font-style: italic;">else</span>:
-<span style="background-color: #ecf0f1;"> </span>   <span style="background-color: #ecf0f1;"> </span>   <span style="color: #2c3e50; font-style: italic;">print</span>(<span style="color: #16a085;">"Failed to reboot the device, return json: {}"</span>.<span style="color: #2c3e50;">format</span>(text))
-
-<span style="color: #2c3e50; font-style: italic;">if</span> <span style="color: #2c3e50;">__name__</span> == <span style="color: #16a085;">'__main__'</span>:
-<span style="background-color: #ecf0f1;"> </span>   reboot()
-</pre>
-</div>
-
-<p>
-此脚本依赖 Python Requests 库，可以通过 <code>pip</code> 来安装；我使用 Python3 ，不过 Python2 应该也不会有太大问题。
-把上述脚本保存到文件中，比如 <code>~/bin/reboot-tianyi-gateway</code> ，并且增加可执行权限（ <code>chmod +x ~/bin/reboot-tianyi-gateway</code> ），在需要的时候在终端中执行 <code>~/bin/reboot-tianyi-gateway</code> 即可。 :)
-</p>
-
-<p>
-另外，正如注释中提到的，其实 <code>/restartGateWay.json</code> 这个是一个裸接口，并没有校验 <code>sessionKey</code> 的有效性；甚至登录接口在用户登录之后也不会设置 cookie ，所有的业务接口都是可以直接调用的，也就是说，登录界面只是一个摆设。 :(
-</p>
-<div class="taglist"><a href="tags.html">Tags:</a> <a href="tag-python.html">Python</a> </div><div id="archive">
+<div class="taglist"><a href="tags.html">Tags:</a> <a href="tag-docker.html">Docker</a> </div><div id="archive">
 <a href="archive.html">Other posts</a>
 </div>
 </div>
