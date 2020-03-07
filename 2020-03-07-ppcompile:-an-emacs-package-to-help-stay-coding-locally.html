@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="alternate"
+      type="application/rss+xml"
+      href="https://whatacold.github.io/rss.xml"
+      title="RSS feed for https://whatacold.github.io/"/>
+<title>ppcompile: An Emacs Package to Help Stay Coding Locally</title>
+<meta name="author" content="Guangwang Huang">
+<meta name="referrer" content="no-referrer">
+<link href= "static/style.css" rel="stylesheet" type="text/css" /></head>
+<body>
+<div id="preamble" class="status">
+<div class="header">
+<div class="sitelinks">
+    <a href="https://github.com/whatacold">GitHub</a> | <a href="https://stackoverflow.com/users/910978/whatacold">Stack Overflow</a> | <a href="mailto:whatacold@gmail.com">Email</a> | <a href="/rss.xml">RSS</a>
+</div></div>
+<div id="content">
+<div class="post-date">07 Mar 2020</div><h1 class="post-title"><a href="2020-03-07-ppcompile:-an-emacs-package-to-help-stay-coding-locally.html">ppcompile: An Emacs Package to Help Stay Coding Locally</a></h1>
+<p>
+If you are a C/C++ programmer like me, you may experience jumping around different machines to write and compile your code, or you may write code on different machines for different projects, and scp/rsync/ftp the projects around. It works, but it's a bit tedious and takes too much burden on our brains.
+</p>
+
+<p>
+For example, say I have two projects that should be compiled on their compiling machines respectively. There are two obvious workflows for writing code for them "simultaneously":
+</p>
+<ol class="org-ol">
+<li><p>
+Write code locally, rsync files to their compiling machine and compile them, fix errors according to the compiling result.
+</p>
+
+<p>
+Pros: I have only one coding environment to maintain, and I have full control of it. Install packages? Start some services? No problem, just a few commands.
+</p>
+
+<p>
+Cons: I have to sync the source code, spot the errors by my eyes and fix them accordingly.
+</p></li>
+
+<li><p>
+Write code on the compiling machine, compile them and fix errors locally there, taking the advantage of <code>M-x next-error</code>.
+</p>
+
+<p>
+Pros: <code>M-x next-error</code> works like a charm to fix errors, just a piece of cake. Eye friendly.
+</p>
+
+<p>
+Cons: Several Emacs environment to maintain, and I don't always have the root privilege.
+</p></li>
+</ol>
+
+<p>
+So I was wondering if there is a way to take the good part of both approaches so that I have full privilege and fix compiling errors locally as if I were compiling locally? Well, the answer was yes, and <a href="https://github.com/whatacold/ppcompile">ppcompile</a> was my solution for it.
+</p>
+
+<p>
+<code>ppcompile</code> stands for ping-pong compile, as it works like playing ping-pong. First, it rsync's the files to the compiling machines ("ping"). Second, it gets the result back ("pong") and gets them fixed locally.
+</p>
+
+<p>
+It works now, and I hope it helps you too. :)
+</p>
+<div class="taglist"><a href="tags.html">Tags:</a> <a href="tag-emacs.html">Emacs</a> </div></div>
+<div id="postamble" class="status"></div>
+</body>
+</html>

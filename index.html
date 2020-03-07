@@ -17,6 +17,52 @@
 </div></div>
 <div id="content">
 
+<div class="post-date">07 Mar 2020</div><h1 class="post-title"><a href="2020-03-07-ppcompile:-an-emacs-package-to-help-stay-coding-locally.html">ppcompile: An Emacs Package to Help Stay Coding Locally</a></h1>
+<p>
+If you are a C/C++ programmer like me, you may experience jumping around different machines to write and compile your code, or you may write code on different machines for different projects, and scp/rsync/ftp the projects around. It works, but it's a bit tedious and takes too much burden on our brains.
+</p>
+
+<p>
+For example, say I have two projects that should be compiled on their compiling machines respectively. There are two obvious workflows for writing code for them "simultaneously":
+</p>
+<ol class="org-ol">
+<li><p>
+Write code locally, rsync files to their compiling machine and compile them, fix errors according to the compiling result.
+</p>
+
+<p>
+Pros: I have only one coding environment to maintain, and I have full control of it. Install packages? Start some services? No problem, just a few commands.
+</p>
+
+<p>
+Cons: I have to sync the source code, spot the errors by my eyes and fix them accordingly.
+</p></li>
+
+<li><p>
+Write code on the compiling machine, compile them and fix errors locally there, taking the advantage of <code>M-x next-error</code>.
+</p>
+
+<p>
+Pros: <code>M-x next-error</code> works like a charm to fix errors, just a piece of cake. Eye friendly.
+</p>
+
+<p>
+Cons: Several Emacs environment to maintain, and I don't always have the root privilege.
+</p></li>
+</ol>
+
+<p>
+So I was wondering if there is a way to take the good part of both approaches so that I have full privilege and fix compiling errors locally as if I were compiling locally? Well, the answer was yes, and <a href="https://github.com/whatacold/ppcompile">ppcompile</a> was my solution for it.
+</p>
+
+<p>
+<code>ppcompile</code> stands for ping-pong compile, as it works like playing ping-pong. First, it rsync's the files to the compiling machines ("ping"). Second, it gets the result back ("pong") and gets them fixed locally.
+</p>
+
+<p>
+It works now, and I hope it helps you too. :)
+</p>
+<div class="taglist"><a href="tags.html">Tags:</a> <a href="tag-emacs.html">Emacs</a> </div>
 <div class="post-date">04 Feb 2020</div><h1 class="post-title"><a href="2020-02-04-binary-search-algorithm-is-also-an-efficient-strategy-for-narrowing-down-problem-space.html">The binary search algorithm is also an efficient strategy for narrowing down problem space</a></h1>
 <p>
 <a href="https://en.wikipedia.org/wiki/Binary_search_algorithm">Binary search algorithm</a> is a search algorithm that finds the position of a target value within a sorted array. It cuts off the target array in half in a pass, so that it has a worst-case performance of <code>O(log n)</code>.
@@ -170,9 +216,9 @@ sleep 0.5
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org2cb9538">1. How To Configure Connections</a></li>
-<li><a href="#org5833707">2. How To Use Identity Files</a></li>
-<li><a href="#orga1a8658">3. Common Configurations</a></li>
+<li><a href="#org0818382">1. How To Configure Connections</a></li>
+<li><a href="#orgc67ae6b">2. How To Use Identity Files</a></li>
+<li><a href="#org602c0f4">3. Common Configurations</a></li>
 </ul>
 </div>
 </nav>
@@ -188,8 +234,8 @@ At first, I baked a helper Python script, which I named as qssh for "quick ssh",
 Then as I understood it more, I surprisingly found that <code>ssh</code> itself can be configured to do that by just configuring <code>~/.ssh/config</code>. I wish I knew it from day one. Together with identity files, it's very easy to login remote host, copy files between hosts using <code>scp</code>.
 </p>
 
-<div id="outline-container-org2cb9538" class="outline-2">
-<h2 id="org2cb9538"><span class="section-number-2">1</span> How To Configure Connections</h2>
+<div id="outline-container-org0818382" class="outline-2">
+<h2 id="org0818382"><span class="section-number-2">1</span> How To Configure Connections</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 For every SSH connection, there are some specific arguments like IP, port, user name, etc. Let's assume there is a host with IP <code>10.1.2.3</code>, and I can ssh into it with <code>whatacold</code> as name and <code>foo123</code> as the password at port 2234. I had to type <code>ssh -p 2234 whatacold@10.1.2.3</code> literally, which is too many keys to type.
@@ -224,8 +270,8 @@ There is one that hasn't be mentioned is <code>IdentityFile</code>, which means 
 </div>
 </div>
 
-<div id="outline-container-org5833707" class="outline-2">
-<h2 id="org5833707"><span class="section-number-2">2</span> How To Use Identity Files</h2>
+<div id="outline-container-orgc67ae6b" class="outline-2">
+<h2 id="orgc67ae6b"><span class="section-number-2">2</span> How To Use Identity Files</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 First, generate a pair of keys if you haven't done yet, for example, <code>ssh-keygen -t rsa -b 4096 -f ~/.ssh/id_dev</code>, hit Enter when it prompts you to enter a password(using no password).
@@ -245,8 +291,8 @@ Now you can log in that host without entering passwords, try it with, for exampl
 </div>
 </div>
 
-<div id="outline-container-orga1a8658" class="outline-2">
-<h2 id="orga1a8658"><span class="section-number-2">3</span> Common Configurations</h2>
+<div id="outline-container-org602c0f4" class="outline-2">
+<h2 id="org602c0f4"><span class="section-number-2">3</span> Common Configurations</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 If there are some common configurations for every host, they can be put under a default "section" named <code>Host *</code>. For example, I want to keep alive the connections, so I have these directives for all hosts:
@@ -259,6 +305,9 @@ Host *
     ServerAliveCountMax 100
 </pre>
 </div>
+
+<p>
+Note that this default setting should be put at the end of the file, as it seems that the first matched directive of two <code>Host</code> wins if .</p>
 </div>
 </div>
 <div class="taglist"><a href="tags.html">Tags:</a> <a href="tag-tools.html">Tools</a> <a href="tag-tiling-wm.html">tiling-wm</a> </div>
@@ -347,25 +396,7 @@ With that idea, it didn't take much time to write a command to do that, which I 
 <p>
 Sometimes it's important to first clear your mind to figure out what exactly you want.
 </p>
-<div class="taglist"><a href="tags.html">Tags:</a> <a href="tag-tiling-wm.html">tiling-wm</a> <a href="tag-urxvt.html">urxvt</a> </div>
-<div class="post-date">07 Oct 2019</div><h1 class="post-title"><a href="2019-10-07-build-docker-images-for-qtile.html">Build Docker Images for Qtile</a></h1>
-<p>
-One of Docker's use cases is to set up identical development environments easily and quickly for a dev team.
-Recently, I had an opportunity to give it a try, and build Docker images for <a href="https://github.com/qtile/qtile">Qtile</a>, as it didn't have one yet as I get involved. With the images, it's easy to set up the environment to easily run the tests, and build the documentation.
-</p>
-
-<p>
-The best way to have a basic idea of Docker is to think it like a chroot environment, as Chris Tankersley stated in his <a href="https://leanpub.com/dockerfordevs">Docker for Developers</a>.
-And two basic concepts of Docker are image and container, containers to images are what objects to classes as in OOP terminology.
-</p>
-
-<p>
-The instructions for building a Docker image are put in a <code>Dockerfile</code>, every command builds a new layer on top of the previous one so that I can build my image "on the shoulders of giants".
-</p>
-
-<p>
-The final Dockerfiles for testing Qtile and building its documentation are hosted at <a href="https://github.com/whatacold/qtile-docker">https://github.com/whatacold/qtile-docker</a>, there is a brief README there about how to build them and use them.</p>
-<div class="taglist"><a href="tags.html">Tags:</a> <a href="tag-docker.html">Docker</a> </div><div id="archive">
+<div class="taglist"><a href="tags.html">Tags:</a> <a href="tag-tiling-wm.html">tiling-wm</a> <a href="tag-urxvt.html">urxvt</a> </div><div id="archive">
 <a href="archive.html">Other posts</a>
 </div>
 </div>
