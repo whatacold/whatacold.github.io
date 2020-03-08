@@ -25,6 +25,7 @@ If you are a C/C++ programmer like me, you may experience jumping around differe
 <p>
 For example, say I have two projects that should be compiled on their compiling machines respectively. There are two obvious workflows for writing code for them "simultaneously":
 </p>
+
 <ol class="org-ol">
 <li><p>
 Write code locally, rsync files to their compiling machine and compile them, fix errors according to the compiling result.
@@ -48,11 +49,19 @@ Pros: <code>M-x next-error</code> works like a charm to fix errors, just a piece
 
 <p>
 Cons: Several Emacs environment to maintain, and I don't always have the root privilege.
+</p>
+
+<p>
+Update: Tramp is a built-in package for editing remote files, which also falls into this category, although it's quite handy to edit single files like confs, at least for me.
 </p></li>
 </ol>
 
 <p>
-So I was wondering if there is a way to take the good part of both approaches so that I have full privilege and fix compiling errors locally as if I were compiling locally? Well, the answer was yes, and <a href="https://github.com/whatacold/ppcompile">ppcompile</a> was my solution for it.
+(Update: There is another option using <a href="https://github.com/libfuse/sshfs">sshfs</a>, which mounts the remote FS, it's a general and nice solution if you have a stable network.)
+</p>
+
+<p>
+So I was wondering if there is a way to take the good part of both approaches so that I have the full privilege and fix compiling errors locally as if I were compiling locally? Well, the answer was yes, and <a href="https://github.com/whatacold/ppcompile">ppcompile</a> was my solution for it.
 </p>
 
 <p>
@@ -60,8 +69,7 @@ So I was wondering if there is a way to take the good part of both approaches so
 </p>
 
 <p>
-It works now, and I hope it helps you too. :)
-</p>
+It works now, and I hope it helps you too. :)</p>
 <div class="taglist"><a href="tags.html">Tags:</a> <a href="tag-emacs.html">Emacs</a> </div>
 <div class="post-date">04 Feb 2020</div><h1 class="post-title"><a href="2020-02-04-binary-search-algorithm-is-also-an-efficient-strategy-for-narrowing-down-problem-space.html">The binary search algorithm is also an efficient strategy for narrowing down problem space</a></h1>
 <p>
