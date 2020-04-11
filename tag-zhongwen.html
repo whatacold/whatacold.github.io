@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="alternate"
+      type="application/rss+xml"
+      href="https://whatacold.github.io/rss.xml"
+      title="RSS feed for https://whatacold.github.io/"/>
+<title>whatacold's blog site</title>
+<meta name="author" content="Guangwang Huang">
+<meta name="referrer" content="no-referrer">
+<link href= "static/style.css" rel="stylesheet" type="text/css" />
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-74588785-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-74588785-1');
+</script>
+</head>
+<body>
+<div id="preamble" class="status"><div class="header">
+<div class="sitelinks">
+    <a href="https://github.com/whatacold">GitHub</a> | <a href="https://stackoverflow.com/users/910978/whatacold">Stack Overflow</a> | <a href="mailto:whatacold@gmail.com">Email</a> | <a href="/rss.xml">RSS</a>
+</div></div>
+<div id="content">
+<h1 class="title">Posts tagged "zhongwen":</h1>
+<div class="post-date">11 Apr 2020</div><h1 class="post-title"><a href="2020-04-11-use-ppcompile-to-remote-compile-in-emacs-zh.html">Emacs 中使用 ppcompile 进行远程编译</a></h1>
+<p>
+不同于 Python 之类的项目， C/C++ 的项目需要有专门的编译环境，一般国内公司都会搭建特定的编译环境机器，把一些私有的库等依赖放在上面。而这些编译环境的工具链一般都比较老旧，有的编译环境可能还无法访问外网，甚至也没有提供代理间接访问外网。因此想要在这样的环境中使用 Emacs 开发代码着实不是一件容易的事。
+</p>
+
+<p>
+一个可行的方法是在自己的工作机器上维护一个开发环境跑 Emacs ，需要编译的时候把代码同步到编译机器（使用 sshfs 、 sftp 等），编译过程中发现的编译问题，在本地修复好之后，再次同步，如此往复。
+</p>
+
+<p>
+但是有一个问题，整个流程太过繁琐，需要不停地手工同步。即使像 sshfs 这样无须同步的方式，在本地编辑时偶尔卡顿会比较明显。最让人无法接受的是，在修复编译的过程中，需要手工定位到具体的文件及行数，繁琐而且效率低。
+</p>
+
+<p>
+你可能会说为什么不用 Tramp 模式直接在远端的编译环境中直接编辑文件呢？的确， Tramp 编辑代码没有问题，体验也挺流畅的，但它无法解决你无法自由控制远端环境这个缺点，比如你想集成 <code>ag/rg</code> 到 Emacs 中，光安装程序可能就很折腾；而且如果公司有多套编译环境时，每个环境都维护 Emacs 会是一个麻烦。
+</p>
+
+<p>
+经过一段时间的摸索，我感觉自己还是比较喜欢在本地编辑然后同步代码编译这种方式，这个过程可以自动化。另外很重要的一点需求是，它需要能够像 <code>M-x compile</code> 那样在 Emacs 中很方便地使用 <code>M-x next-error</code> and <code>M-x previous-error</code> 来自动定位编译有问题的代码行，这样不仅提高修复编译错误的效率，还能保护视力。
+</p>
+
+<p>
+按照上述思路我最终写了这样一个小插件 <a href="https://github.com/whatacold/ppcompile">ppcompile</a> ， pp 二字代表 ping-pong ，表示每次编译就像打乒乓球一样。本地先发球，利用 rsync 把代码同步到远端，远端编译之后回球，然后本地再转换 <code>*compilation*</code> buffer 中远端的路径，这样 Emacs 就能够正确地识别编译错误，从而帮助我直接打开对应的错误文件及行数。
+</p>
+
+<p>
+使用方式上，只需要把 <code>ppcompile.el</code> 拷贝到 load-path 中进行加载，然后设置一些选项即可。具体可以参考项目 README 。当前提供以下几个命令：
+</p>
+<ol class="org-ol">
+<li><code>ppcompile-ping</code> 仅同步代码到远端</li>
+<li><code>ppcompile-pong</code> 仅在远端编译</li>
+<li><p>
+<code>ppcompile</code> 同步代码以及编译，即一次 ping-pong 往返。
+</p>
+
+<p>
+这个命令和 <code>ppcompile-pong</code> 命令在使用上同时考虑了 compile 命令的使用习惯，会遵循你的 <code>compilation-read-command</code> 设置决定是否编译时弹窗让你选择编译命令。
+</p></li>
+
+<li><code>ppcompile-config-project</code> 配置项目配置到根目录的 <code>.dir-locals.el</code> 中，主要是为了方便有很多项目时的个性化定制需求，否则直接配置全局的就可以了。</li>
+
+<li><code>ppcompile-toggle-debug</code> 调试开关命令，在开启的情况下会把当前执行的命令行打印到 <code>*Message*</code> 中。</li>
+</ol>
+
+<p>
+目前，我自己使用 ppcompile 已经没有什么问题了，它在最近的项目开发中帮我节省了不少精力，欢迎大家试用和使用 :)
+</p>
+<div class="taglist"><a href="tags.html">Tags:</a> <a href="tag-emacs.html">emacs</a> <a href="tag-zhongwen.html">zhongwen</a> </div><div id="archive">
+<a href="archive.html">Other posts</a>
+</div>
+</div>
+</body>
+</html>
