@@ -75,7 +75,497 @@
 <p>
 目前，我自己使用 ppcompile 已经没有什么问题了，它在最近的项目开发中帮我节省了不少精力，欢迎大家试用和使用 :)
 </p>
-<div class="taglist"><a href="tags.html">Tags:</a> <a href="tag-emacs.html">emacs</a> <a href="tag-zhongwen.html">zhongwen</a> </div><div id="archive">
+<div class="taglist"><a href="tags.html">Tags:</a> <a href="tag-emacs.html">emacs</a> <a href="tag-zhongwen.html">zhongwen</a> </div>
+<div class="post-date">01 Oct 2019</div><h1 class="post-title"><a href="2019-10-01-reboot-tianyi-router-using-python-requests.html">用 Python Requests “一键”重启天翼路由器</a></h1>
+<p>
+不知道什么原因，我的网络有时候会很慢，而通过重启天翼网关路由器（版本 V1.0 ）大概率能够恢复。这样重启的次数多了之后会觉得有点繁琐，本着偷懒的原则，就想写一个脚本来自动重启，那样的话会“方便”很多。
+</p>
+
+<p>
+经过一番折腾，查看其控制台的网页代码，最后终于搞定。通过使用 <a href="https://requests.kennethreitz.org/en/master/">Python Requests</a> 库串联登录及重启两个步骤，达到“一键”自动重启路由器的目的。 Python 脚本如下：
+</p>
+
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #95a5a6; font-style: italic;">#</span><span style="color: #95a5a6; font-style: italic;">!/usr/bin/env python3</span>
+<span style="color: #95a5a6; font-style: italic;"># </span><span style="color: #95a5a6; font-style: italic;">-*- coding: utf-8 -*-</span>
+
+<span style="color: #2c3e50; font-style: italic;">import</span> requests
+<span style="color: #2c3e50; font-style: italic;">import</span> re
+
+<span style="color: #95a5a6; font-style: italic;"># </span><span style="color: #95a5a6; font-style: italic;">&#36825;&#37324;&#30340;&#37197;&#32622;&#65292;&#35831;&#25353;&#38656;&#20462;&#25913;&#12290;</span>
+<span style="color: #3498db;">DEVICE_IP</span>=<span style="color: #16a085;">"192.168.1.1"</span>
+<span style="color: #3498db;">USERNAME</span>=<span style="color: #16a085;">'admin'</span>
+<span style="color: #3498db;">PASSWORD</span>=<span style="color: #16a085;">'foobar'</span>
+
+<span style="color: #2c3e50; font-style: italic;">def</span> <span style="color: #9b59b6;">reboot</span>():
+<span style="background-color: #ecf0f1;"> </span>   <span style="color: #16a085;">'''Reboot the Tianyi Gateway automatically'''</span>
+<span style="background-color: #ecf0f1;"> </span>   <span style="color: #3498db;">s</span> = requests.Session()
+<span style="background-color: #ecf0f1;"> </span>   <span style="color: #3498db;">login_data</span> = <span style="color: #16a085;">"username={}&amp;password={}"</span>.<span style="color: #2c3e50;">format</span>(USERNAME, PASSWORD)
+<span style="background-color: #ecf0f1;"> </span>   <span style="color: #3498db;">response</span> = s.post(<span style="color: #16a085;">"http://{}/login.cgi"</span>.<span style="color: #2c3e50;">format</span>(DEVICE_IP), login_data)
+<span style="background-color: #ecf0f1;"> </span>   <span style="color: #3498db;">response_html</span> = response.text
+<span style="background-color: #ecf0f1;"> </span>   <span style="color: #3498db;">matches</span> = re.findall(<span style="color: #16a085;">'var mysessionid=([0-9]+);'</span>, response_html)
+<span style="background-color: #ecf0f1;"> </span>   <span style="color: #2c3e50; font-style: italic;">if</span> 1 != <span style="color: #2c3e50;">len</span>(matches):
+<span style="background-color: #ecf0f1;"> </span>   <span style="background-color: #ecf0f1;"> </span>   <span style="color: #2c3e50; font-style: italic;">raise</span> <span style="color: #16a085;">"No session id matched!"</span>
+
+<span style="background-color: #ecf0f1;"> </span>   <span style="color: #3498db;">session_id</span> = matches[0]
+<span style="background-color: #ecf0f1;"> </span>   <span style="color: #95a5a6; font-style: italic;"># </span><span style="color: #95a5a6; font-style: italic;">session_id = 1111 # It doesn't care what it REALLY is</span>
+<span style="background-color: #ecf0f1;"> </span>   <span style="color: #3498db;">response</span> = s.post(<span style="color: #16a085;">"http://{}/restartGateWay.json?sessionKey={}"</span>.<span style="color: #2c3e50;">format</span>(DEVICE_IP,
+<span style="background-color: #ecf0f1;"> </span>   <span style="background-color: #ecf0f1;"> </span>   <span style="background-color: #ecf0f1;"> </span>   <span style="background-color: #ecf0f1;"> </span>   <span style="background-color: #ecf0f1;"> </span>   <span style="background-color: #ecf0f1;"> </span>   <span style="background-color: #ecf0f1;"> </span>   <span style="background-color: #ecf0f1;"> </span>   <span style="background-color: #ecf0f1;"> </span>   <span style="background-color: #ecf0f1;"> </span>   <span style="background-color: #ecf0f1;"> </span>   <span style="background-color: #ecf0f1;"> </span>   <span style="background-color: #ecf0f1;"> </span>   <span style="background-color: #ecf0f1;"> </span>   <span style="background-color: #ecf0f1;"> </span>   <span style="background-color: #ecf0f1;"> </span>   <span style="background-color: #ecf0f1;"> </span>   <span style="background-color: #ecf0f1;"> </span>   <span style="background-color: #ecf0f1;"> </span>  session_id),
+<span style="background-color: #ecf0f1;"> </span>   <span style="background-color: #ecf0f1;"> </span>   <span style="background-color: #ecf0f1;"> </span>   <span style="background-color: #ecf0f1;"> </span>   <span style="background-color: #ecf0f1;"> </span>   <span style="background-color: #ecf0f1;"> </span> <span style="color: #16a085;">"action=restartGateWay&amp;actionid=8"</span>)
+<span style="background-color: #ecf0f1;"> </span>   <span style="color: #3498db;">text</span> = response.text <span style="color: #95a5a6; font-style: italic;"># </span><span style="color: #95a5a6; font-style: italic;">{ "status": "success", "actionid": "8" }</span>
+<span style="background-color: #ecf0f1;"> </span>   <span style="color: #3498db;">return_object</span> = response.json()
+<span style="background-color: #ecf0f1;"> </span>   <span style="color: #2c3e50; font-style: italic;">if</span> <span style="color: #16a085;">"success"</span> == return_object[<span style="color: #16a085;">"status"</span>]:
+<span style="background-color: #ecf0f1;"> </span>   <span style="background-color: #ecf0f1;"> </span>   <span style="color: #2c3e50; font-style: italic;">print</span>(<span style="color: #16a085;">"Device rebooted successfully, wait a minute!"</span>)
+<span style="background-color: #ecf0f1;"> </span>   <span style="color: #2c3e50; font-style: italic;">else</span>:
+<span style="background-color: #ecf0f1;"> </span>   <span style="background-color: #ecf0f1;"> </span>   <span style="color: #2c3e50; font-style: italic;">print</span>(<span style="color: #16a085;">"Failed to reboot the device, return json: {}"</span>.<span style="color: #2c3e50;">format</span>(text))
+
+<span style="color: #2c3e50; font-style: italic;">if</span> <span style="color: #2c3e50;">__name__</span> == <span style="color: #16a085;">'__main__'</span>:
+<span style="background-color: #ecf0f1;"> </span>   reboot()
+</pre>
+</div>
+
+<p>
+此脚本依赖 Python Requests 库，可以通过 <code>pip</code> 来安装；我使用 Python3 ，不过 Python2 应该也不会有太大问题。
+把上述脚本保存到文件中，比如 <code>~/bin/reboot-tianyi-gateway</code> ，并且增加可执行权限（ <code>chmod +x ~/bin/reboot-tianyi-gateway</code> ），在需要的时候在终端中执行 <code>~/bin/reboot-tianyi-gateway</code> 即可。 :)
+</p>
+
+<p>
+另外，正如注释中提到的，其实 <code>/restartGateWay.json</code> 这个是一个裸接口，并没有校验 <code>sessionKey</code> 的有效性；甚至登录接口在用户登录之后也不会设置 cookie ，所有的业务接口都是可以直接调用的，也就是说，登录界面只是一个摆设。 :(
+</p>
+<div class="taglist"><a href="tags.html">Tags:</a> <a href="tag-python.html">Python</a> <a href="tag-zhongwen.html">zhongwen</a> </div>
+<div class="post-date">17 Feb 2019</div><h1 class="post-title"><a href="2019-02-03-emacs-kmacro-characters-repeated-bug.html">记一个 Emacs Keyboard Macro 输入字符重复的 Bug</a></h1>
+<p>
+工作中不时地会使用 Emacs keyboard macro 来解决重复性的编辑任务，
+但有时录制了再重放却出现输入的字符被重复了，导致出现非预期的结果。
+一般此时为了赶进度，只好忍了，放弃 keyboard macro ，通过其他方式编辑了。
+</p>
+
+<p>
+诡异的是等到有空闲的时候尝试重现却又重现不了，还一度以为是由于 keyboard macro 不支持输入 <code>M-x</code> 命令导致的，
+但又没看到其他 Emacser 提到有此限制。
+</p>
+
+<p>
+问题虽然偶尔才出现，但是一旦出现，工作流会被打断，很让人苦恼。
+好在春节期间终于被我重现出来了，在启用 <a href="https://github.com/tumashu/pyim">pyim</a> 输入法的情况下必现，比如在录制时输入 <code>nihao</code> 得到了 <code>你好</code> ，
+但是在 replay keyboard macro 的时候，得到的效果却相当于人工输入了 <code>nniihhaaoo</code> ，每个输入字符都被重复了一次，
+自然就没法得到 <code>你好</code> 二字，详细的重现步骤见这个 pyim <a href="https://github.com/tumashu/pyim/issues/247">issue</a> 。
+</p>
+
+<p>
+@tumashu 帮忙确认了 Emacs 自带的 quail-chinese 输入法也有此问题，建议我去 mailing list 问下看看。
+最后 Emacs maintainer Eli Zaretskii 在 <a href="http://lists.gnu.org/archive/html/bug-gnu-emacs/2019-02/msg00391.html">这个 thread</a> 告知半年前已经有人在 <a href="https://debbugs.gnu.org/cgi/bugreport.cgi?bug=32108">Bug #32108</a> 中报告了，
+且已经在 master 中修复了（ <a href="https://github.com/emacs-mirror/emacs/commit/03e3440dbbfea40b449a9f6f23a3630664275d11">commit 03e3440dbbfea40b449a9f6f23a3630664275d11</a> ），将会包含在 Emacs 27 发布中。
+</p>
+
+<p>
+修复原理大致是在内核中增加一个标记 <code>inhibit--record-char</code> ，由输入法根据情况设置为 <code>t/nil</code> ，
+当值为 <code>t</code> 时内核不会把事件记录到 <code>last-kbd-macro</code> 中（见 <code>record-char</code> 函数），
+这样输入法出于实现需要重放的用户输入字符，就不会被重复记录到 keyboard macro 中。
+</p>
+
+<p>
+Emacs 自带的输入法虽然已经解决了问题，但是 pyim 还没解决，接下来如果有时间再研究下如何解决（ Emacs 27 已经编译好了 :) ），
+在彻底解决之前，如果在录制 keyboard macro 时不需要输入中文，可以通过 <code>M-x toggle-input-method</code> 切换回英文输入来 workaround ，
+这样就能避开这个 bug ，继续用 keyboard macro 来编辑文本。</p>
+<div class="taglist"><a href="tags.html">Tags:</a> <a href="tag-emacs.html">Emacs</a> <a href="tag-zhongwen.html">zhongwen</a> </div>
+<div class="post-date">17 Feb 2019</div><h1 class="post-title"><a href="2019-01-13-understand-git-submodule.html">如何理解 Git submodule</a></h1>
+<p>
+Git 虽然很强大，但也有少数命令很难理解。
+submodule 就是这么一个例子，其文档教程也不少，比如 <a href="https://git-scm.com/book/en/v2/Git-Tools-Submodules">Git - Submodules - git-scm.com</a> ，
+但我之前始终没有真正领悟到如何使用。
+</p>
+
+<p>
+直到有天看了一条  <a href="https://stackoverflow.com/a/5814351/910978">StackOverflow Answer</a> ，茅塞顿开，才真正理解了 submodule 。
+</p>
+
+<p>
+submodule 涉及到两个仓库类型：
+</p>
+<dl class="org-dl">
+<dt>submodule</dt><dd>子模块，比如需要使用的第三方库</dd>
+<dt>superproject</dt><dd>主仓库，自己的工程，依赖子模块代码</dd>
+</dl>
+
+<p>
+Git submodule 本质上是两个独立的仓库，各自可以独立地像普通的 repo 一样操作。
+同时 superproject 有一个“指针”，记录了它使用的子模块的 commit revision 。
+这个“指针”对于从 SVN 转过来的同学来说会比较不适应，因为 SVN External 没有这个设计，
+所以 SVN 无法精确控制所使用的子模块 revision  ，更新主仓库时会自动更新其“子模块”的代码为最新的，
+如果“子模块”是外部的代码并且不稳定的话，会影响自己的代码。
+</p>
+
+<p>
+带着这个认知，在 superproject 中更新 submodule 的操作步骤示意如下：
+<img src="./images/2019-01-13-git-submodule-diagram.png" alt="2019-01-13-git-submodule-diagram.png">
+</p>
+
+<p>
+无论是 superproject 还是 submodule ，都像普通的 repo 一样进行 branch, add, push, diff 等等的操作，
+只是最后再通过 <code>git submodule</code> 命令再更新下新“指针”位置即可。</p>
+<div class="taglist"><a href="tags.html">Tags:</a> <a href="tag-git.html">Git</a> <a href="tag-zhongwen.html">zhongwen</a> </div>
+<div class="post-date">22 Dec 2018</div><h1 class="post-title"><a href="2018-12-22-c-cpp-devel-with-lsp-in-emacs.html">在 Emacs 中使用 LSP 开发 C/C++ 工程</a></h1>
+<p>
+写代码的时候，如果能够基于当前的上下文提示补全，不仅能提高写代码的效率，还能提升体验，有种行云流水的感觉。
+Emacs 中之前我用 gtags 等静态的工具来辅助写代码，最大的问题是无法根据上下文补全，体验不好。
+有了 LSP 协议之后， Emacs 中现在也能实现这个功能了，体验相当不错。
+前段时间折腾了一下，在此作个小结。
+</p>
+
+<p>
+目前 Emacs 上有两个客户端实现： <a href="https://github.com/joaotavora/eglot">eglot</a> 和 <a href="https://github.com/emacs-lsp/lsp-mode">lsp-mode</a> ，由于 eglot 相对比较简洁，只需要很少的配置，因此我就选它了（暂时还没试过 lsp-mode ，等有需要时再看）。
+</p>
+
+<p>
+对于服务端，目前有三个选择 clangd,  <a href="https://github.com/cquery-project/cquery">cquery</a> 和 <a href="https://github.com/MaskRay/ccls">ccls</a> ， ccls 是在 cquery 的基础之上 fork 改进的。
+clangd 安装最简单，但功能据说比较弱，我没有试过；一开始我在自己电脑上编译了 ccls ，再把二进制文件拷贝到公司机器，
+但是补全始终有问题（怀疑必须在使用的机器上编译，直接拷贝行不通），没有找到具体的原因；
+后来在公司机器上直接编译了 cquery ，可以补全，就没有再折腾 ccls 了。
+</p>
+
+<p>
+选定了客户端和服务端之后，接下来就是对具体工程的配置了， cquery 和 ccls 都要求工程根目录有 compilation database 或者 <code>.cquery</code> / <code>.ccls</code> 文件。
+由于我们的工程都是用 GNU Make 进行构建的，没法使用 <code>cmake</code> 直接生成 compilation database 。
+其他方案比如 <a href="https://github.com/rizsotto/Bear">Bear</a> ，由于我们的工具链太老，没有 <code>cmake</code> 无法编译 <code>Bear</code> ，因此也派不上用场。
+至此由于无法生成服务器的配置文件，看来似乎与 LSP 无缘了。
+</p>
+
+<p>
+后来有一天，突然想到可以直接自己解析 <code>make</code> 的输出（就用 Elisp ），解析 <code>Entering directory</code> , <code>Leaving directory</code> 以及 <code>g++</code> 编译的相关行，
+提取生成为 <code>compile_commands.json</code> ，这样就无须再依赖其他软件。
+但是此方法有一个缺点，在新增文件的时候，得人工在 json 文件中增加一条记录，比较麻烦，不易维护。
+</p>
+
+<p>
+其实此种情况下直接用 <code>.cquery</code> 文件最好，无需指定特定的源码文件，
+只需要配置编译选项以及头文件目录，因此新增文件时不需要修改。
+举一个 cquery wiki 中的 <a href="https://github.com/cquery-project/cquery/wiki/.cquery">例子</a> ：
+</p>
+
+<pre class="example">
+# it will expend to clang/clang++ according to the extension name
+%clang
+
+# C specific options
+%c -std=gnu11
+
+# C++ specific options
+%cpp -std=gnu++14
+-pthread
+
+# Includes
+-I/work/cquery/third_party
+-I/work/cquery/another_third_party
+# -I space_is_not_allowed
+</pre>
+
+
+<p>
+到此似乎万事俱备，可以愉快地写代码了，最终却发现还有一个问题：由于历史原因，我们的工程源码都是使用 GBK 编码的，
+但是 LSP 只支持 UTF-8 ，导致由于编码问题无法显示类、函数注释的问题，当时还在 eglot 提了一个 <a href="https://github.com/joaotavora/eglot/issues/135">issue</a> （其实不是 eglot 的问题）。
+</p>
+
+<p>
+为了解决这个问题想过几种方法：
+</p>
+<ol class="org-ol">
+<li>cquery 中在输出之前，把内容转为 UTF-8 编码（利用 <code>iconv</code> 库）</li>
+<li><code>eglot</code> 在解析服务端返回的数据时，根据指定的编码进行 decode</li>
+</ol>
+
+<p>
+第一种方法适用面太窄，因为 LSP 的实现还不是非常成熟，有时需要切换到 <code>ccls</code> 来体验，
+这就意味着得在 <code>ccls</code> 中也用 <code>iconv</code> 再转一道，太麻烦，不符合 <code>DRY</code> 的原则。
+</p>
+
+<p>
+第二种方法，需要在 <code>eglot.el</code> 和其依赖的低层通信库 <code>jsonrpc.el</code> 中同时服务端传回数据的编码方式。
+当时也实现了，后来觉得不是很直接、优雅，就没再继续用了。另外，如果有一天改用 lsp-mode ，
+那又需要在 lsp-mode 中做一遍类似的修改，同样也不符合 <code>DRY</code> 原则。
+</p>
+
+<p>
+最后使用了适配器的 <a href="https://github.com/whatacold/lsa">方案</a> ，使用 Python 3 实现，既不动客户端也不动服务端，在中间加一层，用于转换服务端的编码。
+这样就是一个比较通用的方案了，能适配所有的客户端和服务端。
+</p>
+
+<p>
+在 eglot 中根据项目的编码情况（通过 <code>.dir-locals.el</code> 区分）决定是否使用此适配器：
+</p>
+
+<div class="org-src-container">
+<pre class="src src-elisp">
+(<span style="color: #2c3e50; font-style: italic;">defcustom</span> <span style="color: #3498db;">ccls-init-args</span> nil
+  <span style="color: #16a085;">"Init args for ccls, e.g. '(:clang (:extraArgs (\"-std=c++03\")))"</span>)
+
+(<span style="color: #2c3e50; font-style: italic;">defcustom</span> <span style="color: #3498db;">eglot-ls-output-encoding</span> <span style="color: #16a085;">"utf-8"</span>
+  <span style="color: #16a085;">"The LS's output encoding"</span>)
+
+(<span style="color: #2c3e50; font-style: italic;">defcustom</span> <span style="color: #3498db;">eglot-cpp-ls</span> <span style="color: #16a085;">"cquery"</span>
+  <span style="color: #16a085;">"The language server for C/C++."</span>)
+
+(<span style="color: #2c3e50; font-style: italic;">defun</span> <span style="color: #9b59b6;">whatacold/eglot-ccls-contact</span> (interactive-p)
+  <span style="color: #16a085;">"A contact function to assemble args for ccls.</span>
+<span style="color: #16a085;">Argument INTERACTIVE-P indicates where it's called interactively."</span>
+  (<span style="color: #2c3e50; font-style: italic;">let</span> ((json-object-type 'plist)
+        (json-array-type 'list)
+        result)
+    (<span style="color: #2c3e50; font-style: italic;">cond</span> ((equal <span style="color: #16a085;">"ccls"</span> eglot-cpp-ls)
+           (<span style="color: #2c3e50; font-style: italic;">push</span> (format <span style="color: #16a085;">"-log-file=/tmp/ccls-%s.log"</span>
+                         (file-name-base
+                          (directory-file-name
+                           (car
+                            (project-roots
+                             (project-current))))))
+                 result)
+           (<span style="color: #2c3e50; font-style: italic;">when</span> ccls-init-args
+             (<span style="color: #2c3e50; font-style: italic;">push</span> (format <span style="color: #16a085;">"-init=%s"</span> (json-encode
+                                       ccls-init-args))
+                   result))
+           (<span style="color: #2c3e50; font-style: italic;">push</span> <span style="color: #16a085;">"ccls"</span> result))
+          ((equal <span style="color: #16a085;">"cquery"</span> eglot-cpp-ls)
+           (<span style="color: #2c3e50; font-style: italic;">setq</span> result (list <span style="color: #16a085;">"cquery"</span> <span style="color: #16a085;">"--log-all-to-stderr"</span>)))
+          (t <span style="color: #95a5a6; font-style: italic;">; </span><span style="color: #95a5a6; font-style: italic;">e.g. clangd</span>
+           (<span style="color: #2c3e50; font-style: italic;">push</span> eglot-cpp-ls result)))
+    <span style="color: #95a5a6; font-style: italic;">;; </span><span style="color: #95a5a6; font-style: italic;">apply the adapter if necessary</span>
+    (<span style="color: #2c3e50; font-style: italic;">unless</span> (equal eglot-ls-output-encoding <span style="color: #16a085;">"utf-8"</span>)
+      (<span style="color: #2c3e50; font-style: italic;">dolist</span> (item (reverse (list <span style="color: #16a085;">"lsa.py"</span>
+                                   (concat <span style="color: #16a085;">"--original-response-encoding="</span>
+                                           eglot-ls-output-encoding)
+                                   <span style="color: #16a085;">"--log-level=DEBUG"</span>
+                                   <span style="color: #16a085;">"--"</span>)))
+        (<span style="color: #2c3e50; font-style: italic;">push</span> item result)))
+    <span style="color: #95a5a6; font-style: italic;">;; </span><span style="color: #95a5a6; font-style: italic;">cquery should apply the specific class in eglot</span>
+    (<span style="color: #2c3e50; font-style: italic;">when</span> (equal <span style="color: #16a085;">"cquery"</span> eglot-cpp-ls)
+      (<span style="color: #2c3e50; font-style: italic;">push</span> 'eglot-cquery result))
+    result))
+
+(eval-after-load 'eglot
+  '(<span style="color: #2c3e50; font-style: italic;">progn</span>
+     (add-to-list 'eglot-server-programs
+                  (cons '(c-mode c++-mode foo-mode) #'whatacold/eglot-ccls-contact))))
+</pre>
+</div>
+
+<p>
+至此 LSP 基本可用了。</p>
+<div class="taglist"><a href="tags.html">Tags:</a> <a href="tag-emacs.html">Emacs</a> <a href="tag-c++.html">C++</a> <a href="tag-python.html">Python</a> <a href="tag-zhongwen.html">zhongwen</a> </div>
+<div class="post-date">10 Dec 2018</div><h1 class="post-title"><a href="2018-12-10-how-polymorphism-works-in-cpp.html">C++ 多态是如何实现的？</a></h1>
+<p>
+对于 OOP 编程，相信大家对于多态（ polymorphism ）肯定都耳熟能详。
+但是对于多态是如何实现的，我不知道大家是否清楚，但我发现自己并不是很了解，
+只知道在运行时通过一个 vtable 来确定应该调用哪个函数，
+实际上 vtable 真的存在吗？它是如何起作用的？
+</p>
+
+<p>
+首先我们来看下普通方法的调用情况，比如 <code>non-virtual-class.cpp</code> 有一个类及其方法调用：
+</p>
+
+<div class="org-src-container">
+<pre class="src src-c++"><span style="color: #2c3e50; font-style: italic;">class</span> <span style="color: #27ae60;">Base</span>
+{
+<span style="color: #2c3e50; font-style: italic;">public</span>:
+    <span style="color: #27ae60;">int</span> <span style="color: #9b59b6;">foo</span>() { <span style="color: #2c3e50; font-style: italic;">return</span> 1; }
+};
+
+<span style="color: #2c3e50; font-style: italic;">class</span> <span style="color: #27ae60;">Derived</span>
+{
+<span style="color: #2c3e50; font-style: italic;">public</span>:
+    <span style="color: #27ae60;">int</span> <span style="color: #9b59b6;">bar</span>() { <span style="color: #2c3e50; font-style: italic;">return</span> 2; }
+};
+
+<span style="color: #27ae60;">int</span> <span style="color: #9b59b6;">main</span>(<span style="color: #27ae60;">void</span>)
+{
+    <span style="color: #27ae60;">Derived</span> <span style="color: #3498db;">foo</span>;
+
+    <span style="color: #2c3e50; font-style: italic;">return</span> foo.bar();
+}
+</pre>
+</div>
+
+<p>
+<code>g++ -g -O0 non-virtual-class.cpp</code> 编译之后，用 <code>gdb a.out</code> 查看它的汇编代码：
+</p>
+
+<pre class="example">
+(gdb) disas main
+Dump of assembler code for function main():
+   0x00000000004004b6 &lt;+0&gt;:	push   %rbp
+   0x00000000004004b7 &lt;+1&gt;:	mov    %rsp,%rbp
+   0x00000000004004ba &lt;+4&gt;:	sub    $0x10,%rsp
+   0x00000000004004be &lt;+8&gt;:	lea    -0x1(%rbp),%rax               ; &amp;foo
+   0x00000000004004c2 &lt;+12&gt;:	mov    %rax,%rdi
+   0x00000000004004c5 &lt;+15&gt;:	callq  0x4004ce &lt;Derived::bar()&gt; ; 确定的函数地址
+   0x00000000004004ca &lt;+20&gt;:	nop
+   0x00000000004004cb &lt;+21&gt;:	leaveq 
+   0x00000000004004cc &lt;+22&gt;:	retq   
+End of assembler dump.
+(gdb) disas Derived::bar
+Dump of assembler code for function Derived::bar():
+   0x00000000004004ce &lt;+0&gt;:	push   %rbp
+   0x00000000004004cf &lt;+1&gt;:	mov    %rsp,%rbp
+   0x00000000004004d2 &lt;+4&gt;:	mov    %rdi,-0x8(%rbp)
+   0x00000000004004d6 &lt;+8&gt;:	mov    $0x2,%eax                     ; return 2
+   0x00000000004004db &lt;+13&gt;:	pop    %rbp
+   0x00000000004004dc &lt;+14&gt;:	retq   
+End of assembler dump.
+</pre>
+
+<p>
+可以发现与普通的 C 函数调用类似，编译之后就已经确定好了调用 <code>Foo::incrNum</code> 方法，
+除了把对象自身地址作为隐藏的第一个参数传入之外并没有什么不同。
+也就是说对于普通不含虚函数的类对象，在编译过程中就确定了其方法的调用，没有运行时开销。
+</p>
+
+<p>
+那么，在多态场景下，类方法的调用又是怎样的呢？这里还是从汇编的角度观察。
+以同样参数编译如下 <code>virtual-class-polymorphism.cpp</code> 文件，然后用 gdb 观察运行时信息：
+</p>
+
+<div class="org-src-container">
+<pre class="src src-c++"><span style="color: #2c3e50; font-style: italic;">class</span> <span style="color: #27ae60;">Base</span>
+{
+<span style="color: #2c3e50; font-style: italic;">public</span>:
+    <span style="color: #2c3e50; font-style: italic;">virtual</span> <span style="color: #27ae60;">void</span> <span style="color: #9b59b6;">foo</span>() {};
+};
+
+<span style="color: #2c3e50; font-style: italic;">class</span> <span style="color: #27ae60;">Derived</span> : <span style="color: #2c3e50; font-style: italic;">public</span> <span style="color: #27ae60;">Base</span>
+{
+<span style="color: #2c3e50; font-style: italic;">public</span>:
+    <span style="color: #27ae60;">void</span> <span style="color: #9b59b6;">foo</span>() {};
+};
+
+<span style="color: #27ae60;">int</span> <span style="color: #9b59b6;">main</span>(<span style="color: #27ae60;">void</span>)
+{
+    <span style="color: #27ae60;">Base</span> *<span style="color: #3498db;">p</span> = <span style="color: #2c3e50; font-style: italic;">new</span> <span style="color: #27ae60;">Derived</span>;
+    p-&gt;foo();
+
+    <span style="color: #2c3e50; font-style: italic;">return</span> 0;
+}
+</pre>
+</div>
+
+<p>
+这次我们通过在 GDB 运行时观察：
+</p>
+<pre class="example">
+;; 设置解析符号及断点，启动程序
+(gdb) set print asm-demangle on
+(gdb) set print demangle on
+(gdb) b main
+Breakpoint 1 at 0x40061f: file virtual-class-polymorphism.cpp, line 15.
+(gdb) r
+Starting program: /home/hgw/demo-code/cpp/vtable/a.out 
+Missing separate debuginfos, use: dnf debuginfo-install glibc-2.27-30.fc28.x86_64
+
+Breakpoint 1, main () at virtual-class-polymorphism.cpp:15
+15	    Base *p = new Derived;
+Missing separate debuginfos, use: dnf debuginfo-install libgcc-8.1.1-5.fc28.x86_64 libstdc++-8.1.1-5.fc28.x86_64
+(gdb) p p
+$1 = (Base *) 0x400530 &lt;_start&gt;
+(gdb) n
+16	    p-&gt;foo();
+
+(gdb) p p
+$2 = (Base *) 0x613e70
+(gdb) x/16xb p
+0x613e70:	0x40	0x07	0x40	0x00	0x00	0x00	0x00	0x00
+0x613e78:	0x00	0x00	0x00	0x00	0x00	0x00	0x00	0x00
+;; 可以看到对象中包含了一个 vptr ，指向 vtable 的一个偏移位置
+(gdb) p *p
+$3 = {_vptr.Base = 0x400740 &lt;vtable for Derived+16&gt;}
+
+;; 再看 vtable 中的内容，注意这里已经去掉了偏移量16
+;; 可以看到先是两个 vtable ，再是 typeinfo ， typeinfo name ，后两者是 RTTI 相关，本文暂不了解。
+(gdb) x/200xb 0x400730
+0x400730 &lt;vtable for Derived&gt;:	0x00	0x00	0x00	0x00	0x00	0x00	0x00	0x00
+0x400738 &lt;vtable for Derived+8&gt;:	0x60	0x07	0x40	0x00	0x00	0x00	0x00	0x00
+0x400740 &lt;vtable for Derived+16&gt;:	0x64	0x06	0x40	0x00	0x00	0x00	0x00	0x00
+0x400748 &lt;vtable for Base&gt;:	0x00	0x00	0x00	0x00	0x00	0x00	0x00	0x00
+0x400750 &lt;vtable for Base+8&gt;:	0x88	0x07	0x40	0x00	0x00	0x00	0x00	0x00
+0x400758 &lt;vtable for Base+16&gt;:	0x58	0x06	0x40	0x00	0x00	0x00	0x00	0x00
+0x400760 &lt;typeinfo for Derived&gt;:	0xa8	0x0d	0x60	0x00	0x00	0x00	0x00	0x00
+0x400768 &lt;typeinfo for Derived+8&gt;:	0x78	0x07	0x40	0x00	0x00	0x00	0x00	0x00
+0x400770 &lt;typeinfo for Derived+16&gt;:	0x88	0x07	0x40	0x00	0x00	0x00	0x00	0x00
+0x400778 &lt;typeinfo name for Derived&gt;:	0x37	0x44	0x65	0x72	0x69	0x76	0x65	0x64
+0x400780 &lt;typeinfo name for Derived+8&gt;:	0x00	0x00	0x00	0x00	0x00	0x00	0x00	0x00
+0x400788 &lt;typeinfo for Base&gt;:	0x50	0x0d	0x60	0x00	0x00	0x00	0x00	0x00
+0x400790 &lt;typeinfo for Base+8&gt;:	0x98	0x07	0x40	0x00	0x00	0x00	0x00	0x00
+0x400798 &lt;typeinfo name for Base&gt;:	0x34	0x42	0x61	0x73	0x65	0x00	0x00	0x00
+0x4007a0:	0x01	0x1b	0x03	0x3b	0x5c	0x00	0x00	0x00
+;; 这里省略一些无意义的输出
+
+;; 查看 &lt;vtable for Derived+16&gt; 地址中存储的内容，可以看到就是函数指针
+(gdb) info symbol 0x400664
+Derived::foo() in section .text of /home/hgw/demo-code/cpp/vtable/a.out
+;; 查看 &lt;vtable for Derived+8&gt; 地址中存储的内容，指向 typeinfo 内存位置
+(gdb) info symbol 0x400760
+typeinfo for Derived in section .rodata of /home/hgw/demo-code/cpp/vtable/a.out
+</pre>
+
+<p>
+现在再回过头来看静态的汇编代码，就容易理解了：
+</p>
+<pre class="example">
+(gdb) disas main
+Dump of assembler code for function main():
+   0x0000000000400616 &lt;+0&gt;:	push   %rbp
+   0x0000000000400617 &lt;+1&gt;:	mov    %rsp,%rbp
+   0x000000000040061a &lt;+4&gt;:	push   %rbx
+   0x000000000040061b &lt;+5&gt;:	sub    $0x18,%rsp
+   0x000000000040061f &lt;+9&gt;:	mov    $0x8,%edi                         ; sizeof Derived 变为了 8 字节
+   0x0000000000400624 &lt;+14&gt;:	callq  0x400520 &lt;_Znwm@plt&gt;          ; new 对象
+   0x0000000000400629 &lt;+19&gt;:	mov    %rax,%rbx                     ; 地址 p
+   0x000000000040062c &lt;+22&gt;:	mov    %rbx,%rdi
+   0x000000000040062f &lt;+25&gt;:	callq  0x400688 &lt;Derived::Derived()&gt; ; constructor
+   0x0000000000400634 &lt;+30&gt;:	mov    %rbx,-0x18(%rbp)
+   0x0000000000400638 &lt;+34&gt;:	mov    -0x18(%rbp),%rax              ; 地址 p ，指向对象存储空间
+   0x000000000040063c &lt;+38&gt;:	mov    (%rax),%rax                   ; 取对象内容，其实就是 vptr 值
+   0x000000000040063f &lt;+41&gt;:	mov    (%rax),%rax                   ; 取 vptr 指向地址的内容，就是上边看到的 &lt;vtable for Derived+16&gt;
+   0x0000000000400642 &lt;+44&gt;:	mov    -0x18(%rbp),%rdx
+   0x0000000000400646 &lt;+48&gt;:	mov    %rdx,%rdi                     ; 把地址 p 作为第一个参数（ this ）传入
+   0x0000000000400649 &lt;+51&gt;:	callq  *%rax                         ; 调用 vtable 中指定的函数
+   0x000000000040064b &lt;+53&gt;:	mov    $0x0,%eax
+   0x0000000000400650 &lt;+58&gt;:	add    $0x18,%rsp
+   0x0000000000400654 &lt;+62&gt;:	pop    %rbx
+   0x0000000000400655 &lt;+63&gt;:	pop    %rbp
+   0x0000000000400656 &lt;+64&gt;:	retq   
+End of assembler dump.
+</pre>
+
+<p>
+综上，可以把相关的内存布局绘制成如下图：
+</p>
+
+
+<figure>
+<img src="./images/2018-12-10-vtable.png" alt="2018-12-10-vtable.png">
+
+</figure>
+
+<p>
+从以上分析可以看出， vtable 确实存在，程序运行时根据 vtable 查找对应的函数（此过程叫做 dynamic dispatch ）。
+若在不必要的场景下定义了虚函数，一方面会使得对象占用的内存变大，
+另一方面在调用虚函数时，需要查找 vtable ，有一定的性能损耗，因此编程时应当避免此情况。
+</p>
+
+<p>
+延伸阅读、参考资料：
+</p>
+<ul class="org-ul">
+<li><p>
+<a href="https://shaharmike.com/cpp/vtable-part1/">C++ vtables - Part 1 - Basics | Shahar Mike's Web Spot - shaharmike.com</a>
+</p>
+
+<p>
+此系列文章深入讲解了 C++ 的 vtable 和 RTTI 实现原理，本文主要参考了其中的第一篇。
+</p></li>
+<li><a href="http://lifegoo.pluskid.org/upload/doc/object_models/C++%20Object%20Model.pdf">C++ Object Model.pdf - lifegoo.pluskid.org</a></li>
+<li>Stanley B·Lippman <a href="https://book.douban.com/subject/1091086/">Inside the C++ Object Model</a></li>
+</ul>
+<div class="taglist"><a href="tags.html">Tags:</a> <a href="tag-c++.html">C++</a> <a href="tag-gdb.html">GDB</a> <a href="tag-zhongwen.html">zhongwen</a> </div><div id="archive">
 <a href="archive.html">Other posts</a>
 </div>
 </div>
