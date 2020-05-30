@@ -28,6 +28,60 @@
 </div></div>
 <div id="content">
 
+<div class="post-date">30 May 2020</div><h1 class="post-title"><a href="2020-05-30-a-trick-to-troubleshoot-emacs-subprocess-creating.html">A Trick to Troubleshoot Emacs Subprocess Creating</a></h1>
+<p>
+There are many packages of Emacs that leverage subprocesses to do their jobs, <a href="https://magit.vc/">Magit</a>, <a href="https://github.com/joaotavora/eglot">eglot</a>, <a href="https://github.com/jorgenschaefer/elpy">elpy</a>, to name a few. And there are times that a subprocess doesn't work as expected, for example, Magit is slow, and you're sure that it's ok when running git commands on shell. So how to spot these problems effectively and quickly?
+</p>
+
+<p>
+The problem is that we don't know what's going on exactly, so here I want to share a few Elisp advice to make the subprocess creating visible, and print the exact program and its arguments to the <code>*Message*</code> buffer. Visibility is the key.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-elisp">(<span style="color: #2c3e50; font-style: italic;">defvar</span> <span style="color: #3498db;">trace-subprocess-p</span> nil
+  <span style="color: #16a085;">"Whether to trace subprocess creating or not."</span>)
+
+(<span style="color: #2c3e50; font-style: italic;">defun</span> <span style="color: #9b59b6;">my-toggle-trace-subprocess</span> ()
+  <span style="color: #16a085;">"Toggle whether to trace subprocess creating."</span>
+  (<span style="color: #2c3e50; font-style: italic;">interactive</span>)
+  (<span style="color: #2c3e50; font-style: italic;">setq</span> trace-subprocess-p (not trace-subprocess-p))
+  (<span style="color: #2c3e50; font-style: italic;">when</span> trace-subprocess-p
+    (message <span style="color: #16a085;">"Trace subprocess creating."</span>)))
+
+(<span style="color: #2c3e50; font-style: italic;">defun</span> <span style="color: #9b59b6;">my-quote-argument</span> (arg)
+  <span style="color: #16a085;">"Double quote ARG."</span>
+  (concat <span style="color: #16a085;">"\""</span> arg <span style="color: #16a085;">"\""</span>))
+
+(<span style="color: #2c3e50; font-style: italic;">define-advice</span> <span style="color: #9b59b6;">start-process</span> (<span style="color: #2c3e50;">:before</span> (name buffer program <span style="color: #27ae60;">&amp;rest</span> program-args) trace)
+  (<span style="color: #2c3e50; font-style: italic;">when</span> trace-subprocess-p
+    (message <span style="color: #16a085;">"Trace start-process: name: %s, buffer: %s, program and args: %s %s"</span>
+             name buffer program
+             (mapconcat #'my-quote-argument program-args <span style="color: #16a085;">" "</span>))))
+
+(<span style="color: #2c3e50; font-style: italic;">define-advice</span> <span style="color: #9b59b6;">shell-command-to-string</span> (<span style="color: #2c3e50;">:before</span> (command) trace)
+  (<span style="color: #2c3e50; font-style: italic;">when</span> trace-subprocess-p
+    (message <span style="color: #16a085;">"Trace shell-command-to-string: %s"</span> command)))
+
+(<span style="color: #2c3e50; font-style: italic;">define-advice</span> <span style="color: #9b59b6;">call-process</span> (<span style="color: #2c3e50;">:before</span> (program <span style="color: #27ae60;">&amp;optional</span> infile destination display <span style="color: #27ae60;">&amp;rest</span> args) trace)
+  (<span style="color: #2c3e50; font-style: italic;">when</span> trace-subprocess-p
+    (message <span style="color: #16a085;">"Trace call-process: %s %s"</span>
+             program
+             (mapconcat #'my-quote-argument args <span style="color: #16a085;">" "</span>))))
+</pre>
+</div>
+
+<p>
+Add these to your <code>.emacs.d</code> and type <code>M-x my-toggle-trace-subprocess RET</code> when you want to see what is going on under the neath. The following is how it looks like when I run <code>M-x elpy-mode</code> on a Python buffer:
+</p>
+
+<pre class="example">
+Trace start-process: name:  *elpy-rpc [project:~/python/qtile/ environment:/home/whatacold/virtualenv/elpy]*, buffer:  *elpy-rpc [project:~/python/qtile/ environment:/home/whatacold/virtualenv/elpy]*, program and args: /home/whatacold/.emacs.d/elpy/rpc-venv/bin/python "-W" "ignore" "-m" "elpy.__main__"
+</pre>
+
+<p>
+With the help of these advice, I successfully resolved a performance issue of Magit with a particular repo the other day, which was caused by <a href="https://github.com/emacsorphanage/magit-svn">magit-svn</a> hooks.
+</p>
+<div class="taglist"><a href="tags.html">Tags:</a> <a href="tag-emacs.html">Emacs</a> <a href="tag-troubleshooting.html">troubleshooting</a> </div>
 <div class="post-date">11 Apr 2020</div><h1 class="post-title"><a href="2020-04-11-use-ppcompile-to-remote-compile-in-emacs-zh.html">Emacs 中使用 ppcompile 进行远程编译</a></h1>
 <p>
 不同于 Python 之类的项目， C/C++ 的项目需要有专门的编译环境，一般国内公司都会搭建特定的编译环境机器，把一些私有的库等依赖放在上面。而这些编译环境的工具链一般都比较老旧，有的编译环境可能还无法访问外网，甚至也没有提供代理间接访问外网。因此想要在这样的环境中使用 Emacs 开发代码着实不是一件容易的事。
@@ -377,60 +431,7 @@ Host *
 Note that this default setting should be put at the end of the file, as it seems that the first matched directive of two <code>Host</code> wins if .</p>
 </div>
 </div>
-<div class="taglist"><a href="tags.html">Tags:</a> <a href="tag-tools.html">Tools</a> <a href="tag-tiling-wm.html">tiling-wm</a> </div>
-<div class="post-date">01 Dec 2019</div><h1 class="post-title"><a href="2019-12-01-why-can't-git-fetch-remote-branches-other-than-master.html">Why can't Git fetch remote branches other than master?</a></h1>
-<p>
-Last week I came into a problem with Git, that I can't fetch the remote branch that I pushed to. It was so weird because I can push the local branch there. It never happens before, and it happened when I was in a rush to rebase my code, as someone in my team pushed his code.
-</p>
-
-<p>
-After searching, it seemed that the configuration of <code>fetch</code> of that repo was different(this <a href="https://stackoverflow.com/questions/11623862/fetch-in-git-doesnt-get-all-branches">Stack Overflow</a> thread for example) than before, it was specified that only <code>master</code> can be fetched. It worked after I changed it to <code>+refs/heads/*:refs/remotes/origin/*</code>.
-</p>
-
-<p>
-I reflected why it happened after work, the only difference I can remember was that I clone that repo with the option <code>--depth &lt;N&gt;</code>, that is, it was a shallow clone to save disk space.
-</p>
-
-<p>
-Today I had some time at hand, and I confirmed that the option is the problem by reading the git-clone(1) manpage, it notes that:
-</p>
-<pre class="example">
---depth &lt;depth&gt;
-    Create a shallow clone with a history truncated to the specified number of commits. Implies --single-branch unless
-    --no-single-branch is given to fetch the histories near the tips of all branches.
-</pre>
-
-<p>
-Let's demonstrate it by cloning my dotfiles repo with different options, and it shows clearly that Git will only fetch <code>master</code> of the remote repo if only specifying <code>--depth</code>:
-</p>
-
-<div class="org-src-container">
-<pre class="src src-shell">$ cd /tmp/
-$ git clone --depth 1 https://github.com/whatacold/dotfiles.git dotfiles-depth1
-$ git clone --no-single-branch --depth 1 https://github.com/whatacold/dotfiles.git dotfiles-no-single-branch
-$ git clone https://github.com/whatacold/dotfiles.git dotfiles-full
-
-$ grep <span style="color: #16a085;">'remote "origin"'</span> -A 2 dotfiles-depth1/.git/config 
-[remote <span style="color: #16a085;">"origin"</span>]
-    <span style="color: #3498db;">url</span> = https://github.com/whatacold/dotfiles.git
-    <span style="color: #3498db;">fetch</span> = +refs/heads/master:refs/remotes/origin/master
-
-$ grep <span style="color: #16a085;">'remote "origin"'</span> -A 2 dotfiles-no-single-branch/.git/config 
-[remote <span style="color: #16a085;">"origin"</span>]
-    <span style="color: #3498db;">url</span> = https://github.com/whatacold/dotfiles.git
-    <span style="color: #3498db;">fetch</span> = +refs/heads/*:refs/remotes/origin/*
-
-$ grep <span style="color: #16a085;">'remote "origin"'</span> -A 2 dotfiles-full/.git/config
-[remote <span style="color: #16a085;">"origin"</span>]
-    <span style="color: #3498db;">url</span> = https://github.com/whatacold/dotfiles.git
-    <span style="color: #3498db;">fetch</span> = +refs/heads/*:refs/remotes/origin/*
-</pre>
-</div>
-
-<p>
-I don't know why <code>--single-branch</code> should be implied by default, at least for me, I just want to fetch all the remote branches.
-</p>
-<div class="taglist"><a href="tags.html">Tags:</a> <a href="tag-git.html">Git</a> </div><div id="archive">
+<div class="taglist"><a href="tags.html">Tags:</a> <a href="tag-tools.html">Tools</a> <a href="tag-tiling-wm.html">tiling-wm</a> </div><div id="archive">
 <a href="archive.html">Other posts</a>
 </div>
 </div>

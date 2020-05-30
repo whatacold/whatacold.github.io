@@ -28,6 +28,60 @@
 </div></div>
 <div id="content">
 <h1 class="title">Posts tagged "Emacs":</h1>
+<div class="post-date">30 May 2020</div><h1 class="post-title"><a href="2020-05-30-a-trick-to-troubleshoot-emacs-subprocess-creating.html">A Trick to Troubleshoot Emacs Subprocess Creating</a></h1>
+<p>
+There are many packages of Emacs that leverage subprocesses to do their jobs, <a href="https://magit.vc/">Magit</a>, <a href="https://github.com/joaotavora/eglot">eglot</a>, <a href="https://github.com/jorgenschaefer/elpy">elpy</a>, to name a few. And there are times that a subprocess doesn't work as expected, for example, Magit is slow, and you're sure that it's ok when running git commands on shell. So how to spot these problems effectively and quickly?
+</p>
+
+<p>
+The problem is that we don't know what's going on exactly, so here I want to share a few Elisp advice to make the subprocess creating visible, and print the exact program and its arguments to the <code>*Message*</code> buffer. Visibility is the key.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-elisp">(<span style="color: #2c3e50; font-style: italic;">defvar</span> <span style="color: #3498db;">trace-subprocess-p</span> nil
+  <span style="color: #16a085;">"Whether to trace subprocess creating or not."</span>)
+
+(<span style="color: #2c3e50; font-style: italic;">defun</span> <span style="color: #9b59b6;">my-toggle-trace-subprocess</span> ()
+  <span style="color: #16a085;">"Toggle whether to trace subprocess creating."</span>
+  (<span style="color: #2c3e50; font-style: italic;">interactive</span>)
+  (<span style="color: #2c3e50; font-style: italic;">setq</span> trace-subprocess-p (not trace-subprocess-p))
+  (<span style="color: #2c3e50; font-style: italic;">when</span> trace-subprocess-p
+    (message <span style="color: #16a085;">"Trace subprocess creating."</span>)))
+
+(<span style="color: #2c3e50; font-style: italic;">defun</span> <span style="color: #9b59b6;">my-quote-argument</span> (arg)
+  <span style="color: #16a085;">"Double quote ARG."</span>
+  (concat <span style="color: #16a085;">"\""</span> arg <span style="color: #16a085;">"\""</span>))
+
+(<span style="color: #2c3e50; font-style: italic;">define-advice</span> <span style="color: #9b59b6;">start-process</span> (<span style="color: #2c3e50;">:before</span> (name buffer program <span style="color: #27ae60;">&amp;rest</span> program-args) trace)
+  (<span style="color: #2c3e50; font-style: italic;">when</span> trace-subprocess-p
+    (message <span style="color: #16a085;">"Trace start-process: name: %s, buffer: %s, program and args: %s %s"</span>
+             name buffer program
+             (mapconcat #'my-quote-argument program-args <span style="color: #16a085;">" "</span>))))
+
+(<span style="color: #2c3e50; font-style: italic;">define-advice</span> <span style="color: #9b59b6;">shell-command-to-string</span> (<span style="color: #2c3e50;">:before</span> (command) trace)
+  (<span style="color: #2c3e50; font-style: italic;">when</span> trace-subprocess-p
+    (message <span style="color: #16a085;">"Trace shell-command-to-string: %s"</span> command)))
+
+(<span style="color: #2c3e50; font-style: italic;">define-advice</span> <span style="color: #9b59b6;">call-process</span> (<span style="color: #2c3e50;">:before</span> (program <span style="color: #27ae60;">&amp;optional</span> infile destination display <span style="color: #27ae60;">&amp;rest</span> args) trace)
+  (<span style="color: #2c3e50; font-style: italic;">when</span> trace-subprocess-p
+    (message <span style="color: #16a085;">"Trace call-process: %s %s"</span>
+             program
+             (mapconcat #'my-quote-argument args <span style="color: #16a085;">" "</span>))))
+</pre>
+</div>
+
+<p>
+Add these to your <code>.emacs.d</code> and type <code>M-x my-toggle-trace-subprocess RET</code> when you want to see what is going on under the neath. The following is how it looks like when I run <code>M-x elpy-mode</code> on a Python buffer:
+</p>
+
+<pre class="example">
+Trace start-process: name:  *elpy-rpc [project:~/python/qtile/ environment:/home/whatacold/virtualenv/elpy]*, buffer:  *elpy-rpc [project:~/python/qtile/ environment:/home/whatacold/virtualenv/elpy]*, program and args: /home/whatacold/.emacs.d/elpy/rpc-venv/bin/python "-W" "ignore" "-m" "elpy.__main__"
+</pre>
+
+<p>
+With the help of these advice, I successfully resolved a performance issue of Magit with a particular repo the other day, which was caused by <a href="https://github.com/emacsorphanage/magit-svn">magit-svn</a> hooks.
+</p>
+<div class="taglist"><a href="tags.html">Tags:</a> <a href="tag-emacs.html">Emacs</a> <a href="tag-troubleshooting.html">troubleshooting</a> </div>
 <div class="post-date">11 Apr 2020</div><h1 class="post-title"><a href="2020-04-11-use-ppcompile-to-remote-compile-in-emacs-zh.html">Emacs 中使用 ppcompile 进行远程编译</a></h1>
 <p>
 不同于 Python 之类的项目， C/C++ 的项目需要有专门的编译环境，一般国内公司都会搭建特定的编译环境机器，把一些私有的库等依赖放在上面。而这些编译环境的工具链一般都比较老旧，有的编译环境可能还无法访问外网，甚至也没有提供代理间接访问外网。因此想要在这样的环境中使用 Emacs 开发代码着实不是一件容易的事。
@@ -340,7 +394,7 @@ Now the coding experience is much better :)</p>
 Emacs 自带的输入法虽然已经解决了问题，但是 pyim 还没解决，接下来如果有时间再研究下如何解决（ Emacs 27 已经编译好了 :) ），
 在彻底解决之前，如果在录制 keyboard macro 时不需要输入中文，可以通过 <code>M-x toggle-input-method</code> 切换回英文输入来 workaround ，
 这样就能避开这个 bug ，继续用 keyboard macro 来编辑文本。</p>
-<div class="taglist"><a href="tags.html">Tags:</a> <a href="tag-emacs.html">Emacs</a> </div>
+<div class="taglist"><a href="tags.html">Tags:</a> <a href="tag-emacs.html">Emacs</a> <a href="tag-zhongwen.html">zhongwen</a> </div>
 <div class="post-date">22 Dec 2018</div><h1 class="post-title"><a href="2018-12-22-c-cpp-devel-with-lsp-in-emacs.html">在 Emacs 中使用 LSP 开发 C/C++ 工程</a></h1>
 <p>
 写代码的时候，如果能够基于当前的上下文提示补全，不仅能提高写代码的效率，还能提升体验，有种行云流水的感觉。
@@ -486,7 +540,7 @@ clangd 安装最简单，但功能据说比较弱，我没有试过；一开始�
 
 <p>
 至此 LSP 基本可用了。</p>
-<div class="taglist"><a href="tags.html">Tags:</a> <a href="tag-emacs.html">Emacs</a> <a href="tag-c++.html">C++</a> <a href="tag-python.html">Python</a> </div><div id="archive">
+<div class="taglist"><a href="tags.html">Tags:</a> <a href="tag-emacs.html">Emacs</a> <a href="tag-c++.html">C++</a> <a href="tag-python.html">Python</a> <a href="tag-zhongwen.html">zhongwen</a> </div><div id="archive">
 <a href="archive.html">Other posts</a>
 </div>
 </div>

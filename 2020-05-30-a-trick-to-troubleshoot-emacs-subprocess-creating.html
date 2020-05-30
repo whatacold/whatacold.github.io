@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="alternate"
+      type="application/rss+xml"
+      href="https://whatacold.github.io/rss.xml"
+      title="RSS feed for https://whatacold.github.io/"/>
+<title>A Trick to Troubleshoot Emacs Subprocess Creating</title>
+<meta name="author" content="Guangwang Huang">
+<meta name="referrer" content="no-referrer">
+<link href= "static/style.css" rel="stylesheet" type="text/css" />
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-74588785-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-74588785-1');
+</script>
+</head>
+<body>
+<div id="preamble" class="status">
+<div class="header">
+<div class="sitelinks">
+    <a href="https://github.com/whatacold">GitHub</a> | <a href="https://stackoverflow.com/users/910978/whatacold">Stack Overflow</a> | <a href="mailto:whatacold@gmail.com">Email</a> | <a href="/rss.xml">RSS</a>
+</div></div>
+<div id="content">
+<div class="post-date">30 May 2020</div><h1 class="post-title"><a href="2020-05-30-a-trick-to-troubleshoot-emacs-subprocess-creating.html">A Trick to Troubleshoot Emacs Subprocess Creating</a></h1>
+<p>
+There are many packages of Emacs that leverage subprocesses to do their jobs, <a href="https://magit.vc/">Magit</a>, <a href="https://github.com/joaotavora/eglot">eglot</a>, <a href="https://github.com/jorgenschaefer/elpy">elpy</a>, to name a few. And there are times that a subprocess doesn't work as expected, for example, Magit is slow, and you're sure that it's ok when running git commands on shell. So how to spot these problems effectively and quickly?
+</p>
+
+<p>
+The problem is that we don't know what's going on exactly, so here I want to share a few Elisp advice to make the subprocess creating visible, and print the exact program and its arguments to the <code>*Message*</code> buffer. Visibility is the key.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-elisp">(<span style="color: #2c3e50; font-style: italic;">defvar</span> <span style="color: #3498db;">trace-subprocess-p</span> nil
+  <span style="color: #16a085;">"Whether to trace subprocess creating or not."</span>)
+
+(<span style="color: #2c3e50; font-style: italic;">defun</span> <span style="color: #9b59b6;">my-toggle-trace-subprocess</span> ()
+  <span style="color: #16a085;">"Toggle whether to trace subprocess creating."</span>
+  (<span style="color: #2c3e50; font-style: italic;">interactive</span>)
+  (<span style="color: #2c3e50; font-style: italic;">setq</span> trace-subprocess-p (not trace-subprocess-p))
+  (<span style="color: #2c3e50; font-style: italic;">when</span> trace-subprocess-p
+    (message <span style="color: #16a085;">"Trace subprocess creating."</span>)))
+
+(<span style="color: #2c3e50; font-style: italic;">defun</span> <span style="color: #9b59b6;">my-quote-argument</span> (arg)
+  <span style="color: #16a085;">"Double quote ARG."</span>
+  (concat <span style="color: #16a085;">"\""</span> arg <span style="color: #16a085;">"\""</span>))
+
+(<span style="color: #2c3e50; font-style: italic;">define-advice</span> <span style="color: #9b59b6;">start-process</span> (<span style="color: #2c3e50;">:before</span> (name buffer program <span style="color: #27ae60;">&amp;rest</span> program-args) trace)
+  (<span style="color: #2c3e50; font-style: italic;">when</span> trace-subprocess-p
+    (message <span style="color: #16a085;">"Trace start-process: name: %s, buffer: %s, program and args: %s %s"</span>
+             name buffer program
+             (mapconcat #'my-quote-argument program-args <span style="color: #16a085;">" "</span>))))
+
+(<span style="color: #2c3e50; font-style: italic;">define-advice</span> <span style="color: #9b59b6;">shell-command-to-string</span> (<span style="color: #2c3e50;">:before</span> (command) trace)
+  (<span style="color: #2c3e50; font-style: italic;">when</span> trace-subprocess-p
+    (message <span style="color: #16a085;">"Trace shell-command-to-string: %s"</span> command)))
+
+(<span style="color: #2c3e50; font-style: italic;">define-advice</span> <span style="color: #9b59b6;">call-process</span> (<span style="color: #2c3e50;">:before</span> (program <span style="color: #27ae60;">&amp;optional</span> infile destination display <span style="color: #27ae60;">&amp;rest</span> args) trace)
+  (<span style="color: #2c3e50; font-style: italic;">when</span> trace-subprocess-p
+    (message <span style="color: #16a085;">"Trace call-process: %s %s"</span>
+             program
+             (mapconcat #'my-quote-argument args <span style="color: #16a085;">" "</span>))))
+</pre>
+</div>
+
+<p>
+Add these to your <code>.emacs.d</code> and type <code>M-x my-toggle-trace-subprocess RET</code> when you want to see what is going on under the neath. The following is how it looks like when I run <code>M-x elpy-mode</code> on a Python buffer:
+</p>
+
+<pre class="example">
+Trace start-process: name:  *elpy-rpc [project:~/python/qtile/ environment:/home/whatacold/virtualenv/elpy]*, buffer:  *elpy-rpc [project:~/python/qtile/ environment:/home/whatacold/virtualenv/elpy]*, program and args: /home/whatacold/.emacs.d/elpy/rpc-venv/bin/python "-W" "ignore" "-m" "elpy.__main__"
+</pre>
+
+<p>
+With the help of these advice, I successfully resolved a performance issue of Magit with a particular repo the other day, which was caused by <a href="https://github.com/emacsorphanage/magit-svn">magit-svn</a> hooks.
+</p>
+<div class="taglist"><a href="tags.html">Tags:</a> <a href="tag-emacs.html">Emacs</a> <a href="tag-troubleshooting.html">troubleshooting</a> </div></div>
+<div id="postamble" class="status"></div>
+</body>
+</html>
