@@ -4,7 +4,50 @@
 <title>whatacold's blog site</title>
 <description>whatacold's blog site</description>
 <link>https://whatacold.github.io/</link>
-<lastBuildDate>Sat, 30 May 2020 12:27:33 +0800</lastBuildDate>
+<lastBuildDate>Fri, 26 Jun 2020 11:07:03 +0800</lastBuildDate>
+<item>
+  <title>Is it safe to use Redis as a data store?</title>
+  <description><![CDATA[
+<p>
+Traditionally we are used to storing data in an RDBMS like MySQL, and avoid using in-memory solutions such as Redis, to have a confidence of no data loss. Sometimes I find that we are so stubborn with MySQL that ending up with a complicated design, and I've even seen a solution that stores data in MySQL and then using Redis as a cache for it to improve read performance in the meanwhile. And to make the data in the cache as consistent as possible with the data in MySQL, it introduces other mechanisms, but the result is still not 100% consistent.
+</p>
+
+<p>
+So I wonder, is it safe to use Redis as a data store directly? Since if that's OK, we can have a clean solution without using MySQL for, at least, the above scenario.
+</p>
+
+<p>
+Redis has two data <a href="https://redis.io/topics/persistence">persistence</a> solutions: the RDB persistence and AOF persistence. The RDB persistence is suitable for making complete point-in-time backups every a few minutes, which can be configured via the <code>save</code> directive. And the AOF persistence is finer-grained, as it logs every command that it executes, and there are three options for how frequent it flushes (<code>[[https://man7.org/linux/man-pages/man2/fsync.2.html][fsync]]</code>'ing in the syscall level) the AOF file to the disk (the <code>appendfsync</code> option):
+</p>
+
+<ul class="org-ul">
+<li>always: <code>fsync</code> every time a new command is appended to the AOF.</li>
+<li>everysec: <code>fsync</code> every second.</li>
+<li>no: Never <code>fsync</code>, it's up to the OS when to fsync the file.</li>
+</ul>
+
+<p>
+So the answer is yes, for a situation that Redis is more suitable to organize the data in a NoSQL style. Use <code>always</code> for <code>appendfsync</code> if we can't tolerate any data loss, and use <code>everysec</code> if the data is not that important, and we can endure a second of data loss, at most.
+</p>
+
+<p>
+As a comparison, MySQL has a similar mechanism called binary log (binlog) to log its SQL statements, and there is also a configuration directive, <a href="https://dev.mysql.com/doc/refman/5.7/en/replication-options-binary-log.html#sysvar_sync_binlog">sync_binlog</a>, to control how often it <code>fsync</code>'s:
+</p>
+<ul class="org-ul">
+<li>0, never <code>fsync</code> explicitly</li>
+<li>1, <code>fsync</code> every statement</li>
+<li>N (N&gt;1), <code>fsync</code> every N statements</li>
+</ul>
+
+<p>
+So it's OK to use Redis as a data store with the AOF persistence enabled, it can be as safe as MySQL in theory.
+</p>
+<div class="taglist"><a href="tags.html">Tags:</a> <a href="tag-redis.html">Redis</a> <a href="tag-mysql.html">MySQL</a> </div>]]></description>
+  <category>Redis</category>
+  <category>MySQL</category>
+  <link>https://whatacold.github.io/2020-06-25-is-it-safe-to-use-redis-as-a-data-store.html</link>
+  <pubDate>Thu, 25 Jun 2020 22:37:00 +0800</pubDate>
+</item>
 <item>
   <title>A Trick to Troubleshoot Emacs Subprocess Creating</title>
   <description><![CDATA[

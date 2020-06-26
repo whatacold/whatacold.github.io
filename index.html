@@ -28,6 +28,42 @@
 </div></div>
 <div id="content">
 
+<div class="post-date">25 Jun 2020</div><h1 class="post-title"><a href="2020-06-25-is-it-safe-to-use-redis-as-a-data-store.html">Is it safe to use Redis as a data store?</a></h1>
+<p>
+Traditionally we are used to storing data in an RDBMS like MySQL, and avoid using in-memory solutions such as Redis, to have a confidence of no data loss. Sometimes I find that we are so stubborn with MySQL that ending up with a complicated design, and I've even seen a solution that stores data in MySQL and then using Redis as a cache for it to improve read performance in the meanwhile. And to make the data in the cache as consistent as possible with the data in MySQL, it introduces other mechanisms, but the result is still not 100% consistent.
+</p>
+
+<p>
+So I wonder, is it safe to use Redis as a data store directly? Since if that's OK, we can have a clean solution without using MySQL for, at least, the above scenario.
+</p>
+
+<p>
+Redis has two data <a href="https://redis.io/topics/persistence">persistence</a> solutions: the RDB persistence and AOF persistence. The RDB persistence is suitable for making complete point-in-time backups every a few minutes, which can be configured via the <code>save</code> directive. And the AOF persistence is finer-grained, as it logs every command that it executes, and there are three options for how frequent it flushes (<code>[[https://man7.org/linux/man-pages/man2/fsync.2.html][fsync]]</code>'ing in the syscall level) the AOF file to the disk (the <code>appendfsync</code> option):
+</p>
+
+<ul class="org-ul">
+<li>always: <code>fsync</code> every time a new command is appended to the AOF.</li>
+<li>everysec: <code>fsync</code> every second.</li>
+<li>no: Never <code>fsync</code>, it's up to the OS when to fsync the file.</li>
+</ul>
+
+<p>
+So the answer is yes, for a situation that Redis is more suitable to organize the data in a NoSQL style. Use <code>always</code> for <code>appendfsync</code> if we can't tolerate any data loss, and use <code>everysec</code> if the data is not that important, and we can endure a second of data loss, at most.
+</p>
+
+<p>
+As a comparison, MySQL has a similar mechanism called binary log (binlog) to log its SQL statements, and there is also a configuration directive, <a href="https://dev.mysql.com/doc/refman/5.7/en/replication-options-binary-log.html#sysvar_sync_binlog">sync_binlog</a>, to control how often it <code>fsync</code>'s:
+</p>
+<ul class="org-ul">
+<li>0, never <code>fsync</code> explicitly</li>
+<li>1, <code>fsync</code> every statement</li>
+<li>N (N&gt;1), <code>fsync</code> every N statements</li>
+</ul>
+
+<p>
+So it's OK to use Redis as a data store with the AOF persistence enabled, it can be as safe as MySQL in theory.
+</p>
+<div class="taglist"><a href="tags.html">Tags:</a> <a href="tag-redis.html">Redis</a> <a href="tag-mysql.html">MySQL</a> </div>
 <div class="post-date">30 May 2020</div><h1 class="post-title"><a href="2020-05-30-a-trick-to-troubleshoot-emacs-subprocess-creating.html">A Trick to Troubleshoot Emacs Subprocess Creating</a></h1>
 <p>
 There are many packages of Emacs that leverage subprocesses to do their jobs, <a href="https://magit.vc/">Magit</a>, <a href="https://github.com/joaotavora/eglot">eglot</a>, <a href="https://github.com/jorgenschaefer/elpy">elpy</a>, to name a few. And there are times that a subprocess doesn't work as expected, for example, Magit is slow, and you're sure that it's ok when running git commands on shell. So how to spot these problems effectively and quickly?
@@ -331,107 +367,7 @@ sleep 0.5
 <span style="color: #2c3e50; font-style: italic;">exit</span> $<span style="color: #3498db;">EXIT_CODE</span>
 </pre>
 </div>
-<div class="taglist"><a href="tags.html">Tags:</a> <a href="tag-git.html">Git</a> <a href="tag-troubleshooting.html">troubleshooting</a> </div>
-<div class="post-date">22 Dec 2019</div><h1 class="post-title"><a href="2019-12-22-manage-ssh-connections-with-ssh-config.html">Manage SSH connections with =~/.ssh/config=</a></h1>
-<nav id="table-of-contents">
-<h2>Table of Contents</h2>
-<div id="text-table-of-contents">
-<ul>
-<li><a href="#orga76777e">1. How To Configure Connections</a></li>
-<li><a href="#org40b3676">2. How To Use Identity Files</a></li>
-<li><a href="#orgde14cc3">3. Common Configurations</a></li>
-</ul>
-</div>
-</nav>
-<p>
-I used to manage SSH connection with such GUI apps as MobaXterm, when I wrote code on Windows at work. As I changed my workflow to use a tiling window manager in a VirtualBox guest OS, I continued to improve my way of managing SSH connections, which I want to share here if you don't know yet.
-</p>
-
-<p>
-At first, I baked a helper Python script, which I named as qssh for "quick ssh", to help me assemble ssh arguments for me(such as username, Ip, port, etc.), so that I can easily access a host by giving it only one argument, e.g. <code>qssh foo</code>.
-</p>
-
-<p>
-Then as I understood it more, I surprisingly found that <code>ssh</code> itself can be configured to do that by just configuring <code>~/.ssh/config</code>. I wish I knew it from day one. Together with identity files, it's very easy to login remote host, copy files between hosts using <code>scp</code>.
-</p>
-
-<div id="outline-container-orga76777e" class="outline-2">
-<h2 id="orga76777e"><span class="section-number-2">1</span> How To Configure Connections</h2>
-<div class="outline-text-2" id="text-1">
-<p>
-For every SSH connection, there are some specific arguments like IP, port, user name, etc. Let's assume there is a host with IP <code>10.1.2.3</code>, and I can ssh into it with <code>whatacold</code> as name and <code>foo123</code> as the password at port 2234. I had to type <code>ssh -p 2234 whatacold@10.1.2.3</code> literally, which is too many keys to type.
-</p>
-
-<p>
-Actually, all these connection details can be put in <code>~/.ssh/config</code> like below, it's organized in sections per hosts:
-</p>
-
-<div class="org-src-container">
-<pre class="src src-conf">Host new-test
-     Hostname 10.1.2.3
-     Port 2234
-     User whatacold
-     IdentityFile ~/.ssh/id_dev
-</pre>
-</div>
-
-<p>
-Now I can do things straightly in a higher level:
-</p>
-<ol class="org-ol">
-<li><code>ssh new-test</code>, log in that host</li>
-<li><code>ssh new-test date</code>, log in it and run a command there</li>
-<li><code>scp /tmp/a.log new-test:/tmp</code>, copy a file to it</li>
-<li><code>rsync -e ssh /tmp/foo /tmp/</code>, even let <code>rsync</code> sync files over SSH</li>
-</ol>
-
-<p>
-There is one that hasn't be mentioned is <code>IdentityFile</code>, which means I can log in that host using public key authentication, so that I don't have to type a password when logging in the host anymore, which really smooths the workflow.
-</p>
-</div>
-</div>
-
-<div id="outline-container-org40b3676" class="outline-2">
-<h2 id="org40b3676"><span class="section-number-2">2</span> How To Use Identity Files</h2>
-<div class="outline-text-2" id="text-2">
-<p>
-First, generate a pair of keys if you haven't done yet, for example, <code>ssh-keygen -t rsa -b 4096 -f ~/.ssh/id_dev</code>, hit Enter when it prompts you to enter a password(using no password).
-</p>
-
-<p>
-Then copy the public key to the remote host by executing <code>ssh-copy-id -i ~/.ssh/id_dev new-test</code>, it will append the key to <code>~/.ssh/authorized_keys</code> file there.
-</p>
-
-<p>
-Now you can log in that host without entering passwords, try it with, for example, <code>ssh new-test ifconfig</code> to see if it prints the remote host's IP.
-</p>
-
-<p>
-(I still remember that I used to write a helper <code>expect</code> script to save me from typing passwords every time, it worked but it's not as simple and convenient as <code>~/.ssh/config</code>.)
-</p>
-</div>
-</div>
-
-<div id="outline-container-orgde14cc3" class="outline-2">
-<h2 id="orgde14cc3"><span class="section-number-2">3</span> Common Configurations</h2>
-<div class="outline-text-2" id="text-3">
-<p>
-If there are some common configurations for every host, they can be put under a default "section" named <code>Host *</code>. For example, I want to keep alive the connections, so I have these directives for all hosts:
-</p>
-
-<div class="org-src-container">
-<pre class="src src-conf"><span style="color: #95a5a6; font-style: italic;"># </span><span style="color: #95a5a6; font-style: italic;">Default settings for all hosts</span>
-Host *
-    ServerAliveInterval 10
-    ServerAliveCountMax 100
-</pre>
-</div>
-
-<p>
-Note that this default setting should be put at the end of the file, as it seems that the first matched directive of two <code>Host</code> wins if .</p>
-</div>
-</div>
-<div class="taglist"><a href="tags.html">Tags:</a> <a href="tag-tools.html">Tools</a> <a href="tag-tiling-wm.html">tiling-wm</a> </div><div id="archive">
+<div class="taglist"><a href="tags.html">Tags:</a> <a href="tag-git.html">Git</a> <a href="tag-troubleshooting.html">troubleshooting</a> </div><div id="archive">
 <a href="archive.html">Other posts</a>
 </div>
 </div>
