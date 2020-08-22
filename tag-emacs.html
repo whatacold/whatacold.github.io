@@ -28,6 +28,133 @@
 </div></div>
 <div id="content">
 <h1 class="title">Posts tagged "Emacs":</h1>
+<div class="post-date">22 Aug 2020</div><h1 class="post-title"><a href="2020-08-22-generate-call-graphs-using-doxygen-in-emacs.html">Generate Call Graphs Using Doxygen in Emacs</a></h1>
+<p>
+<a href="https://www.doxygen.nl/">Doxygen</a> is a nice tool for generating documentations for well-annotated C/C++ projects, the one feature that I like most is generating call graphs and class diagrams, so that I can learn a project quickly by browsing the diagrams from a higher point of view.
+</p>
+
+<p>
+I take the following steps to generate call graphs for a project on terminals on Linux:
+</p>
+<ol class="org-ol">
+<li><code>cd /path/to/a/project/</code>, and generate a template config file by <code>doxygen -s -g doxygen.conf</code> (Omit <code>-s</code> to generate it with detailed comments).</li>
+<li><p>
+Tweak the file by specifying input and output directories, and set <code>HAVE_DOT</code> and <code>CALL_GRAPH</code> to <code>YES</code>.
+</p>
+
+<p>
+Here is the complete diff:
+</p>
+<div class="org-src-container">
+<pre class="src src-diff"><span style="color: #425d78; background-color: #dce0e1;">--- </span><span style="color: #425d78; background-color: #95a5a6; font-weight: bold;">doxygen.conf.orig</span>
+<span style="color: #425d78; background-color: #dce0e1;">+++ </span><span style="color: #425d78; background-color: #95a5a6; font-weight: bold;">doxygen.conf</span>
+<span style="color: #425d78; background-color: #dce0e1;">@@ -8,7 +8,7 @@</span>
+<span style="color: #333333;"> PROJECT_NUMBER         =</span>
+<span style="color: #333333;"> PROJECT_BRIEF          =</span>
+<span style="color: #333333;"> PROJECT_LOGO           =</span>
+<span style="color: #e74c3c;">-</span><span style="color: #e74c3c;">OUTPUT_DIRECTORY       =</span>
+<span style="color: #3498db;">+</span><span style="color: #3498db;">OUTPUT_DIRECTORY       = /path/to/doxygen-output/</span>
+<span style="color: #333333;"> CREATE_SUBDIRS         = NO</span>
+<span style="color: #333333;"> ALLOW_UNICODE_NAMES    = NO</span>
+<span style="color: #333333;"> OUTPUT_LANGUAGE        = English</span>
+<span style="color: #425d78; background-color: #dce0e1;">@@ -114,7 +114,7 @@</span>
+<span style="color: #333333;"> #---------------------------------------------------------------------------</span>
+<span style="color: #333333;"> # Configuration options related to the input files</span>
+<span style="color: #333333;"> #---------------------------------------------------------------------------</span>
+<span style="color: #e74c3c;">-</span><span style="color: #e74c3c;">INPUT                  =</span>
+<span style="color: #3498db;">+</span><span style="color: #3498db;">INPUT                  = /path/to/a/project/ # the directory of the source code</span>
+<span style="color: #333333;"> INPUT_ENCODING         = UTF-8</span>
+<span style="color: #333333;"> FILE_PATTERNS          = *.c \</span>
+<span style="color: #333333;">                          *.cc \</span>
+<span style="color: #425d78; background-color: #dce0e1;">@@ -161,7 +161,7 @@</span>
+<span style="color: #333333;">                          *.ucf \</span>
+<span style="color: #333333;">                          *.qsf \</span>
+<span style="color: #333333;">                          *.ice</span>
+<span style="color: #e74c3c;">-</span><span style="color: #e74c3c;">RECURSIVE              = NO</span>
+<span style="color: #3498db;">+</span><span style="color: #3498db;">RECURSIVE              = YES</span>
+<span style="color: #333333;"> EXCLUDE                =</span>
+<span style="color: #333333;"> EXCLUDE_SYMLINKS       = NO</span>
+<span style="color: #333333;"> EXCLUDE_PATTERNS       =</span>
+<span style="color: #425d78; background-color: #dce0e1;">@@ -255,7 +255,7 @@</span>
+<span style="color: #333333;"> #---------------------------------------------------------------------------</span>
+<span style="color: #333333;"> # Configuration options related to the LaTeX output</span>
+<span style="color: #333333;"> #---------------------------------------------------------------------------</span>
+<span style="color: #e74c3c;">-</span><span style="color: #e74c3c;">GENERATE_LATEX         = YES</span>
+<span style="color: #3498db;">+</span><span style="color: #3498db;">GENERATE_LATEX         = NO</span>
+<span style="color: #333333;"> LATEX_OUTPUT           = latex</span>
+<span style="color: #333333;"> LATEX_CMD_NAME         =</span>
+<span style="color: #333333;"> MAKEINDEX_CMD_NAME     = makeindex</span>
+<span style="color: #425d78; background-color: #dce0e1;">@@ -345,10 +345,10 @@</span>
+<span style="color: #333333;"> MSCGEN_PATH            =</span>
+<span style="color: #333333;"> DIA_PATH               =</span>
+<span style="color: #333333;"> HIDE_UNDOC_RELATIONS   = YES</span>
+<span style="color: #e74c3c;">-</span><span style="color: #e74c3c;">HAVE_DOT               = NO</span>
+<span style="color: #3498db;">+</span><span style="color: #3498db;">HAVE_DOT               = YES</span>
+<span style="color: #333333;"> DOT_NUM_THREADS        = 0</span>
+<span style="color: #333333;"> DOT_FONTNAME           = Helvetica</span>
+<span style="color: #e74c3c;">-</span><span style="color: #e74c3c;">DOT_FONTSIZE           = 10</span>
+<span style="color: #3498db;">+</span><span style="color: #3498db;">DOT_FONTSIZE           = 14</span>
+<span style="color: #333333;"> DOT_FONTPATH           =</span>
+<span style="color: #333333;"> CLASS_GRAPH            = YES</span>
+<span style="color: #333333;"> COLLABORATION_GRAPH    = YES</span>
+<span style="color: #425d78; background-color: #dce0e1;">@@ -358,7 +358,7 @@</span>
+<span style="color: #333333;"> TEMPLATE_RELATIONS     = NO</span>
+<span style="color: #333333;"> INCLUDE_GRAPH          = YES</span>
+<span style="color: #333333;"> INCLUDED_BY_GRAPH      = YES</span>
+<span style="color: #e74c3c;">-</span><span style="color: #e74c3c;">CALL_GRAPH             = NO</span>
+<span style="color: #3498db;">+</span><span style="color: #3498db;">CALL_GRAPH             = YES</span>
+<span style="color: #333333;"> CALLER_GRAPH           = NO</span>
+<span style="color: #333333;"> GRAPHICAL_HIERARCHY    = YES</span>
+<span style="color: #333333;"> DIRECTORY_GRAPH        = YES</span>
+
+</pre>
+</div></li>
+
+<li>Run <code>doxygen doxygen.conf</code>, that's it.</li>
+</ol>
+
+<p>
+It's a bit boring to do this for every project, and let's improve the workflow a bit by using <a href="https://joaotavora.github.io/yasnippet/index.html">yasnippet</a> and making a new Emacs command.
+</p>
+
+<p>
+First, make a new config template snippet with 3 placeholders (Set <code>yas-indent-line</code> to avoid reindention by yasnippet):
+</p>
+<pre class="example">
+# -*- mode: snippet -*-
+# expand-env: ((yas-indent-line 'never))
+# --
+# Doxyfile 1.8.15
+
+PROJECT_NAME           = "${1:my-cool-project}"
+...
+OUTPUT_DIRECTORY       = ${2:`(format "%s/doxygen/" (expand-file-name "~"))`$1}
+...
+INPUT                  = $3 # XXX must be an absolute path
+</pre>
+
+<p>
+With this snippet (see the exact file <a href="https://github.com/whatacold/emacs.d/blob/whatacold/snippets/conf-unix-mode/doxygen.yasnippet">here</a>), I can quickly create a doxygen config for a project by "finding" a new file and insert the snippet by <code>M-x yas-insert-snippet</code>.
+</p>
+
+<p>
+Second, make a helper command to run doxygen quickly with a projects buffer as the current buffer of Emacs:
+</p>
+<div class="org-src-container">
+<pre class="src src-elisp">(<span style="color: #2c3e50; font-style: italic;">defun</span> <span style="color: #9b59b6;">w/run-doxygen</span> ()
+  <span style="color: #16a085;">"Run doxygen asynchronously."</span>
+  (<span style="color: #2c3e50; font-style: italic;">interactive</span>)
+  (<span style="color: #2c3e50; font-style: italic;">let</span> ((conf (locate-dominating-file default-directory <span style="color: #16a085;">"doxygen.conf"</span>)))
+    (<span style="color: #2c3e50; font-style: italic;">if</span> (not conf)
+        (message <span style="color: #16a085;">"No doxygen.conf found!"</span>)
+      (shell-command (format <span style="color: #16a085;">"doxygen %sdoxygen.conf&amp;"</span> conf)))))
+</pre>
+</div>
+
+<p>
+This time, just type <code>M-x w/run-doxygen</code> to generate call graphs in Emacs.
+</p>
+<div class="taglist"><a href="tags.html">Tags:</a> <a href="tag-emacs.html">Emacs</a> </div>
 <div class="post-date">30 May 2020</div><h1 class="post-title"><a href="2020-05-30-a-trick-to-troubleshoot-emacs-subprocess-creating.html">A Trick to Troubleshoot Emacs Subprocess Creating</a></h1>
 <p>
 There are many packages of Emacs that leverage subprocesses to do their jobs, <a href="https://magit.vc/">Magit</a>, <a href="https://github.com/joaotavora/eglot">eglot</a>, <a href="https://github.com/jorgenschaefer/elpy">elpy</a>, to name a few. And there are times that a subprocess doesn't work as expected, for example, Magit is slow, and you're sure that it's ok when running git commands on shell. So how to spot these problems effectively and quickly?
