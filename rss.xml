@@ -4,7 +4,85 @@
 <title>whatacold's blog site</title>
 <description>whatacold's blog site</description>
 <link>https://whatacold.github.io/</link>
-<lastBuildDate>Sat, 22 Aug 2020 19:59:21 +0800</lastBuildDate>
+<lastBuildDate>Thu, 22 Oct 2020 00:14:47 +0800</lastBuildDate>
+<item>
+  <title>A Python re.findall Service</title>
+  <description><![CDATA[
+<p>
+As a programmer, I know that grep, sed and awk are powerful for processing text, but they sometimes aren't that straight-forward for specific tasks, as I need to think about how to filter the lines and the columns out. So I wonder if there is a handy way to do these tasks? After using it for a while, I think using regex directly can help, so I launched a <a href="https://texttoolkit.com/re.findall">re.findall service</a> building on top of Python <code>re.findall</code> API.
+</p>
+
+<p>
+Here are some use cases for it.
+</p>
+
+<ol class="org-ol">
+<li><p>
+Find all words beginning with a specific prefix.
+</p>
+
+<p>
+I have a few paragraphs, and I want to find out all words beginning with the letter 's'. Just a few steps:
+</p>
+<ol class="org-ol">
+<li>Copy the text to the left input box.</li>
+<li>Type in the regex: <code>\bs\w*</code>, and click the button.</li>
+<li>The result will show in the right box.</li>
+</ol></li>
+
+<li><p>
+Extract fields out.
+</p>
+
+<p>
+It's not uncommon to extract some fields from some lines with a similar structure, such as a ProtoBuf message definition.
+</p>
+
+<p>
+Imagine that I need to write a few test cases for a ProtoBuf-based service, and I have such a message (taken from the <a href="https://developers.google.com/protocol-buffers">Protocol Buffers</a> site) at hand:
+</p>
+
+<pre class="example">
+message Person {
+  required string Name = 1;
+  required int32 Id = 2;
+  optional string Email = 3;
+}
+</pre>
+
+<p>
+The final test case that I want looks like this (Note that the field names in the <code>set_xxx</code> form must be lower-case):
+</p>
+<div class="org-src-container">
+<pre class="src src-cpp"><span style="color: #27ae60;">Person</span> <span style="color: #3498db;">person</span>;
+person.set_name(<span style="color: #16a085;">"Text Toolkit"</span>);
+person.set_id(1024);
+person.set_email(<span style="color: #16a085;">"whatacold@gmail.com"</span>);
+</pre>
+</div>
+
+<p>
+The steps are the same as the above use case. Copy the message definition to the left input box and type <code>(\w+) =</code> in the regex box. It will give you the three field names as output, based on what I can quickly complete the test case with Emacs' help.
+</p></li>
+
+<li><p>
+Find specific attributes in HTML/XML.
+</p>
+
+<p>
+As a widely used configuration file format, I sometimes need to find out all value of a specific attribute in an XML file. HTML has a similar file syntax, so here I make an example from HTML. I now need to figure out what types of input I use in a specific HTML file for whatever reasons. How can I do that?
+</p>
+
+<p>
+Simply copy and paste the HTML code, write a regex <code>&lt;input[^&lt;]+type="(\w+)"</code> in the box, and click the button. Want to deduplicate the result? Check the box "unique" and click the button again.
+</p></li>
+</ol>
+<div class="taglist"><a href="tags.html">Tags:</a> <a href="tag-python.html">Python</a> <a href="tag-texttoolkit.html">texttoolkit</a> </div>]]></description>
+  <category>Python</category>
+  <category>texttoolkit</category>
+  <link>https://whatacold.github.io/2020-10-21-a-python-re.findall-service.html</link>
+  <pubDate>Wed, 21 Oct 2020 22:51:00 +0800</pubDate>
+</item>
 <item>
   <title>Generate Call Graphs Using Doxygen in Emacs</title>
   <description><![CDATA[
@@ -1660,7 +1738,7 @@ Dump of assembler code for function main():
    0x00000000004004b6 &lt;+0&gt;:	push   %rbp
    0x00000000004004b7 &lt;+1&gt;:	mov    %rsp,%rbp
    0x00000000004004ba &lt;+4&gt;:	sub    $0x10,%rsp
-   0x00000000004004be &lt;+8&gt;:	lea    -0x1(%rbp),%rax               ; &amp;foo
+   0x00000000004004be &lt;+8&gt;:	lea    -0x1(%rbp),%rax               ; &amp;foo 取自身对象地址
    0x00000000004004c2 &lt;+12&gt;:	mov    %rax,%rdi
    0x00000000004004c5 &lt;+15&gt;:	callq  0x4004ce &lt;Derived::bar()&gt; ; 确定的函数地址
    0x00000000004004ca &lt;+20&gt;:	nop
@@ -1679,7 +1757,7 @@ End of assembler dump.
 </pre>
 
 <p>
-可以发现与普通的 C 函数调用类似，编译之后就已经确定好了调用 <code>Foo::incrNum</code> 方法，
+可以发现与普通的 C 函数调用类似，编译之后就已经确定好了调用 <code>Derived::bar</code> 方法，
 除了把对象自身地址作为隐藏的第一个参数传入之外并没有什么不同。
 也就是说对于普通不含虚函数的类对象，在编译过程中就确定了其方法的调用，没有运行时开销。
 </p>

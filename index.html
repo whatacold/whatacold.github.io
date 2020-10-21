@@ -28,6 +28,77 @@
 </div></div>
 <div id="content">
 
+<div class="post-date">21 Oct 2020</div><h1 class="post-title"><a href="2020-10-21-a-python-re.findall-service.html">A Python re.findall Service</a></h1>
+<p>
+As a programmer, I know that grep, sed and awk are powerful for processing text, but they sometimes aren't that straight-forward for specific tasks, as I need to think about how to filter the lines and the columns out. So I wonder if there is a handy way to do these tasks? After using it for a while, I think using regex directly can help, so I launched a <a href="https://texttoolkit.com/re.findall">re.findall service</a> building on top of Python <code>re.findall</code> API.
+</p>
+
+<p>
+Here are some use cases for it.
+</p>
+
+<ol class="org-ol">
+<li><p>
+Find all words beginning with a specific prefix.
+</p>
+
+<p>
+I have a few paragraphs, and I want to find out all words beginning with the letter 's'. Just a few steps:
+</p>
+<ol class="org-ol">
+<li>Copy the text to the left input box.</li>
+<li>Type in the regex: <code>\bs\w*</code>, and click the button.</li>
+<li>The result will show in the right box.</li>
+</ol></li>
+
+<li><p>
+Extract fields out.
+</p>
+
+<p>
+It's not uncommon to extract some fields from some lines with a similar structure, such as a ProtoBuf message definition.
+</p>
+
+<p>
+Imagine that I need to write a few test cases for a ProtoBuf-based service, and I have such a message (taken from the <a href="https://developers.google.com/protocol-buffers">Protocol Buffers</a> site) at hand:
+</p>
+
+<pre class="example">
+message Person {
+  required string Name = 1;
+  required int32 Id = 2;
+  optional string Email = 3;
+}
+</pre>
+
+<p>
+The final test case that I want looks like this (Note that the field names in the <code>set_xxx</code> form must be lower-case):
+</p>
+<div class="org-src-container">
+<pre class="src src-cpp"><span style="color: #27ae60;">Person</span> <span style="color: #3498db;">person</span>;
+person.set_name(<span style="color: #16a085;">"Text Toolkit"</span>);
+person.set_id(1024);
+person.set_email(<span style="color: #16a085;">"whatacold@gmail.com"</span>);
+</pre>
+</div>
+
+<p>
+The steps are the same as the above use case. Copy the message definition to the left input box and type <code>(\w+) =</code> in the regex box. It will give you the three field names as output, based on what I can quickly complete the test case with Emacs' help.
+</p></li>
+
+<li><p>
+Find specific attributes in HTML/XML.
+</p>
+
+<p>
+As a widely used configuration file format, I sometimes need to find out all value of a specific attribute in an XML file. HTML has a similar file syntax, so here I make an example from HTML. I now need to figure out what types of input I use in a specific HTML file for whatever reasons. How can I do that?
+</p>
+
+<p>
+Simply copy and paste the HTML code, write a regex <code>&lt;input[^&lt;]+type="(\w+)"</code> in the box, and click the button. Want to deduplicate the result? Check the box "unique" and click the button again.
+</p></li>
+</ol>
+<div class="taglist"><a href="tags.html">Tags:</a> <a href="tag-python.html">Python</a> <a href="tag-texttoolkit.html">texttoolkit</a> </div>
 <div class="post-date">22 Aug 2020</div><h1 class="post-title"><a href="2020-08-22-generate-call-graphs-using-doxygen-in-emacs.html">Generate Call Graphs Using Doxygen in Emacs</a></h1>
 <p>
 <a href="https://www.doxygen.nl/">Doxygen</a> is a nice tool for generating documentations for well-annotated C/C++ projects, the one feature that I like most is generating call graphs and class diagrams, so that I can learn a project quickly by browsing the diagrams from a higher point of view.
@@ -292,61 +363,7 @@ With the help of these advice, I successfully resolved a performance issue of Ma
 <p>
 目前，我自己使用 ppcompile 已经没有什么问题了，它在最近的项目开发中帮我节省了不少精力，欢迎大家试用和使用 :)
 </p>
-<div class="taglist"><a href="tags.html">Tags:</a> <a href="tag-emacs.html">emacs</a> <a href="tag-zhongwen.html">zhongwen</a> </div>
-<div class="post-date">07 Mar 2020</div><h1 class="post-title"><a href="2020-03-07-ppcompile:-an-emacs-package-to-help-stay-coding-locally.html">ppcompile: An Emacs Package to Help Stay Coding Locally</a></h1>
-<p>
-If you are a C/C++ programmer like me, you may experience jumping around different machines to write and compile your code, or you may write code on different machines for different projects, and scp/rsync/ftp the projects around. It works, but it's a bit tedious and takes too much burden on our brains.
-</p>
-
-<p>
-For example, say I have two projects that should be compiled on their compiling machines respectively. There are two obvious workflows for writing code for them "simultaneously":
-</p>
-
-<ol class="org-ol">
-<li><p>
-Write code locally, rsync files to their compiling machine and compile them, fix errors according to the compiling result.
-</p>
-
-<p>
-Pros: I have only one coding environment to maintain, and I have full control of it. Install packages? Start some services? No problem, just a few commands.
-</p>
-
-<p>
-Cons: I have to sync the source code, spot the errors by my eyes and fix them accordingly.
-</p></li>
-
-<li><p>
-Write code on the compiling machine, compile them and fix errors locally there, taking the advantage of <code>M-x next-error</code>.
-</p>
-
-<p>
-Pros: <code>M-x next-error</code> works like a charm to fix errors, just a piece of cake. Eye friendly.
-</p>
-
-<p>
-Cons: Several Emacs environment to maintain, and I don't always have the root privilege.
-</p>
-
-<p>
-Update: Tramp is a built-in package for editing remote files, which also falls into this category, although it's quite handy to edit single files like confs, at least for me.
-</p></li>
-</ol>
-
-<p>
-(Update: There is another option using <a href="https://github.com/libfuse/sshfs">sshfs</a>, which mounts the remote FS, it's a general and nice solution if you have a stable network.)
-</p>
-
-<p>
-So I was wondering if there is a way to take the good part of both approaches so that I have the full privilege and fix compiling errors locally as if I were compiling locally? Well, the answer was yes, and <a href="https://github.com/whatacold/ppcompile">ppcompile</a> was my solution for it.
-</p>
-
-<p>
-<code>ppcompile</code> stands for ping-pong compile, as it works like playing ping-pong. First, it rsync's the files to the compiling machines ("ping"). Second, it gets the result back ("pong") and gets them fixed locally.
-</p>
-
-<p>
-It works now, and I hope it helps you too. :)</p>
-<div class="taglist"><a href="tags.html">Tags:</a> <a href="tag-emacs.html">Emacs</a> </div><div id="archive">
+<div class="taglist"><a href="tags.html">Tags:</a> <a href="tag-emacs.html">emacs</a> <a href="tag-zhongwen.html">zhongwen</a> </div><div id="archive">
 <a href="archive.html">Other posts</a>
 </div>
 </div>
