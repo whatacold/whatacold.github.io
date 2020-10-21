@@ -395,7 +395,7 @@ Dump of assembler code for function main():
    0x00000000004004b6 &lt;+0&gt;:	push   %rbp
    0x00000000004004b7 &lt;+1&gt;:	mov    %rsp,%rbp
    0x00000000004004ba &lt;+4&gt;:	sub    $0x10,%rsp
-   0x00000000004004be &lt;+8&gt;:	lea    -0x1(%rbp),%rax               ; &amp;foo
+   0x00000000004004be &lt;+8&gt;:	lea    -0x1(%rbp),%rax               ; &amp;foo 取自身对象地址
    0x00000000004004c2 &lt;+12&gt;:	mov    %rax,%rdi
    0x00000000004004c5 &lt;+15&gt;:	callq  0x4004ce &lt;Derived::bar()&gt; ; 确定的函数地址
    0x00000000004004ca &lt;+20&gt;:	nop
@@ -414,7 +414,7 @@ End of assembler dump.
 </pre>
 
 <p>
-可以发现与普通的 C 函数调用类似，编译之后就已经确定好了调用 <code>Foo::incrNum</code> 方法，
+可以发现与普通的 C 函数调用类似，编译之后就已经确定好了调用 <code>Derived::bar</code> 方法，
 除了把对象自身地址作为隐藏的第一个参数传入之外并没有什么不同。
 也就是说对于普通不含虚函数的类对象，在编译过程中就确定了其方法的调用，没有运行时开销。
 </p>
