@@ -4,7 +4,7 @@
 <title>whatacold's blog site</title>
 <description>whatacold's blog site</description>
 <link>https://whatacold.github.io/</link>
-<lastBuildDate>Thu, 22 Oct 2020 00:14:47 +0800</lastBuildDate>
+<lastBuildDate>Thu, 22 Oct 2020 00:28:14 +0800</lastBuildDate>
 <item>
   <title>A Python re.findall Service</title>
   <description><![CDATA[
@@ -35,11 +35,11 @@ Extract fields out.
 </p>
 
 <p>
-It's not uncommon to extract some fields from some lines with a similar structure, such as a ProtoBuf message definition.
+It's not uncommon to extract some fields from some lines with a similar structure, such as a Protobuf message definition.
 </p>
 
 <p>
-Imagine that I need to write a few test cases for a ProtoBuf-based service, and I have such a message (taken from the <a href="https://developers.google.com/protocol-buffers">Protocol Buffers</a> site) at hand:
+Imagine that I need to write a few test cases for a Protobuf-based service, and I have such a message (taken from the <a href="https://developers.google.com/protocol-buffers">Protocol Buffers</a> site) at hand:
 </p>
 
 <pre class="example">
