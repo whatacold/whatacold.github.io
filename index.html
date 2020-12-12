@@ -5,7 +5,7 @@
 <link rel="alternate"
       type="application/rss+xml"
       href="https://whatacold.github.io/rss.xml"
-      title="RSS feed for https://whatacold.github.io/"/>
+      title="RSS feed for https://whatacold.github.io/">
 <title>whatacold's blog site</title>
 <meta name="author" content="Guangwang Huang">
 <meta name="referrer" content="no-referrer">
@@ -28,7 +28,7 @@
 </div></div>
 <div id="content">
 
-<div class="post-date">21 Oct 2020</div><h1 class="post-title"><a href="2020-10-21-a-python-re.findall-service.html">A Python re.findall Service</a></h1>
+<div class="post-date">21 Oct 2020</div><h1 class="post-title"><a href="https://whatacold.github.io/2020-10-21-a-python-re.findall-service.html">A Python re.findall Service</a></h1>
 <p>
 As a programmer, I know that grep, sed and awk are powerful for processing text, but they sometimes aren't that straight-forward for specific tasks, as I need to think about how to filter the lines and the columns out. So I wonder if there is a handy way to do these tasks? After using it for a while, I think using regex directly can help, so I launched a <a href="https://texttoolkit.com/re.findall">re.findall service</a> building on top of Python <code>re.findall</code> API.
 </p>
@@ -114,8 +114,8 @@ But with re.findall service, I simply copy and paste the HTML code, write a rege
 <p>
 The above three cases are only a few examples that arose around from my daily usage, proving that the service is a simple yet powerful service for some scenarios. And there is another problem that it solves, that the regex syntax varies a bit for grep, sed, and awk. One can hardly make it right when he/she writes it first. With re.findall, one regex syntax for all, that is the Python regex.
 </p>
-<div class="taglist"><a href="tags.html">Tags:</a> <a href="tag-python.html">Python</a> <a href="tag-texttoolkit.html">texttoolkit</a> </div>
-<div class="post-date">22 Aug 2020</div><h1 class="post-title"><a href="2020-08-22-generate-call-graphs-using-doxygen-in-emacs.html">Generate Call Graphs Using Doxygen in Emacs</a></h1>
+<div class="taglist"><a href="https://whatacold.github.io/tags.html">Tags</a>: <a href="https://whatacold.github.io/tag-python.html">Python</a> <a href="https://whatacold.github.io/tag-texttoolkit.html">texttoolkit</a> </div>
+<div class="post-date">22 Aug 2020</div><h1 class="post-title"><a href="https://whatacold.github.io/2020-08-22-generate-call-graphs-using-doxygen-in-emacs.html">Generate Call Graphs Using Doxygen in Emacs</a></h1>
 <p>
 <a href="https://www.doxygen.nl/">Doxygen</a> is a nice tool for generating documentations for well-annotated C/C++ projects, the one feature that I like most is generating call graphs and class diagrams, so that I can learn a project quickly by browsing the diagrams from a higher point of view.
 </p>
@@ -241,8 +241,8 @@ Second, make a helper command to run doxygen quickly with a projects buffer as t
 <p>
 This time, just type <code>M-x w/run-doxygen</code> to generate call graphs in Emacs.
 </p>
-<div class="taglist"><a href="tags.html">Tags:</a> <a href="tag-emacs.html">Emacs</a> </div>
-<div class="post-date">25 Jun 2020</div><h1 class="post-title"><a href="2020-06-25-is-it-safe-to-use-redis-as-a-data-store.html">Is it safe to use Redis as a data store?</a></h1>
+<div class="taglist"><a href="https://whatacold.github.io/tags.html">Tags</a>: <a href="https://whatacold.github.io/tag-emacs.html">Emacs</a> </div>
+<div class="post-date">25 Jun 2020</div><h1 class="post-title"><a href="https://whatacold.github.io/2020-06-25-is-it-safe-to-use-redis-as-a-data-store.html">Is it safe to use Redis as a data store?</a></h1>
 <p>
 Traditionally we are used to storing data in an RDBMS like MySQL, and avoid using in-memory solutions such as Redis, to have a confidence of no data loss. Sometimes I find that we are so stubborn with MySQL that ending up with a complicated design, and I've even seen a solution that stores data in MySQL and then using Redis as a cache for it to improve read performance in the meanwhile. And to make the data in the cache as consistent as possible with the data in MySQL, it introduces other mechanisms, but the result is still not 100% consistent.
 </p>
@@ -277,8 +277,8 @@ As a comparison, MySQL has a similar mechanism called binary log (binlog) to log
 <p>
 So it's OK to use Redis as a data store with the AOF persistence enabled, it can be as safe as MySQL in theory.
 </p>
-<div class="taglist"><a href="tags.html">Tags:</a> <a href="tag-redis.html">Redis</a> <a href="tag-mysql.html">MySQL</a> </div>
-<div class="post-date">30 May 2020</div><h1 class="post-title"><a href="2020-05-30-a-trick-to-troubleshoot-emacs-subprocess-creating.html">A Trick to Troubleshoot Emacs Subprocess Creating</a></h1>
+<div class="taglist"><a href="https://whatacold.github.io/tags.html">Tags</a>: <a href="https://whatacold.github.io/tag-redis.html">Redis</a> <a href="https://whatacold.github.io/tag-mysql.html">MySQL</a> </div>
+<div class="post-date">30 May 2020</div><h1 class="post-title"><a href="https://whatacold.github.io/2020-05-30-a-trick-to-troubleshoot-emacs-subprocess-creating.html">A Trick to Troubleshoot Emacs Subprocess Creating</a></h1>
 <p>
 There are many packages of Emacs that leverage subprocesses to do their jobs, <a href="https://magit.vc/">Magit</a>, <a href="https://github.com/joaotavora/eglot">eglot</a>, <a href="https://github.com/jorgenschaefer/elpy">elpy</a>, to name a few. And there are times that a subprocess doesn't work as expected, for example, Magit is slow, and you're sure that it's ok when running git commands on shell. So how to spot these problems effectively and quickly?
 </p>
@@ -331,8 +331,8 @@ Trace start-process: name:  *elpy-rpc [project:~/python/qtile/ environment:/home
 <p>
 With the help of these advice, I successfully resolved a performance issue of Magit with a particular repo the other day, which was caused by <a href="https://github.com/emacsorphanage/magit-svn">magit-svn</a> hooks.
 </p>
-<div class="taglist"><a href="tags.html">Tags:</a> <a href="tag-emacs.html">Emacs</a> <a href="tag-troubleshooting.html">troubleshooting</a> </div>
-<div class="post-date">11 Apr 2020</div><h1 class="post-title"><a href="2020-04-11-use-ppcompile-to-remote-compile-in-emacs-zh.html">Emacs 中使用 ppcompile 进行远程编译</a></h1>
+<div class="taglist"><a href="https://whatacold.github.io/tags.html">Tags</a>: <a href="https://whatacold.github.io/tag-emacs.html">Emacs</a> <a href="https://whatacold.github.io/tag-troubleshooting.html">troubleshooting</a> </div>
+<div class="post-date">11 Apr 2020</div><h1 class="post-title"><a href="https://whatacold.github.io/zh/2020-04-11-use-ppcompile-to-remote-compile-in-emacs.html">Emacs 中使用 ppcompile 进行远程编译</a></h1>
 <p>
 不同于 Python 之类的项目， C/C++ 的项目需要有专门的编译环境，一般国内公司都会搭建特定的编译环境机器，把一些私有的库等依赖放在上面。而这些编译环境的工具链一般都比较老旧，有的编译环境可能还无法访问外网，甚至也没有提供代理间接访问外网。因此想要在这样的环境中使用 Emacs 开发代码着实不是一件容易的事。
 </p>
@@ -379,9 +379,10 @@ With the help of these advice, I successfully resolved a performance issue of Ma
 <p>
 目前，我自己使用 ppcompile 已经没有什么问题了，它在最近的项目开发中帮我节省了不少精力，欢迎大家试用和使用 :)
 </p>
-<div class="taglist"><a href="tags.html">Tags:</a> <a href="tag-emacs.html">emacs</a> <a href="tag-zhongwen.html">zhongwen</a> </div><div id="archive">
-<a href="archive.html">Other posts</a>
+<div class="taglist"><a href="https://whatacold.github.io/tags.html">Tags</a>: <a href="https://whatacold.github.io/tag-emacs.html">emacs</a> </div><div id="archive">
+<a href="https://whatacold.github.io/archive.html">Other posts</a>
 </div>
 </div>
+<div id="postamble" class="status"></div>
 </body>
 </html>

@@ -5,7 +5,7 @@
 <link rel="alternate"
       type="application/rss+xml"
       href="https://whatacold.github.io/rss.xml"
-      title="RSS feed for https://whatacold.github.io/"/>
+      title="RSS feed for https://whatacold.github.io/">
 <title>whatacold's blog site</title>
 <meta name="author" content="Guangwang Huang">
 <meta name="referrer" content="no-referrer">
@@ -28,14 +28,14 @@
 </div></div>
 <div id="content">
 <h1 class="title">Posts tagged "tiling-wm":</h1>
-<div class="post-date">22 Dec 2019</div><h1 class="post-title"><a href="2019-12-22-manage-ssh-connections-with-ssh-config.html">Manage SSH connections with =~/.ssh/config=</a></h1>
+<div class="post-date">22 Dec 2019</div><h1 class="post-title"><a href="https://whatacold.github.io/2019-12-22-manage-ssh-connections-with-ssh-config.html">Manage SSH connections with =~/.ssh/config=</a></h1>
 <nav id="table-of-contents">
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orga76777e">1. How To Configure Connections</a></li>
-<li><a href="#org40b3676">2. How To Use Identity Files</a></li>
-<li><a href="#orgde14cc3">3. Common Configurations</a></li>
+<li><a href="#orgd7ba935">1. How To Configure Connections</a></li>
+<li><a href="#orgabf6323">2. How To Use Identity Files</a></li>
+<li><a href="#org470ea5b">3. Common Configurations</a></li>
 </ul>
 </div>
 </nav>
@@ -51,8 +51,8 @@ At first, I baked a helper Python script, which I named as qssh for "quick ssh",
 Then as I understood it more, I surprisingly found that <code>ssh</code> itself can be configured to do that by just configuring <code>~/.ssh/config</code>. I wish I knew it from day one. Together with identity files, it's very easy to login remote host, copy files between hosts using <code>scp</code>.
 </p>
 
-<div id="outline-container-orga76777e" class="outline-2">
-<h2 id="orga76777e"><span class="section-number-2">1</span> How To Configure Connections</h2>
+<div id="outline-container-orgd7ba935" class="outline-2">
+<h2 id="orgd7ba935"><span class="section-number-2">1</span> How To Configure Connections</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 For every SSH connection, there are some specific arguments like IP, port, user name, etc. Let's assume there is a host with IP <code>10.1.2.3</code>, and I can ssh into it with <code>whatacold</code> as name and <code>foo123</code> as the password at port 2234. I had to type <code>ssh -p 2234 whatacold@10.1.2.3</code> literally, which is too many keys to type.
@@ -87,8 +87,8 @@ There is one that hasn't be mentioned is <code>IdentityFile</code>, which means 
 </div>
 </div>
 
-<div id="outline-container-org40b3676" class="outline-2">
-<h2 id="org40b3676"><span class="section-number-2">2</span> How To Use Identity Files</h2>
+<div id="outline-container-orgabf6323" class="outline-2">
+<h2 id="orgabf6323"><span class="section-number-2">2</span> How To Use Identity Files</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 First, generate a pair of keys if you haven't done yet, for example, <code>ssh-keygen -t rsa -b 4096 -f ~/.ssh/id_dev</code>, hit Enter when it prompts you to enter a password(using no password).
@@ -108,8 +108,8 @@ Now you can log in that host without entering passwords, try it with, for exampl
 </div>
 </div>
 
-<div id="outline-container-orgde14cc3" class="outline-2">
-<h2 id="orgde14cc3"><span class="section-number-2">3</span> Common Configurations</h2>
+<div id="outline-container-org470ea5b" class="outline-2">
+<h2 id="org470ea5b"><span class="section-number-2">3</span> Common Configurations</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 If there are some common configurations for every host, they can be put under a default "section" named <code>Host *</code>. For example, I want to keep alive the connections, so I have these directives for all hosts:
@@ -127,8 +127,8 @@ Host *
 Note that this default setting should be put at the end of the file, as it seems that the first matched directive of two <code>Host</code> wins if .</p>
 </div>
 </div>
-<div class="taglist"><a href="tags.html">Tags:</a> <a href="tag-tools.html">Tools</a> <a href="tag-tiling-wm.html">tiling-wm</a> </div>
-<div class="post-date">25 Nov 2019</div><h1 class="post-title"><a href="2019-11-25-start-a-new-terminal(urxvt)-at-current-buffer's-default-directory-on-emacs.html">Start a new terminal(urxvt) at current buffer's default-directory on Emacs</a></h1>
+<div class="taglist"><a href="https://whatacold.github.io/tags.html">Tags</a>: <a href="https://whatacold.github.io/tag-tools.html">Tools</a> <a href="https://whatacold.github.io/tag-tiling-wm.html">tiling-wm</a> </div>
+<div class="post-date">25 Nov 2019</div><h1 class="post-title"><a href="https://whatacold.github.io/2019-11-25-start-a-new-urxvt-terminal-on-emacs.html">Start a new terminal(urxvt) at current buffer's default-directory on Emacs</a></h1>
 <p>
 I have been really enjoying the more concentration workflow qtile, a tiling window manager, brings me, since I started using it a few months ago. I am more focus on the current task now as all the windows I care about are laid out on the same screen.
 </p>
@@ -160,8 +160,8 @@ With that idea, it didn't take much time to write a command to do that, which I 
 <p>
 Sometimes it's important to first clear your mind to figure out what exactly you want.
 </p>
-<div class="taglist"><a href="tags.html">Tags:</a> <a href="tag-tiling-wm.html">tiling-wm</a> <a href="tag-urxvt.html">urxvt</a> </div>
-<div class="post-date">29 Sep 2019</div><h1 class="post-title"><a href="2019-09-29-how-to-run-the-bleeding-edge-code-of-qtile-within-virtualenv.html">How to run the bleeding-edge code of Qtile within a virtualenv</a></h1>
+<div class="taglist"><a href="https://whatacold.github.io/tags.html">Tags</a>: <a href="https://whatacold.github.io/tag-tiling-wm.html">tiling-wm</a> <a href="https://whatacold.github.io/tag-urxvt.html">urxvt</a> </div>
+<div class="post-date">29 Sep 2019</div><h1 class="post-title"><a href="https://whatacold.github.io/2019-09-29-how-to-run-the-bleeding-edge-code-of-qtile.html">How to run the bleeding-edge code of Qtile within a virtualenv</a></h1>
 <p>
 For having been using GNOME for quite a long time, I was considering trying some tiling window managers to see what it's like a few weeks ago. Along the way, I found a nice window manager written in Python: <a href="http://www.qtile.org">Qtile</a>, what interests me most is that it's a <b>hackable</b> window manager, which makes it flexible to extend or change its behaviors.
 </p>
@@ -265,9 +265,10 @@ Pay attention to the <code>Exec</code> directive, it points to the glue script.
 
 <li>Log out or reboot your system, then select “Qtile(venv)” as your window manager by clicking the setting icon when logging in.</li>
 </ol>
-<div class="taglist"><a href="tags.html">Tags:</a> <a href="tag-python.html">Python</a> <a href="tag-tiling-wm.html">tiling-wm</a> </div><div id="archive">
-<a href="archive.html">Other posts</a>
+<div class="taglist"><a href="https://whatacold.github.io/tags.html">Tags</a>: <a href="https://whatacold.github.io/tag-python.html">Python</a> <a href="https://whatacold.github.io/tag-tiling-wm.html">tiling-wm</a> </div><div id="archive">
+<a href="https://whatacold.github.io/archive.html">Other posts</a>
 </div>
 </div>
+<div id="postamble" class="status"></div>
 </body>
 </html>

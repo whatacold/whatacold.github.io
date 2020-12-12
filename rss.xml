@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <rss version="2.0">
 <channel>
-<title>whatacold's blog site</title>
-<description>whatacold's blog site</description>
+<title><![CDATA[whatacold's blog site]]></title>
+<description><![CDATA[whatacold's blog site]]></description>
 <link>https://whatacold.github.io/</link>
-<lastBuildDate>Sun, 25 Oct 2020 16:00:16 +0800</lastBuildDate>
+<lastBuildDate>Sun, 13 Dec 2020 02:23:53 +0800</lastBuildDate>
 <item>
-  <title>A Python re.findall Service</title>
+  <title><![CDATA[A Python re.findall Service]]></title>
   <description><![CDATA[
 <p>
 As a programmer, I know that grep, sed and awk are powerful for processing text, but they sometimes aren't that straight-forward for specific tasks, as I need to think about how to filter the lines and the columns out. So I wonder if there is a handy way to do these tasks? After using it for a while, I think using regex directly can help, so I launched a <a href="https://texttoolkit.com/re.findall">re.findall service</a> building on top of Python <code>re.findall</code> API.
@@ -93,14 +93,14 @@ But with re.findall service, I simply copy and paste the HTML code, write a rege
 <p>
 The above three cases are only a few examples that arose around from my daily usage, proving that the service is a simple yet powerful service for some scenarios. And there is another problem that it solves, that the regex syntax varies a bit for grep, sed, and awk. One can hardly make it right when he/she writes it first. With re.findall, one regex syntax for all, that is the Python regex.
 </p>
-<div class="taglist"><a href="tags.html">Tags:</a> <a href="tag-python.html">Python</a> <a href="tag-texttoolkit.html">texttoolkit</a> </div>]]></description>
-  <category>Python</category>
-  <category>texttoolkit</category>
+<div class="taglist"><a href="https://whatacold.github.io/tags.html">Tags</a>: <a href="https://whatacold.github.io/tag-python.html">Python</a> <a href="https://whatacold.github.io/tag-texttoolkit.html">texttoolkit</a> </div>]]></description>
+  <category><![CDATA[Python]]></category>
+  <category><![CDATA[texttoolkit]]></category>
   <link>https://whatacold.github.io/2020-10-21-a-python-re.findall-service.html</link>
   <pubDate>Wed, 21 Oct 2020 22:51:00 +0800</pubDate>
 </item>
 <item>
-  <title>Generate Call Graphs Using Doxygen in Emacs</title>
+  <title><![CDATA[Generate Call Graphs Using Doxygen in Emacs]]></title>
   <description><![CDATA[
 <p>
 <a href="https://www.doxygen.nl/">Doxygen</a> is a nice tool for generating documentations for well-annotated C/C++ projects, the one feature that I like most is generating call graphs and class diagrams, so that I can learn a project quickly by browsing the diagrams from a higher point of view.
@@ -227,13 +227,13 @@ Second, make a helper command to run doxygen quickly with a projects buffer as t
 <p>
 This time, just type <code>M-x w/run-doxygen</code> to generate call graphs in Emacs.
 </p>
-<div class="taglist"><a href="tags.html">Tags:</a> <a href="tag-emacs.html">Emacs</a> </div>]]></description>
-  <category>Emacs</category>
+<div class="taglist"><a href="https://whatacold.github.io/tags.html">Tags</a>: <a href="https://whatacold.github.io/tag-emacs.html">Emacs</a> </div>]]></description>
+  <category><![CDATA[Emacs]]></category>
   <link>https://whatacold.github.io/2020-08-22-generate-call-graphs-using-doxygen-in-emacs.html</link>
   <pubDate>Sat, 22 Aug 2020 18:57:00 +0800</pubDate>
 </item>
 <item>
-  <title>Is it safe to use Redis as a data store?</title>
+  <title><![CDATA[Is it safe to use Redis as a data store?]]></title>
   <description><![CDATA[
 <p>
 Traditionally we are used to storing data in an RDBMS like MySQL, and avoid using in-memory solutions such as Redis, to have a confidence of no data loss. Sometimes I find that we are so stubborn with MySQL that ending up with a complicated design, and I've even seen a solution that stores data in MySQL and then using Redis as a cache for it to improve read performance in the meanwhile. And to make the data in the cache as consistent as possible with the data in MySQL, it introduces other mechanisms, but the result is still not 100% consistent.
@@ -269,14 +269,14 @@ As a comparison, MySQL has a similar mechanism called binary log (binlog) to log
 <p>
 So it's OK to use Redis as a data store with the AOF persistence enabled, it can be as safe as MySQL in theory.
 </p>
-<div class="taglist"><a href="tags.html">Tags:</a> <a href="tag-redis.html">Redis</a> <a href="tag-mysql.html">MySQL</a> </div>]]></description>
-  <category>Redis</category>
-  <category>MySQL</category>
+<div class="taglist"><a href="https://whatacold.github.io/tags.html">Tags</a>: <a href="https://whatacold.github.io/tag-redis.html">Redis</a> <a href="https://whatacold.github.io/tag-mysql.html">MySQL</a> </div>]]></description>
+  <category><![CDATA[Redis]]></category>
+  <category><![CDATA[MySQL]]></category>
   <link>https://whatacold.github.io/2020-06-25-is-it-safe-to-use-redis-as-a-data-store.html</link>
   <pubDate>Thu, 25 Jun 2020 22:37:00 +0800</pubDate>
 </item>
 <item>
-  <title>A Trick to Troubleshoot Emacs Subprocess Creating</title>
+  <title><![CDATA[A Trick to Troubleshoot Emacs Subprocess Creating]]></title>
   <description><![CDATA[
 <p>
 There are many packages of Emacs that leverage subprocesses to do their jobs, <a href="https://magit.vc/">Magit</a>, <a href="https://github.com/joaotavora/eglot">eglot</a>, <a href="https://github.com/jorgenschaefer/elpy">elpy</a>, to name a few. And there are times that a subprocess doesn't work as expected, for example, Magit is slow, and you're sure that it's ok when running git commands on shell. So how to spot these problems effectively and quickly?
@@ -330,14 +330,14 @@ Trace start-process: name:  *elpy-rpc [project:~/python/qtile/ environment:/home
 <p>
 With the help of these advice, I successfully resolved a performance issue of Magit with a particular repo the other day, which was caused by <a href="https://github.com/emacsorphanage/magit-svn">magit-svn</a> hooks.
 </p>
-<div class="taglist"><a href="tags.html">Tags:</a> <a href="tag-emacs.html">Emacs</a> <a href="tag-troubleshooting.html">troubleshooting</a> </div>]]></description>
-  <category>Emacs</category>
-  <category>troubleshooting</category>
+<div class="taglist"><a href="https://whatacold.github.io/tags.html">Tags</a>: <a href="https://whatacold.github.io/tag-emacs.html">Emacs</a> <a href="https://whatacold.github.io/tag-troubleshooting.html">troubleshooting</a> </div>]]></description>
+  <category><![CDATA[Emacs]]></category>
+  <category><![CDATA[troubleshooting]]></category>
   <link>https://whatacold.github.io/2020-05-30-a-trick-to-troubleshoot-emacs-subprocess-creating.html</link>
   <pubDate>Sat, 30 May 2020 11:52:00 +0800</pubDate>
 </item>
 <item>
-  <title>Emacs 中使用 ppcompile 进行远程编译</title>
+  <title><![CDATA[Emacs 中使用 ppcompile 进行远程编译]]></title>
   <description><![CDATA[
 <p>
 不同于 Python 之类的项目， C/C++ 的项目需要有专门的编译环境，一般国内公司都会搭建特定的编译环境机器，把一些私有的库等依赖放在上面。而这些编译环境的工具链一般都比较老旧，有的编译环境可能还无法访问外网，甚至也没有提供代理间接访问外网。因此想要在这样的环境中使用 Emacs 开发代码着实不是一件容易的事。
@@ -385,14 +385,13 @@ With the help of these advice, I successfully resolved a performance issue of Ma
 <p>
 目前，我自己使用 ppcompile 已经没有什么问题了，它在最近的项目开发中帮我节省了不少精力，欢迎大家试用和使用 :)
 </p>
-<div class="taglist"><a href="tags.html">Tags:</a> <a href="tag-emacs.html">emacs</a> <a href="tag-zhongwen.html">zhongwen</a> </div>]]></description>
-  <category>emacs</category>
-  <category>zhongwen</category>
-  <link>https://whatacold.github.io/2020-04-11-use-ppcompile-to-remote-compile-in-emacs-zh.html</link>
+<div class="taglist"><a href="https://whatacold.github.io/tags.html">Tags</a>: <a href="https://whatacold.github.io/tag-emacs.html">emacs</a> </div>]]></description>
+  <category><![CDATA[emacs]]></category>
+  <link>https://whatacold.github.io/zh/2020-04-11-use-ppcompile-to-remote-compile-in-emacs.html</link>
   <pubDate>Sat, 11 Apr 2020 22:17:00 +0800</pubDate>
 </item>
 <item>
-  <title>ppcompile: An Emacs Package to Help Stay Coding Locally</title>
+  <title><![CDATA[ppcompile: An Emacs Package to Help Stay Coding Locally]]></title>
   <description><![CDATA[
 <p>
 If you are a C/C++ programmer like me, you may experience jumping around different machines to write and compile your code, or you may write code on different machines for different projects, and scp/rsync/ftp the projects around. It works, but it's a bit tedious and takes too much burden on our brains.
@@ -446,13 +445,13 @@ So I was wondering if there is a way to take the good part of both approaches so
 
 <p>
 It works now, and I hope it helps you too. :)</p>
-<div class="taglist"><a href="tags.html">Tags:</a> <a href="tag-emacs.html">Emacs</a> </div>]]></description>
-  <category>Emacs</category>
-  <link>https://whatacold.github.io/2020-03-07-ppcompile:-an-emacs-package-to-help-stay-coding-locally.html</link>
+<div class="taglist"><a href="https://whatacold.github.io/tags.html">Tags</a>: <a href="https://whatacold.github.io/tag-emacs.html">Emacs</a> </div>]]></description>
+  <category><![CDATA[Emacs]]></category>
+  <link>https://whatacold.github.io/2020-03-07-ppcompile-to-help-stay-coding-locally.html</link>
   <pubDate>Sat, 07 Mar 2020 23:50:00 +0800</pubDate>
 </item>
 <item>
-  <title>The binary search algorithm is also an efficient strategy for narrowing down problem space</title>
+  <title><![CDATA[The binary search algorithm is also an efficient strategy for narrowing down problem space]]></title>
   <description><![CDATA[
 <p>
 <a href="https://en.wikipedia.org/wiki/Binary_search_algorithm">Binary search algorithm</a> is a search algorithm that finds the position of a target value within a sorted array. It cuts off the target array in half in a pass, so that it has a worst-case performance of <code>O(log n)</code>.
@@ -600,22 +599,22 @@ sleep 0.5
 <span style="color: #2c3e50; font-style: italic;">exit</span> $<span style="color: #3498db;">EXIT_CODE</span>
 </pre>
 </div>
-<div class="taglist"><a href="tags.html">Tags:</a> <a href="tag-git.html">Git</a> <a href="tag-troubleshooting.html">troubleshooting</a> </div>]]></description>
-  <category>Git</category>
-  <category>troubleshooting</category>
-  <link>https://whatacold.github.io/2020-02-04-binary-search-algorithm-is-also-an-efficient-strategy-for-narrowing-down-problem-space.html</link>
+<div class="taglist"><a href="https://whatacold.github.io/tags.html">Tags</a>: <a href="https://whatacold.github.io/tag-git.html">Git</a> <a href="https://whatacold.github.io/tag-troubleshooting.html">troubleshooting</a> </div>]]></description>
+  <category><![CDATA[Git]]></category>
+  <category><![CDATA[troubleshooting]]></category>
+  <link>https://whatacold.github.io/2020-02-04-binary-search-algorithm-vs-problem-solving.html</link>
   <pubDate>Tue, 04 Feb 2020 18:48:00 +0800</pubDate>
 </item>
 <item>
-  <title>Manage SSH connections with =~/.ssh/config=</title>
+  <title><![CDATA[Manage SSH connections with =~/.ssh/config=]]></title>
   <description><![CDATA[
 <nav id="table-of-contents">
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orga76777e">1. How To Configure Connections</a></li>
-<li><a href="#org40b3676">2. How To Use Identity Files</a></li>
-<li><a href="#orgde14cc3">3. Common Configurations</a></li>
+<li><a href="#orgd7ba935">1. How To Configure Connections</a></li>
+<li><a href="#orgabf6323">2. How To Use Identity Files</a></li>
+<li><a href="#org470ea5b">3. Common Configurations</a></li>
 </ul>
 </div>
 </nav>
@@ -631,8 +630,8 @@ At first, I baked a helper Python script, which I named as qssh for "quick ssh",
 Then as I understood it more, I surprisingly found that <code>ssh</code> itself can be configured to do that by just configuring <code>~/.ssh/config</code>. I wish I knew it from day one. Together with identity files, it's very easy to login remote host, copy files between hosts using <code>scp</code>.
 </p>
 
-<div id="outline-container-orga76777e" class="outline-2">
-<h2 id="orga76777e"><span class="section-number-2">1</span> How To Configure Connections</h2>
+<div id="outline-container-orgd7ba935" class="outline-2">
+<h2 id="orgd7ba935"><span class="section-number-2">1</span> How To Configure Connections</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 For every SSH connection, there are some specific arguments like IP, port, user name, etc. Let's assume there is a host with IP <code>10.1.2.3</code>, and I can ssh into it with <code>whatacold</code> as name and <code>foo123</code> as the password at port 2234. I had to type <code>ssh -p 2234 whatacold@10.1.2.3</code> literally, which is too many keys to type.
@@ -667,8 +666,8 @@ There is one that hasn't be mentioned is <code>IdentityFile</code>, which means 
 </div>
 </div>
 
-<div id="outline-container-org40b3676" class="outline-2">
-<h2 id="org40b3676"><span class="section-number-2">2</span> How To Use Identity Files</h2>
+<div id="outline-container-orgabf6323" class="outline-2">
+<h2 id="orgabf6323"><span class="section-number-2">2</span> How To Use Identity Files</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 First, generate a pair of keys if you haven't done yet, for example, <code>ssh-keygen -t rsa -b 4096 -f ~/.ssh/id_dev</code>, hit Enter when it prompts you to enter a password(using no password).
@@ -688,8 +687,8 @@ Now you can log in that host without entering passwords, try it with, for exampl
 </div>
 </div>
 
-<div id="outline-container-orgde14cc3" class="outline-2">
-<h2 id="orgde14cc3"><span class="section-number-2">3</span> Common Configurations</h2>
+<div id="outline-container-org470ea5b" class="outline-2">
+<h2 id="org470ea5b"><span class="section-number-2">3</span> Common Configurations</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 If there are some common configurations for every host, they can be put under a default "section" named <code>Host *</code>. For example, I want to keep alive the connections, so I have these directives for all hosts:
@@ -707,14 +706,14 @@ Host *
 Note that this default setting should be put at the end of the file, as it seems that the first matched directive of two <code>Host</code> wins if .</p>
 </div>
 </div>
-<div class="taglist"><a href="tags.html">Tags:</a> <a href="tag-tools.html">Tools</a> <a href="tag-tiling-wm.html">tiling-wm</a> </div>]]></description>
-  <category>Tools</category>
-  <category>tiling-wm</category>
+<div class="taglist"><a href="https://whatacold.github.io/tags.html">Tags</a>: <a href="https://whatacold.github.io/tag-tools.html">Tools</a> <a href="https://whatacold.github.io/tag-tiling-wm.html">tiling-wm</a> </div>]]></description>
+  <category><![CDATA[Tools]]></category>
+  <category><![CDATA[tiling-wm]]></category>
   <link>https://whatacold.github.io/2019-12-22-manage-ssh-connections-with-ssh-config.html</link>
   <pubDate>Sun, 22 Dec 2019 18:52:00 +0800</pubDate>
 </item>
 <item>
-  <title>Why can't Git fetch remote branches other than master?</title>
+  <title><![CDATA[Why can't Git fetch remote branches other than master?]]></title>
   <description><![CDATA[
 <p>
 Last week I came into a problem with Git, that I can't fetch the remote branch that I pushed to. It was so weird because I can push the local branch there. It never happens before, and it happened when I was in a rush to rebase my code, as someone in my team pushed his code.
@@ -767,13 +766,13 @@ $ grep <span style="color: #16a085;">'remote "origin"'</span> -A 2 dotfiles-full
 <p>
 I don't know why <code>--single-branch</code> should be implied by default, at least for me, I just want to fetch all the remote branches.
 </p>
-<div class="taglist"><a href="tags.html">Tags:</a> <a href="tag-git.html">Git</a> </div>]]></description>
-  <category>Git</category>
-  <link>https://whatacold.github.io/2019-12-01-why-can't-git-fetch-remote-branches-other-than-master.html</link>
+<div class="taglist"><a href="https://whatacold.github.io/tags.html">Tags</a>: <a href="https://whatacold.github.io/tag-git.html">Git</a> </div>]]></description>
+  <category><![CDATA[Git]]></category>
+  <link>https://whatacold.github.io/2019-12-01-why-cant-git-fetch-remote-branches-other-than-master.html</link>
   <pubDate>Sun, 01 Dec 2019 16:00:00 +0800</pubDate>
 </item>
 <item>
-  <title>Start a new terminal(urxvt) at current buffer's default-directory on Emacs</title>
+  <title><![CDATA[Start a new terminal(urxvt) at current buffer's default-directory on Emacs]]></title>
   <description><![CDATA[
 <p>
 I have been really enjoying the more concentration workflow qtile, a tiling window manager, brings me, since I started using it a few months ago. I am more focus on the current task now as all the windows I care about are laid out on the same screen.
@@ -806,14 +805,14 @@ With that idea, it didn't take much time to write a command to do that, which I 
 <p>
 Sometimes it's important to first clear your mind to figure out what exactly you want.
 </p>
-<div class="taglist"><a href="tags.html">Tags:</a> <a href="tag-tiling-wm.html">tiling-wm</a> <a href="tag-urxvt.html">urxvt</a> </div>]]></description>
-  <category>tiling-wm</category>
-  <category>urxvt</category>
-  <link>https://whatacold.github.io/2019-11-25-start-a-new-terminal(urxvt)-at-current-buffer's-default-directory-on-emacs.html</link>
+<div class="taglist"><a href="https://whatacold.github.io/tags.html">Tags</a>: <a href="https://whatacold.github.io/tag-tiling-wm.html">tiling-wm</a> <a href="https://whatacold.github.io/tag-urxvt.html">urxvt</a> </div>]]></description>
+  <category><![CDATA[tiling-wm]]></category>
+  <category><![CDATA[urxvt]]></category>
+  <link>https://whatacold.github.io/2019-11-25-start-a-new-urxvt-terminal-on-emacs.html</link>
   <pubDate>Mon, 25 Nov 2019 22:47:00 +0800</pubDate>
 </item>
 <item>
-  <title>Build Docker Images for Qtile</title>
+  <title><![CDATA[Build Docker Images for Qtile]]></title>
   <description><![CDATA[
 <p>
 One of Docker's use cases is to set up identical development environments easily and quickly for a dev team.
@@ -831,13 +830,13 @@ The instructions for building a Docker image are put in a <code>Dockerfile</code
 
 <p>
 The final Dockerfiles for testing Qtile and building its documentation are hosted at <a href="https://github.com/whatacold/qtile-docker">https://github.com/whatacold/qtile-docker</a>, there is a brief README there about how to build them and use them.</p>
-<div class="taglist"><a href="tags.html">Tags:</a> <a href="tag-docker.html">Docker</a> </div>]]></description>
-  <category>Docker</category>
+<div class="taglist"><a href="https://whatacold.github.io/tags.html">Tags</a>: <a href="https://whatacold.github.io/tag-docker.html">Docker</a> </div>]]></description>
+  <category><![CDATA[Docker]]></category>
   <link>https://whatacold.github.io/2019-10-07-build-docker-images-for-qtile.html</link>
   <pubDate>Mon, 07 Oct 2019 13:25:00 +0800</pubDate>
 </item>
 <item>
-  <title>用 Python Requests “一键”重启天翼路由器</title>
+  <title><![CDATA[用 Python Requests “一键”重启天翼路由器]]></title>
   <description><![CDATA[
 <p>
 不知道什么原因，我的网络有时候会很慢，而通过重启天翼网关路由器（版本 V1.0 ）大概率能够恢复。这样重启的次数多了之后会觉得有点繁琐，本着偷懒的原则，就想写一个脚本来自动重启，那样的话会“方便”很多。
@@ -894,14 +893,13 @@ The final Dockerfiles for testing Qtile and building its documentation are hoste
 <p>
 另外，正如注释中提到的，其实 <code>/restartGateWay.json</code> 这个是一个裸接口，并没有校验 <code>sessionKey</code> 的有效性；甚至登录接口在用户登录之后也不会设置 cookie ，所有的业务接口都是可以直接调用的，也就是说，登录界面只是一个摆设。 :(
 </p>
-<div class="taglist"><a href="tags.html">Tags:</a> <a href="tag-python.html">Python</a> <a href="tag-zhongwen.html">zhongwen</a> </div>]]></description>
-  <category>Python</category>
-  <category>zhongwen</category>
-  <link>https://whatacold.github.io/2019-10-01-reboot-tianyi-router-using-python-requests.html</link>
+<div class="taglist"><a href="https://whatacold.github.io/tags.html">Tags</a>: <a href="https://whatacold.github.io/tag-python.html">Python</a> </div>]]></description>
+  <category><![CDATA[Python]]></category>
+  <link>https://whatacold.github.io/zh/2019-10-01-reboot-tianyi-router-using-python-requests.html</link>
   <pubDate>Tue, 01 Oct 2019 22:28:00 +0800</pubDate>
 </item>
 <item>
-  <title>How to run the bleeding-edge code of Qtile within a virtualenv</title>
+  <title><![CDATA[How to run the bleeding-edge code of Qtile within a virtualenv]]></title>
   <description><![CDATA[
 <p>
 For having been using GNOME for quite a long time, I was considering trying some tiling window managers to see what it's like a few weeks ago. Along the way, I found a nice window manager written in Python: <a href="http://www.qtile.org">Qtile</a>, what interests me most is that it's a <b>hackable</b> window manager, which makes it flexible to extend or change its behaviors.
@@ -1006,14 +1004,14 @@ Pay attention to the <code>Exec</code> directive, it points to the glue script.
 
 <li>Log out or reboot your system, then select “Qtile(venv)” as your window manager by clicking the setting icon when logging in.</li>
 </ol>
-<div class="taglist"><a href="tags.html">Tags:</a> <a href="tag-python.html">Python</a> <a href="tag-tiling-wm.html">tiling-wm</a> </div>]]></description>
-  <category>Python</category>
-  <category>tiling-wm</category>
-  <link>https://whatacold.github.io/2019-09-29-how-to-run-the-bleeding-edge-code-of-qtile-within-virtualenv.html</link>
+<div class="taglist"><a href="https://whatacold.github.io/tags.html">Tags</a>: <a href="https://whatacold.github.io/tag-python.html">Python</a> <a href="https://whatacold.github.io/tag-tiling-wm.html">tiling-wm</a> </div>]]></description>
+  <category><![CDATA[Python]]></category>
+  <category><![CDATA[tiling-wm]]></category>
+  <link>https://whatacold.github.io/2019-09-29-how-to-run-the-bleeding-edge-code-of-qtile.html</link>
   <pubDate>Sun, 29 Sep 2019 17:05:00 +0800</pubDate>
 </item>
 <item>
-  <title>How to revert a series of commits with Git?</title>
+  <title><![CDATA[How to revert a series of commits with Git?]]></title>
   <description><![CDATA[
 <p>
 Sometimes, I need to revert a series of commits that are already pushed, doing a git hard reset is not an option, as someone may already have new commits based on mine.
@@ -1120,13 +1118,13 @@ mkdir -p $<span style="color: #3498db;">REPO</span> &amp;&amp; <span style="colo
 <span style="color: #2c3e50; font-style: italic;">done</span>
 </pre>
 </div>
-<div class="taglist"><a href="tags.html">Tags:</a> <a href="tag-git.html">Git</a> </div>]]></description>
-  <category>Git</category>
+<div class="taglist"><a href="https://whatacold.github.io/tags.html">Tags</a>: <a href="https://whatacold.github.io/tag-git.html">Git</a> </div>]]></description>
+  <category><![CDATA[Git]]></category>
   <link>https://whatacold.github.io/2019-09-24-how-to-revert-a-series-of-commits-with-git.html</link>
   <pubDate>Tue, 24 Sep 2019 23:14:00 +0800</pubDate>
 </item>
 <item>
-  <title>How to rename web page titles in a lightweight way</title>
+  <title><![CDATA[How to rename web page titles in a lightweight way]]></title>
   <description><![CDATA[
 <p>
 There are times that I need to open many web pages of some specific websites within a browser, there are so many tabs that I can't efficiently access one of them, as their favicons are all the same.
@@ -1155,13 +1153,13 @@ Then I thought maybe it can be simply done with a bookmarklet, nevertheless, it'
  })()
 </pre>
 </div>
-<div class="taglist"><a href="tags.html">Tags:</a> <a href="tag-tools.html">Tools</a> </div>]]></description>
-  <category>Tools</category>
+<div class="taglist"><a href="https://whatacold.github.io/tags.html">Tags</a>: <a href="https://whatacold.github.io/tag-tools.html">Tools</a> </div>]]></description>
+  <category><![CDATA[Tools]]></category>
   <link>https://whatacold.github.io/2019-08-18-how-to-rename-web-page-titles-in-a-lightweight-way.html</link>
   <pubDate>Sun, 18 Aug 2019 14:57:00 +0800</pubDate>
 </item>
 <item>
-  <title>Generating org-mode outlines for wikiHow articles</title>
+  <title><![CDATA[Generating org-mode outlines for wikiHow articles]]></title>
   <description><![CDATA[
 <p>
 Recently I found some great articles on <a href="https://www.wikihow.com">wikiHow</a>, then I want to keep notes of them in org-mode files.
@@ -1223,13 +1221,13 @@ Here is the source code:
 gen_wikihow_org_outline(url, containing_heading_level)
 </pre>
 </div>
-<div class="taglist"><a href="tags.html">Tags:</a> <a href="tag-org-mode.html">Org-mode</a> </div>]]></description>
-  <category>Org-mode</category>
+<div class="taglist"><a href="https://whatacold.github.io/tags.html">Tags</a>: <a href="https://whatacold.github.io/tag-org-mode.html">Org-mode</a> </div>]]></description>
+  <category><![CDATA[Org-mode]]></category>
   <link>https://whatacold.github.io/2019-07-20-generating-org-mode-outlines-for-wikihow-articles.html</link>
   <pubDate>Sat, 20 Jul 2019 20:04:00 +0800</pubDate>
 </item>
 <item>
-  <title>Understanding align-regexp of Emacs</title>
+  <title><![CDATA[Understanding align-regexp of Emacs]]></title>
   <description><![CDATA[
 <p>
 Emacs' <code>M-x align-regex</code> is neat when I want to align some similar text, especially when we're coding.
@@ -1291,13 +1289,13 @@ The link is: <a href="https://emacs.stackexchange.com/questions/2644/understandi
 
 
 </div>
-</div><div class="taglist"><a href="tags.html">Tags:</a> <a href="tag-emacs.html">Emacs</a> </div>]]></description>
-  <category>Emacs</category>
+</div><div class="taglist"><a href="https://whatacold.github.io/tags.html">Tags</a>: <a href="https://whatacold.github.io/tag-emacs.html">Emacs</a> </div>]]></description>
+  <category><![CDATA[Emacs]]></category>
   <link>https://whatacold.github.io/2019-07-20-understanding-align-regexp-of-emacs.html</link>
   <pubDate>Sat, 20 Jul 2019 13:50:00 +0800</pubDate>
 </item>
 <item>
-  <title>Preview erd on the web</title>
+  <title><![CDATA[Preview erd on the web]]></title>
   <description><![CDATA[
 <p>
 If you ever wonder how to plot ER diagrams in plain text, you may have already heard of <a href="https://github.com/BurntSushi/erd">erd</a>.
@@ -1342,14 +1340,14 @@ take a look too if you're interested.
 
 <p>
 P.S. I know the UI is ugly. I have basic knowledge of CSS, but I just don't have the sense to layout elements properly, what materials/practices would you recommend improving my front end skill at this stage? or any tips on the UI itself?</p>
-<div class="taglist"><a href="tags.html">Tags:</a> <a href="tag-python.html">Python</a> <a href="tag-tools.html">Tools</a> </div>]]></description>
-  <category>Python</category>
-  <category>Tools</category>
+<div class="taglist"><a href="https://whatacold.github.io/tags.html">Tags</a>: <a href="https://whatacold.github.io/tag-python.html">Python</a> <a href="https://whatacold.github.io/tag-tools.html">Tools</a> </div>]]></description>
+  <category><![CDATA[Python]]></category>
+  <category><![CDATA[Tools]]></category>
   <link>https://whatacold.github.io/2019-07-06-render-erd-on-the-web.html</link>
   <pubDate>Sat, 06 Jul 2019 11:59:00 +0800</pubDate>
 </item>
 <item>
-  <title>Fine-tune curly braces style of yasnippet snippet on the fly</title>
+  <title><![CDATA[Fine-tune curly braces style of yasnippet snippet on the fly]]></title>
   <description><![CDATA[
 <p>
 <a href="https://github.com/joaotavora/yasnippet">Yasnippet</a> is a good friend to help us type less and write more, whenever we write some text snippets repeatedly. And there is also an official repository called <a href="https://github.com/AndreaCrotti/yasnippet-snippets">yasnippet-snippets</a> that contains various snippets for many programming languages(modes), so that we can have many snippets in no time by installing it.
@@ -1462,13 +1460,13 @@ Fortunately, yasnippet provides a hook called <code>yas-after-exit-snippet-hook<
 
 <p>
 Now the coding experience is much better :)</p>
-<div class="taglist"><a href="tags.html">Tags:</a> <a href="tag-emacs.html">Emacs</a> </div>]]></description>
-  <category>Emacs</category>
-  <link>https://whatacold.github.io/2019-02-24-fine-tune-curly-brace-style-of-yasnippet-snippet-on-the-fly.html</link>
+<div class="taglist"><a href="https://whatacold.github.io/tags.html">Tags</a>: <a href="https://whatacold.github.io/tag-emacs.html">Emacs</a> </div>]]></description>
+  <category><![CDATA[Emacs]]></category>
+  <link>https://whatacold.github.io/2019-02-24-fine-tune-style-of-yasnippet-snippet-on-the-fly.html</link>
   <pubDate>Sun, 10 Mar 2019 16:48:00 +0800</pubDate>
 </item>
 <item>
-  <title>记一个 Emacs Keyboard Macro 输入字符重复的 Bug</title>
+  <title><![CDATA[记一个 Emacs Keyboard Macro 输入字符重复的 Bug]]></title>
   <description><![CDATA[
 <p>
 工作中不时地会使用 Emacs keyboard macro 来解决重复性的编辑任务，
@@ -1504,14 +1502,13 @@ Now the coding experience is much better :)</p>
 Emacs 自带的输入法虽然已经解决了问题，但是 pyim 还没解决，接下来如果有时间再研究下如何解决（ Emacs 27 已经编译好了 :) ），
 在彻底解决之前，如果在录制 keyboard macro 时不需要输入中文，可以通过 <code>M-x toggle-input-method</code> 切换回英文输入来 workaround ，
 这样就能避开这个 bug ，继续用 keyboard macro 来编辑文本。</p>
-<div class="taglist"><a href="tags.html">Tags:</a> <a href="tag-emacs.html">Emacs</a> <a href="tag-zhongwen.html">zhongwen</a> </div>]]></description>
-  <category>Emacs</category>
-  <category>zhongwen</category>
-  <link>https://whatacold.github.io/2019-02-03-emacs-kmacro-characters-repeated-bug.html</link>
+<div class="taglist"><a href="https://whatacold.github.io/tags.html">Tags</a>: <a href="https://whatacold.github.io/tag-emacs.html">Emacs</a> </div>]]></description>
+  <category><![CDATA[Emacs]]></category>
+  <link>https://whatacold.github.io/zh/2019-02-03-emacs-kmacro-characters-repeated-bug.html</link>
   <pubDate>Sun, 17 Feb 2019 18:05:00 +0800</pubDate>
 </item>
 <item>
-  <title>如何理解 Git submodule</title>
+  <title><![CDATA[如何理解 Git submodule]]></title>
   <description><![CDATA[
 <p>
 Git 虽然很强大，但也有少数命令很难理解。
@@ -1547,14 +1544,13 @@ Git submodule 本质上是两个独立的仓库，各自可以独立地像普通
 <p>
 无论是 superproject 还是 submodule ，都像普通的 repo 一样进行 branch, add, push, diff 等等的操作，
 只是最后再通过 <code>git submodule</code> 命令再更新下新“指针”位置即可。</p>
-<div class="taglist"><a href="tags.html">Tags:</a> <a href="tag-git.html">Git</a> <a href="tag-zhongwen.html">zhongwen</a> </div>]]></description>
-  <category>Git</category>
-  <category>zhongwen</category>
-  <link>https://whatacold.github.io/2019-01-13-understand-git-submodule.html</link>
+<div class="taglist"><a href="https://whatacold.github.io/tags.html">Tags</a>: <a href="https://whatacold.github.io/tag-git.html">Git</a> </div>]]></description>
+  <category><![CDATA[Git]]></category>
+  <link>https://whatacold.github.io/zh/2019-01-13-understand-git-submodule.html</link>
   <pubDate>Sun, 17 Feb 2019 16:07:00 +0800</pubDate>
 </item>
 <item>
-  <title>在 Emacs 中使用 LSP 开发 C/C++ 工程</title>
+  <title><![CDATA[在 Emacs 中使用 LSP 开发 C/C++ 工程]]></title>
   <description><![CDATA[
 <p>
 写代码的时候，如果能够基于当前的上下文提示补全，不仅能提高写代码的效率，还能提升体验，有种行云流水的感觉。
@@ -1700,16 +1696,15 @@ clangd 安装最简单，但功能据说比较弱，我没有试过；一开始�
 
 <p>
 至此 LSP 基本可用了。</p>
-<div class="taglist"><a href="tags.html">Tags:</a> <a href="tag-emacs.html">Emacs</a> <a href="tag-c++.html">C++</a> <a href="tag-python.html">Python</a> <a href="tag-zhongwen.html">zhongwen</a> </div>]]></description>
-  <category>Emacs</category>
-  <category>C++</category>
-  <category>Python</category>
-  <category>zhongwen</category>
-  <link>https://whatacold.github.io/2018-12-22-c-cpp-devel-with-lsp-in-emacs.html</link>
+<div class="taglist"><a href="https://whatacold.github.io/tags.html">Tags</a>: <a href="https://whatacold.github.io/tag-emacs.html">Emacs</a> <a href="https://whatacold.github.io/tag-c++.html">C++</a> <a href="https://whatacold.github.io/tag-python.html">Python</a> </div>]]></description>
+  <category><![CDATA[Emacs]]></category>
+  <category><![CDATA[C++]]></category>
+  <category><![CDATA[Python]]></category>
+  <link>https://whatacold.github.io/zh/2018-12-22-c-cpp-devel-with-lsp-in-emacs.html</link>
   <pubDate>Sat, 22 Dec 2018 20:24:00 +0800</pubDate>
 </item>
 <item>
-  <title>C++ 多态是如何实现的？</title>
+  <title><![CDATA[C++ 多态是如何实现的？]]></title>
   <description><![CDATA[
 <p>
 对于 OOP 编程，相信大家对于多态（ polymorphism ）肯定都耳熟能详。
@@ -1924,11 +1919,10 @@ End of assembler dump.
 <li><a href="http://lifegoo.pluskid.org/upload/doc/object_models/C++%20Object%20Model.pdf">C++ Object Model.pdf - lifegoo.pluskid.org</a></li>
 <li>Stanley B·Lippman <a href="https://book.douban.com/subject/1091086/">Inside the C++ Object Model</a></li>
 </ul>
-<div class="taglist"><a href="tags.html">Tags:</a> <a href="tag-c++.html">C++</a> <a href="tag-gdb.html">GDB</a> <a href="tag-zhongwen.html">zhongwen</a> </div>]]></description>
-  <category>C++</category>
-  <category>GDB</category>
-  <category>zhongwen</category>
-  <link>https://whatacold.github.io/2018-12-10-how-polymorphism-works-in-cpp.html</link>
+<div class="taglist"><a href="https://whatacold.github.io/tags.html">Tags</a>: <a href="https://whatacold.github.io/tag-c++.html">C++</a> <a href="https://whatacold.github.io/tag-gdb.html">GDB</a> </div>]]></description>
+  <category><![CDATA[C++]]></category>
+  <category><![CDATA[GDB]]></category>
+  <link>https://whatacold.github.io/zh/2018-12-10-how-polymorphism-works-in-cpp.html</link>
   <pubDate>Mon, 10 Dec 2018 00:16:00 +0800</pubDate>
 </item>
 </channel>

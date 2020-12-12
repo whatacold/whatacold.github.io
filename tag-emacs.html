@@ -5,7 +5,7 @@
 <link rel="alternate"
       type="application/rss+xml"
       href="https://whatacold.github.io/rss.xml"
-      title="RSS feed for https://whatacold.github.io/"/>
+      title="RSS feed for https://whatacold.github.io/">
 <title>whatacold's blog site</title>
 <meta name="author" content="Guangwang Huang">
 <meta name="referrer" content="no-referrer">
@@ -28,7 +28,7 @@
 </div></div>
 <div id="content">
 <h1 class="title">Posts tagged "Emacs":</h1>
-<div class="post-date">22 Aug 2020</div><h1 class="post-title"><a href="2020-08-22-generate-call-graphs-using-doxygen-in-emacs.html">Generate Call Graphs Using Doxygen in Emacs</a></h1>
+<div class="post-date">22 Aug 2020</div><h1 class="post-title"><a href="https://whatacold.github.io/2020-08-22-generate-call-graphs-using-doxygen-in-emacs.html">Generate Call Graphs Using Doxygen in Emacs</a></h1>
 <p>
 <a href="https://www.doxygen.nl/">Doxygen</a> is a nice tool for generating documentations for well-annotated C/C++ projects, the one feature that I like most is generating call graphs and class diagrams, so that I can learn a project quickly by browsing the diagrams from a higher point of view.
 </p>
@@ -154,8 +154,8 @@ Second, make a helper command to run doxygen quickly with a projects buffer as t
 <p>
 This time, just type <code>M-x w/run-doxygen</code> to generate call graphs in Emacs.
 </p>
-<div class="taglist"><a href="tags.html">Tags:</a> <a href="tag-emacs.html">Emacs</a> </div>
-<div class="post-date">30 May 2020</div><h1 class="post-title"><a href="2020-05-30-a-trick-to-troubleshoot-emacs-subprocess-creating.html">A Trick to Troubleshoot Emacs Subprocess Creating</a></h1>
+<div class="taglist"><a href="https://whatacold.github.io/tags.html">Tags</a>: <a href="https://whatacold.github.io/tag-emacs.html">Emacs</a> </div>
+<div class="post-date">30 May 2020</div><h1 class="post-title"><a href="https://whatacold.github.io/2020-05-30-a-trick-to-troubleshoot-emacs-subprocess-creating.html">A Trick to Troubleshoot Emacs Subprocess Creating</a></h1>
 <p>
 There are many packages of Emacs that leverage subprocesses to do their jobs, <a href="https://magit.vc/">Magit</a>, <a href="https://github.com/joaotavora/eglot">eglot</a>, <a href="https://github.com/jorgenschaefer/elpy">elpy</a>, to name a few. And there are times that a subprocess doesn't work as expected, for example, Magit is slow, and you're sure that it's ok when running git commands on shell. So how to spot these problems effectively and quickly?
 </p>
@@ -208,8 +208,8 @@ Trace start-process: name:  *elpy-rpc [project:~/python/qtile/ environment:/home
 <p>
 With the help of these advice, I successfully resolved a performance issue of Magit with a particular repo the other day, which was caused by <a href="https://github.com/emacsorphanage/magit-svn">magit-svn</a> hooks.
 </p>
-<div class="taglist"><a href="tags.html">Tags:</a> <a href="tag-emacs.html">Emacs</a> <a href="tag-troubleshooting.html">troubleshooting</a> </div>
-<div class="post-date">11 Apr 2020</div><h1 class="post-title"><a href="2020-04-11-use-ppcompile-to-remote-compile-in-emacs-zh.html">Emacs 中使用 ppcompile 进行远程编译</a></h1>
+<div class="taglist"><a href="https://whatacold.github.io/tags.html">Tags</a>: <a href="https://whatacold.github.io/tag-emacs.html">Emacs</a> <a href="https://whatacold.github.io/tag-troubleshooting.html">troubleshooting</a> </div>
+<div class="post-date">11 Apr 2020</div><h1 class="post-title"><a href="https://whatacold.github.io/zh/2020-04-11-use-ppcompile-to-remote-compile-in-emacs.html">Emacs 中使用 ppcompile 进行远程编译</a></h1>
 <p>
 不同于 Python 之类的项目， C/C++ 的项目需要有专门的编译环境，一般国内公司都会搭建特定的编译环境机器，把一些私有的库等依赖放在上面。而这些编译环境的工具链一般都比较老旧，有的编译环境可能还无法访问外网，甚至也没有提供代理间接访问外网。因此想要在这样的环境中使用 Emacs 开发代码着实不是一件容易的事。
 </p>
@@ -256,8 +256,8 @@ With the help of these advice, I successfully resolved a performance issue of Ma
 <p>
 目前，我自己使用 ppcompile 已经没有什么问题了，它在最近的项目开发中帮我节省了不少精力，欢迎大家试用和使用 :)
 </p>
-<div class="taglist"><a href="tags.html">Tags:</a> <a href="tag-emacs.html">emacs</a> <a href="tag-zhongwen.html">zhongwen</a> </div>
-<div class="post-date">07 Mar 2020</div><h1 class="post-title"><a href="2020-03-07-ppcompile:-an-emacs-package-to-help-stay-coding-locally.html">ppcompile: An Emacs Package to Help Stay Coding Locally</a></h1>
+<div class="taglist"><a href="https://whatacold.github.io/tags.html">Tags</a>: <a href="https://whatacold.github.io/tag-emacs.html">emacs</a> </div>
+<div class="post-date">07 Mar 2020</div><h1 class="post-title"><a href="https://whatacold.github.io/2020-03-07-ppcompile-to-help-stay-coding-locally.html">ppcompile: An Emacs Package to Help Stay Coding Locally</a></h1>
 <p>
 If you are a C/C++ programmer like me, you may experience jumping around different machines to write and compile your code, or you may write code on different machines for different projects, and scp/rsync/ftp the projects around. It works, but it's a bit tedious and takes too much burden on our brains.
 </p>
@@ -310,8 +310,8 @@ So I was wondering if there is a way to take the good part of both approaches so
 
 <p>
 It works now, and I hope it helps you too. :)</p>
-<div class="taglist"><a href="tags.html">Tags:</a> <a href="tag-emacs.html">Emacs</a> </div>
-<div class="post-date">20 Jul 2019</div><h1 class="post-title"><a href="2019-07-20-understanding-align-regexp-of-emacs.html">Understanding align-regexp of Emacs</a></h1>
+<div class="taglist"><a href="https://whatacold.github.io/tags.html">Tags</a>: <a href="https://whatacold.github.io/tag-emacs.html">Emacs</a> </div>
+<div class="post-date">20 Jul 2019</div><h1 class="post-title"><a href="https://whatacold.github.io/2019-07-20-understanding-align-regexp-of-emacs.html">Understanding align-regexp of Emacs</a></h1>
 <p>
 Emacs' <code>M-x align-regex</code> is neat when I want to align some similar text, especially when we're coding.
 I use its trivial version(without prefix arg) regularly on day-to-day programming work before.
@@ -372,8 +372,8 @@ The link is: <a href="https://emacs.stackexchange.com/questions/2644/understandi
 
 
 </div>
-</div><div class="taglist"><a href="tags.html">Tags:</a> <a href="tag-emacs.html">Emacs</a> </div>
-<div class="post-date">10 Mar 2019</div><h1 class="post-title"><a href="2019-02-24-fine-tune-curly-brace-style-of-yasnippet-snippet-on-the-fly.html">Fine-tune curly braces style of yasnippet snippet on the fly</a></h1>
+</div><div class="taglist"><a href="https://whatacold.github.io/tags.html">Tags</a>: <a href="https://whatacold.github.io/tag-emacs.html">Emacs</a> </div>
+<div class="post-date">10 Mar 2019</div><h1 class="post-title"><a href="https://whatacold.github.io/2019-02-24-fine-tune-style-of-yasnippet-snippet-on-the-fly.html">Fine-tune curly braces style of yasnippet snippet on the fly</a></h1>
 <p>
 <a href="https://github.com/joaotavora/yasnippet">Yasnippet</a> is a good friend to help us type less and write more, whenever we write some text snippets repeatedly. And there is also an official repository called <a href="https://github.com/AndreaCrotti/yasnippet-snippets">yasnippet-snippets</a> that contains various snippets for many programming languages(modes), so that we can have many snippets in no time by installing it.
 </p>
@@ -485,8 +485,8 @@ Fortunately, yasnippet provides a hook called <code>yas-after-exit-snippet-hook<
 
 <p>
 Now the coding experience is much better :)</p>
-<div class="taglist"><a href="tags.html">Tags:</a> <a href="tag-emacs.html">Emacs</a> </div>
-<div class="post-date">17 Feb 2019</div><h1 class="post-title"><a href="2019-02-03-emacs-kmacro-characters-repeated-bug.html">记一个 Emacs Keyboard Macro 输入字符重复的 Bug</a></h1>
+<div class="taglist"><a href="https://whatacold.github.io/tags.html">Tags</a>: <a href="https://whatacold.github.io/tag-emacs.html">Emacs</a> </div>
+<div class="post-date">17 Feb 2019</div><h1 class="post-title"><a href="https://whatacold.github.io/zh/2019-02-03-emacs-kmacro-characters-repeated-bug.html">记一个 Emacs Keyboard Macro 输入字符重复的 Bug</a></h1>
 <p>
 工作中不时地会使用 Emacs keyboard macro 来解决重复性的编辑任务，
 但有时录制了再重放却出现输入的字符被重复了，导致出现非预期的结果。
@@ -521,8 +521,8 @@ Now the coding experience is much better :)</p>
 Emacs 自带的输入法虽然已经解决了问题，但是 pyim 还没解决，接下来如果有时间再研究下如何解决（ Emacs 27 已经编译好了 :) ），
 在彻底解决之前，如果在录制 keyboard macro 时不需要输入中文，可以通过 <code>M-x toggle-input-method</code> 切换回英文输入来 workaround ，
 这样就能避开这个 bug ，继续用 keyboard macro 来编辑文本。</p>
-<div class="taglist"><a href="tags.html">Tags:</a> <a href="tag-emacs.html">Emacs</a> <a href="tag-zhongwen.html">zhongwen</a> </div>
-<div class="post-date">22 Dec 2018</div><h1 class="post-title"><a href="2018-12-22-c-cpp-devel-with-lsp-in-emacs.html">在 Emacs 中使用 LSP 开发 C/C++ 工程</a></h1>
+<div class="taglist"><a href="https://whatacold.github.io/tags.html">Tags</a>: <a href="https://whatacold.github.io/tag-emacs.html">Emacs</a> </div>
+<div class="post-date">22 Dec 2018</div><h1 class="post-title"><a href="https://whatacold.github.io/zh/2018-12-22-c-cpp-devel-with-lsp-in-emacs.html">在 Emacs 中使用 LSP 开发 C/C++ 工程</a></h1>
 <p>
 写代码的时候，如果能够基于当前的上下文提示补全，不仅能提高写代码的效率，还能提升体验，有种行云流水的感觉。
 Emacs 中之前我用 gtags 等静态的工具来辅助写代码，最大的问题是无法根据上下文补全，体验不好。
@@ -667,9 +667,10 @@ clangd 安装最简单，但功能据说比较弱，我没有试过；一开始�
 
 <p>
 至此 LSP 基本可用了。</p>
-<div class="taglist"><a href="tags.html">Tags:</a> <a href="tag-emacs.html">Emacs</a> <a href="tag-c++.html">C++</a> <a href="tag-python.html">Python</a> <a href="tag-zhongwen.html">zhongwen</a> </div><div id="archive">
-<a href="archive.html">Other posts</a>
+<div class="taglist"><a href="https://whatacold.github.io/tags.html">Tags</a>: <a href="https://whatacold.github.io/tag-emacs.html">Emacs</a> <a href="https://whatacold.github.io/tag-c++.html">C++</a> <a href="https://whatacold.github.io/tag-python.html">Python</a> </div><div id="archive">
+<a href="https://whatacold.github.io/archive.html">Other posts</a>
 </div>
 </div>
+<div id="postamble" class="status"></div>
 </body>
 </html>
