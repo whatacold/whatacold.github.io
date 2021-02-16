@@ -28,6 +28,111 @@
 </div></div>
 <div id="content">
 <h1 class="title">Posts tagged "C++":</h1>
+<div class="post-date">16 Feb 2021</div><h1 class="post-title"><a href="https://whatacold.github.io/zh/2021-02-16-doxygen-cpp-correct-callgraphs.html">Doxygen 终于可以正确生成函数调用图了！</a></h1>
+<p>
+大家都知道， Doxygen 可以用于提取代码的注释生成项目的文档，只要注释满足其规定的格式。但我更喜欢利用它生成类继承图（inheritance diagram）和函数调用图（callgraph），通过他们能够加快对代码的理解。
+</p>
+
+<p>
+以 MySQL 代码为例， Doxygen 生成的类继承图和调用图分别是这样的：
+</p>
+
+<figure>
+<img src="./images/2021-02-16-doxygen_innodb_classhandler__inherit__graph.png" alt="2021-02-16-doxygen_innodb_classhandler__inherit__graph.png">
+
+<figcaption><span class="figure-number">Figure 1: </span>handler （存储引擎）类继承图</figcaption>
+</figure>
+
+
+<figure>
+<img src="./images/2021-02-16-doxygen_mysql_ha_recover_callgraph.png" alt="2021-02-16-doxygen_mysql_ha_recover_callgraph.png" width="1000">
+
+<figcaption><span class="figure-number">Figure 2: </span>ha_recover() crash recovery 函数调用图</figcaption>
+</figure>
+
+<p>
+之前工作中交接了几个 C++ 项目，由于还不熟悉，就想用 Doxygen 来生成这两种图来加快熟悉代码，但结果却生成失败了。
+</p>
+
+<p>
+几经排查，最后发现只要代码中包含2个以上的 <code>using namespace xxx;</code> 语句，调用图就无法生成。比如下面这样一个简单的类实现，就无法生成调用关系图。
+</p>
+
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 1: </span>test.h 代码</label><pre class="src src-c++"><span style="color: #2c3e50;">#pragma</span> once
+
+<span style="color: #2c3e50; font-style: italic;">namespace</span> <span style="color: #7f8c8d; font-style: italic;">demo</span> {
+    <span style="color: #2c3e50; font-style: italic;">class</span> <span style="color: #27ae60;">Test</span> {
+    <span style="color: #2c3e50; font-style: italic;">public</span>:
+        <span style="color: #27ae60;">void</span> <span style="color: #9b59b6;">foo</span>();
+        <span style="color: #27ae60;">void</span> <span style="color: #9b59b6;">bar</span>();
+    };
+}
+</pre>
+</div>
+
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 2: </span>test.cpp 代码</label><pre class="src src-c++"><span style="color: #2c3e50;">#include</span> <span style="color: #16a085;">&lt;iostream&gt;</span>
+<span style="color: #2c3e50;">#include</span> <span style="color: #16a085;">"test.h"</span>
+
+<span style="color: #2c3e50; font-style: italic;">using</span> <span style="color: #2c3e50; font-style: italic;">namespace</span> <span style="color: #7f8c8d; font-style: italic;">demo</span>;
+<span style="color: #2c3e50; font-style: italic;">using</span> <span style="color: #2c3e50; font-style: italic;">namespace</span> <span style="color: #7f8c8d; font-style: italic;">std</span>;
+
+<span style="color: #27ae60;">void</span> <span style="color: #7f8c8d; font-style: italic;">Test</span>::<span style="color: #9b59b6;">foo</span>()
+{
+    bar();
+}
+
+<span style="color: #27ae60;">void</span> <span style="color: #7f8c8d; font-style: italic;">Test</span>::<span style="color: #9b59b6;">bar</span>()
+{
+    <span style="color: #2c3e50; font-style: italic;">return</span>;
+}
+
+<span style="color: #27ae60;">int</span> <span style="color: #9b59b6;">main</span>()
+{
+    <span style="color: #27ae60;">Test</span> <span style="color: #3498db;">test</span>;
+    test.foo();
+    <span style="color: #2c3e50; font-style: italic;">return</span> 0;
+}
+</pre>
+</div>
+
+<p>
+虽然这种直接包含命名空间的用法不推荐，但是在已有项目中却很常见，这就意味着 Doxygen 基本不可用了。
+</p>
+
+<p>
+由于当时没有时间，就先给官方报了一个 <a href="https://github.com/doxygen/doxygen/issues/8011">Issue</a> ，等待他们解决。
+</p>
+
+<p>
+没想到几个月之后，官方也还没有解决，而最近正好有点时间，就重新去分析这个 bug ，看如何解决。解决过程虽然花了不少时间，但总结起来就几点：
+</p>
+<ol class="org-ol">
+<li>对比正常生成调用图和无法生成调用图的两种输出，再 grep 差异信息定位到生成 callgraph 图的相关代码；</li>
+<li>添加 printf 调试信息，找出 callgraph 元数据的来源，即 Doxygen 怎么得到调用关系的，最终找到实现在 <code>code.l</code> （C族语言的 flex 实现，用于解析工程源码）中，其中基于 flex 自己实现了词法解析；</li>
+<li>学习 flex 的使用方法；</li>
+</ol>
+
+<p>
+最后终于找到问题的根源在于， Doxygen 在解析 <code>using namespace xxx;</code> 指令的时候，错误地把文件中其后的代码包围在 xxx 命名空间中（ <code>pushScope</code> ），从而把函数的绝对命名空间弄错，就没法解析出正确的调用关系了。
+</p>
+
+<p>
+提了 <a href="https://github.com/doxygen/doxygen/pull/8376">PR</a> 修复了之后， Doxygen 就能够正常地生成调用图了，前面的测试代码就能正确地生成如下的函数调用图了。
+</p>
+
+
+<figure>
+<img src="./images/2021-02-16-doxygen_fix_test_callgraph.png" alt="2021-02-16-doxygen_fix_test_callgraph.png">
+
+<figcaption><span class="figure-number">Figure 3: </span>Test::foo() 的调用图</figcaption>
+</figure>
+
+<p>
+目前（2021.02）这个 PR 已经合并到 master 了，但是还没有发布，需要再等一等。
+</p>
+<div class="taglist"><a href="https://whatacold.github.io/tags.html">Tags</a>: <a href="https://whatacold.github.io/tag-c++.html">C++</a> </div>
 <div class="post-date">22 Dec 2018</div><h1 class="post-title"><a href="https://whatacold.github.io/zh/2018-12-22-c-cpp-devel-with-lsp-in-emacs.html">在 Emacs 中使用 LSP 开发 C/C++ 工程</a></h1>
 <p>
 写代码的时候，如果能够基于当前的上下文提示补全，不仅能提高写代码的效率，还能提升体验，有种行云流水的感觉。
