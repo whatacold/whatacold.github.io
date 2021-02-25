@@ -4,7 +4,7 @@
 <title><![CDATA[whatacold's blog site]]></title>
 <description><![CDATA[whatacold's blog site]]></description>
 <link>https://whatacold.github.io/</link>
-<lastBuildDate>Tue, 16 Feb 2021 23:50:58 +0800</lastBuildDate>
+<lastBuildDate>Thu, 25 Feb 2021 22:13:03 +0800</lastBuildDate>
 <item>
   <title><![CDATA[Doxygen 终于可以正确生成函数调用图了！]]></title>
   <description><![CDATA[
@@ -111,9 +111,10 @@
 <p>
 目前（2021.02）这个 PR 已经合并到 master 了，但是还没有发布，需要再等一等。
 </p>
-<div class="taglist"><a href="https://whatacold.github.io/tags.html">Tags</a>: <a href="https://whatacold.github.io/tag-c++.html">C++</a> </div>]]></description>
+<div class="taglist"><a href="https://whatacold.github.io/tags.html">Tags</a>: <a href="https://whatacold.github.io/tag-c++.html">C++</a> <a href="https://whatacold.github.io/tag-zhongwen.html">zhongwen</a> </div>]]></description>
   <category><![CDATA[C++]]></category>
-  <link>https://whatacold.github.io/zh/2021-02-16-doxygen-cpp-correct-callgraphs.html</link>
+  <category><![CDATA[zhongwen]]></category>
+  <link>https://whatacold.github.io/2021-02-16-doxygen-cpp-correct-callgraphs.html</link>
   <pubDate>Tue, 16 Feb 2021 16:08:00 +0800</pubDate>
 </item>
 <item>
@@ -233,63 +234,63 @@ Here is the complete diff:
 <pre class="src src-diff"><span style="color: #425d78; background-color: #dce0e1;">--- </span><span style="color: #425d78; background-color: #95a5a6; font-weight: bold;">doxygen.conf.orig</span>
 <span style="color: #425d78; background-color: #dce0e1;">+++ </span><span style="color: #425d78; background-color: #95a5a6; font-weight: bold;">doxygen.conf</span>
 <span style="color: #425d78; background-color: #dce0e1;">@@ -8,7 +8,7 @@</span>
-<span style="color: #333333;"> PROJECT_NUMBER         =</span>
-<span style="color: #333333;"> PROJECT_BRIEF          =</span>
-<span style="color: #333333;"> PROJECT_LOGO           =</span>
-<span style="color: #e74c3c;">-</span><span style="color: #e74c3c;">OUTPUT_DIRECTORY       =</span>
-<span style="color: #3498db;">+</span><span style="color: #3498db;">OUTPUT_DIRECTORY       = /path/to/doxygen-output/</span>
-<span style="color: #333333;"> CREATE_SUBDIRS         = NO</span>
-<span style="color: #333333;"> ALLOW_UNICODE_NAMES    = NO</span>
-<span style="color: #333333;"> OUTPUT_LANGUAGE        = English</span>
+ PROJECT_NUMBER         =
+ PROJECT_BRIEF          =
+ PROJECT_LOGO           =
+<span style="color: #aa2222;">-</span><span style="color: #e74c3c;">OUTPUT_DIRECTORY       =</span>
+<span style="color: #22aa22;">+</span><span style="color: #3498db;">OUTPUT_DIRECTORY       = </span><span style="color: #3498db; background-color: #bbffbb;">/path/to/doxygen-output/</span>
+ CREATE_SUBDIRS         = NO
+ ALLOW_UNICODE_NAMES    = NO
+ OUTPUT_LANGUAGE        = English
 <span style="color: #425d78; background-color: #dce0e1;">@@ -114,7 +114,7 @@</span>
-<span style="color: #333333;"> #---------------------------------------------------------------------------</span>
-<span style="color: #333333;"> # Configuration options related to the input files</span>
-<span style="color: #333333;"> #---------------------------------------------------------------------------</span>
-<span style="color: #e74c3c;">-</span><span style="color: #e74c3c;">INPUT                  =</span>
-<span style="color: #3498db;">+</span><span style="color: #3498db;">INPUT                  = /path/to/a/project/ # the directory of the source code</span>
-<span style="color: #333333;"> INPUT_ENCODING         = UTF-8</span>
-<span style="color: #333333;"> FILE_PATTERNS          = *.c \</span>
-<span style="color: #333333;">                          *.cc \</span>
+ #---------------------------------------------------------------------------
+ # Configuration options related to the input files
+ #---------------------------------------------------------------------------
+<span style="color: #aa2222;">-</span><span style="color: #e74c3c;">INPUT                  =</span>
+<span style="color: #22aa22;">+</span><span style="color: #3498db;">INPUT                  = </span><span style="color: #3498db; background-color: #bbffbb;">/path/to/a/project/ # the directory of the source code</span>
+ INPUT_ENCODING         = UTF-8
+ FILE_PATTERNS          = *.c \
+                          *.cc \
 <span style="color: #425d78; background-color: #dce0e1;">@@ -161,7 +161,7 @@</span>
-<span style="color: #333333;">                          *.ucf \</span>
-<span style="color: #333333;">                          *.qsf \</span>
-<span style="color: #333333;">                          *.ice</span>
-<span style="color: #e74c3c;">-</span><span style="color: #e74c3c;">RECURSIVE              = NO</span>
-<span style="color: #3498db;">+</span><span style="color: #3498db;">RECURSIVE              = YES</span>
-<span style="color: #333333;"> EXCLUDE                =</span>
-<span style="color: #333333;"> EXCLUDE_SYMLINKS       = NO</span>
-<span style="color: #333333;"> EXCLUDE_PATTERNS       =</span>
+                          *.ucf \
+                          *.qsf \
+                          *.ice
+<span style="color: #aa2222;">-</span><span style="color: #e74c3c;">RECURSIVE              = </span><span style="color: #e74c3c; background-color: #ffcccc;">NO</span>
+<span style="color: #22aa22;">+</span><span style="color: #3498db;">RECURSIVE              = </span><span style="color: #3498db; background-color: #bbffbb;">YES</span>
+ EXCLUDE                =
+ EXCLUDE_SYMLINKS       = NO
+ EXCLUDE_PATTERNS       =
 <span style="color: #425d78; background-color: #dce0e1;">@@ -255,7 +255,7 @@</span>
-<span style="color: #333333;"> #---------------------------------------------------------------------------</span>
-<span style="color: #333333;"> # Configuration options related to the LaTeX output</span>
-<span style="color: #333333;"> #---------------------------------------------------------------------------</span>
-<span style="color: #e74c3c;">-</span><span style="color: #e74c3c;">GENERATE_LATEX         = YES</span>
-<span style="color: #3498db;">+</span><span style="color: #3498db;">GENERATE_LATEX         = NO</span>
-<span style="color: #333333;"> LATEX_OUTPUT           = latex</span>
-<span style="color: #333333;"> LATEX_CMD_NAME         =</span>
-<span style="color: #333333;"> MAKEINDEX_CMD_NAME     = makeindex</span>
+ #---------------------------------------------------------------------------
+ # Configuration options related to the LaTeX output
+ #---------------------------------------------------------------------------
+<span style="color: #aa2222;">-</span><span style="color: #e74c3c;">GENERATE_LATEX         = </span><span style="color: #e74c3c; background-color: #ffcccc;">YES</span>
+<span style="color: #22aa22;">+</span><span style="color: #3498db;">GENERATE_LATEX         = </span><span style="color: #3498db; background-color: #bbffbb;">NO</span>
+ LATEX_OUTPUT           = latex
+ LATEX_CMD_NAME         =
+ MAKEINDEX_CMD_NAME     = makeindex
 <span style="color: #425d78; background-color: #dce0e1;">@@ -345,10 +345,10 @@</span>
-<span style="color: #333333;"> MSCGEN_PATH            =</span>
-<span style="color: #333333;"> DIA_PATH               =</span>
-<span style="color: #333333;"> HIDE_UNDOC_RELATIONS   = YES</span>
-<span style="color: #e74c3c;">-</span><span style="color: #e74c3c;">HAVE_DOT               = NO</span>
-<span style="color: #3498db;">+</span><span style="color: #3498db;">HAVE_DOT               = YES</span>
-<span style="color: #333333;"> DOT_NUM_THREADS        = 0</span>
-<span style="color: #333333;"> DOT_FONTNAME           = Helvetica</span>
-<span style="color: #e74c3c;">-</span><span style="color: #e74c3c;">DOT_FONTSIZE           = 10</span>
-<span style="color: #3498db;">+</span><span style="color: #3498db;">DOT_FONTSIZE           = 14</span>
-<span style="color: #333333;"> DOT_FONTPATH           =</span>
-<span style="color: #333333;"> CLASS_GRAPH            = YES</span>
-<span style="color: #333333;"> COLLABORATION_GRAPH    = YES</span>
+ MSCGEN_PATH            =
+ DIA_PATH               =
+ HIDE_UNDOC_RELATIONS   = YES
+<span style="color: #aa2222;">-</span><span style="color: #e74c3c;">HAVE_DOT               = </span><span style="color: #e74c3c; background-color: #ffcccc;">NO</span>
+<span style="color: #22aa22;">+</span><span style="color: #3498db;">HAVE_DOT               = </span><span style="color: #3498db; background-color: #bbffbb;">YES</span>
+ DOT_NUM_THREADS        = 0
+ DOT_FONTNAME           = Helvetica
+<span style="color: #aa2222;">-</span><span style="color: #e74c3c;">DOT_FONTSIZE           = </span><span style="color: #e74c3c; background-color: #ffcccc;">10</span>
+<span style="color: #22aa22;">+</span><span style="color: #3498db;">DOT_FONTSIZE           = </span><span style="color: #3498db; background-color: #bbffbb;">14</span>
+ DOT_FONTPATH           =
+ CLASS_GRAPH            = YES
+ COLLABORATION_GRAPH    = YES
 <span style="color: #425d78; background-color: #dce0e1;">@@ -358,7 +358,7 @@</span>
-<span style="color: #333333;"> TEMPLATE_RELATIONS     = NO</span>
-<span style="color: #333333;"> INCLUDE_GRAPH          = YES</span>
-<span style="color: #333333;"> INCLUDED_BY_GRAPH      = YES</span>
-<span style="color: #e74c3c;">-</span><span style="color: #e74c3c;">CALL_GRAPH             = NO</span>
-<span style="color: #3498db;">+</span><span style="color: #3498db;">CALL_GRAPH             = YES</span>
-<span style="color: #333333;"> CALLER_GRAPH           = NO</span>
-<span style="color: #333333;"> GRAPHICAL_HIERARCHY    = YES</span>
-<span style="color: #333333;"> DIRECTORY_GRAPH        = YES</span>
+ TEMPLATE_RELATIONS     = NO
+ INCLUDE_GRAPH          = YES
+ INCLUDED_BY_GRAPH      = YES
+<span style="color: #aa2222;">-</span><span style="color: #e74c3c;">CALL_GRAPH             = </span><span style="color: #e74c3c; background-color: #ffcccc;">NO</span>
+<span style="color: #22aa22;">+</span><span style="color: #3498db;">CALL_GRAPH             = </span><span style="color: #3498db; background-color: #bbffbb;">YES</span>
+ CALLER_GRAPH           = NO
+ GRAPHICAL_HIERARCHY    = YES
+ DIRECTORY_GRAPH        = YES
 
 </pre>
 </div></li>
@@ -496,9 +497,10 @@ With the help of these advice, I successfully resolved a performance issue of Ma
 <p>
 目前，我自己使用 ppcompile 已经没有什么问题了，它在最近的项目开发中帮我节省了不少精力，欢迎大家试用和使用 :)
 </p>
-<div class="taglist"><a href="https://whatacold.github.io/tags.html">Tags</a>: <a href="https://whatacold.github.io/tag-emacs.html">emacs</a> </div>]]></description>
-  <category><![CDATA[emacs]]></category>
-  <link>https://whatacold.github.io/zh/2020-04-11-use-ppcompile-to-remote-compile-in-emacs.html</link>
+<div class="taglist"><a href="https://whatacold.github.io/tags.html">Tags</a>: <a href="https://whatacold.github.io/tag-emacs.html">Emacs</a> <a href="https://whatacold.github.io/tag-zhongwen.html">zhongwen</a> </div>]]></description>
+  <category><![CDATA[Emacs]]></category>
+  <category><![CDATA[zhongwen]]></category>
+  <link>https://whatacold.github.io/2020-04-11-use-ppcompile-to-remote-compile-in-emacs.html</link>
   <pubDate>Sat, 11 Apr 2020 22:17:00 +0800</pubDate>
 </item>
 <item>
@@ -723,9 +725,9 @@ sleep 0.5
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgd7ba935">1. How To Configure Connections</a></li>
-<li><a href="#orgabf6323">2. How To Use Identity Files</a></li>
-<li><a href="#org470ea5b">3. Common Configurations</a></li>
+<li><a href="#org99f819a">1. How To Configure Connections</a></li>
+<li><a href="#org80af77a">2. How To Use Identity Files</a></li>
+<li><a href="#org8162cd1">3. Common Configurations</a></li>
 </ul>
 </div>
 </nav>
@@ -741,8 +743,8 @@ At first, I baked a helper Python script, which I named as qssh for "quick ssh",
 Then as I understood it more, I surprisingly found that <code>ssh</code> itself can be configured to do that by just configuring <code>~/.ssh/config</code>. I wish I knew it from day one. Together with identity files, it's very easy to login remote host, copy files between hosts using <code>scp</code>.
 </p>
 
-<div id="outline-container-orgd7ba935" class="outline-2">
-<h2 id="orgd7ba935"><span class="section-number-2">1</span> How To Configure Connections</h2>
+<div id="outline-container-org99f819a" class="outline-2">
+<h2 id="org99f819a"><span class="section-number-2">1</span> How To Configure Connections</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 For every SSH connection, there are some specific arguments like IP, port, user name, etc. Let's assume there is a host with IP <code>10.1.2.3</code>, and I can ssh into it with <code>whatacold</code> as name and <code>foo123</code> as the password at port 2234. I had to type <code>ssh -p 2234 whatacold@10.1.2.3</code> literally, which is too many keys to type.
@@ -777,8 +779,8 @@ There is one that hasn't be mentioned is <code>IdentityFile</code>, which means 
 </div>
 </div>
 
-<div id="outline-container-orgabf6323" class="outline-2">
-<h2 id="orgabf6323"><span class="section-number-2">2</span> How To Use Identity Files</h2>
+<div id="outline-container-org80af77a" class="outline-2">
+<h2 id="org80af77a"><span class="section-number-2">2</span> How To Use Identity Files</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 First, generate a pair of keys if you haven't done yet, for example, <code>ssh-keygen -t rsa -b 4096 -f ~/.ssh/id_dev</code>, hit Enter when it prompts you to enter a password(using no password).
@@ -798,8 +800,8 @@ Now you can log in that host without entering passwords, try it with, for exampl
 </div>
 </div>
 
-<div id="outline-container-org470ea5b" class="outline-2">
-<h2 id="org470ea5b"><span class="section-number-2">3</span> Common Configurations</h2>
+<div id="outline-container-org8162cd1" class="outline-2">
+<h2 id="org8162cd1"><span class="section-number-2">3</span> Common Configurations</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 If there are some common configurations for every host, they can be put under a default "section" named <code>Host *</code>. For example, I want to keep alive the connections, so I have these directives for all hosts:
@@ -1004,9 +1006,10 @@ The final Dockerfiles for testing Qtile and building its documentation are hoste
 <p>
 另外，正如注释中提到的，其实 <code>/restartGateWay.json</code> 这个是一个裸接口，并没有校验 <code>sessionKey</code> 的有效性；甚至登录接口在用户登录之后也不会设置 cookie ，所有的业务接口都是可以直接调用的，也就是说，登录界面只是一个摆设。 :(
 </p>
-<div class="taglist"><a href="https://whatacold.github.io/tags.html">Tags</a>: <a href="https://whatacold.github.io/tag-python.html">Python</a> </div>]]></description>
+<div class="taglist"><a href="https://whatacold.github.io/tags.html">Tags</a>: <a href="https://whatacold.github.io/tag-python.html">Python</a> <a href="https://whatacold.github.io/tag-zhongwen.html">zhongwen</a> </div>]]></description>
   <category><![CDATA[Python]]></category>
-  <link>https://whatacold.github.io/zh/2019-10-01-reboot-tianyi-router-using-python-requests.html</link>
+  <category><![CDATA[zhongwen]]></category>
+  <link>https://whatacold.github.io/2019-10-01-reboot-tianyi-router-using-python-requests.html</link>
   <pubDate>Tue, 01 Oct 2019 22:28:00 +0800</pubDate>
 </item>
 <item>
@@ -1613,9 +1616,10 @@ Now the coding experience is much better :)</p>
 Emacs 自带的输入法虽然已经解决了问题，但是 pyim 还没解决，接下来如果有时间再研究下如何解决（ Emacs 27 已经编译好了 :) ），
 在彻底解决之前，如果在录制 keyboard macro 时不需要输入中文，可以通过 <code>M-x toggle-input-method</code> 切换回英文输入来 workaround ，
 这样就能避开这个 bug ，继续用 keyboard macro 来编辑文本。</p>
-<div class="taglist"><a href="https://whatacold.github.io/tags.html">Tags</a>: <a href="https://whatacold.github.io/tag-emacs.html">Emacs</a> </div>]]></description>
+<div class="taglist"><a href="https://whatacold.github.io/tags.html">Tags</a>: <a href="https://whatacold.github.io/tag-emacs.html">Emacs</a> <a href="https://whatacold.github.io/tag-zhongwen.html">zhongwen</a> </div>]]></description>
   <category><![CDATA[Emacs]]></category>
-  <link>https://whatacold.github.io/zh/2019-02-03-emacs-kmacro-characters-repeated-bug.html</link>
+  <category><![CDATA[zhongwen]]></category>
+  <link>https://whatacold.github.io/2019-02-03-emacs-kmacro-characters-repeated-bug.html</link>
   <pubDate>Sun, 17 Feb 2019 18:05:00 +0800</pubDate>
 </item>
 <item>
@@ -1655,9 +1659,10 @@ Git submodule 本质上是两个独立的仓库，各自可以独立地像普通
 <p>
 无论是 superproject 还是 submodule ，都像普通的 repo 一样进行 branch, add, push, diff 等等的操作，
 只是最后再通过 <code>git submodule</code> 命令再更新下新“指针”位置即可。</p>
-<div class="taglist"><a href="https://whatacold.github.io/tags.html">Tags</a>: <a href="https://whatacold.github.io/tag-git.html">Git</a> </div>]]></description>
+<div class="taglist"><a href="https://whatacold.github.io/tags.html">Tags</a>: <a href="https://whatacold.github.io/tag-git.html">Git</a> <a href="https://whatacold.github.io/tag-zhongwen.html">zhongwen</a> </div>]]></description>
   <category><![CDATA[Git]]></category>
-  <link>https://whatacold.github.io/zh/2019-01-13-understand-git-submodule.html</link>
+  <category><![CDATA[zhongwen]]></category>
+  <link>https://whatacold.github.io/2019-01-13-understand-git-submodule.html</link>
   <pubDate>Sun, 17 Feb 2019 16:07:00 +0800</pubDate>
 </item>
 <item>
@@ -1807,11 +1812,12 @@ clangd 安装最简单，但功能据说比较弱，我没有试过；一开始�
 
 <p>
 至此 LSP 基本可用了。</p>
-<div class="taglist"><a href="https://whatacold.github.io/tags.html">Tags</a>: <a href="https://whatacold.github.io/tag-emacs.html">Emacs</a> <a href="https://whatacold.github.io/tag-c++.html">C++</a> <a href="https://whatacold.github.io/tag-python.html">Python</a> </div>]]></description>
+<div class="taglist"><a href="https://whatacold.github.io/tags.html">Tags</a>: <a href="https://whatacold.github.io/tag-emacs.html">Emacs</a> <a href="https://whatacold.github.io/tag-c++.html">C++</a> <a href="https://whatacold.github.io/tag-python.html">Python</a> <a href="https://whatacold.github.io/tag-zhongwen.html">zhongwen</a> </div>]]></description>
   <category><![CDATA[Emacs]]></category>
   <category><![CDATA[C++]]></category>
   <category><![CDATA[Python]]></category>
-  <link>https://whatacold.github.io/zh/2018-12-22-c-cpp-devel-with-lsp-in-emacs.html</link>
+  <category><![CDATA[zhongwen]]></category>
+  <link>https://whatacold.github.io/2018-12-22-c-cpp-devel-with-lsp-in-emacs.html</link>
   <pubDate>Sat, 22 Dec 2018 20:24:00 +0800</pubDate>
 </item>
 <item>
@@ -2030,10 +2036,11 @@ End of assembler dump.
 <li><a href="http://lifegoo.pluskid.org/upload/doc/object_models/C++%20Object%20Model.pdf">C++ Object Model.pdf - lifegoo.pluskid.org</a></li>
 <li>Stanley B·Lippman <a href="https://book.douban.com/subject/1091086/">Inside the C++ Object Model</a></li>
 </ul>
-<div class="taglist"><a href="https://whatacold.github.io/tags.html">Tags</a>: <a href="https://whatacold.github.io/tag-c++.html">C++</a> <a href="https://whatacold.github.io/tag-gdb.html">GDB</a> </div>]]></description>
+<div class="taglist"><a href="https://whatacold.github.io/tags.html">Tags</a>: <a href="https://whatacold.github.io/tag-c++.html">C++</a> <a href="https://whatacold.github.io/tag-gdb.html">GDB</a> <a href="https://whatacold.github.io/tag-zhongwen.html">zhongwen</a> </div>]]></description>
   <category><![CDATA[C++]]></category>
   <category><![CDATA[GDB]]></category>
-  <link>https://whatacold.github.io/zh/2018-12-10-how-polymorphism-works-in-cpp.html</link>
+  <category><![CDATA[zhongwen]]></category>
+  <link>https://whatacold.github.io/2018-12-10-how-polymorphism-works-in-cpp.html</link>
   <pubDate>Mon, 10 Dec 2018 00:16:00 +0800</pubDate>
 </item>
 </channel>

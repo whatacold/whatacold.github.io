@@ -32,9 +32,9 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgd7ba935">1. How To Configure Connections</a></li>
-<li><a href="#orgabf6323">2. How To Use Identity Files</a></li>
-<li><a href="#org470ea5b">3. Common Configurations</a></li>
+<li><a href="#org99f819a">1. How To Configure Connections</a></li>
+<li><a href="#org80af77a">2. How To Use Identity Files</a></li>
+<li><a href="#org8162cd1">3. Common Configurations</a></li>
 </ul>
 </div>
 </nav>
@@ -50,8 +50,8 @@ At first, I baked a helper Python script, which I named as qssh for "quick ssh",
 Then as I understood it more, I surprisingly found that <code>ssh</code> itself can be configured to do that by just configuring <code>~/.ssh/config</code>. I wish I knew it from day one. Together with identity files, it's very easy to login remote host, copy files between hosts using <code>scp</code>.
 </p>
 
-<div id="outline-container-orgd7ba935" class="outline-2">
-<h2 id="orgd7ba935"><span class="section-number-2">1</span> How To Configure Connections</h2>
+<div id="outline-container-org99f819a" class="outline-2">
+<h2 id="org99f819a"><span class="section-number-2">1</span> How To Configure Connections</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 For every SSH connection, there are some specific arguments like IP, port, user name, etc. Let's assume there is a host with IP <code>10.1.2.3</code>, and I can ssh into it with <code>whatacold</code> as name and <code>foo123</code> as the password at port 2234. I had to type <code>ssh -p 2234 whatacold@10.1.2.3</code> literally, which is too many keys to type.
@@ -86,8 +86,8 @@ There is one that hasn't be mentioned is <code>IdentityFile</code>, which means 
 </div>
 </div>
 
-<div id="outline-container-orgabf6323" class="outline-2">
-<h2 id="orgabf6323"><span class="section-number-2">2</span> How To Use Identity Files</h2>
+<div id="outline-container-org80af77a" class="outline-2">
+<h2 id="org80af77a"><span class="section-number-2">2</span> How To Use Identity Files</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 First, generate a pair of keys if you haven't done yet, for example, <code>ssh-keygen -t rsa -b 4096 -f ~/.ssh/id_dev</code>, hit Enter when it prompts you to enter a password(using no password).
@@ -107,8 +107,8 @@ Now you can log in that host without entering passwords, try it with, for exampl
 </div>
 </div>
 
-<div id="outline-container-org470ea5b" class="outline-2">
-<h2 id="org470ea5b"><span class="section-number-2">3</span> Common Configurations</h2>
+<div id="outline-container-org8162cd1" class="outline-2">
+<h2 id="org8162cd1"><span class="section-number-2">3</span> Common Configurations</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 If there are some common configurations for every host, they can be put under a default "section" named <code>Host *</code>. For example, I want to keep alive the connections, so I have these directives for all hosts:
