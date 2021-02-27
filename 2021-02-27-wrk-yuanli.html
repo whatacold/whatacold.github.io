@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="alternate"
+      type="application/rss+xml"
+      href="https://whatacold.github.io/rss.xml"
+      title="RSS feed for https://whatacold.github.io/">
+<title>HTTP压测工具wrk的实现原理</title>
+<meta name="author" content="Guangwang Huang">
+<meta name="referrer" content="no-referrer">
+<link href= "static/style.css" rel="stylesheet" type="text/css" />
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-74588785-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-74588785-1');
+</script>
+</head>
+<body>
+<div id="preamble" class="status"><div class="header">
+<div class="sitelinks">
+    <a href="https://github.com/whatacold">GitHub</a> | <a href="https://stackoverflow.com/users/910978/whatacold">Stack Overflow</a> | <a href="mailto:whatacold@gmail.com">Email</a> | <a href="/rss.xml">RSS</a>
+</div></div>
+<div id="content">
+<div class="post-date">27 Feb 2021</div><h1 class="post-title"><a href="https://whatacold.github.io/2021-02-27-wrk-yuanli.html">HTTP压测工具wrk的实现原理</a></h1>
+<p>
+注：本文分析的是 <a href="https://github.com/wg/wrk/releases/tag/4.1.0">wrk v4.1.0</a> 的源码。
+</p>
+
+<p>
+wrk 是一个用 C 实现的 HTTP 压测工具，所有的参数都是通过命令行传递，没有配置文件，很容易使用；只有一个二进制即可搞定，部署简单。
+</p>
+
+<p>
+它的参数只有几个：
+</p>
+<pre class="example">
+$ ./wrk
+Usage: wrk &lt;options&gt; &lt;url&gt;
+  Options:
+    -c, --connections &lt;N&gt;  Connections to keep open
+    -d, --duration    &lt;T&gt;  Duration of test
+    -t, --threads     &lt;N&gt;  Number of threads to use
+
+    -s, --script      &lt;S&gt;  Load Lua script file
+    -H, --header      &lt;H&gt;  Add header to request
+        --latency          Print latency statistics
+        --timeout     &lt;T&gt;  Socket/request timeout
+    -v, --version          Print version details
+
+  Numeric arguments may include a SI unit (1k, 1M, 1G)
+  Time arguments may include a time unit (2s, 2m, 2h)
+</pre>
+
+<p>
+另一方面， wrk 还支持通过 LuaJit 来定制每个测试用例，这点比 ab 强大。
+</p>
+
+<p>
+与 Apache JMeter 大而全的功能相比， wrk 的统计数据简单了点，只有 Latency 和 QPS 两项（其中的 Stdev 是 standard deviation 的简写，标准方差），也无法按照时间的推进看到整个曲线。
+</p>
+
+<p>
+一次 wrk 运行的效果如下：
+</p>
+<pre class="example">
+./wrk -t 2 -d 10s http://localhost:8000
+Running 10s test @ http://localhost:8000
+  2 threads and 10 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    24.86ms   17.36ms  72.64ms   60.35%
+    Req/Sec   207.41     21.92   262.00     70.00%
+  4135 requests in 10.01s, 20.49MB read
+Requests/sec:    413.02
+Transfer/sec:      2.05MB
+</pre>
+
+<p>
+了解了 wrk 的基本使用之后，接下来我们来看一下 wrk 内部的实现原理。
+</p>
+
+<p>
+wrk 内部采用多线程结合IO多路复用的模型，整体如下。
+</p>
+
+
+<figure>
+<img src="./images/wrk-internals.png" alt="wrk-internals.png">
+
+<figcaption><span class="figure-number">Figure 1: </span>wrk 内部架构图</figcaption>
+</figure>
+
+<p>
+首先，每个线程有一个 epoll 来处理非阻塞的网络事件，主要有以下几个函数来负责处理：
+</p>
+<ol class="org-ol">
+<li>connect_socket</li>
+<li>socket_connected</li>
+<li>socket_readable</li>
+<li>socket_writable</li>
+</ol>
+
+<p>
+其中 <code>connect_socket</code> 这个函数需要特别注意，它的功能是连接 HTTP 服务器。但它有一个问题，那就是在 <code>thread_main</code> 线程入口中把当前线程的所有连接都一次性创建好，这样会导致服务端的负载瞬间大增，也就是说它的 <b>压测负载不够平稳</b> 。 <code>thread_main</code> 相关代码片段如下：
+</p>
+
+<div class="org-src-container">
+<pre class="src src-c"><span style="color: #2c3e50; font-style: italic;">for</span> (<span style="color: #27ae60;">uint64_t</span> <span style="color: #3498db;">i</span> = 0; i &lt; thread-&gt;connections; i++, c++) {
+    c-&gt;thread = thread;
+    c-&gt;ssl     = cfg.ctx ? SSL_new(cfg.ctx) : <span style="color: #7f8c8d; font-style: italic;">NULL</span>;
+    c-&gt;request = request;
+    c-&gt;length  = length;
+    c-&gt;delayed = cfg.delay;
+    connect_socket(thread, c);
+}
+</pre>
+</div>
+
+<p>
+除了网络相关操作外，每个线程还有一个定时器（ <code>record_rate()</code> 函数）用于把自己的数据记录到全局的统计数据中（ <code>stats_record()</code> 函数）。
+</p>
+
+<p>
+统计数据结构基于数组的哈希表来设计，数组的下标为统计指标数值，值为它出现的次数。
+</p>
+
+<p>
+相关结构体定义：
+</p>
+<div class="org-src-container">
+<pre class="src src-c"><span style="color: #2c3e50; font-style: italic;">static</span> <span style="color: #2c3e50; font-style: italic;">struct</span> {
+    <span style="color: #27ae60;">stats</span> *<span style="color: #3498db;">latency</span>;
+    <span style="color: #27ae60;">stats</span> *<span style="color: #3498db;">requests</span>;
+} <span style="color: #3498db;">statistics</span>;
+
+<span style="color: #2c3e50; font-style: italic;">typedef</span> <span style="color: #2c3e50; font-style: italic;">struct</span> {
+    <span style="color: #27ae60;">uint64_t</span> <span style="color: #3498db;">count</span>;  <span style="color: #95a5a6; font-style: italic;">// </span><span style="color: #95a5a6; font-style: italic;">data &#20013;&#34987;&#20351;&#29992;&#30340;</span>
+    <span style="color: #27ae60;">uint64_t</span> <span style="color: #3498db;">limit</span>;
+    <span style="color: #27ae60;">uint64_t</span> <span style="color: #3498db;">min</span>;
+    <span style="color: #27ae60;">uint64_t</span> <span style="color: #3498db;">max</span>;
+    <span style="color: #27ae60;">uint64_t</span> <span style="color: #3498db;">data</span>[]; <span style="color: #95a5a6; font-style: italic;">// </span><span style="color: #95a5a6; font-style: italic;">&#20803;&#32032;&#20010;&#25968;&#26159; limit</span>
+} <span style="color: #27ae60;">stats</span>;
+</pre>
+</div>
+
+<p>
+比如当 data 用于表示 QPS 时，其中的数据是：
+</p>
+<pre class="example">
+index(QPS):     0    1    2    3    4    5
+value(count): | 0 | 12 | 44 | 90 | 29 | 42 |
+</pre>
+
+<p>
+那么平均 QPS 就是 <code>(1*12+2*44+3*90+4*29+5*42)/(12+44+90+29+42)=3.21</code>
+</p>
+
+<p>
+由于整个程序是多线程的，而 <code>statistics</code> 又是全局变量，因此需要有顺序更新机制来保证多线程的顺序访问。这里 wrk 采用 CAS 方式，而不是直接用锁，粒度更细：
+</p>
+<ul class="org-ul">
+<li><code>__sync_fetch_and_add</code> 增加对应下标的计数；</li>
+<li><code>__sync_val_compare_and_swap</code> 更细当前下标的 min max 边界，如果由于并发导致更新失败，会一直尝试直到成功；</li>
+</ul>
+
+<p>
+总的来说， wrk 代码写得不错，简洁易读。功能上， wrk 具有简单易用等优点，但同时也要注意，它的所有连接都是在启动时建立的，这就决定了不能用它来进行时间跨度较长的压测（负载不平稳）；另外它的统计数据也比较简单，缺少时间维度，这样就绘制不了按时间推移的曲线，不直观。
+</p>
+<div class="taglist"><a href="https://whatacold.github.io/tags.html">Tags</a>: <a href="https://whatacold.github.io/tag-c.html">C</a> <a href="https://whatacold.github.io/tag-zhongwen.html">zhongwen</a> <a href="https://whatacold.github.io/tag-performance.html">Performance</a> </div></div>
+<div id="postamble" class="status"></div>
+</body>
+</html>
