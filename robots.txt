@@ -1,0 +1,3 @@
+User-agent: *
+Disallow:
+Sitemap: https://whatacold.github.io/static/sitemap.xml
