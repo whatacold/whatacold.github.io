@@ -2,11 +2,12 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<meta name="description" content="The idea of binary search also works for troubleshooting, in Git, one can even use a helper script to automate the debugging process...">
 <link rel="alternate"
       type="application/rss+xml"
       href="https://whatacold.github.io/rss.xml"
       title="RSS feed for https://whatacold.github.io/">
-<title>The binary search algorithm is also an efficient strategy for narrowing down problem space</title>
+<title>The binary search idea for narrowing down problem space</title>
 <meta name="author" content="Guangwang Huang">
 <meta name="referrer" content="no-referrer">
 <link href= "static/style.css" rel="stylesheet" type="text/css" />
@@ -27,7 +28,7 @@
     <a href="https://github.com/whatacold">GitHub</a> | <a href="https://stackoverflow.com/users/910978/whatacold">Stack Overflow</a> | <a href="mailto:whatacold@gmail.com">Email</a> | <a href="/rss.xml">RSS</a>
 </div></div>
 <div id="content">
-<div class="post-date">04 Feb 2020</div><h1 class="post-title"><a href="https://whatacold.github.io/2020-02-04-binary-search-algorithm-vs-problem-solving.html">The binary search algorithm is also an efficient strategy for narrowing down problem space</a></h1>
+<div class="post-date">04 Feb 2020</div><h1 class="post-title"><a href="https://whatacold.github.io/2020-02-04-binary-search-algorithm-vs-problem-solving.html">The binary search idea for narrowing down problem space</a></h1>
 <p>
 <a href="https://en.wikipedia.org/wiki/Binary_search_algorithm">Binary search algorithm</a> is a search algorithm that finds the position of a target value within a sorted array. It cuts off the target array in half in a pass, so that it has a worst-case performance of <code>O(log n)</code>.
 </p>
@@ -61,7 +62,7 @@ Well, that's basically how <code>git bisect</code> works, and it's more powerful
 </p>
 
 <p>
-Recently, I managed to use <code>git bisect</code> to find out a recession bug <a href="https://github.com/qtile/qtile/issues/1410">(#1410)</a> of qtile, which reports that <code>qtile-cmd</code> doesn't work anymore which the HEAD commit (<code>0617235c</code>), but it works with tag <code>v0.14.2</code>.
+Recently, I finally managed to use <code>git bisect</code> to find out a recession bug <a href="https://github.com/qtile/qtile/issues/1410">(#1410)</a> of qtile, which reports that <code>qtile-cmd</code> doesn't work anymore which the HEAD commit (<code>0617235c</code>), but it works with tag <code>v0.14.2</code>.
 </p>
 
 <p>

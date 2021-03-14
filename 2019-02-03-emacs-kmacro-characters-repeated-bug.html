@@ -2,11 +2,12 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<meta name="description" content="Emacs 26 隐藏有一个 Keyboard Macro 的 bug ，在使用 pyim 的时候能够稳定复现。本文分析了它的原因和 fix ，以及如何规避它……">
 <link rel="alternate"
       type="application/rss+xml"
       href="https://whatacold.github.io/rss.xml"
       title="RSS feed for https://whatacold.github.io/">
-<title>记一个 Emacs Keyboard Macro 输入字符重复的 Bug</title>
+<title>记一个 Emacs 26 Keyboard Macro 输入字符重复的 Bug</title>
 <meta name="author" content="Guangwang Huang">
 <meta name="referrer" content="no-referrer">
 <link href= "static/style.css" rel="stylesheet" type="text/css" />
@@ -27,7 +28,7 @@
     <a href="https://github.com/whatacold">GitHub</a> | <a href="https://stackoverflow.com/users/910978/whatacold">Stack Overflow</a> | <a href="mailto:whatacold@gmail.com">Email</a> | <a href="/rss.xml">RSS</a>
 </div></div>
 <div id="content">
-<div class="post-date">17 Feb 2019</div><h1 class="post-title"><a href="https://whatacold.github.io/2019-02-03-emacs-kmacro-characters-repeated-bug.html">记一个 Emacs Keyboard Macro 输入字符重复的 Bug</a></h1>
+<div class="post-date">17 Feb 2019</div><h1 class="post-title"><a href="https://whatacold.github.io/2019-02-03-emacs-kmacro-characters-repeated-bug.html">记一个 Emacs 26 Keyboard Macro 输入字符重复的 Bug</a></h1>
 <p>
 工作中不时地会使用 Emacs keyboard macro 来解决重复性的编辑任务，
 但有时录制了再重放却出现输入的字符被重复了，导致出现非预期的结果。
@@ -41,13 +42,13 @@
 
 <p>
 问题虽然偶尔才出现，但是一旦出现，工作流会被打断，很让人苦恼。
-好在春节期间终于被我重现出来了，在启用 <a href="https://github.com/tumashu/pyim">pyim</a> 输入法的情况下必现，比如在录制时输入 <code>nihao</code> 得到了 <code>你好</code> ，
+好在春节期间终于被我重现出来了，这个问题在启用 <a href="https://github.com/tumashu/pyim">pyim</a> 输入法的情况下必现，比如在录制时输入 <code>nihao</code> 得到了 <code>你好</code> ，
 但是在 replay keyboard macro 的时候，得到的效果却相当于人工输入了 <code>nniihhaaoo</code> ，每个输入字符都被重复了一次，
 自然就没法得到 <code>你好</code> 二字，详细的重现步骤见这个 pyim <a href="https://github.com/tumashu/pyim/issues/247">issue</a> 。
 </p>
 
 <p>
-@tumashu 帮忙确认了 Emacs 自带的 quail-chinese 输入法也有此问题，建议我去 mailing list 问下看看。
+pyim 维护者 @tumashu 帮忙确认了 Emacs 自带的 quail-chinese 输入法也有此问题，建议我去 mailing list 问下看看。
 最后 Emacs maintainer Eli Zaretskii 在 <a href="http://lists.gnu.org/archive/html/bug-gnu-emacs/2019-02/msg00391.html">这个 thread</a> 告知半年前已经有人在 <a href="https://debbugs.gnu.org/cgi/bugreport.cgi?bug=32108">Bug #32108</a> 中报告了，
 且已经在 master 中修复了（ <a href="https://github.com/emacs-mirror/emacs/commit/03e3440dbbfea40b449a9f6f23a3630664275d11">commit 03e3440dbbfea40b449a9f6f23a3630664275d11</a> ），将会包含在 Emacs 27 发布中。
 </p>

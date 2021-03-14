@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<meta name="description" content="理解 Submodule 的关键在于领会它的“指针”功能，本文简要介绍如何操作 Git Submodule ……">
 <link rel="alternate"
       type="application/rss+xml"
       href="https://whatacold.github.io/rss.xml"
@@ -35,7 +36,7 @@ submodule 就是这么一个例子，其文档教程也不少，比如 <a href="
 </p>
 
 <p>
-直到有天看了一条  <a href="https://stackoverflow.com/a/5814351/910978">StackOverflow Answer</a> ，茅塞顿开，才真正理解了 submodule 。
+直到有天看了一条  <a href="https://stackoverflow.com/a/5814351/910978">StackOverflow Answer</a> ，茅塞顿开，才真正理解了 submodule ，下面尝试用自己的语言来解释一下。
 </p>
 
 <p>
@@ -55,9 +56,14 @@ Git submodule 本质上是两个独立的仓库，各自可以独立地像普通
 </p>
 
 <p>
-带着这个认知，在 superproject 中更新 submodule 的操作步骤示意如下：
-<img src="./images/2019-01-13-git-submodule-diagram.png" alt="2019-01-13-git-submodule-diagram.png">
+在 superproject 中更新 submodule “指针”的操作如下：
 </p>
+
+<figure>
+<img src="./images/2019-01-13-git-submodule-diagram.png" alt="2019-01-13-git-submodule-diagram.png">
+
+<figcaption><span class="figure-number">Figure 1: </span>submodule 更新示意图</figcaption>
+</figure>
 
 <p>
 无论是 superproject 还是 submodule ，都像普通的 repo 一样进行 branch, add, push, diff 等等的操作，

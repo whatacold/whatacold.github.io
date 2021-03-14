@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<meta name="description" content="Why can't you fetch non-master branches, and how to fix it...">
 <link rel="alternate"
       type="application/rss+xml"
       href="https://whatacold.github.io/rss.xml"
@@ -29,7 +30,7 @@
 <div id="content">
 <div class="post-date">01 Dec 2019</div><h1 class="post-title"><a href="https://whatacold.github.io/2019-12-01-why-cant-git-fetch-remote-branches-other-than-master.html">Why can't Git fetch remote branches other than master?</a></h1>
 <p>
-Last week I came into a problem with Git, that I can't fetch the remote branch that I pushed to. It was so weird because I can push the local branch there. It never happens before, and it happened when I was in a rush to rebase my code, as someone in my team pushed his code.
+Last week I came into a problem with Git, that I can't fetch the remote branch that I just pushed to. It was so weird because I can push it. It never happens before, and it happened when I was in a rush to rebase my code, as someone in my team pushed his code.
 </p>
 
 <p>
@@ -37,11 +38,11 @@ After searching, it seemed that the configuration of <code>fetch</code> of that 
 </p>
 
 <p>
-I reflected why it happened after work, the only difference I can remember was that I clone that repo with the option <code>--depth &lt;N&gt;</code>, that is, it was a shallow clone to save disk space.
+I reflected why it happened after work, the only difference I can remember was that I clone that repo with the option <code>--depth &lt;N&gt;</code>, that is, it was a shallow clone to save some disk space.
 </p>
 
 <p>
-Today I had some time at hand, and I confirmed that the option is the problem by reading the git-clone(1) manpage, it notes that:
+Today I had some time at hand, and I confirmed that the option is the cause by reading the <a href="https://git-scm.com/docs/git-clone">git-clone</a>(1) manpage, it notes that:
 </p>
 <pre class="example">
 --depth &lt;depth&gt;

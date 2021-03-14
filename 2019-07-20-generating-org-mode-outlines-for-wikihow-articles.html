@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<meta name="description" content="Introduce a handy Python script to extract wikiHow articles' ToC to org-mode outlines, so as to take notes accordingly...">
 <link rel="alternate"
       type="application/rss+xml"
       href="https://whatacold.github.io/rss.xml"
@@ -29,16 +30,16 @@
 <div id="content">
 <div class="post-date">20 Jul 2019</div><h1 class="post-title"><a href="https://whatacold.github.io/2019-07-20-generating-org-mode-outlines-for-wikihow-articles.html">Generating org-mode outlines for wikiHow articles</a></h1>
 <p>
-Recently I found some great articles on <a href="https://www.wikihow.com">wikiHow</a>, then I want to keep notes of them in org-mode files.
+Recently I found some great articles on <a href="https://www.wikihow.com">wikiHow</a>, then I want to keep notes of them in <a href="https://orgmode.org/">org-mode</a> files.
 </p>
 
 <p>
 At first, I manually copied the ToC of articles, but soon I found it's tedious and takes a lot of time.
-Today I wrote a Python script to help me extract the ToCs into org-mode outlines. It takes two arguments, the first one is the URL, the second one is the containing heading's level for the generated ToC in org-mode.
+Today I wrote a <a href="https://requests.readthedocs.io/">requests</a>-based Python script to help me extract the ToCs (Table of Content) into org-mode outlines. It takes two arguments, the first one is the URL, the second one is the containing heading's level for the generated ToC in org-mode.
 </p>
 
 <p>
-For example, I can run it from within an org-mode file under a heading called <code>* Test</code>, by executing <code>M-x python wikihow-org-outline.py https://www.wikihow.com/Improve-Your-English 1</code>, then the output outline will be put under the <code>* Test</code> heading.
+For example, execute <code>C-u M-! python wikihow-org-outline.py https://www.wikihow.com/Improve-Your-English 1</code>, from within an org-mode file under a heading, let's say, <code>* Test</code>, then the outline will be put under the <code>* Test</code> heading.
 </p>
 
 <p>
@@ -54,7 +55,7 @@ Here is the source code:
 <span style="color: #2c3e50; font-style: italic;">import</span> sys
 
 <span style="color: #2c3e50; font-style: italic;">def</span> <span style="color: #9b59b6;">gen_wikihow_org_outline</span>(url, containing_heading_level=0):
-<span style="background-color: #ecf0f1;"> </span>   <span style="color: #16a085;">'''Generating a org outline for the specified article at URL.'''</span>
+<span style="background-color: #ecf0f1;"> </span>   <span style="color: #16a085;">'''Generating a org outline for the specified wikiHow article at URL.'''</span>
 <span style="background-color: #ecf0f1;"> </span>   <span style="color: #3498db;">user_agent</span>=<span style="color: #16a085;">"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.103 Safari/537.36"</span>
 <span style="background-color: #ecf0f1;"> </span>   <span style="color: #3498db;">headers</span>={<span style="color: #16a085;">"User-Agent"</span>:user_agent}
 <span style="background-color: #ecf0f1;"> </span>   <span style="color: #3498db;">html</span> = requests.get(url, headers=headers).content
@@ -88,7 +89,7 @@ Here is the source code:
 gen_wikihow_org_outline(url, containing_heading_level)
 </pre>
 </div>
-<div class="taglist"><a href="https://whatacold.github.io/tags.html">Tags</a>: <a href="https://whatacold.github.io/tag-org-mode.html">Org-mode</a> </div></div>
+<div class="taglist"><a href="https://whatacold.github.io/tags.html">Tags</a>: <a href="https://whatacold.github.io/tag-org-mode.html">Org-mode</a> <a href="https://whatacold.github.io/tag-python.html">Python</a> <a href="https://whatacold.github.io/tag-emacs.html">Emacs</a> </div></div>
 <div id="postamble" class="status"></div>
 </body>
 </html>

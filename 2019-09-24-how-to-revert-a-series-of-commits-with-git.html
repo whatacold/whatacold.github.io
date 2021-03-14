@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<meta name="description" content="Have a bunch of commits that you want to revert, but don't want to revert them one by one? Here is how to use git soft-reset to do that...">
 <link rel="alternate"
       type="application/rss+xml"
       href="https://whatacold.github.io/rss.xml"
@@ -29,7 +30,7 @@
 <div id="content">
 <div class="post-date">24 Sep 2019</div><h1 class="post-title"><a href="https://whatacold.github.io/2019-09-24-how-to-revert-a-series-of-commits-with-git.html">How to revert a series of commits with Git?</a></h1>
 <p>
-Sometimes, I need to revert a series of commits that are already pushed, doing a git hard reset is not an option, as someone may already have new commits based on mine.
+Sometimes, I need to revert a series of commits that are already pushed, doing a git hard <a href="https://git-scm.com/docs/git-reset">reset</a> (<code>git reset --hard</code>) is not an option, as someone may already have new commits based on mine.
 </p>
 
 <p>
@@ -59,7 +60,7 @@ How to do that?
 </p>
 
 <p>
-One way is to use <code>git revert 28d526f..HEAD</code> to reversely revert the commits, which results in below commit history:
+One way is to use <code>git revert 28d526f..HEAD</code> to reversely revert the commits (see <a href="https://git-scm.com/docs/git-revert">git-revert</a>), which results in below commit history:
 </p>
 
 <pre class="example">

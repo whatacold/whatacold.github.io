@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<meta name="description" content="Elaborate how Emacs' align-regex works by inspecting the signature...">
 <link rel="alternate"
       type="application/rss+xml"
       href="https://whatacold.github.io/rss.xml"
@@ -29,7 +30,7 @@
 <div id="content">
 <div class="post-date">20 Jul 2019</div><h1 class="post-title"><a href="https://whatacold.github.io/2019-07-20-understanding-align-regexp-of-emacs.html">Understanding align-regexp of Emacs</a></h1>
 <p>
-Emacs' <code>M-x align-regex</code> is neat when I want to align some similar text, especially when we're coding.
+<a href="https://www.gnu.org/software/emacs/">Emacs</a>' <code>M-x align-regex</code> is neat when I want to align some similar text, especially when we're coding.
 I use its trivial version(without prefix arg) regularly on day-to-day programming work before.
 </p>
 
@@ -59,8 +60,8 @@ It will be aligned to below code, now it's better to read:
 </div>
 
 <p>
-A few days ago, I found I didn't understand how it works when I read the code of <a href="https://github.com/manateelazycat/smart-align">smart-align</a>, A simple <code>align-regexp</code> wrapper for easier usage.
-I was confused by the parameters, especially <code>REGEXP</code> and <code>GROUP</code>, and <code>SPACING</code>, here is the defun signature:
+A few days ago, I found myself don't understand how it works when I read the code of <a href="https://github.com/manateelazycat/smart-align">smart-align</a>, A simple <code>align-regexp</code> wrapper for easier usage.
+I was confused by the parameters, especially <code>REGEXP</code> and <code>GROUP</code>, and <code>SPACING</code>, here is its signature:
 </p>
 
 <pre class="example">
@@ -73,7 +74,7 @@ In fact, it resulted in removing the <code>=</code> for the first line, so I was
 </p>
 
 <p>
-After reading a related thread <sup><a id="fnr.1" class="footref" href="#fn.1">1</a></sup> on Emacs Stack Exchange for many times and practicing it along the way, I finally figured out, <b>the key to understanding it</b> is that it works by matching the specified group pattern, then appending it with whitespaces or removing extra whitespaces, so that the alignment character after it, <code>=</code> in this case, will be aligned.
+After reading a related thread <sup><a id="fnr.1" class="footref" href="#fn.1">1</a></sup> on Emacs' Stack Exchange for many times and practicing it along the way, I finally figured out, <b>the key to understanding it</b> is that it works by matching the specified group pattern, then appending it with whitespaces or removing extra whitespaces, so that the alignment character after it, <code>=</code> in this case, will be aligned.
 </p>
 
 <p>

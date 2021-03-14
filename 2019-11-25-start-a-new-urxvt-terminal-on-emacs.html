@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<meta name="description" content="In this post I bake a Emacs command to open an ad-hoc urxvt terminal quickly...">
 <link rel="alternate"
       type="application/rss+xml"
       href="https://whatacold.github.io/rss.xml"
@@ -29,11 +30,11 @@
 <div id="content">
 <div class="post-date">25 Nov 2019</div><h1 class="post-title"><a href="https://whatacold.github.io/2019-11-25-start-a-new-urxvt-terminal-on-emacs.html">Start a new terminal(urxvt) at current buffer's default-directory on Emacs</a></h1>
 <p>
-I have been really enjoying the more concentration workflow qtile, a tiling window manager, brings me, since I started using it a few months ago. I am more focus on the current task now as all the windows I care about are laid out on the same screen.
+I have been really enjoying the more concentration workflow <a href="http://www.qtile.org/">qtile</a>, a tiling window manager, brings me, since I started using it a few months ago. I am more focus on the current task now as all the windows I care about are laid out on the same screen.
 </p>
 
 <p>
-As I get more used to qtile at every day's work, I noticed that I became more depend on short-life terminal sessions. Sometimes I need to quickly execute some commands on the current buffer on Emacs, such as searching text which having many matches and quit that terminal after I'm done. So I wondered what could be the best way to achieve that.
+As I get more used to qtile at every day's work, I noticed that I became more depend on short-life terminal sessions. Sometimes I need to quickly execute some commands on the current buffer on <a href="https://www.gnu.org/software/emacs/">Emacs</a>, such as searching text which having many matches and quit that terminal after I'm done. So I wondered what could be the best way to achieve that.
 </p>
 
 <p>
@@ -41,11 +42,11 @@ At first, I think maybe I can bind some keys to qtile, which triggers a handler 
 </p>
 
 <p>
-A few days later, I realized that I can just open a terminal from inside Emacs, where it's easy to get the current working directory with <code>default-directory</code>. (The idea was inspired by @ztlevi on Emacs China.) And then I found that I don't really have to open a terminal from any windows, but just from Emacs.
+A few days later, I realized that I can just open a terminal from inside Emacs, where it's easy to get the current working directory with <code>default-directory</code>. (The idea was inspired by @ztlevi on <a href="https://emacs-china.org/">Emacs China</a>.) And then I found that I don't really have to open a terminal from any windows, but just from Emacs.
 </p>
 
 <p>
-With that idea, it didn't take much time to write a command to do that, which I name as <code>urxvt</code>:
+With that idea, it didn't take much time to write a command to do that in <a href="https://wiki.archlinux.org/index.php/rxvt-unicode">urxvt</a>, which I also name as <code>urxvt</code>:
 </p>
 <div class="org-src-container">
 <pre class="src src-elisp">(<span style="color: #2c3e50; font-style: italic;">defun</span> <span style="color: #9b59b6;">urxvt</span> ()
