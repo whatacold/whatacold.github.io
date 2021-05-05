@@ -4,7 +4,7 @@
 <title><![CDATA[whatacold's blog site]]></title>
 <description><![CDATA[whatacold's blog site]]></description>
 <link>https://whatacold.github.io/</link>
-<lastBuildDate>Sat, 27 Feb 2021 12:24:33 +0800</lastBuildDate>
+<lastBuildDate>Wed, 05 May 2021 10:03:27 +0800</lastBuildDate>
 <item>
   <title><![CDATA[HTTP压测工具wrk的实现原理]]></title>
   <description><![CDATA[
@@ -13,11 +13,11 @@
 </p>
 
 <p>
-wrk 是一个用 C 实现的 HTTP 压测工具，所有的参数都是通过命令行传递，没有配置文件，很容易使用；只有一个二进制即可搞定，部署简单。
+wrk 是一个用 C 实现的 HTTP 压测工具，所有的参数都是通过命令行传递，没有配置文件，很容易使用；编译产物只有一个二进制文件，部署简单。
 </p>
 
 <p>
-它的参数只有几个：
+它的运行参数只有几个：
 </p>
 <pre class="example">
 $ ./wrk
@@ -42,7 +42,7 @@ Usage: wrk &lt;options&gt; &lt;url&gt;
 </p>
 
 <p>
-与 Apache JMeter 大而全的功能相比， wrk 的统计数据简单了点，只有 Latency 和 QPS 两项（其中的 Stdev 是 standard deviation 的简写，标准方差），也无法按照时间的推进看到整个曲线。
+与 Apache JMeter 大而全的功能相比， wrk 的统计数据简单了点，只有 Latency 和 QPS 两项（其中的 Stdev 是 standard deviation 的简写，即标准方差），也无法按照时间的推进看到整个曲线。
 </p>
 
 <p>
@@ -69,7 +69,7 @@ wrk 内部采用多线程结合IO多路复用的模型，整体如下。
 </p>
 
 
-<figure>
+<figure id="org1588a01">
 <img src="./images/wrk-internals.png" alt="wrk-internals.png">
 
 <figcaption><span class="figure-number">Figure 1: </span>wrk 内部架构图</figcaption>
@@ -86,9 +86,12 @@ wrk 内部采用多线程结合IO多路复用的模型，整体如下。
 </ol>
 
 <p>
-其中 <code>connect_socket</code> 这个函数需要特别注意，它的功能是连接 HTTP 服务器。但它有一个问题，那就是在 <code>thread_main</code> 线程入口中把当前线程的所有连接都一次性创建好，这样会导致服务端的负载瞬间大增，也就是说它的 <b>压测负载不够平稳</b> 。 <code>thread_main</code> 相关代码片段如下：
+其中 <code>connect_socket</code> 这个函数需要特别注意，它的功能是连接 HTTP 服务器。但它有一个问题，那就是在 <code>thread_main</code> 线程入口中把当前线程的所有连接都一次性创建好，多个压测请求会复用同一个 TCP 连接。
 </p>
 
+<p>
+<code>thread_main</code> 相关代码片段如下：
+</p>
 <div class="org-src-container">
 <pre class="src src-c"><span style="color: #2c3e50; font-style: italic;">for</span> (<span style="color: #27ae60;">uint64_t</span> <span style="color: #3498db;">i</span> = 0; i &lt; thread-&gt;connections; i++, c++) {
     c-&gt;thread = thread;
@@ -100,6 +103,24 @@ wrk 内部采用多线程结合IO多路复用的模型，整体如下。
 }
 </pre>
 </div>
+
+<p>
+通过 tcpdump 抓包并使用 Wireshark 查看，也能确认这两点。
+</p>
+
+
+<figure id="org9978353">
+<img src="./images/wrk-establish-tcp-on-start.png" alt="wrk-establish-tcp-on-start.png">
+
+<figcaption><span class="figure-number">Figure 2: </span>wrk 启动时一次性建立了所有 TCP 连接</figcaption>
+</figure>
+
+
+<figure id="org923fd8c">
+<img src="./images/wrk-reuse-tcp-connections.png" alt="wrk-reuse-tcp-connections.png">
+
+<figcaption><span class="figure-number">Figure 3: </span>一个 TCP 连接有多次 HTTP 会话</figcaption>
+</figure>
 
 <p>
 除了网络相关操作外，每个线程还有一个定时器（ <code>record_rate()</code> 函数）用于把自己的数据记录到全局的统计数据中（ <code>stats_record()</code> 函数）。
@@ -149,7 +170,7 @@ value(count): | 0 | 12 | 44 | 90 | 29 | 42 |
 </ul>
 
 <p>
-总的来说， wrk 代码写得不错，简洁易读。功能上， wrk 具有简单易用等优点，但同时也要注意，它的所有连接都是在启动时建立的，这就决定了不能用它来进行时间跨度较长的压测（负载不平稳）；另外它的统计数据也比较简单，缺少时间维度，这样就绘制不了按时间推移的曲线，不直观。
+总的来说， wrk 代码写得不错，简洁易读。功能上， wrk 具有简单易用等优点，但同时也要注意，它的所有连接都是在启动时建立的，压测的 HTTP 请求会复用 TCP 连接，与真实的用户场景可能不一样；另外它的统计数据也比较简单，缺少时间维度，这样就绘制不了按时间推移的曲线，不直观。
 </p>
 <div class="taglist"><a href="https://whatacold.github.io/tags.html">Tags</a>: <a href="https://whatacold.github.io/tag-c.html">C</a> <a href="https://whatacold.github.io/tag-zhongwen.html">zhongwen</a> <a href="https://whatacold.github.io/tag-performance.html">Performance</a> </div>]]></description>
   <category><![CDATA[C]]></category>
@@ -271,10 +292,10 @@ value(count): | 0 | 12 | 44 | 90 | 29 | 42 |
   <pubDate>Tue, 16 Feb 2021 16:08:00 +0800</pubDate>
 </item>
 <item>
-  <title><![CDATA[A Python re.findall Service]]></title>
+  <title><![CDATA[An online Python re.findall Service]]></title>
   <description><![CDATA[
 <p>
-As a programmer, I know that grep, sed and awk are powerful for processing text, but they sometimes aren't that straight-forward for specific tasks, as I need to think about how to filter the lines and the columns out. So I wonder if there is a handy way to do these tasks? After using it for a while, I think using regex directly can help, so I launched a <a href="https://texttoolkit.com/re.findall">re.findall service</a> building on top of Python <code>re.findall</code> API.
+As a programmer, I know that <a href="https://www.gnu.org/s/grep/manual/grep.html">grep</a>, <a href="https://www.gnu.org/software/sed/manual/sed.html">sed</a> and <a href="https://www.gnu.org/software/gawk/manual/gawk.html">awk</a> are powerful for processing text, but they sometimes aren't that straight-forward for specific tasks, as I need to think about how to filter the lines and the columns out. So I wonder if there is a handy way to do these tasks? After using it for a while, I think using regex directly can help, so I launched a <a href="https://texttoolkit.com/re.findall">re.findall service</a> building on top of Python <code>re.findall</code> API.
 </p>
 
 <p>
@@ -501,6 +522,10 @@ This time, just type <code>M-x w/run-doxygen</code> to generate call graphs in E
   <title><![CDATA[Is it safe to use Redis as a data store?]]></title>
   <description><![CDATA[
 <p>
+#description: A basic comparison of Redis and MySQL in data persistence, so as to find the answer&#x2026;
+</p>
+
+<p>
 Traditionally we are used to storing data in an RDBMS like MySQL, and avoid using in-memory solutions such as Redis, to have a confidence of no data loss. Sometimes I find that we are so stubborn with MySQL that ending up with a complicated design, and I've even seen a solution that stores data in MySQL and then using Redis as a cache for it to improve read performance in the meanwhile. And to make the data in the cache as consistent as possible with the data in MySQL, it introduces other mechanisms, but the result is still not 100% consistent.
 </p>
 
@@ -548,7 +573,7 @@ There are many packages of Emacs that leverage subprocesses to do their jobs, <a
 </p>
 
 <p>
-The problem is that we don't know what's going on exactly, so here I want to share a few Elisp advice to make the subprocess creating visible, and print the exact program and its arguments to the <code>*Message*</code> buffer. Visibility is the key.
+The problem is that we don't know what's going on exactly, so here I want to share a few Elisp advices to make the subprocess creating visible, and print the exact program and its arguments to the <code>*Message*</code> buffer. Visibility is the key.
 </p>
 
 <div class="org-src-container">
@@ -717,7 +742,7 @@ It works now, and I hope it helps you too. :)</p>
   <pubDate>Sat, 07 Mar 2020 23:50:00 +0800</pubDate>
 </item>
 <item>
-  <title><![CDATA[The binary search algorithm is also an efficient strategy for narrowing down problem space]]></title>
+  <title><![CDATA[The binary search idea for narrowing down problem space]]></title>
   <description><![CDATA[
 <p>
 <a href="https://en.wikipedia.org/wiki/Binary_search_algorithm">Binary search algorithm</a> is a search algorithm that finds the position of a target value within a sorted array. It cuts off the target array in half in a pass, so that it has a worst-case performance of <code>O(log n)</code>.
@@ -752,7 +777,7 @@ Well, that's basically how <code>git bisect</code> works, and it's more powerful
 </p>
 
 <p>
-Recently, I managed to use <code>git bisect</code> to find out a recession bug <a href="https://github.com/qtile/qtile/issues/1410">(#1410)</a> of qtile, which reports that <code>qtile-cmd</code> doesn't work anymore which the HEAD commit (<code>0617235c</code>), but it works with tag <code>v0.14.2</code>.
+Recently, I finally managed to use <code>git bisect</code> to find out a recession bug <a href="https://github.com/qtile/qtile/issues/1410">(#1410)</a> of qtile, which reports that <code>qtile-cmd</code> doesn't work anymore which the HEAD commit (<code>0617235c</code>), but it works with tag <code>v0.14.2</code>.
 </p>
 
 <p>
@@ -878,14 +903,14 @@ sleep 0.5
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org99f819a">1. How To Configure Connections</a></li>
-<li><a href="#org80af77a">2. How To Use Identity Files</a></li>
-<li><a href="#org8162cd1">3. Common Configurations</a></li>
+<li><a href="#org5528d0d">1. How To Configure Connections</a></li>
+<li><a href="#org44d54d9">2. How To Use Identity Files</a></li>
+<li><a href="#org6c95e7b">3. Common Configurations</a></li>
 </ul>
 </div>
 </nav>
 <p>
-I used to manage SSH connection with such GUI apps as MobaXterm, when I wrote code on Windows at work. As I changed my workflow to use a tiling window manager in a VirtualBox guest OS, I continued to improve my way of managing SSH connections, which I want to share here if you don't know yet.
+I used to manage <a href="https://en.wikipedia.org/wiki/SSH_(Secure_Shell)">SSH</a> connection with such GUI apps as <a href="https://mobaxterm.mobatek.net/">MobaXterm</a>, when I wrote code on Windows at work. As I changed my workflow to use a tiling window manager in a <a href="https://www.virtualbox.org/">VirtualBox</a> guest OS, I continued to improve my way of managing SSH connections, which I want to share here if you don't know yet.
 </p>
 
 <p>
@@ -896,8 +921,8 @@ At first, I baked a helper Python script, which I named as qssh for "quick ssh",
 Then as I understood it more, I surprisingly found that <code>ssh</code> itself can be configured to do that by just configuring <code>~/.ssh/config</code>. I wish I knew it from day one. Together with identity files, it's very easy to login remote host, copy files between hosts using <code>scp</code>.
 </p>
 
-<div id="outline-container-org99f819a" class="outline-2">
-<h2 id="org99f819a"><span class="section-number-2">1</span> How To Configure Connections</h2>
+<div id="outline-container-org5528d0d" class="outline-2">
+<h2 id="org5528d0d"><span class="section-number-2">1</span> How To Configure Connections</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 For every SSH connection, there are some specific arguments like IP, port, user name, etc. Let's assume there is a host with IP <code>10.1.2.3</code>, and I can ssh into it with <code>whatacold</code> as name and <code>foo123</code> as the password at port 2234. I had to type <code>ssh -p 2234 whatacold@10.1.2.3</code> literally, which is too many keys to type.
@@ -932,8 +957,8 @@ There is one that hasn't be mentioned is <code>IdentityFile</code>, which means 
 </div>
 </div>
 
-<div id="outline-container-org80af77a" class="outline-2">
-<h2 id="org80af77a"><span class="section-number-2">2</span> How To Use Identity Files</h2>
+<div id="outline-container-org44d54d9" class="outline-2">
+<h2 id="org44d54d9"><span class="section-number-2">2</span> How To Use Identity Files</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 First, generate a pair of keys if you haven't done yet, for example, <code>ssh-keygen -t rsa -b 4096 -f ~/.ssh/id_dev</code>, hit Enter when it prompts you to enter a password(using no password).
@@ -953,8 +978,8 @@ Now you can log in that host without entering passwords, try it with, for exampl
 </div>
 </div>
 
-<div id="outline-container-org8162cd1" class="outline-2">
-<h2 id="org8162cd1"><span class="section-number-2">3</span> Common Configurations</h2>
+<div id="outline-container-org6c95e7b" class="outline-2">
+<h2 id="org6c95e7b"><span class="section-number-2">3</span> Common Configurations</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 If there are some common configurations for every host, they can be put under a default "section" named <code>Host *</code>. For example, I want to keep alive the connections, so I have these directives for all hosts:
@@ -982,7 +1007,7 @@ Note that this default setting should be put at the end of the file, as it seems
   <title><![CDATA[Why can't Git fetch remote branches other than master?]]></title>
   <description><![CDATA[
 <p>
-Last week I came into a problem with Git, that I can't fetch the remote branch that I pushed to. It was so weird because I can push the local branch there. It never happens before, and it happened when I was in a rush to rebase my code, as someone in my team pushed his code.
+Last week I came into a problem with Git, that I can't fetch the remote branch that I just pushed to. It was so weird because I can push it. It never happens before, and it happened when I was in a rush to rebase my code, as someone in my team pushed his code.
 </p>
 
 <p>
@@ -990,11 +1015,11 @@ After searching, it seemed that the configuration of <code>fetch</code> of that 
 </p>
 
 <p>
-I reflected why it happened after work, the only difference I can remember was that I clone that repo with the option <code>--depth &lt;N&gt;</code>, that is, it was a shallow clone to save disk space.
+I reflected why it happened after work, the only difference I can remember was that I clone that repo with the option <code>--depth &lt;N&gt;</code>, that is, it was a shallow clone to save some disk space.
 </p>
 
 <p>
-Today I had some time at hand, and I confirmed that the option is the problem by reading the git-clone(1) manpage, it notes that:
+Today I had some time at hand, and I confirmed that the option is the cause by reading the <a href="https://git-scm.com/docs/git-clone">git-clone</a>(1) manpage, it notes that:
 </p>
 <pre class="example">
 --depth &lt;depth&gt;
@@ -1041,11 +1066,11 @@ I don't know why <code>--single-branch</code> should be implied by default, at l
   <title><![CDATA[Start a new terminal(urxvt) at current buffer's default-directory on Emacs]]></title>
   <description><![CDATA[
 <p>
-I have been really enjoying the more concentration workflow qtile, a tiling window manager, brings me, since I started using it a few months ago. I am more focus on the current task now as all the windows I care about are laid out on the same screen.
+I have been really enjoying the more concentration workflow <a href="http://www.qtile.org/">qtile</a>, a tiling window manager, brings me, since I started using it a few months ago. I am more focus on the current task now as all the windows I care about are laid out on the same screen.
 </p>
 
 <p>
-As I get more used to qtile at every day's work, I noticed that I became more depend on short-life terminal sessions. Sometimes I need to quickly execute some commands on the current buffer on Emacs, such as searching text which having many matches and quit that terminal after I'm done. So I wondered what could be the best way to achieve that.
+As I get more used to qtile at every day's work, I noticed that I became more depend on short-life terminal sessions. Sometimes I need to quickly execute some commands on the current buffer on <a href="https://www.gnu.org/software/emacs/">Emacs</a>, such as searching text which having many matches and quit that terminal after I'm done. So I wondered what could be the best way to achieve that.
 </p>
 
 <p>
@@ -1053,11 +1078,11 @@ At first, I think maybe I can bind some keys to qtile, which triggers a handler 
 </p>
 
 <p>
-A few days later, I realized that I can just open a terminal from inside Emacs, where it's easy to get the current working directory with <code>default-directory</code>. (The idea was inspired by @ztlevi on Emacs China.) And then I found that I don't really have to open a terminal from any windows, but just from Emacs.
+A few days later, I realized that I can just open a terminal from inside Emacs, where it's easy to get the current working directory with <code>default-directory</code>. (The idea was inspired by @ztlevi on <a href="https://emacs-china.org/">Emacs China</a>.) And then I found that I don't really have to open a terminal from any windows, but just from Emacs.
 </p>
 
 <p>
-With that idea, it didn't take much time to write a command to do that, which I name as <code>urxvt</code>:
+With that idea, it didn't take much time to write a command to do that in <a href="https://wiki.archlinux.org/index.php/rxvt-unicode">urxvt</a>, which I also name as <code>urxvt</code>:
 </p>
 <div class="org-src-container">
 <pre class="src src-elisp">(<span style="color: #2c3e50; font-style: italic;">defun</span> <span style="color: #9b59b6;">urxvt</span> ()
@@ -1081,7 +1106,7 @@ Sometimes it's important to first clear your mind to figure out what exactly you
   <title><![CDATA[Build Docker Images for Qtile]]></title>
   <description><![CDATA[
 <p>
-One of Docker's use cases is to set up identical development environments easily and quickly for a dev team.
+One of <a href="https://zh.wikipedia.org/zh-cn/Docker">Docker</a>'s use cases is to set up identical development environments easily and quickly for a dev team.
 Recently, I had an opportunity to give it a try, and build Docker images for <a href="https://github.com/qtile/qtile">Qtile</a>, as it didn't have one yet as I get involved. With the images, it's easy to set up the environment to easily run the tests, and build the documentation.
 </p>
 
@@ -1105,11 +1130,15 @@ The final Dockerfiles for testing Qtile and building its documentation are hoste
   <title><![CDATA[用 Python Requests “一键”重启天翼路由器]]></title>
   <description><![CDATA[
 <p>
-不知道什么原因，我的网络有时候会很慢，而通过重启天翼网关路由器（版本 V1.0 ）大概率能够恢复。这样重启的次数多了之后会觉得有点繁琐，本着偷懒的原则，就想写一个脚本来自动重启，那样的话会“方便”很多。
+不知道什么原因，我的网络有时候会很慢，而通过重启天翼路由器（版本 V1.0 ）大概率能够恢复。重启的次数多了之后会我觉得好麻烦，本着偷懒的原则，就想写一个脚本来自动重启，一劳永逸。
 </p>
 
 <p>
-经过一番折腾，查看其控制台的网页代码，最后终于搞定。通过使用 <a href="https://requests.kennethreitz.org/en/master/">Python Requests</a> 库串联登录及重启两个步骤，达到“一键”自动重启路由器的目的。 Python 脚本如下：
+经过查看控制台的网页代码等一番折腾，最后终于搞定。
+</p>
+
+<p>
+通过使用 <a href="https://requests.kennethreitz.org/en/master/">Python Requests</a> 库串联登录及重启两个步骤，可以达到“一键”自动重启路由器的目的。 Python 脚本如下：
 </p>
 
 <div class="org-src-container">
@@ -1157,8 +1186,7 @@ The final Dockerfiles for testing Qtile and building its documentation are hoste
 </p>
 
 <p>
-另外，正如注释中提到的，其实 <code>/restartGateWay.json</code> 这个是一个裸接口，并没有校验 <code>sessionKey</code> 的有效性；甚至登录接口在用户登录之后也不会设置 cookie ，所有的业务接口都是可以直接调用的，也就是说，登录界面只是一个摆设。 :(
-</p>
+另外，正如注释中提到的，其实 <code>/restartGateWay.json</code> 这个是一个裸接口，并没有校验 <code>sessionKey</code> 的有效性；甚至登录接口在用户登录之后也不会设置 cookie ，所有的业务接口都是可以直接调用的，也就是说，登录界面只是一个摆设。</p>
 <div class="taglist"><a href="https://whatacold.github.io/tags.html">Tags</a>: <a href="https://whatacold.github.io/tag-python.html">Python</a> <a href="https://whatacold.github.io/tag-zhongwen.html">zhongwen</a> </div>]]></description>
   <category><![CDATA[Python]]></category>
   <category><![CDATA[zhongwen]]></category>
@@ -1169,7 +1197,7 @@ The final Dockerfiles for testing Qtile and building its documentation are hoste
   <title><![CDATA[How to run the bleeding-edge code of Qtile within a virtualenv]]></title>
   <description><![CDATA[
 <p>
-For having been using GNOME for quite a long time, I was considering trying some tiling window managers to see what it's like a few weeks ago. Along the way, I found a nice window manager written in Python: <a href="http://www.qtile.org">Qtile</a>, what interests me most is that it's a <b>hackable</b> window manager, which makes it flexible to extend or change its behaviors.
+For having been using <a href="https://www.gnome.org/">GNOME</a> for quite a long time, I was considering trying some tiling window managers to see what it's like a few weeks ago. Along the way, I found a nice window manager written in Python: <a href="http://www.qtile.org">Qtile</a>, what interests me most is that it's a <b>hackable</b> window manager, which makes it flexible to extend or change its behaviors.
 </p>
 
 <p>
@@ -1200,7 +1228,7 @@ pip3 install .
 </div>
 
 <p>
-But it will pollute the environment, so I'd rather contain it within a virtualenv, here are the steps how to run it within a dedicated virtualenv for user <code>foo</code> on Fedora.
+But it will pollute the environment, so I'd rather contain it within a <a href="https://docs.python.org/3/library/venv.html">virtualenv</a>, here are the steps how to run it within a dedicated virtualenv for user <code>foo</code> on Fedora.
 </p>
 
 <ol class="org-ol">
@@ -1281,7 +1309,7 @@ Pay attention to the <code>Exec</code> directive, it points to the glue script.
   <title><![CDATA[How to revert a series of commits with Git?]]></title>
   <description><![CDATA[
 <p>
-Sometimes, I need to revert a series of commits that are already pushed, doing a git hard reset is not an option, as someone may already have new commits based on mine.
+Sometimes, I need to revert a series of commits that are already pushed, doing a git hard <a href="https://git-scm.com/docs/git-reset">reset</a> (<code>git reset --hard</code>) is not an option, as someone may already have new commits based on mine.
 </p>
 
 <p>
@@ -1311,7 +1339,7 @@ How to do that?
 </p>
 
 <p>
-One way is to use <code>git revert 28d526f..HEAD</code> to reversely revert the commits, which results in below commit history:
+One way is to use <code>git revert 28d526f..HEAD</code> to reversely revert the commits (see <a href="https://git-scm.com/docs/git-revert">git-revert</a>), which results in below commit history:
 </p>
 
 <pre class="example">
@@ -1394,11 +1422,11 @@ mkdir -p $<span style="color: #3498db;">REPO</span> &amp;&amp; <span style="colo
   <title><![CDATA[How to rename web page titles in a lightweight way]]></title>
   <description><![CDATA[
 <p>
-There are times that I need to open many web pages of some specific websites within a browser, there are so many tabs that I can't efficiently access one of them, as their favicons are all the same.
+There are times that I need to open many web pages of some specific websites within a browser, and there are so many tabs that I can't efficiently access one of them, as their favicons are all the same.
 </p>
 
 <p>
-So I tried to find a way to rename their titles, preferably in a lightweight way, so that I can spot them quickly with my eyes.
+So I tried to find a way to rename their titles, preferably in a lightweight way, so that I can spot them quickly with eyes.
 </p>
 
 <p>
@@ -1406,7 +1434,7 @@ The first thought came into my mind was to find some extensions to do the job. I
 </p>
 
 <p>
-Then I thought maybe it can be simply done with a bookmarklet, nevertheless, it's just a simple JavaScript statement of <code>document.title = "nice-title"</code>. With that in my mind, it didn't take me much time to write this bookmarklet:
+Then I thought maybe I can simply do it with a <a href="https://de.wikipedia.org/wiki/Bookmarklet">bookmarklet</a>, nevertheless, it's just a simple JavaScript statement of <code>document.title = "nice-title"</code>. With that in my mind, it didn't take me much time to write this bookmarklet:
 </p>
 <div class="org-src-container">
 <pre class="src src-js">javascript:
@@ -1429,16 +1457,16 @@ Then I thought maybe it can be simply done with a bookmarklet, nevertheless, it'
   <title><![CDATA[Generating org-mode outlines for wikiHow articles]]></title>
   <description><![CDATA[
 <p>
-Recently I found some great articles on <a href="https://www.wikihow.com">wikiHow</a>, then I want to keep notes of them in org-mode files.
+Recently I found some great articles on <a href="https://www.wikihow.com">wikiHow</a>, then I want to keep notes of them in <a href="https://orgmode.org/">org-mode</a> files.
 </p>
 
 <p>
 At first, I manually copied the ToC of articles, but soon I found it's tedious and takes a lot of time.
-Today I wrote a Python script to help me extract the ToCs into org-mode outlines. It takes two arguments, the first one is the URL, the second one is the containing heading's level for the generated ToC in org-mode.
+Today I wrote a <a href="https://requests.readthedocs.io/">requests</a>-based Python script to help me extract the ToCs (Table of Content) into org-mode outlines. It takes two arguments, the first one is the URL, the second one is the containing heading's level for the generated ToC in org-mode.
 </p>
 
 <p>
-For example, I can run it from within an org-mode file under a heading called <code>* Test</code>, by executing <code>M-x python wikihow-org-outline.py https://www.wikihow.com/Improve-Your-English 1</code>, then the output outline will be put under the <code>* Test</code> heading.
+For example, execute <code>C-u M-! python wikihow-org-outline.py https://www.wikihow.com/Improve-Your-English 1</code>, from within an org-mode file under a heading, let's say, <code>* Test</code>, then the outline will be put under the <code>* Test</code> heading.
 </p>
 
 <p>
@@ -1454,7 +1482,7 @@ Here is the source code:
 <span style="color: #2c3e50; font-style: italic;">import</span> sys
 
 <span style="color: #2c3e50; font-style: italic;">def</span> <span style="color: #9b59b6;">gen_wikihow_org_outline</span>(url, containing_heading_level=0):
-<span style="background-color: #ecf0f1;"> </span>   <span style="color: #16a085;">'''Generating a org outline for the specified article at URL.'''</span>
+<span style="background-color: #ecf0f1;"> </span>   <span style="color: #16a085;">'''Generating a org outline for the specified wikiHow article at URL.'''</span>
 <span style="background-color: #ecf0f1;"> </span>   <span style="color: #3498db;">user_agent</span>=<span style="color: #16a085;">"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.103 Safari/537.36"</span>
 <span style="background-color: #ecf0f1;"> </span>   <span style="color: #3498db;">headers</span>={<span style="color: #16a085;">"User-Agent"</span>:user_agent}
 <span style="background-color: #ecf0f1;"> </span>   <span style="color: #3498db;">html</span> = requests.get(url, headers=headers).content
@@ -1488,8 +1516,10 @@ Here is the source code:
 gen_wikihow_org_outline(url, containing_heading_level)
 </pre>
 </div>
-<div class="taglist"><a href="https://whatacold.github.io/tags.html">Tags</a>: <a href="https://whatacold.github.io/tag-org-mode.html">Org-mode</a> </div>]]></description>
+<div class="taglist"><a href="https://whatacold.github.io/tags.html">Tags</a>: <a href="https://whatacold.github.io/tag-org-mode.html">Org-mode</a> <a href="https://whatacold.github.io/tag-python.html">Python</a> <a href="https://whatacold.github.io/tag-emacs.html">Emacs</a> </div>]]></description>
   <category><![CDATA[Org-mode]]></category>
+  <category><![CDATA[Python]]></category>
+  <category><![CDATA[Emacs]]></category>
   <link>https://whatacold.github.io/2019-07-20-generating-org-mode-outlines-for-wikihow-articles.html</link>
   <pubDate>Sat, 20 Jul 2019 20:04:00 +0800</pubDate>
 </item>
@@ -1497,7 +1527,7 @@ gen_wikihow_org_outline(url, containing_heading_level)
   <title><![CDATA[Understanding align-regexp of Emacs]]></title>
   <description><![CDATA[
 <p>
-Emacs' <code>M-x align-regex</code> is neat when I want to align some similar text, especially when we're coding.
+<a href="https://www.gnu.org/software/emacs/">Emacs</a>' <code>M-x align-regex</code> is neat when I want to align some similar text, especially when we're coding.
 I use its trivial version(without prefix arg) regularly on day-to-day programming work before.
 </p>
 
@@ -1527,8 +1557,8 @@ It will be aligned to below code, now it's better to read:
 </div>
 
 <p>
-A few days ago, I found I didn't understand how it works when I read the code of <a href="https://github.com/manateelazycat/smart-align">smart-align</a>, A simple <code>align-regexp</code> wrapper for easier usage.
-I was confused by the parameters, especially <code>REGEXP</code> and <code>GROUP</code>, and <code>SPACING</code>, here is the defun signature:
+A few days ago, I found myself don't understand how it works when I read the code of <a href="https://github.com/manateelazycat/smart-align">smart-align</a>, A simple <code>align-regexp</code> wrapper for easier usage.
+I was confused by the parameters, especially <code>REGEXP</code> and <code>GROUP</code>, and <code>SPACING</code>, here is its signature:
 </p>
 
 <pre class="example">
@@ -1541,7 +1571,7 @@ In fact, it resulted in removing the <code>=</code> for the first line, so I was
 </p>
 
 <p>
-After reading a related thread <sup><a id="fnr.1" class="footref" href="#fn.1">1</a></sup> on Emacs Stack Exchange for many times and practicing it along the way, I finally figured out, <b>the key to understanding it</b> is that it works by matching the specified group pattern, then appending it with whitespaces or removing extra whitespaces, so that the alignment character after it, <code>=</code> in this case, will be aligned.
+After reading a related thread <sup><a id="fnr.1" class="footref" href="#fn.1">1</a></sup> on Emacs' Stack Exchange for many times and practicing it along the way, I finally figured out, <b>the key to understanding it</b> is that it works by matching the specified group pattern, then appending it with whitespaces or removing extra whitespaces, so that the alignment character after it, <code>=</code> in this case, will be aligned.
 </p>
 
 <p>
@@ -1562,12 +1592,12 @@ The link is: <a href="https://emacs.stackexchange.com/questions/2644/understandi
   <pubDate>Sat, 20 Jul 2019 13:50:00 +0800</pubDate>
 </item>
 <item>
-  <title><![CDATA[Preview erd on the web]]></title>
+  <title><![CDATA[Render erd diagrams on the web]]></title>
   <description><![CDATA[
 <p>
-If you ever wonder how to plot ER diagrams in plain text, you may have already heard of <a href="https://github.com/BurntSushi/erd">erd</a>.
+If you ever wonder how to plot <a href="https://en.wikipedia.org/wiki/Entity%E2%80%93relationship_model">ER diagrams</a> in plain text, you may have already heard of <a href="https://github.com/BurntSushi/erd">erd</a>.
 It's a cool command line program written by Andrew Gallant in Haskell, to "compile" plain text files into nicely looking images,
-leveraging the power of GraphViz.
+leveraging the power of <a href="https://graphviz.org/">GraphViz</a>.
 </p>
 
 <p>
@@ -1604,9 +1634,6 @@ It's so simple that there isn't any user authentication mechanism, and here are 
 After hosting it on Heroku, I found that there is an <a href="https://github.com/BurntSushi/erd/issues/1">issue</a> discussing hosting a web service of erd on GitHub,
 take a look too if you're interested.
 </p>
-
-<p>
-P.S. I know the UI is ugly. I have basic knowledge of CSS, but I just don't have the sense to layout elements properly, what materials/practices would you recommend improving my front end skill at this stage? or any tips on the UI itself?</p>
 <div class="taglist"><a href="https://whatacold.github.io/tags.html">Tags</a>: <a href="https://whatacold.github.io/tag-python.html">Python</a> <a href="https://whatacold.github.io/tag-tools.html">Tools</a> </div>]]></description>
   <category><![CDATA[Python]]></category>
   <category><![CDATA[Tools]]></category>
@@ -1621,7 +1648,7 @@ P.S. I know the UI is ugly. I have basic knowledge of CSS, but I just don't have
 </p>
 
 <p>
-But there is a little problem when it comes to conform to different coding styles. Take the <code>if</code> snippet for example, normally it will generate code like this:
+But there is a little problem when it comes to conforming to different coding styles. Take the <code>if</code> snippet for example, normally it will generate code like this:
 </p>
 
 <div class="org-src-container">
@@ -1632,7 +1659,7 @@ But there is a little problem when it comes to conform to different coding style
 </div>
 
 <p>
-This is fine for a K&amp;R style project, but will be kind of annoyed if we work on an allman style project,
+This is fine for a <a href="https://en.wikipedia.org/wiki/Indentation_style#K&amp;R_style">K&amp;R style</a> project, but will be kind of annoyed if we work on an allman style project,
 because we need to fine-tune the style for every <code>if</code> clauses generated to like this:
 </p>
 
@@ -1733,7 +1760,7 @@ Now the coding experience is much better :)</p>
   <pubDate>Sun, 10 Mar 2019 16:48:00 +0800</pubDate>
 </item>
 <item>
-  <title><![CDATA[记一个 Emacs Keyboard Macro 输入字符重复的 Bug]]></title>
+  <title><![CDATA[记一个 Emacs 26 Keyboard Macro 输入字符重复的 Bug]]></title>
   <description><![CDATA[
 <p>
 工作中不时地会使用 Emacs keyboard macro 来解决重复性的编辑任务，
@@ -1748,13 +1775,13 @@ Now the coding experience is much better :)</p>
 
 <p>
 问题虽然偶尔才出现，但是一旦出现，工作流会被打断，很让人苦恼。
-好在春节期间终于被我重现出来了，在启用 <a href="https://github.com/tumashu/pyim">pyim</a> 输入法的情况下必现，比如在录制时输入 <code>nihao</code> 得到了 <code>你好</code> ，
+好在春节期间终于被我重现出来了，这个问题在启用 <a href="https://github.com/tumashu/pyim">pyim</a> 输入法的情况下必现，比如在录制时输入 <code>nihao</code> 得到了 <code>你好</code> ，
 但是在 replay keyboard macro 的时候，得到的效果却相当于人工输入了 <code>nniihhaaoo</code> ，每个输入字符都被重复了一次，
 自然就没法得到 <code>你好</code> 二字，详细的重现步骤见这个 pyim <a href="https://github.com/tumashu/pyim/issues/247">issue</a> 。
 </p>
 
 <p>
-@tumashu 帮忙确认了 Emacs 自带的 quail-chinese 输入法也有此问题，建议我去 mailing list 问下看看。
+pyim 维护者 @tumashu 帮忙确认了 Emacs 自带的 quail-chinese 输入法也有此问题，建议我去 mailing list 问下看看。
 最后 Emacs maintainer Eli Zaretskii 在 <a href="http://lists.gnu.org/archive/html/bug-gnu-emacs/2019-02/msg00391.html">这个 thread</a> 告知半年前已经有人在 <a href="https://debbugs.gnu.org/cgi/bugreport.cgi?bug=32108">Bug #32108</a> 中报告了，
 且已经在 master 中修复了（ <a href="https://github.com/emacs-mirror/emacs/commit/03e3440dbbfea40b449a9f6f23a3630664275d11">commit 03e3440dbbfea40b449a9f6f23a3630664275d11</a> ），将会包含在 Emacs 27 发布中。
 </p>
@@ -1785,7 +1812,7 @@ submodule 就是这么一个例子，其文档教程也不少，比如 <a href="
 </p>
 
 <p>
-直到有天看了一条  <a href="https://stackoverflow.com/a/5814351/910978">StackOverflow Answer</a> ，茅塞顿开，才真正理解了 submodule 。
+直到有天看了一条  <a href="https://stackoverflow.com/a/5814351/910978">StackOverflow Answer</a> ，茅塞顿开，才真正理解了 submodule ，下面尝试用自己的语言来解释一下。
 </p>
 
 <p>
@@ -1805,9 +1832,14 @@ Git submodule 本质上是两个独立的仓库，各自可以独立地像普通
 </p>
 
 <p>
-带着这个认知，在 superproject 中更新 submodule 的操作步骤示意如下：
-<img src="./images/2019-01-13-git-submodule-diagram.png" alt="2019-01-13-git-submodule-diagram.png">
+在 superproject 中更新 submodule “指针”的操作如下：
 </p>
+
+<figure>
+<img src="./images/2019-01-13-git-submodule-diagram.png" alt="2019-01-13-git-submodule-diagram.png">
+
+<figcaption><span class="figure-number">Figure 1: </span>submodule 更新示意图</figcaption>
+</figure>
 
 <p>
 无论是 superproject 还是 submodule ，都像普通的 repo 一样进行 branch, add, push, diff 等等的操作，
@@ -1848,7 +1880,7 @@ clangd 安装最简单，但功能据说比较弱，我没有试过；一开始�
 
 <p>
 后来有一天，突然想到可以直接自己解析 <code>make</code> 的输出（就用 Elisp ），解析 <code>Entering directory</code> , <code>Leaving directory</code> 以及 <code>g++</code> 编译的相关行，
-提取生成为 <code>compile_commands.json</code> ，这样就无须再依赖其他软件。
+提取生成为 <code>compile_commands.json</code> ，这样就无须再依赖其他软件（最近实现了一个相关的在线服务 <a href="https://texttoolkit.com/compilation-database-generator">Compilation Database Generator</a> ，可以很方便地解析 GNU Make 输出，得到 json 文件）。
 但是此方法有一个缺点，在新增文件的时候，得人工在 json 文件中增加一条记录，比较麻烦，不易维护。
 </p>
 
