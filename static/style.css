@@ -1,14 +1,8 @@
-body {
-    margin: 0 100px;
-    font-size: 22px;
-}
-
 .header {
-    line-height: 40px;
-    font-weight: 200;
-    border: solid 3px transparent;
+    border: solid 2px transparent;
     border-bottom-color: #7359b5;
     text-align: center;
+    padding-bottom: 1em;
 }
 
 .header a {
@@ -20,8 +14,16 @@ body {
 }
 
 .sitelinks, .sitelinks a {
-    margin: 5px;
-    font-size: 24pt;
-    line-height: 30px;
+    margin: .3em;
+    font-size: 1.4em;
     color: #999;
+}
+
+.post-date {
+    margin: 1em 0;
+}
+
+#content {
+    margin: 0 5em;
+    font-size: 22px;
 }
