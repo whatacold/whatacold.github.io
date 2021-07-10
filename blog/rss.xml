@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Blogs on whatacold&#39;s world</title>
+    <link>https://whatacold.io/blog/</link>
+    <description>Recent content in Blogs on whatacold&#39;s world</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <managingEditor>whatacold@gmail.com (whatacold)</managingEditor>
+    <webMaster>whatacold@gmail.com (whatacold)</webMaster>
+    <lastBuildDate>Wed, 21 Oct 2020 22:51:00 +0800</lastBuildDate><atom:link href="https://whatacold.io/blog/rss.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>An online Python re.findall Service</title>
+      <link>https://whatacold.io/blog/2020-10-21-a-python-re.findall-service/</link>
+      <pubDate>Wed, 21 Oct 2020 22:51:00 +0800</pubDate>
+      <author>whatacold@gmail.com (whatacold)</author>
+      <guid>https://whatacold.io/blog/2020-10-21-a-python-re.findall-service/</guid>
+      <description>As a programmer, I know that grep, sed and awk are powerful for processing text, but they sometimes aren&amp;#39;t that straight-forward for specific tasks, as I need to think about how to filter the lines and the columns out. So I wonder if there is a handy way to do these tasks? After using it for a while, I think using regex directly can help, so I launched a re.</description>
+    </item>
+    
+    <item>
+      <title>Generate Call Graphs Using Doxygen in Emacs</title>
+      <link>https://whatacold.io/blog/2020-08-22-generate-call-graphs-using-doxygen-in-emacs/</link>
+      <pubDate>Sat, 22 Aug 2020 18:57:00 +0800</pubDate>
+      <author>whatacold@gmail.com (whatacold)</author>
+      <guid>https://whatacold.io/blog/2020-08-22-generate-call-graphs-using-doxygen-in-emacs/</guid>
+      <description>Doxygen is a nice tool for generating documentations for well-annotated C/C++ projects, the one feature that I like most is generating call graphs and class diagrams, so that I can learn a project quickly by browsing the diagrams from a higher point of view.
+ I take the following steps to generate call graphs for a project on terminals on Linux:
+  cd /path/to/a/project/, and generate a template config file by doxygen -s -g doxygen.</description>
+    </item>
+    
+    <item>
+      <title>Is it safe to use Redis as a data store?</title>
+      <link>https://whatacold.io/blog/2020-06-25-is-it-safe-to-use-redis-as-a-data-store/</link>
+      <pubDate>Thu, 25 Jun 2020 22:37:00 +0800</pubDate>
+      <author>whatacold@gmail.com (whatacold)</author>
+      <guid>https://whatacold.io/blog/2020-06-25-is-it-safe-to-use-redis-as-a-data-store/</guid>
+      <description>Traditionally we are used to storing data in an RDBMS like MySQL, and avoid using in-memory solutions such as Redis, to have a confidence of no data loss. Sometimes I find that we are so stubborn with MySQL that ending up with a complicated design, and I&amp;#39;ve even seen a solution that stores data in MySQL and then using Redis as a cache for it to improve read performance in the meanwhile.</description>
+    </item>
+    
+    <item>
+      <title>A Trick to Troubleshoot Emacs Subprocess Creating</title>
+      <link>https://whatacold.io/blog/2020-05-30-a-trick-to-troubleshoot-emacs-subprocess-creating/</link>
+      <pubDate>Sat, 30 May 2020 11:52:00 +0800</pubDate>
+      <author>whatacold@gmail.com (whatacold)</author>
+      <guid>https://whatacold.io/blog/2020-05-30-a-trick-to-troubleshoot-emacs-subprocess-creating/</guid>
+      <description>There are many packages of Emacs that leverage subprocesses to do their jobs, Magit, eglot, elpy, to name a few. And there are times that a subprocess doesn&amp;#39;t work as expected, for example, Magit is slow, and you&amp;#39;re sure that it&amp;#39;s ok when running git commands on shell. So how to spot these problems effectively and quickly?
+ The problem is that we don&amp;#39;t know what&amp;#39;s going on exactly, so here I want to share a few Elisp advices to make the subprocess creating visible, and print the exact program and its arguments to the *Message* buffer.</description>
+    </item>
+    
+    <item>
+      <title>ppcompile: An Emacs Package to Help Stay Coding Locally</title>
+      <link>https://whatacold.io/blog/2020-03-07-ppcompile-to-help-stay-coding-locally/</link>
+      <pubDate>Sat, 07 Mar 2020 23:50:00 +0800</pubDate>
+      <author>whatacold@gmail.com (whatacold)</author>
+      <guid>https://whatacold.io/blog/2020-03-07-ppcompile-to-help-stay-coding-locally/</guid>
+      <description>If you are a C/C++ programmer like me, you may experience jumping around different machines to write and compile your code, or you may write code on different machines for different projects, and scp/rsync/ftp the projects around. It works, but it&amp;#39;s a bit tedious and takes too much burden on our brains.
+ For example, say I have two projects that should be compiled on their compiling machines respectively. There are two obvious workflows for writing code for them &amp;#34;simultaneously&amp;#34;:</description>
+    </item>
+    
+    <item>
+      <title>The binary search idea for narrowing down problem space</title>
+      <link>https://whatacold.io/blog/2020-02-04-binary-search-algorithm-vs-problem-solving/</link>
+      <pubDate>Tue, 04 Feb 2020 18:48:00 +0800</pubDate>
+      <author>whatacold@gmail.com (whatacold)</author>
+      <guid>https://whatacold.io/blog/2020-02-04-binary-search-algorithm-vs-problem-solving/</guid>
+      <description>Binary search algorithm is a search algorithm that finds the position of a target value within a sorted array. It cuts off the target array in half in a pass, so that it has a worst-case performance of O(log n).
+  Visualization of the binary search algorithm where 7 is the target value(@wikipedia)    We all know that it&amp;#39;s an efficient searching algorithm, but the strategy behind it also applies for narrowing down other problem space, for example, finding out when a bug is first introduced in a series of git commits.</description>
+    </item>
+    
+    <item>
+      <title>Manage SSH connections with ~/.ssh/config</title>
+      <link>https://whatacold.io/blog/2019-12-22-manage-ssh-connections-with-ssh-config/</link>
+      <pubDate>Sun, 22 Dec 2019 18:52:00 +0800</pubDate>
+      <author>whatacold@gmail.com (whatacold)</author>
+      <guid>https://whatacold.io/blog/2019-12-22-manage-ssh-connections-with-ssh-config/</guid>
+      <description>I used to manage SSH connection with such GUI apps as MobaXterm, when I wrote code on Windows at work. As I changed my workflow to use a tiling window manager in a VirtualBox guest OS, I continued to improve my way of managing SSH connections, which I want to share here if you don&amp;#39;t know yet.
+ At first, I baked a helper Python script, which I named as qssh for &amp;#34;quick ssh&amp;#34;, to help me assemble ssh arguments for me(such as username, Ip, port, etc.</description>
+    </item>
+    
+    <item>
+      <title>Why can&#39;t Git fetch remote branches other than master?</title>
+      <link>https://whatacold.io/blog/2019-12-01-why-cant-git-fetch-remote-branches-other-than-master/</link>
+      <pubDate>Sun, 01 Dec 2019 16:00:00 +0800</pubDate>
+      <author>whatacold@gmail.com (whatacold)</author>
+      <guid>https://whatacold.io/blog/2019-12-01-why-cant-git-fetch-remote-branches-other-than-master/</guid>
+      <description>Last week I came into a problem with Git, that I can&amp;#39;t fetch the remote branch that I just pushed to. It was so weird because I can push it. It never happens before, and it happened when I was in a rush to rebase my code, as someone in my team pushed his code.
+ After searching, it seemed that the configuration of fetch of that repo was different(this Stack Overflow thread for example) than before, it was specified that only master can be fetched.</description>
+    </item>
+    
+    <item>
+      <title>Start a new terminal(urxvt) at current buffer&#39;s default-directory on Emacs</title>
+      <link>https://whatacold.io/blog/2019-11-25-start-a-new-urxvt-terminal-on-emacs/</link>
+      <pubDate>Mon, 25 Nov 2019 22:47:00 +0800</pubDate>
+      <author>whatacold@gmail.com (whatacold)</author>
+      <guid>https://whatacold.io/blog/2019-11-25-start-a-new-urxvt-terminal-on-emacs/</guid>
+      <description>I have been really enjoying the more concentration workflow qtile, a tiling window manager, brings me, since I started using it a few months ago. I am more focus on the current task now as all the windows I care about are laid out on the same screen.
+ As I get more used to qtile at every day&amp;#39;s work, I noticed that I became more depend on short-life terminal sessions.</description>
+    </item>
+    
+    <item>
+      <title>Build Docker Images for Qtile</title>
+      <link>https://whatacold.io/blog/2019-10-07-build-docker-images-for-qtile/</link>
+      <pubDate>Mon, 07 Oct 2019 13:25:00 +0800</pubDate>
+      <author>whatacold@gmail.com (whatacold)</author>
+      <guid>https://whatacold.io/blog/2019-10-07-build-docker-images-for-qtile/</guid>
+      <description>One of Docker&amp;#39;s use cases is to set up identical development environments easily and quickly for a dev team. Recently, I had an opportunity to give it a try, and build Docker images for Qtile, as it didn&amp;#39;t have one yet as I get involved. With the images, it&amp;#39;s easy to set up the environment to easily run the tests, and build the documentation.
+ The best way to have a basic idea of Docker is to think it like a chroot environment, as Chris Tankersley stated in his Docker for Developers.</description>
+    </item>
+    
+    <item>
+      <title>How to run the bleeding-edge code of Qtile within a virtualenv</title>
+      <link>https://whatacold.io/blog/2019-09-29-how-to-run-the-bleeding-edge-code-of-qtile/</link>
+      <pubDate>Sun, 29 Sep 2019 17:05:00 +0800</pubDate>
+      <author>whatacold@gmail.com (whatacold)</author>
+      <guid>https://whatacold.io/blog/2019-09-29-how-to-run-the-bleeding-edge-code-of-qtile/</guid>
+      <description>For having been using GNOME for quite a long time, I was considering trying some tiling window managers to see what it&amp;#39;s like a few weeks ago. Along the way, I found a nice window manager written in Python: Qtile, what interests me most is that it&amp;#39;s a hackable window manager, which makes it flexible to extend or change its behaviors.
+ Well, switching to use a tiling window manager is far simpler than I thought.</description>
+    </item>
+    
+    <item>
+      <title>How to revert a series of commits with Git?</title>
+      <link>https://whatacold.io/blog/2019-09-24-how-to-revert-a-series-of-commits-with-git/</link>
+      <pubDate>Tue, 24 Sep 2019 23:14:00 +0800</pubDate>
+      <author>whatacold@gmail.com (whatacold)</author>
+      <guid>https://whatacold.io/blog/2019-09-24-how-to-revert-a-series-of-commits-with-git/</guid>
+      <description>Sometimes, I need to revert a series of commits that are already pushed, doing a git hard reset (git reset --hard) is not an option, as someone may already have new commits based on mine.
+ For example, assume that I&amp;#39;ve made a few commits like below:
+65a2c62 * commit 10 25cad43 * commit 9 72ad583 * commit 8 ceebf9a * commit 7 acf8a11 * commit 6 28d526f * commit 5 63af1e2 * commit 4 982c71c * commit 3 0fb4c2d * commit 2 acf9da1 * commit 1 b5f9933 * commit 0   Now for whatever reason, I need to &amp;#34;drop&amp;#34; the changes made by commit 6 to commit 10, that is, go back to commit 5 without deleting commit.</description>
+    </item>
+    
+    <item>
+      <title>How to rename web page titles in a lightweight way</title>
+      <link>https://whatacold.io/blog/2019-08-18-how-to-rename-web-page-titles-in-a-lightweight-way/</link>
+      <pubDate>Sun, 18 Aug 2019 14:57:00 +0800</pubDate>
+      <author>whatacold@gmail.com (whatacold)</author>
+      <guid>https://whatacold.io/blog/2019-08-18-how-to-rename-web-page-titles-in-a-lightweight-way/</guid>
+      <description>There are times that I need to open many web pages of some specific websites within a browser, and there are so many tabs that I can&amp;#39;t efficiently access one of them, as their favicons are all the same.
+ So I tried to find a way to rename their titles, preferably in a lightweight way, so that I can spot them quickly with eyes.
+ The first thought came into my mind was to find some extensions to do the job.</description>
+    </item>
+    
+    <item>
+      <title>Generating org-mode outlines for wikiHow articles</title>
+      <link>https://whatacold.io/blog/2019-07-20-generating-org-mode-outlines-for-wikihow-articles/</link>
+      <pubDate>Sat, 20 Jul 2019 20:04:00 +0800</pubDate>
+      <author>whatacold@gmail.com (whatacold)</author>
+      <guid>https://whatacold.io/blog/2019-07-20-generating-org-mode-outlines-for-wikihow-articles/</guid>
+      <description>Recently I found some great articles on wikiHow, then I want to keep notes of them in org-mode files.
+ At first, I manually copied the ToC of articles, but soon I found it&amp;#39;s tedious and takes a lot of time. Today I wrote a requests-based Python script to help me extract the ToCs (Table of Content) into org-mode outlines. It takes two arguments, the first one is the URL, the second one is the containing heading&amp;#39;s level for the generated ToC in org-mode.</description>
+    </item>
+    
+    <item>
+      <title>Understanding align-regexp of Emacs</title>
+      <link>https://whatacold.io/blog/2019-07-20-understanding-align-regexp-of-emacs/</link>
+      <pubDate>Sat, 20 Jul 2019 13:50:00 +0800</pubDate>
+      <author>whatacold@gmail.com (whatacold)</author>
+      <guid>https://whatacold.io/blog/2019-07-20-understanding-align-regexp-of-emacs/</guid>
+      <description>Emacs&amp;#39; M-x align-regex is neat when I want to align some similar text, especially when we&amp;#39;re coding. I use its trivial version(without prefix arg) regularly on day-to-day programming work before.
+ For example, I can use it to align below code quickly by:
+  Choose the region
+  M-x align-regexp and type = and Enter
+  aaaaaaaaaaaaaa = fields[0] bbb = fields[1] cccccccc = fields[2]   It will be aligned to below code, now it&amp;#39;s better to read:</description>
+    </item>
+    
+    <item>
+      <title>Render erd diagrams on the web</title>
+      <link>https://whatacold.io/blog/2019-07-06-render-erd-on-the-web/</link>
+      <pubDate>Sat, 06 Jul 2019 11:59:00 +0800</pubDate>
+      <author>whatacold@gmail.com (whatacold)</author>
+      <guid>https://whatacold.io/blog/2019-07-06-render-erd-on-the-web/</guid>
+      <description>If you ever wonder how to plot ER diagrams in plain text, you may have already heard of erd. It&amp;#39;s a cool command line program written by Andrew Gallant in Haskell, to &amp;#34;compile&amp;#34; plain text files into nicely looking images, leveraging the power of GraphViz.
+ I&amp;#39;ve used erd for some time, it&amp;#39;s cool and the syntax is quite simple. It&amp;#39;s also quite simple to install it on Linux, just install GraphViz and erd itself, by following the instructions in the README page.</description>
+    </item>
+    
+    <item>
+      <title>Fine-tune curly braces style of yasnippet snippet on the fly</title>
+      <link>https://whatacold.io/blog/2019-02-24-fine-tune-style-of-yasnippet-snippet-on-the-fly/</link>
+      <pubDate>Sun, 24 Feb 2019 16:48:00 +0800</pubDate>
+      <author>whatacold@gmail.com (whatacold)</author>
+      <guid>https://whatacold.io/blog/2019-02-24-fine-tune-style-of-yasnippet-snippet-on-the-fly/</guid>
+      <description>Yasnippet is a good friend to help us type less and write more, whenever we write some text snippets repeatedly. And there is also an official repository called yasnippet-snippets that contains various snippets for many programming languages(modes), so that we can have many snippets in no time by installing it.
+ But there is a little problem when it comes to conforming to different coding styles. Take the if snippet for example, normally it will generate code like this:</description>
+    </item>
+    
+  </channel>
+</rss>

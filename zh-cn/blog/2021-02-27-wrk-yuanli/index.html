@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="zh-cn" itemscope itemtype="http://schema.org/WebPage">
+  <head>
+    
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title>HTTP压测工具wrk的实现原理 - whatacold 的世界</title>
+  <meta name="description" content="本文从源码角度分析 wrk 是如何实现的，以及它有哪些优点和局限……">
+  <meta name="author" content="whatacold"/><script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "WebSite",
+    "name": "whatacold 的世界",
+    
+    "url": "https:\/\/whatacold.io"
+}
+</script><script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Organization",
+  "name": "",
+  "url": "https:\/\/whatacold.io"
+  
+  
+  
+  
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "item": {
+          "@id": "https:\/\/whatacold.io",
+          "name": "home"
+        }
+    },{
+        "@type": "ListItem",
+        "position": 3,
+        "item": {
+          "@id": "https:\/\/whatacold.io\/zh-cn\/blog\/2021-02-27-wrk-yuanli\/",
+          "name": "Http压测工具wrk的实现原理"
+        }
+    }]
+}
+</script><script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Article",
+  "author": {
+    "name" : "whatacold"
+  },
+  "headline": "HTTP压测工具wrk的实现原理",
+  "description" : "本文从源码角度分析 wrk 是如何实现的，以及它有哪些优点和局限……",
+  "inLanguage" : "zh-cn",
+  "wordCount":  1003 ,
+  "datePublished" : "2021-02-27T10:27:00",
+  "dateModified" : "2021-02-27T10:27:00",
+  "image" : "https:\/\/whatacold.io\/img\/avatar.png",
+  "keywords" : [ "C, Performance" ],
+  "mainEntityOfPage" : "https:\/\/whatacold.io\/zh-cn\/blog\/2021-02-27-wrk-yuanli\/",
+  "publisher" : {
+    "@type": "Organization",
+    "name" : "https:\/\/whatacold.io",
+    "logo" : {
+        "@type" : "ImageObject",
+        "url" : "https:\/\/whatacold.io\/img\/avatar.png",
+        "height" :  60 ,
+        "width" :  60
+    }
+  }
+}
+</script>
+
+<meta property="og:title" content="HTTP压测工具wrk的实现原理" />
+<meta property="og:description" content="本文从源码角度分析 wrk 是如何实现的，以及它有哪些优点和局限……">
+<meta property="og:image" content="https://whatacold.io/img/avatar.png" />
+<meta property="og:url" content="https://whatacold.io/zh-cn/blog/2021-02-27-wrk-yuanli/" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="whatacold 的世界" />
+
+  <meta name="twitter:title" content="HTTP压测工具wrk的实现原理" />
+  <meta name="twitter:description" content="本文从源码角度分析 wrk 是如何实现的，以及它有哪些优点和局限……">
+  <meta name="twitter:image" content="https://whatacold.io/img/avatar.png" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@whatacold" />
+  <meta name="twitter:creator" content="@whatacold" />
+  <link href='https://whatacold.io/img/favicon.ico' rel='icon' type='image/x-icon'/>
+  <meta name="generator" content="Hugo 0.80.0" />
+  <link rel="alternate" href="https://whatacold.io/zh-cn/index.xml" type="application/rss+xml" title="whatacold 的世界"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"><link rel="stylesheet" href="https://whatacold.io/css/main.css" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
+  <link rel="stylesheet" href="https://whatacold.io/css/highlight.min.css" /><link rel="stylesheet" href="https://whatacold.io/css/codeblock.css" /><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.css" integrity="sha384-h/L2W9KefUClHWaty3SLE5F/qvc4djlyR4qY3NUV5HGQBBW7stbcfff1+I/vmsHh" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/default-skin/default-skin.min.css" integrity="sha384-iD0dNku6PYSIQLyfTOpB06F2KCZJAKLOThS5HRe8b3ibhdEQ6eKsFf/EeFxdOt5R" crossorigin="anonymous">
+
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-74588785-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+  </head>
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">切换导航</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://whatacold.io/zh-cn/">whatacold 的世界</a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+          
+            <li>
+              <a title="Blog" href="/zh-cn">Blog</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="About" href="/zh-cn/about/">About</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="Tags" href="/zh-cn/tags">Tags</a>
+            </li>
+          
+        
+
+        
+          
+            <li>
+              
+                
+                  <a href="/en" lang="en">English</a>
+                
+              
+                
+              
+            </li>
+          
+        
+
+        
+      </ul>
+    </div>
+
+    
+      <div class="avatar-container">
+        <div class="avatar-img-border">
+          <a title="whatacold 的世界" href="https://whatacold.io/zh-cn/">
+            <img class="avatar-img" src="https://whatacold.io/img/avatar.png" alt="whatacold 的世界" />
+          </a>
+        </div>
+      </div>
+    
+
+  </div>
+</nav>
+
+
+
+
+    
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+  
+  
+  
+
+
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    <div class="intro-header no-img">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <div class="blog-heading">
+              
+                <h1>HTTP压测工具wrk的实现原理</h1>
+              
+              
+                <hr class="small">
+              
+              
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+    
+<div class="container" role="main">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+      <article role="main" class="blog-post">
+        <p>
+注：本文分析的是 <a href="https://github.com/wg/wrk/releases/tag/4.1.0">wrk v4.1.0</a> 的源码。</p>
+<p>
+wrk 是一个用 C 实现的 HTTP 压测工具，所有的参数都是通过命令行传递，没有配置文件，很容易使用；编译产物只有一个二进制文件，部署简单。</p>
+<p>
+它的运行参数只有几个：</p>
+<div class="src src-text">
+<div class="highlight"><pre class="chroma"><code class="language-text" data-lang="text">$ ./wrk
+Usage: wrk &lt;options&gt; &lt;url&gt;
+  Options:
+    -c, --connections &lt;N&gt;  Connections to keep open
+    -d, --duration    &lt;T&gt;  Duration of test
+    -t, --threads     &lt;N&gt;  Number of threads to use
+
+    -s, --script      &lt;S&gt;  Load Lua script file
+    -H, --header      &lt;H&gt;  Add header to request
+        --latency          Print latency statistics
+        --timeout     &lt;T&gt;  Socket/request timeout
+    -v, --version          Print version details
+
+  Numeric arguments may include a SI unit (1k, 1M, 1G)
+  Time arguments may include a time unit (2s, 2m, 2h)</code></pre></div>
+</div>
+<p>
+另一方面， wrk 还支持通过 LuaJit 来定制每个测试用例，这点比 ab 强大。</p>
+<p>
+与 Apache JMeter 大而全的功能相比， wrk 的统计数据简单了点，只有 Latency 和 QPS 两项（其中的 Stdev 是 standard deviation 的简写，即标准方差），也无法按照时间的推进看到整个曲线。</p>
+<p>
+一次 wrk 运行的效果如下：</p>
+<div class="src src-text">
+<div class="highlight"><pre class="chroma"><code class="language-text" data-lang="text">./wrk -t 2 -d 10s http://localhost:8000
+Running 10s test @ http://localhost:8000
+  2 threads and 10 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    24.86ms   17.36ms  72.64ms   60.35%
+    Req/Sec   207.41     21.92   262.00     70.00%
+  4135 requests in 10.01s, 20.49MB read
+Requests/sec:    413.02
+Transfer/sec:      2.05MB</code></pre></div>
+</div>
+<p>
+了解了 wrk 的基本使用之后，接下来我们来看一下 wrk 内部的实现原理。</p>
+<p>
+wrk 内部采用多线程结合IO多路复用的模型，整体如下。</p>
+<figure>
+<img src="/img/2021-02-27-wrk-internals.png" alt="/img/2021-02-27-wrk-internals.png" title="/img/2021-02-27-wrk-internals.png" /><figcaption>
+wrk 内部架构图
+</figcaption>
+</figure>
+<p>
+首先，每个线程有一个 epoll 来处理非阻塞的网络事件，主要有以下几个函数来负责处理：</p>
+<ol>
+<li>
+<p>connect_socket</p>
+</li>
+<li>
+<p>socket_connected</p>
+</li>
+<li>
+<p>socket_readable</p>
+</li>
+<li>
+<p>socket_writable</p>
+</li>
+</ol>
+<p>其中 <code class="verbatim">connect_socket</code> 这个函数需要特别注意，它的功能是连接 HTTP 服务器。但它有一个问题，那就是在 <code class="verbatim">thread_main</code> 线程入口中把当前线程的所有连接都一次性创建好，多个压测请求会复用同一个 TCP 连接。</p>
+<p>
+<code class="verbatim">thread_main</code> 相关代码片段如下：</p>
+<div class="src src-c">
+<div class="highlight"><pre class="chroma"><code class="language-c" data-lang="c">    <span class="k">for</span> <span class="p">(</span><span class="n">uint64_t</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="kr">thread</span><span class="o">-&gt;</span><span class="n">connections</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">,</span> <span class="n">c</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">c</span><span class="o">-&gt;</span><span class="kr">thread</span> <span class="o">=</span> <span class="kr">thread</span><span class="p">;</span>
+        <span class="n">c</span><span class="o">-&gt;</span><span class="n">ssl</span>     <span class="o">=</span> <span class="n">cfg</span><span class="p">.</span><span class="n">ctx</span> <span class="o">?</span> <span class="n">SSL_new</span><span class="p">(</span><span class="n">cfg</span><span class="p">.</span><span class="n">ctx</span><span class="p">)</span> <span class="o">:</span> <span class="nb">NULL</span><span class="p">;</span>
+        <span class="n">c</span><span class="o">-&gt;</span><span class="n">request</span> <span class="o">=</span> <span class="n">request</span><span class="p">;</span>
+        <span class="n">c</span><span class="o">-&gt;</span><span class="n">length</span>  <span class="o">=</span> <span class="n">length</span><span class="p">;</span>
+        <span class="n">c</span><span class="o">-&gt;</span><span class="n">delayed</span> <span class="o">=</span> <span class="n">cfg</span><span class="p">.</span><span class="n">delay</span><span class="p">;</span>
+        <span class="n">connect_socket</span><span class="p">(</span><span class="kr">thread</span><span class="p">,</span> <span class="n">c</span><span class="p">);</span>
+    <span class="p">}</span></code></pre></div>
+</div>
+<p>
+通过 tcpdump 抓包并使用 Wireshark 查看，也能确认这两点。</p>
+<figure>
+<img src="/img/2021-02-27-wrk-establish-tcp-on-start.png" alt="/img/2021-02-27-wrk-establish-tcp-on-start.png" title="/img/2021-02-27-wrk-establish-tcp-on-start.png" /><figcaption>
+wrk 启动时一次性建立了所有 TCP 连接
+</figcaption>
+</figure>
+<figure>
+<img src="/img/2021-02-27-wrk-reuse-tcp-connections.png" alt="/img/2021-02-27-wrk-reuse-tcp-connections.png" title="/img/2021-02-27-wrk-reuse-tcp-connections.png" /><figcaption>
+一个 TCP 连接有多次 HTTP 会话
+</figcaption>
+</figure>
+<p>
+除了网络相关操作外，每个线程还有一个定时器（ <code class="verbatim">record_rate()</code> 函数）用于把自己的数据记录到全局的统计数据中（ <code class="verbatim">stats_record()</code> 函数）。</p>
+<p>
+统计数据结构基于数组的哈希表来设计，数组的下标为统计指标数值，值为它出现的次数。</p>
+<p>
+相关结构体定义：</p>
+<div class="src src-c">
+<div class="highlight"><pre class="chroma"><code class="language-c" data-lang="c"><span class="k">static</span> <span class="k">struct</span> <span class="p">{</span>
+    <span class="n">stats</span> <span class="o">*</span><span class="n">latency</span><span class="p">;</span>
+    <span class="n">stats</span> <span class="o">*</span><span class="n">requests</span><span class="p">;</span>
+<span class="p">}</span> <span class="n">statistics</span><span class="p">;</span>
+
+<span class="k">typedef</span> <span class="k">struct</span> <span class="p">{</span>
+    <span class="n">uint64_t</span> <span class="n">count</span><span class="p">;</span>  <span class="c1">// data 中被使用的
+</span><span class="c1"></span>    <span class="n">uint64_t</span> <span class="n">limit</span><span class="p">;</span>
+    <span class="n">uint64_t</span> <span class="n">min</span><span class="p">;</span>
+    <span class="n">uint64_t</span> <span class="n">max</span><span class="p">;</span>
+    <span class="n">uint64_t</span> <span class="n">data</span><span class="p">[];</span> <span class="c1">// 元素个数是 limit
+</span><span class="c1"></span><span class="p">}</span> <span class="n">stats</span><span class="p">;</span></code></pre></div>
+</div>
+<p>
+比如当 data 用于表示 QPS 时，其中的数据是：</p>
+<div class="src src-text">
+<div class="highlight"><pre class="chroma"><code class="language-text" data-lang="text">index(QPS):     0    1    2    3    4    5
+value(count): | 0 | 12 | 44 | 90 | 29 | 42 |</code></pre></div>
+</div>
+<p>
+那么平均 QPS 就是 <code>(1*12+2*44+3*90+4*29+5*42)/(12+44+90+29+42)=3.21</code></p>
+<p>
+由于整个程序是多线程的，而 <code class="verbatim">statistics</code> 又是全局变量，因此需要有顺序更新机制来保证多线程的顺序访问。这里 wrk 采用 CAS 方式，而不是直接用锁，粒度更细：</p>
+<ul>
+<li>
+<p><code class="verbatim">__sync_fetch_and_add</code> 增加对应下标的计数；</p>
+</li>
+<li>
+<p><code class="verbatim">__sync_val_compare_and_swap</code> 更细当前下标的 min max 边界，如果由于并发导致更新失败，会一直尝试直到成功；</p>
+</li>
+</ul>
+<p>总的来说， wrk 代码写得不错，简洁易读。功能上， wrk 具有简单易用等优点，但同时也要注意，它的所有连接都是在启动时建立的，压测的 HTTP 请求会复用 TCP 连接，与真实的用户场景可能不一样；另外它的统计数据也比较简单，缺少时间维度，这样就绘制不了按时间推移的曲线，不直观。</p>
+
+
+        
+          <div class="blog-tags">
+            
+              <a href="https://whatacold.io/zh-cn/tags/c/">C</a>&nbsp;
+            
+              <a href="https://whatacold.io/zh-cn/tags/performance/">Performance</a>&nbsp;
+            
+          </div>
+        
+
+        
+            <hr/>
+            <section id="social-share">
+              <div class="list-inline footer-links">
+                
+
+<div class="share-box" aria-hidden="true">
+    <ul class="share">
+      
+      <li>
+        <a href="//twitter.com/share?url=https%3a%2f%2fwhatacold.io%2fzh-cn%2fblog%2f2021-02-27-wrk-yuanli%2f&amp;text=HTTP%e5%8e%8b%e6%b5%8b%e5%b7%a5%e5%85%b7wrk%e7%9a%84%e5%ae%9e%e7%8e%b0%e5%8e%9f%e7%90%86&amp;via=whatacold" target="_blank" title="Share on Twitter">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fwhatacold.io%2fzh-cn%2fblog%2f2021-02-27-wrk-yuanli%2f" target="_blank" title="Share on Facebook">
+          <i class="fab fa-facebook"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//reddit.com/submit?url=https%3a%2f%2fwhatacold.io%2fzh-cn%2fblog%2f2021-02-27-wrk-yuanli%2f&amp;title=HTTP%e5%8e%8b%e6%b5%8b%e5%b7%a5%e5%85%b7wrk%e7%9a%84%e5%ae%9e%e7%8e%b0%e5%8e%9f%e7%90%86" target="_blank" title="Share on Reddit">
+          <i class="fab fa-reddit"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fwhatacold.io%2fzh-cn%2fblog%2f2021-02-27-wrk-yuanli%2f&amp;title=HTTP%e5%8e%8b%e6%b5%8b%e5%b7%a5%e5%85%b7wrk%e7%9a%84%e5%ae%9e%e7%8e%b0%e5%8e%9f%e7%90%86" target="_blank" title="Share on LinkedIn">
+          <i class="fab fa-linkedin"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fwhatacold.io%2fzh-cn%2fblog%2f2021-02-27-wrk-yuanli%2f&amp;title=HTTP%e5%8e%8b%e6%b5%8b%e5%b7%a5%e5%85%b7wrk%e7%9a%84%e5%ae%9e%e7%8e%b0%e5%8e%9f%e7%90%86" target="_blank" title="Share on StumbleUpon">
+          <i class="fab fa-stumbleupon"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fwhatacold.io%2fzh-cn%2fblog%2f2021-02-27-wrk-yuanli%2f&amp;description=HTTP%e5%8e%8b%e6%b5%8b%e5%b7%a5%e5%85%b7wrk%e7%9a%84%e5%ae%9e%e7%8e%b0%e5%8e%9f%e7%90%86" target="_blank" title="Share on Pinterest">
+          <i class="fab fa-pinterest"></i>
+        </a>
+      </li>
+    </ul>
+  </div>
+  
+
+              </div>
+            </section>
+        
+
+        
+          
+
+          
+        
+      </article>
+
+      
+        <ul class="pager blog-pager">
+          
+            <li class="previous">
+              <a href="https://whatacold.io/zh-cn/blog/2021-02-16-doxygen-cpp-correct-callgraphs/" data-toggle="tooltip" data-placement="top" title="Doxygen 终于可以正确生成函数调用图了！">&larr; 前一篇</a>
+            </li>
+          
+          
+        </ul>
+      
+
+
+      
+        
+          
+          <div class="disqus-comments">
+            <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "whatacold" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+          </div>
+          
+        
+        
+      
+
+    </div>
+  </div>
+</div>
+
+      
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+          
+              <li>
+                <a href="mailto:whatacold@gmail.com" title="Email me">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fas fa-envelope fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://github.com/whatacold" title="GitHub">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://twitter.com/whatacold" title="Twitter">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://reddit.com/u/whatacold" title="Reddit">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-reddit-alien fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://stackoverflow.com/users/910978/whatacold" title="StackOverflow">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-stack-overflow fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://www.youtube.com/channel/UC2unslchfhzbub47Qq2U88w" title="Youtube">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-youtube fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+          
+          <li>
+            <a href="" title="RSS">
+              <span class="fa-stack fa-lg">
+                <i class="fas fa-circle fa-stack-2x"></i>
+                <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+        </ul>
+        <p class="credits copyright text-muted">
+          
+            
+              whatacold
+            
+          
+
+          &nbsp;&bull;&nbsp;&copy;
+          
+            2021
+          
+
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://whatacold.io/zh-cn/">whatacold 的世界</a>
+          
+        </p>
+        
+        <p class="credits theme-by text-muted">
+          由 <a href="https://gohugo.io">Hugo v0.80.0</a> 强力驱动 &nbsp;&bull;&nbsp; 主题 <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> 移植自 <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer><script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.js" integrity="sha384-K3vbOmF2BtaVai+Qk37uypf7VrgBubhQreNQe9aGsz9lB63dIFiQVlJbr92dw2Lx" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/contrib/auto-render.min.js" integrity="sha384-kmZOZB5ObwgQnS/DuDg6TScgOiWWBiVt0plIRkZCmE6rDZGrEOQeHM5PcHi+nyqe" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+<script src="https://whatacold.io/js/main.js"></script>
+<script src="https://whatacold.io/js/highlight.min.js"></script>
+<script> hljs.initHighlightingOnLoad(); </script>
+<script> $(document).ready(function() {$("pre.chroma").css("padding","0");}); </script><script> renderMathInElement(document.body); </script><script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.js" integrity="sha384-QELNnmcmU8IR9ZAykt67vGr9/rZJdHbiWi64V88fCPaOohUlHCqUD/unNN0BXSqy" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe-ui-default.min.js" integrity="sha384-m67o7SkQ1ALzKZIFh4CiTA8tmadaujiTa9Vu+nqPSwDOqHrDmxLezTdFln8077+q" crossorigin="anonymous"></script><script src="https://whatacold.io/js/load-photoswipe.js"></script>
+
+
+
+
+
+
+
+
+
+    
+  </body>
+</html>
+

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Org-mode on whatacold&#39;s world</title>
+    <link>https://whatacold.io/tags/org-mode/</link>
+    <description>Recent content in Org-mode on whatacold&#39;s world</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <managingEditor>whatacold@gmail.com (whatacold)</managingEditor>
+    <webMaster>whatacold@gmail.com (whatacold)</webMaster>
+    <lastBuildDate>Sat, 20 Jul 2019 20:04:00 +0800</lastBuildDate><atom:link href="https://whatacold.io/tags/org-mode/rss.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Generating org-mode outlines for wikiHow articles</title>
+      <link>https://whatacold.io/blog/2019-07-20-generating-org-mode-outlines-for-wikihow-articles/</link>
+      <pubDate>Sat, 20 Jul 2019 20:04:00 +0800</pubDate>
+      <author>whatacold@gmail.com (whatacold)</author>
+      <guid>https://whatacold.io/blog/2019-07-20-generating-org-mode-outlines-for-wikihow-articles/</guid>
+      <description>Recently I found some great articles on wikiHow, then I want to keep notes of them in org-mode files.
+ At first, I manually copied the ToC of articles, but soon I found it&amp;#39;s tedious and takes a lot of time. Today I wrote a requests-based Python script to help me extract the ToCs (Table of Content) into org-mode outlines. It takes two arguments, the first one is the URL, the second one is the containing heading&amp;#39;s level for the generated ToC in org-mode.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html lang="zh-cn" itemscope itemtype="http://schema.org/WebPage">
+  <head>
+    
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title>C&#43;&#43; 多态是如何实现的？ - whatacold 的世界</title>
+  <meta name="description" content="本文使用 GDB 从汇编的角度来观察 C&#43;&#43; 多态究竟是如何实现的……">
+  <meta name="author" content="whatacold"/><script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "WebSite",
+    "name": "whatacold 的世界",
+    
+    "url": "https:\/\/whatacold.io"
+}
+</script><script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Organization",
+  "name": "",
+  "url": "https:\/\/whatacold.io"
+  
+  
+  
+  
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "item": {
+          "@id": "https:\/\/whatacold.io",
+          "name": "home"
+        }
+    },{
+        "@type": "ListItem",
+        "position": 3,
+        "item": {
+          "@id": "https:\/\/whatacold.io\/zh-cn\/blog\/2018-12-10-how-polymorphism-works-in-cpp\/",
+          "name": "C\u002b\u002b 多态是如何实现的？"
+        }
+    }]
+}
+</script><script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Article",
+  "author": {
+    "name" : "whatacold"
+  },
+  "headline": "C\u002b\u002b 多态是如何实现的？",
+  "description" : "本文使用 GDB 从汇编的角度来观察 C\u002b\u002b 多态究竟是如何实现的……",
+  "inLanguage" : "zh-cn",
+  "wordCount":  1399 ,
+  "datePublished" : "2018-12-10T00:16:00",
+  "dateModified" : "2018-12-10T00:16:00",
+  "image" : "https:\/\/whatacold.io\/img\/avatar.png",
+  "keywords" : [ "C\u002b\u002b, GDB" ],
+  "mainEntityOfPage" : "https:\/\/whatacold.io\/zh-cn\/blog\/2018-12-10-how-polymorphism-works-in-cpp\/",
+  "publisher" : {
+    "@type": "Organization",
+    "name" : "https:\/\/whatacold.io",
+    "logo" : {
+        "@type" : "ImageObject",
+        "url" : "https:\/\/whatacold.io\/img\/avatar.png",
+        "height" :  60 ,
+        "width" :  60
+    }
+  }
+}
+</script>
+
+<meta property="og:title" content="C&#43;&#43; 多态是如何实现的？" />
+<meta property="og:description" content="本文使用 GDB 从汇编的角度来观察 C&#43;&#43; 多态究竟是如何实现的……">
+<meta property="og:image" content="https://whatacold.io/img/avatar.png" />
+<meta property="og:url" content="https://whatacold.io/zh-cn/blog/2018-12-10-how-polymorphism-works-in-cpp/" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="whatacold 的世界" />
+
+  <meta name="twitter:title" content="C&#43;&#43; 多态是如何实现的？" />
+  <meta name="twitter:description" content="本文使用 GDB 从汇编的角度来观察 C&#43;&#43; 多态究竟是如何实现的……">
+  <meta name="twitter:image" content="https://whatacold.io/img/avatar.png" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@whatacold" />
+  <meta name="twitter:creator" content="@whatacold" />
+  <link href='https://whatacold.io/img/favicon.ico' rel='icon' type='image/x-icon'/>
+  <meta name="generator" content="Hugo 0.80.0" />
+  <link rel="alternate" href="https://whatacold.io/zh-cn/index.xml" type="application/rss+xml" title="whatacold 的世界"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"><link rel="stylesheet" href="https://whatacold.io/css/main.css" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
+  <link rel="stylesheet" href="https://whatacold.io/css/highlight.min.css" /><link rel="stylesheet" href="https://whatacold.io/css/codeblock.css" /><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.css" integrity="sha384-h/L2W9KefUClHWaty3SLE5F/qvc4djlyR4qY3NUV5HGQBBW7stbcfff1+I/vmsHh" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/default-skin/default-skin.min.css" integrity="sha384-iD0dNku6PYSIQLyfTOpB06F2KCZJAKLOThS5HRe8b3ibhdEQ6eKsFf/EeFxdOt5R" crossorigin="anonymous">
+
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-74588785-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+  </head>
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">切换导航</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://whatacold.io/zh-cn/">whatacold 的世界</a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+          
+            <li>
+              <a title="Blog" href="/zh-cn">Blog</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="About" href="/zh-cn/about/">About</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="Tags" href="/zh-cn/tags">Tags</a>
+            </li>
+          
+        
+
+        
+          
+            <li>
+              
+                
+                  <a href="/en" lang="en">English</a>
+                
+              
+                
+              
+            </li>
+          
+        
+
+        
+      </ul>
+    </div>
+
+    
+      <div class="avatar-container">
+        <div class="avatar-img-border">
+          <a title="whatacold 的世界" href="https://whatacold.io/zh-cn/">
+            <img class="avatar-img" src="https://whatacold.io/img/avatar.png" alt="whatacold 的世界" />
+          </a>
+        </div>
+      </div>
+    
+
+  </div>
+</nav>
+
+
+
+
+    
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+  
+  
+  
+
+
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    <div class="intro-header no-img">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <div class="blog-heading">
+              
+                <h1>C&#43;&#43; 多态是如何实现的？</h1>
+              
+              
+                <hr class="small">
+              
+              
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+    
+<div class="container" role="main">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+      <article role="main" class="blog-post">
+        <p>
+对于 OOP 编程，相信大家对于多态（ polymorphism ）肯定都耳熟能详。
+但是对于多态是如何实现的，我不知道大家是否清楚，但我发现自己并不是很了解，
+只知道在运行时通过一个 vtable 来确定应该调用哪个函数，
+实际上 vtable 真的存在吗？它是如何起作用的？</p>
+<p>
+首先我们来看下普通方法的调用情况，比如 <code class="verbatim">non-virtual-class.cpp</code> 有一个类及其方法调用：</p>
+<div class="src src-c++">
+<div class="highlight"><pre class="chroma"><code class="language-c++" data-lang="c++"><span class="k">class</span> <span class="nc">Base</span>
+<span class="p">{</span>
+<span class="k">public</span><span class="o">:</span>
+    <span class="kt">int</span> <span class="n">foo</span><span class="p">()</span> <span class="p">{</span> <span class="k">return</span> <span class="mi">1</span><span class="p">;</span> <span class="p">}</span>
+<span class="p">};</span>
+
+<span class="k">class</span> <span class="nc">Derived</span>
+<span class="p">{</span>
+<span class="k">public</span><span class="o">:</span>
+    <span class="kt">int</span> <span class="n">bar</span><span class="p">()</span> <span class="p">{</span> <span class="k">return</span> <span class="mi">2</span><span class="p">;</span> <span class="p">}</span>
+<span class="p">};</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">Derived</span> <span class="n">foo</span><span class="p">;</span>
+
+    <span class="k">return</span> <span class="n">foo</span><span class="p">.</span><span class="n">bar</span><span class="p">();</span>
+<span class="p">}</span>
+</code></pre></div>
+</div>
+<p>
+<code class="verbatim">g++ -g -O0 non-virtual-class.cpp</code> 编译之后，用 <code class="verbatim">gdb a.out</code> 查看它的汇编代码：</p>
+<div class="src src-text">
+<div class="highlight"><pre class="chroma"><code class="language-text" data-lang="text">(gdb) disas main
+Dump of assembler code for function main():
+   0x00000000004004b6 &lt;+0&gt;:	push   %rbp
+   0x00000000004004b7 &lt;+1&gt;:	mov    %rsp,%rbp
+   0x00000000004004ba &lt;+4&gt;:	sub    $0x10,%rsp
+   0x00000000004004be &lt;+8&gt;:	lea    -0x1(%rbp),%rax               ; &amp;foo 取自身对象地址
+   0x00000000004004c2 &lt;+12&gt;:	mov    %rax,%rdi
+   0x00000000004004c5 &lt;+15&gt;:	callq  0x4004ce &lt;Derived::bar()&gt; ; 确定的函数地址
+   0x00000000004004ca &lt;+20&gt;:	nop
+   0x00000000004004cb &lt;+21&gt;:	leaveq 
+   0x00000000004004cc &lt;+22&gt;:	retq   
+End of assembler dump.
+(gdb) disas Derived::bar
+Dump of assembler code for function Derived::bar():
+   0x00000000004004ce &lt;+0&gt;:	push   %rbp
+   0x00000000004004cf &lt;+1&gt;:	mov    %rsp,%rbp
+   0x00000000004004d2 &lt;+4&gt;:	mov    %rdi,-0x8(%rbp)
+   0x00000000004004d6 &lt;+8&gt;:	mov    $0x2,%eax                     ; return 2
+   0x00000000004004db &lt;+13&gt;:	pop    %rbp
+   0x00000000004004dc &lt;+14&gt;:	retq   
+End of assembler dump.</code></pre></div>
+</div>
+<p>
+可以发现与普通的 C 函数调用类似，编译之后就已经确定好了调用 <code class="verbatim">Derived::bar</code> 方法，
+除了把对象自身地址作为隐藏的第一个参数传入之外并没有什么不同。
+也就是说对于普通不含虚函数的类对象，在编译过程中就确定了其方法的调用，没有运行时开销。</p>
+<p>
+那么，在多态场景下，类方法的调用又是怎样的呢？这里还是从汇编的角度观察。
+以同样参数编译如下 <code class="verbatim">virtual-class-polymorphism.cpp</code> 文件，然后用 gdb 观察运行时信息：</p>
+<div class="src src-c++">
+<div class="highlight"><pre class="chroma"><code class="language-c++" data-lang="c++"><span class="k">class</span> <span class="nc">Base</span>
+<span class="p">{</span>
+<span class="k">public</span><span class="o">:</span>
+    <span class="k">virtual</span> <span class="kt">void</span> <span class="n">foo</span><span class="p">()</span> <span class="p">{};</span>
+<span class="p">};</span>
+
+<span class="k">class</span> <span class="nc">Derived</span> <span class="o">:</span> <span class="k">public</span> <span class="n">Base</span>
+<span class="p">{</span>
+<span class="k">public</span><span class="o">:</span>
+    <span class="kt">void</span> <span class="n">foo</span><span class="p">()</span> <span class="p">{};</span>
+<span class="p">};</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">Base</span> <span class="o">*</span><span class="n">p</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Derived</span><span class="p">;</span>
+    <span class="n">p</span><span class="o">-&gt;</span><span class="n">foo</span><span class="p">();</span>
+
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</div>
+<p>
+这次我们通过在 GDB 运行时观察：</p>
+<div class="src src-text">
+<div class="highlight"><pre class="chroma"><code class="language-text" data-lang="text">;; 设置解析符号及断点，启动程序
+(gdb) set print asm-demangle on
+(gdb) set print demangle on
+(gdb) b main
+Breakpoint 1 at 0x40061f: file virtual-class-polymorphism.cpp, line 15.
+(gdb) r
+Starting program: /home/hgw/demo-code/cpp/vtable/a.out 
+Missing separate debuginfos, use: dnf debuginfo-install glibc-2.27-30.fc28.x86_64
+
+Breakpoint 1, main () at virtual-class-polymorphism.cpp:15
+15	    Base *p = new Derived;
+Missing separate debuginfos, use: dnf debuginfo-install libgcc-8.1.1-5.fc28.x86_64 libstdc++-8.1.1-5.fc28.x86_64
+(gdb) p p
+$1 = (Base *) 0x400530 &lt;_start&gt;
+(gdb) n
+16	    p-&gt;foo();
+
+(gdb) p p
+$2 = (Base *) 0x613e70
+(gdb) x/16xb p
+0x613e70:	0x40	0x07	0x40	0x00	0x00	0x00	0x00	0x00
+0x613e78:	0x00	0x00	0x00	0x00	0x00	0x00	0x00	0x00
+;; 可以看到对象中包含了一个 vptr ，指向 vtable 的一个偏移位置
+(gdb) p *p
+$3 = {_vptr.Base = 0x400740 &lt;vtable for Derived+16&gt;}
+
+;; 再看 vtable 中的内容，注意这里已经去掉了偏移量16
+;; 可以看到先是两个 vtable ，再是 typeinfo ， typeinfo name ，后两者是 RTTI 相关，本文暂不了解。
+(gdb) x/200xb 0x400730
+0x400730 &lt;vtable for Derived&gt;:	0x00	0x00	0x00	0x00	0x00	0x00	0x00	0x00
+0x400738 &lt;vtable for Derived+8&gt;:	0x60	0x07	0x40	0x00	0x00	0x00	0x00	0x00
+0x400740 &lt;vtable for Derived+16&gt;:	0x64	0x06	0x40	0x00	0x00	0x00	0x00	0x00
+0x400748 &lt;vtable for Base&gt;:	0x00	0x00	0x00	0x00	0x00	0x00	0x00	0x00
+0x400750 &lt;vtable for Base+8&gt;:	0x88	0x07	0x40	0x00	0x00	0x00	0x00	0x00
+0x400758 &lt;vtable for Base+16&gt;:	0x58	0x06	0x40	0x00	0x00	0x00	0x00	0x00
+0x400760 &lt;typeinfo for Derived&gt;:	0xa8	0x0d	0x60	0x00	0x00	0x00	0x00	0x00
+0x400768 &lt;typeinfo for Derived+8&gt;:	0x78	0x07	0x40	0x00	0x00	0x00	0x00	0x00
+0x400770 &lt;typeinfo for Derived+16&gt;:	0x88	0x07	0x40	0x00	0x00	0x00	0x00	0x00
+0x400778 &lt;typeinfo name for Derived&gt;:	0x37	0x44	0x65	0x72	0x69	0x76	0x65	0x64
+0x400780 &lt;typeinfo name for Derived+8&gt;:	0x00	0x00	0x00	0x00	0x00	0x00	0x00	0x00
+0x400788 &lt;typeinfo for Base&gt;:	0x50	0x0d	0x60	0x00	0x00	0x00	0x00	0x00
+0x400790 &lt;typeinfo for Base+8&gt;:	0x98	0x07	0x40	0x00	0x00	0x00	0x00	0x00
+0x400798 &lt;typeinfo name for Base&gt;:	0x34	0x42	0x61	0x73	0x65	0x00	0x00	0x00
+0x4007a0:	0x01	0x1b	0x03	0x3b	0x5c	0x00	0x00	0x00
+;; 这里省略一些无意义的输出
+
+;; 查看 &lt;vtable for Derived+16&gt; 地址中存储的内容，可以看到就是函数指针
+(gdb) info symbol 0x400664
+Derived::foo() in section .text of /home/hgw/demo-code/cpp/vtable/a.out
+;; 查看 &lt;vtable for Derived+8&gt; 地址中存储的内容，指向 typeinfo 内存位置
+(gdb) info symbol 0x400760
+typeinfo for Derived in section .rodata of /home/hgw/demo-code/cpp/vtable/a.out</code></pre></div>
+</div>
+<p>
+现在再回过头来看静态的汇编代码，就容易理解了：</p>
+<div class="src src-text">
+<div class="highlight"><pre class="chroma"><code class="language-text" data-lang="text">(gdb) disas main
+Dump of assembler code for function main():
+   0x0000000000400616 &lt;+0&gt;:	push   %rbp
+   0x0000000000400617 &lt;+1&gt;:	mov    %rsp,%rbp
+   0x000000000040061a &lt;+4&gt;:	push   %rbx
+   0x000000000040061b &lt;+5&gt;:	sub    $0x18,%rsp
+   0x000000000040061f &lt;+9&gt;:	mov    $0x8,%edi                         ; sizeof Derived 变为了 8 字节
+   0x0000000000400624 &lt;+14&gt;:	callq  0x400520 &lt;_Znwm@plt&gt;          ; new 对象
+   0x0000000000400629 &lt;+19&gt;:	mov    %rax,%rbx                     ; 地址 p
+   0x000000000040062c &lt;+22&gt;:	mov    %rbx,%rdi
+   0x000000000040062f &lt;+25&gt;:	callq  0x400688 &lt;Derived::Derived()&gt; ; constructor
+   0x0000000000400634 &lt;+30&gt;:	mov    %rbx,-0x18(%rbp)
+   0x0000000000400638 &lt;+34&gt;:	mov    -0x18(%rbp),%rax              ; 地址 p ，指向对象存储空间
+   0x000000000040063c &lt;+38&gt;:	mov    (%rax),%rax                   ; 取对象内容，其实就是 vptr 值
+   0x000000000040063f &lt;+41&gt;:	mov    (%rax),%rax                   ; 取 vptr 指向地址的内容，就是上边看到的 &lt;vtable for Derived+16&gt;
+   0x0000000000400642 &lt;+44&gt;:	mov    -0x18(%rbp),%rdx
+   0x0000000000400646 &lt;+48&gt;:	mov    %rdx,%rdi                     ; 把地址 p 作为第一个参数（ this ）传入
+   0x0000000000400649 &lt;+51&gt;:	callq  *%rax                         ; 调用 vtable 中指定的函数
+   0x000000000040064b &lt;+53&gt;:	mov    $0x0,%eax
+   0x0000000000400650 &lt;+58&gt;:	add    $0x18,%rsp
+   0x0000000000400654 &lt;+62&gt;:	pop    %rbx
+   0x0000000000400655 &lt;+63&gt;:	pop    %rbp
+   0x0000000000400656 &lt;+64&gt;:	retq   
+End of assembler dump.</code></pre></div>
+</div>
+<p>
+综上，可以把相关的内存布局绘制成如下图：
+<img src="/img/2018-12-10-vtable.png" alt="/img/2018-12-10-vtable.png" title="/img/2018-12-10-vtable.png" /></p>
+<p>
+从以上分析可以看出， vtable 确实存在，程序运行时根据 vtable 查找对应的函数（此过程叫做 dynamic dispatch ）。
+若在不必要的场景下定义了虚函数，一方面会使得对象占用的内存变大，
+另一方面在调用虚函数时，需要查找 vtable ，有一定的性能损耗，因此编程时应当避免此情况。</p>
+<p>
+延伸阅读、参考资料：</p>
+<ul>
+<li>
+<p><a href="https://shaharmike.com/cpp/vtable-part1/">C++ vtables - Part 1 - Basics | Shahar Mike&#39;s Web Spot - shaharmike.com</a></p>
+<p>
+此系列文章深入讲解了 C++ 的 vtable 和 RTTI 实现原理，本文主要参考了其中的第一篇。</p>
+</li>
+<li>
+<p><a href="http://lifegoo.pluskid.org/upload/doc/object_models/C++%20Object%20Model.pdf">C++ Object Model.pdf - lifegoo.pluskid.org</a></p>
+</li>
+<li>
+<p>Stanley B·Lippman <a href="https://book.douban.com/subject/1091086/">Inside the C++ Object Model</a></p>
+</li>
+</ul>
+
+
+        
+          <div class="blog-tags">
+            
+              <a href="https://whatacold.io/zh-cn/tags/c&#43;&#43;/">C&#43;&#43;</a>&nbsp;
+            
+              <a href="https://whatacold.io/zh-cn/tags/gdb/">GDB</a>&nbsp;
+            
+          </div>
+        
+
+        
+            <hr/>
+            <section id="social-share">
+              <div class="list-inline footer-links">
+                
+
+<div class="share-box" aria-hidden="true">
+    <ul class="share">
+      
+      <li>
+        <a href="//twitter.com/share?url=https%3a%2f%2fwhatacold.io%2fzh-cn%2fblog%2f2018-12-10-how-polymorphism-works-in-cpp%2f&amp;text=C%2b%2b%20%e5%a4%9a%e6%80%81%e6%98%af%e5%a6%82%e4%bd%95%e5%ae%9e%e7%8e%b0%e7%9a%84%ef%bc%9f&amp;via=whatacold" target="_blank" title="Share on Twitter">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fwhatacold.io%2fzh-cn%2fblog%2f2018-12-10-how-polymorphism-works-in-cpp%2f" target="_blank" title="Share on Facebook">
+          <i class="fab fa-facebook"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//reddit.com/submit?url=https%3a%2f%2fwhatacold.io%2fzh-cn%2fblog%2f2018-12-10-how-polymorphism-works-in-cpp%2f&amp;title=C%2b%2b%20%e5%a4%9a%e6%80%81%e6%98%af%e5%a6%82%e4%bd%95%e5%ae%9e%e7%8e%b0%e7%9a%84%ef%bc%9f" target="_blank" title="Share on Reddit">
+          <i class="fab fa-reddit"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fwhatacold.io%2fzh-cn%2fblog%2f2018-12-10-how-polymorphism-works-in-cpp%2f&amp;title=C%2b%2b%20%e5%a4%9a%e6%80%81%e6%98%af%e5%a6%82%e4%bd%95%e5%ae%9e%e7%8e%b0%e7%9a%84%ef%bc%9f" target="_blank" title="Share on LinkedIn">
+          <i class="fab fa-linkedin"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fwhatacold.io%2fzh-cn%2fblog%2f2018-12-10-how-polymorphism-works-in-cpp%2f&amp;title=C%2b%2b%20%e5%a4%9a%e6%80%81%e6%98%af%e5%a6%82%e4%bd%95%e5%ae%9e%e7%8e%b0%e7%9a%84%ef%bc%9f" target="_blank" title="Share on StumbleUpon">
+          <i class="fab fa-stumbleupon"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fwhatacold.io%2fzh-cn%2fblog%2f2018-12-10-how-polymorphism-works-in-cpp%2f&amp;description=C%2b%2b%20%e5%a4%9a%e6%80%81%e6%98%af%e5%a6%82%e4%bd%95%e5%ae%9e%e7%8e%b0%e7%9a%84%ef%bc%9f" target="_blank" title="Share on Pinterest">
+          <i class="fab fa-pinterest"></i>
+        </a>
+      </li>
+    </ul>
+  </div>
+  
+
+              </div>
+            </section>
+        
+
+        
+          
+            
+          
+
+          
+                  <h4 class="see-also">也可以看看</h4>
+                  <ul>
+                
+                
+                    <li><a href="/zh-cn/blog/2021-02-16-doxygen-cpp-correct-callgraphs/">Doxygen 终于可以正确生成函数调用图了！</a></li>
+                
+                    <li><a href="/zh-cn/blog/2018-12-22-c-cpp-devel-with-lsp-in-emacs/">在 Emacs 中使用 LSP 开发 C/C&#43;&#43; 工程</a></li>
+                
+              </ul>
+
+          
+        
+      </article>
+
+      
+        <ul class="pager blog-pager">
+          
+          
+            <li class="next">
+              <a href="https://whatacold.io/zh-cn/blog/2018-12-22-c-cpp-devel-with-lsp-in-emacs/" data-toggle="tooltip" data-placement="top" title="在 Emacs 中使用 LSP 开发 C/C&#43;&#43; 工程">后一篇 &rarr;</a>
+            </li>
+          
+        </ul>
+      
+
+
+      
+        
+          
+          <div class="disqus-comments">
+            <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "whatacold" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+          </div>
+          
+        
+        
+      
+
+    </div>
+  </div>
+</div>
+
+      
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+          
+              <li>
+                <a href="mailto:whatacold@gmail.com" title="Email me">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fas fa-envelope fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://github.com/whatacold" title="GitHub">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://twitter.com/whatacold" title="Twitter">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://reddit.com/u/whatacold" title="Reddit">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-reddit-alien fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://stackoverflow.com/users/910978/whatacold" title="StackOverflow">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-stack-overflow fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://www.youtube.com/channel/UC2unslchfhzbub47Qq2U88w" title="Youtube">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-youtube fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+          
+          <li>
+            <a href="" title="RSS">
+              <span class="fa-stack fa-lg">
+                <i class="fas fa-circle fa-stack-2x"></i>
+                <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+        </ul>
+        <p class="credits copyright text-muted">
+          
+            
+              whatacold
+            
+          
+
+          &nbsp;&bull;&nbsp;&copy;
+          
+            2021
+          
+
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://whatacold.io/zh-cn/">whatacold 的世界</a>
+          
+        </p>
+        
+        <p class="credits theme-by text-muted">
+          由 <a href="https://gohugo.io">Hugo v0.80.0</a> 强力驱动 &nbsp;&bull;&nbsp; 主题 <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> 移植自 <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer><script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.js" integrity="sha384-K3vbOmF2BtaVai+Qk37uypf7VrgBubhQreNQe9aGsz9lB63dIFiQVlJbr92dw2Lx" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/contrib/auto-render.min.js" integrity="sha384-kmZOZB5ObwgQnS/DuDg6TScgOiWWBiVt0plIRkZCmE6rDZGrEOQeHM5PcHi+nyqe" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+<script src="https://whatacold.io/js/main.js"></script>
+<script src="https://whatacold.io/js/highlight.min.js"></script>
+<script> hljs.initHighlightingOnLoad(); </script>
+<script> $(document).ready(function() {$("pre.chroma").css("padding","0");}); </script><script> renderMathInElement(document.body); </script><script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.js" integrity="sha384-QELNnmcmU8IR9ZAykt67vGr9/rZJdHbiWi64V88fCPaOohUlHCqUD/unNN0BXSqy" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe-ui-default.min.js" integrity="sha384-m67o7SkQ1ALzKZIFh4CiTA8tmadaujiTa9Vu+nqPSwDOqHrDmxLezTdFln8077+q" crossorigin="anonymous"></script><script src="https://whatacold.io/js/load-photoswipe.js"></script>
+
+
+
+
+
+
+
+
+
+    
+  </body>
+</html>
+

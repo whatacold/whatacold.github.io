@@ -1,0 +1,254 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <url>
+    <loc>https://whatacold.io/about/</loc>
+    <lastmod>2021-07-09T22:37:07+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-cn"
+                href="https://whatacold.io/zh-cn/about/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://whatacold.io/about/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://whatacold.io/blog/2020-10-21-a-python-re.findall-service/</loc>
+    <lastmod>2020-10-21T22:51:00+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://whatacold.io/blog/</loc>
+    <lastmod>2020-10-21T22:51:00+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-cn"
+                href="https://whatacold.io/zh-cn/blog/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://whatacold.io/blog/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://whatacold.io/tags/python/</loc>
+    <lastmod>2020-10-21T22:51:00+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-cn"
+                href="https://whatacold.io/zh-cn/tags/python/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://whatacold.io/tags/python/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://whatacold.io/tags/</loc>
+    <lastmod>2020-10-21T22:51:00+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-cn"
+                href="https://whatacold.io/zh-cn/tags/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://whatacold.io/tags/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://whatacold.io/tags/texttoolkit/</loc>
+    <lastmod>2020-10-21T22:51:00+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://whatacold.io/</loc>
+    <lastmod>2020-10-21T22:51:00+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-cn"
+                href="https://whatacold.io/zh-cn/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://whatacold.io/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://whatacold.io/tags/emacs/</loc>
+    <lastmod>2020-08-22T18:57:00+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-cn"
+                href="https://whatacold.io/zh-cn/tags/emacs/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://whatacold.io/tags/emacs/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://whatacold.io/blog/2020-08-22-generate-call-graphs-using-doxygen-in-emacs/</loc>
+    <lastmod>2020-08-22T18:57:00+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://whatacold.io/blog/2020-06-25-is-it-safe-to-use-redis-as-a-data-store/</loc>
+    <lastmod>2020-06-25T22:37:00+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://whatacold.io/tags/mysql/</loc>
+    <lastmod>2020-06-25T22:37:00+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://whatacold.io/tags/redis/</loc>
+    <lastmod>2020-06-25T22:37:00+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://whatacold.io/blog/2020-05-30-a-trick-to-troubleshoot-emacs-subprocess-creating/</loc>
+    <lastmod>2020-05-30T11:52:00+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://whatacold.io/tags/troubleshooting/</loc>
+    <lastmod>2020-05-30T11:52:00+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://whatacold.io/blog/2020-03-07-ppcompile-to-help-stay-coding-locally/</loc>
+    <lastmod>2020-03-07T23:50:00+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://whatacold.io/tags/git/</loc>
+    <lastmod>2020-02-04T18:48:00+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-cn"
+                href="https://whatacold.io/zh-cn/tags/git/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://whatacold.io/tags/git/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://whatacold.io/blog/2020-02-04-binary-search-algorithm-vs-problem-solving/</loc>
+    <lastmod>2020-02-04T18:48:00+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://whatacold.io/blog/2019-12-22-manage-ssh-connections-with-ssh-config/</loc>
+    <lastmod>2019-12-22T18:52:00+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://whatacold.io/tags/tiling-wm/</loc>
+    <lastmod>2019-12-22T18:52:00+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://whatacold.io/tags/tools/</loc>
+    <lastmod>2019-12-22T18:52:00+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://whatacold.io/blog/2019-12-01-why-cant-git-fetch-remote-branches-other-than-master/</loc>
+    <lastmod>2019-12-01T16:00:00+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://whatacold.io/blog/2019-11-25-start-a-new-urxvt-terminal-on-emacs/</loc>
+    <lastmod>2019-11-25T22:47:00+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://whatacold.io/tags/urxvt/</loc>
+    <lastmod>2019-11-25T22:47:00+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://whatacold.io/blog/2019-10-07-build-docker-images-for-qtile/</loc>
+    <lastmod>2019-10-07T13:25:00+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://whatacold.io/tags/docker/</loc>
+    <lastmod>2019-10-07T13:25:00+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://whatacold.io/blog/2019-09-29-how-to-run-the-bleeding-edge-code-of-qtile/</loc>
+    <lastmod>2019-09-29T17:05:00+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://whatacold.io/blog/2019-09-24-how-to-revert-a-series-of-commits-with-git/</loc>
+    <lastmod>2019-09-24T23:14:00+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://whatacold.io/blog/2019-08-18-how-to-rename-web-page-titles-in-a-lightweight-way/</loc>
+    <lastmod>2019-08-18T14:57:00+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://whatacold.io/blog/2019-07-20-generating-org-mode-outlines-for-wikihow-articles/</loc>
+    <lastmod>2019-07-20T20:04:00+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://whatacold.io/tags/org-mode/</loc>
+    <lastmod>2019-07-20T20:04:00+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://whatacold.io/blog/2019-07-20-understanding-align-regexp-of-emacs/</loc>
+    <lastmod>2019-07-20T13:50:00+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://whatacold.io/blog/2019-07-06-render-erd-on-the-web/</loc>
+    <lastmod>2019-07-06T11:59:00+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://whatacold.io/blog/2019-02-24-fine-tune-style-of-yasnippet-snippet-on-the-fly/</loc>
+    <lastmod>2019-03-10T16:48:00+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://whatacold.io/categories/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-cn"
+                href="https://whatacold.io/zh-cn/categories/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://whatacold.io/categories/"
+                />
+  </url>
+  
+</urlset>

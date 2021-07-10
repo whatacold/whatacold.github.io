@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Python on whatacold&#39;s world</title>
+    <link>https://whatacold.io/tags/python/</link>
+    <description>Recent content in Python on whatacold&#39;s world</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <managingEditor>whatacold@gmail.com (whatacold)</managingEditor>
+    <webMaster>whatacold@gmail.com (whatacold)</webMaster>
+    <lastBuildDate>Wed, 21 Oct 2020 22:51:00 +0800</lastBuildDate><atom:link href="https://whatacold.io/tags/python/rss.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>An online Python re.findall Service</title>
+      <link>https://whatacold.io/blog/2020-10-21-a-python-re.findall-service/</link>
+      <pubDate>Wed, 21 Oct 2020 22:51:00 +0800</pubDate>
+      <author>whatacold@gmail.com (whatacold)</author>
+      <guid>https://whatacold.io/blog/2020-10-21-a-python-re.findall-service/</guid>
+      <description>As a programmer, I know that grep, sed and awk are powerful for processing text, but they sometimes aren&amp;#39;t that straight-forward for specific tasks, as I need to think about how to filter the lines and the columns out. So I wonder if there is a handy way to do these tasks? After using it for a while, I think using regex directly can help, so I launched a re.</description>
+    </item>
+    
+    <item>
+      <title>How to run the bleeding-edge code of Qtile within a virtualenv</title>
+      <link>https://whatacold.io/blog/2019-09-29-how-to-run-the-bleeding-edge-code-of-qtile/</link>
+      <pubDate>Sun, 29 Sep 2019 17:05:00 +0800</pubDate>
+      <author>whatacold@gmail.com (whatacold)</author>
+      <guid>https://whatacold.io/blog/2019-09-29-how-to-run-the-bleeding-edge-code-of-qtile/</guid>
+      <description>For having been using GNOME for quite a long time, I was considering trying some tiling window managers to see what it&amp;#39;s like a few weeks ago. Along the way, I found a nice window manager written in Python: Qtile, what interests me most is that it&amp;#39;s a hackable window manager, which makes it flexible to extend or change its behaviors.
+ Well, switching to use a tiling window manager is far simpler than I thought.</description>
+    </item>
+    
+    <item>
+      <title>Generating org-mode outlines for wikiHow articles</title>
+      <link>https://whatacold.io/blog/2019-07-20-generating-org-mode-outlines-for-wikihow-articles/</link>
+      <pubDate>Sat, 20 Jul 2019 20:04:00 +0800</pubDate>
+      <author>whatacold@gmail.com (whatacold)</author>
+      <guid>https://whatacold.io/blog/2019-07-20-generating-org-mode-outlines-for-wikihow-articles/</guid>
+      <description>Recently I found some great articles on wikiHow, then I want to keep notes of them in org-mode files.
+ At first, I manually copied the ToC of articles, but soon I found it&amp;#39;s tedious and takes a lot of time. Today I wrote a requests-based Python script to help me extract the ToCs (Table of Content) into org-mode outlines. It takes two arguments, the first one is the URL, the second one is the containing heading&amp;#39;s level for the generated ToC in org-mode.</description>
+    </item>
+    
+    <item>
+      <title>Render erd diagrams on the web</title>
+      <link>https://whatacold.io/blog/2019-07-06-render-erd-on-the-web/</link>
+      <pubDate>Sat, 06 Jul 2019 11:59:00 +0800</pubDate>
+      <author>whatacold@gmail.com (whatacold)</author>
+      <guid>https://whatacold.io/blog/2019-07-06-render-erd-on-the-web/</guid>
+      <description>If you ever wonder how to plot ER diagrams in plain text, you may have already heard of erd. It&amp;#39;s a cool command line program written by Andrew Gallant in Haskell, to &amp;#34;compile&amp;#34; plain text files into nicely looking images, leveraging the power of GraphViz.
+ I&amp;#39;ve used erd for some time, it&amp;#39;s cool and the syntax is quite simple. It&amp;#39;s also quite simple to install it on Linux, just install GraphViz and erd itself, by following the instructions in the README page.</description>
+    </item>
+    
+  </channel>
+</rss>

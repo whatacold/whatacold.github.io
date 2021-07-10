@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Python on whatacold 的世界</title>
+    <link>https://whatacold.io/zh-cn/tags/python/</link>
+    <description>Recent content in Python on whatacold 的世界</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <managingEditor>whatacold@gmail.com (whatacold)</managingEditor>
+    <webMaster>whatacold@gmail.com (whatacold)</webMaster>
+    <lastBuildDate>Tue, 01 Oct 2019 22:28:00 +0800</lastBuildDate><atom:link href="https://whatacold.io/zh-cn/tags/python/rss.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>用 Python Requests “一键”重启天翼路由器</title>
+      <link>https://whatacold.io/zh-cn/blog/2019-10-01-reboot-tianyi-router-using-python-requests/</link>
+      <pubDate>Tue, 01 Oct 2019 22:28:00 +0800</pubDate>
+      <author>whatacold@gmail.com (whatacold)</author>
+      <guid>https://whatacold.io/zh-cn/blog/2019-10-01-reboot-tianyi-router-using-python-requests/</guid>
+      <description>不知道什么原因，我的网络有时候会很慢，而通过重启天翼路由器（版本 V1.0 ）大概率能够恢复。重启的次数多了之后会我觉得好麻烦，本着偷懒的原则，就想写</description>
+    </item>
+    
+    <item>
+      <title>在 Emacs 中使用 LSP 开发 C/C&#43;&#43; 工程</title>
+      <link>https://whatacold.io/zh-cn/blog/2018-12-22-c-cpp-devel-with-lsp-in-emacs/</link>
+      <pubDate>Sat, 22 Dec 2018 20:24:00 +0800</pubDate>
+      <author>whatacold@gmail.com (whatacold)</author>
+      <guid>https://whatacold.io/zh-cn/blog/2018-12-22-c-cpp-devel-with-lsp-in-emacs/</guid>
+      <description>写代码的时候，如果能够基于当前的上下文提示补全，不仅能提高写代码的效率，还能提升体验，有种行云流水的感觉。 Emacs 中之前我用 gtags 等静态的工具来辅助写</description>
+    </item>
+    
+  </channel>
+</rss>

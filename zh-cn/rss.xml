@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>whatacold 的世界</title>
+    <link>https://whatacold.io/zh-cn/</link>
+    <description>Recent content on whatacold 的世界</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <managingEditor>whatacold@gmail.com (whatacold)</managingEditor>
+    <webMaster>whatacold@gmail.com (whatacold)</webMaster>
+    <lastBuildDate>Sat, 27 Feb 2021 10:27:00 +0800</lastBuildDate><atom:link href="https://whatacold.io/zh-cn/rss.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>关于</title>
+      <link>https://whatacold.io/zh-cn/about/</link>
+      <pubDate>Fri, 09 Jul 2021 22:37:07 +0800</pubDate>
+      <author>whatacold@gmail.com (whatacold)</author>
+      <guid>https://whatacold.io/zh-cn/about/</guid>
+      <description>C/C++ 后台开发，从事互联网业务开发；业余时间学习折腾 Emacs Clojure Python 和前端开发。 一些项目： text toolkit 在线文本工具箱，目前有两个功能： 为使用 GNU Make 的 C/C++ 项目生成 compile_commands.json 使用</description>
+    </item>
+    
+    <item>
+      <title>HTTP压测工具wrk的实现原理</title>
+      <link>https://whatacold.io/zh-cn/blog/2021-02-27-wrk-yuanli/</link>
+      <pubDate>Sat, 27 Feb 2021 10:27:00 +0800</pubDate>
+      <author>whatacold@gmail.com (whatacold)</author>
+      <guid>https://whatacold.io/zh-cn/blog/2021-02-27-wrk-yuanli/</guid>
+      <description>注：本文分析的是 wrk v4.1.0 的源码。 wrk 是一个用 C 实现的 HTTP 压测工具，所有的参数都是通过命令行传递，没有配置文件，很容易使用；编译产物只有一个二进制文件</description>
+    </item>
+    
+    <item>
+      <title>Doxygen 终于可以正确生成函数调用图了！</title>
+      <link>https://whatacold.io/zh-cn/blog/2021-02-16-doxygen-cpp-correct-callgraphs/</link>
+      <pubDate>Tue, 16 Feb 2021 16:08:00 +0800</pubDate>
+      <author>whatacold@gmail.com (whatacold)</author>
+      <guid>https://whatacold.io/zh-cn/blog/2021-02-16-doxygen-cpp-correct-callgraphs/</guid>
+      <description>大家都知道， Doxygen 可以用于提取代码的注释生成项目的文档，只要注释满足其规定的格式。但我更喜欢利用它生成类继承图（inheritance diagr</description>
+    </item>
+    
+    <item>
+      <title>Emacs 中使用 ppcompile 进行远程编译</title>
+      <link>https://whatacold.io/zh-cn/blog/2020-04-11-use-ppcompile-to-remote-compile-in-emacs/</link>
+      <pubDate>Sat, 11 Apr 2020 22:17:00 +0800</pubDate>
+      <author>whatacold@gmail.com (whatacold)</author>
+      <guid>https://whatacold.io/zh-cn/blog/2020-04-11-use-ppcompile-to-remote-compile-in-emacs/</guid>
+      <description>不同于 Python 之类的项目， C/C++ 的项目需要有专门的编译环境，一般国内公司都会搭建特定的编译环境机器，把一些私有的库等依赖放在上面。而这些编译环境的工具</description>
+    </item>
+    
+    <item>
+      <title>用 Python Requests “一键”重启天翼路由器</title>
+      <link>https://whatacold.io/zh-cn/blog/2019-10-01-reboot-tianyi-router-using-python-requests/</link>
+      <pubDate>Tue, 01 Oct 2019 22:28:00 +0800</pubDate>
+      <author>whatacold@gmail.com (whatacold)</author>
+      <guid>https://whatacold.io/zh-cn/blog/2019-10-01-reboot-tianyi-router-using-python-requests/</guid>
+      <description>不知道什么原因，我的网络有时候会很慢，而通过重启天翼路由器（版本 V1.0 ）大概率能够恢复。重启的次数多了之后会我觉得好麻烦，本着偷懒的原则，就想写</description>
+    </item>
+    
+    <item>
+      <title>记一个 Emacs 26 Keyboard Macro 输入字符重复的 Bug</title>
+      <link>https://whatacold.io/zh-cn/blog/2019-02-03-emacs-kmacro-characters-repeated-bug/</link>
+      <pubDate>Sun, 03 Feb 2019 18:05:00 +0800</pubDate>
+      <author>whatacold@gmail.com (whatacold)</author>
+      <guid>https://whatacold.io/zh-cn/blog/2019-02-03-emacs-kmacro-characters-repeated-bug/</guid>
+      <description>工作中不时地会使用 Emacs keyboard macro 来解决重复性的编辑任务， 但有时录制了再重放却出现输入的字符被重复了，导致出现非预期的结果。 一般此时为了赶进度，只好忍</description>
+    </item>
+    
+    <item>
+      <title>如何理解 Git submodule</title>
+      <link>https://whatacold.io/zh-cn/blog/2019-01-13-understand-git-submodule/</link>
+      <pubDate>Thu, 03 Jan 2019 16:07:00 +0800</pubDate>
+      <author>whatacold@gmail.com (whatacold)</author>
+      <guid>https://whatacold.io/zh-cn/blog/2019-01-13-understand-git-submodule/</guid>
+      <description>Git 虽然很强大，但也有少数命令很难理解。 submodule 就是这么一个例子，其文档教程也不少，比如 Git - Submodules - git-scm.com ， 但我之前始终没有真正领悟到如何使用。 直到有天看了</description>
+    </item>
+    
+    <item>
+      <title>在 Emacs 中使用 LSP 开发 C/C&#43;&#43; 工程</title>
+      <link>https://whatacold.io/zh-cn/blog/2018-12-22-c-cpp-devel-with-lsp-in-emacs/</link>
+      <pubDate>Sat, 22 Dec 2018 20:24:00 +0800</pubDate>
+      <author>whatacold@gmail.com (whatacold)</author>
+      <guid>https://whatacold.io/zh-cn/blog/2018-12-22-c-cpp-devel-with-lsp-in-emacs/</guid>
+      <description>写代码的时候，如果能够基于当前的上下文提示补全，不仅能提高写代码的效率，还能提升体验，有种行云流水的感觉。 Emacs 中之前我用 gtags 等静态的工具来辅助写</description>
+    </item>
+    
+    <item>
+      <title>C&#43;&#43; 多态是如何实现的？</title>
+      <link>https://whatacold.io/zh-cn/blog/2018-12-10-how-polymorphism-works-in-cpp/</link>
+      <pubDate>Mon, 10 Dec 2018 00:16:00 +0800</pubDate>
+      <author>whatacold@gmail.com (whatacold)</author>
+      <guid>https://whatacold.io/zh-cn/blog/2018-12-10-how-polymorphism-works-in-cpp/</guid>
+      <description>对于 OOP 编程，相信大家对于多态（ polymorphism ）肯定都耳熟能详。 但是对于多态是如何实现的，我不知道大家是否清楚，但我发现自己并不是很了解， 只知道在运行时通</description>
+    </item>
+    
+  </channel>
+</rss>

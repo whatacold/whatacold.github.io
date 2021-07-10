@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>urxvt on whatacold&#39;s world</title>
+    <link>https://whatacold.io/tags/urxvt/</link>
+    <description>Recent content in urxvt on whatacold&#39;s world</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <managingEditor>whatacold@gmail.com (whatacold)</managingEditor>
+    <webMaster>whatacold@gmail.com (whatacold)</webMaster>
+    <lastBuildDate>Mon, 25 Nov 2019 22:47:00 +0800</lastBuildDate><atom:link href="https://whatacold.io/tags/urxvt/rss.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Start a new terminal(urxvt) at current buffer&#39;s default-directory on Emacs</title>
+      <link>https://whatacold.io/blog/2019-11-25-start-a-new-urxvt-terminal-on-emacs/</link>
+      <pubDate>Mon, 25 Nov 2019 22:47:00 +0800</pubDate>
+      <author>whatacold@gmail.com (whatacold)</author>
+      <guid>https://whatacold.io/blog/2019-11-25-start-a-new-urxvt-terminal-on-emacs/</guid>
+      <description>I have been really enjoying the more concentration workflow qtile, a tiling window manager, brings me, since I started using it a few months ago. I am more focus on the current task now as all the windows I care about are laid out on the same screen.
+ As I get more used to qtile at every day&amp;#39;s work, I noticed that I became more depend on short-life terminal sessions.</description>
+    </item>
+    
+  </channel>
+</rss>

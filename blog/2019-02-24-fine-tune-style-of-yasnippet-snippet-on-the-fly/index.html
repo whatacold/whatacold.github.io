@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="en" itemscope itemtype="http://schema.org/WebPage">
+  <head>
+    
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title>Fine-tune curly braces style of yasnippet snippet on the fly - whatacold&#39;s world</title>
+  <meta name="description" content="Annoyed by the yasnippet-based code snippet not conforming to the project style? Here I introduce a way to tackle it...">
+  <meta name="author" content="whatacold"/><script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "WebSite",
+    "name": "whatacold\u0027s world",
+    
+    "url": "https:\/\/whatacold.io"
+}
+</script><script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Organization",
+  "name": "",
+  "url": "https:\/\/whatacold.io"
+  
+  
+  
+  
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "item": {
+          "@id": "https:\/\/whatacold.io",
+          "name": "home"
+        }
+    },{
+        "@type": "ListItem",
+        "position": 3,
+        "item": {
+          "@id": "https:\/\/whatacold.io\/blog\/2019-02-24-fine-tune-style-of-yasnippet-snippet-on-the-fly\/",
+          "name": "Fine tune curly braces style of yasnippet snippet on the fly"
+        }
+    }]
+}
+</script><script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Article",
+  "author": {
+    "name" : "whatacold"
+  },
+  "headline": "Fine-tune curly braces style of yasnippet snippet on the fly",
+  "description" : "Annoyed by the yasnippet-based code snippet not conforming to the project style? Here I introduce a way to tackle it...",
+  "inLanguage" : "en",
+  "wordCount":  475 ,
+  "datePublished" : "2019-02-24T16:48:00",
+  "dateModified" : "2019-02-24T16:48:00",
+  "image" : "https:\/\/whatacold.io\/img\/avatar.png",
+  "keywords" : [ "Emacs" ],
+  "mainEntityOfPage" : "https:\/\/whatacold.io\/blog\/2019-02-24-fine-tune-style-of-yasnippet-snippet-on-the-fly\/",
+  "publisher" : {
+    "@type": "Organization",
+    "name" : "https:\/\/whatacold.io",
+    "logo" : {
+        "@type" : "ImageObject",
+        "url" : "https:\/\/whatacold.io\/img\/avatar.png",
+        "height" :  60 ,
+        "width" :  60
+    }
+  }
+}
+</script>
+
+<meta property="og:title" content="Fine-tune curly braces style of yasnippet snippet on the fly" />
+<meta property="og:description" content="Annoyed by the yasnippet-based code snippet not conforming to the project style? Here I introduce a way to tackle it...">
+<meta property="og:image" content="https://whatacold.io/img/avatar.png" />
+<meta property="og:url" content="https://whatacold.io/blog/2019-02-24-fine-tune-style-of-yasnippet-snippet-on-the-fly/" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="whatacold&#39;s world" />
+
+  <meta name="twitter:title" content="Fine-tune curly braces style of yasnippet snippet on the fly" />
+  <meta name="twitter:description" content="Annoyed by the yasnippet-based code snippet not conforming to the project style? Here I introduce a way to tackle it...">
+  <meta name="twitter:image" content="https://whatacold.io/img/avatar.png" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@whatacold" />
+  <meta name="twitter:creator" content="@whatacold" />
+  <link href='https://whatacold.io/img/favicon.ico' rel='icon' type='image/x-icon'/>
+  <meta name="generator" content="Hugo 0.80.0" />
+  <link rel="alternate" href="https://whatacold.io/index.xml" type="application/rss+xml" title="whatacold&#39;s world"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"><link rel="stylesheet" href="https://whatacold.io/css/main.css" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
+  <link rel="stylesheet" href="https://whatacold.io/css/highlight.min.css" /><link rel="stylesheet" href="https://whatacold.io/css/codeblock.css" /><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.css" integrity="sha384-h/L2W9KefUClHWaty3SLE5F/qvc4djlyR4qY3NUV5HGQBBW7stbcfff1+I/vmsHh" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/default-skin/default-skin.min.css" integrity="sha384-iD0dNku6PYSIQLyfTOpB06F2KCZJAKLOThS5HRe8b3ibhdEQ6eKsFf/EeFxdOt5R" crossorigin="anonymous">
+
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-74588785-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+  </head>
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://whatacold.io">whatacold&#39;s world</a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+          
+            <li>
+              <a title="Blog" href="/">Blog</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="About" href="/about/">About</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="Tags" href="/tags">Tags</a>
+            </li>
+          
+        
+
+        
+          
+            <li>
+              
+                
+              
+                
+                  <a href="/zh-cn" lang="zh-cn">简体中文</a>
+                
+              
+            </li>
+          
+        
+
+        
+      </ul>
+    </div>
+
+    
+      <div class="avatar-container">
+        <div class="avatar-img-border">
+          <a title="whatacold&#39;s world" href="https://whatacold.io">
+            <img class="avatar-img" src="https://whatacold.io/img/avatar.png" alt="whatacold&#39;s world" />
+          </a>
+        </div>
+      </div>
+    
+
+  </div>
+</nav>
+
+
+
+
+    
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+  
+  
+  
+
+
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    <div class="intro-header no-img">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <div class="blog-heading">
+              
+                <h1>Fine-tune curly braces style of yasnippet snippet on the fly</h1>
+              
+              
+                <hr class="small">
+              
+              
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+    
+<div class="container" role="main">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+      <article role="main" class="blog-post">
+        <p>
+<a href="https://github.com/joaotavora/yasnippet">Yasnippet</a> is a good friend to help us type less and write more, whenever we write some text snippets repeatedly. And there is also an official repository called <a href="https://github.com/AndreaCrotti/yasnippet-snippets">yasnippet-snippets</a> that contains various snippets for many programming languages(modes), so that we can have many snippets in no time by installing it.</p>
+<p>
+But there is a little problem when it comes to conforming to different coding styles. Take the <code class="verbatim">if</code> snippet for example, normally it will generate code like this:</p>
+<div class="src src-c">
+<div class="highlight"><pre class="chroma"><code class="language-c" data-lang="c"><span class="k">if</span> <span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">do_something</span><span class="p">();</span>
+<span class="p">}</span></code></pre></div>
+</div>
+<p>
+This is fine for a <a href="https://en.wikipedia.org/wiki/Indentation_style#K&amp;R_style">K&amp;R style</a> project, but will be kind of annoyed if we work on an allman style project,
+because we need to fine-tune the style for every <code class="verbatim">if</code> clauses generated to like this:</p>
+<div class="src src-c">
+<div class="highlight"><pre class="chroma"><code class="language-c" data-lang="c"><span class="k">if</span> <span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">do_something</span><span class="p">();</span>
+<span class="p">}</span></code></pre></div>
+</div>
+<p>
+How to fine-tune the coding styles according to the project requirement? Or at least curly braces styles, which is the one that matters most for me.</p>
+<p>
+Maintaining two similar copies for every snippet is obviously not a good option, it&#39;s daunting and boring.</p>
+<p>
+Fortunately, yasnippet provides a hook called <code class="verbatim">yas-after-exit-snippet-hook</code>, which I can take advantage of to adjust the curly braces style when needed. Below is a trivial hook that I come up with, it assumes that the snippets are in K&amp;R style, which is the style that yasnippet-snippet takes, and I prepend <code class="verbatim">{</code> with newlines and surround <code class="verbatim">}</code> with newlines when this behaviour is asked by setting <code class="verbatim">(setq whatacold/yasnippet-c-style &#39;allman)</code> .</p>
+<div class="src src-emacs-lisp">
+<div class="highlight"><pre class="chroma"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span class="p">(</span><span class="nb">defun</span> <span class="nv">whatacold/style-braces-in-allman</span> <span class="p">(</span><span class="nv">snippet</span><span class="p">)</span>
+  <span class="s">&#34;Style the SNIPPET in allman brace style.
+</span><span class="s">
+</span><span class="s">There are roughly 3 basic brace styles:
+</span><span class="s">- Attached: The braces are attached to the end of the last line of the previous block. (Java).
+</span><span class="s">- Broken: The braces are broken from the previous block. (Allman).
+</span><span class="s">- Linux: The braces are attached except for the opening brace of a function, class, or namespace (K&amp;R, Linux).
+</span><span class="s">
+</span><span class="s">http://astyle.sourceforge.net/astyle.html#_Basic_Brace_Styles&#34;</span>
+  <span class="p">(</span><span class="nb">let</span> <span class="p">((</span><span class="nv">len</span> <span class="p">(</span><span class="nf">length</span> <span class="nv">snippet</span><span class="p">))</span>
+        <span class="p">(</span><span class="nv">i</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="nv">chars</span> <span class="nv">char</span> <span class="nv">new-str</span><span class="p">)</span>
+    <span class="p">(</span><span class="nb">while</span> <span class="p">(</span><span class="nf">&lt;</span> <span class="nv">i</span> <span class="nv">len</span><span class="p">)</span>
+      <span class="p">(</span><span class="nb">setq</span> <span class="nv">char</span> <span class="p">(</span><span class="nf">aref</span> <span class="nv">snippet</span> <span class="nv">i</span><span class="p">))</span>
+      <span class="p">(</span><span class="nb">case</span> <span class="nv">char</span>
+        <span class="p">(</span><span class="sc">?{</span>
+         <span class="p">(</span><span class="nb">push</span> <span class="sc">?\n</span> <span class="nv">chars</span><span class="p">)</span>
+         <span class="p">(</span><span class="nb">push</span> <span class="nv">char</span> <span class="nv">chars</span><span class="p">))</span>
+        <span class="p">(</span><span class="sc">?}</span>
+         <span class="p">(</span><span class="nb">push</span> <span class="sc">?\n</span> <span class="nv">chars</span><span class="p">)</span>
+         <span class="p">(</span><span class="nb">push</span> <span class="nv">char</span> <span class="nv">chars</span><span class="p">)</span>
+         <span class="p">(</span><span class="nb">push</span> <span class="sc">?\n</span> <span class="nv">chars</span><span class="p">))</span>
+        <span class="p">(</span><span class="no">t</span>
+         <span class="p">(</span><span class="nb">push</span> <span class="nv">char</span> <span class="nv">chars</span><span class="p">)))</span>
+      <span class="p">(</span><span class="nb">setq</span> <span class="nv">i</span> <span class="p">(</span><span class="nf">1+</span> <span class="nv">i</span><span class="p">)))</span>
+    <span class="p">(</span><span class="nb">setq</span> <span class="nv">new-str</span> <span class="p">(</span><span class="nv">replace-regexp-in-string</span> <span class="s">&#34;[\n \t]+\n&#34;</span>
+                                            <span class="s">&#34;\n&#34;</span>
+                                            <span class="p">(</span><span class="nf">apply</span> <span class="nf">#&#39;string</span> <span class="p">(</span><span class="nf">nreverse</span> <span class="nv">chars</span><span class="p">))))</span>
+    <span class="nv">new-str</span><span class="p">))</span>
+
+<span class="p">(</span><span class="nb">defcustom</span> <span class="nv">whatacold/yasnippet-c-style</span> <span class="no">nil</span>
+  <span class="s">&#34;Style of curly braces, e.g. &#39;allman.&#34;</span>
+  <span class="nb">:type</span> <span class="o">&#39;</span><span class="p">(</span><span class="nv">symbol</span><span class="p">))</span>
+
+<span class="p">(</span><span class="nb">defun</span> <span class="nv">whatacold/yasnippet-exit-hook-c</span> <span class="p">()</span>
+  <span class="p">(</span><span class="nb">let*</span> <span class="p">((</span><span class="nv">text-marker</span> <span class="s">&#34;the-yasnippet-exit-point;&#34;</span><span class="p">)</span> <span class="c1">; workaround. text property is more elegant.</span>
+         <span class="p">(</span><span class="nv">begin</span> <span class="nv">yas-snippet-beg</span><span class="p">)</span>
+         <span class="p">(</span><span class="nv">end</span> <span class="nv">yas-snippet-end</span><span class="p">)</span>
+         <span class="p">(</span><span class="nv">snippet</span> <span class="p">(</span><span class="nf">buffer-substring-no-properties</span> <span class="nv">begin</span> <span class="nv">end</span><span class="p">))</span>
+         <span class="nv">new-snippet</span><span class="p">)</span>
+    <span class="p">(</span><span class="nb">when</span> <span class="p">(</span><span class="nb">and</span> <span class="p">(</span><span class="nf">string-match</span> <span class="s">&#34;[{}]&#34;</span> <span class="nv">snippet</span><span class="p">)</span>
+               <span class="p">(</span><span class="nf">eq</span> <span class="ss">&#39;allman</span> <span class="nv">whatacold/yasnippet-c-style</span><span class="p">))</span>
+      <span class="p">(</span><span class="nf">insert</span> <span class="nv">text-marker</span><span class="p">)</span>
+      <span class="p">(</span><span class="nb">setq</span> <span class="nv">end</span> <span class="p">(</span><span class="nf">+</span> <span class="nv">yas-snippet-end</span> <span class="p">(</span><span class="nf">length</span> <span class="nv">text-marker</span><span class="p">)))</span>
+
+      <span class="p">(</span><span class="nb">setq</span> <span class="nv">snippet</span> <span class="p">(</span><span class="nf">buffer-substring-no-properties</span> <span class="nv">begin</span> <span class="nv">end</span><span class="p">))</span> <span class="c1">; re-fetch content</span>
+      <span class="p">(</span><span class="nb">setq</span> <span class="nv">new-snippet</span> <span class="p">(</span><span class="nv">whatacold/style-braces-in-allman</span> <span class="nv">snippet</span><span class="p">))</span>
+      <span class="p">(</span><span class="nf">delete-region</span> <span class="nv">begin</span> <span class="nv">end</span><span class="p">)</span>
+      <span class="p">(</span><span class="nf">insert</span> <span class="nv">new-snippet</span><span class="p">)</span>
+
+      <span class="p">(</span><span class="nf">goto-char</span> <span class="nv">begin</span><span class="p">)</span>
+      <span class="c1">;; re-indent it in the context</span>
+      <span class="p">(</span><span class="nv">indent-region</span> <span class="nv">begin</span> <span class="p">(</span><span class="nf">+</span> <span class="nv">end</span> <span class="p">(</span><span class="nf">-</span> <span class="p">(</span><span class="nf">length</span> <span class="nv">new-snippet</span><span class="p">)</span>
+                                     <span class="p">(</span><span class="nf">length</span> <span class="nv">snippet</span><span class="p">))))</span>
+      <span class="p">(</span><span class="nf">re-search-forward</span> <span class="nv">text-marker</span><span class="p">)</span>
+      <span class="p">(</span><span class="nf">delete-char</span> <span class="p">(</span><span class="nf">-</span> <span class="mi">0</span> <span class="p">(</span><span class="nf">length</span> <span class="nv">text-marker</span><span class="p">))))))</span>
+
+<span class="p">(</span><span class="nb">defun</span> <span class="nv">whatacold/yasnippet-exit-hook</span> <span class="p">()</span>
+  <span class="s">&#34;My yasnippet exit hook.&#34;</span>
+  <span class="p">(</span><span class="nb">case</span> <span class="nv">major-mode</span>
+    <span class="p">((</span><span class="nv">c-mode</span> <span class="nv">c++-mode</span><span class="p">)</span>
+     <span class="p">(</span><span class="nv">whatacold/yasnippet-exit-hook-c</span><span class="p">))))</span>
+
+<span class="c1">;; see https://github.com/joaotavora/yasnippet/issues/728</span>
+<span class="p">(</span><span class="nv">add-to-list</span> <span class="ss">&#39;yas-after-exit-snippet-hook</span> <span class="nf">#&#39;</span><span class="nv">whatacold/yasnippet-exit-hook</span><span class="p">)</span></code></pre></div>
+</div>
+<p>
+Now the coding experience is much better :)</p>
+
+
+        
+          <div class="blog-tags">
+            
+              <a href="https://whatacold.io/tags/emacs/">Emacs</a>&nbsp;
+            
+          </div>
+        
+
+        
+            <hr/>
+            <section id="social-share">
+              <div class="list-inline footer-links">
+                
+
+<div class="share-box" aria-hidden="true">
+    <ul class="share">
+      
+      <li>
+        <a href="//twitter.com/share?url=https%3a%2f%2fwhatacold.io%2fblog%2f2019-02-24-fine-tune-style-of-yasnippet-snippet-on-the-fly%2f&amp;text=Fine-tune%20curly%20braces%20style%20of%20yasnippet%20snippet%20on%20the%20fly&amp;via=whatacold" target="_blank" title="Share on Twitter">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fwhatacold.io%2fblog%2f2019-02-24-fine-tune-style-of-yasnippet-snippet-on-the-fly%2f" target="_blank" title="Share on Facebook">
+          <i class="fab fa-facebook"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//reddit.com/submit?url=https%3a%2f%2fwhatacold.io%2fblog%2f2019-02-24-fine-tune-style-of-yasnippet-snippet-on-the-fly%2f&amp;title=Fine-tune%20curly%20braces%20style%20of%20yasnippet%20snippet%20on%20the%20fly" target="_blank" title="Share on Reddit">
+          <i class="fab fa-reddit"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fwhatacold.io%2fblog%2f2019-02-24-fine-tune-style-of-yasnippet-snippet-on-the-fly%2f&amp;title=Fine-tune%20curly%20braces%20style%20of%20yasnippet%20snippet%20on%20the%20fly" target="_blank" title="Share on LinkedIn">
+          <i class="fab fa-linkedin"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fwhatacold.io%2fblog%2f2019-02-24-fine-tune-style-of-yasnippet-snippet-on-the-fly%2f&amp;title=Fine-tune%20curly%20braces%20style%20of%20yasnippet%20snippet%20on%20the%20fly" target="_blank" title="Share on StumbleUpon">
+          <i class="fab fa-stumbleupon"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fwhatacold.io%2fblog%2f2019-02-24-fine-tune-style-of-yasnippet-snippet-on-the-fly%2f&amp;description=Fine-tune%20curly%20braces%20style%20of%20yasnippet%20snippet%20on%20the%20fly" target="_blank" title="Share on Pinterest">
+          <i class="fab fa-pinterest"></i>
+        </a>
+      </li>
+    </ul>
+  </div>
+  
+
+              </div>
+            </section>
+        
+
+        
+          
+            
+          
+
+          
+                  <h4 class="see-also">See also</h4>
+                  <ul>
+                
+                
+                    <li><a href="/blog/2020-08-22-generate-call-graphs-using-doxygen-in-emacs/">Generate Call Graphs Using Doxygen in Emacs</a></li>
+                
+                    <li><a href="/blog/2020-05-30-a-trick-to-troubleshoot-emacs-subprocess-creating/">A Trick to Troubleshoot Emacs Subprocess Creating</a></li>
+                
+                    <li><a href="/blog/2020-03-07-ppcompile-to-help-stay-coding-locally/">ppcompile: An Emacs Package to Help Stay Coding Locally</a></li>
+                
+                    <li><a href="/blog/2019-07-20-generating-org-mode-outlines-for-wikihow-articles/">Generating org-mode outlines for wikiHow articles</a></li>
+                
+                    <li><a href="/blog/2019-07-20-understanding-align-regexp-of-emacs/">Understanding align-regexp of Emacs</a></li>
+                
+              </ul>
+
+          
+        
+      </article>
+
+      
+        <ul class="pager blog-pager">
+          
+          
+            <li class="next">
+              <a href="https://whatacold.io/blog/2019-07-06-render-erd-on-the-web/" data-toggle="tooltip" data-placement="top" title="Render erd diagrams on the web">Next Post &rarr;</a>
+            </li>
+          
+        </ul>
+      
+
+
+      
+        
+          
+          <div class="disqus-comments">
+            <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "whatacold" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+          </div>
+          
+        
+        
+      
+
+    </div>
+  </div>
+</div>
+
+      
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+          
+              <li>
+                <a href="mailto:whatacold@gmail.com" title="Email me">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fas fa-envelope fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://github.com/whatacold" title="GitHub">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://twitter.com/whatacold" title="Twitter">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://reddit.com/u/whatacold" title="Reddit">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-reddit-alien fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://stackoverflow.com/users/910978/whatacold" title="StackOverflow">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-stack-overflow fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://www.youtube.com/channel/UC2unslchfhzbub47Qq2U88w" title="Youtube">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-youtube fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+          
+          <li>
+            <a href="" title="RSS">
+              <span class="fa-stack fa-lg">
+                <i class="fas fa-circle fa-stack-2x"></i>
+                <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+        </ul>
+        <p class="credits copyright text-muted">
+          
+            
+              whatacold
+            
+          
+
+          &nbsp;&bull;&nbsp;&copy;
+          
+            2020
+          
+
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://whatacold.io">whatacold&#39;s world</a>
+          
+        </p>
+        
+        <p class="credits theme-by text-muted">
+          <a href="https://gohugo.io">Hugo v0.80.0</a> powered &nbsp;&bull;&nbsp; Theme <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> adapted from <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer><script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.js" integrity="sha384-K3vbOmF2BtaVai+Qk37uypf7VrgBubhQreNQe9aGsz9lB63dIFiQVlJbr92dw2Lx" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/contrib/auto-render.min.js" integrity="sha384-kmZOZB5ObwgQnS/DuDg6TScgOiWWBiVt0plIRkZCmE6rDZGrEOQeHM5PcHi+nyqe" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+<script src="https://whatacold.io/js/main.js"></script>
+<script src="https://whatacold.io/js/highlight.min.js"></script>
+<script> hljs.initHighlightingOnLoad(); </script>
+<script> $(document).ready(function() {$("pre.chroma").css("padding","0");}); </script><script> renderMathInElement(document.body); </script><script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.js" integrity="sha384-QELNnmcmU8IR9ZAykt67vGr9/rZJdHbiWi64V88fCPaOohUlHCqUD/unNN0BXSqy" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe-ui-default.min.js" integrity="sha384-m67o7SkQ1ALzKZIFh4CiTA8tmadaujiTa9Vu+nqPSwDOqHrDmxLezTdFln8077+q" crossorigin="anonymous"></script><script src="https://whatacold.io/js/load-photoswipe.js"></script>
+
+
+
+
+
+
+
+
+
+    
+  </body>
+</html>
+

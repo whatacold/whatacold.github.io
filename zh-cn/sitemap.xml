@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <url>
+    <loc>https://whatacold.io/zh-cn/about/</loc>
+    <lastmod>2021-07-09T22:37:07+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://whatacold.io/about/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-cn"
+                href="https://whatacold.io/zh-cn/about/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://whatacold.io/zh-cn/blog/</loc>
+    <lastmod>2021-02-27T10:27:00+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://whatacold.io/blog/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-cn"
+                href="https://whatacold.io/zh-cn/blog/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://whatacold.io/zh-cn/tags/c/</loc>
+    <lastmod>2021-02-27T10:27:00+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://whatacold.io/zh-cn/blog/2021-02-27-wrk-yuanli/</loc>
+    <lastmod>2021-02-27T10:27:00+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://whatacold.io/zh-cn/tags/performance/</loc>
+    <lastmod>2021-02-27T10:27:00+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://whatacold.io/zh-cn/tags/</loc>
+    <lastmod>2021-02-27T10:27:00+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://whatacold.io/tags/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-cn"
+                href="https://whatacold.io/zh-cn/tags/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://whatacold.io/zh-cn/</loc>
+    <lastmod>2021-02-27T10:27:00+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://whatacold.io/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-cn"
+                href="https://whatacold.io/zh-cn/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://whatacold.io/zh-cn/tags/c&#43;&#43;/</loc>
+    <lastmod>2021-02-16T16:08:00+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://whatacold.io/zh-cn/blog/2021-02-16-doxygen-cpp-correct-callgraphs/</loc>
+    <lastmod>2021-02-16T16:08:00+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://whatacold.io/zh-cn/tags/emacs/</loc>
+    <lastmod>2020-04-11T22:17:00+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://whatacold.io/tags/emacs/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-cn"
+                href="https://whatacold.io/zh-cn/tags/emacs/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://whatacold.io/zh-cn/blog/2020-04-11-use-ppcompile-to-remote-compile-in-emacs/</loc>
+    <lastmod>2020-04-11T22:17:00+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://whatacold.io/zh-cn/tags/python/</loc>
+    <lastmod>2019-10-01T22:28:00+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://whatacold.io/tags/python/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-cn"
+                href="https://whatacold.io/zh-cn/tags/python/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://whatacold.io/zh-cn/blog/2019-10-01-reboot-tianyi-router-using-python-requests/</loc>
+    <lastmod>2019-10-01T22:28:00+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://whatacold.io/zh-cn/blog/2019-02-03-emacs-kmacro-characters-repeated-bug/</loc>
+    <lastmod>2019-02-17T18:05:00+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://whatacold.io/zh-cn/tags/git/</loc>
+    <lastmod>2019-02-17T16:07:00+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://whatacold.io/tags/git/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-cn"
+                href="https://whatacold.io/zh-cn/tags/git/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://whatacold.io/zh-cn/blog/2019-01-13-understand-git-submodule/</loc>
+    <lastmod>2019-02-17T16:07:00+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://whatacold.io/zh-cn/blog/2018-12-22-c-cpp-devel-with-lsp-in-emacs/</loc>
+    <lastmod>2018-12-22T20:24:00+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://whatacold.io/zh-cn/blog/2018-12-10-how-polymorphism-works-in-cpp/</loc>
+    <lastmod>2018-12-10T00:16:00+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://whatacold.io/zh-cn/tags/gdb/</loc>
+    <lastmod>2018-12-10T00:16:00+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://whatacold.io/zh-cn/categories/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://whatacold.io/categories/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-cn"
+                href="https://whatacold.io/zh-cn/categories/"
+                />
+  </url>
+  
+</urlset>

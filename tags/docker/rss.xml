@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Docker on whatacold&#39;s world</title>
+    <link>https://whatacold.io/tags/docker/</link>
+    <description>Recent content in Docker on whatacold&#39;s world</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <managingEditor>whatacold@gmail.com (whatacold)</managingEditor>
+    <webMaster>whatacold@gmail.com (whatacold)</webMaster>
+    <lastBuildDate>Mon, 07 Oct 2019 13:25:00 +0800</lastBuildDate><atom:link href="https://whatacold.io/tags/docker/rss.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Build Docker Images for Qtile</title>
+      <link>https://whatacold.io/blog/2019-10-07-build-docker-images-for-qtile/</link>
+      <pubDate>Mon, 07 Oct 2019 13:25:00 +0800</pubDate>
+      <author>whatacold@gmail.com (whatacold)</author>
+      <guid>https://whatacold.io/blog/2019-10-07-build-docker-images-for-qtile/</guid>
+      <description>One of Docker&amp;#39;s use cases is to set up identical development environments easily and quickly for a dev team. Recently, I had an opportunity to give it a try, and build Docker images for Qtile, as it didn&amp;#39;t have one yet as I get involved. With the images, it&amp;#39;s easy to set up the environment to easily run the tests, and build the documentation.
+ The best way to have a basic idea of Docker is to think it like a chroot environment, as Chris Tankersley stated in his Docker for Developers.</description>
+    </item>
+    
+  </channel>
+</rss>

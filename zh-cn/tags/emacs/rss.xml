@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Emacs on whatacold 的世界</title>
+    <link>https://whatacold.io/zh-cn/tags/emacs/</link>
+    <description>Recent content in Emacs on whatacold 的世界</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <managingEditor>whatacold@gmail.com (whatacold)</managingEditor>
+    <webMaster>whatacold@gmail.com (whatacold)</webMaster>
+    <lastBuildDate>Sat, 11 Apr 2020 22:17:00 +0800</lastBuildDate><atom:link href="https://whatacold.io/zh-cn/tags/emacs/rss.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Emacs 中使用 ppcompile 进行远程编译</title>
+      <link>https://whatacold.io/zh-cn/blog/2020-04-11-use-ppcompile-to-remote-compile-in-emacs/</link>
+      <pubDate>Sat, 11 Apr 2020 22:17:00 +0800</pubDate>
+      <author>whatacold@gmail.com (whatacold)</author>
+      <guid>https://whatacold.io/zh-cn/blog/2020-04-11-use-ppcompile-to-remote-compile-in-emacs/</guid>
+      <description>不同于 Python 之类的项目， C/C++ 的项目需要有专门的编译环境，一般国内公司都会搭建特定的编译环境机器，把一些私有的库等依赖放在上面。而这些编译环境的工具</description>
+    </item>
+    
+    <item>
+      <title>记一个 Emacs 26 Keyboard Macro 输入字符重复的 Bug</title>
+      <link>https://whatacold.io/zh-cn/blog/2019-02-03-emacs-kmacro-characters-repeated-bug/</link>
+      <pubDate>Sun, 03 Feb 2019 18:05:00 +0800</pubDate>
+      <author>whatacold@gmail.com (whatacold)</author>
+      <guid>https://whatacold.io/zh-cn/blog/2019-02-03-emacs-kmacro-characters-repeated-bug/</guid>
+      <description>工作中不时地会使用 Emacs keyboard macro 来解决重复性的编辑任务， 但有时录制了再重放却出现输入的字符被重复了，导致出现非预期的结果。 一般此时为了赶进度，只好忍</description>
+    </item>
+    
+    <item>
+      <title>在 Emacs 中使用 LSP 开发 C/C&#43;&#43; 工程</title>
+      <link>https://whatacold.io/zh-cn/blog/2018-12-22-c-cpp-devel-with-lsp-in-emacs/</link>
+      <pubDate>Sat, 22 Dec 2018 20:24:00 +0800</pubDate>
+      <author>whatacold@gmail.com (whatacold)</author>
+      <guid>https://whatacold.io/zh-cn/blog/2018-12-22-c-cpp-devel-with-lsp-in-emacs/</guid>
+      <description>写代码的时候，如果能够基于当前的上下文提示补全，不仅能提高写代码的效率，还能提升体验，有种行云流水的感觉。 Emacs 中之前我用 gtags 等静态的工具来辅助写</description>
+    </item>
+    
+  </channel>
+</rss>

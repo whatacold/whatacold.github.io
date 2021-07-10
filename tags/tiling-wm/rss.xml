@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>tiling-wm on whatacold&#39;s world</title>
+    <link>https://whatacold.io/tags/tiling-wm/</link>
+    <description>Recent content in tiling-wm on whatacold&#39;s world</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <managingEditor>whatacold@gmail.com (whatacold)</managingEditor>
+    <webMaster>whatacold@gmail.com (whatacold)</webMaster>
+    <lastBuildDate>Sun, 22 Dec 2019 18:52:00 +0800</lastBuildDate><atom:link href="https://whatacold.io/tags/tiling-wm/rss.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Manage SSH connections with ~/.ssh/config</title>
+      <link>https://whatacold.io/blog/2019-12-22-manage-ssh-connections-with-ssh-config/</link>
+      <pubDate>Sun, 22 Dec 2019 18:52:00 +0800</pubDate>
+      <author>whatacold@gmail.com (whatacold)</author>
+      <guid>https://whatacold.io/blog/2019-12-22-manage-ssh-connections-with-ssh-config/</guid>
+      <description>I used to manage SSH connection with such GUI apps as MobaXterm, when I wrote code on Windows at work. As I changed my workflow to use a tiling window manager in a VirtualBox guest OS, I continued to improve my way of managing SSH connections, which I want to share here if you don&amp;#39;t know yet.
+ At first, I baked a helper Python script, which I named as qssh for &amp;#34;quick ssh&amp;#34;, to help me assemble ssh arguments for me(such as username, Ip, port, etc.</description>
+    </item>
+    
+    <item>
+      <title>Start a new terminal(urxvt) at current buffer&#39;s default-directory on Emacs</title>
+      <link>https://whatacold.io/blog/2019-11-25-start-a-new-urxvt-terminal-on-emacs/</link>
+      <pubDate>Mon, 25 Nov 2019 22:47:00 +0800</pubDate>
+      <author>whatacold@gmail.com (whatacold)</author>
+      <guid>https://whatacold.io/blog/2019-11-25-start-a-new-urxvt-terminal-on-emacs/</guid>
+      <description>I have been really enjoying the more concentration workflow qtile, a tiling window manager, brings me, since I started using it a few months ago. I am more focus on the current task now as all the windows I care about are laid out on the same screen.
+ As I get more used to qtile at every day&amp;#39;s work, I noticed that I became more depend on short-life terminal sessions.</description>
+    </item>
+    
+    <item>
+      <title>How to run the bleeding-edge code of Qtile within a virtualenv</title>
+      <link>https://whatacold.io/blog/2019-09-29-how-to-run-the-bleeding-edge-code-of-qtile/</link>
+      <pubDate>Sun, 29 Sep 2019 17:05:00 +0800</pubDate>
+      <author>whatacold@gmail.com (whatacold)</author>
+      <guid>https://whatacold.io/blog/2019-09-29-how-to-run-the-bleeding-edge-code-of-qtile/</guid>
+      <description>For having been using GNOME for quite a long time, I was considering trying some tiling window managers to see what it&amp;#39;s like a few weeks ago. Along the way, I found a nice window manager written in Python: Qtile, what interests me most is that it&amp;#39;s a hackable window manager, which makes it flexible to extend or change its behaviors.
+ Well, switching to use a tiling window manager is far simpler than I thought.</description>
+    </item>
+    
+  </channel>
+</rss>

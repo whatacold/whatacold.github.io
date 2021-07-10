@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="zh-cn" itemscope itemtype="http://schema.org/WebPage">
+  <head>
+    
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title>Emacs 中使用 ppcompile 进行远程编译 - whatacold 的世界</title>
+  <meta name="description" content="如果你也在用 Emacs 进行代码开发，但是却疲于用 rsync 、 scp 等方式同步文件，以及手工定位编译错误位置，不妨试下 ppcompile 这个包……">
+  <meta name="author" content="whatacold"/><script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "WebSite",
+    "name": "whatacold 的世界",
+    
+    "url": "https:\/\/whatacold.io"
+}
+</script><script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Organization",
+  "name": "",
+  "url": "https:\/\/whatacold.io"
+  
+  
+  
+  
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "item": {
+          "@id": "https:\/\/whatacold.io",
+          "name": "home"
+        }
+    },{
+        "@type": "ListItem",
+        "position": 3,
+        "item": {
+          "@id": "https:\/\/whatacold.io\/zh-cn\/blog\/2020-04-11-use-ppcompile-to-remote-compile-in-emacs\/",
+          "name": "Emacs 中使用 ppcompile 进行远程编译"
+        }
+    }]
+}
+</script><script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Article",
+  "author": {
+    "name" : "whatacold"
+  },
+  "headline": "Emacs 中使用 ppcompile 进行远程编译",
+  "description" : "如果你也在用 Emacs 进行代码开发，但是却疲于用 rsync 、 scp 等方式同步文件，以及手工定位编译错误位置，不妨试下 ppcompile 这个包……",
+  "inLanguage" : "zh-cn",
+  "wordCount":  968 ,
+  "datePublished" : "2020-04-11T22:17:00",
+  "dateModified" : "2020-04-11T22:17:00",
+  "image" : "https:\/\/whatacold.io\/img\/avatar.png",
+  "keywords" : [ "Emacs" ],
+  "mainEntityOfPage" : "https:\/\/whatacold.io\/zh-cn\/blog\/2020-04-11-use-ppcompile-to-remote-compile-in-emacs\/",
+  "publisher" : {
+    "@type": "Organization",
+    "name" : "https:\/\/whatacold.io",
+    "logo" : {
+        "@type" : "ImageObject",
+        "url" : "https:\/\/whatacold.io\/img\/avatar.png",
+        "height" :  60 ,
+        "width" :  60
+    }
+  }
+}
+</script>
+
+<meta property="og:title" content="Emacs 中使用 ppcompile 进行远程编译" />
+<meta property="og:description" content="如果你也在用 Emacs 进行代码开发，但是却疲于用 rsync 、 scp 等方式同步文件，以及手工定位编译错误位置，不妨试下 ppcompile 这个包……">
+<meta property="og:image" content="https://whatacold.io/img/avatar.png" />
+<meta property="og:url" content="https://whatacold.io/zh-cn/blog/2020-04-11-use-ppcompile-to-remote-compile-in-emacs/" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="whatacold 的世界" />
+
+  <meta name="twitter:title" content="Emacs 中使用 ppcompile 进行远程编译" />
+  <meta name="twitter:description" content="如果你也在用 Emacs 进行代码开发，但是却疲于用 rsync 、 scp 等方式同步文件，以及手工定位编译错误位置，不妨试下 ppcompile 这个包……">
+  <meta name="twitter:image" content="https://whatacold.io/img/avatar.png" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@whatacold" />
+  <meta name="twitter:creator" content="@whatacold" />
+  <link href='https://whatacold.io/img/favicon.ico' rel='icon' type='image/x-icon'/>
+  <meta name="generator" content="Hugo 0.80.0" />
+  <link rel="alternate" href="https://whatacold.io/zh-cn/index.xml" type="application/rss+xml" title="whatacold 的世界"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"><link rel="stylesheet" href="https://whatacold.io/css/main.css" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
+  <link rel="stylesheet" href="https://whatacold.io/css/highlight.min.css" /><link rel="stylesheet" href="https://whatacold.io/css/codeblock.css" /><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.css" integrity="sha384-h/L2W9KefUClHWaty3SLE5F/qvc4djlyR4qY3NUV5HGQBBW7stbcfff1+I/vmsHh" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/default-skin/default-skin.min.css" integrity="sha384-iD0dNku6PYSIQLyfTOpB06F2KCZJAKLOThS5HRe8b3ibhdEQ6eKsFf/EeFxdOt5R" crossorigin="anonymous">
+
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-74588785-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+  </head>
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">切换导航</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://whatacold.io/zh-cn/">whatacold 的世界</a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+          
+            <li>
+              <a title="Blog" href="/zh-cn">Blog</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="About" href="/zh-cn/about/">About</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="Tags" href="/zh-cn/tags">Tags</a>
+            </li>
+          
+        
+
+        
+          
+            <li>
+              
+                
+                  <a href="/en" lang="en">English</a>
+                
+              
+                
+              
+            </li>
+          
+        
+
+        
+      </ul>
+    </div>
+
+    
+      <div class="avatar-container">
+        <div class="avatar-img-border">
+          <a title="whatacold 的世界" href="https://whatacold.io/zh-cn/">
+            <img class="avatar-img" src="https://whatacold.io/img/avatar.png" alt="whatacold 的世界" />
+          </a>
+        </div>
+      </div>
+    
+
+  </div>
+</nav>
+
+
+
+
+    
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+  
+  
+  
+
+
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    <div class="intro-header no-img">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <div class="blog-heading">
+              
+                <h1>Emacs 中使用 ppcompile 进行远程编译</h1>
+              
+              
+                <hr class="small">
+              
+              
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+    
+<div class="container" role="main">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+      <article role="main" class="blog-post">
+        <p>
+不同于 Python 之类的项目， C/C++ 的项目需要有专门的编译环境，一般国内公司都会搭建特定的编译环境机器，把一些私有的库等依赖放在上面。而这些编译环境的工具链一般都比较老旧，有的编译环境可能还无法访问外网，甚至也没有提供代理间接访问外网。因此想要在这样的环境中使用 Emacs 开发代码着实不是一件容易的事。</p>
+<p>
+一个可行的方法是在自己的工作机器上维护一个开发环境跑 Emacs ，需要编译的时候把代码同步到编译机器（使用 sshfs 、 sftp 等），编译过程中发现的编译问题，在本地修复好之后，再次同步，如此往复。</p>
+<p>
+但是有一个问题，整个流程太过繁琐，需要不停地手工同步。即使像 sshfs 这样无须同步的方式，在本地编辑时偶尔卡顿会比较明显。最让人无法接受的是，在修复编译的过程中，需要手工定位到具体的文件及行数，繁琐而且效率低。</p>
+<p>
+你可能会说为什么不用 Tramp 模式直接在远端的编译环境中直接编辑文件呢？的确， Tramp 编辑代码没有问题，体验也挺流畅的，但它无法解决你无法自由控制远端环境这个缺点，比如你想集成 <code class="verbatim">ag/rg</code> 到 Emacs 中，光安装程序可能就很折腾；而且如果公司有多套编译环境时，每个环境都维护 Emacs 会是一个麻烦。</p>
+<p>
+经过一段时间的摸索，我感觉自己还是比较喜欢在本地编辑然后同步代码编译这种方式，这个过程可以自动化。另外很重要的一点需求是，它需要能够像 <code class="verbatim">M-x compile</code> 那样在 Emacs 中很方便地使用 <code class="verbatim">M-x next-error</code> and <code class="verbatim">M-x previous-error</code> 来自动定位编译有问题的代码行，这样不仅提高修复编译错误的效率，还能保护视力。</p>
+<p>
+按照上述思路我最终写了这样一个小插件 <a href="https://github.com/whatacold/ppcompile">ppcompile</a> ， pp 二字代表 ping-pong ，表示每次编译就像打乒乓球一样。本地先发球，利用 rsync 把代码同步到远端，远端编译之后回球，然后本地再转换 <code class="verbatim">*compilation*</code> buffer 中远端的路径，这样 Emacs 就能够正确地识别编译错误，从而帮助我直接打开对应的错误文件及行数。</p>
+<p>
+使用方式上，只需要把 <code class="verbatim">ppcompile.el</code> 拷贝到 load-path 中进行加载，然后设置一些选项即可。具体可以参考项目 README 。当前提供以下几个命令：</p>
+<ol>
+<li>
+<p><code class="verbatim">ppcompile-ping</code> 仅同步代码到远端</p>
+</li>
+<li>
+<p><code class="verbatim">ppcompile-pong</code> 仅在远端编译</p>
+</li>
+<li>
+<p><code class="verbatim">ppcompile</code> 同步代码以及编译，即一次 ping-pong 往返。</p>
+<p>
+这个命令和 <code class="verbatim">ppcompile-pong</code> 命令在使用上同时考虑了 compile 命令的使用习惯，会遵循你的 <code class="verbatim">compilation-read-command</code> 设置决定是否编译时弹窗让你选择编译命令。</p>
+</li>
+<li>
+<p><code class="verbatim">ppcompile-config-project</code> 配置项目配置到根目录的 <code class="verbatim">.dir-locals.el</code> 中，主要是为了方便有很多项目时的个性化定制需求，否则直接配置全局的就可以了。</p>
+</li>
+<li>
+<p><code class="verbatim">ppcompile-toggle-debug</code> 调试开关命令，在开启的情况下会把当前执行的命令行打印到 <code class="verbatim">*Message*</code> 中。</p>
+</li>
+</ol>
+<p>目前，我自己使用 ppcompile 已经没有什么问题了，它在最近的项目开发中帮我节省了不少精力，欢迎大家试用和使用 :)</p>
+
+
+        
+          <div class="blog-tags">
+            
+              <a href="https://whatacold.io/zh-cn/tags/emacs/">Emacs</a>&nbsp;
+            
+          </div>
+        
+
+        
+            <hr/>
+            <section id="social-share">
+              <div class="list-inline footer-links">
+                
+
+<div class="share-box" aria-hidden="true">
+    <ul class="share">
+      
+      <li>
+        <a href="//twitter.com/share?url=https%3a%2f%2fwhatacold.io%2fzh-cn%2fblog%2f2020-04-11-use-ppcompile-to-remote-compile-in-emacs%2f&amp;text=Emacs%20%e4%b8%ad%e4%bd%bf%e7%94%a8%20ppcompile%20%e8%bf%9b%e8%a1%8c%e8%bf%9c%e7%a8%8b%e7%bc%96%e8%af%91&amp;via=whatacold" target="_blank" title="Share on Twitter">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fwhatacold.io%2fzh-cn%2fblog%2f2020-04-11-use-ppcompile-to-remote-compile-in-emacs%2f" target="_blank" title="Share on Facebook">
+          <i class="fab fa-facebook"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//reddit.com/submit?url=https%3a%2f%2fwhatacold.io%2fzh-cn%2fblog%2f2020-04-11-use-ppcompile-to-remote-compile-in-emacs%2f&amp;title=Emacs%20%e4%b8%ad%e4%bd%bf%e7%94%a8%20ppcompile%20%e8%bf%9b%e8%a1%8c%e8%bf%9c%e7%a8%8b%e7%bc%96%e8%af%91" target="_blank" title="Share on Reddit">
+          <i class="fab fa-reddit"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fwhatacold.io%2fzh-cn%2fblog%2f2020-04-11-use-ppcompile-to-remote-compile-in-emacs%2f&amp;title=Emacs%20%e4%b8%ad%e4%bd%bf%e7%94%a8%20ppcompile%20%e8%bf%9b%e8%a1%8c%e8%bf%9c%e7%a8%8b%e7%bc%96%e8%af%91" target="_blank" title="Share on LinkedIn">
+          <i class="fab fa-linkedin"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fwhatacold.io%2fzh-cn%2fblog%2f2020-04-11-use-ppcompile-to-remote-compile-in-emacs%2f&amp;title=Emacs%20%e4%b8%ad%e4%bd%bf%e7%94%a8%20ppcompile%20%e8%bf%9b%e8%a1%8c%e8%bf%9c%e7%a8%8b%e7%bc%96%e8%af%91" target="_blank" title="Share on StumbleUpon">
+          <i class="fab fa-stumbleupon"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fwhatacold.io%2fzh-cn%2fblog%2f2020-04-11-use-ppcompile-to-remote-compile-in-emacs%2f&amp;description=Emacs%20%e4%b8%ad%e4%bd%bf%e7%94%a8%20ppcompile%20%e8%bf%9b%e8%a1%8c%e8%bf%9c%e7%a8%8b%e7%bc%96%e8%af%91" target="_blank" title="Share on Pinterest">
+          <i class="fab fa-pinterest"></i>
+        </a>
+      </li>
+    </ul>
+  </div>
+  
+
+              </div>
+            </section>
+        
+
+        
+          
+            
+          
+
+          
+                  <h4 class="see-also">也可以看看</h4>
+                  <ul>
+                
+                
+                    <li><a href="/zh-cn/blog/2019-02-03-emacs-kmacro-characters-repeated-bug/">记一个 Emacs 26 Keyboard Macro 输入字符重复的 Bug</a></li>
+                
+                    <li><a href="/zh-cn/blog/2018-12-22-c-cpp-devel-with-lsp-in-emacs/">在 Emacs 中使用 LSP 开发 C/C&#43;&#43; 工程</a></li>
+                
+              </ul>
+
+          
+        
+      </article>
+
+      
+        <ul class="pager blog-pager">
+          
+            <li class="previous">
+              <a href="https://whatacold.io/zh-cn/blog/2019-10-01-reboot-tianyi-router-using-python-requests/" data-toggle="tooltip" data-placement="top" title="用 Python Requests “一键”重启天翼路由器">&larr; 前一篇</a>
+            </li>
+          
+          
+            <li class="next">
+              <a href="https://whatacold.io/zh-cn/blog/2021-02-16-doxygen-cpp-correct-callgraphs/" data-toggle="tooltip" data-placement="top" title="Doxygen 终于可以正确生成函数调用图了！">后一篇 &rarr;</a>
+            </li>
+          
+        </ul>
+      
+
+
+      
+        
+          
+          <div class="disqus-comments">
+            <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "whatacold" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+          </div>
+          
+        
+        
+      
+
+    </div>
+  </div>
+</div>
+
+      
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+          
+              <li>
+                <a href="mailto:whatacold@gmail.com" title="Email me">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fas fa-envelope fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://github.com/whatacold" title="GitHub">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://twitter.com/whatacold" title="Twitter">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://reddit.com/u/whatacold" title="Reddit">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-reddit-alien fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://stackoverflow.com/users/910978/whatacold" title="StackOverflow">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-stack-overflow fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://www.youtube.com/channel/UC2unslchfhzbub47Qq2U88w" title="Youtube">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-youtube fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+          
+          <li>
+            <a href="" title="RSS">
+              <span class="fa-stack fa-lg">
+                <i class="fas fa-circle fa-stack-2x"></i>
+                <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+        </ul>
+        <p class="credits copyright text-muted">
+          
+            
+              whatacold
+            
+          
+
+          &nbsp;&bull;&nbsp;&copy;
+          
+            2021
+          
+
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://whatacold.io/zh-cn/">whatacold 的世界</a>
+          
+        </p>
+        
+        <p class="credits theme-by text-muted">
+          由 <a href="https://gohugo.io">Hugo v0.80.0</a> 强力驱动 &nbsp;&bull;&nbsp; 主题 <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> 移植自 <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer><script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.js" integrity="sha384-K3vbOmF2BtaVai+Qk37uypf7VrgBubhQreNQe9aGsz9lB63dIFiQVlJbr92dw2Lx" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/contrib/auto-render.min.js" integrity="sha384-kmZOZB5ObwgQnS/DuDg6TScgOiWWBiVt0plIRkZCmE6rDZGrEOQeHM5PcHi+nyqe" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+<script src="https://whatacold.io/js/main.js"></script>
+<script src="https://whatacold.io/js/highlight.min.js"></script>
+<script> hljs.initHighlightingOnLoad(); </script>
+<script> $(document).ready(function() {$("pre.chroma").css("padding","0");}); </script><script> renderMathInElement(document.body); </script><script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.js" integrity="sha384-QELNnmcmU8IR9ZAykt67vGr9/rZJdHbiWi64V88fCPaOohUlHCqUD/unNN0BXSqy" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe-ui-default.min.js" integrity="sha384-m67o7SkQ1ALzKZIFh4CiTA8tmadaujiTa9Vu+nqPSwDOqHrDmxLezTdFln8077+q" crossorigin="anonymous"></script><script src="https://whatacold.io/js/load-photoswipe.js"></script>
+
+
+
+
+
+
+
+
+
+    
+  </body>
+</html>
+

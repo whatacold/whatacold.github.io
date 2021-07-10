@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>C&#43;&#43; on whatacold 的世界</title>
+    <link>https://whatacold.io/zh-cn/tags/c&#43;&#43;/</link>
+    <description>Recent content in C&#43;&#43; on whatacold 的世界</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <managingEditor>whatacold@gmail.com (whatacold)</managingEditor>
+    <webMaster>whatacold@gmail.com (whatacold)</webMaster>
+    <lastBuildDate>Tue, 16 Feb 2021 16:08:00 +0800</lastBuildDate><atom:link href="https://whatacold.io/zh-cn/tags/c++/rss.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Doxygen 终于可以正确生成函数调用图了！</title>
+      <link>https://whatacold.io/zh-cn/blog/2021-02-16-doxygen-cpp-correct-callgraphs/</link>
+      <pubDate>Tue, 16 Feb 2021 16:08:00 +0800</pubDate>
+      <author>whatacold@gmail.com (whatacold)</author>
+      <guid>https://whatacold.io/zh-cn/blog/2021-02-16-doxygen-cpp-correct-callgraphs/</guid>
+      <description>大家都知道， Doxygen 可以用于提取代码的注释生成项目的文档，只要注释满足其规定的格式。但我更喜欢利用它生成类继承图（inheritance diagr</description>
+    </item>
+    
+    <item>
+      <title>在 Emacs 中使用 LSP 开发 C/C&#43;&#43; 工程</title>
+      <link>https://whatacold.io/zh-cn/blog/2018-12-22-c-cpp-devel-with-lsp-in-emacs/</link>
+      <pubDate>Sat, 22 Dec 2018 20:24:00 +0800</pubDate>
+      <author>whatacold@gmail.com (whatacold)</author>
+      <guid>https://whatacold.io/zh-cn/blog/2018-12-22-c-cpp-devel-with-lsp-in-emacs/</guid>
+      <description>写代码的时候，如果能够基于当前的上下文提示补全，不仅能提高写代码的效率，还能提升体验，有种行云流水的感觉。 Emacs 中之前我用 gtags 等静态的工具来辅助写</description>
+    </item>
+    
+    <item>
+      <title>C&#43;&#43; 多态是如何实现的？</title>
+      <link>https://whatacold.io/zh-cn/blog/2018-12-10-how-polymorphism-works-in-cpp/</link>
+      <pubDate>Mon, 10 Dec 2018 00:16:00 +0800</pubDate>
+      <author>whatacold@gmail.com (whatacold)</author>
+      <guid>https://whatacold.io/zh-cn/blog/2018-12-10-how-polymorphism-works-in-cpp/</guid>
+      <description>对于 OOP 编程，相信大家对于多态（ polymorphism ）肯定都耳熟能详。 但是对于多态是如何实现的，我不知道大家是否清楚，但我发现自己并不是很了解， 只知道在运行时通</description>
+    </item>
+    
+  </channel>
+</rss>
