@@ -1,95 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="description" content="Elaborate how Emacs' align-regex works by inspecting the signature...">
-<link rel="alternate"
-      type="application/rss+xml"
-      href="https://whatacold.github.io/rss.xml"
-      title="RSS feed for https://whatacold.github.io/">
-<title>Understanding align-regexp of Emacs</title>
-<meta name="author" content="Guangwang Huang">
-<meta name="referrer" content="no-referrer">
-<link href= "static/style.css" rel="stylesheet" type="text/css" />
-
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-74588785-1"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'UA-74588785-1');
-</script>
-</head>
-<body>
-<div id="preamble" class="status"><div class="header">
-<div class="sitelinks">
-    <a href="https://github.com/whatacold">GitHub</a> | <a href="https://stackoverflow.com/users/910978/whatacold">Stack Overflow</a> | <a href="mailto:whatacold@gmail.com">Email</a> | <a href="/rss.xml">RSS</a>
-</div></div>
-<div id="content">
-<div class="post-date">20 Jul 2019</div><h1 class="post-title"><a href="https://whatacold.github.io/2019-07-20-understanding-align-regexp-of-emacs.html">Understanding align-regexp of Emacs</a></h1>
-<p>
-<a href="https://www.gnu.org/software/emacs/">Emacs</a>' <code>M-x align-regex</code> is neat when I want to align some similar text, especially when we're coding.
-I use its trivial version(without prefix arg) regularly on day-to-day programming work before.
-</p>
-
-<p>
-For example, I can use it to align below code quickly by:
-</p>
-<ol class="org-ol">
-<li>Choose the region</li>
-<li><code>M-x align-regexp</code> and type <code>=</code> and <code>Enter</code></li>
-</ol>
-
-<div class="org-src-container">
-<pre class="src src-python"><span style="color: #3498db;">aaaaaaaaaaaaaa</span> = fields[0]
-<span style="color: #3498db;">bbb</span> = fields[1]
-<span style="color: #3498db;">cccccccc</span> = fields[2]
-</pre>
-</div>
-
-<p>
-It will be aligned to below code, now it's better to read:
-</p>
-<div class="org-src-container">
-<pre class="src src-python"><span style="color: #3498db;">aaaaaaaaaaaaaa</span> = fields[0]
-<span style="color: #3498db;">bbb</span>            = fields[1]
-<span style="color: #3498db;">cccccccc</span>       = fields[2]
-</pre>
-</div>
-
-<p>
-A few days ago, I found myself don't understand how it works when I read the code of <a href="https://github.com/manateelazycat/smart-align">smart-align</a>, A simple <code>align-regexp</code> wrapper for easier usage.
-I was confused by the parameters, especially <code>REGEXP</code> and <code>GROUP</code>, and <code>SPACING</code>, here is its signature:
-</p>
-
-<pre class="example">
-(align-regexp BEG END REGEXP &amp;optional GROUP SPACING REPEAT)
-</pre>
-
-<p>
-As for <code>REGEXP</code> and <code>GROUP</code>, as in the above example, I think the regexp should be <code>\(\s-*=\)</code>, so that group 1 will be aligned by prepending spaces.
-In fact, it resulted in removing the <code>=</code> for the first line, so I was wrong. The correct regex for it is <code>\(\s-*\)=</code>.
-</p>
-
-<p>
-After reading a related thread <sup><a id="fnr.1" class="footref" href="#fn.1">1</a></sup> on Emacs' Stack Exchange for many times and practicing it along the way, I finally figured out, <b>the key to understanding it</b> is that it works by matching the specified group pattern, then appending it with whitespaces or removing extra whitespaces, so that the alignment character after it, <code>=</code> in this case, will be aligned.
-</p>
-
-<p>
-As for the <code>SPACING</code>, it means how many spaces should be kept for the "densest" line, 1 will result in <code>aaaaaaaaaaaaaa = fields[0]</code>, 2 will result in <code>aaaaaaaaaaaaaa  = fields[0]</code>, as so on.
-</p>
-<div id="footnotes">
-<h2 class="footnotes">Footnotes: </h2>
-<div id="text-footnotes">
-
-<div class="footdef"><sup><a id="fn.1" class="footnum" href="#fnr.1">1</a></sup> <div class="footpara"><p class="footpara">
-The link is: <a href="https://emacs.stackexchange.com/questions/2644/understanding-of-emacs-align-regexp">https://emacs.stackexchange.com/questions/2644/understanding-of-emacs-align-regexp</a></p></div></div>
-
-
-</div>
-</div><div class="taglist"><a href="https://whatacold.github.io/tags.html">Tags</a>: <a href="https://whatacold.github.io/tag-emacs.html">Emacs</a> </div></div>
-<div id="postamble" class="status"></div>
-</body>
+<html>
+    <head>
+        <meta http-equiv="refresh"
+              content="0; url=/blog/2019-07-20-understanding-align-regexp-of-emacs/">
+    </head>
+    <body>
+        <p>The page has moved to:
+            <a href="/blog/2019-07-20-understanding-align-regexp-of-emacs/">here</a></p>
+    </body>
 </html>

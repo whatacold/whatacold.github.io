@@ -1,75 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="description" content="erd is a cool tool to describe ER diagrams in plain text, but you don't have the runtime at hand? This short writing could help...">
-<link rel="alternate"
-      type="application/rss+xml"
-      href="https://whatacold.github.io/rss.xml"
-      title="RSS feed for https://whatacold.github.io/">
-<title>Render erd diagrams on the web</title>
-<meta name="author" content="Guangwang Huang">
-<meta name="referrer" content="no-referrer">
-<link href= "static/style.css" rel="stylesheet" type="text/css" />
-
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-74588785-1"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'UA-74588785-1');
-</script>
-</head>
-<body>
-<div id="preamble" class="status"><div class="header">
-<div class="sitelinks">
-    <a href="https://github.com/whatacold">GitHub</a> | <a href="https://stackoverflow.com/users/910978/whatacold">Stack Overflow</a> | <a href="mailto:whatacold@gmail.com">Email</a> | <a href="/rss.xml">RSS</a>
-</div></div>
-<div id="content">
-<div class="post-date">06 Jul 2019</div><h1 class="post-title"><a href="https://whatacold.github.io/2019-07-06-render-erd-on-the-web.html">Render erd diagrams on the web</a></h1>
-<p>
-If you ever wonder how to plot <a href="https://en.wikipedia.org/wiki/Entity%E2%80%93relationship_model">ER diagrams</a> in plain text, you may have already heard of <a href="https://github.com/BurntSushi/erd">erd</a>.
-It's a cool command line program written by Andrew Gallant in Haskell, to "compile" plain text files into nicely looking images,
-leveraging the power of <a href="https://graphviz.org/">GraphViz</a>.
-</p>
-
-<p>
-I've used erd for some time, it's cool and the syntax is quite simple.
-It's also quite simple to install it on Linux, just install GraphViz and erd itself,
-by following the instructions in the README page.
-</p>
-
-<p>
-But there are times that there isn't an erd environment at hand:
-</p>
-<ul class="org-ul">
-<li>erd is hard to install, or we don't have the permission to install it.</li>
-<li>I shared the plain text file with my teammates, but they didn't know how to convert it to an image.</li>
-</ul>
-
-<p>
-So I think maybe it's useful to have a web application that folks can try it out online,
-here it is: <a href="https://serene-forest-18642.herokuapp.com/">erd-repl</a> , a simple Flask application hosted on Heroku.
-Although the name REPL, it's far from being a REPL, I think that a REPL helps ease the learning process, be it Emacs REPL, or Python REPL, as it gives you feedback as you type.
-</p>
-
-<p>
-It's so simple that there isn't any user authentication mechanism, and here are some caveats:
-</p>
-<ul class="org-ul">
-<li>the "source code" of plain text is simply stored in the browser cookie, together with your id.</li>
-<li>no edit features, you need to edit it somewhere, e.g. Emacs, and then copied to erd-repl if it's complex, to prevent data loss.</li>
-<li>only one image is stored per one user.</li>
-<li>imaged will be cleared if being not touched for a few days</li>
-</ul>
-
-<p>
-After hosting it on Heroku, I found that there is an <a href="https://github.com/BurntSushi/erd/issues/1">issue</a> discussing hosting a web service of erd on GitHub,
-take a look too if you're interested.
-</p>
-<div class="taglist"><a href="https://whatacold.github.io/tags.html">Tags</a>: <a href="https://whatacold.github.io/tag-python.html">Python</a> <a href="https://whatacold.github.io/tag-tools.html">Tools</a> </div></div>
-<div id="postamble" class="status"></div>
-</body>
+<html>
+    <head>
+        <meta http-equiv="refresh"
+              content="0; url=/blog/2019-07-06-render-erd-on-the-web/">
+    </head>
+    <body>
+        <p>The page has moved to:
+            <a href="/blog/2019-07-06-render-erd-on-the-web/">here</a></p>
+    </body>
 </html>

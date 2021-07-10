@@ -1,93 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="description" content="需要频繁重启天翼路由器？试试这个 Python 脚本……">
-<link rel="alternate"
-      type="application/rss+xml"
-      href="https://whatacold.github.io/rss.xml"
-      title="RSS feed for https://whatacold.github.io/">
-<title>用 Python Requests “一键”重启天翼路由器</title>
-<meta name="author" content="Guangwang Huang">
-<meta name="referrer" content="no-referrer">
-<link href= "static/style.css" rel="stylesheet" type="text/css" />
-
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-74588785-1"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'UA-74588785-1');
-</script>
-</head>
-<body>
-<div id="preamble" class="status"><div class="header">
-<div class="sitelinks">
-    <a href="https://github.com/whatacold">GitHub</a> | <a href="https://stackoverflow.com/users/910978/whatacold">Stack Overflow</a> | <a href="mailto:whatacold@gmail.com">Email</a> | <a href="/rss.xml">RSS</a>
-</div></div>
-<div id="content">
-<div class="post-date">01 Oct 2019</div><h1 class="post-title"><a href="https://whatacold.github.io/2019-10-01-reboot-tianyi-router-using-python-requests.html">用 Python Requests “一键”重启天翼路由器</a></h1>
-<p>
-不知道什么原因，我的网络有时候会很慢，而通过重启天翼路由器（版本 V1.0 ）大概率能够恢复。重启的次数多了之后会我觉得好麻烦，本着偷懒的原则，就想写一个脚本来自动重启，一劳永逸。
-</p>
-
-<p>
-经过查看控制台的网页代码等一番折腾，最后终于搞定。
-</p>
-
-<p>
-通过使用 <a href="https://requests.kennethreitz.org/en/master/">Python Requests</a> 库串联登录及重启两个步骤，可以达到“一键”自动重启路由器的目的。 Python 脚本如下：
-</p>
-
-<div class="org-src-container">
-<pre class="src src-python"><span style="color: #95a5a6; font-style: italic;">#</span><span style="color: #95a5a6; font-style: italic;">!/usr/bin/env python3</span>
-<span style="color: #95a5a6; font-style: italic;"># </span><span style="color: #95a5a6; font-style: italic;">-*- coding: utf-8 -*-</span>
-
-<span style="color: #2c3e50; font-style: italic;">import</span> requests
-<span style="color: #2c3e50; font-style: italic;">import</span> re
-
-<span style="color: #95a5a6; font-style: italic;"># </span><span style="color: #95a5a6; font-style: italic;">&#36825;&#37324;&#30340;&#37197;&#32622;&#65292;&#35831;&#25353;&#38656;&#20462;&#25913;&#12290;</span>
-<span style="color: #3498db;">DEVICE_IP</span>=<span style="color: #16a085;">"192.168.1.1"</span>
-<span style="color: #3498db;">USERNAME</span>=<span style="color: #16a085;">'admin'</span>
-<span style="color: #3498db;">PASSWORD</span>=<span style="color: #16a085;">'foobar'</span>
-
-<span style="color: #2c3e50; font-style: italic;">def</span> <span style="color: #9b59b6;">reboot</span>():
-<span style="background-color: #ecf0f1;"> </span>   <span style="color: #16a085;">'''Reboot the Tianyi Gateway automatically'''</span>
-<span style="background-color: #ecf0f1;"> </span>   <span style="color: #3498db;">s</span> = requests.Session()
-<span style="background-color: #ecf0f1;"> </span>   <span style="color: #3498db;">login_data</span> = <span style="color: #16a085;">"username={}&amp;password={}"</span>.<span style="color: #2c3e50;">format</span>(USERNAME, PASSWORD)
-<span style="background-color: #ecf0f1;"> </span>   <span style="color: #3498db;">response</span> = s.post(<span style="color: #16a085;">"http://{}/login.cgi"</span>.<span style="color: #2c3e50;">format</span>(DEVICE_IP), login_data)
-<span style="background-color: #ecf0f1;"> </span>   <span style="color: #3498db;">response_html</span> = response.text
-<span style="background-color: #ecf0f1;"> </span>   <span style="color: #3498db;">matches</span> = re.findall(<span style="color: #16a085;">'var mysessionid=([0-9]+);'</span>, response_html)
-<span style="background-color: #ecf0f1;"> </span>   <span style="color: #2c3e50; font-style: italic;">if</span> 1 != <span style="color: #2c3e50;">len</span>(matches):
-<span style="background-color: #ecf0f1;"> </span>   <span style="background-color: #ecf0f1;"> </span>   <span style="color: #2c3e50; font-style: italic;">raise</span> <span style="color: #16a085;">"No session id matched!"</span>
-
-<span style="background-color: #ecf0f1;"> </span>   <span style="color: #3498db;">session_id</span> = matches[0]
-<span style="background-color: #ecf0f1;"> </span>   <span style="color: #95a5a6; font-style: italic;"># </span><span style="color: #95a5a6; font-style: italic;">session_id = 1111 # It doesn't care what it REALLY is</span>
-<span style="background-color: #ecf0f1;"> </span>   <span style="color: #3498db;">response</span> = s.post(<span style="color: #16a085;">"http://{}/restartGateWay.json?sessionKey={}"</span>.<span style="color: #2c3e50;">format</span>(DEVICE_IP,
-<span style="background-color: #ecf0f1;"> </span>   <span style="background-color: #ecf0f1;"> </span>   <span style="background-color: #ecf0f1;"> </span>   <span style="background-color: #ecf0f1;"> </span>   <span style="background-color: #ecf0f1;"> </span>   <span style="background-color: #ecf0f1;"> </span>   <span style="background-color: #ecf0f1;"> </span>   <span style="background-color: #ecf0f1;"> </span>   <span style="background-color: #ecf0f1;"> </span>   <span style="background-color: #ecf0f1;"> </span>   <span style="background-color: #ecf0f1;"> </span>   <span style="background-color: #ecf0f1;"> </span>   <span style="background-color: #ecf0f1;"> </span>   <span style="background-color: #ecf0f1;"> </span>   <span style="background-color: #ecf0f1;"> </span>   <span style="background-color: #ecf0f1;"> </span>   <span style="background-color: #ecf0f1;"> </span>   <span style="background-color: #ecf0f1;"> </span>   <span style="background-color: #ecf0f1;"> </span>  session_id),
-<span style="background-color: #ecf0f1;"> </span>   <span style="background-color: #ecf0f1;"> </span>   <span style="background-color: #ecf0f1;"> </span>   <span style="background-color: #ecf0f1;"> </span>   <span style="background-color: #ecf0f1;"> </span>   <span style="background-color: #ecf0f1;"> </span> <span style="color: #16a085;">"action=restartGateWay&amp;actionid=8"</span>)
-<span style="background-color: #ecf0f1;"> </span>   <span style="color: #3498db;">text</span> = response.text <span style="color: #95a5a6; font-style: italic;"># </span><span style="color: #95a5a6; font-style: italic;">{ "status": "success", "actionid": "8" }</span>
-<span style="background-color: #ecf0f1;"> </span>   <span style="color: #3498db;">return_object</span> = response.json()
-<span style="background-color: #ecf0f1;"> </span>   <span style="color: #2c3e50; font-style: italic;">if</span> <span style="color: #16a085;">"success"</span> == return_object[<span style="color: #16a085;">"status"</span>]:
-<span style="background-color: #ecf0f1;"> </span>   <span style="background-color: #ecf0f1;"> </span>   <span style="color: #2c3e50; font-style: italic;">print</span>(<span style="color: #16a085;">"Device rebooted successfully, wait a minute!"</span>)
-<span style="background-color: #ecf0f1;"> </span>   <span style="color: #2c3e50; font-style: italic;">else</span>:
-<span style="background-color: #ecf0f1;"> </span>   <span style="background-color: #ecf0f1;"> </span>   <span style="color: #2c3e50; font-style: italic;">print</span>(<span style="color: #16a085;">"Failed to reboot the device, return json: {}"</span>.<span style="color: #2c3e50;">format</span>(text))
-
-<span style="color: #2c3e50; font-style: italic;">if</span> <span style="color: #2c3e50;">__name__</span> == <span style="color: #16a085;">'__main__'</span>:
-<span style="background-color: #ecf0f1;"> </span>   reboot()
-</pre>
-</div>
-
-<p>
-此脚本依赖 Python Requests 库，可以通过 <code>pip</code> 来安装；我使用 Python3 ，不过 Python2 应该也不会有太大问题。
-把上述脚本保存到文件中，比如 <code>~/bin/reboot-tianyi-gateway</code> ，并且增加可执行权限（ <code>chmod +x ~/bin/reboot-tianyi-gateway</code> ），在需要的时候在终端中执行 <code>~/bin/reboot-tianyi-gateway</code> 即可。 :)
-</p>
-
-<p>
-另外，正如注释中提到的，其实 <code>/restartGateWay.json</code> 这个是一个裸接口，并没有校验 <code>sessionKey</code> 的有效性；甚至登录接口在用户登录之后也不会设置 cookie ，所有的业务接口都是可以直接调用的，也就是说，登录界面只是一个摆设。</p>
-<div class="taglist"><a href="https://whatacold.github.io/tags.html">Tags</a>: <a href="https://whatacold.github.io/tag-python.html">Python</a> <a href="https://whatacold.github.io/tag-zhongwen.html">zhongwen</a> </div></div>
-<div id="postamble" class="status"></div>
-</body>
+<html>
+    <head>
+        <meta http-equiv="refresh"
+              content="0; url=/zh-cn/blog/2019-10-01-reboot-tianyi-router-using-python-requests/">
+    </head>
+    <body>
+        <p>The page has moved to:
+            <a href="/zh-cn/blog/2019-10-01-reboot-tianyi-router-using-python-requests/">here</a></p>
+    </body>
 </html>
