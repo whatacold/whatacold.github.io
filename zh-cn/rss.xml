@@ -7,7 +7,16 @@
     <generator>Hugo -- gohugo.io</generator>
     <managingEditor>whatacold@gmail.com (whatacold)</managingEditor>
     <webMaster>whatacold@gmail.com (whatacold)</webMaster>
-    <lastBuildDate>Sat, 27 Feb 2021 10:27:00 +0800</lastBuildDate><atom:link href="https://whatacold.io/zh-cn/rss.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 10 Jul 2021 20:37:11 +0800</lastBuildDate><atom:link href="https://whatacold.io/zh-cn/rss.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>个人网站迁移 Hugo 记</title>
+      <link>https://whatacold.io/zh-cn/blog/2021-07-10-migrate-site-hugo/</link>
+      <pubDate>Sat, 10 Jul 2021 20:37:11 +0800</pubDate>
+      <author>whatacold@gmail.com (whatacold)</author>
+      <guid>https://whatacold.io/zh-cn/blog/2021-07-10-migrate-site-hugo/</guid>
+      <description>从 2018 年开始用 org-static-org 写博客到现在也有几年时间了，写的文章比较少，总体上这个简单的静态网站生成方案都能够满足需求。 但中途也发现一些不够用的地方，比如</description>
+    </item>
+    
     <item>
       <title>关于</title>
       <link>https://whatacold.io/zh-cn/about/</link>

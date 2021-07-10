@@ -3,6 +3,76 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://whatacold.io/zh-cn/blog/</loc>
+    <lastmod>2021-07-10T20:37:11+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://whatacold.io/blog/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-cn"
+                href="https://whatacold.io/zh-cn/blog/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://whatacold.io/zh-cn/tags/hugo/</loc>
+    <lastmod>2021-07-10T20:37:11+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://whatacold.io/zh-cn/tags/org-mode/</loc>
+    <lastmod>2021-07-10T20:37:11+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://whatacold.io/tags/org-mode/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-cn"
+                href="https://whatacold.io/zh-cn/tags/org-mode/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://whatacold.io/zh-cn/tags/</loc>
+    <lastmod>2021-07-10T20:37:11+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://whatacold.io/tags/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-cn"
+                href="https://whatacold.io/zh-cn/tags/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://whatacold.io/zh-cn/</loc>
+    <lastmod>2021-07-10T20:37:11+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://whatacold.io/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-cn"
+                href="https://whatacold.io/zh-cn/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://whatacold.io/zh-cn/blog/2021-07-10-migrate-site-hugo/</loc>
+    <lastmod>2021-07-10T20:37:11+08:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://whatacold.io/zh-cn/about/</loc>
     <lastmod>2021-07-09T22:37:07+08:00</lastmod>
     <xhtml:link
@@ -14,21 +84,6 @@
                 rel="alternate"
                 hreflang="zh-cn"
                 href="https://whatacold.io/zh-cn/about/"
-                />
-  </url>
-  
-  <url>
-    <loc>https://whatacold.io/zh-cn/blog/</loc>
-    <lastmod>2021-02-27T10:27:00+08:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://whatacold.io/blog/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh-cn"
-                href="https://whatacold.io/zh-cn/blog/"
                 />
   </url>
   
@@ -45,36 +100,6 @@
   <url>
     <loc>https://whatacold.io/zh-cn/tags/performance/</loc>
     <lastmod>2021-02-27T10:27:00+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://whatacold.io/zh-cn/tags/</loc>
-    <lastmod>2021-02-27T10:27:00+08:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://whatacold.io/tags/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh-cn"
-                href="https://whatacold.io/zh-cn/tags/"
-                />
-  </url>
-  
-  <url>
-    <loc>https://whatacold.io/zh-cn/</loc>
-    <lastmod>2021-02-27T10:27:00+08:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://whatacold.io/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh-cn"
-                href="https://whatacold.io/zh-cn/"
-                />
   </url>
   
   <url>

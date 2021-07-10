@@ -220,6 +220,16 @@
   <url>
     <loc>https://whatacold.io/tags/org-mode/</loc>
     <lastmod>2019-07-20T20:04:00+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-cn"
+                href="https://whatacold.io/zh-cn/tags/org-mode/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://whatacold.io/tags/org-mode/"
+                />
   </url>
   
   <url>
