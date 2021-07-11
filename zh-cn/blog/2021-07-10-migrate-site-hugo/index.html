@@ -64,7 +64,7 @@
   "headline": "个人网站迁移 Hugo 记",
   "description" : "从 2018 年开始用 org-static-org 写博客到现在也有几年时间了，写的文章比较少，总体上这个简单的静态网站生成方案都能够满足需求。 但中途也发现一些不够用的地方，比如",
   "inLanguage" : "zh-cn",
-  "wordCount":  2342 ,
+  "wordCount":  2369 ,
   "datePublished" : "2021-07-10T20:37:11",
   "dateModified" : "2021-07-10T20:37:11",
   "image" : "https:\/\/whatacold.io\/img\/avatar.png",
@@ -370,7 +370,7 @@ if (!doNotTrack) {
 <p>
   结果发现换一个主题之后，原来 ananke 主题下的 <code class="verbatim">config.toml</code> 在新主题下却不能工作了。</p>
 <p>
-  在整个过程中，遇到的主要问题主要有2个：</p>
+  回顾整个过程，遇到的主要问题主要有2个：</p>
 <ol>
 <li>
 <p>多语言目录结构是怎样的？</p>
@@ -470,7 +470,7 @@ if (!doNotTrack) {
 <li>
 <p>博文的 URL 调整</p>
 <p>
-由于博客访问量并不大，我可以接受 URL 变更，同时对于原有的 html 通过 meta tag 来实现类似的 301 重定向</p>
+由于博客访问量并不大，我可以接受 URL 变更，同时对于原有的 html 通过 meta tag 来实现类似的 301 重定向，比如这样：</p>
 <div class="src src-html">
 <div class="highlight"><pre class="chroma"><code class="language-html" data-lang="html"><span class="cp">&lt;!DOCTYPE html&gt;</span>
 <span class="p">&lt;</span><span class="nt">html</span><span class="p">&gt;</span>
@@ -497,18 +497,20 @@ if (!doNotTrack) {
   虽然现在网站结果总体比较满意，但还存在一些小问题：</p>
 <ol>
 <li>
-<p>favicon 在 Chrome 浏览器中无法显示，在 Firefox 中正常（本地开发环境都 ok ）</p>
-</li>
-<li>
 <p>每一级 heading 使用编号，便于阅读</p>
 </li>
 <li>
 <p>beautifulhugo 页面性能较差，打开一个网页会发起 30+ 请求</p>
 <figure>
 <img src="/img/2021-07-10-beautifulhugo-performance.png" alt="/img/2021-07-10-beautifulhugo-performance.png" title="/img/2021-07-10-beautifulhugo-performance.png" /><figcaption>
-Light House 测评显示加载性能慢
+Light House 测评结果表明性能较慢
 </figcaption>
 </figure>
+</li>
+<li>
+<p><del>favicon 在 Chrome 浏览器中无法显示，在 Firefox 中正常（本地开发环境都 ok ）</del></p>
+<p>
+可能是特定浏览器版本的原因，现在也 ok 了。</p>
 </li>
 <li>
 <p><del>footer 中的版权年份展示不对，按道理应该要展示到 2021 年</del> （突然又好了，不知道为何）</p>

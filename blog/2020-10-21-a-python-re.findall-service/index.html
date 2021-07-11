@@ -12,7 +12,7 @@
 
   
 
-  <title>An online Python re.findall Service - whatacold&#39;s Space</title>
+  <title>An Online Python re.findall Service - whatacold&#39;s Space</title>
   <meta name="description" content="We all use grep/sed/awk almost every work day, but there are times they don&#39;t work quickly. Here I introduce a regex-based online service to do that jobs easily...">
   <meta name="author" content="whatacold"/><script type="application/ld+json">
 {
@@ -61,10 +61,10 @@
   "author": {
     "name" : "whatacold"
   },
-  "headline": "An online Python re.findall Service",
+  "headline": "An Online Python re.findall Service",
   "description" : "We all use grep\/sed\/awk almost every work day, but there are times they don\u0027t work quickly. Here I introduce a regex-based online service to do that jobs easily...",
   "inLanguage" : "en",
-  "wordCount":  558 ,
+  "wordCount":  564 ,
   "datePublished" : "2020-10-21T22:51:00",
   "dateModified" : "2020-10-21T22:51:00",
   "image" : "https:\/\/whatacold.io\/img\/avatar.png",
@@ -83,14 +83,14 @@
 }
 </script>
 
-<meta property="og:title" content="An online Python re.findall Service" />
+<meta property="og:title" content="An Online Python re.findall Service" />
 <meta property="og:description" content="We all use grep/sed/awk almost every work day, but there are times they don&#39;t work quickly. Here I introduce a regex-based online service to do that jobs easily...">
 <meta property="og:image" content="https://whatacold.io/img/avatar.png" />
 <meta property="og:url" content="https://whatacold.io/blog/2020-10-21-a-python-re.findall-service/" />
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="whatacold&#39;s Space" />
 
-  <meta name="twitter:title" content="An online Python re.findall Service" />
+  <meta name="twitter:title" content="An Online Python re.findall Service" />
   <meta name="twitter:description" content="We all use grep/sed/awk almost every work day, but there are times they don&#39;t work quickly. Here I introduce a regex-based online service to do that jobs easily...">
   <meta name="twitter:image" content="https://whatacold.io/img/avatar.png" />
   <meta name="twitter:card" content="summary" />
@@ -249,7 +249,7 @@ if (!doNotTrack) {
           <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
             <div class="blog-heading">
               
-                <h1>An online Python re.findall Service</h1>
+                <h1>An Online Python re.findall Service</h1>
               
               
                 <hr class="small">
@@ -270,7 +270,16 @@ if (!doNotTrack) {
     <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
       <article role="main" class="blog-post">
         <p>
-As a programmer, I know that <a href="https://www.gnu.org/s/grep/manual/grep.html">grep</a>, <a href="https://www.gnu.org/software/sed/manual/sed.html">sed</a> and <a href="https://www.gnu.org/software/gawk/manual/gawk.html">awk</a> are powerful for processing text, but they sometimes aren&#39;t that straight-forward for specific tasks, as I need to think about how to filter the lines and the columns out. So I wonder if there is a handy way to do these tasks? After using it for a while, I think using regex directly can help, so I launched a <a href="https://texttoolkit.com/re.findall">re.findall service</a> building on top of Python <code class="verbatim">re.findall</code> API.</p>
+As a programmer, I know that <a href="https://www.gnu.org/s/grep/manual/grep.html">grep</a>, <a href="https://www.gnu.org/software/sed/manual/sed.html">sed</a> and <a href="https://www.gnu.org/software/gawk/manual/gawk.html">awk</a> are powerful for processing text, but they sometimes aren&#39;t that straight-forward for specific tasks, as I need to think about how to filter the lines and the columns out.</p>
+<p>
+So I wonder if there is a handy way to do these tasks?</p>
+<p>
+After using it for a while, I think using regex directly can help, so I launched a <a href="https://texttoolkit.com/re.findall">re.findall service</a> building on top of Python <code class="verbatim">re.findall</code> API.</p>
+<figure>
+<img src="/img/2021-07-11-re.findall.png" alt="/img/2021-07-11-re.findall.png" title="/img/2021-07-11-re.findall.png" /><figcaption>
+The website UI
+</figcaption>
+</figure>
 <p>
 Here are some use cases for it.</p>
 <ol>
@@ -329,7 +338,9 @@ With sed, I can <code>sed -n &#39;s:^.*&lt;input.*type=&#34;\([^&#34;]\+\)&#34;.
 But with re.findall service, I simply copy and paste the HTML code, write a regex <code>&lt;input[^&lt;]+type=&#34;(\w+)&#34;</code> in the box, and click the button. Want to deduplicate the result? Check the box &#34;unique&#34; and click the button again.</p>
 </li>
 </ol>
-<p>The above three cases are only a few examples that arose around from my daily usage, proving that the service is a simple yet powerful service for some scenarios. And there is another problem that it solves, that the regex syntax varies a bit for grep, sed, and awk. One can hardly make it right when he/she writes it first. With re.findall, one regex syntax for all, that is the Python regex.</p>
+<p>The above three cases are only a few examples that arose around from my daily usage, proving that the service is a simple yet powerful service for some scenarios.</p>
+<p>
+Beyond that, there is another problem that it solves, that is the regex syntax varies a bit for grep, sed, and awk. One can hardly make it right when he/she writes it not often. With re.findall, one regex syntax for all, that is the Python regex.</p>
 
 
         
@@ -352,7 +363,7 @@ But with re.findall service, I simply copy and paste the HTML code, write a rege
     <ul class="share">
       
       <li>
-        <a href="//twitter.com/share?url=https%3a%2f%2fwhatacold.io%2fblog%2f2020-10-21-a-python-re.findall-service%2f&amp;text=An%20online%20Python%20re.findall%20Service&amp;via=whatacold" target="_blank" title="Share on Twitter">
+        <a href="//twitter.com/share?url=https%3a%2f%2fwhatacold.io%2fblog%2f2020-10-21-a-python-re.findall-service%2f&amp;text=An%20Online%20Python%20re.findall%20Service&amp;via=whatacold" target="_blank" title="Share on Twitter">
           <i class="fab fa-twitter"></i>
         </a>
       </li>
@@ -366,28 +377,28 @@ But with re.findall service, I simply copy and paste the HTML code, write a rege
   
       
       <li>
-        <a href="//reddit.com/submit?url=https%3a%2f%2fwhatacold.io%2fblog%2f2020-10-21-a-python-re.findall-service%2f&amp;title=An%20online%20Python%20re.findall%20Service" target="_blank" title="Share on Reddit">
+        <a href="//reddit.com/submit?url=https%3a%2f%2fwhatacold.io%2fblog%2f2020-10-21-a-python-re.findall-service%2f&amp;title=An%20Online%20Python%20re.findall%20Service" target="_blank" title="Share on Reddit">
           <i class="fab fa-reddit"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fwhatacold.io%2fblog%2f2020-10-21-a-python-re.findall-service%2f&amp;title=An%20online%20Python%20re.findall%20Service" target="_blank" title="Share on LinkedIn">
+        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fwhatacold.io%2fblog%2f2020-10-21-a-python-re.findall-service%2f&amp;title=An%20Online%20Python%20re.findall%20Service" target="_blank" title="Share on LinkedIn">
           <i class="fab fa-linkedin"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fwhatacold.io%2fblog%2f2020-10-21-a-python-re.findall-service%2f&amp;title=An%20online%20Python%20re.findall%20Service" target="_blank" title="Share on StumbleUpon">
+        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fwhatacold.io%2fblog%2f2020-10-21-a-python-re.findall-service%2f&amp;title=An%20Online%20Python%20re.findall%20Service" target="_blank" title="Share on StumbleUpon">
           <i class="fab fa-stumbleupon"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fwhatacold.io%2fblog%2f2020-10-21-a-python-re.findall-service%2f&amp;description=An%20online%20Python%20re.findall%20Service" target="_blank" title="Share on Pinterest">
+        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fwhatacold.io%2fblog%2f2020-10-21-a-python-re.findall-service%2f&amp;description=An%20Online%20Python%20re.findall%20Service" target="_blank" title="Share on Pinterest">
           <i class="fab fa-pinterest"></i>
         </a>
       </li>
@@ -409,11 +420,11 @@ But with re.findall service, I simply copy and paste the HTML code, write a rege
                   <ul>
                 
                 
-                    <li><a href="/blog/2019-09-29-how-to-run-the-bleeding-edge-code-of-qtile/">How to run the bleeding-edge code of Qtile within a virtualenv</a></li>
+                    <li><a href="/blog/2019-09-29-how-to-run-the-bleeding-edge-code-of-qtile/">How To Run Bleeding-edge Qtile Within a Virtualenv</a></li>
                 
-                    <li><a href="/blog/2019-07-20-generating-org-mode-outlines-for-wikihow-articles/">Generating org-mode outlines for wikiHow articles</a></li>
+                    <li><a href="/blog/2019-07-20-generating-org-mode-outlines-for-wikihow-articles/">Generating org-mode Outlines for wikiHow Articles</a></li>
                 
-                    <li><a href="/blog/2019-07-06-render-erd-on-the-web/">Render erd diagrams on the web</a></li>
+                    <li><a href="/blog/2019-07-06-render-erd-on-the-web/">Render erd Diagrams Online</a></li>
                 
               </ul>
 

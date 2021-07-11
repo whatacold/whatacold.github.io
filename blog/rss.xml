@@ -19,12 +19,14 @@
     </item>
     
     <item>
-      <title>An online Python re.findall Service</title>
+      <title>An Online Python re.findall Service</title>
       <link>https://whatacold.io/blog/2020-10-21-a-python-re.findall-service/</link>
       <pubDate>Wed, 21 Oct 2020 22:51:00 +0800</pubDate>
       <author>whatacold@gmail.com (whatacold)</author>
       <guid>https://whatacold.io/blog/2020-10-21-a-python-re.findall-service/</guid>
-      <description>As a programmer, I know that grep, sed and awk are powerful for processing text, but they sometimes aren&amp;#39;t that straight-forward for specific tasks, as I need to think about how to filter the lines and the columns out. So I wonder if there is a handy way to do these tasks? After using it for a while, I think using regex directly can help, so I launched a re.</description>
+      <description>As a programmer, I know that grep, sed and awk are powerful for processing text, but they sometimes aren&amp;#39;t that straight-forward for specific tasks, as I need to think about how to filter the lines and the columns out.
+ So I wonder if there is a handy way to do these tasks?
+ After using it for a while, I think using regex directly can help, so I launched a re.</description>
     </item>
     
     <item>
@@ -39,7 +41,7 @@
     </item>
     
     <item>
-      <title>Is it safe to use Redis as a data store?</title>
+      <title>Is It Safe to Use Redis As a Data Store?</title>
       <link>https://whatacold.io/blog/2020-06-25-is-it-safe-to-use-redis-as-a-data-store/</link>
       <pubDate>Thu, 25 Jun 2020 22:37:00 +0800</pubDate>
       <author>whatacold@gmail.com (whatacold)</author>
@@ -58,7 +60,7 @@
     </item>
     
     <item>
-      <title>ppcompile: An Emacs Package to Help Stay Coding Locally</title>
+      <title>ppcompile: An Emacs Package to Help Coding Locally</title>
       <link>https://whatacold.io/blog/2020-03-07-ppcompile-to-help-stay-coding-locally/</link>
       <pubDate>Sat, 07 Mar 2020 23:50:00 +0800</pubDate>
       <author>whatacold@gmail.com (whatacold)</author>
@@ -68,7 +70,7 @@
     </item>
     
     <item>
-      <title>The binary search idea for narrowing down problem space</title>
+      <title>The Binary Search Idea for Narrowing Down Problem Space</title>
       <link>https://whatacold.io/blog/2020-02-04-binary-search-algorithm-vs-problem-solving/</link>
       <pubDate>Tue, 04 Feb 2020 18:48:00 +0800</pubDate>
       <author>whatacold@gmail.com (whatacold)</author>
@@ -78,7 +80,7 @@
     </item>
     
     <item>
-      <title>Manage SSH connections with ~/.ssh/config</title>
+      <title>Manage SSH Connections with ~/.ssh/config</title>
       <link>https://whatacold.io/blog/2019-12-22-manage-ssh-connections-with-ssh-config/</link>
       <pubDate>Sun, 22 Dec 2019 18:52:00 +0800</pubDate>
       <author>whatacold@gmail.com (whatacold)</author>
@@ -88,7 +90,7 @@
     </item>
     
     <item>
-      <title>Why can&#39;t Git fetch remote branches other than master?</title>
+      <title>Why Can&#39;t Git Fetch Remote Branches Other Than Master?</title>
       <link>https://whatacold.io/blog/2019-12-01-why-cant-git-fetch-remote-branches-other-than-master/</link>
       <pubDate>Sun, 01 Dec 2019 16:00:00 +0800</pubDate>
       <author>whatacold@gmail.com (whatacold)</author>
@@ -98,7 +100,7 @@
     </item>
     
     <item>
-      <title>Start a new terminal(urxvt) at current buffer&#39;s default-directory on Emacs</title>
+      <title>Start a New Terminal(urxvt) at Current Buffer&#39;s default-directory on Emacs</title>
       <link>https://whatacold.io/blog/2019-11-25-start-a-new-urxvt-terminal-on-emacs/</link>
       <pubDate>Mon, 25 Nov 2019 22:47:00 +0800</pubDate>
       <author>whatacold@gmail.com (whatacold)</author>
@@ -118,7 +120,7 @@
     </item>
     
     <item>
-      <title>How to run the bleeding-edge code of Qtile within a virtualenv</title>
+      <title>How To Run Bleeding-edge Qtile Within a Virtualenv</title>
       <link>https://whatacold.io/blog/2019-09-29-how-to-run-the-bleeding-edge-code-of-qtile/</link>
       <pubDate>Sun, 29 Sep 2019 17:05:00 +0800</pubDate>
       <author>whatacold@gmail.com (whatacold)</author>
@@ -128,7 +130,7 @@
     </item>
     
     <item>
-      <title>How to revert a series of commits with Git?</title>
+      <title>How To Revert a Series Of Git Commits?</title>
       <link>https://whatacold.io/blog/2019-09-24-how-to-revert-a-series-of-commits-with-git/</link>
       <pubDate>Tue, 24 Sep 2019 23:14:00 +0800</pubDate>
       <author>whatacold@gmail.com (whatacold)</author>
@@ -139,18 +141,18 @@
     </item>
     
     <item>
-      <title>How to rename web page titles in a lightweight way</title>
+      <title>How to Rename Web Page Titles Easily</title>
       <link>https://whatacold.io/blog/2019-08-18-how-to-rename-web-page-titles-in-a-lightweight-way/</link>
       <pubDate>Sun, 18 Aug 2019 14:57:00 +0800</pubDate>
       <author>whatacold@gmail.com (whatacold)</author>
       <guid>https://whatacold.io/blog/2019-08-18-how-to-rename-web-page-titles-in-a-lightweight-way/</guid>
       <description>There are times that I need to open many web pages of some specific websites within a browser, and there are so many tabs that I can&amp;#39;t efficiently access one of them, as their favicons are all the same.
- So I tried to find a way to rename their titles, preferably in a lightweight way, so that I can spot them quickly with eyes.
- The first thought came into my mind was to find some extensions to do the job.</description>
+ So I tried to find a way to rename their titles, preferably in a lightweight way, so that I can spot them quickly with my eyes.
+ The first thought came into my mind was to find some browser extensions to do the job.</description>
     </item>
     
     <item>
-      <title>Generating org-mode outlines for wikiHow articles</title>
+      <title>Generating org-mode Outlines for wikiHow Articles</title>
       <link>https://whatacold.io/blog/2019-07-20-generating-org-mode-outlines-for-wikihow-articles/</link>
       <pubDate>Sat, 20 Jul 2019 20:04:00 +0800</pubDate>
       <author>whatacold@gmail.com (whatacold)</author>
@@ -173,7 +175,7 @@
     </item>
     
     <item>
-      <title>Render erd diagrams on the web</title>
+      <title>Render erd Diagrams Online</title>
       <link>https://whatacold.io/blog/2019-07-06-render-erd-on-the-web/</link>
       <pubDate>Sat, 06 Jul 2019 11:59:00 +0800</pubDate>
       <author>whatacold@gmail.com (whatacold)</author>
@@ -183,7 +185,7 @@
     </item>
     
     <item>
-      <title>Fine-tune curly braces style of yasnippet snippet on the fly</title>
+      <title>Fine-tune Curly Braces Style of yasnippet Snippet on the Fly</title>
       <link>https://whatacold.io/blog/2019-02-24-fine-tune-style-of-yasnippet-snippet-on-the-fly/</link>
       <pubDate>Sun, 24 Feb 2019 16:48:00 +0800</pubDate>
       <author>whatacold@gmail.com (whatacold)</author>

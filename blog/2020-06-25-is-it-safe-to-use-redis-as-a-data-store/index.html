@@ -12,7 +12,7 @@
 
   
 
-  <title>Is it safe to use Redis as a data store? - whatacold&#39;s Space</title>
+  <title>Is It Safe to Use Redis As a Data Store? - whatacold&#39;s Space</title>
   <meta name="description" content="A basic comparison of Redis and MySQL in data persistence, so as to find the answer...">
   <meta name="author" content="whatacold"/><script type="application/ld+json">
 {
@@ -61,10 +61,10 @@
   "author": {
     "name" : "whatacold"
   },
-  "headline": "Is it safe to use Redis as a data store?",
+  "headline": "Is It Safe to Use Redis As a Data Store?",
   "description" : "A basic comparison of Redis and MySQL in data persistence, so as to find the answer...",
   "inLanguage" : "en",
-  "wordCount":  357 ,
+  "wordCount":  358 ,
   "datePublished" : "2020-06-25T22:37:00",
   "dateModified" : "2020-06-25T22:37:00",
   "image" : "https:\/\/whatacold.io\/img\/avatar.png",
@@ -83,14 +83,14 @@
 }
 </script>
 
-<meta property="og:title" content="Is it safe to use Redis as a data store?" />
+<meta property="og:title" content="Is It Safe to Use Redis As a Data Store?" />
 <meta property="og:description" content="A basic comparison of Redis and MySQL in data persistence, so as to find the answer...">
 <meta property="og:image" content="https://whatacold.io/img/avatar.png" />
 <meta property="og:url" content="https://whatacold.io/blog/2020-06-25-is-it-safe-to-use-redis-as-a-data-store/" />
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="whatacold&#39;s Space" />
 
-  <meta name="twitter:title" content="Is it safe to use Redis as a data store?" />
+  <meta name="twitter:title" content="Is It Safe to Use Redis As a Data Store?" />
   <meta name="twitter:description" content="A basic comparison of Redis and MySQL in data persistence, so as to find the answer...">
   <meta name="twitter:image" content="https://whatacold.io/img/avatar.png" />
   <meta name="twitter:card" content="summary" />
@@ -249,7 +249,7 @@ if (!doNotTrack) {
           <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
             <div class="blog-heading">
               
-                <h1>Is it safe to use Redis as a data store?</h1>
+                <h1>Is It Safe to Use Redis As a Data Store?</h1>
               
               
                 <hr class="small">
@@ -272,7 +272,7 @@ if (!doNotTrack) {
         <p>
 Traditionally we are used to storing data in an RDBMS like MySQL, and avoid using in-memory solutions such as Redis, to have a confidence of no data loss. Sometimes I find that we are so stubborn with MySQL that ending up with a complicated design, and I&#39;ve even seen a solution that stores data in MySQL and then using Redis as a cache for it to improve read performance in the meanwhile. And to make the data in the cache as consistent as possible with the data in MySQL, it introduces other mechanisms, but the result is still not 100% consistent.</p>
 <p>
-So I wonder, is it safe to use Redis as a data store directly? Since if that&#39;s OK, we can have a clean solution without using MySQL for, at least, the above scenario.</p>
+So I wonder, is it safe to use Redis as a data store directly? Since if that&#39;s OK, we can have a clean solution without using MySQL for, at least, in the above scenario.</p>
 <p>
 Redis has two data <a href="https://redis.io/topics/persistence">persistence</a> solutions: the RDB persistence and AOF persistence. The RDB persistence is suitable for making complete point-in-time backups every a few minutes, which can be configured via the <code class="verbatim">save</code> directive. And the AOF persistence is finer-grained, as it logs every command that it executes, and there are three options for how frequent it flushes (<code class="verbatim">[[https://man7.org/linux/man-pages/man2/fsync.2.html][fsync]]</code>&#39;ing in the syscall level) the AOF file to the disk (the <code class="verbatim">appendfsync</code> option):</p>
 <ul>
@@ -323,7 +323,7 @@ As a comparison, MySQL has a similar mechanism called binary log (binlog) to log
     <ul class="share">
       
       <li>
-        <a href="//twitter.com/share?url=https%3a%2f%2fwhatacold.io%2fblog%2f2020-06-25-is-it-safe-to-use-redis-as-a-data-store%2f&amp;text=Is%20it%20safe%20to%20use%20Redis%20as%20a%20data%20store%3f&amp;via=whatacold" target="_blank" title="Share on Twitter">
+        <a href="//twitter.com/share?url=https%3a%2f%2fwhatacold.io%2fblog%2f2020-06-25-is-it-safe-to-use-redis-as-a-data-store%2f&amp;text=Is%20It%20Safe%20to%20Use%20Redis%20As%20a%20Data%20Store%3f&amp;via=whatacold" target="_blank" title="Share on Twitter">
           <i class="fab fa-twitter"></i>
         </a>
       </li>
@@ -337,28 +337,28 @@ As a comparison, MySQL has a similar mechanism called binary log (binlog) to log
   
       
       <li>
-        <a href="//reddit.com/submit?url=https%3a%2f%2fwhatacold.io%2fblog%2f2020-06-25-is-it-safe-to-use-redis-as-a-data-store%2f&amp;title=Is%20it%20safe%20to%20use%20Redis%20as%20a%20data%20store%3f" target="_blank" title="Share on Reddit">
+        <a href="//reddit.com/submit?url=https%3a%2f%2fwhatacold.io%2fblog%2f2020-06-25-is-it-safe-to-use-redis-as-a-data-store%2f&amp;title=Is%20It%20Safe%20to%20Use%20Redis%20As%20a%20Data%20Store%3f" target="_blank" title="Share on Reddit">
           <i class="fab fa-reddit"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fwhatacold.io%2fblog%2f2020-06-25-is-it-safe-to-use-redis-as-a-data-store%2f&amp;title=Is%20it%20safe%20to%20use%20Redis%20as%20a%20data%20store%3f" target="_blank" title="Share on LinkedIn">
+        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fwhatacold.io%2fblog%2f2020-06-25-is-it-safe-to-use-redis-as-a-data-store%2f&amp;title=Is%20It%20Safe%20to%20Use%20Redis%20As%20a%20Data%20Store%3f" target="_blank" title="Share on LinkedIn">
           <i class="fab fa-linkedin"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fwhatacold.io%2fblog%2f2020-06-25-is-it-safe-to-use-redis-as-a-data-store%2f&amp;title=Is%20it%20safe%20to%20use%20Redis%20as%20a%20data%20store%3f" target="_blank" title="Share on StumbleUpon">
+        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fwhatacold.io%2fblog%2f2020-06-25-is-it-safe-to-use-redis-as-a-data-store%2f&amp;title=Is%20It%20Safe%20to%20Use%20Redis%20As%20a%20Data%20Store%3f" target="_blank" title="Share on StumbleUpon">
           <i class="fab fa-stumbleupon"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fwhatacold.io%2fblog%2f2020-06-25-is-it-safe-to-use-redis-as-a-data-store%2f&amp;description=Is%20it%20safe%20to%20use%20Redis%20as%20a%20data%20store%3f" target="_blank" title="Share on Pinterest">
+        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fwhatacold.io%2fblog%2f2020-06-25-is-it-safe-to-use-redis-as-a-data-store%2f&amp;description=Is%20It%20Safe%20to%20Use%20Redis%20As%20a%20Data%20Store%3f" target="_blank" title="Share on Pinterest">
           <i class="fab fa-pinterest"></i>
         </a>
       </li>
