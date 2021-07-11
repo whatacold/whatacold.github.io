@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="en" itemscope itemtype="http://schema.org/WebPage">
+  <head>
+    
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+
+
+
+  
+
+  <title>A Random Password Generator in Babashka - whatacold&#39;s Space</title>
+  <meta name="description" content="I&#39;m used to learning by practicing, so when I learned Clojure, I always kept an eye on chances to write code in it.
+ Scripting is an excellent field to practice, but the experience is not so good. On the one hand, it&#39;s too hacky to wrap Clojure code in a shell script with the shell bang. On the other hand, the startup time of JVM is too long to hurt the user experience.">
+  <meta name="author" content="whatacold"/><script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "WebSite",
+    "name": "whatacold\u0027s Space",
+    
+    "url": "https:\/\/whatacold.io"
+}
+</script><script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Organization",
+  "name": "",
+  "url": "https:\/\/whatacold.io"
+  
+  
+  
+  
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "item": {
+          "@id": "https:\/\/whatacold.io",
+          "name": "home"
+        }
+    },{
+        "@type": "ListItem",
+        "position": 3,
+        "item": {
+          "@id": "https:\/\/whatacold.io\/blog\/2021-07-11-babashka-random-password-generator\/",
+          "name": "A random password generator in babashka"
+        }
+    }]
+}
+</script><script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Article",
+  "author": {
+    "name" : "whatacold"
+  },
+  "headline": "A Random Password Generator in Babashka",
+  "description" : "I\u0026#39;m used to learning by practicing, so when I learned Clojure, I always kept an eye on chances to write code in it.\n Scripting is an excellent field to practice, but the experience is not so good. On the one hand, it\u0026#39;s too hacky to wrap Clojure code in a shell script with the shell bang. On the other hand, the startup time of JVM is too long to hurt the user experience.",
+  "inLanguage" : "en",
+  "wordCount":  347 ,
+  "datePublished" : "2021-07-11T09:18:41",
+  "dateModified" : "2021-07-11T09:18:41",
+  "image" : "https:\/\/whatacold.io\/img\/avatar.png",
+  "keywords" : [ "Babashka, Clojure" ],
+  "mainEntityOfPage" : "https:\/\/whatacold.io\/blog\/2021-07-11-babashka-random-password-generator\/",
+  "publisher" : {
+    "@type": "Organization",
+    "name" : "https:\/\/whatacold.io",
+    "logo" : {
+        "@type" : "ImageObject",
+        "url" : "https:\/\/whatacold.io\/img\/avatar.png",
+        "height" :  60 ,
+        "width" :  60
+    }
+  }
+}
+</script>
+
+<meta property="og:title" content="A Random Password Generator in Babashka" />
+<meta property="og:description" content="I&#39;m used to learning by practicing, so when I learned Clojure, I always kept an eye on chances to write code in it.
+ Scripting is an excellent field to practice, but the experience is not so good. On the one hand, it&#39;s too hacky to wrap Clojure code in a shell script with the shell bang. On the other hand, the startup time of JVM is too long to hurt the user experience.">
+<meta property="og:image" content="https://whatacold.io/img/avatar.png" />
+<meta property="og:url" content="https://whatacold.io/blog/2021-07-11-babashka-random-password-generator/" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="whatacold&#39;s Space" />
+
+  <meta name="twitter:title" content="A Random Password Generator in Babashka" />
+  <meta name="twitter:description" content="I&#39;m used to learning by practicing, so when I learned Clojure, I always kept an eye on chances to write code in it.
+ Scripting is an excellent field to practice, but the experience is not so good. …">
+  <meta name="twitter:image" content="https://whatacold.io/img/avatar.png" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@whatacold" />
+  <meta name="twitter:creator" content="@whatacold" />
+  <link href='https://whatacold.io/img/favicon.ico' rel='icon' type='image/x-icon'/>
+  <meta name="generator" content="Hugo 0.80.0" />
+  <link rel="alternate" href="https://whatacold.io/index.xml" type="application/rss+xml" title="whatacold&#39;s Space"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"><link rel="stylesheet" href="https://whatacold.io/css/main.css" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
+  <link rel="stylesheet" href="https://whatacold.io/css/highlight.min.css" /><link rel="stylesheet" href="https://whatacold.io/css/codeblock.css" /><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.css" integrity="sha384-h/L2W9KefUClHWaty3SLE5F/qvc4djlyR4qY3NUV5HGQBBW7stbcfff1+I/vmsHh" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/default-skin/default-skin.min.css" integrity="sha384-iD0dNku6PYSIQLyfTOpB06F2KCZJAKLOThS5HRe8b3ibhdEQ6eKsFf/EeFxdOt5R" crossorigin="anonymous">
+
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-74588785-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+  </head>
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://whatacold.io">whatacold&#39;s Space</a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+          
+            <li>
+              <a title="About" href="/about/">About</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="Tags" href="/tags">Tags</a>
+            </li>
+          
+        
+
+        
+          
+            <li>
+              
+                
+              
+                
+                  <a href="/zh-cn" lang="zh-cn">简体中文</a>
+                
+              
+            </li>
+          
+        
+
+        
+      </ul>
+    </div>
+
+    
+      <div class="avatar-container">
+        <div class="avatar-img-border">
+          <a title="whatacold&#39;s Space" href="https://whatacold.io">
+            <img class="avatar-img" src="https://whatacold.io/img/avatar.png" alt="whatacold&#39;s Space" />
+          </a>
+        </div>
+      </div>
+    
+
+  </div>
+</nav>
+
+
+
+
+    
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+  
+  
+  
+
+
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    <div class="intro-header no-img">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <div class="blog-heading">
+              
+                <h1>A Random Password Generator in Babashka</h1>
+              
+              
+                <hr class="small">
+              
+              
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+    
+<div class="container" role="main">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+      <article role="main" class="blog-post">
+        <p>
+I&#39;m used to learning by practicing, so when I learned Clojure, I always kept an eye on chances to write code in it.</p>
+<p>
+Scripting is an excellent field to practice, but the experience is not so good. On the one hand, it&#39;s too hacky to wrap Clojure code in a shell script with the shell bang. On the other hand, the startup time of JVM is too long to hurt the user experience.</p>
+<p>
+It seems this is a dead end until I found <a href="https://book.babashka.org/">Babashka</a> on Reddit one day, it really blew my mind with its lightning-fast startup speed, and it&#39;s also Clojure.</p>
+<p>
+So what can I do with it?</p>
+<p>
+Many websites require us to have a username and a password, and it&#39;s risky to have the same or similar passwords for them. But it takes time to come up with passwords for every website. So why not generating random passwords in Babashka?</p>
+<p>
+The requirements for it would be:</p>
+<ol>
+<li>
+<p>The characters should be random.</p>
+</li>
+<li>
+<p>It should be long enough. 12 or 16 is good.</p>
+</li>
+<li>
+<p>The password should be a combination of lowercase letters, uppercase letters, numbers, and symbols.</p>
+<p>
+Well, this requirement is not met yet.</p>
+</li>
+</ol>
+<p>As for the first one, I learned how to do it in Clojure when I read <a href="https://github.com/lk-geimfari/secrets.clj">secrets.clj</a>, <code class="verbatim">java.security</code> is a good fit for it.</p>
+<p>
+The journey to implement it was fun, as I can write the code bottom-up and top-down, and I can quickly experiment and test the code with REPL.</p>
+<figure>
+<img src="/img/2021-07-11-babashka-random-password-generator.png" alt="/img/2021-07-11-babashka-random-password-generator.png" title="/img/2021-07-11-babashka-random-password-generator.png" /><figcaption>
+Generate Random Passwords in No Time
+</figcaption>
+</figure>
+<p>
+The final code is quite simple:</p>
+<div class="src src-clojure">
+<div class="highlight"><pre class="chroma"><code class="language-clojure" data-lang="clojure"><span class="o">#</span><span class="nv">!/usr/bin/env</span> <span class="nv">bb</span>
+
+<span class="p">(</span><span class="nb">import </span><span class="p">[</span><span class="nv">java.security</span> <span class="nv">SecureRandom</span><span class="p">])</span>
+
+<span class="p">(</span><span class="k">def </span><span class="o">^</span><span class="ss">:private</span> <span class="nv">rng</span> <span class="p">(</span><span class="nf">SecureRandom.</span><span class="p">))</span>
+
+<span class="p">(</span><span class="k">let </span><span class="p">[</span><span class="nv">len</span> <span class="mi">16</span>
+      <span class="nv">passwd</span> <span class="p">(</span><span class="nf">char-array</span> <span class="nv">len</span><span class="p">)</span>
+      <span class="nv">chars</span> <span class="p">(</span><span class="nb">map char </span><span class="p">(</span><span class="nb">concat </span><span class="p">(</span><span class="nb">range </span><span class="mi">48</span> <span class="mi">58</span><span class="p">)</span> <span class="c1">; 0-9</span>
+                              <span class="p">(</span><span class="nb">range </span><span class="mi">65</span> <span class="mi">91</span><span class="p">)</span> <span class="c1">; A-Z</span>
+                              <span class="p">(</span><span class="nb">range </span><span class="mi">97</span> <span class="mi">123</span><span class="p">)</span> <span class="c1">; a-z</span>
+                              <span class="p">[</span><span class="sc">\~</span> <span class="sc">\!</span> <span class="sc">\@</span> <span class="sc">\#</span> <span class="sc">\$</span> <span class="sc">\%</span> <span class="sc">\^</span> <span class="sc">\&amp;</span> <span class="sc">\*</span> <span class="sc">\(</span> <span class="sc">\)</span> <span class="sc">\-</span> <span class="sc">\+</span> <span class="sc">\=</span><span class="p">]))</span>
+      <span class="nv">nchars</span> <span class="p">(</span><span class="nb">count </span><span class="nv">chars</span><span class="p">)]</span>
+  <span class="p">(</span><span class="nb">println </span><span class="p">(</span><span class="nf">clojure.string/join</span> <span class="s">&#34;&#34;</span>
+                                <span class="p">(</span><span class="nb">mapcat </span><span class="p">(</span><span class="k">fn </span><span class="p">[</span><span class="nv">char</span><span class="p">]</span>
+                                          <span class="p">(</span><span class="nb">str </span><span class="p">(</span><span class="nb">nth </span><span class="nv">chars</span> <span class="p">(</span><span class="nf">.nextInt</span> <span class="nv">rng</span> <span class="nv">nchars</span><span class="p">))))</span>
+                                        <span class="nv">passwd</span><span class="p">))))</span></code></pre></div>
+</div>
+<p>
+I make a git repo, <a href="https://github.com/whatacold/babashka-tools">babashka-tools</a>, for it at GitHub. I can&#39;t wait to have other ideas to write code in Babashka.</p>
+<p>
+Any ideas or suggestions?</p>
+
+
+        
+          <div class="blog-tags">
+            
+              <a href="https://whatacold.io/tags/babashka/">Babashka</a>&nbsp;
+            
+              <a href="https://whatacold.io/tags/clojure/">Clojure</a>&nbsp;
+            
+          </div>
+        
+
+        
+            <hr/>
+            <section id="social-share">
+              <div class="list-inline footer-links">
+                
+
+<div class="share-box" aria-hidden="true">
+    <ul class="share">
+      
+      <li>
+        <a href="//twitter.com/share?url=https%3a%2f%2fwhatacold.io%2fblog%2f2021-07-11-babashka-random-password-generator%2f&amp;text=A%20Random%20Password%20Generator%20in%20Babashka&amp;via=whatacold" target="_blank" title="Share on Twitter">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fwhatacold.io%2fblog%2f2021-07-11-babashka-random-password-generator%2f" target="_blank" title="Share on Facebook">
+          <i class="fab fa-facebook"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//reddit.com/submit?url=https%3a%2f%2fwhatacold.io%2fblog%2f2021-07-11-babashka-random-password-generator%2f&amp;title=A%20Random%20Password%20Generator%20in%20Babashka" target="_blank" title="Share on Reddit">
+          <i class="fab fa-reddit"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fwhatacold.io%2fblog%2f2021-07-11-babashka-random-password-generator%2f&amp;title=A%20Random%20Password%20Generator%20in%20Babashka" target="_blank" title="Share on LinkedIn">
+          <i class="fab fa-linkedin"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fwhatacold.io%2fblog%2f2021-07-11-babashka-random-password-generator%2f&amp;title=A%20Random%20Password%20Generator%20in%20Babashka" target="_blank" title="Share on StumbleUpon">
+          <i class="fab fa-stumbleupon"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fwhatacold.io%2fblog%2f2021-07-11-babashka-random-password-generator%2f&amp;description=A%20Random%20Password%20Generator%20in%20Babashka" target="_blank" title="Share on Pinterest">
+          <i class="fab fa-pinterest"></i>
+        </a>
+      </li>
+    </ul>
+  </div>
+  
+
+              </div>
+            </section>
+        
+
+        
+          
+
+          
+        
+      </article>
+
+      
+        <ul class="pager blog-pager">
+          
+            <li class="previous">
+              <a href="https://whatacold.io/blog/2020-10-21-a-python-re.findall-service/" data-toggle="tooltip" data-placement="top" title="An online Python re.findall Service">&larr; Previous Post</a>
+            </li>
+          
+          
+        </ul>
+      
+
+
+      
+        
+          
+          <div class="disqus-comments">
+            <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "whatacold" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+          </div>
+          
+        
+        
+      
+
+    </div>
+  </div>
+</div>
+
+      
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+          
+              <li>
+                <a href="mailto:whatacold@gmail.com" title="Email me">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fas fa-envelope fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://github.com/whatacold" title="GitHub">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://twitter.com/whatacold" title="Twitter">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://reddit.com/u/whatacold" title="Reddit">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-reddit-alien fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://stackoverflow.com/users/910978/whatacold" title="StackOverflow">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-stack-overflow fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://www.youtube.com/channel/UC2unslchfhzbub47Qq2U88w" title="Youtube">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-youtube fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+          
+          <li>
+            <a href="" title="RSS">
+              <span class="fa-stack fa-lg">
+                <i class="fas fa-circle fa-stack-2x"></i>
+                <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+        </ul>
+        <p class="credits copyright text-muted">
+          
+            
+              whatacold
+            
+          
+
+          &nbsp;&bull;&nbsp;&copy;
+          
+            2018 - 2021
+          
+
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://whatacold.io">whatacold&#39;s Space</a>
+          
+        </p>
+        
+        <p class="credits theme-by text-muted">
+          <a href="https://gohugo.io">Hugo v0.80.0</a> powered &nbsp;&bull;&nbsp; Theme <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> adapted from <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer><script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.js" integrity="sha384-K3vbOmF2BtaVai+Qk37uypf7VrgBubhQreNQe9aGsz9lB63dIFiQVlJbr92dw2Lx" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/contrib/auto-render.min.js" integrity="sha384-kmZOZB5ObwgQnS/DuDg6TScgOiWWBiVt0plIRkZCmE6rDZGrEOQeHM5PcHi+nyqe" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+<script src="https://whatacold.io/js/main.js"></script>
+<script src="https://whatacold.io/js/highlight.min.js"></script>
+<script> hljs.initHighlightingOnLoad(); </script>
+<script> $(document).ready(function() {$("pre.chroma").css("padding","0");}); </script><script> renderMathInElement(document.body); </script><script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.js" integrity="sha384-QELNnmcmU8IR9ZAykt67vGr9/rZJdHbiWi64V88fCPaOohUlHCqUD/unNN0BXSqy" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe-ui-default.min.js" integrity="sha384-m67o7SkQ1ALzKZIFh4CiTA8tmadaujiTa9Vu+nqPSwDOqHrDmxLezTdFln8077+q" crossorigin="anonymous"></script><script src="https://whatacold.io/js/load-photoswipe.js"></script>
+
+
+
+
+
+
+
+
+
+    
+  </body>
+</html>
+
