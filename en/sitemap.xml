@@ -3,6 +3,66 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://whatacold.io/blog/2021-07-11-babashka-random-password-generator/</loc>
+    <lastmod>2021-07-11T09:18:41+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://whatacold.io/tags/babashka/</loc>
+    <lastmod>2021-07-11T09:18:41+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://whatacold.io/blog/</loc>
+    <lastmod>2021-07-11T09:18:41+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-cn"
+                href="https://whatacold.io/zh-cn/blog/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://whatacold.io/blog/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://whatacold.io/tags/clojure/</loc>
+    <lastmod>2021-07-11T09:18:41+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://whatacold.io/tags/</loc>
+    <lastmod>2021-07-11T09:18:41+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-cn"
+                href="https://whatacold.io/zh-cn/tags/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://whatacold.io/tags/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://whatacold.io/</loc>
+    <lastmod>2021-07-11T09:18:41+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-cn"
+                href="https://whatacold.io/zh-cn/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://whatacold.io/"
+                />
+  </url>
+  
+  <url>
     <loc>https://whatacold.io/about/</loc>
     <lastmod>2021-07-09T22:37:07+08:00</lastmod>
     <xhtml:link
@@ -23,21 +83,6 @@
   </url>
   
   <url>
-    <loc>https://whatacold.io/blog/</loc>
-    <lastmod>2020-10-21T22:51:00+08:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh-cn"
-                href="https://whatacold.io/zh-cn/blog/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://whatacold.io/blog/"
-                />
-  </url>
-  
-  <url>
     <loc>https://whatacold.io/tags/python/</loc>
     <lastmod>2020-10-21T22:51:00+08:00</lastmod>
     <xhtml:link
@@ -53,38 +98,8 @@
   </url>
   
   <url>
-    <loc>https://whatacold.io/tags/</loc>
-    <lastmod>2020-10-21T22:51:00+08:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh-cn"
-                href="https://whatacold.io/zh-cn/tags/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://whatacold.io/tags/"
-                />
-  </url>
-  
-  <url>
     <loc>https://whatacold.io/tags/texttoolkit/</loc>
     <lastmod>2020-10-21T22:51:00+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://whatacold.io/</loc>
-    <lastmod>2020-10-21T22:51:00+08:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh-cn"
-                href="https://whatacold.io/zh-cn/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://whatacold.io/"
-                />
   </url>
   
   <url>

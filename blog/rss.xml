@@ -1,13 +1,23 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Blogs on whatacold&#39;s world</title>
+    <title>Blogs on whatacold&#39;s Space</title>
     <link>https://whatacold.io/blog/</link>
-    <description>Recent content in Blogs on whatacold&#39;s world</description>
+    <description>Recent content in Blogs on whatacold&#39;s Space</description>
     <generator>Hugo -- gohugo.io</generator>
     <managingEditor>whatacold@gmail.com (whatacold)</managingEditor>
     <webMaster>whatacold@gmail.com (whatacold)</webMaster>
-    <lastBuildDate>Wed, 21 Oct 2020 22:51:00 +0800</lastBuildDate><atom:link href="https://whatacold.io/blog/rss.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 11 Jul 2021 09:18:41 +0800</lastBuildDate><atom:link href="https://whatacold.io/blog/rss.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>A Random Password Generator in Babashka</title>
+      <link>https://whatacold.io/blog/2021-07-11-babashka-random-password-generator/</link>
+      <pubDate>Sun, 11 Jul 2021 09:18:41 +0800</pubDate>
+      <author>whatacold@gmail.com (whatacold)</author>
+      <guid>https://whatacold.io/blog/2021-07-11-babashka-random-password-generator/</guid>
+      <description>I&amp;#39;m used to learning by practicing, so when I learned Clojure, I always kept an eye on chances to write code in it.
+ Scripting is an excellent field to practice, but the experience is not so good. On the one hand, it&amp;#39;s too hacky to wrap Clojure code in a shell script with the shell bang. On the other hand, the startup time of JVM is too long to hurt the user experience.</description>
+    </item>
+    
     <item>
       <title>An online Python re.findall Service</title>
       <link>https://whatacold.io/blog/2020-10-21-a-python-re.findall-service/</link>

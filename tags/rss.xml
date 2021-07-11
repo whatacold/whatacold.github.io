@@ -1,13 +1,31 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Tags on whatacold&#39;s world</title>
+    <title>Tags on whatacold&#39;s Space</title>
     <link>https://whatacold.io/tags/</link>
-    <description>Recent content in Tags on whatacold&#39;s world</description>
+    <description>Recent content in Tags on whatacold&#39;s Space</description>
     <generator>Hugo -- gohugo.io</generator>
     <managingEditor>whatacold@gmail.com (whatacold)</managingEditor>
     <webMaster>whatacold@gmail.com (whatacold)</webMaster>
-    <lastBuildDate>Wed, 21 Oct 2020 22:51:00 +0800</lastBuildDate><atom:link href="https://whatacold.io/tags/rss.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 11 Jul 2021 09:18:41 +0800</lastBuildDate><atom:link href="https://whatacold.io/tags/rss.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Babashka</title>
+      <link>https://whatacold.io/tags/babashka/</link>
+      <pubDate>Sun, 11 Jul 2021 09:18:41 +0800</pubDate>
+      <author>whatacold@gmail.com (whatacold)</author>
+      <guid>https://whatacold.io/tags/babashka/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Clojure</title>
+      <link>https://whatacold.io/tags/clojure/</link>
+      <pubDate>Sun, 11 Jul 2021 09:18:41 +0800</pubDate>
+      <author>whatacold@gmail.com (whatacold)</author>
+      <guid>https://whatacold.io/tags/clojure/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>Python</title>
       <link>https://whatacold.io/tags/python/</link>
