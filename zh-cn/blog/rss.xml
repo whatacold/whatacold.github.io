@@ -7,7 +7,16 @@
     <generator>Hugo -- gohugo.io</generator>
     <managingEditor>whatacold@gmail.com (whatacold)</managingEditor>
     <webMaster>whatacold@gmail.com (whatacold)</webMaster>
-    <lastBuildDate>Sat, 10 Jul 2021 20:37:11 +0800</lastBuildDate><atom:link href="https://whatacold.io/zh-cn/blog/rss.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 12 Jul 2021 23:34:11 +0800</lastBuildDate><atom:link href="https://whatacold.io/zh-cn/blog/rss.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>在线用 Python 正则查找文本</title>
+      <link>https://whatacold.io/zh-cn/blog/2021-07-12-python-re-chazhao/</link>
+      <pubDate>Mon, 12 Jul 2021 23:34:11 +0800</pubDate>
+      <author>whatacold@gmail.com (whatacold)</author>
+      <guid>https://whatacold.io/zh-cn/blog/2021-07-12-python-re-chazhao/</guid>
+      <description>前段时间做了一个使用 Python 正则提取文本的工具服务： https://texttoolkit.com/re.findall ，用于解决日常一些繁琐的查找文本的需求。 工具主界面 场景 1 日常开发工作中你可能也需要像我一样，</description>
+    </item>
+    
     <item>
       <title>个人网站迁移 Hugo 记</title>
       <link>https://whatacold.io/zh-cn/blog/2021-07-10-migrate-site-hugo/</link>

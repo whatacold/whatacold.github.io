@@ -7,13 +7,31 @@
     <generator>Hugo -- gohugo.io</generator>
     <managingEditor>whatacold@gmail.com (whatacold)</managingEditor>
     <webMaster>whatacold@gmail.com (whatacold)</webMaster>
-    <lastBuildDate>Sat, 10 Jul 2021 20:37:11 +0800</lastBuildDate><atom:link href="https://whatacold.io/zh-cn/tags/rss.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 12 Jul 2021 23:34:11 +0800</lastBuildDate><atom:link href="https://whatacold.io/zh-cn/tags/rss.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Hugo</title>
       <link>https://whatacold.io/zh-cn/tags/hugo/</link>
-      <pubDate>Sat, 10 Jul 2021 20:37:11 +0800</pubDate>
+      <pubDate>Mon, 12 Jul 2021 23:34:11 +0800</pubDate>
       <author>whatacold@gmail.com (whatacold)</author>
       <guid>https://whatacold.io/zh-cn/tags/hugo/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Python</title>
+      <link>https://whatacold.io/zh-cn/tags/python/</link>
+      <pubDate>Mon, 12 Jul 2021 23:34:11 +0800</pubDate>
+      <author>whatacold@gmail.com (whatacold)</author>
+      <guid>https://whatacold.io/zh-cn/tags/python/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>texttoolkit</title>
+      <link>https://whatacold.io/zh-cn/tags/texttoolkit/</link>
+      <pubDate>Mon, 12 Jul 2021 23:34:11 +0800</pubDate>
+      <author>whatacold@gmail.com (whatacold)</author>
+      <guid>https://whatacold.io/zh-cn/tags/texttoolkit/</guid>
       <description></description>
     </item>
     
@@ -59,15 +77,6 @@
       <pubDate>Sat, 11 Apr 2020 22:17:00 +0800</pubDate>
       <author>whatacold@gmail.com (whatacold)</author>
       <guid>https://whatacold.io/zh-cn/tags/emacs/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Python</title>
-      <link>https://whatacold.io/zh-cn/tags/python/</link>
-      <pubDate>Tue, 01 Oct 2019 22:28:00 +0800</pubDate>
-      <author>whatacold@gmail.com (whatacold)</author>
-      <guid>https://whatacold.io/zh-cn/tags/python/</guid>
       <description></description>
     </item>
     

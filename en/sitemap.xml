@@ -80,6 +80,16 @@
   <url>
     <loc>https://whatacold.io/blog/2020-10-21-a-python-re.findall-service/</loc>
     <lastmod>2020-10-21T22:51:00+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-cn"
+                href="https://whatacold.io/zh-cn/blog/2021-07-12-python-re-chazhao/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://whatacold.io/blog/2020-10-21-a-python-re.findall-service/"
+                />
   </url>
   
   <url>
@@ -100,6 +110,16 @@
   <url>
     <loc>https://whatacold.io/tags/texttoolkit/</loc>
     <lastmod>2020-10-21T22:51:00+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-cn"
+                href="https://whatacold.io/zh-cn/tags/texttoolkit/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://whatacold.io/tags/texttoolkit/"
+                />
   </url>
   
   <url>

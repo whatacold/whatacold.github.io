@@ -64,7 +64,7 @@
   "headline": "个人网站迁移 Hugo 记",
   "description" : "从 2018 年开始用 org-static-org 写博客到现在也有几年时间了，写的文章比较少，总体上这个简单的静态网站生成方案都能够满足需求。 但中途也发现一些不够用的地方，比如",
   "inLanguage" : "zh-cn",
-  "wordCount":  2369 ,
+  "wordCount":  2645 ,
   "datePublished" : "2021-07-10T20:37:11",
   "dateModified" : "2021-07-10T20:37:11",
   "image" : "https:\/\/whatacold.io\/img\/avatar.png",
@@ -396,8 +396,8 @@ if (!doNotTrack) {
 <li>
 <p>通过不同文件夹来区分，比如一个 <code class="verbatim">en</code> 文件夹专门放英文文章，另外一个 <code class="verbatim">zh-cn</code> 专门放中文文章。
 官方文档给出的示例是这样的：</p>
-<div class="src src-txt">
-<div class="highlight"><pre class="chroma"><code class="language-txt" data-lang="txt">/content/english/about.md
+<div class="src src-text">
+<div class="highlight"><pre class="chroma"><code class="language-text" data-lang="text">/content/english/about.md
 /content/french/about.md</code></pre></div>
 </div>
 </li>
@@ -422,16 +422,16 @@ if (!doNotTrack) {
 </div>
 <p>
    最初我以为配置要求的目录结构是这样的：</p>
-<div class="src src-txt">
-<div class="highlight"><pre class="chroma"><code class="language-txt" data-lang="txt">content/
+<div class="src src-text">
+<div class="highlight"><pre class="chroma"><code class="language-text" data-lang="text">content/
   posts/
     en/
     zh/</code></pre></div>
 </div>
 <p>
    但通过摸索实践，最终发现它其实要求这样的：</p>
-<div class="src src-txt">
-<div class="highlight"><pre class="chroma"><code class="language-txt" data-lang="txt">content/
+<div class="src src-text">
+<div class="highlight"><pre class="chroma"><code class="language-text" data-lang="text">content/
   en/
     posts/
   zh/
@@ -441,8 +441,8 @@ if (!doNotTrack) {
    这里发现的过程还挺有意思的，算是一种探索、发现新知识的手段。在经历了各种搜索都找不到结果，以及查看文档都始终不得要领的情况下，我就想，如何验证目录结构呢？</p>
 <p>
    要不试试新建一篇文章，看它放在哪里了？</p>
-<div class="src src-txt">
-<div class="highlight"><pre class="chroma"><code class="language-txt" data-lang="txt">$ hugo new posts/test.org    
+<div class="src src-text">
+<div class="highlight"><pre class="chroma"><code class="language-text" data-lang="text">$ hugo new posts/test.org    
 /path/to/hello-world/content/posts/en/posts/test.org created</code></pre></div>
 </div>
 <p>
@@ -506,6 +506,42 @@ if (!doNotTrack) {
 Light House 测评结果表明性能较慢
 </figcaption>
 </figure>
+</li>
+<li>
+<p><del>本地预览版本也会启用 Google Analytics ，污染数据</del></p>
+<p>
+有两种解决方法：</p>
+<ol>
+<li>
+<p>维护两份配置，本地预览和部署版本通过 <code class="verbatim">--config &lt;xxx.toml&gt;</code> 来区分，也可以同时传入多个配置文件，通过 <code class="verbatim">,</code> 逗号隔开</p>
+</li>
+<li>
+<p>以目录组织配置文件，通过命令行参数 <code class="verbatim">--production</code> 来指定环境；环境名就是 config/ 内的子目录名， <code class="verbatim">_default/</code> 目录放兜底的全量配置。</p>
+<p>
+比如这样的目录结构：</p>
+<div class="src src-text">
+<div class="highlight"><pre class="chroma"><code class="language-text" data-lang="text">$ tree config/
+config/
+├── _default
+│   └── config.toml   # 全量配置，不配置 GA id
+└── production
+    └── config.toml   # 配置 GA id
+
+2 directories, 2 files</code></pre></div>
+</div>
+</li>
+</ol>
+<p>第二种方法比较符合我的胃口，配置结构清晰，较为易用。有了上面的配置结构，通过 <code class="verbatim">hugo server -D</code> 启动的本地版本就不再上报 GA ；修改博客达到满意的效果之后，再 <code class="verbatim">hugo --environment production</code> 生成最终的包含 GA 的网站。</p>
+<p>
+参考：</p>
+<ul>
+<li>
+<p><a href="https://gohugo.io/getting-started/configuration/">Configure Hugo | Hugo - gohugo.io</a></p>
+</li>
+<li>
+<p><a href="https://github.com/gohugoio/hugo/issues/7422">analytics: Disable GA on localhost · Issue #7422 · gohugoio/hugo - github.com</a></p>
+</li>
+</ul>
 </li>
 <li>
 <p><del>favicon 在 Chrome 浏览器中无法显示，在 Firefox 中正常（本地开发环境都 ok ）</del></p>
@@ -640,6 +676,17 @@ Hugo 不支持的 orgmode 特性
 
         
           
+            
+          
+
+          
+                  <h4 class="see-also">也可以看看</h4>
+                  <ul>
+                
+                
+                    <li><a href="/zh-cn/blog/2021-07-12-python-re-chazhao/">在线用 Python 正则查找文本</a></li>
+                
+              </ul>
 
           
         
@@ -652,6 +699,10 @@ Hugo 不支持的 orgmode 特性
               <a href="https://whatacold.io/zh-cn/blog/2021-02-27-wrk-yuanli/" data-toggle="tooltip" data-placement="top" title="HTTP压测工具wrk的实现原理">&larr; 前一篇</a>
             </li>
           
+          
+            <li class="next">
+              <a href="https://whatacold.io/zh-cn/blog/2021-07-12-python-re-chazhao/" data-toggle="tooltip" data-placement="top" title="在线用 Python 正则查找文本">后一篇 &rarr;</a>
+            </li>
           
         </ul>
       

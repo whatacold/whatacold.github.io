@@ -4,7 +4,7 @@
   
   <url>
     <loc>https://whatacold.io/zh-cn/blog/</loc>
-    <lastmod>2021-07-10T20:37:11+08:00</lastmod>
+    <lastmod>2021-07-12T23:34:11+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -19,7 +19,82 @@
   
   <url>
     <loc>https://whatacold.io/zh-cn/tags/hugo/</loc>
-    <lastmod>2021-07-10T20:37:11+08:00</lastmod>
+    <lastmod>2021-07-12T23:34:11+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://whatacold.io/zh-cn/tags/python/</loc>
+    <lastmod>2021-07-12T23:34:11+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://whatacold.io/tags/python/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-cn"
+                href="https://whatacold.io/zh-cn/tags/python/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://whatacold.io/zh-cn/tags/</loc>
+    <lastmod>2021-07-12T23:34:11+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://whatacold.io/tags/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-cn"
+                href="https://whatacold.io/zh-cn/tags/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://whatacold.io/zh-cn/tags/texttoolkit/</loc>
+    <lastmod>2021-07-12T23:34:11+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://whatacold.io/tags/texttoolkit/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-cn"
+                href="https://whatacold.io/zh-cn/tags/texttoolkit/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://whatacold.io/zh-cn/</loc>
+    <lastmod>2021-07-12T23:34:11+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://whatacold.io/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-cn"
+                href="https://whatacold.io/zh-cn/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://whatacold.io/zh-cn/blog/2021-07-12-python-re-chazhao/</loc>
+    <lastmod>2021-07-12T23:34:11+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://whatacold.io/blog/2020-10-21-a-python-re.findall-service/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-cn"
+                href="https://whatacold.io/zh-cn/blog/2021-07-12-python-re-chazhao/"
+                />
   </url>
   
   <url>
@@ -34,36 +109,6 @@
                 rel="alternate"
                 hreflang="zh-cn"
                 href="https://whatacold.io/zh-cn/tags/org-mode/"
-                />
-  </url>
-  
-  <url>
-    <loc>https://whatacold.io/zh-cn/tags/</loc>
-    <lastmod>2021-07-10T20:37:11+08:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://whatacold.io/tags/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh-cn"
-                href="https://whatacold.io/zh-cn/tags/"
-                />
-  </url>
-  
-  <url>
-    <loc>https://whatacold.io/zh-cn/</loc>
-    <lastmod>2021-07-10T20:37:11+08:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://whatacold.io/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh-cn"
-                href="https://whatacold.io/zh-cn/"
                 />
   </url>
   
@@ -130,21 +175,6 @@
   <url>
     <loc>https://whatacold.io/zh-cn/blog/2020-04-11-use-ppcompile-to-remote-compile-in-emacs/</loc>
     <lastmod>2020-04-11T22:17:00+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://whatacold.io/zh-cn/tags/python/</loc>
-    <lastmod>2019-10-01T22:28:00+08:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://whatacold.io/tags/python/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh-cn"
-                href="https://whatacold.io/zh-cn/tags/python/"
-                />
   </url>
   
   <url>
