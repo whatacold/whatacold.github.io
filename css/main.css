@@ -815,7 +815,3 @@ h4.see-also {
  ul.share li:hover .fab {
   transform: scale(1.4)
 }
-
-figcaption {
-  margin-bottom: 2em;
-}

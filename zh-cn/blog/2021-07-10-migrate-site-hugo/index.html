@@ -64,7 +64,7 @@
   "headline": "个人网站迁移 Hugo 记",
   "description" : "从 2018 年开始用 org-static-org 写博客到现在也有几年时间了，写的文章比较少，总体上这个简单的静态网站生成方案都能够满足需求。 但中途也发现一些不够用的地方，比如",
   "inLanguage" : "zh-cn",
-  "wordCount":  2645 ,
+  "wordCount":  2636 ,
   "datePublished" : "2021-07-10T20:37:11",
   "dateModified" : "2021-07-10T20:37:11",
   "image" : "https:\/\/whatacold.io\/img\/avatar.png",
@@ -328,7 +328,7 @@ if (!doNotTrack) {
   <span class="k">- [X]</span> 社交分享支持
   <span class="k">- [X]</span> 首页文章倒序，最新的在最上面
   <span class="k">- [X]</span> 文章内部如何支持显示更新时间、其他语言版本？
-    不支持 [[<span class="na">file:~/workspace/hugo/themes/beautifulhugo/layouts/_default/single.html</span>][<span class="nt">file:~/workspace/hugo/themes/beautifulhugo/layouts/_default/single.html</span>]]
+    不支持
   <span class="k">- [X]</span> 支持 toc 目录
     暂不支持，但可以接受： https://github.com/halogenica/beautifulhugo/issues/219
   <span class="k">- [X]</span> 验证分页条数及效果
@@ -360,7 +360,7 @@ if (!doNotTrack) {
   到目前为止，整个过程都很顺滑，编译速度非常快，只要 100+ms ，很让人惊艳。</p>
 <figure>
 <img src="/img/2021-07-10-hugo-fast-build.png" alt="/img/2021-07-10-hugo-fast-build.png" title="/img/2021-07-10-hugo-fast-build.png" /><figcaption>
-编译只要 121ms
+编译只要 121ms ，非常快！
 </figcaption>
 </figure>
 <p>
@@ -446,7 +446,10 @@ if (!doNotTrack) {
 /path/to/hello-world/content/posts/en/posts/test.org created</code></pre></div>
 </div>
 <p>
-   通过琢磨这里新建文件的路径，我终于明白了多语言的目录结构，如上边所说，其实就是每种语言目录都是一个新的根目录，当时还特意发了一条推文：<a href="https://twitter.com/whatacold/status/1412435353374531592">https://twitter.com/whatacold/status/1412435353374531592</a> 宣布这个发现。</p>
+   通过琢磨这里新建文件的路径，我终于明白了多语言的目录结构，如上边所说，其实就是每种语言目录都是一个新的根目录，当时还特意发了一条推文宣布这个发现：
+<blockquote class="twitter-tweet"><p lang="en" dir="ltr"><a href="https://twitter.com/GoHugoIO?ref_src=twsrc%5Etfw">@GoHugoIO</a> &#39;s config of multilingual mode is tricky, the correct directory hierarchy is like picture #2, instead of picture #3.<br><br>Don&#39;t ask me how I figured it out, at last...😩😩 <a href="https://t.co/9evBfsvH7s">pic.twitter.com/9evBfsvH7s</a></p>&mdash; whatacold (@whatacold) <a href="https://twitter.com/whatacold/status/1412435353374531592?ref_src=twsrc%5Etfw">July 6, 2021</a></blockquote>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+</p>
 </div>
 </div>
 </div>
@@ -503,7 +506,7 @@ if (!doNotTrack) {
 <p>beautifulhugo 页面性能较差，打开一个网页会发起 30+ 请求</p>
 <figure>
 <img src="/img/2021-07-10-beautifulhugo-performance.png" alt="/img/2021-07-10-beautifulhugo-performance.png" title="/img/2021-07-10-beautifulhugo-performance.png" /><figcaption>
-Light House 测评结果表明性能较慢
+Lighthouse 测评结果表明性能较慢
 </figcaption>
 </figure>
 </li>
@@ -676,17 +679,6 @@ Hugo 不支持的 orgmode 特性
 
         
           
-            
-          
-
-          
-                  <h4 class="see-also">也可以看看</h4>
-                  <ul>
-                
-                
-                    <li><a href="/zh-cn/blog/2021-07-12-python-re-chazhao/">在线用 Python 正则查找文本</a></li>
-                
-              </ul>
 
           
         

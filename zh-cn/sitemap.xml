@@ -18,11 +18,6 @@
   </url>
   
   <url>
-    <loc>https://whatacold.io/zh-cn/tags/hugo/</loc>
-    <lastmod>2021-07-12T23:34:11+08:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://whatacold.io/zh-cn/tags/python/</loc>
     <lastmod>2021-07-12T23:34:11+08:00</lastmod>
     <xhtml:link
@@ -95,6 +90,11 @@
                 hreflang="zh-cn"
                 href="https://whatacold.io/zh-cn/blog/2021-07-12-python-re-chazhao/"
                 />
+  </url>
+  
+  <url>
+    <loc>https://whatacold.io/zh-cn/tags/hugo/</loc>
+    <lastmod>2021-07-10T20:37:11+08:00</lastmod>
   </url>
   
   <url>
