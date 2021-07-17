@@ -12,8 +12,11 @@
 
   
 
-  <title>How To Run Bleeding-edge Qtile Within a Virtualenv - whatacold&#39;s Space</title>
-  <meta name="description" content="Want to have a try of bleeding-edge qtile? Here are the steps with virtualenv...">
+  <title>Send Notifications from Emacs with i3wm and Dunst - whatacold&#39;s Space</title>
+  <meta name="description" content="I barely use notifications, but recently I think it&#39;s a valuable way to remind me things like helping me nurture habits, or to notify me of emergencies like a critically low laptop battery.
+ So I try to integrate notifications to org-mode and Emacs today.
+ I knew the built-in org-notify could do this job easily before, so I first test it in the minibuffer with (org-notify &#34;test&#34;).
+ Unfortunately, it errors out:">
   <meta name="author" content="whatacold"/><script type="application/ld+json">
 {
     "@context": "http://schema.org",
@@ -49,8 +52,8 @@
         "@type": "ListItem",
         "position": 3,
         "item": {
-          "@id": "https:\/\/whatacold.io\/blog\/2019-09-29-how-to-run-the-bleeding-edge-code-of-qtile\/",
-          "name": "How to run bleeding edge qtile within a virtualenv"
+          "@id": "https:\/\/whatacold.io\/blog\/2021-07-17-emacs-i3wm-dunst\/",
+          "name": "Send notifications from emacs with i3wm and dunst"
         }
     }]
 }
@@ -61,15 +64,15 @@
   "author": {
     "name" : "whatacold"
   },
-  "headline": "How To Run Bleeding-edge Qtile Within a Virtualenv",
-  "description" : "Want to have a try of bleeding-edge qtile? Here are the steps with virtualenv...",
+  "headline": "Send Notifications from Emacs with i3wm and Dunst",
+  "description" : "I barely use notifications, but recently I think it\u0026#39;s a valuable way to remind me things like helping me nurture habits, or to notify me of emergencies like a critically low laptop battery.\n So I try to integrate notifications to org-mode and Emacs today.\n I knew the built-in org-notify could do this job easily before, so I first test it in the minibuffer with (org-notify \u0026#34;test\u0026#34;).\n Unfortunately, it errors out:",
   "inLanguage" : "en",
-  "wordCount":  353 ,
-  "datePublished" : "2019-09-29T17:05:00",
-  "dateModified" : "2019-09-29T17:05:00",
+  "wordCount":  774 ,
+  "datePublished" : "2021-07-17T12:22:10",
+  "dateModified" : "2021-07-17T12:22:10",
   "image" : "https:\/\/whatacold.io\/img\/avatar.png",
-  "keywords" : [ "Python, tiling-wm" ],
-  "mainEntityOfPage" : "https:\/\/whatacold.io\/blog\/2019-09-29-how-to-run-the-bleeding-edge-code-of-qtile\/",
+  "keywords" : [ "Emacs, i3wm, tiling-wm, extensible-dotfiles" ],
+  "mainEntityOfPage" : "https:\/\/whatacold.io\/blog\/2021-07-17-emacs-i3wm-dunst\/",
   "publisher" : {
     "@type": "Organization",
     "name" : "https:\/\/whatacold.io",
@@ -83,15 +86,19 @@
 }
 </script>
 
-<meta property="og:title" content="How To Run Bleeding-edge Qtile Within a Virtualenv" />
-<meta property="og:description" content="Want to have a try of bleeding-edge qtile? Here are the steps with virtualenv...">
+<meta property="og:title" content="Send Notifications from Emacs with i3wm and Dunst" />
+<meta property="og:description" content="I barely use notifications, but recently I think it&#39;s a valuable way to remind me things like helping me nurture habits, or to notify me of emergencies like a critically low laptop battery.
+ So I try to integrate notifications to org-mode and Emacs today.
+ I knew the built-in org-notify could do this job easily before, so I first test it in the minibuffer with (org-notify &#34;test&#34;).
+ Unfortunately, it errors out:">
 <meta property="og:image" content="https://whatacold.io/img/avatar.png" />
-<meta property="og:url" content="https://whatacold.io/blog/2019-09-29-how-to-run-the-bleeding-edge-code-of-qtile/" />
+<meta property="og:url" content="https://whatacold.io/blog/2021-07-17-emacs-i3wm-dunst/" />
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="whatacold&#39;s Space" />
 
-  <meta name="twitter:title" content="How To Run Bleeding-edge Qtile Within a Virtualenv" />
-  <meta name="twitter:description" content="Want to have a try of bleeding-edge qtile? Here are the steps with virtualenv...">
+  <meta name="twitter:title" content="Send Notifications from Emacs with i3wm and Dunst" />
+  <meta name="twitter:description" content="I barely use notifications, but recently I think it&#39;s a valuable way to remind me things like helping me nurture habits, or to notify me of emergencies like a critically low laptop battery.
+ So I …">
   <meta name="twitter:image" content="https://whatacold.io/img/avatar.png" />
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:site" content="@whatacold" />
@@ -249,7 +256,7 @@ if (!doNotTrack) {
           <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
             <div class="blog-heading">
               
-                <h1>How To Run Bleeding-edge Qtile Within a Virtualenv</h1>
+                <h1>Send Notifications from Emacs with i3wm and Dunst</h1>
               
               
                 <hr class="small">
@@ -270,91 +277,184 @@ if (!doNotTrack) {
     <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
       <article role="main" class="blog-post">
         <p>
-For having been using <a href="https://www.gnome.org/">GNOME</a> for quite a long time, I was considering trying some tiling window managers to see what it&#39;s like a few weeks ago. Along the way, I found a nice window manager written in Python: <a href="http://www.qtile.org">Qtile</a>, what interests me most is that it&#39;s a <strong>hackable</strong> window manager, which makes it flexible to extend or change its behaviors.</p>
+I barely use notifications, but recently I think it&#39;s a valuable way to remind me things like helping me nurture habits, or to notify me of emergencies like a critically low laptop battery.</p>
 <p>
-Well, switching to use a tiling window manager is far simpler than I thought. There are two ways to have it:</p>
+So I try to integrate notifications to org-mode and Emacs today.</p>
+<p>
+I knew the built-in <code class="verbatim">org-notify</code> could do this job easily before, so I first test it in the minibuffer with <code class="verbatim">(org-notify &#34;test&#34;)</code>.</p>
+<p>
+Unfortunately, it errors out:</p>
+<div class="src src-text">
+<div class="highlight"><pre class="chroma"><code class="language-text" data-lang="text">Debugger entered--Lisp error: (dbus-error &#34;Could not activate remote peer.&#34;)
+  signal(dbus-error (&#34;Could not activate remote peer.&#34;))
+  dbus-call-method(:session &#34;org.freedesktop.Notifications&#34; &#34;/org/freedesktop/Notifications&#34; &#34;org.freedesktop.Notifications&#34; &#34;Notify&#34; :string &#34;Emacs&#34; :uint32 0 :string &#34;/usr/share/emacs/27.2/etc/images/icons/hicolor/sca...&#34; :string &#34;Org mode message&#34; :string &#34;test&#34; (:array) ((:dict-entry &#34;urgency&#34; (:variant :byte 0))) :int32 3000)
+  notifications-notify(:title &#34;Org mode message&#34; :body &#34;test&#34; :timeout 3000 :urgency low)
+  org-show-notification(&#34;test&#34;)
+  org-notify(&#34;test&#34;)
+  eval((org-notify &#34;test&#34;) t)
+  eval-expression((org-notify &#34;test&#34;) nil nil 127)
+  funcall-interactively(eval-expression (org-notify &#34;test&#34;) nil nil 127)
+  call-interactively(eval-expression nil nil)
+  command-execute(eval-expression)</code></pre></div>
+</div>
+<p>
+Before switching to <a href="https://i3wm.org/docs/userguide.html">i3wm</a>, I did receive notifications on GNOME, but I never saw one on i3wm. After searching for i3wm and notification, I realized that it&#39;s because there is no notification daemon running, and <a href="https://dunst-project.org/">Dunst</a> pops into my eyes.</p>
+<p>
+Dunst is a lightweight replacement for the notification daemons provided by most desktop environments. The selling points are:</p>
 <ol>
 <li>
-<p>Installing it via the system&#39;s package manager, e.g. <code class="verbatim">dnf</code> for Fedora</p>
+<p>Customizability</p>
 </li>
 <li>
-<p>Installing it from the source code repo.</p>
+<p>Rules</p>
+</li>
+<li>
+<p>Multi-monitor Support</p>
+</li>
+<li>
+<p>History</p>
+</li>
+<li>
+<p>Keyboard-Driven</p>
+</li>
+<li>
+<p>Context Menu</p>
+</li>
+<li>
+<p>Scriptable</p>
 </li>
 </ol>
-<p>If you just want to give it a try, you can just install it via a package manager, logout the current X session, and re-login with Qtile as your window manager (there are options when you log in), and you&#39;re done. It&#39;s that simple.</p>
+<p>That sounds a perfect fit for me. Let&#39;s get started with it.</p>
 <p>
-As Qtile is still under development, I would like to run the bleeding-edge source code to catch up with Qtile.</p>
+Install dunst from the repository and start it up with <code class="verbatim">systemctl start --user dunst</code> and test it with <code class="verbatim">notify-send summary hi</code>, it works!</p>
+<figure>
+<img src="/img/2021-07-17-dunst-notification-cli.png" alt="/img/2021-07-17-dunst-notification-cli.png" title="/img/2021-07-17-dunst-notification-cli.png" /><figcaption>
+Test Notifications with notify-send
+</figcaption>
+</figure>
 <p>
-As in the <a href="http://docs.qtile.org/en/latest/manual/install/index.html#qtile">docs</a> , it&#39;s quite straight-forward to install it.</p>
-<div class="src src-shell">
-<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell">git clone git://github.com/qtile/qtile.git
-<span class="nb">cd</span> qtile
-pip3 install .</code></pre></div>
+But I don&#39;t like the default styling and the popup window position (at the top-right corner), and let&#39;s tweak it.</p>
+<p>
+Copy the default file (<code class="verbatim">cp /usr/share/dunst/dunstrc ~/.config/dunst/dunstrc</code>) and start from the default settings. Since the file is well commented, I barely look up the <a href="https://dunst-project.org/documentation/">online docs</a>, the things that I customize are:</p>
+<div class="src src-diff">
+<div class="highlight"><pre class="chroma"><code class="language-diff" data-lang="diff"><span class="gu">@@ -1,3 +1,4 @@
+</span><span class="gu"></span> [global]
+     ### Display ###
+ 
+<span class="gu">@@ -29,7 +30,7 @@
+</span><span class="gu"></span>     # the top and down respectively.
+     # The width can be negative.  In this case the actual width is the
+     # screen width minus the width defined in within the geometry option.
+<span class="gd">-    geometry = &#34;300x5-30+20&#34;
+</span><span class="gd"></span><span class="gi">+    geometry = &#34;300x5+30+20&#34;
+</span><span class="gi"></span> 
+     # Show how many messages are currently hidden (because of geometry).
+     indicate_hidden = yes
+<span class="gu">@@ -61,10 +62,10 @@
+</span><span class="gu"></span> 
+     # Defines width in pixels of frame around the notification window.
+     # Set to 0 to disable.
+<span class="gd">-    frame_width = 3
+</span><span class="gd"></span><span class="gi">+    frame_width = 2
+</span><span class="gi"></span> 
+     # Defines color of the frame around the notification window.
+<span class="gd">-    frame_color = &#34;#aaaaaa&#34;
+</span><span class="gd"></span><span class="gi">+    frame_color = &#34;#fefefe&#34;
+</span><span class="gi"></span> 
+     # Define a color for the separator.
+     # possible values are:
+<span class="gu">@@ -86,7 +87,7 @@
+</span><span class="gu"></span> 
+     ### Text ###
+ 
+<span class="gd">-    font = Monospace 8
+</span><span class="gd"></span><span class="gi">+    font = Monospace 14
+</span><span class="gi"></span> 
+     # The spacing between lines.  If the height is smaller than the
+     # font height, it will get raised to the font height.
+<span class="gu">@@ -126,7 +127,7 @@
+</span><span class="gu"></span>     #   %n  progress value if set without any extra characters
+     #   %%  Literal %
+     # Markup is allowed
+<span class="gd">-    format = &#34;&lt;b&gt;%s&lt;/b&gt;\n%b&#34;
+</span><span class="gd"></span><span class="gi">+    format = &#34;&lt;b&gt;%s&lt;/b&gt;\n%b\n\nfrom &lt;i&gt;%a&lt;/i&gt;&#34;
+</span><span class="gi"></span> 
+     # Alignment of message text.
+     # Possible values are &#34;left&#34;, &#34;center&#34; and &#34;right&#34;.
+<span class="gu">@@ -183,7 +184,7 @@
+</span><span class="gu"></span>     dmenu = /usr/bin/dmenu -p dunst:
+ 
+     # Browser for opening urls in context menu.
+<span class="gd">-    browser = /usr/bin/firefox -new-tab
+</span><span class="gd"></span><span class="gi">+    browser = xdg-open
+</span><span class="gi"></span> 
+     # Always run rule-defined scripts, even if the notification is suppressed
+     always_run_script = true
+<span class="gu">@@ -213,7 +214,7 @@
+</span><span class="gu"></span>     # corners.
+     # The radius will be automatically lowered if it exceeds half of the
+     # notification height to avoid clipping text and/or icons.
+<span class="gd">-    corner_radius = 0
+</span><span class="gd"></span><span class="gi">+    corner_radius = 2
+</span><span class="gi"></span> 
+     ### Legacy
+ 
+<span class="gu">@@ -258,19 +259,19 @@
+</span><span class="gu"></span>     # Xev might be helpful to find names for keys.
+ 
+     # Close notification.
+<span class="gd">-    close = ctrl+space
+</span><span class="gd"></span><span class="gi">+    # close = ctrl+space
+</span><span class="gi"></span> 
+     # Close all notifications.
+<span class="gd">-    close_all = ctrl+shift+space
+</span><span class="gd"></span><span class="gi">+    # close_all = ctrl+shift+space
+</span><span class="gi"></span> 
+     # Redisplay last message(s).
+     # On the US keyboard layout &#34;grave&#34; is normally above TAB and left
+     # of &#34;1&#34;. Make sure this key actually exists on your keyboard layout,
+     # e.g. check output of &#39;xmodmap -pke&#39;
+<span class="gd">-    history = ctrl+grave
+</span><span class="gd"></span><span class="gi">+    # history = ctrl+grave
+</span><span class="gi"></span> 
+     # Context menu.
+<span class="gd">-    context = ctrl+shift+period
+</span><span class="gd"></span><span class="gi">+    # context = ctrl+shift+period
+</span><span class="gi"></span> 
+ [urgency_low]
+     # IMPORTANT: colors have to be defined in quotation marks.
+</code></pre></div>
 </div>
 <p>
-But it will pollute the environment, so I&#39;d rather contain it within a <a href="https://docs.python.org/3/library/venv.html">virtualenv</a>, here are the steps how to run it within a dedicated virtualenv for user <code class="verbatim">foo</code> on Fedora.</p>
-<ol>
-<li>
-<p>Clone the repo</p>
-<div class="src src-shell">
-<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell">mkdir -p ~/local/
-git clone https://github.com/qtile/qtile.git</code></pre></div>
-</div>
-</li>
-<li>
-<p>Create a new virtualenv, and install dependencies there</p>
-<div class="src src-shell">
-<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell">python3 -m venv ~/local/qtile/qtile-env/
-<span class="nb">source</span> ~/local/qtile/qtile-env/bin/activate
-
-<span class="c1"># Install dependencies</span>
-pip install xcffib
-pip install --no-cache-dir cairocffi</code></pre></div>
-</div>
-</li>
-<li>
-<p>Make a glue shell script to use the virtualenv</p>
-<div class="src src-shell">
-<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell">cat &gt; /home/foo/local/qtile/qtile-venv-entry <span class="s">&lt;&lt;EOF
-</span><span class="s">#!/bin/bash
-</span><span class="s">
-</span><span class="s"># This glue shell is only needed when you want to
-</span><span class="s"># run Qtile within a virtualenv
-</span><span class="s">
-</span><span class="s">source ~/local/qtile/qtile-env/bin/activate
-</span><span class="s">python ~/local/qtile/bin/qtile $*
-</span><span class="s">EOF</span></code></pre></div>
+You can check out my final config at <a href="https://github.com/whatacold/extensible-dotfiles/blob/master/home/.config/dunst/dunstrc.">https://github.com/whatacold/extensible-dotfiles/blob/master/home/.config/dunst/dunstrc.</a></p>
+<p>
+Then test it with <code class="verbatim">(org-notify &#34;Emacs org-mode test&#34;)</code>, it works as expected:</p>
+<figure>
+<img src="/img/2021-07-17-dunst-notification-emacs.png" alt="/img/2021-07-17-dunst-notification-emacs.png" title="/img/2021-07-17-dunst-notification-emacs.png" /><figcaption>
+Test Notifications with Emacs
+</figcaption>
+</figure>
+<p>
+The last thing is to remind me things when Emacs starts up:</p>
+<div class="src src-emacs-lisp">
+<div class="highlight"><pre class="chroma"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span class="p">(</span><span class="nv">run-with-timer</span> <span class="mi">60</span> <span class="no">nil</span>
+                <span class="p">(</span><span class="nb">lambda</span> <span class="p">()</span>
+                  <span class="p">(</span><span class="nv">org-notify</span> <span class="s">&#34;Start your good day with org-mode agenda!&#34;</span><span class="p">)))</span></code></pre></div>
 </div>
 <p>
-Also, make sure to make it executable, that is, <code class="verbatim">chmod +x /home/foo/local/qtile/qtile-venv-entry</code></p>
-</li>
-<li>
-<p>Make a entry desktop file for the display manager</p>
-<div class="src src-shell">
-<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell">cat &gt; /usr/share/xsessions/qtile-venv.desktop <span class="s">&lt;&lt;EOF
-</span><span class="s">[Desktop Entry]
-</span><span class="s">Name=Qtile(venv)
-</span><span class="s">Comment=Qtile Session Within Venv
-</span><span class="s">Exec=/home/foo/local/qtile/qtile-venv-entry
-</span><span class="s">Type=Application
-</span><span class="s">Keywords=wm;tiling
-</span><span class="s">EOF</span></code></pre></div>
-</div>
-<p>
-Pay attention to the <code class="verbatim">Exec</code> directive, it points to the glue script.</p>
-</li>
-<li>
-<p>Log out or reboot your system, then select “Qtile(venv)” as your window manager by clicking the setting icon when logging in.</p>
-</li>
-</ol>
+To recap, Dunst is well documented. It doesn&#39;t cost me much time to get it up. And if you use a tiling window manager like i3wm, you should give it a try.</p>
 
 
         
           <div class="blog-tags">
             
-              <a href="https://whatacold.io/tags/python/">Python</a>&nbsp;
+              <a href="https://whatacold.io/tags/emacs/">Emacs</a>&nbsp;
+            
+              <a href="https://whatacold.io/tags/i3wm/">i3wm</a>&nbsp;
             
               <a href="https://whatacold.io/tags/tiling-wm/">tiling-wm</a>&nbsp;
+            
+              <a href="https://whatacold.io/tags/extensible-dotfiles/">extensible-dotfiles</a>&nbsp;
             
           </div>
         
@@ -369,42 +469,42 @@ Pay attention to the <code class="verbatim">Exec</code> directive, it points to 
     <ul class="share">
       
       <li>
-        <a href="//twitter.com/share?url=https%3a%2f%2fwhatacold.io%2fblog%2f2019-09-29-how-to-run-the-bleeding-edge-code-of-qtile%2f&amp;text=How%20To%20Run%20Bleeding-edge%20Qtile%20Within%20a%20Virtualenv&amp;via=whatacold" target="_blank" title="Share on Twitter">
+        <a href="//twitter.com/share?url=https%3a%2f%2fwhatacold.io%2fblog%2f2021-07-17-emacs-i3wm-dunst%2f&amp;text=Send%20Notifications%20from%20Emacs%20with%20i3wm%20and%20Dunst&amp;via=whatacold" target="_blank" title="Share on Twitter">
           <i class="fab fa-twitter"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fwhatacold.io%2fblog%2f2019-09-29-how-to-run-the-bleeding-edge-code-of-qtile%2f" target="_blank" title="Share on Facebook">
+        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fwhatacold.io%2fblog%2f2021-07-17-emacs-i3wm-dunst%2f" target="_blank" title="Share on Facebook">
           <i class="fab fa-facebook"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//reddit.com/submit?url=https%3a%2f%2fwhatacold.io%2fblog%2f2019-09-29-how-to-run-the-bleeding-edge-code-of-qtile%2f&amp;title=How%20To%20Run%20Bleeding-edge%20Qtile%20Within%20a%20Virtualenv" target="_blank" title="Share on Reddit">
+        <a href="//reddit.com/submit?url=https%3a%2f%2fwhatacold.io%2fblog%2f2021-07-17-emacs-i3wm-dunst%2f&amp;title=Send%20Notifications%20from%20Emacs%20with%20i3wm%20and%20Dunst" target="_blank" title="Share on Reddit">
           <i class="fab fa-reddit"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fwhatacold.io%2fblog%2f2019-09-29-how-to-run-the-bleeding-edge-code-of-qtile%2f&amp;title=How%20To%20Run%20Bleeding-edge%20Qtile%20Within%20a%20Virtualenv" target="_blank" title="Share on LinkedIn">
+        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fwhatacold.io%2fblog%2f2021-07-17-emacs-i3wm-dunst%2f&amp;title=Send%20Notifications%20from%20Emacs%20with%20i3wm%20and%20Dunst" target="_blank" title="Share on LinkedIn">
           <i class="fab fa-linkedin"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fwhatacold.io%2fblog%2f2019-09-29-how-to-run-the-bleeding-edge-code-of-qtile%2f&amp;title=How%20To%20Run%20Bleeding-edge%20Qtile%20Within%20a%20Virtualenv" target="_blank" title="Share on StumbleUpon">
+        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fwhatacold.io%2fblog%2f2021-07-17-emacs-i3wm-dunst%2f&amp;title=Send%20Notifications%20from%20Emacs%20with%20i3wm%20and%20Dunst" target="_blank" title="Share on StumbleUpon">
           <i class="fab fa-stumbleupon"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fwhatacold.io%2fblog%2f2019-09-29-how-to-run-the-bleeding-edge-code-of-qtile%2f&amp;description=How%20To%20Run%20Bleeding-edge%20Qtile%20Within%20a%20Virtualenv" target="_blank" title="Share on Pinterest">
+        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fwhatacold.io%2fblog%2f2021-07-17-emacs-i3wm-dunst%2f&amp;description=Send%20Notifications%20from%20Emacs%20with%20i3wm%20and%20Dunst" target="_blank" title="Share on Pinterest">
           <i class="fab fa-pinterest"></i>
         </a>
       </li>
@@ -426,15 +526,15 @@ Pay attention to the <code class="verbatim">Exec</code> directive, it points to 
                   <ul>
                 
                 
-                    <li><a href="/blog/2021-07-17-emacs-i3wm-dunst/">Send Notifications from Emacs with i3wm and Dunst</a></li>
+                    <li><a href="/blog/2020-08-22-generate-call-graphs-using-doxygen-in-emacs/">Generate Call Graphs Using Doxygen in Emacs</a></li>
                 
-                    <li><a href="/blog/2020-10-21-a-python-re.findall-service/">An Online Python re.findall Service</a></li>
+                    <li><a href="/blog/2020-05-30-a-trick-to-troubleshoot-emacs-subprocess-creating/">A Trick to Troubleshoot Emacs Subprocess Creating</a></li>
+                
+                    <li><a href="/blog/2020-03-07-ppcompile-to-help-stay-coding-locally/">ppcompile: An Emacs Package to Help Coding Locally</a></li>
                 
                     <li><a href="/blog/2019-12-22-manage-ssh-connections-with-ssh-config/">Manage SSH Connections with ~/.ssh/config</a></li>
                 
                     <li><a href="/blog/2019-11-25-start-a-new-urxvt-terminal-on-emacs/">Start a New Terminal(urxvt) at Current Buffer&#39;s default-directory on Emacs</a></li>
-                
-                    <li><a href="/blog/2019-07-20-generating-org-mode-outlines-for-wikihow-articles/">Generating org-mode Outlines for wikiHow Articles</a></li>
                 
               </ul>
 
@@ -446,13 +546,9 @@ Pay attention to the <code class="verbatim">Exec</code> directive, it points to 
         <ul class="pager blog-pager">
           
             <li class="previous">
-              <a href="https://whatacold.io/blog/2019-09-24-how-to-revert-a-series-of-commits-with-git/" data-toggle="tooltip" data-placement="top" title="How To Revert a Series Of Git Commits?">&larr; Previous Post</a>
+              <a href="https://whatacold.io/blog/2021-07-11-babashka-random-password-generator/" data-toggle="tooltip" data-placement="top" title="A Random Password Generator in Babashka">&larr; Previous Post</a>
             </li>
           
-          
-            <li class="next">
-              <a href="https://whatacold.io/blog/2019-10-07-build-docker-images-for-qtile/" data-toggle="tooltip" data-placement="top" title="Build Docker Images for Qtile">Next Post &rarr;</a>
-            </li>
           
         </ul>
       

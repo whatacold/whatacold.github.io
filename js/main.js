@@ -69,7 +69,7 @@ var main = {
       if (true) {
           $('figure').each(function() {
               $(this).addClass('figure')
-                  .css('margin-bottom', '2em');
+                  .css('margin', '2em 0');
           });
 
           $('figure img').each(function() {

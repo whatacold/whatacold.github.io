@@ -12,8 +12,7 @@
 
   
 
-  <title>ppcompile: An Emacs Package to Help Coding Locally - whatacold&#39;s Space</title>
-  <meta name="description" content="Tired of rsync&#39;ing files around and locating the compilation errors manually? This ppcompile package can help...">
+  <title>i3wm - whatacold&#39;s Space</title>
   <meta name="author" content="whatacold"/><script type="application/ld+json">
 {
     "@context": "http://schema.org",
@@ -34,64 +33,14 @@
   
 }
 </script>
-<script type="application/ld+json">
-{
-  "@context": "http://schema.org",
-  "@type": "BreadcrumbList",
-  "itemListElement": [{
-        "@type": "ListItem",
-        "position": 1,
-        "item": {
-          "@id": "https:\/\/whatacold.io",
-          "name": "home"
-        }
-    },{
-        "@type": "ListItem",
-        "position": 3,
-        "item": {
-          "@id": "https:\/\/whatacold.io\/blog\/2020-03-07-ppcompile-to-help-stay-coding-locally\/",
-          "name": "Ppcompile an emacs package to help coding locally"
-        }
-    }]
-}
-</script><script type="application/ld+json">
-{
-  "@context": "http://schema.org",
-  "@type": "Article",
-  "author": {
-    "name" : "whatacold"
-  },
-  "headline": "ppcompile: An Emacs Package to Help Coding Locally",
-  "description" : "Tired of rsync\u0027ing files around and locating the compilation errors manually? This ppcompile package can help...",
-  "inLanguage" : "en",
-  "wordCount":  338 ,
-  "datePublished" : "2020-03-07T23:50:00",
-  "dateModified" : "2020-03-07T23:50:00",
-  "image" : "https:\/\/whatacold.io\/img\/avatar.png",
-  "keywords" : [ "Emacs" ],
-  "mainEntityOfPage" : "https:\/\/whatacold.io\/blog\/2020-03-07-ppcompile-to-help-stay-coding-locally\/",
-  "publisher" : {
-    "@type": "Organization",
-    "name" : "https:\/\/whatacold.io",
-    "logo" : {
-        "@type" : "ImageObject",
-        "url" : "https:\/\/whatacold.io\/img\/avatar.png",
-        "height" :  60 ,
-        "width" :  60
-    }
-  }
-}
-</script>
 
-<meta property="og:title" content="ppcompile: An Emacs Package to Help Coding Locally" />
-<meta property="og:description" content="Tired of rsync&#39;ing files around and locating the compilation errors manually? This ppcompile package can help...">
+<meta property="og:title" content="i3wm" />
 <meta property="og:image" content="https://whatacold.io/img/avatar.png" />
-<meta property="og:url" content="https://whatacold.io/blog/2020-03-07-ppcompile-to-help-stay-coding-locally/" />
+<meta property="og:url" content="https://whatacold.io/tags/i3wm/" />
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="whatacold&#39;s Space" />
 
-  <meta name="twitter:title" content="ppcompile: An Emacs Package to Help Coding Locally" />
-  <meta name="twitter:description" content="Tired of rsync&#39;ing files around and locating the compilation errors manually? This ppcompile package can help...">
+  <meta name="twitter:title" content="i3wm" />
   <meta name="twitter:image" content="https://whatacold.io/img/avatar.png" />
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:site" content="@whatacold" />
@@ -247,9 +196,9 @@ if (!doNotTrack) {
       <div class="container">
         <div class="row">
           <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-            <div class="blog-heading">
+            <div class="tags-heading">
               
-                <h1>ppcompile: An Emacs Package to Help Coding Locally</h1>
+                <h1>i3wm</h1>
               
               
                 <hr class="small">
@@ -265,181 +214,69 @@ if (!doNotTrack) {
 
 
     
-<div class="container" role="main">
-  <div class="row">
-    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-      <article role="main" class="blog-post">
-        <p>
-If you are a C/C++ programmer like me, you may experience jumping around different machines to write and compile your code, or you may write code on different machines for different projects, and scp/rsync/ftp the projects around. It works, but it&#39;s a bit tedious and takes too much burden on our brains.</p>
-<p>
-For example, say I have two projects that should be compiled on their compiling machines respectively. There are two obvious workflows for writing code for them &#34;simultaneously&#34;:</p>
-<ol>
-<li>
-<p>Write code locally, rsync files to their compiling machine and compile them, fix errors according to the compiling result.</p>
-<p>
-Pros: I have only one coding environment to maintain, and I have full control of it. Install packages? Start some services? No problem, just a few commands.</p>
-<p>
-Cons: I have to sync the source code, spot the errors by my eyes and fix them accordingly.</p>
-</li>
-<li>
-<p>Write code on the compiling machine, compile them and fix errors locally there, taking the advantage of <code class="verbatim">M-x next-error</code>.</p>
-<p>
-Pros: <code class="verbatim">M-x next-error</code> works like a charm to fix errors, just a piece of cake. Eye friendly.</p>
-<p>
-Cons: Several Emacs environment to maintain, and I don&#39;t always have the root privilege.</p>
-<p>
-Update: Tramp is a built-in package for editing remote files, which also falls into this category, although it&#39;s quite handy to edit single files like confs, at least for me.</p>
-</li>
-</ol>
-<p>(Update: There is another option using <a href="https://github.com/libfuse/sshfs">sshfs</a>, which mounts the remote FS, it&#39;s a general and nice solution if you have a stable network.)</p>
-<p>
-So I was wondering if there is a way to take the good part of both approaches so that I have the full privilege and fix compiling errors locally as if I were compiling locally? Well, the answer was yes, and <a href="https://github.com/whatacold/ppcompile">ppcompile</a> was my solution for it.</p>
-<p>
-<code class="verbatim">ppcompile</code> stands for ping-pong compile, as it works like playing ping-pong. First, it rsync&#39;s the files to the compiling machines (&#34;ping&#34;). Second, it gets the result back (&#34;pong&#34;) and gets them fixed locally.</p>
-<p>
-It works now, and I hope it helps you too. :)</p>
-
-
+  <div class="container" role="main">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
         
-          <div class="blog-tags">
-            
-              <a href="https://whatacold.io/tags/emacs/">Emacs</a>&nbsp;
-            
-          </div>
+        <div class="posts-list">
+          
+            <article class="post-preview">
+    <a href="https://whatacold.io/blog/2021-07-17-emacs-i3wm-dunst/">
+        <h2 class="post-title">Send Notifications from Emacs with i3wm and Dunst</h2>
         
-
         
-            <hr/>
-            <section id="social-share">
-              <div class="list-inline footer-links">
-                
+        
+    </a>
 
-<div class="share-box" aria-hidden="true">
-    <ul class="share">
-      
-      <li>
-        <a href="//twitter.com/share?url=https%3a%2f%2fwhatacold.io%2fblog%2f2020-03-07-ppcompile-to-help-stay-coding-locally%2f&amp;text=ppcompile%3a%20An%20Emacs%20Package%20to%20Help%20Coding%20Locally&amp;via=whatacold" target="_blank" title="Share on Twitter">
-          <i class="fab fa-twitter"></i>
-        </a>
-      </li>
+    <p class="post-meta">
+        <span class="post-meta">
   
-      
-      <li>
-        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fwhatacold.io%2fblog%2f2020-03-07-ppcompile-to-help-stay-coding-locally%2f" target="_blank" title="Share on Facebook">
-          <i class="fab fa-facebook"></i>
-        </a>
-      </li>
   
-      
-      <li>
-        <a href="//reddit.com/submit?url=https%3a%2f%2fwhatacold.io%2fblog%2f2020-03-07-ppcompile-to-help-stay-coding-locally%2f&amp;title=ppcompile%3a%20An%20Emacs%20Package%20to%20Help%20Coding%20Locally" target="_blank" title="Share on Reddit">
-          <i class="fab fa-reddit"></i>
-        </a>
-      </li>
+  <i class="fas fa-calendar"></i>&nbsp;Posted on 2021-07-17
   
-      
-      <li>
-        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fwhatacold.io%2fblog%2f2020-03-07-ppcompile-to-help-stay-coding-locally%2f&amp;title=ppcompile%3a%20An%20Emacs%20Package%20to%20Help%20Coding%20Locally" target="_blank" title="Share on LinkedIn">
-          <i class="fab fa-linkedin"></i>
-        </a>
-      </li>
   
-      
-      <li>
-        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fwhatacold.io%2fblog%2f2020-03-07-ppcompile-to-help-stay-coding-locally%2f&amp;title=ppcompile%3a%20An%20Emacs%20Package%20to%20Help%20Coding%20Locally" target="_blank" title="Share on StumbleUpon">
-          <i class="fab fa-stumbleupon"></i>
-        </a>
-      </li>
+    &nbsp;|&nbsp;<i class="fas fa-clock"></i>&nbsp;4&nbsp;minutes
   
-      
-      <li>
-        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fwhatacold.io%2fblog%2f2020-03-07-ppcompile-to-help-stay-coding-locally%2f&amp;description=ppcompile%3a%20An%20Emacs%20Package%20to%20Help%20Coding%20Locally" target="_blank" title="Share on Pinterest">
-          <i class="fab fa-pinterest"></i>
-        </a>
-      </li>
-    </ul>
-  </div>
   
+    &nbsp;|&nbsp;<i class="fas fa-book"></i>&nbsp;774&nbsp;words
+  
+  
+  
+</span>
 
-              </div>
-            </section>
+
+    </p>
+    <div class="post-entry">
         
-
+        I barely use notifications, but recently I think it&#39;s a valuable way to remind me things like helping me nurture habits, or to notify me of emergencies like a critically low laptop battery.
+ So I try to integrate notifications to org-mode and Emacs today.
+ I knew the built-in org-notify could do this job easily before, so I first test it in the minibuffer with (org-notify &#34;test&#34;).
+ Unfortunately, it errors out:
+        <a href="https://whatacold.io/blog/2021-07-17-emacs-i3wm-dunst/" class="post-read-more">[Read More]</a>
         
-          
-            
-          
+    </div>
 
-          
-                  <h4 class="see-also">See also</h4>
-                  <ul>
-                
-                
-                    <li><a href="/blog/2021-07-17-emacs-i3wm-dunst/">Send Notifications from Emacs with i3wm and Dunst</a></li>
-                
-                    <li><a href="/blog/2020-08-22-generate-call-graphs-using-doxygen-in-emacs/">Generate Call Graphs Using Doxygen in Emacs</a></li>
-                
-                    <li><a href="/blog/2020-05-30-a-trick-to-troubleshoot-emacs-subprocess-creating/">A Trick to Troubleshoot Emacs Subprocess Creating</a></li>
-                
-                    <li><a href="/blog/2019-07-20-generating-org-mode-outlines-for-wikihow-articles/">Generating org-mode Outlines for wikiHow Articles</a></li>
-                
-                    <li><a href="/blog/2019-07-20-understanding-align-regexp-of-emacs/">Understanding align-regexp of Emacs</a></li>
-                
-              </ul>
-
-          
-        
-      </article>
-
-      
-        <ul class="pager blog-pager">
-          
-            <li class="previous">
-              <a href="https://whatacold.io/blog/2020-02-04-binary-search-algorithm-vs-problem-solving/" data-toggle="tooltip" data-placement="top" title="The Binary Search Idea for Narrowing Down Problem Space">&larr; Previous Post</a>
-            </li>
-          
-          
-            <li class="next">
-              <a href="https://whatacold.io/blog/2020-05-30-a-trick-to-troubleshoot-emacs-subprocess-creating/" data-toggle="tooltip" data-placement="top" title="A Trick to Troubleshoot Emacs Subprocess Creating">Next Post &rarr;</a>
-            </li>
-          
-        </ul>
-      
-
-
-      
-        
-          
-          <div class="disqus-comments">
-            <div id="disqus_thread"></div>
-<script type="application/javascript">
-    var disqus_config = function () {
     
-    
-    
-    };
-    (function() {
-        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
-            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
-            return;
-        }
-        var d = document, s = d.createElement('script'); s.async = true;
-        s.src = '//' + "whatacold" + '.disqus.com/embed.js';
-        s.setAttribute('data-timestamp', +new Date());
-        (d.head || d.body).appendChild(s);
-    })();
-</script>
-<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
-          </div>
-          
+    <div class="blog-tags">
         
+        <a href="https://whatacold.io/tags/emacs/">Emacs</a>&nbsp;
         
-      
+        <a href="https://whatacold.io/tags/i3wm/">i3wm</a>&nbsp;
+        
+        <a href="https://whatacold.io/tags/tiling-wm/">tiling-wm</a>&nbsp;
+        
+        <a href="https://whatacold.io/tags/extensible-dotfiles/">extensible-dotfiles</a>&nbsp;
+        
+    </div>
+    
 
+</article>
+          
+        </div>
+        
+      </div>
     </div>
   </div>
-</div>
 
       
 <footer>
@@ -498,7 +335,7 @@ It works now, and I hope it helps you too. :)</p>
               </li>
           
           <li>
-            <a href="" title="RSS">
+            <a href="/tags/i3wm/rss.xml" title="RSS">
               <span class="fa-stack fa-lg">
                 <i class="fas fa-circle fa-stack-2x"></i>
                 <i class="fas fa-rss fa-stack-1x fa-inverse"></i>

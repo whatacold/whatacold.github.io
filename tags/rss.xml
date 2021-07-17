@@ -7,7 +7,43 @@
     <generator>Hugo -- gohugo.io</generator>
     <managingEditor>whatacold@gmail.com (whatacold)</managingEditor>
     <webMaster>whatacold@gmail.com (whatacold)</webMaster>
-    <lastBuildDate>Sun, 11 Jul 2021 09:18:41 +0800</lastBuildDate><atom:link href="https://whatacold.io/tags/rss.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 17 Jul 2021 12:22:10 +0800</lastBuildDate><atom:link href="https://whatacold.io/tags/rss.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Emacs</title>
+      <link>https://whatacold.io/tags/emacs/</link>
+      <pubDate>Sat, 17 Jul 2021 12:22:10 +0800</pubDate>
+      <author>whatacold@gmail.com (whatacold)</author>
+      <guid>https://whatacold.io/tags/emacs/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>extensible-dotfiles</title>
+      <link>https://whatacold.io/tags/extensible-dotfiles/</link>
+      <pubDate>Sat, 17 Jul 2021 12:22:10 +0800</pubDate>
+      <author>whatacold@gmail.com (whatacold)</author>
+      <guid>https://whatacold.io/tags/extensible-dotfiles/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>i3wm</title>
+      <link>https://whatacold.io/tags/i3wm/</link>
+      <pubDate>Sat, 17 Jul 2021 12:22:10 +0800</pubDate>
+      <author>whatacold@gmail.com (whatacold)</author>
+      <guid>https://whatacold.io/tags/i3wm/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>tiling-wm</title>
+      <link>https://whatacold.io/tags/tiling-wm/</link>
+      <pubDate>Sat, 17 Jul 2021 12:22:10 +0800</pubDate>
+      <author>whatacold@gmail.com (whatacold)</author>
+      <guid>https://whatacold.io/tags/tiling-wm/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>Babashka</title>
       <link>https://whatacold.io/tags/babashka/</link>
@@ -45,15 +81,6 @@
     </item>
     
     <item>
-      <title>Emacs</title>
-      <link>https://whatacold.io/tags/emacs/</link>
-      <pubDate>Sat, 22 Aug 2020 18:57:00 +0800</pubDate>
-      <author>whatacold@gmail.com (whatacold)</author>
-      <guid>https://whatacold.io/tags/emacs/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>MySQL</title>
       <link>https://whatacold.io/tags/mysql/</link>
       <pubDate>Thu, 25 Jun 2020 22:37:00 +0800</pubDate>
@@ -86,15 +113,6 @@
       <pubDate>Tue, 04 Feb 2020 18:48:00 +0800</pubDate>
       <author>whatacold@gmail.com (whatacold)</author>
       <guid>https://whatacold.io/tags/git/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>tiling-wm</title>
-      <link>https://whatacold.io/tags/tiling-wm/</link>
-      <pubDate>Sun, 22 Dec 2019 18:52:00 +0800</pubDate>
-      <author>whatacold@gmail.com (whatacold)</author>
-      <guid>https://whatacold.io/tags/tiling-wm/</guid>
       <description></description>
     </item>
     
