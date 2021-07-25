@@ -66,7 +66,7 @@
   "headline": "String Title Case in Clojure",
   "description" : "These days I like to write scripts for some tasks in Python instead of shell. One important reason I think that\u0026#39;s because Python is powerful at string manipulation.\n Recently I\u0026#39;m learning Clojure, and I\u0026#39;m trying to find similar ways in Clojure, one of them is s.title() for getting a title-cased version of a string. For example,\n\u0026gt;\u0026gt;\u0026gt; \u0026#39; Hello world\u0026#39;.title() \u0026#39; Hello World\u0026#39;   How to do that in Clojure?",
   "inLanguage" : "en",
-  "wordCount":  920 ,
+  "wordCount":  992 ,
   "datePublished" : "2021-07-25T11:51:39",
   "dateModified" : "2021-07-25T11:51:39",
   "image" : "https:\/\/whatacold.io\/img\/avatar.png",
@@ -442,9 +442,27 @@ The Idiomatic Way
 </div>
 <div id="outline-container-headline-4" class="outline-2">
 <h2 id="headline-4">
-Summary
+The regex Way
 </h2>
 <div id="outline-text-headline-4" class="outline-text-2">
+<p>
+  @jaju also provides a version using regex <a href="https://docs.oracle.com/javase/8/docs/api/java/util/regex/Pattern.html">patterns</a>, it perserve spaces nicely:</p>
+<div class="src src-clojure">
+<div class="highlight"><pre class="chroma"><code class="language-clojure" data-lang="clojure"><span class="p">(</span><span class="kd">defn </span><span class="nv">title-case-regex</span> <span class="p">[</span><span class="nv">s</span><span class="p">]</span>
+  <span class="p">(</span><span class="nf">-&gt;&gt;</span> <span class="p">(</span><span class="nf">clojure.string/split</span> <span class="nv">s</span> <span class="o">#</span><span class="s">&#34;(?&lt;=\s)|(?=\s)&#34;</span><span class="p">)</span>
+       <span class="p">(</span><span class="nb">map </span><span class="nv">clojure.string/capitalize</span><span class="p">)</span>
+       <span class="p">(</span><span class="nb">apply </span><span class="nv">str</span><span class="p">)))</span>
+
+<span class="p">(</span><span class="nf">title-case-regex</span> <span class="s">&#34;  hello    world  &#34;</span><span class="p">)</span>
+<span class="c1">; =&gt; &#34;  Hello    World  &#34;</span></code></pre></div>
+</div>
+</div>
+</div>
+<div id="outline-container-headline-5" class="outline-2">
+<h2 id="headline-5">
+Summary
+</h2>
+<div id="outline-text-headline-5" class="outline-text-2">
 <p>
   Along the journey of implementing this simple function, I learned a few things:</p>
 <ol>
@@ -455,12 +473,17 @@ Summary
 <p>It&#39;s harder to write code using iteration and states than using <code class="verbatim">map=/=reduce</code>. <code class="verbatim">map</code> and <code class="verbatim">reduce</code> are more idiomatic and works at a higher level of abstraction.</p>
 <p>
 On the other side, although iteration may be more efficient, it may not deserve the extra time you invest in. &#34;Premature optimization is the root of all evil.&#34;, <a href="http://wiki.c2.com/?PrematureOptimization">said Donald Knuth</a>.</p>
+<p>
+For most of the time, &#34;The Idiomatic Way&#34; should be the choice.</p>
+</li>
+<li>
+<p>If you want to keep a state while iterating a sequence, first think about using <code class="verbatim">reduce</code>, it can pass states along the iteration.</p>
 </li>
 <li>
 <p>Pay attention to the side effects, especially along with lazy sequences. Clojure has special functions for this purpose, in addition to <code class="verbatim">run!</code>, there are also <a href="https://clojuredocs.org/clojure_core/clojure.core/doseq">doseq</a>, <a href="https://clojuredocs.org/clojure_core/clojure.core/dorun">dorun</a>, and <a href="https://clojuredocs.org/clojure_core/clojure.core/doall">doall</a>.</p>
 </li>
 </ol>
-<p>At last, big thanks to @jaju for the inspiration and help!</p>
+<p>At last, big thanks to <a href="https://msync.org/posts/">@jaju</a> for the inspiration and help!</p>
 </div>
 </div>
 
