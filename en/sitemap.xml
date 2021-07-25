@@ -4,7 +4,7 @@
   
   <url>
     <loc>https://whatacold.io/blog/</loc>
-    <lastmod>2021-07-17T12:22:10+08:00</lastmod>
+    <lastmod>2021-07-25T11:51:39+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="zh-cn"
@@ -14,6 +14,61 @@
                 rel="alternate"
                 hreflang="en"
                 href="https://whatacold.io/blog/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://whatacold.io/tags/clojure/</loc>
+    <lastmod>2021-07-25T11:51:39+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://whatacold.io/tags/python/</loc>
+    <lastmod>2021-07-25T11:51:39+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-cn"
+                href="https://whatacold.io/zh-cn/tags/python/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://whatacold.io/tags/python/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://whatacold.io/blog/2021-07-25-clojure-string-title-case/</loc>
+    <lastmod>2021-07-25T11:51:39+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://whatacold.io/tags/</loc>
+    <lastmod>2021-07-25T11:51:39+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-cn"
+                href="https://whatacold.io/zh-cn/tags/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://whatacold.io/tags/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://whatacold.io/</loc>
+    <lastmod>2021-07-25T11:51:39+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-cn"
+                href="https://whatacold.io/zh-cn/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://whatacold.io/"
                 />
   </url>
   
@@ -48,38 +103,8 @@
   </url>
   
   <url>
-    <loc>https://whatacold.io/tags/</loc>
-    <lastmod>2021-07-17T12:22:10+08:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh-cn"
-                href="https://whatacold.io/zh-cn/tags/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://whatacold.io/tags/"
-                />
-  </url>
-  
-  <url>
     <loc>https://whatacold.io/tags/tiling-wm/</loc>
     <lastmod>2021-07-17T12:22:10+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://whatacold.io/</loc>
-    <lastmod>2021-07-17T12:22:10+08:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh-cn"
-                href="https://whatacold.io/zh-cn/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://whatacold.io/"
-                />
   </url>
   
   <url>
@@ -89,11 +114,6 @@
   
   <url>
     <loc>https://whatacold.io/tags/babashka/</loc>
-    <lastmod>2021-07-11T09:18:41+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://whatacold.io/tags/clojure/</loc>
     <lastmod>2021-07-11T09:18:41+08:00</lastmod>
   </url>
   
@@ -124,21 +144,6 @@
                 rel="alternate"
                 hreflang="en"
                 href="https://whatacold.io/blog/2020-10-21-a-python-re.findall-service/"
-                />
-  </url>
-  
-  <url>
-    <loc>https://whatacold.io/tags/python/</loc>
-    <lastmod>2020-10-21T22:51:00+08:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh-cn"
-                href="https://whatacold.io/zh-cn/tags/python/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://whatacold.io/tags/python/"
                 />
   </url>
   

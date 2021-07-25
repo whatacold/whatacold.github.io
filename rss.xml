@@ -7,7 +7,18 @@
     <generator>Hugo -- gohugo.io</generator>
     <managingEditor>whatacold@gmail.com (whatacold)</managingEditor>
     <webMaster>whatacold@gmail.com (whatacold)</webMaster>
-    <lastBuildDate>Sat, 17 Jul 2021 12:22:10 +0800</lastBuildDate><atom:link href="https://whatacold.io/rss.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 25 Jul 2021 11:51:39 +0800</lastBuildDate><atom:link href="https://whatacold.io/rss.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>String Title Case in Clojure</title>
+      <link>https://whatacold.io/blog/2021-07-25-clojure-string-title-case/</link>
+      <pubDate>Sun, 25 Jul 2021 11:51:39 +0800</pubDate>
+      <author>whatacold@gmail.com (whatacold)</author>
+      <guid>https://whatacold.io/blog/2021-07-25-clojure-string-title-case/</guid>
+      <description>These days I like to write scripts for some tasks in Python instead of shell. One important reason I think that&amp;#39;s because Python is powerful at string manipulation.
+ Recently I&amp;#39;m learning Clojure, and I&amp;#39;m trying to find similar ways in Clojure, one of them is s.title() for getting a title-cased version of a string. For example,
+&amp;gt;&amp;gt;&amp;gt; &amp;#39; Hello world&amp;#39;.title() &amp;#39; Hello World&amp;#39;   How to do that in Clojure?</description>
+    </item>
+    
     <item>
       <title>Send Notifications from Emacs with i3wm and Dunst</title>
       <link>https://whatacold.io/blog/2021-07-17-emacs-i3wm-dunst/</link>

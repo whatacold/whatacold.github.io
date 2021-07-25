@@ -1,0 +1,720 @@
+<!DOCTYPE html>
+<html lang="en" itemscope itemtype="http://schema.org/WebPage">
+  <head>
+    
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+
+
+
+  
+
+  <title>String Title Case in Clojure - whatacold&#39;s Space</title>
+  <meta name="description" content="These days I like to write scripts for some tasks in Python instead of shell. One important reason I think that&#39;s because Python is powerful at string manipulation.
+ Recently I&#39;m learning Clojure, and I&#39;m trying to find similar ways in Clojure, one of them is s.title() for getting a title-cased version of a string. For example,
+&gt;&gt;&gt; &#39; Hello world&#39;.title() &#39; Hello World&#39;   How to do that in Clojure?">
+  <meta name="author" content="whatacold"/><script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "WebSite",
+    "name": "whatacold\u0027s Space",
+    
+    "url": "https:\/\/whatacold.io"
+}
+</script><script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Organization",
+  "name": "",
+  "url": "https:\/\/whatacold.io"
+  
+  
+  
+  
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "item": {
+          "@id": "https:\/\/whatacold.io",
+          "name": "home"
+        }
+    },{
+        "@type": "ListItem",
+        "position": 3,
+        "item": {
+          "@id": "https:\/\/whatacold.io\/blog\/2021-07-25-clojure-string-title-case\/",
+          "name": "String title case in clojure"
+        }
+    }]
+}
+</script><script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Article",
+  "author": {
+    "name" : "whatacold"
+  },
+  "headline": "String Title Case in Clojure",
+  "description" : "These days I like to write scripts for some tasks in Python instead of shell. One important reason I think that\u0026#39;s because Python is powerful at string manipulation.\n Recently I\u0026#39;m learning Clojure, and I\u0026#39;m trying to find similar ways in Clojure, one of them is s.title() for getting a title-cased version of a string. For example,\n\u0026gt;\u0026gt;\u0026gt; \u0026#39; Hello world\u0026#39;.title() \u0026#39; Hello World\u0026#39;   How to do that in Clojure?",
+  "inLanguage" : "en",
+  "wordCount":  920 ,
+  "datePublished" : "2021-07-25T11:51:39",
+  "dateModified" : "2021-07-25T11:51:39",
+  "image" : "https:\/\/whatacold.io\/img\/avatar.png",
+  "keywords" : [ "Clojure, Python" ],
+  "mainEntityOfPage" : "https:\/\/whatacold.io\/blog\/2021-07-25-clojure-string-title-case\/",
+  "publisher" : {
+    "@type": "Organization",
+    "name" : "https:\/\/whatacold.io",
+    "logo" : {
+        "@type" : "ImageObject",
+        "url" : "https:\/\/whatacold.io\/img\/avatar.png",
+        "height" :  60 ,
+        "width" :  60
+    }
+  }
+}
+</script>
+
+<meta property="og:title" content="String Title Case in Clojure" />
+<meta property="og:description" content="These days I like to write scripts for some tasks in Python instead of shell. One important reason I think that&#39;s because Python is powerful at string manipulation.
+ Recently I&#39;m learning Clojure, and I&#39;m trying to find similar ways in Clojure, one of them is s.title() for getting a title-cased version of a string. For example,
+&gt;&gt;&gt; &#39; Hello world&#39;.title() &#39; Hello World&#39;   How to do that in Clojure?">
+<meta property="og:image" content="https://whatacold.io/img/avatar.png" />
+<meta property="og:url" content="https://whatacold.io/blog/2021-07-25-clojure-string-title-case/" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="whatacold&#39;s Space" />
+
+  <meta name="twitter:title" content="String Title Case in Clojure" />
+  <meta name="twitter:description" content="These days I like to write scripts for some tasks in Python instead of shell. One important reason I think that&#39;s because Python is powerful at string manipulation.
+ Recently I&#39;m learning …">
+  <meta name="twitter:image" content="https://whatacold.io/img/avatar.png" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@whatacold" />
+  <meta name="twitter:creator" content="@whatacold" />
+  <link href='https://whatacold.io/img/favicon.ico' rel='icon' type='image/x-icon'/>
+  <meta name="generator" content="Hugo 0.80.0" />
+  <link rel="alternate" href="https://whatacold.io/index.xml" type="application/rss+xml" title="whatacold&#39;s Space"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"><link rel="stylesheet" href="https://whatacold.io/css/main.css" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
+  <link rel="stylesheet" href="https://whatacold.io/css/highlight.min.css" /><link rel="stylesheet" href="https://whatacold.io/css/codeblock.css" /><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.css" integrity="sha384-h/L2W9KefUClHWaty3SLE5F/qvc4djlyR4qY3NUV5HGQBBW7stbcfff1+I/vmsHh" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/default-skin/default-skin.min.css" integrity="sha384-iD0dNku6PYSIQLyfTOpB06F2KCZJAKLOThS5HRe8b3ibhdEQ6eKsFf/EeFxdOt5R" crossorigin="anonymous">
+
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-74588785-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+  </head>
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://whatacold.io">whatacold&#39;s Space</a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+          
+            <li>
+              <a title="About" href="/about/">About</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="Tags" href="/tags">Tags</a>
+            </li>
+          
+        
+
+        
+          
+            <li>
+              
+                
+              
+                
+                  <a href="/zh-cn" lang="zh-cn">简体中文</a>
+                
+              
+            </li>
+          
+        
+
+        
+      </ul>
+    </div>
+
+    
+      <div class="avatar-container">
+        <div class="avatar-img-border">
+          <a title="whatacold&#39;s Space" href="https://whatacold.io">
+            <img class="avatar-img" src="https://whatacold.io/img/avatar.png" alt="whatacold&#39;s Space" />
+          </a>
+        </div>
+      </div>
+    
+
+  </div>
+</nav>
+
+
+
+
+    
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+  
+  
+  
+
+
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    <div class="intro-header no-img">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <div class="blog-heading">
+              
+                <h1>String Title Case in Clojure</h1>
+              
+              
+                <hr class="small">
+              
+              
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+    
+<div class="container" role="main">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+      <article role="main" class="blog-post">
+        
+<p>
+These days I like to write scripts for some tasks in Python instead of shell. One important reason I think that&#39;s because Python is powerful at string manipulation.</p>
+<p>
+Recently I&#39;m learning Clojure, and I&#39;m trying to find similar ways in Clojure, one of them is <code class="verbatim">s.title()</code> for getting a title-cased version of a string. For example,</p>
+<div class="src src-text">
+<div class="highlight"><pre class="chroma"><code class="language-text" data-lang="text">&gt;&gt;&gt; &#39; Hello world&#39;.title()
+&#39; Hello World&#39;</code></pre></div>
+</div>
+<p>
+How to do that in Clojure? To make the problem simple, let&#39;s assume that the input string only has letters and spaces, that is, <code class="verbatim">[a-zA-Z ]</code> in regex pattern.</p>
+<p>
+Since I am not good at Clojure right now, a Python version helps clear my mind:</p>
+<div class="src src-python">
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="k">def</span> <span class="nf">title_case</span><span class="p">(</span><span class="n">s</span><span class="p">):</span>
+    <span class="s2">&#34;Return a title cased string for s&#34;</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">prev_whitespace_p</span> <span class="o">=</span> <span class="bp">True</span>
+    <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">s</span><span class="p">:</span>
+        <span class="k">if</span> <span class="s1">&#39; &#39;</span> <span class="o">==</span> <span class="n">c</span><span class="p">:</span>
+            <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
+            <span class="n">prev_whitespace_p</span> <span class="o">=</span> <span class="bp">True</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">c</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span> <span class="k">if</span> <span class="n">prev_whitespace_p</span> <span class="k">else</span> <span class="n">c</span><span class="p">)</span>
+            <span class="n">prev_whitespace_p</span> <span class="o">=</span> <span class="bp">False</span>
+    <span class="k">return</span> <span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+
+<span class="c1"># &gt;&gt;&gt; title_case(&#39; hello world &#39;)</span>
+<span class="c1"># &#39; Hello World &#39;</span></code></pre></div>
+</div>
+<p>
+Here are a few ways I ended coming up.</p>
+<div id="outline-container-headline-1" class="outline-2">
+<h2 id="headline-1">
+The Iteration Way
+</h2>
+<div id="outline-text-headline-1" class="outline-text-2">
+<p>
+  As thinking in Python (and also in C/C++), the natural way to do it will be to iterate over the string character by character and see if the current one needs to be cast uppercase based on whether the character before it is whitespace, the code would be like:</p>
+<div class="src src-clojure">
+<div class="highlight"><pre class="chroma"><code class="language-clojure" data-lang="clojure"><span class="p">(</span><span class="kd">defn </span><span class="nv">title-case-iteration</span>
+  <span class="p">[</span><span class="nv">input-str</span><span class="p">]</span>
+  <span class="p">(</span><span class="k">let </span><span class="p">[</span><span class="nv">prev-whitespace-p</span> <span class="p">(</span><span class="nf">atom</span> <span class="nv">true</span><span class="p">)</span>
+        <span class="nv">result</span> <span class="p">(</span><span class="nf">atom</span> <span class="s">&#34;&#34;</span><span class="p">)]</span>
+    <span class="p">(</span><span class="nf">run!</span> <span class="o">#</span><span class="p">(</span><span class="nf">reset!</span> <span class="nv">result</span>
+                   <span class="p">(</span><span class="nb">str </span><span class="o">@</span><span class="nv">result</span>
+                        <span class="p">(</span><span class="k">if </span><span class="o">@</span><span class="nv">prev-whitespace-p</span>
+                          <span class="p">(</span><span class="k">do </span><span class="p">(</span><span class="nf">reset!</span> <span class="nv">prev-whitespace-p</span> <span class="p">(</span><span class="nb">= </span><span class="sc">\s</span><span class="nv">pace</span> <span class="nv">%</span><span class="p">))</span>
+                              <span class="p">(</span><span class="k">if </span><span class="p">(</span><span class="nb">= </span><span class="sc">\s</span><span class="nv">pace</span> <span class="nv">%</span><span class="p">)</span> <span class="nv">%</span> <span class="p">(</span><span class="nf">Character/toUpperCase</span> <span class="nv">%</span><span class="p">)))</span>
+                          <span class="p">(</span><span class="k">do </span><span class="p">(</span><span class="nf">reset!</span> <span class="nv">prev-whitespace-p</span> <span class="p">(</span><span class="nb">= </span><span class="sc">\s</span><span class="nv">pace</span> <span class="nv">%</span><span class="p">))</span>
+                              <span class="nv">%</span><span class="p">))))</span>
+          <span class="nv">input-str</span><span class="p">)</span>
+    <span class="o">@</span><span class="nv">result</span><span class="p">))</span>
+
+<span class="p">(</span><span class="nf">title-case-iteration</span> <span class="s">&#34; hello world &#34;</span><span class="p">)</span>
+                                        <span class="c1">; =&gt; &#34; Hello World &#34;</span></code></pre></div>
+</div>
+<p>
+  As you can see, the code is somewhat complicated, and it also takes me the most time to write it. Here is why:</p>
+<ol>
+<li>
+<p>It&#39;s not common to use states in Clojure. We can define a variable by <code class="verbatim">(def foo &#34;hello&#34;)</code>, but how to change its value after that?
+It is easy to do that in Python by re-assigning the variable, <code>foo = &#34;another string&#34;</code>.</p>
+<p>
+I searched the Internet with different keywords and looked up in the book &#34;Living Clojure&#34; but failed to a solution.</p>
+<p>
+Then @jaju on <a href="http://clojurians.net/">Clojure Slack</a> kindly pointed me to use <a href="https://clojuredocs.org/clojure_core/clojure.core/atom">atom</a>, so that there is many <code class="verbatim">atom</code>, <code class="verbatim">@foo</code>, and <code class="verbatim">reset!</code> there following that lead.</p>
+</li>
+<li>
+<p>You may have noticed the unusual <code class="verbatim">run!</code>.</p>
+<p>
+At first, I use <code class="verbatim">map</code> at the exact place, but it didn&#39;t work. Finally, after some searching, I found the problem: <code class="verbatim">map</code> returns a lazy sequence, and since there is no one to use the result (because I only want the side effect to update atoms), so the <code class="verbatim">#()</code> lambda function is not called at all!</p>
+<p>
+The solution is to use <code class="verbatim">run!</code> to make the side effects happen, and its signature is similar to <code class="verbatim">map</code>.</p>
+</li>
+</ol>
+<p>After I posted the above snippet at the channel, @jaju also helped refactor my code, here is his concise version:</p>
+<div class="src src-clojure">
+<div class="highlight"><pre class="chroma"><code class="language-clojure" data-lang="clojure"><span class="p">(</span><span class="kd">defn </span><span class="nv">title-case-iteration-2</span> <span class="p">[</span><span class="nv">input-str</span><span class="p">]</span>
+  <span class="p">(</span><span class="k">let </span><span class="p">[</span><span class="nv">prev-whitespace-p</span> <span class="p">(</span><span class="nf">atom</span> <span class="nv">true</span><span class="p">)</span>
+        <span class="nv">result</span> <span class="p">(</span><span class="nf">atom</span> <span class="s">&#34;&#34;</span><span class="p">)]</span>
+    <span class="p">(</span><span class="nf">run!</span> <span class="p">(</span><span class="k">fn </span><span class="p">[</span><span class="nv">c</span><span class="p">]</span>
+            <span class="p">(</span><span class="nf">reset!</span> <span class="nv">result</span> 
+                    <span class="p">(</span><span class="nb">str </span><span class="o">@</span><span class="nv">result</span>
+                         <span class="p">(</span><span class="k">if </span><span class="o">@</span><span class="nv">prev-whitespace-p</span>
+                           <span class="p">(</span><span class="nf">Character/toUpperCase</span> <span class="nv">c</span><span class="p">)</span>
+                           <span class="nv">c</span><span class="p">)))</span>
+            <span class="p">(</span><span class="nf">reset!</span> <span class="nv">prev-whitespace-p</span> <span class="p">(</span><span class="nb">= </span><span class="sc">\s</span><span class="nv">pace</span> <span class="nv">c</span><span class="p">)))</span>
+          <span class="nv">input-str</span><span class="p">)</span>
+    <span class="o">@</span><span class="nv">result</span><span class="p">))</span></code></pre></div>
+</div>
+</div>
+</div>
+<div id="outline-container-headline-2" class="outline-2">
+<h2 id="headline-2">
+The Reduce Way
+</h2>
+<div id="outline-text-headline-2" class="outline-text-2">
+<p>
+  @jaju also pointed to use <a href="https://clojuredocs.org/clojure_core/clojure.core/reduce">reduce</a>, together with a value to carry on states.</p>
+<p>
+  At first, I was confused about how to get the result string because the initial value has two parts: one is the previous character state (whether whitespace or not), the other is the initial result string.</p>
+<p>
+  But it didn&#39;t take me too long to figure it out by using <code class="verbatim">first</code> or <code class="verbatim">second</code> to get it from the state.</p>
+<p>
+  This version is like:</p>
+<div class="src src-clojure">
+<div class="highlight"><pre class="chroma"><code class="language-clojure" data-lang="clojure"><span class="p">(</span><span class="kd">defn </span><span class="nv">title-case-reduce</span>
+  <span class="p">[</span><span class="nv">str</span><span class="p">]</span>
+  <span class="p">(</span><span class="nb">first </span><span class="p">(</span><span class="nb">reduce </span><span class="o">#</span><span class="p">(</span><span class="k">if </span><span class="p">(</span><span class="nb">= </span><span class="sc">\s</span><span class="nv">pace</span> <span class="nv">%2</span><span class="p">)</span>
+                    <span class="p">[(</span><span class="nb">str </span><span class="p">(</span><span class="nb">first </span><span class="nv">%1</span><span class="p">)</span> <span class="nv">%2</span><span class="p">)</span> <span class="nv">true</span><span class="p">]</span>
+                    <span class="p">[(</span><span class="nb">str </span><span class="p">(</span><span class="nb">first </span><span class="nv">%1</span><span class="p">)</span> <span class="p">(</span><span class="k">if </span><span class="p">(</span><span class="nb">second </span><span class="nv">%1</span><span class="p">)</span>
+                                       <span class="p">(</span><span class="nf">Character/toUpperCase</span> <span class="nv">%2</span><span class="p">)</span>
+                                       <span class="nv">%2</span><span class="p">))</span> <span class="nv">false</span><span class="p">])</span>
+                 <span class="p">[</span><span class="s">&#34;&#34;</span> <span class="nv">true</span><span class="p">]</span>
+                 <span class="nv">str</span><span class="p">)))</span></code></pre></div>
+</div>
+<p>
+  @jaju also reviewed my code, and gave another reduce solution by using <a href="https://clojuredocs.org/clojure_core/clojure.core/cond">cond</a>:</p>
+<div class="src src-clojure">
+<div class="highlight"><pre class="chroma"><code class="language-clojure" data-lang="clojure"><span class="p">(</span><span class="kd">defn </span><span class="nv">title-case-reduce-2</span> <span class="p">[</span><span class="nv">s</span><span class="p">]</span>
+  <span class="p">(</span><span class="nf">-&gt;&gt;</span> <span class="nv">s</span>
+       <span class="p">(</span><span class="nf">reduce</span>
+        <span class="p">(</span><span class="k">fn </span><span class="p">[[</span><span class="nv">prev</span> <span class="nv">accum</span><span class="p">]</span> <span class="nv">c</span><span class="p">]</span>
+          <span class="p">(</span><span class="nf">cond</span>
+            <span class="p">(</span><span class="nb">= </span><span class="ss">:begin</span> <span class="nv">prev</span><span class="p">)</span>
+            <span class="p">[</span><span class="nv">nil</span> <span class="p">(</span><span class="nf">Character/toUpperCase</span> <span class="nv">c</span><span class="p">)]</span>
+
+            <span class="p">(</span><span class="nb">= </span><span class="sc">\s</span><span class="nv">pace</span> <span class="nv">c</span><span class="p">)</span>
+            <span class="p">[</span><span class="nv">c</span> <span class="p">(</span><span class="nb">str </span><span class="nv">accum</span> <span class="nv">prev</span><span class="p">)]</span>
+
+            <span class="p">(</span><span class="nb">= </span><span class="sc">\s</span><span class="nv">pace</span> <span class="nv">prev</span><span class="p">)</span>
+            <span class="p">[</span><span class="nv">nil</span> <span class="p">(</span><span class="nb">str </span><span class="nv">accum</span> <span class="nv">prev</span> <span class="p">(</span><span class="nf">Character/toUpperCase</span> <span class="nv">c</span><span class="p">))]</span>
+
+            <span class="ss">:else</span>
+            <span class="p">[</span><span class="nv">nil</span> <span class="p">(</span><span class="nb">str </span><span class="nv">accum</span> <span class="nv">c</span><span class="p">)]))</span>
+        <span class="p">[</span><span class="ss">:begin</span> <span class="s">&#34;&#34;</span><span class="p">])</span>
+       <span class="nv">second</span><span class="p">))</span>
+
+<span class="c1">;; You can also choose to use clojure.string/capitalize instead of Character/toUpperCase</span></code></pre></div>
+</div>
+</div>
+</div>
+<div id="outline-container-headline-3" class="outline-2">
+<h2 id="headline-3">
+The Idiomatic Way
+</h2>
+<div id="outline-text-headline-3" class="outline-text-2">
+<p>
+  While I was struggling in implementing it in the iteration way, I also looked at the idiomatic way.</p>
+<p>
+  Following the code in a <a href="https://gist.github.com/ericnormand/9d0e28695e84efc27c36970ae1462b9c">gist</a>, it took me the least time to write this idiomatic version:</p>
+<div class="src src-clojure">
+<div class="highlight"><pre class="chroma"><code class="language-clojure" data-lang="clojure"><span class="p">(</span><span class="kd">defn </span><span class="nv">title-case-idiomatic</span>
+  <span class="p">[</span><span class="nv">str</span><span class="p">]</span>
+  <span class="p">(</span><span class="nf">clojure.string/join</span> <span class="s">&#34; &#34;</span>
+                       <span class="p">(</span><span class="nb">map </span><span class="o">#</span><span class="p">(</span><span class="nf">clojure.string/capitalize</span> <span class="nv">%</span><span class="p">)</span>
+                            <span class="p">(</span><span class="nf">clojure.string/split</span> <span class="nb">str </span><span class="o">#</span><span class="s">&#34; +&#34;</span><span class="p">))))</span>
+
+<span class="p">(</span><span class="nf">title-case-idiomatic</span> <span class="s">&#34;    hello   world   &#34;</span><span class="p">)</span>
+                                        <span class="c1">; =&gt; &#34; Hello World&#34;</span></code></pre></div>
+</div>
+<p>
+  Since this version doesn&#39;t walk the string character by character, it may not work as you expect in some corner cases, such as the string has leading or trailing whitespaces, as you may have noticed in the above output.</p>
+</div>
+</div>
+<div id="outline-container-headline-4" class="outline-2">
+<h2 id="headline-4">
+Summary
+</h2>
+<div id="outline-text-headline-4" class="outline-text-2">
+<p>
+  Along the journey of implementing this simple function, I learned a few things:</p>
+<ol>
+<li>
+<p>Clojure favors immutability, you have to use <code class="verbatim">atom</code> explicitly to define mutable states, and the company functions stand out by having a <code class="verbatim">!</code> mark at the end of their names.</p>
+</li>
+<li>
+<p>It&#39;s harder to write code using iteration and states than using <code class="verbatim">map=/=reduce</code>. <code class="verbatim">map</code> and <code class="verbatim">reduce</code> are more idiomatic and works at a higher level of abstraction.</p>
+<p>
+On the other side, although iteration may be more efficient, it may not deserve the extra time you invest in. &#34;Premature optimization is the root of all evil.&#34;, <a href="http://wiki.c2.com/?PrematureOptimization">said Donald Knuth</a>.</p>
+</li>
+<li>
+<p>Pay attention to the side effects, especially along with lazy sequences. Clojure has special functions for this purpose, in addition to <code class="verbatim">run!</code>, there are also <a href="https://clojuredocs.org/clojure_core/clojure.core/doseq">doseq</a>, <a href="https://clojuredocs.org/clojure_core/clojure.core/dorun">dorun</a>, and <a href="https://clojuredocs.org/clojure_core/clojure.core/doall">doall</a>.</p>
+</li>
+</ol>
+<p>At last, big thanks to @jaju for the inspiration and help!</p>
+</div>
+</div>
+
+
+        
+          <div class="blog-tags">
+            
+              <a href="https://whatacold.io/tags/clojure/">Clojure</a>&nbsp;
+            
+              <a href="https://whatacold.io/tags/python/">Python</a>&nbsp;
+            
+          </div>
+        
+
+        
+            <hr/>
+            <section id="social-share">
+              <div class="list-inline footer-links">
+                
+
+<div class="share-box" aria-hidden="true">
+    <ul class="share">
+      
+      <li>
+        <a href="//twitter.com/share?url=https%3a%2f%2fwhatacold.io%2fblog%2f2021-07-25-clojure-string-title-case%2f&amp;text=String%20Title%20Case%20in%20Clojure&amp;via=whatacold" target="_blank" title="Share on Twitter">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fwhatacold.io%2fblog%2f2021-07-25-clojure-string-title-case%2f" target="_blank" title="Share on Facebook">
+          <i class="fab fa-facebook"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//reddit.com/submit?url=https%3a%2f%2fwhatacold.io%2fblog%2f2021-07-25-clojure-string-title-case%2f&amp;title=String%20Title%20Case%20in%20Clojure" target="_blank" title="Share on Reddit">
+          <i class="fab fa-reddit"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fwhatacold.io%2fblog%2f2021-07-25-clojure-string-title-case%2f&amp;title=String%20Title%20Case%20in%20Clojure" target="_blank" title="Share on LinkedIn">
+          <i class="fab fa-linkedin"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fwhatacold.io%2fblog%2f2021-07-25-clojure-string-title-case%2f&amp;title=String%20Title%20Case%20in%20Clojure" target="_blank" title="Share on StumbleUpon">
+          <i class="fab fa-stumbleupon"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fwhatacold.io%2fblog%2f2021-07-25-clojure-string-title-case%2f&amp;description=String%20Title%20Case%20in%20Clojure" target="_blank" title="Share on Pinterest">
+          <i class="fab fa-pinterest"></i>
+        </a>
+      </li>
+    </ul>
+  </div>
+  
+
+              </div>
+            </section>
+        
+
+        
+          
+            
+          
+
+          
+                  <h4 class="see-also">See also</h4>
+                  <ul>
+                
+                
+                    <li><a href="/blog/2021-07-11-babashka-random-password-generator/">A Random Password Generator in Babashka</a></li>
+                
+                    <li><a href="/blog/2020-10-21-a-python-re.findall-service/">An Online Python re.findall Service</a></li>
+                
+                    <li><a href="/blog/2019-09-29-how-to-run-the-bleeding-edge-code-of-qtile/">How To Run Bleeding-edge Qtile Within a Virtualenv</a></li>
+                
+                    <li><a href="/blog/2019-07-20-generating-org-mode-outlines-for-wikihow-articles/">Generating org-mode Outlines for wikiHow Articles</a></li>
+                
+                    <li><a href="/blog/2019-07-06-render-erd-on-the-web/">Render erd Diagrams Online</a></li>
+                
+              </ul>
+
+          
+        
+      </article>
+
+      
+        <ul class="pager blog-pager">
+          
+            <li class="previous">
+              <a href="https://whatacold.io/blog/2021-07-17-emacs-i3wm-dunst/" data-toggle="tooltip" data-placement="top" title="Send Notifications from Emacs with i3wm and Dunst">&larr; Previous Post</a>
+            </li>
+          
+          
+        </ul>
+      
+
+
+      
+        
+          
+          <div class="disqus-comments">
+            <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "whatacold" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+          </div>
+          
+        
+        
+      
+
+    </div>
+  </div>
+</div>
+
+      
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+          
+              <li>
+                <a href="mailto:whatacold@gmail.com" title="Email me">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fas fa-envelope fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://github.com/whatacold" title="GitHub">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://twitter.com/whatacold" title="Twitter">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://reddit.com/u/whatacold" title="Reddit">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-reddit-alien fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://stackoverflow.com/users/910978/whatacold" title="StackOverflow">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-stack-overflow fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://www.youtube.com/channel/UC2unslchfhzbub47Qq2U88w" title="Youtube">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-youtube fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+          
+          <li>
+            <a href="" title="RSS">
+              <span class="fa-stack fa-lg">
+                <i class="fas fa-circle fa-stack-2x"></i>
+                <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+        </ul>
+        <p class="credits copyright text-muted">
+          
+            
+              whatacold
+            
+          
+
+          &nbsp;&bull;&nbsp;&copy;
+          
+            2018 - 2021
+          
+
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://whatacold.io">whatacold&#39;s Space</a>
+          
+        </p>
+        
+        <p class="credits theme-by text-muted">
+          <a href="https://gohugo.io">Hugo v0.80.0</a> powered &nbsp;&bull;&nbsp; Theme <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> adapted from <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer><script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.js" integrity="sha384-K3vbOmF2BtaVai+Qk37uypf7VrgBubhQreNQe9aGsz9lB63dIFiQVlJbr92dw2Lx" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/contrib/auto-render.min.js" integrity="sha384-kmZOZB5ObwgQnS/DuDg6TScgOiWWBiVt0plIRkZCmE6rDZGrEOQeHM5PcHi+nyqe" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+<script src="https://whatacold.io/js/main.js"></script>
+<script src="https://whatacold.io/js/highlight.min.js"></script>
+<script> hljs.initHighlightingOnLoad(); </script>
+<script> $(document).ready(function() {$("pre.chroma").css("padding","0");}); </script><script> renderMathInElement(document.body); </script><script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.js" integrity="sha384-QELNnmcmU8IR9ZAykt67vGr9/rZJdHbiWi64V88fCPaOohUlHCqUD/unNN0BXSqy" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe-ui-default.min.js" integrity="sha384-m67o7SkQ1ALzKZIFh4CiTA8tmadaujiTa9Vu+nqPSwDOqHrDmxLezTdFln8077+q" crossorigin="anonymous"></script><script src="https://whatacold.io/js/load-photoswipe.js"></script>
+
+
+
+
+
+
+
+
+
+    
+  </body>
+</html>
+
