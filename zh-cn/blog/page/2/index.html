@@ -12,8 +12,7 @@
 
   
 
-  <title>在线用 Python 正则查找文本 - whatacold 的空间</title>
-  <meta name="description" content="前段时间做了一个使用 Python 正则提取文本的工具服务： https://texttoolkit.com/re.findall ，用于解决日常一些繁琐的查找文本的需求。 工具主界面 场景 1 日常开发工作中你可能也需要像我一样，">
+  <title>Blogs - whatacold 的空间</title>
   <meta name="author" content="whatacold"/><script type="application/ld+json">
 {
     "@context": "http://schema.org",
@@ -34,64 +33,14 @@
   
 }
 </script>
-<script type="application/ld+json">
-{
-  "@context": "http://schema.org",
-  "@type": "BreadcrumbList",
-  "itemListElement": [{
-        "@type": "ListItem",
-        "position": 1,
-        "item": {
-          "@id": "https:\/\/whatacold.io",
-          "name": "home"
-        }
-    },{
-        "@type": "ListItem",
-        "position": 3,
-        "item": {
-          "@id": "https:\/\/whatacold.io\/zh-cn\/blog\/2021-07-12-python-re-chazhao\/",
-          "name": "在线用 python 正则查找文本"
-        }
-    }]
-}
-</script><script type="application/ld+json">
-{
-  "@context": "http://schema.org",
-  "@type": "Article",
-  "author": {
-    "name" : "whatacold"
-  },
-  "headline": "在线用 Python 正则查找文本",
-  "description" : "前段时间做了一个使用 Python 正则提取文本的工具服务： https:\/\/texttoolkit.com\/re.findall ，用于解决日常一些繁琐的查找文本的需求。 工具主界面 场景 1 日常开发工作中你可能也需要像我一样，",
-  "inLanguage" : "zh-cn",
-  "wordCount":  758 ,
-  "datePublished" : "2021-07-12T23:34:11",
-  "dateModified" : "2021-07-12T23:34:11",
-  "image" : "https:\/\/whatacold.io\/img\/avatar.png",
-  "keywords" : [ "Python, texttoolkit" ],
-  "mainEntityOfPage" : "https:\/\/whatacold.io\/zh-cn\/blog\/2021-07-12-python-re-chazhao\/",
-  "publisher" : {
-    "@type": "Organization",
-    "name" : "https:\/\/whatacold.io",
-    "logo" : {
-        "@type" : "ImageObject",
-        "url" : "https:\/\/whatacold.io\/img\/avatar.png",
-        "height" :  60 ,
-        "width" :  60
-    }
-  }
-}
-</script>
 
-<meta property="og:title" content="在线用 Python 正则查找文本" />
-<meta property="og:description" content="前段时间做了一个使用 Python 正则提取文本的工具服务： https://texttoolkit.com/re.findall ，用于解决日常一些繁琐的查找文本的需求。 工具主界面 场景 1 日常开发工作中你可能也需要像我一样，">
+<meta property="og:title" content="Blogs" />
 <meta property="og:image" content="https://whatacold.io/img/avatar.png" />
-<meta property="og:url" content="https://whatacold.io/zh-cn/blog/2021-07-12-python-re-chazhao/" />
+<meta property="og:url" content="https://whatacold.io/zh-cn/blog/" />
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="whatacold 的空间" />
 
-  <meta name="twitter:title" content="在线用 Python 正则查找文本" />
-  <meta name="twitter:description" content="前段时间做了一个使用 Python 正则提取文本的工具服务： https://texttoolkit.com/re.findall ，用于解决日常一些繁琐的查找文本的需求。 工具主界面 场景 1 日常开发工作中你可能也需要像我一样，">
+  <meta name="twitter:title" content="Blogs" />
   <meta name="twitter:image" content="https://whatacold.io/img/avatar.png" />
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:site" content="@whatacold" />
@@ -249,7 +198,7 @@ if (!doNotTrack) {
           <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
             <div class="blog-heading">
               
-                <h1>在线用 Python 正则查找文本</h1>
+                <h1>Blogs</h1>
               
               
                 <hr class="small">
@@ -265,223 +214,71 @@ if (!doNotTrack) {
 
 
     
-<div class="container" role="main">
-  <div class="row">
-    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-      <article role="main" class="blog-post">
+  <div class="container" role="main">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
         
-<p>
-前段时间做了一个使用 Python 正则提取文本的工具服务： <a href="https://texttoolkit.com/re.findall">https://texttoolkit.com/re.findall</a> ，用于解决日常一些繁琐的查找文本的需求。</p>
-<figure>
-<img src="/img/2021-07-11-re.findall.png" alt="/img/2021-07-11-re.findall.png" title="/img/2021-07-11-re.findall.png" /><figcaption>
-工具主界面
-</figcaption>
-</figure>
-<div id="outline-container-headline-1" class="outline-2">
-<h2 id="headline-1">
-场景 1
-</h2>
-<div id="outline-text-headline-1" class="outline-text-2">
-<p>
-日常开发工作中你可能也需要像我一样，用各种内部管理系统，查看监控、日志、按机器 IP 过滤列表等等（我自嘲这是“面向浏览器开发”）。</p>
-<p>
-但是内部系统一般用户体验都比较差，经常需要人肉从界面 A 抠出来一堆 IP 列表到页面 B 操作。一两个 IP 还好，一旦 IP 到了 5 个以上的时候，这种操作就会把自己搞得很郁闷，因为这就是个反复复制粘贴机器，没有什么技术含量。</p>
-<p>
-为了愉悦自己，我也尝试过一些简便的办法：</p>
-<ol>
-<li>
-<p>按列提取：对于 table 型的数据，从浏览器复制粘贴到 excel 中，再把对应列提取出来</p>
-</li>
-<li>
-<p>无法按列提取：用 shell 包装一下 grep/sed/awk 来完成</p>
-</li>
-</ol>
-<p>可行是可行，但挡不住内部系统各种 UI 不统一的问题，比如多 IP 分隔符，有时候格式是 <code class="verbatim">IP1|IP2</code> ， 有的时候又是 <code class="verbatim">IP1,IP2</code> （颇有一种“一群大雁飞过，一会儿排成一个一字，一会儿又排成一个人字”之感）。</p>
-<p>
-这就使得上面的方法不太灵活，每次用的时候都需要稍微调整一番，而且每个 CLI 工具的正则语法可能还会有一点点差异，还以一次用对。</p>
-<p>
-于是我就想，是否有别的更好的方法呢？</p>
-<p>
-有天想到可以利用正则来很好的完成这个任务，而且正则还有一个 bonus，那就是对于数据没有“格式”要求，不像 awk 那样针对特定的列，只要满足 pattern 即可；另外对于 join 的符号，也可以在界面上很方便地更改。</p>
-</div>
-</div>
-<div id="outline-container-headline-2" class="outline-2">
-<h2 id="headline-2">
-场景 2
-</h2>
-<div id="outline-text-headline-2" class="outline-text-2">
-<p>
-举一个开发例子，出于某种原因，你现在需要提取 protobuf 定义的所有字段名字，那也可以用这个服务来完成。</p>
-<p>
-比如定义如下：</p>
-<div class="src src-text">
-<div class="highlight"><pre class="chroma"><code class="language-text" data-lang="text">message Person {
-  required string Name = 1;
-  required int32 Id = 2;
-  optional string Email = 3;
-}</code></pre></div>
-</div>
-<p>
-那么用此服务也很简单，只要用正则 <code>(\w+) =</code> 即可把它们都抓出来。</p>
-</div>
-</div>
-<div id="outline-container-headline-3" class="outline-2">
-<h2 id="headline-3">
-场景 3
-</h2>
-<div id="outline-text-headline-3" class="outline-text-2">
-<p>
-  某天你上网看到一篇好文章，里面包含了大量精美的图片，你想把图片 url 都找出来，然后用 wget 批量下载， 在本地保存一份，那么这个服务也可以帮一点忙。</p>
-<p>
-只需要简单两步即可搞定：</p>
-<ol>
-<li>
-<p>右键查看网页源码，粘贴到文本框中</p>
-</li>
-<li>
-<p>写一个提取 img src 的正则： <code>&lt;img.*?src=&#34;([^&#34;]+)&#34;</code></p>
-</li>
-</ol>
-</div>
-</div>
-
-
+        <div class="posts-list">
+          
+            <article class="post-preview">
+    <a href="https://whatacold.io/zh-cn/blog/2018-12-10-how-polymorphism-works-in-cpp/">
+        <h2 class="post-title">C&#43;&#43; 多态是如何实现的？</h2>
         
-          <div class="blog-tags">
-            
-              <a href="https://whatacold.io/zh-cn/tags/python/">Python</a>&nbsp;
-            
-              <a href="https://whatacold.io/zh-cn/tags/texttoolkit/">texttoolkit</a>&nbsp;
-            
-          </div>
         
-
         
-            <hr/>
-            <section id="social-share">
-              <div class="list-inline footer-links">
-                
+    </a>
 
-<div class="share-box" aria-hidden="true">
-    <ul class="share">
-      
-      <li>
-        <a href="//twitter.com/share?url=https%3a%2f%2fwhatacold.io%2fzh-cn%2fblog%2f2021-07-12-python-re-chazhao%2f&amp;text=%e5%9c%a8%e7%ba%bf%e7%94%a8%20Python%20%e6%ad%a3%e5%88%99%e6%9f%a5%e6%89%be%e6%96%87%e6%9c%ac&amp;via=whatacold" target="_blank" title="Share on Twitter">
-          <i class="fab fa-twitter"></i>
-        </a>
-      </li>
+    <p class="post-meta">
+        <span class="post-meta">
   
-      
-      <li>
-        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fwhatacold.io%2fzh-cn%2fblog%2f2021-07-12-python-re-chazhao%2f" target="_blank" title="Share on Facebook">
-          <i class="fab fa-facebook"></i>
-        </a>
-      </li>
   
-      
-      <li>
-        <a href="//reddit.com/submit?url=https%3a%2f%2fwhatacold.io%2fzh-cn%2fblog%2f2021-07-12-python-re-chazhao%2f&amp;title=%e5%9c%a8%e7%ba%bf%e7%94%a8%20Python%20%e6%ad%a3%e5%88%99%e6%9f%a5%e6%89%be%e6%96%87%e6%9c%ac" target="_blank" title="Share on Reddit">
-          <i class="fab fa-reddit"></i>
-        </a>
-      </li>
+  <i class="fas fa-calendar"></i>&nbsp;发表于 2018-12-10
   
-      
-      <li>
-        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fwhatacold.io%2fzh-cn%2fblog%2f2021-07-12-python-re-chazhao%2f&amp;title=%e5%9c%a8%e7%ba%bf%e7%94%a8%20Python%20%e6%ad%a3%e5%88%99%e6%9f%a5%e6%89%be%e6%96%87%e6%9c%ac" target="_blank" title="Share on LinkedIn">
-          <i class="fab fa-linkedin"></i>
-        </a>
-      </li>
   
-      
-      <li>
-        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fwhatacold.io%2fzh-cn%2fblog%2f2021-07-12-python-re-chazhao%2f&amp;title=%e5%9c%a8%e7%ba%bf%e7%94%a8%20Python%20%e6%ad%a3%e5%88%99%e6%9f%a5%e6%89%be%e6%96%87%e6%9c%ac" target="_blank" title="Share on StumbleUpon">
-          <i class="fab fa-stumbleupon"></i>
-        </a>
-      </li>
+    &nbsp;|&nbsp;<i class="fas fa-clock"></i>&nbsp;3&nbsp;分钟
   
-      
-      <li>
-        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fwhatacold.io%2fzh-cn%2fblog%2f2021-07-12-python-re-chazhao%2f&amp;description=%e5%9c%a8%e7%ba%bf%e7%94%a8%20Python%20%e6%ad%a3%e5%88%99%e6%9f%a5%e6%89%be%e6%96%87%e6%9c%ac" target="_blank" title="Share on Pinterest">
-          <i class="fab fa-pinterest"></i>
-        </a>
-      </li>
-    </ul>
-  </div>
   
+    &nbsp;|&nbsp;<i class="fas fa-book"></i>&nbsp;1399&nbsp;个字
+  
+  
+  
+</span>
 
-              </div>
-            </section>
+
+    </p>
+    <div class="post-entry">
         
-
+        对于 OOP 编程，相信大家对于多态（ polymorphism ）肯定都耳熟能详。 但是对于多态是如何实现的，我不知道大家是否清楚，但我发现自己并不是很了解， 只知道在运行时通
+        <a href="https://whatacold.io/zh-cn/blog/2018-12-10-how-polymorphism-works-in-cpp/" class="post-read-more">[阅读全文]</a>
         
-          
-            
-          
+    </div>
 
-          
-                  <h4 class="see-also">也可以看看</h4>
-                  <ul>
-                
-                
-                    <li><a href="/zh-cn/blog/2019-10-01-reboot-tianyi-router-using-python-requests/">用 Python Requests “一键”重启天翼路由器</a></li>
-                
-                    <li><a href="/zh-cn/blog/2018-12-22-c-cpp-devel-with-lsp-in-emacs/">在 Emacs 中使用 LSP 开发 C/C&#43;&#43; 工程</a></li>
-                
-              </ul>
-
-          
-        
-      </article>
-
-      
-        <ul class="pager blog-pager">
-          
-            <li class="previous">
-              <a href="https://whatacold.io/zh-cn/blog/2021-07-10-migrate-site-hugo/" data-toggle="tooltip" data-placement="top" title="个人网站迁移 Hugo 记">&larr; 前一篇</a>
-            </li>
-          
-          
-            <li class="next">
-              <a href="https://whatacold.io/zh-cn/blog/2021-07-28-clojure-reduce-yongfang/" data-toggle="tooltip" data-placement="top" title="Clojure Reduce 的两种用法">后一篇 &rarr;</a>
-            </li>
-          
-        </ul>
-      
-
-
-      
-        
-          
-          <div class="disqus-comments">
-            <div id="disqus_thread"></div>
-<script type="application/javascript">
-    var disqus_config = function () {
     
-    
-    
-    };
-    (function() {
-        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
-            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
-            return;
-        }
-        var d = document, s = d.createElement('script'); s.async = true;
-        s.src = '//' + "whatacold" + '.disqus.com/embed.js';
-        s.setAttribute('data-timestamp', +new Date());
-        (d.head || d.body).appendChild(s);
-    })();
-</script>
-<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
-          </div>
-          
+    <div class="blog-tags">
         
+        <a href="https://whatacold.io/zh-cn/tags/c&#43;&#43;/">C&#43;&#43;</a>&nbsp;
         
-      
+        <a href="https://whatacold.io/zh-cn/tags/gdb/">GDB</a>&nbsp;
+        
+    </div>
+    
 
+</article>
+          
+        </div>
+        
+          <ul class="pager main-pager">
+            
+              <li class="previous">
+                <a href="https://whatacold.io/zh-cn/blog/page/1/">&larr; 上一页</a>
+              </li>
+            
+            
+          </ul>
+        
+      </div>
     </div>
   </div>
-</div>
 
       
 <footer>
@@ -540,7 +337,7 @@ if (!doNotTrack) {
               </li>
           
           <li>
-            <a href="" title="RSS">
+            <a href="/zh-cn/blog/rss.xml" title="RSS">
               <span class="fa-stack fa-lg">
                 <i class="fas fa-circle fa-stack-2x"></i>
                 <i class="fas fa-rss fa-stack-1x fa-inverse"></i>

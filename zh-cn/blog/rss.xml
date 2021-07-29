@@ -7,7 +7,16 @@
     <generator>Hugo -- gohugo.io</generator>
     <managingEditor>whatacold@gmail.com (whatacold)</managingEditor>
     <webMaster>whatacold@gmail.com (whatacold)</webMaster>
-    <lastBuildDate>Mon, 12 Jul 2021 23:34:11 +0800</lastBuildDate><atom:link href="https://whatacold.io/zh-cn/blog/rss.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 28 Jul 2021 00:01:15 +0800</lastBuildDate><atom:link href="https://whatacold.io/zh-cn/blog/rss.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Clojure Reduce 的两种用法</title>
+      <link>https://whatacold.io/zh-cn/blog/2021-07-28-clojure-reduce-yongfang/</link>
+      <pubDate>Wed, 28 Jul 2021 00:01:15 +0800</pubDate>
+      <author>whatacold@gmail.com (whatacold)</author>
+      <guid>https://whatacold.io/zh-cn/blog/2021-07-28-clojure-reduce-yongfang/</guid>
+      <description>map/reduce 在 Lisp 语言中是一种很常见的用法， Clojure 自然也不例外。 自上次 title-case 的练习之后，我以为自己对 reduce 已经有了较为深入的了解了；恰好最近在 StackOverflow 上刚好遇到一个类似的</description>
+    </item>
+    
     <item>
       <title>在线用 Python 正则查找文本</title>
       <link>https://whatacold.io/zh-cn/blog/2021-07-12-python-re-chazhao/</link>
