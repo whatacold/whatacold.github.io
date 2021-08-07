@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+<html lang="en" itemscope itemtype="http://schema.org/WebPage">
+  <head>
+    
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+
+
+
+  
+
+  <title>illustrate.clj to Illustrate Clojure Snippet - whatacold&#39;s Space</title>
+  <meta name="description" content="To get my hands dirty with Clojure, I am trying to find or implement Clojure&#39;s string functions in the sense of Python. Python has powerful string APIs, and I also want to see how powerful Clojure could be in this field. That would be interesting.
+ As shown in the cheatsheet, Clojure has implemented most of them, and there are some that I have to implement myself, like title-case.">
+  <meta name="author" content="whatacold"/><script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "WebSite",
+    "name": "whatacold\u0027s Space",
+    
+    "url": "https:\/\/whatacold.io"
+}
+</script><script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Organization",
+  "name": "",
+  "url": "https:\/\/whatacold.io"
+  
+  
+  
+  
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "item": {
+          "@id": "https:\/\/whatacold.io",
+          "name": "home"
+        }
+    },{
+        "@type": "ListItem",
+        "position": 3,
+        "item": {
+          "@id": "https:\/\/whatacold.io\/blog\/2021-08-07-illustrate-clojure-snippet\/",
+          "name": "Illustrate.clj to illustrate clojure snippet"
+        }
+    }]
+}
+</script><script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Article",
+  "author": {
+    "name" : "whatacold"
+  },
+  "headline": "illustrate.clj to Illustrate Clojure Snippet",
+  "description" : "To get my hands dirty with Clojure, I am trying to find or implement Clojure\u0026#39;s string functions in the sense of Python. Python has powerful string APIs, and I also want to see how powerful Clojure could be in this field. That would be interesting.\n As shown in the cheatsheet, Clojure has implemented most of them, and there are some that I have to implement myself, like title-case.",
+  "inLanguage" : "en",
+  "wordCount":  988 ,
+  "datePublished" : "2021-08-07T18:49:25",
+  "dateModified" : "2021-08-07T18:49:25",
+  "image" : "https:\/\/whatacold.io\/img\/avatar.png",
+  "keywords" : [ "Babashka, Clojure, Hugo" ],
+  "mainEntityOfPage" : "https:\/\/whatacold.io\/blog\/2021-08-07-illustrate-clojure-snippet\/",
+  "publisher" : {
+    "@type": "Organization",
+    "name" : "https:\/\/whatacold.io",
+    "logo" : {
+        "@type" : "ImageObject",
+        "url" : "https:\/\/whatacold.io\/img\/avatar.png",
+        "height" :  60 ,
+        "width" :  60
+    }
+  }
+}
+</script>
+
+<meta property="og:title" content="illustrate.clj to Illustrate Clojure Snippet" />
+<meta property="og:description" content="To get my hands dirty with Clojure, I am trying to find or implement Clojure&#39;s string functions in the sense of Python. Python has powerful string APIs, and I also want to see how powerful Clojure could be in this field. That would be interesting.
+ As shown in the cheatsheet, Clojure has implemented most of them, and there are some that I have to implement myself, like title-case.">
+<meta property="og:image" content="https://whatacold.io/img/avatar.png" />
+<meta property="og:url" content="https://whatacold.io/blog/2021-08-07-illustrate-clojure-snippet/" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="whatacold&#39;s Space" />
+
+  <meta name="twitter:title" content="illustrate.clj to Illustrate Clojure Snippet" />
+  <meta name="twitter:description" content="To get my hands dirty with Clojure, I am trying to find or implement Clojure&#39;s string functions in the sense of Python. Python has powerful string APIs, and I also want to see how powerful Clojure …">
+  <meta name="twitter:image" content="https://whatacold.io/img/avatar.png" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@whatacold" />
+  <meta name="twitter:creator" content="@whatacold" />
+  <link href='https://whatacold.io/img/favicon.ico' rel='icon' type='image/x-icon'/>
+  <meta name="generator" content="Hugo 0.80.0" />
+  <link rel="alternate" href="https://whatacold.io/index.xml" type="application/rss+xml" title="whatacold&#39;s Space"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"><link rel="stylesheet" href="https://whatacold.io/css/main.css" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
+  <link rel="stylesheet" href="https://whatacold.io/css/highlight.min.css" /><link rel="stylesheet" href="https://whatacold.io/css/codeblock.css" /><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.css" integrity="sha384-h/L2W9KefUClHWaty3SLE5F/qvc4djlyR4qY3NUV5HGQBBW7stbcfff1+I/vmsHh" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/default-skin/default-skin.min.css" integrity="sha384-iD0dNku6PYSIQLyfTOpB06F2KCZJAKLOThS5HRe8b3ibhdEQ6eKsFf/EeFxdOt5R" crossorigin="anonymous">
+
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-74588785-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+  </head>
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://whatacold.io">whatacold&#39;s Space</a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+          
+            <li>
+              <a title="Blog" href="/">Blog</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="About" href="/about/">About</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="Tags" href="/tags">Tags</a>
+            </li>
+          
+        
+
+        
+          
+            <li>
+              
+                
+              
+                
+                  <a href="/zh-cn" lang="zh-cn">简体中文</a>
+                
+              
+            </li>
+          
+        
+
+        
+      </ul>
+    </div>
+
+    
+      <div class="avatar-container">
+        <div class="avatar-img-border">
+          <a title="whatacold&#39;s Space" href="https://whatacold.io">
+            <img class="avatar-img" src="https://whatacold.io/img/avatar.png" alt="whatacold&#39;s Space" />
+          </a>
+        </div>
+      </div>
+    
+
+  </div>
+</nav>
+
+
+
+
+    
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+  
+  
+  
+
+
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    <div class="intro-header no-img">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <div class="blog-heading">
+              
+                <h1>illustrate.clj to Illustrate Clojure Snippet</h1>
+              
+              
+                <hr class="small">
+              
+              
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+    
+<div class="container" role="main">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+      <article role="main" class="blog-post">
+        
+<p>
+To get my hands dirty with Clojure, I am trying to find or implement Clojure&#39;s string functions in the sense of Python. Python has powerful string APIs, and I also want to see how powerful Clojure could be in this field. That would be interesting.</p>
+<p>
+As shown in the <a href="https://clojure.org/api/cheatsheet">cheatsheet</a>, Clojure has implemented most of them, and there are some that I have to implement myself, like <a href="/en/blog/2021-07-25-clojure-string-title-case.html">title-case</a>.</p>
+<p>
+Along the way, I found it was a little cumbersome to append the evaluation result and the result of calling them, for example,</p>
+<div class="src src-clojure">
+<div class="highlight"><pre class="chroma"><code class="language-clojure" data-lang="clojure"><span class="p">(</span><span class="kd">defn </span><span class="nv">title-case-idiomatic</span>
+  <span class="p">[</span><span class="nv">str</span><span class="p">]</span>
+  <span class="p">(</span><span class="nf">clojure.string/join</span> <span class="s">&#34; &#34;</span>
+                       <span class="p">(</span><span class="nb">map </span><span class="o">#</span><span class="p">(</span><span class="nf">clojure.string/capitalize</span> <span class="nv">%</span><span class="p">)</span>
+                            <span class="p">(</span><span class="nf">clojure.string/split</span> <span class="nb">str </span><span class="o">#</span><span class="s">&#34; +&#34;</span><span class="p">))))</span>
+<span class="c1">;; =&gt; #&#39;user/title-case-idiomatic</span>
+
+<span class="p">(</span><span class="nf">title-case-idiomatic</span> <span class="s">&#34; hello world &#34;</span><span class="p">)</span>
+<span class="c1">;; =&gt;  Hello World</span></code></pre></div>
+</div>
+<p>
+If I change the function name or add more calling examples, I need to adjust the evaluation comment accordingly, which is not a very good idea.</p>
+<p>
+Though I never have a chance to practice it, I was aware of the homoiconicity of Lisp, so why not write a <a href="https://babashka.org/">Babashka</a> script to do that automatically?</p>
+<figure>
+<img src="/img/2021-08-07-illustrate-clj-diff.png" alt="/img/2021-08-07-illustrate-clj-diff.png" title="/img/2021-08-07-illustrate-clj-diff.png" /><figcaption>
+The Illustrated Clojure Snippet
+</figcaption>
+</figure>
+<p>
+That would be an excellent opportunity to get familiar with Clojure, so let&#39;s dive into it.</p>
+<p>
+P.S. I made a tweet thread along this journey:
+<blockquote class="twitter-tweet"><p lang="en" dir="ltr">What about a <a href="https://twitter.com/hashtag/clojure?src=hash&amp;ref_src=twsrc%5Etfw">#clojure</a> illustration tool for code snippets using <a href="https://twitter.com/hashtag/babashka?src=hash&amp;ref_src=twsrc%5Etfw">#babashka</a> ? <a href="https://t.co/WLUqmOWStV">pic.twitter.com/WLUqmOWStV</a></p>&mdash; whatacold (@whatacold) <a href="https://twitter.com/whatacold/status/1421136130066587649?ref_src=twsrc%5Etfw">July 30, 2021</a></blockquote>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+</p>
+<div id="outline-container-headline-1" class="outline-2">
+<h2 id="headline-1">
+The Trivial Version
+</h2>
+<div id="outline-text-headline-1" class="outline-text-2">
+<p>
+  The idea is simple in 3 steps:</p>
+<ol>
+<li>
+<p>Read the top-level forms</p>
+</li>
+<li>
+<p>Evaluate them</p>
+</li>
+<li>
+<p>Print the forms and their result in comments after them</p>
+</li>
+</ol>
+<p>The most challenging part is how to read top-level forms and evaluate them, but it didn&#39;t take me too long to make it using <code class="verbatim">edn/read</code> and <code class="verbatim">java.io.PushbackReader</code>, based on this <a href="https://stackoverflow.com/a/15237012/910978">StackOverflow answer</a>.</p>
+<p>
+  The core part of it is as follows:</p>
+<div class="src src-clojure">
+<div class="highlight"><pre class="chroma"><code class="language-clojure" data-lang="clojure"><span class="p">(</span><span class="kd">defn </span><span class="nv">illustrate</span>
+  <span class="p">[</span><span class="nv">file</span> <span class="nv">suffix</span><span class="p">]</span>
+  <span class="p">(</span><span class="nb">with-open </span><span class="p">[</span><span class="nv">in</span> <span class="p">(</span><span class="nf">java.io.PushbackReader.</span> <span class="p">(</span><span class="nf">clojure.java.io/reader</span>
+                                           <span class="nv">file</span><span class="p">))]</span>
+    <span class="p">(</span><span class="k">let </span><span class="p">[</span><span class="nv">edn-seq</span> <span class="p">(</span><span class="nf">repeatedly</span> <span class="p">(</span><span class="nb">partial </span><span class="nv">edn/read</span> <span class="p">{</span><span class="ss">:eof</span> <span class="ss">:theend</span><span class="p">}</span> <span class="nv">in</span><span class="p">))]</span>
+      <span class="p">(</span><span class="nf">spit</span> <span class="p">(</span><span class="nb">str </span><span class="nv">file</span> <span class="nv">suffix</span><span class="p">)</span>
+            <span class="p">(</span><span class="nf">with-out-str</span>
+              <span class="p">(</span><span class="nb">dorun </span><span class="p">(</span><span class="nb">map </span><span class="p">(</span><span class="k">fn </span><span class="p">[</span><span class="nv">obj</span><span class="p">]</span>
+                            <span class="p">(</span><span class="nf">println</span><span class="p">)</span>
+                            <span class="p">(</span><span class="nb">prn </span><span class="nv">obj</span><span class="p">)</span>
+                            <span class="p">(</span><span class="nb">println </span><span class="s">&#34;; =&gt; &#34;</span> <span class="p">(</span><span class="nb">eval </span><span class="nv">obj</span><span class="p">)))</span>
+                          <span class="p">(</span><span class="nb">take-while </span><span class="p">(</span><span class="nb">partial not= </span><span class="ss">:theend</span><span class="p">)</span> <span class="nv">edn-seq</span><span class="p">))))))))</span></code></pre></div>
+</div>
+<p>
+  It works, and it only took me some 2 hours to implement it, which is fantastic.</p>
+<p>
+  But it also has a major pitfall. It can&#39;t preserve whitespaces and comments, which makes it barely useful. The full version is at <a href="https://github.com/whatacold/babashka-tools/commit/de839d0dadf15ea31e9cd43170d56231dab35e75#diff-5463448b5b420514cdd8988d77b09f09d8d4c250d127791b091b36464f9ae1db">3f7e639</a>, if you&#39;re interested.</p>
+<p>
+  Then how can I improve it?</p>
+<p>
+  Though I don&#39;t have much experience, I did read some blog posts about how to rewrite Clojure files using <a href="https://github.com/clj-commons/rewrite-clj">rewrite-clj</a>, for example, <a href="https://www.martinklepsch.org/posts/homoiconicity-and-feature-flags.html.">https://www.martinklepsch.org/posts/homoiconicity-and-feature-flags.html.</a></p>
+<p>
+  So rewrite-clj sounds like the right tool.</p>
+</div>
+</div>
+<div id="outline-container-headline-2" class="outline-2">
+<h2 id="headline-2">
+The rewrite-clj Version
+</h2>
+<div id="outline-text-headline-2" class="outline-text-2">
+<p>
+  It seems a good start to read the <a href="https://github.com/clj-commons/rewrite-clj/blob/main/doc/01-user-guide.adoc">docs</a>. It briefly introduces how it works, some concepts, and the four major APIs: zip, node, parser, and Paredit API.</p>
+<p>
+  Then I thought I was good to go, but it turned out that it was more complex than I thought.</p>
+<div id="outline-container-headline-3" class="outline-3">
+<h3 id="headline-3">
+The First Try that Failed
+</h3>
+<div id="outline-text-headline-3" class="outline-text-3">
+<p>
+   This is what I came up at first:</p>
+<div class="src src-clojure">
+<div class="highlight"><pre class="chroma"><code class="language-clojure" data-lang="clojure"><span class="p">(</span><span class="nf">require</span> <span class="o">&#39;</span><span class="p">[</span><span class="nv">rewrite-clj.zip</span> <span class="ss">:as</span> <span class="nv">z</span><span class="p">]</span>
+         <span class="o">&#39;</span><span class="p">[</span><span class="nv">rewrite-clj.node</span> <span class="ss">:as</span> <span class="nv">n</span><span class="p">]</span>
+         <span class="o">&#39;</span><span class="p">[</span><span class="nv">rewrite-clj.parser</span> <span class="ss">:as</span> <span class="nv">p</span><span class="p">])</span>
+
+<span class="c1">;; a test string</span>
+<span class="p">(</span><span class="k">def </span><span class="nv">data-string</span> <span class="s">&#34;
+</span><span class="s">(defn my-function [a]
+</span><span class="s">  (* a 3))
+</span><span class="s">
+</span><span class="s">(my-function 7)
+</span><span class="s">&#34;</span><span class="p">)</span>
+
+<span class="c1">;; parse code to nodes, create a zipper, and navigate to the first non-whitespace node</span>
+<span class="p">(</span><span class="k">def </span><span class="nv">zloc</span> <span class="p">(</span><span class="nf">z/of-string</span> <span class="nv">data-string</span><span class="p">))</span>
+
+<span class="p">(</span><span class="k">loop </span><span class="p">[</span><span class="nv">cur</span> <span class="nv">zloc</span>
+       <span class="nb">left </span><span class="nv">cur</span><span class="p">]</span>
+  <span class="p">(</span><span class="nb">println </span><span class="s">&#34;current string {{&#34;</span> <span class="p">(</span><span class="nf">z/string</span> <span class="nv">cur</span><span class="p">)</span> <span class="s">&#34;}}&#34;</span><span class="p">)</span>
+  <span class="p">(</span><span class="k">if </span><span class="p">(</span><span class="nf">z/end?</span> <span class="nv">cur</span><span class="p">)</span>
+    <span class="p">(</span><span class="nb">println </span><span class="s">&#34;final string: {{&#34;</span> <span class="p">(</span><span class="nf">z/root-string</span> <span class="nv">left</span><span class="p">)</span> <span class="s">&#34;}}&#34;</span><span class="p">)</span> <span class="c1">; XXX it doesn&#39;t work as expected!!!</span>
+    <span class="p">(</span><span class="nf">recur</span> <span class="p">(</span><span class="nf">z/right</span> <span class="p">(</span><span class="nf">z/insert-right</span> <span class="nv">cur</span> <span class="p">(</span><span class="nf">p/parse-string</span> <span class="s">&#34;; test\n&#34;</span><span class="p">)))</span>
+           <span class="nv">cur</span><span class="p">)))</span></code></pre></div>
+</div>
+<p>
+  The output shows that it only works partially, the last comment didn&#39;t get appended:</p>
+<div class="src src-text">
+<div class="highlight"><pre class="chroma"><code class="language-text" data-lang="text">current string {{ (defn my-function [a]
+  (* a 3)) }}
+current string {{ (my-function 7) }}
+current string {{ nil }}
+final string: {{ 
+ (defn my-function [a]
+  (* a 3)) ; test
+
+
+(my-function 7)
+ }}</code></pre></div>
+</div>
+<p>
+  It took me a lot of time to figure out why it doesn&#39;t work, but I failed to.</p>
+<p>
+  Then I turned to the <a href="https://app.slack.com/client/T03RZGPFR/CHB5Q2XUJ">#rewrite-clj</a> community on Slack for help, <a href="https://twitter.com/NimbleLee">@lread</a> nicely gave me a workable solution:</p>
+<div class="src src-clojure">
+<div class="highlight"><pre class="chroma"><code class="language-clojure" data-lang="clojure"><span class="p">(</span><span class="k">loop </span><span class="p">[</span><span class="nv">zloc</span> <span class="nv">zloc</span><span class="p">]</span>
+  <span class="p">(</span><span class="k">let </span><span class="p">[</span><span class="nv">zloc</span> <span class="p">(</span><span class="nf">some-&gt;</span> <span class="nv">zloc</span>
+                     <span class="p">(</span><span class="nf">z/insert-right*</span> <span class="p">(</span><span class="nf">n/comment-node</span> <span class="s">&#34;; test&#34;</span><span class="p">))</span>
+                     <span class="p">(</span><span class="nf">z/insert-right*</span> <span class="p">(</span><span class="nf">n/newlines</span> <span class="mi">1</span><span class="p">)))</span>
+        <span class="nv">next-sib</span> <span class="p">(</span><span class="nf">z/right</span> <span class="nv">zloc</span><span class="p">)]</span>
+    <span class="p">(</span><span class="k">if </span><span class="nv">next-sib</span>
+      <span class="p">(</span><span class="nf">recur</span> <span class="nv">next-sib</span><span class="p">)</span>
+      <span class="p">(</span><span class="nf">z/print-root</span> <span class="nv">zloc</span><span class="p">))))</span></code></pre></div>
+</div>
+<p>
+  That was a good starting point for me. Looking back, the lessons here are:</p>
+<ol>
+<li>
+<p>The <code class="verbatim">zipper</code> or <code class="verbatim">zloc</code> of rewrite-clj is <strong>immutable</strong>, so be careful with the stale ones before modifications.</p>
+<p>
+The problem above was that the <code class="verbatim">cur</code> in the last <code class="verbatim">recur</code> sexpr is stale after applying <code class="verbatim">z/insert-right</code>, and the correct one would be like this:</p>
+<div class="src src-clojure">
+<div class="highlight"><pre class="chroma"><code class="language-clojure" data-lang="clojure"><span class="p">(</span><span class="k">loop </span><span class="p">[</span><span class="nv">cur</span> <span class="nv">zloc</span>
+       <span class="nb">left </span><span class="nv">cur</span><span class="p">]</span>
+  <span class="p">(</span><span class="nb">println </span><span class="s">&#34;current string {{&#34;</span> <span class="p">(</span><span class="nf">z/string</span> <span class="nv">cur</span><span class="p">)</span> <span class="s">&#34;}}&#34;</span><span class="p">)</span>
+  <span class="p">(</span><span class="k">if </span><span class="p">(</span><span class="nf">z/end?</span> <span class="nv">cur</span><span class="p">)</span>
+    <span class="p">(</span><span class="nb">println </span><span class="s">&#34;final string: {{&#34;</span> <span class="p">(</span><span class="nf">z/root-string</span> <span class="nv">left</span><span class="p">)</span> <span class="s">&#34;}}&#34;</span><span class="p">)</span>
+    <span class="p">(</span><span class="k">let </span><span class="p">[</span><span class="nv">cur</span> <span class="p">(</span><span class="nf">z/insert-right</span> <span class="nv">cur</span> <span class="p">(</span><span class="nf">p/parse-string</span> <span class="s">&#34;; test\n&#34;</span><span class="p">))]</span> <span class="c1">; here is the diff</span>
+      <span class="p">(</span><span class="nf">recur</span> <span class="p">(</span><span class="nf">z/right</span> <span class="nv">cur</span><span class="p">)</span>
+             <span class="nv">cur</span><span class="p">))))</span></code></pre></div>
+</div>
+</li>
+<li>
+<p>It&#39;s better to create nodes explicitly.
+At first, I thought <code class="verbatim">(z/insert-right* (p/parse-string-all &#34;\n; test\n&#34;))</code> would insert two nodes to the right, but it turned out it didn&#39;t work. Instead, inserting a comment and then a newline node did the trick, that is:</p>
+<div class="src src-clojure">
+<div class="highlight"><pre class="chroma"><code class="language-clojure" data-lang="clojure"><span class="p">(</span><span class="nb">-&gt; </span><span class="nv">zloc</span>
+    <span class="p">(</span><span class="nf">z/insert-right*</span> <span class="p">(</span><span class="nf">n/comment</span> <span class="s">&#34; test&#34;</span><span class="p">))</span>
+    <span class="p">(</span><span class="nf">z/insert-right*</span> <span class="p">(</span><span class="nf">n/newline</span> <span class="mi">1</span><span class="p">)))</span></code></pre></div>
+</div>
+</li>
+<li>
+<p><code class="verbatim">whitespace-node</code> is different from <code class="verbatim">newline-node</code> for rewrite-clj, at the first glance, my intuition was that whitespace nodes also contains newlines.</p>
+</li>
+<li>
+<p>Keep the number of <code class="verbatim">loop</code> bindings as little as possible, and only one is the best so that there is little for <code class="verbatim">recur</code> to care about.</p>
+</li>
+<li>
+<p>The <code class="verbatim">let</code> bindings is an excellent place to put some logic so that the body of <code class="verbatim">let</code> would be concise.</p>
+</li>
+</ol>
+</div>
+</div>
+<div id="outline-container-headline-4" class="outline-3">
+<h3 id="headline-4">
+The Second Version
+</h3>
+<div id="outline-text-headline-4" class="outline-text-3">
+<p>
+   After getting familiar with rewrite-clj, I get back to my track once again. The second version only contains <strong>57 sloc</strong>, which is concise.</p>
+<p>
+   There are 3 ways to use it:</p>
+<ol>
+<li>
+<p><code class="verbatim">illustrate.clj -i .new foo.clj</code>, to illustrate <code class="verbatim">foo.clj</code> and write the result to <code class="verbatim">foo.new.clj</code>.</p>
+</li>
+<li>
+<p><code class="verbatim">illustrate.clj foo.clj</code>, to illustrate <code class="verbatim">foo.clj</code> and <strong><strong>overwrite</strong></strong> it.</p>
+<p>
+Be careful! You&#39;d better back up your file or put it under the control of git.</p>
+</li>
+<li>
+<p><code class="verbatim">cat foo.clj | illustrate.clj</code> to do it via a pipe. It could be handy if you use it with tools like Emacs/Vim.</p>
+</li>
+</ol>
+<p>There is still one feature that I leave for someday: to illustrate org-mode files containing Clojure source block, which would be wonderful for writing blog posts with Hugo.</p>
+</div>
+</div>
+</div>
+</div>
+
+
+        
+          <div class="blog-tags">
+            
+              <a href="https://whatacold.io/tags/babashka/">Babashka</a>&nbsp;
+            
+              <a href="https://whatacold.io/tags/clojure/">Clojure</a>&nbsp;
+            
+              <a href="https://whatacold.io/tags/hugo/">Hugo</a>&nbsp;
+            
+          </div>
+        
+
+        
+            <hr/>
+            <section id="social-share">
+              <div class="list-inline footer-links">
+                
+
+<div class="share-box" aria-hidden="true">
+    <ul class="share">
+      
+      <li>
+        <a href="//twitter.com/share?url=https%3a%2f%2fwhatacold.io%2fblog%2f2021-08-07-illustrate-clojure-snippet%2f&amp;text=illustrate.clj%20to%20Illustrate%20Clojure%20Snippet&amp;via=whatacold" target="_blank" title="Share on Twitter">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fwhatacold.io%2fblog%2f2021-08-07-illustrate-clojure-snippet%2f" target="_blank" title="Share on Facebook">
+          <i class="fab fa-facebook"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//reddit.com/submit?url=https%3a%2f%2fwhatacold.io%2fblog%2f2021-08-07-illustrate-clojure-snippet%2f&amp;title=illustrate.clj%20to%20Illustrate%20Clojure%20Snippet" target="_blank" title="Share on Reddit">
+          <i class="fab fa-reddit"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fwhatacold.io%2fblog%2f2021-08-07-illustrate-clojure-snippet%2f&amp;title=illustrate.clj%20to%20Illustrate%20Clojure%20Snippet" target="_blank" title="Share on LinkedIn">
+          <i class="fab fa-linkedin"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fwhatacold.io%2fblog%2f2021-08-07-illustrate-clojure-snippet%2f&amp;title=illustrate.clj%20to%20Illustrate%20Clojure%20Snippet" target="_blank" title="Share on StumbleUpon">
+          <i class="fab fa-stumbleupon"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fwhatacold.io%2fblog%2f2021-08-07-illustrate-clojure-snippet%2f&amp;description=illustrate.clj%20to%20Illustrate%20Clojure%20Snippet" target="_blank" title="Share on Pinterest">
+          <i class="fab fa-pinterest"></i>
+        </a>
+      </li>
+    </ul>
+  </div>
+  
+
+              </div>
+            </section>
+        
+
+        
+          
+            
+          
+
+          
+                  <h4 class="see-also">See also</h4>
+                  <ul>
+                
+                
+                    <li><a href="/blog/2021-07-25-clojure-string-title-case/">String Title Case in Clojure</a></li>
+                
+                    <li><a href="/blog/2021-07-11-babashka-random-password-generator/">A Random Password Generator in Babashka</a></li>
+                
+              </ul>
+
+          
+        
+      </article>
+
+      
+        <ul class="pager blog-pager">
+          
+            <li class="previous">
+              <a href="https://whatacold.io/blog/2021-07-25-clojure-string-title-case/" data-toggle="tooltip" data-placement="top" title="String Title Case in Clojure">&larr; Previous Post</a>
+            </li>
+          
+          
+        </ul>
+      
+
+
+      
+        
+          
+          <div class="disqus-comments">
+            <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "whatacold" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+          </div>
+          
+        
+        
+      
+
+    </div>
+  </div>
+</div>
+
+      
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+          
+              <li>
+                <a href="mailto:whatacold@gmail.com" title="Email me">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fas fa-envelope fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://github.com/whatacold" title="GitHub">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://twitter.com/whatacold" title="Twitter">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://reddit.com/u/whatacold" title="Reddit">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-reddit-alien fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://stackoverflow.com/users/910978/whatacold" title="StackOverflow">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-stack-overflow fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://www.youtube.com/channel/UC2unslchfhzbub47Qq2U88w" title="Youtube">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-youtube fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+
+          
+          
+          
+
+        </ul>
+        <p class="credits copyright text-muted">
+          
+            
+              whatacold
+            
+          
+
+          &nbsp;&bull;&nbsp;&copy;
+          
+            2018 - 2021
+          
+
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://whatacold.io">whatacold&#39;s Space</a>
+          
+        </p>
+        
+        <p class="credits theme-by text-muted">
+          <a href="https://gohugo.io">Hugo v0.80.0</a> powered &nbsp;&bull;&nbsp; Theme <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> adapted from <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer><script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.js" integrity="sha384-K3vbOmF2BtaVai+Qk37uypf7VrgBubhQreNQe9aGsz9lB63dIFiQVlJbr92dw2Lx" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/contrib/auto-render.min.js" integrity="sha384-kmZOZB5ObwgQnS/DuDg6TScgOiWWBiVt0plIRkZCmE6rDZGrEOQeHM5PcHi+nyqe" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+<script src="https://whatacold.io/js/main.js"></script>
+<script src="https://whatacold.io/js/highlight.min.js"></script>
+<script> hljs.initHighlightingOnLoad(); </script>
+<script> $(document).ready(function() {$("pre.chroma").css("padding","0");}); </script><script> renderMathInElement(document.body); </script><script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.js" integrity="sha384-QELNnmcmU8IR9ZAykt67vGr9/rZJdHbiWi64V88fCPaOohUlHCqUD/unNN0BXSqy" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe-ui-default.min.js" integrity="sha384-m67o7SkQ1ALzKZIFh4CiTA8tmadaujiTa9Vu+nqPSwDOqHrDmxLezTdFln8077+q" crossorigin="anonymous"></script><script src="https://whatacold.io/js/load-photoswipe.js"></script>
+
+
+
+
+
+
+
+
+
+    
+  </body>
+</html>
+

@@ -137,6 +137,12 @@ if (!doNotTrack) {
         
           
             <li>
+              <a title="Blog" href="/">Blog</a>
+            </li>
+          
+        
+          
+            <li>
               <a title="About" href="/about/">About</a>
             </li>
           
@@ -286,23 +292,23 @@ Today I had some time at hand, and I confirmed that the option is the cause by r
 Let&#39;s demonstrate it by cloning my dotfiles repo with different options, and it shows clearly that Git will only fetch <code class="verbatim">master</code> of the remote repo if only specifying <code class="verbatim">--depth</code>:</p>
 <div class="src src-shell">
 <div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell">$ <span class="nb">cd</span> /tmp/
-$ git clone --depth <span class="m">1</span> https://github.com/whatacold/dotfiles.git dotfiles-depth1
-$ git clone --no-single-branch --depth <span class="m">1</span> https://github.com/whatacold/dotfiles.git dotfiles-no-single-branch
-$ git clone https://github.com/whatacold/dotfiles.git dotfiles-full
+$ git clone --depth <span class="m">1</span> https://github.com/whatacold/extensible-dotfiles.git dotfiles-depth1
+$ git clone --no-single-branch --depth <span class="m">1</span> https://github.com/whatacold/extensible-dotfiles.git dotfiles-no-single-branch
+$ git clone https://github.com/whatacold/extensible-dotfiles.git dotfiles-full
 
 $ grep <span class="s1">&#39;remote &#34;origin&#34;&#39;</span> -A <span class="m">2</span> dotfiles-depth1/.git/config 
 <span class="o">[</span>remote <span class="s2">&#34;origin&#34;</span><span class="o">]</span>
-	<span class="nv">url</span> <span class="o">=</span> https://github.com/whatacold/dotfiles.git
+	<span class="nv">url</span> <span class="o">=</span> https://github.com/whatacold/extensible-dotfiles.git
 	<span class="nv">fetch</span> <span class="o">=</span> +refs/heads/master:refs/remotes/origin/master
 
 $ grep <span class="s1">&#39;remote &#34;origin&#34;&#39;</span> -A <span class="m">2</span> dotfiles-no-single-branch/.git/config 
 <span class="o">[</span>remote <span class="s2">&#34;origin&#34;</span><span class="o">]</span>
-	<span class="nv">url</span> <span class="o">=</span> https://github.com/whatacold/dotfiles.git
+	<span class="nv">url</span> <span class="o">=</span> https://github.com/whatacold/extensible-dotfiles.git
 	<span class="nv">fetch</span> <span class="o">=</span> +refs/heads/*:refs/remotes/origin/*
 
 $ grep <span class="s1">&#39;remote &#34;origin&#34;&#39;</span> -A <span class="m">2</span> dotfiles-full/.git/config
 <span class="o">[</span>remote <span class="s2">&#34;origin&#34;</span><span class="o">]</span>
-	<span class="nv">url</span> <span class="o">=</span> https://github.com/whatacold/dotfiles.git
+	<span class="nv">url</span> <span class="o">=</span> https://github.com/whatacold/extensible-dotfiles.git
 	<span class="nv">fetch</span> <span class="o">=</span> +refs/heads/*:refs/remotes/origin/*</code></pre></div>
 </div>
 <p>
@@ -499,16 +505,11 @@ I don&#39;t know why <code class="verbatim">--single-branch</code> should be imp
                   </span>
                 </a>
               </li>
+
           
-          <li>
-            <a href="" title="RSS">
-              <span class="fa-stack fa-lg">
-                <i class="fas fa-circle fa-stack-2x"></i>
-                <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
-              </span>
-            </a>
-          </li>
           
+          
+
         </ul>
         <p class="credits copyright text-muted">
           

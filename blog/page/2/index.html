@@ -86,6 +86,12 @@ if (!doNotTrack) {
         
           
             <li>
+              <a title="Blog" href="/">Blog</a>
+            </li>
+          
+        
+          
+            <li>
               <a title="About" href="/about/">About</a>
             </li>
           
@@ -219,6 +225,52 @@ if (!doNotTrack) {
       <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
         
         <div class="posts-list">
+          
+            <article class="post-preview">
+    <a href="https://whatacold.io/blog/2019-12-22-manage-ssh-connections-with-ssh-config/">
+        <h2 class="post-title">Manage SSH Connections with ~/.ssh/config</h2>
+        
+        
+        
+    </a>
+
+    <p class="post-meta">
+        <span class="post-meta">
+  
+  
+  <i class="fas fa-calendar"></i>&nbsp;Posted on 2019-12-22
+  
+  
+    &nbsp;|&nbsp;<i class="fas fa-clock"></i>&nbsp;3&nbsp;minutes
+  
+  
+    &nbsp;|&nbsp;<i class="fas fa-book"></i>&nbsp;526&nbsp;words
+  
+  
+  
+</span>
+
+
+    </p>
+    <div class="post-entry">
+        
+        I used to manage SSH connection with such GUI apps as MobaXterm, when I wrote code on Windows at work. As I changed my workflow to use a tiling window manager in a VirtualBox guest OS, I continued to improve my way of managing SSH connections, which I want to share here if you don&#39;t know yet.
+ At first, I baked a helper Python script, which I named as qssh for &#34;quick ssh&#34;, to help me assemble ssh arguments for me(such as username, Ip, port, etc.
+        <a href="https://whatacold.io/blog/2019-12-22-manage-ssh-connections-with-ssh-config/" class="post-read-more">[Read More]</a>
+        
+    </div>
+
+    
+    <div class="blog-tags">
+        
+        <a href="https://whatacold.io/tags/tools/">Tools</a>&nbsp;
+        
+        <a href="https://whatacold.io/tags/tiling-wm/">tiling-wm</a>&nbsp;
+        
+    </div>
+    
+
+</article>
           
             <article class="post-preview">
     <a href="https://whatacold.io/blog/2019-12-01-why-cant-git-fetch-remote-branches-other-than-master/">
@@ -631,52 +683,6 @@ if (!doNotTrack) {
 
 </article>
           
-            <article class="post-preview">
-    <a href="https://whatacold.io/blog/2019-02-24-fine-tune-style-of-yasnippet-snippet-on-the-fly/">
-        <h2 class="post-title">Fine-tune Curly Braces Style of yasnippet Snippet on the Fly</h2>
-        
-        
-        
-    </a>
-
-    <p class="post-meta">
-        <span class="post-meta">
-  
-  
-  <i class="fas fa-calendar"></i>&nbsp;Posted on 2019-02-24
-  
-    &nbsp;(Last modified on 2019-03-10)
-  
-  
-    &nbsp;|&nbsp;<i class="fas fa-clock"></i>&nbsp;3&nbsp;minutes
-  
-  
-    &nbsp;|&nbsp;<i class="fas fa-book"></i>&nbsp;475&nbsp;words
-  
-  
-  
-</span>
-
-
-    </p>
-    <div class="post-entry">
-        
-        Yasnippet is a good friend to help us type less and write more, whenever we write some text snippets repeatedly. And there is also an official repository called yasnippet-snippets that contains various snippets for many programming languages(modes), so that we can have many snippets in no time by installing it.
- But there is a little problem when it comes to conforming to different coding styles. Take the if snippet for example, normally it will generate code like this:
-        <a href="https://whatacold.io/blog/2019-02-24-fine-tune-style-of-yasnippet-snippet-on-the-fly/" class="post-read-more">[Read More]</a>
-        
-    </div>
-
-    
-    <div class="blog-tags">
-        
-        <a href="https://whatacold.io/tags/emacs/">Emacs</a>&nbsp;
-        
-    </div>
-    
-
-</article>
-          
         </div>
         
           <ul class="pager main-pager">
@@ -685,6 +691,10 @@ if (!doNotTrack) {
                 <a href="https://whatacold.io/blog/page/1/">&larr; Newer Posts</a>
               </li>
             
+            
+              <li class="next">
+                <a href="https://whatacold.io/blog/page/3/">Older Posts &rarr;</a>
+              </li>
             
           </ul>
         
@@ -747,16 +757,20 @@ if (!doNotTrack) {
                   </span>
                 </a>
               </li>
+
+          
           
           <li>
-            <a href="/blog/rss.xml" title="RSS">
-              <span class="fa-stack fa-lg">
-                <i class="fas fa-circle fa-stack-2x"></i>
-                <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
-              </span>
-            </a>
+              <a href="/blog/rss.xml" title="RSS">
+                  <span class="fa-stack fa-lg">
+                      <i class="fas fa-circle fa-stack-2x"></i>
+                      <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+                  </span>
+              </a>
           </li>
           
+          
+
         </ul>
         <p class="credits copyright text-muted">
           
