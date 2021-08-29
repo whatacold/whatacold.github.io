@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>i3wm on whatacold 的空间</title>
+    <link>https://whatacold.io/zh-cn/tags/i3wm/</link>
+    <description>Recent content in i3wm on whatacold 的空间</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <managingEditor>whatacold@gmail.com (whatacold)</managingEditor>
+    <webMaster>whatacold@gmail.com (whatacold)</webMaster>
+    <lastBuildDate>Sun, 29 Aug 2021 13:58:21 +0800</lastBuildDate><atom:link href="https://whatacold.io/zh-cn/tags/i3wm/rss.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>i3wm 工作区如何快速创建 Emacs 窗口</title>
+      <link>https://whatacold.io/zh-cn/blog/2021-08-29-i3wm-workspace-emacs-frame/</link>
+      <pubDate>Sun, 29 Aug 2021 13:58:21 +0800</pubDate>
+      <author>whatacold@gmail.com (whatacold)</author>
+      <guid>https://whatacold.io/zh-cn/blog/2021-08-29-i3wm-workspace-emacs-frame/</guid>
+      <description>平铺窗口管理器为了提升显示空间的利用率，一般都有工作区（ workspace ）的功能，比如 i3wm 和 qtile 默认定义了10个工作区。工作区可以隔离不同的应用，让我们专注当</description>
+    </item>
+    
+  </channel>
+</rss>

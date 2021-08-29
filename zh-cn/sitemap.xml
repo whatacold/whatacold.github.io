@@ -4,7 +4,7 @@
   
   <url>
     <loc>https://whatacold.io/zh-cn/blog/</loc>
-    <lastmod>2021-07-30T00:38:50+08:00</lastmod>
+    <lastmod>2021-08-29T13:58:21+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -14,6 +14,71 @@
                 rel="alternate"
                 hreflang="zh-cn"
                 href="https://whatacold.io/zh-cn/blog/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://whatacold.io/zh-cn/tags/emacs/</loc>
+    <lastmod>2021-08-29T13:58:21+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://whatacold.io/tags/emacs/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-cn"
+                href="https://whatacold.io/zh-cn/tags/emacs/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://whatacold.io/zh-cn/tags/i3wm/</loc>
+    <lastmod>2021-08-29T13:58:21+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://whatacold.io/tags/i3wm/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-cn"
+                href="https://whatacold.io/zh-cn/tags/i3wm/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://whatacold.io/zh-cn/blog/2021-08-29-i3wm-workspace-emacs-frame/</loc>
+    <lastmod>2021-08-29T13:58:21+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://whatacold.io/zh-cn/tags/</loc>
+    <lastmod>2021-08-29T13:58:21+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://whatacold.io/tags/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-cn"
+                href="https://whatacold.io/zh-cn/tags/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://whatacold.io/zh-cn/</loc>
+    <lastmod>2021-08-29T13:58:21+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://whatacold.io/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-cn"
+                href="https://whatacold.io/zh-cn/"
                 />
   </url>
   
@@ -35,36 +100,6 @@
   <url>
     <loc>https://whatacold.io/zh-cn/blog/2021-07-28-clojure-reduce-yongfang/</loc>
     <lastmod>2021-07-30T00:38:50+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://whatacold.io/zh-cn/tags/</loc>
-    <lastmod>2021-07-30T00:38:50+08:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://whatacold.io/tags/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh-cn"
-                href="https://whatacold.io/zh-cn/tags/"
-                />
-  </url>
-  
-  <url>
-    <loc>https://whatacold.io/zh-cn/</loc>
-    <lastmod>2021-07-30T00:38:50+08:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://whatacold.io/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh-cn"
-                href="https://whatacold.io/zh-cn/"
-                />
   </url>
   
   <url>
@@ -185,21 +220,6 @@
   <url>
     <loc>https://whatacold.io/zh-cn/blog/2021-02-16-doxygen-cpp-correct-callgraphs/</loc>
     <lastmod>2021-02-16T16:08:00+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://whatacold.io/zh-cn/tags/emacs/</loc>
-    <lastmod>2020-04-11T22:17:00+08:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://whatacold.io/tags/emacs/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh-cn"
-                href="https://whatacold.io/zh-cn/tags/emacs/"
-                />
   </url>
   
   <url>

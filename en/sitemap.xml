@@ -130,6 +130,16 @@
   <url>
     <loc>https://whatacold.io/tags/i3wm/</loc>
     <lastmod>2021-07-17T12:22:10+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-cn"
+                href="https://whatacold.io/zh-cn/tags/i3wm/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://whatacold.io/tags/i3wm/"
+                />
   </url>
   
   <url>
