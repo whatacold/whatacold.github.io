@@ -7,7 +7,16 @@
     <generator>Hugo -- gohugo.io</generator>
     <managingEditor>whatacold@gmail.com (whatacold)</managingEditor>
     <webMaster>whatacold@gmail.com (whatacold)</webMaster>
-    <lastBuildDate>Sun, 29 Aug 2021 13:58:21 +0800</lastBuildDate><atom:link href="https://whatacold.io/zh-cn/blog/rss.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 05 Sep 2021 10:39:33 +0800</lastBuildDate><atom:link href="https://whatacold.io/zh-cn/blog/rss.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>lein 新建 reagent-frontend 工程失败问题</title>
+      <link>https://whatacold.io/zh-cn/blog/2021-09-05-lein-reagent-frontend-shibai/</link>
+      <pubDate>Sun, 05 Sep 2021 10:39:33 +0800</pubDate>
+      <author>whatacold@gmail.com (whatacold)</author>
+      <guid>https://whatacold.io/zh-cn/blog/2021-09-05-lein-reagent-frontend-shibai/</guid>
+      <description>最近打算用 ClojureScript 做点 web 应用，就准备实践下 Reagent ，它是一个 React.js 的极简封装（A minimalistic ClojureScript interface to React.js），通过官网的几个例子可以看到，确实很简洁。 看花容易</description>
+    </item>
+    
     <item>
       <title>i3wm 工作区如何快速创建 Emacs 窗口</title>
       <link>https://whatacold.io/zh-cn/blog/2021-08-29-i3wm-workspace-emacs-frame/</link>
