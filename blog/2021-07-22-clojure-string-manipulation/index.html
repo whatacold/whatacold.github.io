@@ -1,0 +1,865 @@
+<!DOCTYPE html>
+<html lang="en" itemscope itemtype="http://schema.org/WebPage">
+  <head>
+    
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+
+
+
+  
+
+  <title>String Manipulation in Clojure - whatacold&#39;s Space</title>
+  <meta name="description" content="Python string APIs are powerful and concise, that is an important reason I use it to do a lot of scripting these days, join, split, strip, to name a few.
+ Since I am learning Clojure recently, I am wondering, how is string manipulation like in Clojure and how to implement equivalent ones?
+ I think it&#39;s an excellent opportunity to get familiar with Clojure. Before diving into the implementation, how to declare a multi-line string?">
+  <meta name="author" content="whatacold"/><script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "WebSite",
+    "name": "whatacold\u0027s Space",
+    
+    "url": "https:\/\/whatacold.io"
+}
+</script><script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Organization",
+  "name": "",
+  "url": "https:\/\/whatacold.io"
+  
+  
+  
+  
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "item": {
+          "@id": "https:\/\/whatacold.io",
+          "name": "home"
+        }
+    },{
+        "@type": "ListItem",
+        "position": 3,
+        "item": {
+          "@id": "https:\/\/whatacold.io\/blog\/2021-07-22-clojure-string-manipulation\/",
+          "name": "String manipulation in clojure"
+        }
+    }]
+}
+</script><script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Article",
+  "author": {
+    "name" : "whatacold"
+  },
+  "headline": "String Manipulation in Clojure",
+  "description" : "Python string APIs are powerful and concise, that is an important reason I use it to do a lot of scripting these days, join, split, strip, to name a few.\n Since I am learning Clojure recently, I am wondering, how is string manipulation like in Clojure and how to implement equivalent ones?\n I think it\u0026#39;s an excellent opportunity to get familiar with Clojure. Before diving into the implementation, how to declare a multi-line string?",
+  "inLanguage" : "en",
+  "wordCount":  866 ,
+  "datePublished" : "2021-07-22T23:29:11",
+  "dateModified" : "2021-07-22T23:29:11",
+  "image" : "https:\/\/whatacold.io\/img\/avatar.png",
+  "keywords" : [ "Clojure, Python" ],
+  "mainEntityOfPage" : "https:\/\/whatacold.io\/blog\/2021-07-22-clojure-string-manipulation\/",
+  "publisher" : {
+    "@type": "Organization",
+    "name" : "https:\/\/whatacold.io",
+    "logo" : {
+        "@type" : "ImageObject",
+        "url" : "https:\/\/whatacold.io\/img\/avatar.png",
+        "height" :  60 ,
+        "width" :  60
+    }
+  }
+}
+</script>
+
+<meta property="og:title" content="String Manipulation in Clojure" />
+<meta property="og:description" content="Python string APIs are powerful and concise, that is an important reason I use it to do a lot of scripting these days, join, split, strip, to name a few.
+ Since I am learning Clojure recently, I am wondering, how is string manipulation like in Clojure and how to implement equivalent ones?
+ I think it&#39;s an excellent opportunity to get familiar with Clojure. Before diving into the implementation, how to declare a multi-line string?">
+<meta property="og:image" content="https://whatacold.io/img/avatar.png" />
+<meta property="og:url" content="https://whatacold.io/blog/2021-07-22-clojure-string-manipulation/" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="whatacold&#39;s Space" />
+
+  <meta name="twitter:title" content="String Manipulation in Clojure" />
+  <meta name="twitter:description" content="Python string APIs are powerful and concise, that is an important reason I use it to do a lot of scripting these days, join, split, strip, to name a few.
+ Since I am learning Clojure recently, I am …">
+  <meta name="twitter:image" content="https://whatacold.io/img/avatar.png" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@whatacold" />
+  <meta name="twitter:creator" content="@whatacold" />
+  <link href='https://whatacold.io/img/favicon.ico' rel='icon' type='image/x-icon'/>
+  <meta name="generator" content="Hugo 0.80.0" />
+  <link rel="alternate" href="https://whatacold.io/index.xml" type="application/rss+xml" title="whatacold&#39;s Space"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"><link rel="stylesheet" href="https://whatacold.io/css/main.css" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
+  <link rel="stylesheet" href="https://whatacold.io/css/highlight.min.css" /><link rel="stylesheet" href="https://whatacold.io/css/codeblock.css" /><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.css" integrity="sha384-h/L2W9KefUClHWaty3SLE5F/qvc4djlyR4qY3NUV5HGQBBW7stbcfff1+I/vmsHh" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/default-skin/default-skin.min.css" integrity="sha384-iD0dNku6PYSIQLyfTOpB06F2KCZJAKLOThS5HRe8b3ibhdEQ6eKsFf/EeFxdOt5R" crossorigin="anonymous">
+
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-74588785-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+  </head>
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://whatacold.io">whatacold&#39;s Space</a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+          
+            <li>
+              <a title="Blog" href="/">Blog</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="About" href="/about/">About</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="Tags" href="/tags">Tags</a>
+            </li>
+          
+        
+
+        
+          
+            <li>
+              
+                
+              
+                
+                  <a href="/zh-cn" lang="zh-cn">简体中文</a>
+                
+              
+            </li>
+          
+        
+
+        
+      </ul>
+    </div>
+
+    
+      <div class="avatar-container">
+        <div class="avatar-img-border">
+          <a title="whatacold&#39;s Space" href="https://whatacold.io">
+            <img class="avatar-img" src="https://whatacold.io/img/avatar.png" alt="whatacold&#39;s Space" />
+          </a>
+        </div>
+      </div>
+    
+
+  </div>
+</nav>
+
+
+
+
+    
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+  
+  
+  
+
+
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    <div class="intro-header no-img">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <div class="blog-heading">
+              
+                <h1>String Manipulation in Clojure</h1>
+              
+              
+                <hr class="small">
+              
+              
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+    
+<div class="container" role="main">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+      <article role="main" class="blog-post">
+        
+<p>
+Python string APIs are powerful and concise, that is an important reason I use it to do a lot of scripting these days, <code class="verbatim">join</code>, <code class="verbatim">split</code>, <code class="verbatim">strip</code>, to name a few.</p>
+<p>
+Since I am learning Clojure recently, I am wondering, how is string manipulation like in Clojure and how to implement equivalent ones?</p>
+<p>
+I think it&#39;s an excellent opportunity to get familiar with Clojure. Before diving into the implementation, how to declare a multi-line string?</p>
+<p>
+Just do it literally:</p>
+<div class="src src-clojure">
+<div class="highlight"><pre class="chroma"><code class="language-clojure" data-lang="clojure"><span class="p">(</span><span class="k">def </span><span class="nv">greet-multiline</span> <span class="s">&#34;Hello,
+</span><span class="s">
+</span><span class="s">    See you!&#34;</span><span class="p">)</span>
+<span class="c1">;; =&gt; #&#39;user/greet-multiline</span>
+
+<span class="p">(</span><span class="nb">count </span><span class="nv">greet-multiline</span><span class="p">)</span>
+<span class="c1">;; =&gt; 20</span></code></pre></div>
+</div>
+<p>
+Below are some string functions that I came up with along the course.</p>
+<div id="outline-container-headline-1" class="outline-2">
+<h2 id="headline-1">
+String creating
+</h2>
+<div id="outline-text-headline-1" class="outline-text-2">
+<div class="src src-clojure">
+<div class="highlight"><pre class="chroma"><code class="language-clojure" data-lang="clojure"><span class="c1">;; &#34;a&#34; + &#34;b&#34;</span>
+<span class="p">(</span><span class="kd">defn </span><span class="nv">s-add</span>
+  <span class="p">[</span><span class="o">&amp;</span> <span class="nv">strings</span><span class="p">]</span>
+  <span class="p">(</span><span class="k">if </span><span class="p">(</span><span class="nf">empty?</span> <span class="nv">strings</span><span class="p">)</span>
+    <span class="s">&#34;&#34;</span>
+    <span class="p">(</span><span class="nb">apply str </span><span class="nv">strings</span><span class="p">)))</span>
+<span class="c1">;; =&gt; #&#39;user/s-add</span>
+<span class="p">(</span><span class="nf">s-add</span> <span class="s">&#34;a&#34;</span> <span class="s">&#34;b&#34;</span><span class="p">)</span>
+<span class="c1">;; =&gt; ab</span>
+
+<span class="c1">;; &#34;a&#34; * 10</span>
+<span class="c1">;; https://stackoverflow.com/questions/5433691/how-to-repeat-string-n-times-in-idiomatic-clojure-way</span>
+<span class="p">(</span><span class="kd">defn </span><span class="nv">s-multiply</span>
+  <span class="p">[</span><span class="nv">s</span> <span class="nv">cnt</span><span class="p">]</span>
+  <span class="p">(</span><span class="nb">apply str </span><span class="p">(</span><span class="nb">repeat </span><span class="nv">cnt</span> <span class="nv">s</span><span class="p">)))</span>
+<span class="c1">;; =&gt; #&#39;user/s-multiply</span>
+
+<span class="p">(</span><span class="nf">s-multiply</span> <span class="s">&#34;hello&#34;</span> <span class="mi">3</span><span class="p">)</span>
+<span class="c1">;; =&gt; hellohellohello</span>
+
+<span class="p">(</span><span class="kd">defn </span><span class="nv">s-format</span>
+  <span class="p">[</span><span class="o">&amp;</span> <span class="nv">args</span><span class="p">]</span>                              <span class="c1">; why [:as args] not work???</span>
+  <span class="p">(</span><span class="nb">apply </span><span class="nv">format</span> <span class="nv">args</span><span class="p">))</span>
+<span class="c1">;; =&gt; #&#39;user/s-format</span>
+
+<span class="p">(</span><span class="nf">s-format</span> <span class="s">&#34;Hello there, %s&#34;</span> <span class="s">&#34;bob&#34;</span><span class="p">)</span>
+<span class="c1">;; =&gt; Hello there, bob</span>
+<span class="p">(</span><span class="nf">s-format</span> <span class="s">&#34;1 + 1 = %d&#34;</span> <span class="p">(</span><span class="nb">+ </span><span class="mi">1</span> <span class="mi">1</span><span class="p">))</span>
+<span class="c1">;; =&gt; 1 + 1 = 2</span>
+
+<span class="p">(</span><span class="kd">defn </span><span class="nv">s-join</span>
+  <span class="p">([</span><span class="nv">strings</span><span class="p">]</span>
+   <span class="p">(</span><span class="nf">s-join</span> <span class="nv">strings</span> <span class="s">&#34; &#34;</span><span class="p">))</span>
+  <span class="p">([</span><span class="nv">strings</span> <span class="nv">sep</span><span class="p">]</span>
+   <span class="p">(</span><span class="nb">reduce </span><span class="p">(</span><span class="nf">fn</span>
+             <span class="p">([]</span> <span class="s">&#34;&#34;</span><span class="p">)</span>                     <span class="c1">; for a empty list of strings</span>
+             <span class="p">([</span><span class="nv">a</span> <span class="nv">b</span><span class="p">]</span> <span class="p">(</span><span class="nb">str </span><span class="nv">a</span> <span class="nv">sep</span> <span class="nv">b</span><span class="p">)))</span>
+           <span class="nv">strings</span><span class="p">)))</span>
+<span class="c1">;; =&gt; #&#39;user/s-join</span>
+
+<span class="p">(</span><span class="nf">s-join</span> <span class="p">[</span><span class="s">&#34;a&#34;</span> <span class="s">&#34;b&#34;</span> <span class="s">&#34;c&#34;</span><span class="p">])</span>
+<span class="c1">;; =&gt; a b c</span>
+<span class="p">(</span><span class="nf">s-join</span> <span class="p">[</span><span class="s">&#34;a&#34;</span> <span class="s">&#34;b&#34;</span> <span class="s">&#34;c&#34;</span><span class="p">]</span> <span class="s">&#34;, &#34;</span><span class="p">)</span>
+<span class="c1">;; =&gt; a, b, c</span>
+<span class="p">(</span><span class="nf">s-join</span> <span class="p">[])</span>
+<span class="c1">;; =&gt;</span></code></pre></div>
+</div>
+</div>
+</div>
+<div id="outline-container-headline-2" class="outline-2">
+<h2 id="headline-2">
+String properties
+</h2>
+<div id="outline-text-headline-2" class="outline-text-2">
+<div class="src src-clojure">
+<div class="highlight"><pre class="chroma"><code class="language-clojure" data-lang="clojure"><span class="p">(</span><span class="kd">defn </span><span class="nv">s-len</span>
+  <span class="p">[</span><span class="nv">s</span><span class="p">]</span>
+  <span class="p">(</span><span class="nb">count </span><span class="nv">s</span><span class="p">))</span>
+<span class="c1">;; =&gt; #&#39;user/s-len</span>
+
+<span class="p">(</span><span class="nf">s-len</span> <span class="s">&#34;hello&#34;</span><span class="p">)</span>
+<span class="c1">;; =&gt; 5</span>
+
+<span class="p">(</span><span class="kd">defn </span><span class="nv">s-count-char</span>
+  <span class="s">&#34;Count the number of the specified `char` in `str`&#34;</span>
+  <span class="p">[</span><span class="nb">str </span><span class="nv">char</span><span class="p">]</span>
+  <span class="p">(</span><span class="nb">reduce </span><span class="o">#</span><span class="p">(</span><span class="k">if </span><span class="p">(</span><span class="nb">= char </span><span class="nv">%2</span><span class="p">)</span>
+             <span class="p">(</span><span class="nb">+ </span><span class="nv">%1</span> <span class="mi">1</span><span class="p">)</span>
+             <span class="nv">%1</span><span class="p">)</span>
+          <span class="mi">0</span> <span class="nv">str</span><span class="p">))</span>
+<span class="c1">;; =&gt; #&#39;user/s-count-char</span>
+
+<span class="p">(</span><span class="nf">s-count-char</span> <span class="s">&#34;hello world&#34;</span> <span class="sc">\o</span><span class="p">)</span>
+<span class="c1">;; =&gt; 2</span>
+<span class="p">(</span><span class="nf">s-count-char</span> <span class="s">&#34;hello world&#34;</span> <span class="sc">\x</span><span class="p">)</span>
+<span class="c1">;; =&gt; 0</span>
+<span class="p">(</span><span class="nf">s-count-char</span> <span class="s">&#34;&#34;</span> <span class="sc">\o</span><span class="p">)</span>
+<span class="c1">;; =&gt; 0</span></code></pre></div>
+</div>
+</div>
+</div>
+<div id="outline-container-headline-3" class="outline-2">
+<h2 id="headline-3">
+String predicates
+</h2>
+<div id="outline-text-headline-3" class="outline-text-2">
+<div class="src src-clojure">
+<div class="highlight"><pre class="chroma"><code class="language-clojure" data-lang="clojure"><span class="p">(</span><span class="kd">defn </span><span class="nv">s-endswith?</span>
+  <span class="c1">;; or based on clojure.string/ends-with?</span>
+  <span class="p">([</span><span class="nv">s</span> <span class="nv">suffix</span><span class="p">]</span>
+   <span class="p">(</span><span class="nf">s-endswith?</span> <span class="nv">s</span> <span class="nv">suffix</span> <span class="mi">0</span> <span class="p">(</span><span class="nb">count </span><span class="nv">s</span><span class="p">)))</span>
+  <span class="p">([</span><span class="nv">s</span> <span class="nv">suffix</span> <span class="nv">start</span> <span class="nv">end</span><span class="p">]</span>
+   <span class="s">&#34;boundaries are: [start, end)&#34;</span>
+   <span class="p">(</span><span class="k">let </span><span class="p">[</span><span class="nv">start</span> <span class="p">(</span><span class="nb">min </span><span class="nv">start</span> <span class="p">(</span><span class="nb">- </span><span class="p">(</span><span class="nb">count </span><span class="nv">s</span><span class="p">)</span> <span class="mi">1</span><span class="p">))</span>
+         <span class="nv">end</span> <span class="p">(</span><span class="nb">min </span><span class="nv">end</span> <span class="p">(</span><span class="nb">count </span><span class="nv">s</span><span class="p">))]</span>
+     <span class="c1">;; (println start end)</span>
+     <span class="p">(</span><span class="nb">= </span><span class="nv">suffix</span> <span class="p">(</span><span class="nb">subs </span><span class="nv">s</span>
+                     <span class="p">(</span><span class="nb">max </span><span class="nv">start</span> <span class="p">(</span><span class="nb">- </span><span class="nv">end</span> <span class="p">(</span><span class="nb">count </span><span class="nv">suffix</span><span class="p">)))</span>
+                     <span class="nv">end</span><span class="p">)))))</span>
+<span class="c1">;; =&gt; #&#39;user/s-endswith?</span>
+
+<span class="p">(</span><span class="nf">s-endswith?</span> <span class="s">&#34;abc&#34;</span> <span class="s">&#34;bc&#34;</span><span class="p">)</span>
+<span class="c1">;; =&gt; true</span>
+
+<span class="p">(</span><span class="kd">defn </span><span class="nv">s-isalpha</span>
+  <span class="p">[</span><span class="nv">s</span><span class="p">]</span>
+  <span class="p">(</span><span class="k">if </span><span class="p">(</span><span class="nf">empty?</span> <span class="nv">s</span><span class="p">)</span>
+    <span class="nv">false</span>
+    <span class="p">(</span><span class="nb">reduce </span><span class="o">#</span><span class="p">(</span><span class="k">if </span><span class="p">(</span><span class="nb">not </span><span class="nv">%1</span><span class="p">)</span>
+               <span class="nv">false</span>
+               <span class="p">(</span><span class="nb">or </span><span class="p">(</span><span class="nb">&lt;= </span><span class="p">(</span><span class="nb">int </span><span class="sc">\a</span><span class="p">)</span> <span class="p">(</span><span class="nb">int </span><span class="nv">%2</span><span class="p">)</span> <span class="p">(</span><span class="nb">int </span><span class="sc">\z</span><span class="p">))</span>
+                   <span class="p">(</span><span class="nb">&lt;= </span><span class="p">(</span><span class="nb">int </span><span class="sc">\A</span><span class="p">)</span> <span class="p">(</span><span class="nb">int </span><span class="nv">%2</span><span class="p">)</span> <span class="p">(</span><span class="nb">int </span><span class="sc">\Z</span><span class="p">))))</span>
+            <span class="nv">true</span>
+            <span class="nv">s</span><span class="p">)))</span>
+<span class="c1">;; =&gt; #&#39;user/s-isalpha</span>
+
+<span class="p">(</span><span class="nf">s-isalpha</span> <span class="s">&#34;&#34;</span><span class="p">)</span>
+<span class="c1">;; =&gt; false</span>
+<span class="p">(</span><span class="nf">s-isalpha</span> <span class="s">&#34;abcABC&#34;</span><span class="p">)</span>
+<span class="c1">;; =&gt; true</span>
+<span class="p">(</span><span class="nf">s-isalpha</span> <span class="s">&#34;abcABC11&#34;</span><span class="p">)</span>
+<span class="c1">;; =&gt; false</span></code></pre></div>
+</div>
+</div>
+</div>
+<div id="outline-container-headline-4" class="outline-2">
+<h2 id="headline-4">
+Find and replace
+</h2>
+<div id="outline-text-headline-4" class="outline-text-2">
+<div class="src src-clojure">
+<div class="highlight"><pre class="chroma"><code class="language-clojure" data-lang="clojure"><span class="p">(</span><span class="kd">defn </span><span class="nv">s-find</span>
+  <span class="p">([</span><span class="nv">s</span> <span class="nv">sub-str</span><span class="p">]</span>
+   <span class="p">(</span><span class="nf">s-find</span> <span class="nv">s</span> <span class="nv">sub-str</span> <span class="mi">0</span> <span class="p">(</span><span class="nb">count </span><span class="nv">s</span><span class="p">)))</span>
+
+  <span class="p">([</span><span class="nv">s</span> <span class="nv">sub-str</span> <span class="nv">start</span> <span class="nv">end</span><span class="p">]</span>
+   <span class="p">(</span><span class="k">let </span><span class="p">[</span><span class="nv">pos</span> <span class="p">(</span><span class="nf">clojure.string/index-of</span> <span class="nv">s</span>
+                                      <span class="nv">sub-str</span>
+                                      <span class="nv">start</span><span class="p">)]</span>
+     <span class="p">(</span><span class="k">if </span><span class="p">(</span><span class="nb">and </span><span class="nv">pos</span>
+              <span class="p">(</span><span class="nb">&lt;= </span><span class="p">(</span><span class="nb">+ </span><span class="nv">pos</span> <span class="p">(</span><span class="nb">count </span><span class="nv">sub-str</span><span class="p">))</span> <span class="nv">end</span><span class="p">))</span>
+       <span class="nv">pos</span>
+       <span class="mi">-1</span><span class="p">))))</span>
+<span class="c1">;; =&gt; #&#39;user/s-find</span>
+
+<span class="p">(</span><span class="nf">s-find</span> <span class="s">&#34;abc&#34;</span> <span class="s">&#34;a&#34;</span><span class="p">)</span>
+<span class="c1">;; =&gt; 0</span>
+<span class="p">(</span><span class="nf">s-find</span> <span class="s">&#34;abc&#34;</span> <span class="s">&#34;bc&#34;</span><span class="p">)</span>
+<span class="c1">;; =&gt; 1</span>
+
+<span class="p">(</span><span class="kd">defn </span><span class="nv">s-replace</span>
+  <span class="p">[</span><span class="nv">s</span> <span class="nv">match</span> <span class="nv">replacement</span><span class="p">]</span>
+  <span class="p">(</span><span class="nf">clojure.string/replace</span> <span class="nv">s</span> <span class="nv">match</span> <span class="nv">replacement</span><span class="p">))</span>
+<span class="c1">;; =&gt; #&#39;user/s-replace</span>
+
+<span class="c1">;; by char/char</span>
+<span class="p">(</span><span class="nf">s-replace</span> <span class="s">&#34;abc&#34;</span> <span class="sc">\a</span> <span class="sc">\1</span><span class="p">)</span>
+<span class="c1">;; =&gt; 1bc</span>
+<span class="c1">;; by string/string</span>
+<span class="p">(</span><span class="nf">s-replace</span> <span class="s">&#34;abc&#34;</span> <span class="s">&#34;a&#34;</span> <span class="s">&#34;1&#34;</span><span class="p">)</span>
+<span class="c1">;; =&gt; 1bc</span>
+<span class="c1">;; by pattern/string</span>
+<span class="p">(</span><span class="nf">s-replace</span> <span class="s">&#34;abc&#34;</span> <span class="o">#</span><span class="s">&#34;[a-z]&#34;</span> <span class="s">&#34;1&#34;</span><span class="p">)</span>
+<span class="c1">;; =&gt; 111</span>
+<span class="c1">;; by pattern/function</span>
+<span class="p">(</span><span class="nf">s-replace</span> <span class="s">&#34;abc&#34;</span> <span class="o">#</span><span class="s">&#34;[a-z]&#34;</span> <span class="o">#</span><span class="p">(</span><span class="nf">clojure.string/upper-case</span> <span class="nv">%1</span><span class="p">))</span>
+<span class="c1">;; =&gt; ABC</span></code></pre></div>
+</div>
+</div>
+</div>
+<div id="outline-container-headline-5" class="outline-2">
+<h2 id="headline-5">
+String transformation
+</h2>
+<div id="outline-text-headline-5" class="outline-text-2">
+<div class="src src-clojure">
+<div class="highlight"><pre class="chroma"><code class="language-clojure" data-lang="clojure"><span class="p">(</span><span class="kd">defn </span><span class="nv">s-center</span>
+  <span class="p">[</span><span class="nv">s</span> <span class="nv">width</span> <span class="nv">fillchar</span><span class="p">]</span>
+  <span class="p">(</span><span class="k">let </span><span class="p">[</span><span class="nv">len</span> <span class="p">(</span><span class="nb">count </span><span class="nv">s</span><span class="p">)]</span>
+    <span class="p">(</span><span class="k">if </span><span class="p">(</span><span class="nb">&lt;= </span><span class="nv">width</span> <span class="nv">len</span><span class="p">)</span>
+      <span class="nv">s</span>
+      <span class="p">(</span><span class="k">let </span><span class="p">[</span><span class="nv">llen</span> <span class="p">(</span><span class="nb">int </span><span class="p">(</span><span class="nb">/ </span><span class="p">(</span><span class="nb">- </span><span class="nv">width</span> <span class="nv">len</span><span class="p">)</span> <span class="mi">2</span><span class="p">))</span>
+            <span class="nv">rlen</span> <span class="p">(</span><span class="nb">- </span><span class="nv">width</span> <span class="nv">len</span> <span class="nv">llen</span><span class="p">)]</span>
+        <span class="p">(</span><span class="nb">str </span><span class="p">(</span><span class="nf">clojure.string/join</span> <span class="p">(</span><span class="nb">repeat </span><span class="nv">llen</span> <span class="nv">fillchar</span><span class="p">))</span>
+             <span class="nv">s</span>
+             <span class="p">(</span><span class="nf">clojure.string/join</span> <span class="p">(</span><span class="nb">repeat </span><span class="nv">rlen</span> <span class="nv">fillchar</span><span class="p">)))))))</span>
+<span class="c1">;; =&gt; #&#39;user/s-center</span>
+
+<span class="p">(</span><span class="nf">s-center</span> <span class="s">&#34;hello&#34;</span> <span class="mi">10</span> <span class="sc">\x</span><span class="p">)</span>
+<span class="c1">;; =&gt; xxhelloxxx</span>
+
+<span class="p">(</span><span class="kd">defn </span><span class="nv">s-expandtabs</span>
+  <span class="p">([</span><span class="nv">s</span><span class="p">]</span>
+   <span class="p">(</span><span class="nf">s-expandtabs</span> <span class="nv">s</span> <span class="mi">8</span><span class="p">))</span>
+  <span class="p">([</span><span class="nv">s</span> <span class="nv">tabsize</span><span class="p">]</span>
+   <span class="p">(</span><span class="nf">second</span>
+    <span class="p">(</span><span class="nb">reduce </span><span class="p">(</span><span class="k">fn </span><span class="p">[</span><span class="nv">state</span> <span class="nv">char</span><span class="p">]</span>
+              <span class="p">(</span><span class="k">if </span><span class="p">(</span><span class="nb">not= </span><span class="sc">\t</span><span class="nv">ab</span> <span class="nv">char</span><span class="p">)</span>
+                <span class="p">[(</span><span class="nb">+ </span><span class="mi">1</span> <span class="p">(</span><span class="nb">first </span><span class="nv">state</span><span class="p">))</span> <span class="p">(</span><span class="nb">str </span><span class="p">(</span><span class="nb">second </span><span class="nv">state</span><span class="p">)</span> <span class="nv">char</span><span class="p">)]</span>
+                <span class="p">(</span><span class="k">let </span><span class="p">[</span><span class="nv">cur-index</span> <span class="p">(</span><span class="nb">first </span><span class="nv">state</span><span class="p">)</span>
+                      <span class="nv">next-index</span> <span class="p">(</span><span class="nb">+ </span><span class="nv">cur-index</span> <span class="p">(</span><span class="nb">- </span><span class="nv">tabsize</span> <span class="p">(</span><span class="nb">rem </span><span class="nv">cur-index</span> <span class="nv">tabsize</span><span class="p">)))</span>
+                      <span class="nv">nspaces</span> <span class="p">(</span><span class="nb">- </span><span class="nv">next-index</span> <span class="nv">cur-index</span><span class="p">)]</span>
+                  <span class="p">[</span><span class="nv">next-index</span> <span class="p">(</span><span class="nb">str </span><span class="p">(</span><span class="nb">second </span><span class="nv">state</span><span class="p">)</span>
+                                   <span class="p">(</span><span class="nf">clojure.string/join</span> <span class="p">(</span><span class="nb">repeat </span><span class="nv">nspaces</span> <span class="sc">\s</span><span class="nv">pace</span><span class="p">)))])))</span>
+            <span class="p">[</span><span class="mi">0</span> <span class="s">&#34;&#34;</span><span class="p">]</span>
+            <span class="nv">s</span><span class="p">))))</span>
+<span class="c1">;; =&gt; #&#39;user/s-expandtabs</span>
+
+<span class="p">(</span><span class="nf">s-expandtabs</span> <span class="s">&#34;\ta&#34;</span><span class="p">)</span>
+<span class="c1">;; =&gt;         a</span>
+<span class="p">(</span><span class="nf">s-expandtabs</span> <span class="s">&#34;a\tb&#34;</span> <span class="mi">2</span><span class="p">)</span>
+<span class="c1">;; =&gt; a b</span>
+<span class="p">(</span><span class="nf">s-expandtabs</span> <span class="s">&#34;a\t\tb&#34;</span> <span class="mi">2</span><span class="p">)</span>
+<span class="c1">;; =&gt; a   b</span>
+<span class="p">(</span><span class="nb">count </span><span class="p">(</span><span class="nf">s-expandtabs</span> <span class="s">&#34;a\tb&#34;</span> <span class="mi">2</span><span class="p">))</span>
+<span class="c1">;; =&gt; 3</span>
+<span class="p">(</span><span class="nb">count </span><span class="p">(</span><span class="nf">s-expandtabs</span> <span class="s">&#34;a\t\tb&#34;</span> <span class="mi">2</span><span class="p">))</span>
+<span class="c1">;; =&gt; 5</span>
+
+<span class="c1">;; in a idiomatic way</span>
+<span class="p">(</span><span class="kd">defn </span><span class="nv">title-case-idiomatic</span>
+  <span class="p">[</span><span class="nv">str</span><span class="p">]</span>
+  <span class="p">(</span><span class="nf">clojure.string/join</span> <span class="s">&#34; &#34;</span>
+                       <span class="p">(</span><span class="nb">map </span><span class="o">#</span><span class="p">(</span><span class="nf">clojure.string/capitalize</span> <span class="nv">%</span><span class="p">)</span>
+                            <span class="p">(</span><span class="nf">clojure.string/split</span> <span class="nb">str </span><span class="o">#</span><span class="s">&#34; +&#34;</span><span class="p">))))</span>
+<span class="c1">;; =&gt; #&#39;user/title-case-idiomatic</span>
+
+<span class="p">(</span><span class="nf">title-case-idiomatic</span> <span class="s">&#34; hello world &#34;</span><span class="p">)</span>
+<span class="c1">;; =&gt;  Hello World</span>
+
+<span class="c1">;; a.upper()</span>
+<span class="p">(</span><span class="kd">defn </span><span class="nv">s-upper</span>
+  <span class="p">[</span><span class="nv">str</span><span class="p">]</span>
+  <span class="p">(</span><span class="nf">clojure.string/upper-case</span> <span class="nv">str</span><span class="p">))</span>
+<span class="c1">;; =&gt; #&#39;user/s-upper</span>
+
+<span class="p">(</span><span class="nf">s-upper</span> <span class="s">&#34;hello&#34;</span><span class="p">)</span>
+<span class="c1">;; =&gt; HELLO</span>
+
+<span class="p">(</span><span class="kd">defn </span><span class="nv">s-lower</span>
+  <span class="p">[</span><span class="nv">str</span><span class="p">]</span>
+  <span class="p">(</span><span class="nf">clojure.string/lower-case</span> <span class="nv">str</span><span class="p">))</span>
+<span class="c1">;; =&gt; #&#39;user/s-lower</span>
+
+<span class="p">(</span><span class="nf">s-lower</span> <span class="s">&#34;ABc&#34;</span><span class="p">)</span>
+<span class="c1">;; =&gt; abc</span>
+
+<span class="p">(</span><span class="kd">defn </span><span class="nv">s-capitalize</span> <span class="p">[</span><span class="nv">str</span><span class="p">]</span>
+  <span class="p">(</span><span class="nf">clojure.string/capitalize</span> <span class="nv">str</span><span class="p">))</span>
+<span class="c1">;; =&gt; #&#39;user/s-capitalize</span>
+
+<span class="p">(</span><span class="nf">s-capitalize</span> <span class="s">&#34;abc DEf&#34;</span><span class="p">)</span>
+<span class="c1">;; =&gt; Abc def</span>
+
+<span class="p">(</span><span class="kd">defn </span><span class="nv">s-lstrip</span>
+  <span class="p">[</span><span class="nv">str</span><span class="p">]</span>
+  <span class="p">(</span><span class="nf">clojure.string/triml</span> <span class="nv">str</span><span class="p">))</span>
+<span class="c1">;; =&gt; #&#39;user/s-lstrip</span>
+
+<span class="p">(</span><span class="nf">s-lstrip</span> <span class="s">&#34;  cde .&#34;</span><span class="p">)</span>
+<span class="c1">;; =&gt; cde .</span>
+
+<span class="p">(</span><span class="kd">defn </span><span class="nv">s-rstrip</span>
+  <span class="p">[</span><span class="nv">str</span><span class="p">]</span>
+  <span class="p">(</span><span class="nf">clojure.string/trimr</span> <span class="nv">str</span><span class="p">))</span>
+<span class="c1">;; =&gt; #&#39;user/s-rstrip</span>
+
+<span class="p">(</span><span class="nf">s-rstrip</span> <span class="s">&#34;  cde &#34;</span><span class="p">)</span>
+<span class="c1">;; =&gt;   cde</span>
+
+<span class="p">(</span><span class="kd">defn </span><span class="nv">s-strip</span>
+  <span class="p">[</span><span class="nv">str</span><span class="p">]</span>
+  <span class="p">(</span><span class="nf">clojure.string/trim</span> <span class="nv">str</span><span class="p">))</span>
+<span class="c1">;; =&gt; #&#39;user/s-strip</span>
+
+<span class="p">(</span><span class="nf">s-strip</span> <span class="s">&#34;  cde &#34;</span><span class="p">)</span>
+<span class="c1">;; =&gt; cde</span></code></pre></div>
+</div>
+</div>
+</div>
+<div id="outline-container-headline-6" class="outline-2">
+<h2 id="headline-6">
+A very brief summary
+</h2>
+<div id="outline-text-headline-6" class="outline-text-2">
+<p>
+There are three string APIs in Clojure, and you can find them briefly at <a href="https://clojure.org/api/cheatsheet:">https://clojure.org/api/cheatsheet:</a></p>
+<ol>
+<li>
+<p>core API, e.g. <a href="https://clojuredocs.org/clojure_core/clojure.core/count">count</a>, <a href="https://clojuredocs.org/clojure_core/clojure.core/str">str</a>.</p>
+</li>
+<li>
+<p>clojure/string, e.g. <a href="https://clojuredocs.org/clojure_core/clojure.string/join">join</a></p>
+</li>
+<li>
+<p>Java API, e.g. <code class="verbatim">(.toUpperCase &#34;abc&#34;)</code></p>
+<p>
+<strong><strong>Try</strong></strong> not to use these APIs as they are JVM-specific, which means they are not portable for JS or CLR runtime.</p>
+</li>
+</ol>
+<p>By the way, if you&#39;re wondering how to add the evaluation result for the code snippets above, you are not alone. You can try my <a href="/blog/2021-08-07-illustrate-clojure-snippet/">illustrate.clj</a>, a babashka script to add the comments quickly.</p>
+</div>
+</div>
+
+
+        
+          <div class="blog-tags">
+            
+              <a href="https://whatacold.io/tags/clojure/">Clojure</a>&nbsp;
+            
+              <a href="https://whatacold.io/tags/python/">Python</a>&nbsp;
+            
+          </div>
+        
+
+        
+            <hr/>
+            <section id="social-share">
+              <div class="list-inline footer-links">
+                
+
+<div class="share-box" aria-hidden="true">
+    <ul class="share">
+      
+      <li>
+        <a href="//twitter.com/share?url=https%3a%2f%2fwhatacold.io%2fblog%2f2021-07-22-clojure-string-manipulation%2f&amp;text=String%20Manipulation%20in%20Clojure&amp;via=whatacold" target="_blank" title="Share on Twitter">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fwhatacold.io%2fblog%2f2021-07-22-clojure-string-manipulation%2f" target="_blank" title="Share on Facebook">
+          <i class="fab fa-facebook"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//reddit.com/submit?url=https%3a%2f%2fwhatacold.io%2fblog%2f2021-07-22-clojure-string-manipulation%2f&amp;title=String%20Manipulation%20in%20Clojure" target="_blank" title="Share on Reddit">
+          <i class="fab fa-reddit"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fwhatacold.io%2fblog%2f2021-07-22-clojure-string-manipulation%2f&amp;title=String%20Manipulation%20in%20Clojure" target="_blank" title="Share on LinkedIn">
+          <i class="fab fa-linkedin"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fwhatacold.io%2fblog%2f2021-07-22-clojure-string-manipulation%2f&amp;title=String%20Manipulation%20in%20Clojure" target="_blank" title="Share on StumbleUpon">
+          <i class="fab fa-stumbleupon"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fwhatacold.io%2fblog%2f2021-07-22-clojure-string-manipulation%2f&amp;description=String%20Manipulation%20in%20Clojure" target="_blank" title="Share on Pinterest">
+          <i class="fab fa-pinterest"></i>
+        </a>
+      </li>
+    </ul>
+  </div>
+  
+
+              </div>
+            </section>
+        
+
+        
+          
+            
+          
+
+          
+                  <h4 class="see-also">See also</h4>
+                  <ul>
+                
+                
+                    <li><a href="/blog/2021-08-07-illustrate-clojure-snippet/">illustrate.clj to Illustrate Clojure Snippet</a></li>
+                
+                    <li><a href="/blog/2021-07-25-clojure-string-title-case/">String Title Case in Clojure</a></li>
+                
+                    <li><a href="/blog/2021-07-11-babashka-random-password-generator/">A Random Password Generator in Babashka</a></li>
+                
+                    <li><a href="/blog/2020-10-21-a-python-re.findall-service/">An Online Python re.findall Service</a></li>
+                
+                    <li><a href="/blog/2019-09-29-how-to-run-the-bleeding-edge-code-of-qtile/">How To Run Bleeding-edge Qtile Within a Virtualenv</a></li>
+                
+              </ul>
+
+          
+        
+      </article>
+
+      
+        <ul class="pager blog-pager">
+          
+            <li class="previous">
+              <a href="https://whatacold.io/blog/2021-07-17-emacs-i3wm-dunst/" data-toggle="tooltip" data-placement="top" title="Send Notifications from Emacs with i3wm and Dunst">&larr; Previous Post</a>
+            </li>
+          
+          
+            <li class="next">
+              <a href="https://whatacold.io/blog/2021-07-25-clojure-string-title-case/" data-toggle="tooltip" data-placement="top" title="String Title Case in Clojure">Next Post &rarr;</a>
+            </li>
+          
+        </ul>
+      
+
+
+      
+        
+          
+          <div class="disqus-comments">
+            <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "whatacold" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+          </div>
+          
+        
+        
+      
+
+    </div>
+  </div>
+</div>
+
+      
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+          
+              <li>
+                <a href="mailto:whatacold@gmail.com" title="Email me">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fas fa-envelope fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://github.com/whatacold" title="GitHub">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://twitter.com/whatacold" title="Twitter">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://reddit.com/u/whatacold" title="Reddit">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-reddit-alien fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://stackoverflow.com/users/910978/whatacold" title="StackOverflow">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-stack-overflow fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://www.youtube.com/channel/UC2unslchfhzbub47Qq2U88w" title="Youtube">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-youtube fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+
+          
+          
+          
+
+        </ul>
+        <p class="credits copyright text-muted">
+          
+            
+              whatacold
+            
+          
+
+          &nbsp;&bull;&nbsp;&copy;
+          
+            2018 - 2021
+          
+
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://whatacold.io">whatacold&#39;s Space</a>
+          
+        </p>
+        
+        <p class="credits theme-by text-muted">
+          <a href="https://gohugo.io">Hugo v0.80.0</a> powered &nbsp;&bull;&nbsp; Theme <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> adapted from <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer><script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.js" integrity="sha384-K3vbOmF2BtaVai+Qk37uypf7VrgBubhQreNQe9aGsz9lB63dIFiQVlJbr92dw2Lx" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/contrib/auto-render.min.js" integrity="sha384-kmZOZB5ObwgQnS/DuDg6TScgOiWWBiVt0plIRkZCmE6rDZGrEOQeHM5PcHi+nyqe" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+<script src="https://whatacold.io/js/main.js"></script>
+<script src="https://whatacold.io/js/highlight.min.js"></script>
+<script> hljs.initHighlightingOnLoad(); </script>
+<script> $(document).ready(function() {$("pre.chroma").css("padding","0");}); </script><script> renderMathInElement(document.body); </script><script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.js" integrity="sha384-QELNnmcmU8IR9ZAykt67vGr9/rZJdHbiWi64V88fCPaOohUlHCqUD/unNN0BXSqy" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe-ui-default.min.js" integrity="sha384-m67o7SkQ1ALzKZIFh4CiTA8tmadaujiTa9Vu+nqPSwDOqHrDmxLezTdFln8077+q" crossorigin="anonymous"></script><script src="https://whatacold.io/js/load-photoswipe.js"></script>
+
+
+
+
+
+
+
+
+
+    
+  </body>
+</html>
+

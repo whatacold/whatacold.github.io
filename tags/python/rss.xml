@@ -20,6 +20,17 @@
     </item>
     
     <item>
+      <title>String Manipulation in Clojure</title>
+      <link>https://whatacold.io/blog/2021-07-22-clojure-string-manipulation/</link>
+      <pubDate>Thu, 22 Jul 2021 23:29:11 +0800</pubDate>
+      <author>whatacold@gmail.com (whatacold)</author>
+      <guid>https://whatacold.io/blog/2021-07-22-clojure-string-manipulation/</guid>
+      <description>Python string APIs are powerful and concise, that is an important reason I use it to do a lot of scripting these days, join, split, strip, to name a few.
+ Since I am learning Clojure recently, I am wondering, how is string manipulation like in Clojure and how to implement equivalent ones?
+ I think it&amp;#39;s an excellent opportunity to get familiar with Clojure. Before diving into the implementation, how to declare a multi-line string?</description>
+    </item>
+    
+    <item>
       <title>An Online Python re.findall Service</title>
       <link>https://whatacold.io/blog/2020-10-21-a-python-re.findall-service/</link>
       <pubDate>Wed, 21 Oct 2020 22:51:00 +0800</pubDate>
