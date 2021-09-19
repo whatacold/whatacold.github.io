@@ -7,7 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <managingEditor>whatacold@gmail.com (whatacold)</managingEditor>
     <webMaster>whatacold@gmail.com (whatacold)</webMaster>
-    <lastBuildDate>Sat, 07 Aug 2021 18:49:25 +0800</lastBuildDate><atom:link href="https://whatacold.io/tags/babashka/rss.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 19 Sep 2021 10:39:23 +0800</lastBuildDate><atom:link href="https://whatacold.io/tags/babashka/rss.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Clojure reduce: one case for text processing</title>
+      <link>https://whatacold.io/blog/2021-09-19-clojure-reduce-text-processing/</link>
+      <pubDate>Sun, 19 Sep 2021 10:39:23 +0800</pubDate>
+      <author>whatacold@gmail.com (whatacold)</author>
+      <guid>https://whatacold.io/blog/2021-09-19-clojure-reduce-text-processing/</guid>
+      <description>As a practice, I managed to illustrate Clojure files using illustrate.clj, but my original idea was to annotate org-mode files of blogs. It&amp;#39;s not uncommon that a blog post has some code snippets.
+ But it missed the feature until last night, as I wasn&amp;#39;t sure how to implement it appropriately before and didn&amp;#39;t have enough time.
+ For example, I may have an org-mode like this:
+sum of two numbers: #+begin_src clojure(+ 1 2) #+end_src   I want to have a result comment ((;; =&amp;gt; 3)) after each top-level form after using illustrate.</description>
+    </item>
+    
     <item>
       <title>illustrate.clj to Illustrate Clojure Snippet</title>
       <link>https://whatacold.io/blog/2021-08-07-illustrate-clojure-snippet/</link>

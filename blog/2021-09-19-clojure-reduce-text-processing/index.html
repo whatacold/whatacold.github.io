@@ -12,9 +12,11 @@
 
   
 
-  <title>A Random Password Generator in Babashka - whatacold&#39;s Space</title>
-  <meta name="description" content="I&#39;m used to learning by practicing, so when I learned Clojure, I always kept an eye on chances to write code in it.
- Scripting is an excellent field to practice, but the experience is not so good. On the one hand, it&#39;s too hacky to wrap Clojure code in a shell script with the shell bang. On the other hand, the startup time of JVM is too long to hurt the user experience.">
+  <title>Clojure reduce: one case for text processing - whatacold&#39;s Space</title>
+  <meta name="description" content="As a practice, I managed to illustrate Clojure files using illustrate.clj, but my original idea was to annotate org-mode files of blogs. It&#39;s not uncommon that a blog post has some code snippets.
+ But it missed the feature until last night, as I wasn&#39;t sure how to implement it appropriately before and didn&#39;t have enough time.
+ For example, I may have an org-mode like this:
+sum of two numbers: #&#43;begin_src clojure(&#43; 1 2) #&#43;end_src   I want to have a result comment ((;; =&gt; 3)) after each top-level form after using illustrate.">
   <meta name="author" content="whatacold"/><script type="application/ld+json">
 {
     "@context": "http://schema.org",
@@ -50,8 +52,8 @@
         "@type": "ListItem",
         "position": 3,
         "item": {
-          "@id": "https:\/\/whatacold.io\/blog\/2021-07-11-babashka-random-password-generator\/",
-          "name": "A random password generator in babashka"
+          "@id": "https:\/\/whatacold.io\/blog\/2021-09-19-clojure-reduce-text-processing\/",
+          "name": "Clojure reduce one case for text processing"
         }
     }]
 }
@@ -62,15 +64,15 @@
   "author": {
     "name" : "whatacold"
   },
-  "headline": "A Random Password Generator in Babashka",
-  "description" : "I\u0026#39;m used to learning by practicing, so when I learned Clojure, I always kept an eye on chances to write code in it.\n Scripting is an excellent field to practice, but the experience is not so good. On the one hand, it\u0026#39;s too hacky to wrap Clojure code in a shell script with the shell bang. On the other hand, the startup time of JVM is too long to hurt the user experience.",
+  "headline": "Clojure reduce: one case for text processing",
+  "description" : "As a practice, I managed to illustrate Clojure files using illustrate.clj, but my original idea was to annotate org-mode files of blogs. It\u0026#39;s not uncommon that a blog post has some code snippets.\n But it missed the feature until last night, as I wasn\u0026#39;t sure how to implement it appropriately before and didn\u0026#39;t have enough time.\n For example, I may have an org-mode like this:\nsum of two numbers: #\u002bbegin_src clojure(\u002b 1 2) #\u002bend_src   I want to have a result comment ((;; =\u0026gt; 3)) after each top-level form after using illustrate.",
   "inLanguage" : "en",
-  "wordCount":  347 ,
-  "datePublished" : "2021-07-11T09:18:41",
-  "dateModified" : "2021-07-11T09:18:41",
+  "wordCount":  329 ,
+  "datePublished" : "2021-09-19T10:39:23",
+  "dateModified" : "2021-09-19T10:39:23",
   "image" : "https:\/\/whatacold.io\/img\/avatar.png",
-  "keywords" : [ "Babashka, Clojure" ],
-  "mainEntityOfPage" : "https:\/\/whatacold.io\/blog\/2021-07-11-babashka-random-password-generator\/",
+  "keywords" : [ "Clojure, Babashka" ],
+  "mainEntityOfPage" : "https:\/\/whatacold.io\/blog\/2021-09-19-clojure-reduce-text-processing\/",
   "publisher" : {
     "@type": "Organization",
     "name" : "https:\/\/whatacold.io",
@@ -84,17 +86,18 @@
 }
 </script>
 
-<meta property="og:title" content="A Random Password Generator in Babashka" />
-<meta property="og:description" content="I&#39;m used to learning by practicing, so when I learned Clojure, I always kept an eye on chances to write code in it.
- Scripting is an excellent field to practice, but the experience is not so good. On the one hand, it&#39;s too hacky to wrap Clojure code in a shell script with the shell bang. On the other hand, the startup time of JVM is too long to hurt the user experience.">
+<meta property="og:title" content="Clojure reduce: one case for text processing" />
+<meta property="og:description" content="As a practice, I managed to illustrate Clojure files using illustrate.clj, but my original idea was to annotate org-mode files of blogs. It&#39;s not uncommon that a blog post has some code snippets.
+ But it missed the feature until last night, as I wasn&#39;t sure how to implement it appropriately before and didn&#39;t have enough time.
+ For example, I may have an org-mode like this:
+sum of two numbers: #&#43;begin_src clojure(&#43; 1 2) #&#43;end_src   I want to have a result comment ((;; =&gt; 3)) after each top-level form after using illustrate.">
 <meta property="og:image" content="https://whatacold.io/img/avatar.png" />
-<meta property="og:url" content="https://whatacold.io/blog/2021-07-11-babashka-random-password-generator/" />
+<meta property="og:url" content="https://whatacold.io/blog/2021-09-19-clojure-reduce-text-processing/" />
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="whatacold&#39;s Space" />
 
-  <meta name="twitter:title" content="A Random Password Generator in Babashka" />
-  <meta name="twitter:description" content="I&#39;m used to learning by practicing, so when I learned Clojure, I always kept an eye on chances to write code in it.
- Scripting is an excellent field to practice, but the experience is not so good. …">
+  <meta name="twitter:title" content="Clojure reduce: one case for text processing" />
+  <meta name="twitter:description" content="As a practice, I managed to illustrate Clojure files using illustrate.clj, but my original idea was to annotate org-mode files of blogs. It&#39;s not uncommon that a blog post has some code snippets. …">
   <meta name="twitter:image" content="https://whatacold.io/img/avatar.png" />
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:site" content="@whatacold" />
@@ -258,7 +261,7 @@ if (!doNotTrack) {
           <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
             <div class="blog-heading">
               
-                <h1>A Random Password Generator in Babashka</h1>
+                <h1>Clojure reduce: one case for text processing</h1>
               
               
                 <hr class="small">
@@ -279,71 +282,91 @@ if (!doNotTrack) {
     <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
       <article role="main" class="blog-post">
         <p>
-I&#39;m used to learning by practicing, so when I learned Clojure, I always kept an eye on chances to write code in it.</p>
+As a practice, I managed to illustrate <strong>Clojure files</strong> using <a href="/blog/2021-08-07-illustrate-clojure-snippet/">illustrate.clj</a>, but my original idea was to annotate org-mode files of blogs. It&#39;s not uncommon that a blog post has some code snippets.</p>
 <p>
-Scripting is an excellent field to practice, but the experience is not so good. On the one hand, it&#39;s too hacky to wrap Clojure code in a shell script with the shell bang. On the other hand, the startup time of JVM is too long to hurt the user experience.</p>
+But it missed the feature until last night, as I wasn&#39;t sure how to implement it appropriately before and didn&#39;t have enough time.</p>
 <p>
-It seems this is a dead end until I found <a href="https://book.babashka.org/">Babashka</a> on Reddit one day, it really blew my mind with its lightning-fast startup speed, and it&#39;s also Clojure.</p>
-<p>
-So what can I do with it?</p>
-<p>
-Many websites require us to have a username and a password, and it&#39;s risky to have the same or similar passwords for them. But it takes time to come up with passwords for every website. So why not generating random passwords in Babashka?</p>
-<p>
-The requirements for it would be:</p>
-<ol>
-<li>
-<p>The characters should be random.</p>
-</li>
-<li>
-<p>It should be long enough. 12 or 16 is good.</p>
-</li>
-<li>
-<p>The password should be a combination of lowercase letters, uppercase letters, numbers, and symbols.</p>
-<p>
-Well, this requirement is not met yet.</p>
-</li>
-</ol>
-<p>As for the first one, I learned how to do it in Clojure when I read <a href="https://github.com/lk-geimfari/secrets.clj">secrets.clj</a>, <code class="verbatim">java.security</code> is a good fit for it.</p>
-<p>
-The journey to implement it was fun, as I can write the code bottom-up and top-down, and I can quickly experiment and test the code with REPL.</p>
-<figure>
-<img src="/img/2021-07-11-babashka-random-password-generator.png" alt="/img/2021-07-11-babashka-random-password-generator.png" title="/img/2021-07-11-babashka-random-password-generator.png" /><figcaption>
-Generate Random Passwords in No Time
-</figcaption>
-</figure>
-<p>
-The final code is quite simple:</p>
-<div class="src src-clojure">
-<div class="highlight"><pre class="chroma"><code class="language-clojure" data-lang="clojure"><span class="o">#</span><span class="nv">!/usr/bin/env</span> <span class="nv">bb</span>
-
-<span class="p">(</span><span class="nb">import </span><span class="p">[</span><span class="nv">java.security</span> <span class="nv">SecureRandom</span><span class="p">])</span>
-
-<span class="p">(</span><span class="k">def </span><span class="o">^</span><span class="ss">:private</span> <span class="nv">rng</span> <span class="p">(</span><span class="nf">SecureRandom.</span><span class="p">))</span>
-
-<span class="p">(</span><span class="k">let </span><span class="p">[</span><span class="nv">len</span> <span class="mi">16</span>
-      <span class="nv">passwd</span> <span class="p">(</span><span class="nf">char-array</span> <span class="nv">len</span><span class="p">)</span>
-      <span class="nv">chars</span> <span class="p">(</span><span class="nb">map char </span><span class="p">(</span><span class="nb">concat </span><span class="p">(</span><span class="nb">range </span><span class="mi">48</span> <span class="mi">58</span><span class="p">)</span> <span class="c1">; 0-9</span>
-                              <span class="p">(</span><span class="nb">range </span><span class="mi">65</span> <span class="mi">91</span><span class="p">)</span> <span class="c1">; A-Z</span>
-                              <span class="p">(</span><span class="nb">range </span><span class="mi">97</span> <span class="mi">123</span><span class="p">)</span> <span class="c1">; a-z</span>
-                              <span class="p">[</span><span class="sc">\~</span> <span class="sc">\!</span> <span class="sc">\@</span> <span class="sc">\#</span> <span class="sc">\$</span> <span class="sc">\%</span> <span class="sc">\^</span> <span class="sc">\&amp;</span> <span class="sc">\*</span> <span class="sc">\(</span> <span class="sc">\)</span> <span class="sc">\-</span> <span class="sc">\+</span> <span class="sc">\=</span><span class="p">]))</span>
-      <span class="nv">nchars</span> <span class="p">(</span><span class="nb">count </span><span class="nv">chars</span><span class="p">)]</span>
-  <span class="p">(</span><span class="nb">println </span><span class="p">(</span><span class="nf">clojure.string/join</span> <span class="s">&#34;&#34;</span>
-                                <span class="p">(</span><span class="nb">mapcat </span><span class="p">(</span><span class="k">fn </span><span class="p">[</span><span class="nv">char</span><span class="p">]</span>
-                                          <span class="p">(</span><span class="nb">str </span><span class="p">(</span><span class="nb">nth </span><span class="nv">chars</span> <span class="p">(</span><span class="nf">.nextInt</span> <span class="nv">rng</span> <span class="nv">nchars</span><span class="p">))))</span>
-                                        <span class="nv">passwd</span><span class="p">))))</span></code></pre></div>
+For example, I may have an org-mode like this:</p>
+<div class="src src-org">
+<div class="highlight"><pre class="chroma"><code class="language-org" data-lang="org">sum of two numbers:
+<span class="c">#+begin_src </span><span class="cs">clojure</span><span class="c">
+</span><span class="c"></span><span class="p">(</span><span class="nb">+ </span><span class="mi">1</span> <span class="mi">2</span><span class="p">)</span>
+<span class="c">#+end_src</span></code></pre></div>
 </div>
 <p>
-I make a git repo, <a href="https://github.com/whatacold/babashka-tools">babashka-tools</a>, for it at GitHub. I can&#39;t wait to have other ideas to write code in Babashka.</p>
+I want to have a result comment (<code class="verbatim">(;; =&gt; 3)</code>) after each top-level form after using <code class="verbatim">illustrate.clj</code>:
+sum of two numbers:</p>
+<div class="src src-org">
+<div class="highlight"><pre class="chroma"><code class="language-org" data-lang="org"><span class="c">#+begin_src </span><span class="cs">clojure</span><span class="c">
+</span><span class="c"></span><span class="p">(</span><span class="nb">+ </span><span class="mi">1</span> <span class="mi">2</span><span class="p">)</span>
+<span class="c1">;; =&gt; 3</span>
+<span class="c">#+end_src</span></code></pre></div>
+</div>
 <p>
-Any ideas or suggestions?</p>
+As I come from a background of C++ and Python, the common way to do that in these languages would be:</p>
+<ol>
+<li>
+<p>find the begin of source blocks (<code class="verbatim">#+begin_src</code>), and find their corresponding ends.</p>
+</li>
+<li>
+<p>extract and illustrate the source blocks</p>
+</li>
+<li>
+<p>join the newly source blocks back with the previous content</p>
+</li>
+</ol>
+<p>The Clojure way here is similar, but using <code class="verbatim">reduce</code>:</p>
+<ol>
+<li>
+<p>split the file content into lines</p>
+</li>
+<li>
+<p>reduct the lines to final content</p>
+<p>
+Use a state to carry the content before a block and the source block along the way. if a source block ends, call <code class="verbatim">(illustrate-string)</code> to illustrate it and append the result string to previous content.</p>
+</li>
+</ol>
+<p>The function is like this:</p>
+<div class="src src-clojure">
+<div class="highlight"><pre class="chroma"><code class="language-clojure" data-lang="clojure"><span class="p">(</span><span class="kd">defn </span><span class="nv">illustrate-org-file</span>
+  <span class="s">&#34;Add illustration comments to an org-mode file&#34;</span>
+  <span class="p">[</span><span class="nv">file</span> <span class="nv">new-file</span><span class="p">]</span>
+  <span class="p">(</span><span class="k">let </span><span class="p">[</span><span class="nv">lines</span> <span class="p">(</span><span class="nf">clojure.string/split-lines</span> <span class="p">(</span><span class="nb">slurp </span><span class="nv">file</span><span class="p">))</span>
+        <span class="nv">result</span> <span class="p">(</span><span class="nb">reduce </span><span class="p">(</span><span class="nf">fn</span>
+                         <span class="p">[</span><span class="nv">state</span> <span class="nv">line</span><span class="p">]</span>
+                         <span class="p">(</span><span class="k">let </span><span class="p">[</span><span class="nv">content</span> <span class="p">(</span><span class="nb">nth </span><span class="nv">state</span> <span class="mi">0</span><span class="p">)</span>
+                               <span class="nv">prev-in-block?</span> <span class="p">(</span><span class="nb">nth </span><span class="nv">state</span> <span class="mi">1</span><span class="p">)</span>
+                               <span class="nv">src-block</span> <span class="p">(</span><span class="nb">nth </span><span class="nv">state</span> <span class="mi">2</span><span class="p">)]</span>
+                           <span class="p">(</span><span class="k">if </span><span class="nv">prev-in-block?</span>
+                             <span class="p">(</span><span class="k">if </span><span class="p">(</span><span class="nb">re-matches </span><span class="o">#</span><span class="s">&#34;\s*#\+end_src&#34;</span> <span class="nv">line</span><span class="p">)</span>
+                               <span class="p">[(</span><span class="nb">str </span><span class="nv">content</span> <span class="p">(</span><span class="nf">illustrate-string</span> <span class="nv">src-block</span><span class="p">)</span> <span class="nv">line</span> <span class="s">&#34;\n&#34;</span><span class="p">)</span>
+                                <span class="nv">false</span>
+                                <span class="s">&#34;&#34;</span><span class="p">]</span>
+                               <span class="p">[</span><span class="nv">content</span>
+                                <span class="nv">true</span>
+                                <span class="p">(</span><span class="nb">str </span><span class="nv">src-block</span> <span class="nv">line</span> <span class="s">&#34;\n&#34;</span><span class="p">)])</span> <span class="c1">; append to the source block</span>
+                             <span class="c1">;; not in a src block previously</span>
+                             <span class="p">[(</span><span class="nb">str </span><span class="nv">content</span> <span class="nv">line</span> <span class="s">&#34;\n&#34;</span><span class="p">)</span>
+                              <span class="p">(</span><span class="k">if </span><span class="p">(</span><span class="nb">re-matches </span><span class="o">#</span><span class="s">&#34;\s*#\+begin_src\s+clojure&#34;</span> <span class="nv">line</span><span class="p">)</span>
+                                <span class="nv">true</span>
+                                <span class="nv">false</span><span class="p">)</span>
+                              <span class="s">&#34;&#34;</span><span class="p">])))</span>
+                       <span class="p">[</span><span class="s">&#34;&#34;</span> <span class="nv">false</span> <span class="s">&#34;&#34;</span><span class="p">]</span>
+                       <span class="nv">lines</span><span class="p">)]</span>
+    <span class="p">(</span><span class="nf">spit</span> <span class="nv">new-file</span> <span class="p">(</span><span class="nb">nth </span><span class="nv">result</span> <span class="mi">0</span><span class="p">))))</span></code></pre></div>
+</div>
+<p>
+Although it works, it&#39;s not as concise and elegant as I expected. Maybe I would improve the code in the future.</p>
+<p>
+The complete code is at my <a href="https://github.com/whatacold/babashka-tools/blob/master/illustrate.clj">babashka-tools</a> repo.</p>
 
 
         
           <div class="blog-tags">
             
-              <a href="https://whatacold.io/tags/babashka/">Babashka</a>&nbsp;
-            
               <a href="https://whatacold.io/tags/clojure/">Clojure</a>&nbsp;
+            
+              <a href="https://whatacold.io/tags/babashka/">Babashka</a>&nbsp;
             
           </div>
         
@@ -358,42 +381,42 @@ Any ideas or suggestions?</p>
     <ul class="share">
       
       <li>
-        <a href="//twitter.com/share?url=https%3a%2f%2fwhatacold.io%2fblog%2f2021-07-11-babashka-random-password-generator%2f&amp;text=A%20Random%20Password%20Generator%20in%20Babashka&amp;via=whatacold" target="_blank" title="Share on Twitter">
+        <a href="//twitter.com/share?url=https%3a%2f%2fwhatacold.io%2fblog%2f2021-09-19-clojure-reduce-text-processing%2f&amp;text=Clojure%20reduce%3a%20one%20case%20for%20text%20processing&amp;via=whatacold" target="_blank" title="Share on Twitter">
           <i class="fab fa-twitter"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fwhatacold.io%2fblog%2f2021-07-11-babashka-random-password-generator%2f" target="_blank" title="Share on Facebook">
+        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fwhatacold.io%2fblog%2f2021-09-19-clojure-reduce-text-processing%2f" target="_blank" title="Share on Facebook">
           <i class="fab fa-facebook"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//reddit.com/submit?url=https%3a%2f%2fwhatacold.io%2fblog%2f2021-07-11-babashka-random-password-generator%2f&amp;title=A%20Random%20Password%20Generator%20in%20Babashka" target="_blank" title="Share on Reddit">
+        <a href="//reddit.com/submit?url=https%3a%2f%2fwhatacold.io%2fblog%2f2021-09-19-clojure-reduce-text-processing%2f&amp;title=Clojure%20reduce%3a%20one%20case%20for%20text%20processing" target="_blank" title="Share on Reddit">
           <i class="fab fa-reddit"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fwhatacold.io%2fblog%2f2021-07-11-babashka-random-password-generator%2f&amp;title=A%20Random%20Password%20Generator%20in%20Babashka" target="_blank" title="Share on LinkedIn">
+        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fwhatacold.io%2fblog%2f2021-09-19-clojure-reduce-text-processing%2f&amp;title=Clojure%20reduce%3a%20one%20case%20for%20text%20processing" target="_blank" title="Share on LinkedIn">
           <i class="fab fa-linkedin"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fwhatacold.io%2fblog%2f2021-07-11-babashka-random-password-generator%2f&amp;title=A%20Random%20Password%20Generator%20in%20Babashka" target="_blank" title="Share on StumbleUpon">
+        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fwhatacold.io%2fblog%2f2021-09-19-clojure-reduce-text-processing%2f&amp;title=Clojure%20reduce%3a%20one%20case%20for%20text%20processing" target="_blank" title="Share on StumbleUpon">
           <i class="fab fa-stumbleupon"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fwhatacold.io%2fblog%2f2021-07-11-babashka-random-password-generator%2f&amp;description=A%20Random%20Password%20Generator%20in%20Babashka" target="_blank" title="Share on Pinterest">
+        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fwhatacold.io%2fblog%2f2021-09-19-clojure-reduce-text-processing%2f&amp;description=Clojure%20reduce%3a%20one%20case%20for%20text%20processing" target="_blank" title="Share on Pinterest">
           <i class="fab fa-pinterest"></i>
         </a>
       </li>
@@ -415,13 +438,13 @@ Any ideas or suggestions?</p>
                   <ul>
                 
                 
-                    <li><a href="/blog/2021-09-19-clojure-reduce-text-processing/">Clojure reduce: one case for text processing</a></li>
-                
                     <li><a href="/blog/2021-08-07-illustrate-clojure-snippet/">illustrate.clj to Illustrate Clojure Snippet</a></li>
                 
                     <li><a href="/blog/2021-07-25-clojure-string-title-case/">String Title Case in Clojure</a></li>
                 
                     <li><a href="/blog/2021-07-22-clojure-string-manipulation/">String Manipulation in Clojure</a></li>
+                
+                    <li><a href="/blog/2021-07-11-babashka-random-password-generator/">A Random Password Generator in Babashka</a></li>
                 
               </ul>
 
@@ -433,13 +456,9 @@ Any ideas or suggestions?</p>
         <ul class="pager blog-pager">
           
             <li class="previous">
-              <a href="https://whatacold.io/blog/2020-10-21-a-python-re.findall-service/" data-toggle="tooltip" data-placement="top" title="An Online Python re.findall Service">&larr; Previous Post</a>
+              <a href="https://whatacold.io/blog/2021-08-07-illustrate-clojure-snippet/" data-toggle="tooltip" data-placement="top" title="illustrate.clj to Illustrate Clojure Snippet">&larr; Previous Post</a>
             </li>
           
-          
-            <li class="next">
-              <a href="https://whatacold.io/blog/2021-07-17-emacs-i3wm-dunst/" data-toggle="tooltip" data-placement="top" title="Send Notifications from Emacs with i3wm and Dunst">Next Post &rarr;</a>
-            </li>
           
         </ul>
       
