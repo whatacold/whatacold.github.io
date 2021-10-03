@@ -9,7 +9,7 @@
   
   <url>
     <loc>https://whatacold.io/blog/</loc>
-    <lastmod>2021-09-19T10:39:28+08:00</lastmod>
+    <lastmod>2021-10-03T21:42:26+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="zh-cn"
@@ -44,7 +44,7 @@
   
   <url>
     <loc>https://whatacold.io/tags/</loc>
-    <lastmod>2021-09-19T10:39:28+08:00</lastmod>
+    <lastmod>2021-10-03T21:42:26+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="zh-cn"
@@ -59,7 +59,7 @@
   
   <url>
     <loc>https://whatacold.io/</loc>
-    <lastmod>2021-09-19T10:39:28+08:00</lastmod>
+    <lastmod>2021-10-03T21:42:26+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="zh-cn"
@@ -249,7 +249,7 @@
   
   <url>
     <loc>https://whatacold.io/tags/git/</loc>
-    <lastmod>2020-02-04T18:48:00+08:00</lastmod>
+    <lastmod>2021-10-03T21:42:26+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="zh-cn"
@@ -309,7 +309,12 @@
   
   <url>
     <loc>https://whatacold.io/blog/2019-09-24-how-to-revert-a-series-of-commits-with-git/</loc>
-    <lastmod>2019-09-24T23:14:00+08:00</lastmod>
+    <lastmod>2021-10-03T21:42:26+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://whatacold.io/tags/magit/</loc>
+    <lastmod>2021-10-03T21:42:26+08:00</lastmod>
   </url>
   
   <url>

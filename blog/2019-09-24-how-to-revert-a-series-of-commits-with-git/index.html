@@ -12,13 +12,15 @@
 
   
 
-  <title>How To Revert a Series Of Git Commits? - whatacold&#39;s Space</title>
-  <meta name="description" content="Have a bunch of commits that you want to revert, but don&#39;t want to revert them one by one? Here is how to use git soft-reset to do that...">
+  <title>How To Revert a Series of Git Commits? - whatacold&#39;s space</title>
+  <meta name="description" content="Sometimes, I need to revert a series of commits that I&#39;ve already pushed, doing a git hard reset (git reset --hard) is not an option, as someone may already have new commits based on mine.
+ For example, assume that I&#39;ve made a few commits like below:
+65a2c62 * commit 10 25cad43 * commit 9 72ad583 * commit 8 ceebf9a * commit 7 acf8a11 * commit 6 28d526f * commit 5 63af1e2 * commit 4 982c71c * commit 3 0fb4c2d * commit 2 acf9da1 * commit 1 b5f9933 * commit 0   For whatever reason, I need to &#34;drop&#34; the changes made by commit 6 to commit 10, that is, go back to &#34;commit 5&#34; without deleting these commits.">
   <meta name="author" content="whatacold"/><script type="application/ld+json">
 {
     "@context": "http://schema.org",
     "@type": "WebSite",
-    "name": "whatacold\u0027s Space",
+    "name": "whatacold\u0027s space",
     
     "url": "https:\/\/whatacold.io"
 }
@@ -61,14 +63,14 @@
   "author": {
     "name" : "whatacold"
   },
-  "headline": "How To Revert a Series Of Git Commits?",
-  "description" : "Have a bunch of commits that you want to revert, but don\u0027t want to revert them one by one? Here is how to use git soft-reset to do that...",
+  "headline": "How To Revert a Series of Git Commits?",
+  "description" : "Sometimes, I need to revert a series of commits that I\u0026#39;ve already pushed, doing a git hard reset (git reset --hard) is not an option, as someone may already have new commits based on mine.\n For example, assume that I\u0026#39;ve made a few commits like below:\n65a2c62 * commit 10 25cad43 * commit 9 72ad583 * commit 8 ceebf9a * commit 7 acf8a11 * commit 6 28d526f * commit 5 63af1e2 * commit 4 982c71c * commit 3 0fb4c2d * commit 2 acf9da1 * commit 1 b5f9933 * commit 0   For whatever reason, I need to \u0026#34;drop\u0026#34; the changes made by commit 6 to commit 10, that is, go back to \u0026#34;commit 5\u0026#34; without deleting these commits.",
   "inLanguage" : "en",
-  "wordCount":  486 ,
+  "wordCount":  508 ,
   "datePublished" : "2019-09-24T23:14:00",
   "dateModified" : "2019-09-24T23:14:00",
   "image" : "https:\/\/whatacold.io\/img\/avatar.png",
-  "keywords" : [ "Git" ],
+  "keywords" : [ "Git, Magit" ],
   "mainEntityOfPage" : "https:\/\/whatacold.io\/blog\/2019-09-24-how-to-revert-a-series-of-commits-with-git\/",
   "publisher" : {
     "@type": "Organization",
@@ -83,22 +85,25 @@
 }
 </script>
 
-<meta property="og:title" content="How To Revert a Series Of Git Commits?" />
-<meta property="og:description" content="Have a bunch of commits that you want to revert, but don&#39;t want to revert them one by one? Here is how to use git soft-reset to do that...">
+<meta property="og:title" content="How To Revert a Series of Git Commits?" />
+<meta property="og:description" content="Sometimes, I need to revert a series of commits that I&#39;ve already pushed, doing a git hard reset (git reset --hard) is not an option, as someone may already have new commits based on mine.
+ For example, assume that I&#39;ve made a few commits like below:
+65a2c62 * commit 10 25cad43 * commit 9 72ad583 * commit 8 ceebf9a * commit 7 acf8a11 * commit 6 28d526f * commit 5 63af1e2 * commit 4 982c71c * commit 3 0fb4c2d * commit 2 acf9da1 * commit 1 b5f9933 * commit 0   For whatever reason, I need to &#34;drop&#34; the changes made by commit 6 to commit 10, that is, go back to &#34;commit 5&#34; without deleting these commits.">
 <meta property="og:image" content="https://whatacold.io/img/avatar.png" />
 <meta property="og:url" content="https://whatacold.io/blog/2019-09-24-how-to-revert-a-series-of-commits-with-git/" />
 <meta property="og:type" content="website" />
-<meta property="og:site_name" content="whatacold&#39;s Space" />
+<meta property="og:site_name" content="whatacold&#39;s space" />
 
-  <meta name="twitter:title" content="How To Revert a Series Of Git Commits?" />
-  <meta name="twitter:description" content="Have a bunch of commits that you want to revert, but don&#39;t want to revert them one by one? Here is how to use git soft-reset to do that...">
+  <meta name="twitter:title" content="How To Revert a Series of Git Commits?" />
+  <meta name="twitter:description" content="Sometimes, I need to revert a series of commits that I&#39;ve already pushed, doing a git hard reset (git reset --hard) is not an option, as someone may already have new commits based on mine.
+ For …">
   <meta name="twitter:image" content="https://whatacold.io/img/avatar.png" />
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:site" content="@whatacold" />
   <meta name="twitter:creator" content="@whatacold" />
   <link href='https://whatacold.io/img/favicon.ico' rel='icon' type='image/x-icon'/>
   <meta name="generator" content="Hugo 0.80.0" />
-  <link rel="alternate" href="https://whatacold.io/index.xml" type="application/rss+xml" title="whatacold&#39;s Space"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
+  <link rel="alternate" href="https://whatacold.io/index.xml" type="application/rss+xml" title="whatacold&#39;s space"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"><link rel="stylesheet" href="https://whatacold.io/css/main.css" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
@@ -129,7 +134,7 @@ if (!doNotTrack) {
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="https://whatacold.io">whatacold&#39;s Space</a>
+      <a class="navbar-brand" href="https://whatacold.io">whatacold&#39;s space</a>
     </div>
 
     <div class="collapse navbar-collapse" id="main-navbar">
@@ -175,8 +180,8 @@ if (!doNotTrack) {
     
       <div class="avatar-container">
         <div class="avatar-img-border">
-          <a title="whatacold&#39;s Space" href="https://whatacold.io">
-            <img class="avatar-img" src="https://whatacold.io/img/avatar.png" alt="whatacold&#39;s Space" />
+          <a title="whatacold&#39;s space" href="https://whatacold.io">
+            <img class="avatar-img" src="https://whatacold.io/img/avatar.png" alt="whatacold&#39;s space" />
           </a>
         </div>
       </div>
@@ -255,7 +260,7 @@ if (!doNotTrack) {
           <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
             <div class="blog-heading">
               
-                <h1>How To Revert a Series Of Git Commits?</h1>
+                <h1>How To Revert a Series of Git Commits?</h1>
               
               
                 <hr class="small">
@@ -276,7 +281,7 @@ if (!doNotTrack) {
     <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
       <article role="main" class="blog-post">
         <p>
-Sometimes, I need to revert a series of commits that are already pushed, doing a git hard <a href="https://git-scm.com/docs/git-reset">reset</a> (<code class="verbatim">git reset --hard</code>) is not an option, as someone may already have new commits based on mine.</p>
+Sometimes, I need to revert a series of commits that I&#39;ve already pushed, doing a git hard <a href="https://git-scm.com/docs/git-reset">reset</a> (<code class="verbatim">git reset --hard</code>) is not an option, as someone may already have new commits based on mine.</p>
 <p>
 For example, assume that I&#39;ve made a few commits like below:</p>
 <pre class="example">
@@ -293,7 +298,7 @@ acf9da1 * commit 1
 b5f9933 * commit 0
 </pre>
 <p>
-Now for whatever reason, I need to &#34;drop&#34; the changes made by commit 6 to commit 10, that is, go back to commit 5 without deleting commit.</p>
+For whatever reason, I need to &#34;drop&#34; the changes made by commit 6 to commit 10, that is, go back to &#34;commit 5&#34; without deleting these commits.</p>
 <p>
 How to do that?</p>
 <p>
@@ -316,11 +321,13 @@ acf8a11 * commit 6
 acf9da1 * commit 1
 </pre>
 <p>
-It works, but it makes too many commits, in many cases that&#39;s not what I want, I&#39;d rather make only one commit.</p>
+It works, but it makes too many additional commits. In many cases, that&#39;s not what I want. So I&#39;d instead make only one commit.</p>
 <p>
-So is there a better way? The other day, I found the soft reset can suite my needs.</p>
+So is there a better way? The other day, I found out that the soft reset is perfect for this case.</p>
 <p>
-But how is it possible? Generally, <code class="verbatim">git reset</code> is used to move HEAD around the commits and/or to reset the index and working tree. The magic is that a soft reset can reset HEAD to a specific commit but leave the index and working tree untouched, so if I soft-reset HEAD from &#34;commit 5&#34; to &#34;commit 10&#34;, it will move HEAD directly to &#34;commit 10&#34;, but let the index as is, so that the index has the diff from &#34;commit 10&#34; to &#34;commit 5&#34; at the same time (<a href="https://davidzych.com/difference-between-git-reset-soft-mixed-and-hard/">Difference between git reset soft, mixed and hard - davidzych.com</a> illustrates different kinds of reset in detail.)</p>
+But how is it possible? Generally, <code class="verbatim">git reset</code> is for moving HEAD around the commits and resetting the index and working tree. The magic is that a soft reset can reset HEAD to a specific commit, <strong>but leave the index and working tree untouched</strong>.</p>
+<p>
+If I soft-reset HEAD from &#34;commit 5&#34; to &#34;commit 10&#34;, it will move HEAD directly to &#34;commit 10&#34;, but let the index as-is so that the index has the diff from &#34;commit 10&#34; to &#34;commit 5&#34; at the same time. (<a href="https://davidzych.com/difference-between-git-reset-soft-mixed-and-hard/">Difference between git reset soft, mixed and hard - davidzych.com</a> illustrates different kinds of reset in detail.)</p>
 <p>
 Here are the steps:</p>
 <div class="src src-shell">
@@ -357,12 +364,21 @@ mkdir -p <span class="nv">$REPO</span> <span class="o">&amp;&amp;</span> <span c
     git commit -m <span class="s2">&#34;commit </span><span class="nv">$i</span><span class="s2">&#34;</span>
 <span class="k">done</span></code></pre></div>
 </div>
+<p>
+P.P.S. It&#39;s much easier to do that with <a href="https://magit.vc/">Magit</a>, a Git porcelain inside Emacs, check out this video to see how:
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+  <iframe src="https://www.youtube.com/embed/7D4cV0aodGw" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
+</div>
+</p>
 
 
         
           <div class="blog-tags">
             
               <a href="https://whatacold.io/tags/git/">Git</a>&nbsp;
+            
+              <a href="https://whatacold.io/tags/magit/">Magit</a>&nbsp;
             
           </div>
         
@@ -377,7 +393,7 @@ mkdir -p <span class="nv">$REPO</span> <span class="o">&amp;&amp;</span> <span c
     <ul class="share">
       
       <li>
-        <a href="//twitter.com/share?url=https%3a%2f%2fwhatacold.io%2fblog%2f2019-09-24-how-to-revert-a-series-of-commits-with-git%2f&amp;text=How%20To%20Revert%20a%20Series%20Of%20Git%20Commits%3f&amp;via=whatacold" target="_blank" title="Share on Twitter">
+        <a href="//twitter.com/share?url=https%3a%2f%2fwhatacold.io%2fblog%2f2019-09-24-how-to-revert-a-series-of-commits-with-git%2f&amp;text=How%20To%20Revert%20a%20Series%20of%20Git%20Commits%3f&amp;via=whatacold" target="_blank" title="Share on Twitter">
           <i class="fab fa-twitter"></i>
         </a>
       </li>
@@ -391,28 +407,28 @@ mkdir -p <span class="nv">$REPO</span> <span class="o">&amp;&amp;</span> <span c
   
       
       <li>
-        <a href="//reddit.com/submit?url=https%3a%2f%2fwhatacold.io%2fblog%2f2019-09-24-how-to-revert-a-series-of-commits-with-git%2f&amp;title=How%20To%20Revert%20a%20Series%20Of%20Git%20Commits%3f" target="_blank" title="Share on Reddit">
+        <a href="//reddit.com/submit?url=https%3a%2f%2fwhatacold.io%2fblog%2f2019-09-24-how-to-revert-a-series-of-commits-with-git%2f&amp;title=How%20To%20Revert%20a%20Series%20of%20Git%20Commits%3f" target="_blank" title="Share on Reddit">
           <i class="fab fa-reddit"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fwhatacold.io%2fblog%2f2019-09-24-how-to-revert-a-series-of-commits-with-git%2f&amp;title=How%20To%20Revert%20a%20Series%20Of%20Git%20Commits%3f" target="_blank" title="Share on LinkedIn">
+        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fwhatacold.io%2fblog%2f2019-09-24-how-to-revert-a-series-of-commits-with-git%2f&amp;title=How%20To%20Revert%20a%20Series%20of%20Git%20Commits%3f" target="_blank" title="Share on LinkedIn">
           <i class="fab fa-linkedin"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fwhatacold.io%2fblog%2f2019-09-24-how-to-revert-a-series-of-commits-with-git%2f&amp;title=How%20To%20Revert%20a%20Series%20Of%20Git%20Commits%3f" target="_blank" title="Share on StumbleUpon">
+        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fwhatacold.io%2fblog%2f2019-09-24-how-to-revert-a-series-of-commits-with-git%2f&amp;title=How%20To%20Revert%20a%20Series%20of%20Git%20Commits%3f" target="_blank" title="Share on StumbleUpon">
           <i class="fab fa-stumbleupon"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fwhatacold.io%2fblog%2f2019-09-24-how-to-revert-a-series-of-commits-with-git%2f&amp;description=How%20To%20Revert%20a%20Series%20Of%20Git%20Commits%3f" target="_blank" title="Share on Pinterest">
+        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fwhatacold.io%2fblog%2f2019-09-24-how-to-revert-a-series-of-commits-with-git%2f&amp;description=How%20To%20Revert%20a%20Series%20of%20Git%20Commits%3f" target="_blank" title="Share on Pinterest">
           <i class="fab fa-pinterest"></i>
         </a>
       </li>
@@ -569,7 +585,7 @@ mkdir -p <span class="nv">$REPO</span> <span class="o">&amp;&amp;</span> <span c
 
           
             &nbsp;&bull;&nbsp;
-            <a href="https://whatacold.io">whatacold&#39;s Space</a>
+            <a href="https://whatacold.io">whatacold&#39;s space</a>
           
         </p>
         

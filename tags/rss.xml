@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Tags on whatacold&#39;s Space</title>
+    <title>Tags on whatacold&#39;s space</title>
     <link>https://whatacold.io/tags/</link>
-    <description>Recent content in Tags on whatacold&#39;s Space</description>
+    <description>Recent content in Tags on whatacold&#39;s space</description>
     <generator>Hugo -- gohugo.io</generator>
     <managingEditor>whatacold@gmail.com (whatacold)</managingEditor>
     <webMaster>whatacold@gmail.com (whatacold)</webMaster>
@@ -149,6 +149,15 @@
       <pubDate>Mon, 07 Oct 2019 13:25:00 +0800</pubDate>
       <author>whatacold@gmail.com (whatacold)</author>
       <guid>https://whatacold.io/tags/docker/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Magit</title>
+      <link>https://whatacold.io/tags/magit/</link>
+      <pubDate>Tue, 24 Sep 2019 23:14:00 +0800</pubDate>
+      <author>whatacold@gmail.com (whatacold)</author>
+      <guid>https://whatacold.io/tags/magit/</guid>
       <description></description>
     </item>
     
