@@ -81,11 +81,11 @@ sum of two numbers: #+begin_src clojure(+ 1 2) #+end_src   I want to have a resu
       <author>whatacold@gmail.com (whatacold)</author>
       <guid>https://whatacold.io/about/</guid>
       <description>A C/C++ software engineer who loves Emacs, Clojure and Python, and also interesed in front-end development.
- Some projects:
-  text toolkit, an online text toolkit includes:
+Some projects    text toolkit, an online text toolkit includes:
   Generate compile_commands.json for C/C++ projects using GNU Make
   Find text using Python regex
-    ppcompile, if you&amp;#39;re comfortable with code locally on Emacs and compiling the project on another box, this Emacs package could help, try it out.</description>
+  If you&amp;#39;re more used to the command line, there is also a CLI version at: https://github.com/whatacold/texttoolkit
+  ppcompile, if you&amp;#39;re comfortable with code locally on Emacs and compiling the project on another box, this Emacs package could help, try it out.</description>
     </item>
     
     <item>
