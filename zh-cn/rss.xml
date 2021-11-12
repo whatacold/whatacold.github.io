@@ -9,6 +9,15 @@
     <webMaster>whatacold@gmail.com (whatacold)</webMaster>
     <lastBuildDate>Sun, 05 Sep 2021 10:39:33 +0800</lastBuildDate><atom:link href="https://whatacold.io/zh-cn/rss.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>关于</title>
+      <link>https://whatacold.io/zh-cn/about/</link>
+      <pubDate>Fri, 12 Nov 2021 22:11:52 +0800</pubDate>
+      <author>whatacold@gmail.com (whatacold)</author>
+      <guid>https://whatacold.io/zh-cn/about/</guid>
+      <description>C/C++ 后台开发，从事互联网业务开发；业余时间学习折腾 Emacs Clojure Python 和前端开发。 另外，我也会做一些 Emacs/Gimp 等相关的视频，发布在同名油管频道中，欢迎订阅和交流探讨</description>
+    </item>
+    
+    <item>
       <title>lein 新建 reagent-frontend 工程失败问题</title>
       <link>https://whatacold.io/zh-cn/blog/2021-09-05-lein-reagent-frontend-shibai/</link>
       <pubDate>Sun, 05 Sep 2021 10:39:33 +0800</pubDate>
@@ -51,15 +60,6 @@
       <author>whatacold@gmail.com (whatacold)</author>
       <guid>https://whatacold.io/zh-cn/blog/2021-07-10-migrate-site-hugo/</guid>
       <description>从 2018 年开始用 org-static-org 写博客到现在也有几年时间了，写的文章比较少，总体上这个简单的静态网站生成方案都能够满足需求。 但中途也发现一些不够用的地方，比如</description>
-    </item>
-    
-    <item>
-      <title>关于</title>
-      <link>https://whatacold.io/zh-cn/about/</link>
-      <pubDate>Fri, 09 Jul 2021 22:37:07 +0800</pubDate>
-      <author>whatacold@gmail.com (whatacold)</author>
-      <guid>https://whatacold.io/zh-cn/about/</guid>
-      <description>C/C++ 后台开发，从事互联网业务开发；业余时间学习折腾 Emacs Clojure Python 和前端开发。 一些项目 text toolkit 在线文本工具箱，目前有两个功能： 为使用 GNU Make 的 C/C++ 项目生成 compile_commands.json 使用 Python</description>
     </item>
     
     <item>

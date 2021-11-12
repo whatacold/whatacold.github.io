@@ -9,6 +9,21 @@
     <webMaster>whatacold@gmail.com (whatacold)</webMaster>
     <lastBuildDate>Sun, 19 Sep 2021 10:39:23 +0800</lastBuildDate><atom:link href="https://whatacold.io/rss.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>About</title>
+      <link>https://whatacold.io/about/</link>
+      <pubDate>Fri, 12 Nov 2021 22:11:52 +0800</pubDate>
+      <author>whatacold@gmail.com (whatacold)</author>
+      <guid>https://whatacold.io/about/</guid>
+      <description>A C/C++ software engineer who loves Emacs/Clojure/Python and is also interested in front-end development.
+ Besides this blog, I am also making videos about Emacs/Gimp on my YouTube channel. Subscribe and stay tuned!
+ Here are some interesting projects that I made:
+  text toolkit, an online text toolkit includes:
+  Generate compile_commands.json for C/C++ projects using GNU Make
+  Find text using Python regex
+  If you&amp;#39;re more used to the command line, there is also a CLI version at: https://github.</description>
+    </item>
+    
+    <item>
       <title>Clojure reduce: one case for text processing</title>
       <link>https://whatacold.io/blog/2021-09-19-clojure-reduce-text-processing/</link>
       <pubDate>Sun, 19 Sep 2021 10:39:23 +0800</pubDate>
@@ -72,20 +87,6 @@ sum of two numbers: #+begin_src clojure(+ 1 2) #+end_src   I want to have a resu
       <guid>https://whatacold.io/blog/2021-07-11-babashka-random-password-generator/</guid>
       <description>I&amp;#39;m used to learning by practicing, so when I learned Clojure, I always kept an eye on chances to write code in it.
  Scripting is an excellent field to practice, but the experience is not so good. On the one hand, it&amp;#39;s too hacky to wrap Clojure code in a shell script with the shell bang. On the other hand, the startup time of JVM is too long to hurt the user experience.</description>
-    </item>
-    
-    <item>
-      <title>About</title>
-      <link>https://whatacold.io/about/</link>
-      <pubDate>Fri, 09 Jul 2021 22:37:07 +0800</pubDate>
-      <author>whatacold@gmail.com (whatacold)</author>
-      <guid>https://whatacold.io/about/</guid>
-      <description>A C/C++ software engineer who loves Emacs, Clojure and Python, and also interesed in front-end development.
-Some projects    text toolkit, an online text toolkit includes:
-  Generate compile_commands.json for C/C++ projects using GNU Make
-  Find text using Python regex
-  If you&amp;#39;re more used to the command line, there is also a CLI version at: https://github.com/whatacold/texttoolkit
-  ppcompile, if you&amp;#39;re comfortable with code locally on Emacs and compiling the project on another box, this Emacs package could help, try it out.</description>
     </item>
     
     <item>

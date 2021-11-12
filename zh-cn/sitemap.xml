@@ -3,6 +3,21 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://whatacold.io/zh-cn/about/</loc>
+    <lastmod>2021-11-12T22:11:52+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://whatacold.io/about/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-cn"
+                href="https://whatacold.io/zh-cn/about/"
+                />
+  </url>
+  
+  <url>
     <loc>https://whatacold.io/zh-cn/blog/</loc>
     <lastmod>2021-09-05T10:39:33+08:00</lastmod>
     <xhtml:link
@@ -203,21 +218,6 @@
   </url>
   
   <url>
-    <loc>https://whatacold.io/zh-cn/about/</loc>
-    <lastmod>2021-07-09T22:37:07+08:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://whatacold.io/about/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh-cn"
-                href="https://whatacold.io/zh-cn/about/"
-                />
-  </url>
-  
-  <url>
     <loc>https://whatacold.io/zh-cn/tags/c/</loc>
     <lastmod>2021-02-27T10:27:00+08:00</lastmod>
   </url>
@@ -304,6 +304,10 @@
                 hreflang="zh-cn"
                 href="https://whatacold.io/zh-cn/categories/"
                 />
+  </url>
+  
+  <url>
+    <loc>https://whatacold.io/zh-cn/slides/2021-10-07-git-rumen/</loc>
   </url>
   
 </urlset>
