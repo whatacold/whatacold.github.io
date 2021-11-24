@@ -13,7 +13,7 @@
   
 
   <title>记一个 Emacs 26 Keyboard Macro 输入字符重复的 Bug - whatacold 的空间</title>
-  <meta name="description" content="Emacs 26 隐藏有一个 Keyboard Macro 的 bug ，在使用 pyim 的时候能够稳定复现。本文分析了它的原因和 fix ，以及如何规避它……">
+  <meta name="description" content="工作中不时地会使用 Emacs keyboard macro 来解决重复性的编辑任务， 但有时录制了再重放却出现输入的字符被重复了，导致出现非预期的结果。 一般此时为了赶进度，只好忍">
   <meta name="author" content="whatacold"/><script type="application/ld+json">
 {
     "@context": "http://schema.org",
@@ -62,9 +62,9 @@
     "name" : "whatacold"
   },
   "headline": "记一个 Emacs 26 Keyboard Macro 输入字符重复的 Bug",
-  "description" : "Emacs 26 隐藏有一个 Keyboard Macro 的 bug ，在使用 pyim 的时候能够稳定复现。本文分析了它的原因和 fix ，以及如何规避它……",
+  "description" : "工作中不时地会使用 Emacs keyboard macro 来解决重复性的编辑任务， 但有时录制了再重放却出现输入的字符被重复了，导致出现非预期的结果。 一般此时为了赶进度，只好忍",
   "inLanguage" : "zh-cn",
-  "wordCount":  583 ,
+  "wordCount":  639 ,
   "datePublished" : "2019-02-03T18:05:00",
   "dateModified" : "2019-02-03T18:05:00",
   "image" : "https:\/\/whatacold.io\/img\/avatar.png",
@@ -84,14 +84,14 @@
 </script>
 
 <meta property="og:title" content="记一个 Emacs 26 Keyboard Macro 输入字符重复的 Bug" />
-<meta property="og:description" content="Emacs 26 隐藏有一个 Keyboard Macro 的 bug ，在使用 pyim 的时候能够稳定复现。本文分析了它的原因和 fix ，以及如何规避它……">
+<meta property="og:description" content="工作中不时地会使用 Emacs keyboard macro 来解决重复性的编辑任务， 但有时录制了再重放却出现输入的字符被重复了，导致出现非预期的结果。 一般此时为了赶进度，只好忍">
 <meta property="og:image" content="https://whatacold.io/img/avatar.png" />
 <meta property="og:url" content="https://whatacold.io/zh-cn/blog/2019-02-03-emacs-kmacro-characters-repeated-bug/" />
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="whatacold 的空间" />
 
   <meta name="twitter:title" content="记一个 Emacs 26 Keyboard Macro 输入字符重复的 Bug" />
-  <meta name="twitter:description" content="Emacs 26 隐藏有一个 Keyboard Macro 的 bug ，在使用 pyim 的时候能够稳定复现。本文分析了它的原因和 fix ，以及如何规避它……">
+  <meta name="twitter:description" content="工作中不时地会使用 Emacs keyboard macro 来解决重复性的编辑任务， 但有时录制了再重放却出现输入的字符被重复了，导致出现非预期的结果。 一般此时为了赶进度，只好忍">
   <meta name="twitter:image" content="https://whatacold.io/img/avatar.png" />
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:site" content="@whatacold" />
@@ -278,7 +278,15 @@ if (!doNotTrack) {
         <p>
 工作中不时地会使用 Emacs keyboard macro 来解决重复性的编辑任务，
 但有时录制了再重放却出现输入的字符被重复了，导致出现非预期的结果。
-一般此时为了赶进度，只好忍了，放弃 keyboard macro ，通过其他方式编辑了。</p>
+一般此时为了赶进度，只好忍了，放弃使用 keyboard macro ，改用其他方式编辑代码。</p>
+<p>
+如果你不知道或者没怎么用 emacs keyboard macro ，以下这个视频演示了如何用它来快速制作大块的有序列表，让你有个更直观的了解：</p>
+<p>
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+  <iframe src="https://www.youtube.com/embed/xDgpXbjeMeo" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
+</div>
+</p>
 <p>
 诡异的是等到有空闲的时候尝试重现却又重现不了，还一度以为是由于 keyboard macro 不支持输入 <code class="verbatim">M-x</code> 命令导致的，
 但又没看到其他 Emacser 提到有此限制。</p>
