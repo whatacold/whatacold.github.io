@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>BeautifulSoup on whatacold&#39;s space</title>
+    <link>https://whatacold.io/tags/beautifulsoup/</link>
+    <description>Recent content in BeautifulSoup on whatacold&#39;s space</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <managingEditor>whatacold@gmail.com (whatacold)</managingEditor>
+    <webMaster>whatacold@gmail.com (whatacold)</webMaster>
+    <lastBuildDate>Sat, 25 Sep 2021 23:01:40 +0800</lastBuildDate><atom:link href="https://whatacold.io/tags/beautifulsoup/rss.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Beautiful Soup 4 Cheatsheet</title>
+      <link>https://whatacold.io/blog/2021-12-05-beautifulsoup4-cheatsheet/</link>
+      <pubDate>Sat, 25 Sep 2021 23:01:40 +0800</pubDate>
+      <author>whatacold@gmail.com (whatacold)</author>
+      <guid>https://whatacold.io/blog/2021-12-05-beautifulsoup4-cheatsheet/</guid>
+      <description>Beautiful Soup    See detailed docs in the Beautiful Soup 4 Docs.
+ Assume t is an object of Tag.
+Core concepts (classes)    Tag, a Tag object corresponds to an XML or HTML tag.
+  BeautifulSoup, the BeautifulSoup object represents the parsed document as a whole.
+ You can treat it like a special Tag.
+ It needs a parser to parse the document, a built-in parser is &amp;#34;html.</description>
+    </item>
+    
+  </channel>
+</rss>

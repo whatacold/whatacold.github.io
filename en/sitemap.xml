@@ -18,13 +18,18 @@
   </url>
   
   <url>
-    <loc>https://whatacold.io/tags/babashka/</loc>
-    <lastmod>2021-09-19T10:39:28+08:00</lastmod>
+    <loc>https://whatacold.io/blog/2021-12-05-beautifulsoup4-cheatsheet/</loc>
+    <lastmod>2021-12-05T21:19:18+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://whatacold.io/tags/beautifulsoup/</loc>
+    <lastmod>2021-12-05T21:19:18+08:00</lastmod>
   </url>
   
   <url>
     <loc>https://whatacold.io/blog/</loc>
-    <lastmod>2021-10-03T21:42:26+08:00</lastmod>
+    <lastmod>2021-12-05T21:19:18+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="zh-cn"
@@ -35,6 +40,56 @@
                 hreflang="en"
                 href="https://whatacold.io/blog/"
                 />
+  </url>
+  
+  <url>
+    <loc>https://whatacold.io/tags/python/</loc>
+    <lastmod>2021-12-05T21:19:18+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-cn"
+                href="https://whatacold.io/zh-cn/tags/python/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://whatacold.io/tags/python/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://whatacold.io/tags/</loc>
+    <lastmod>2021-12-05T21:19:18+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-cn"
+                href="https://whatacold.io/zh-cn/tags/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://whatacold.io/tags/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://whatacold.io/</loc>
+    <lastmod>2021-12-05T21:19:18+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-cn"
+                href="https://whatacold.io/zh-cn/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://whatacold.io/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://whatacold.io/tags/babashka/</loc>
+    <lastmod>2021-09-19T10:39:28+08:00</lastmod>
   </url>
   
   <url>
@@ -58,36 +113,6 @@
   </url>
   
   <url>
-    <loc>https://whatacold.io/tags/</loc>
-    <lastmod>2021-10-03T21:42:26+08:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh-cn"
-                href="https://whatacold.io/zh-cn/tags/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://whatacold.io/tags/"
-                />
-  </url>
-  
-  <url>
-    <loc>https://whatacold.io/</loc>
-    <lastmod>2021-10-03T21:42:26+08:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh-cn"
-                href="https://whatacold.io/zh-cn/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://whatacold.io/"
-                />
-  </url>
-  
-  <url>
     <loc>https://whatacold.io/tags/hugo/</loc>
     <lastmod>2021-08-08T12:20:32+08:00</lastmod>
     <xhtml:link
@@ -105,21 +130,6 @@
   <url>
     <loc>https://whatacold.io/blog/2021-08-07-illustrate-clojure-snippet/</loc>
     <lastmod>2021-08-08T12:20:32+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://whatacold.io/tags/python/</loc>
-    <lastmod>2021-09-19T00:07:41+08:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh-cn"
-                href="https://whatacold.io/zh-cn/tags/python/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://whatacold.io/tags/python/"
-                />
   </url>
   
   <url>
