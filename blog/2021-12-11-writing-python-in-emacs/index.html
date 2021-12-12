@@ -12,8 +12,8 @@
 
   
 
-  <title>ppcompile: An Emacs Package to Help Coding Locally - whatacold&#39;s space</title>
-  <meta name="description" content="Tired of rsync&#39;ing files around and locating the compilation errors manually? This ppcompile package can help...">
+  <title>Writing a Python Script in Emacs in 45 Minutes! - whatacold&#39;s space</title>
+  <meta name="description" content="Note: this is a complementary note for my live coding session: Intro If you&#39;ve heard some rumors of Emacs that it has a very steep learning curve (or that Emacs makes a computer slow), you may be too scared to look at it. It indeed has some learning curve (learning anything does have one), but it isn&#39;t very steep. I learned this after getting my hands dirty with Emacs a">
   <meta name="author" content="whatacold"/><script type="application/ld+json">
 {
     "@context": "http://schema.org",
@@ -49,8 +49,8 @@
         "@type": "ListItem",
         "position": 3,
         "item": {
-          "@id": "https:\/\/whatacold.io\/blog\/2020-03-07-ppcompile-to-help-stay-coding-locally\/",
-          "name": "Ppcompile an emacs package to help coding locally"
+          "@id": "https:\/\/whatacold.io\/blog\/2021-12-11-writing-python-in-emacs\/",
+          "name": "Writing a python script in emacs in 45 minutes!"
         }
     }]
 }
@@ -61,15 +61,15 @@
   "author": {
     "name" : "whatacold"
   },
-  "headline": "ppcompile: An Emacs Package to Help Coding Locally",
-  "description" : "Tired of rsync\u0027ing files around and locating the compilation errors manually? This ppcompile package can help...",
+  "headline": "Writing a Python Script in Emacs in 45 Minutes!",
+  "description" : "Note: this is a complementary note for my live coding session: Intro If you\u0026#39;ve heard some rumors of Emacs that it has a very steep learning curve (or that Emacs makes a computer slow), you may be too scared to look at it. It indeed has some learning curve (learning anything does have one), but it isn\u0026#39;t very steep. I learned this after getting my hands dirty with Emacs a",
   "inLanguage" : "en",
-  "wordCount":  338 ,
-  "datePublished" : "2020-03-07T23:50:00",
-  "dateModified" : "2020-03-07T23:50:00",
+  "wordCount":  514 ,
+  "datePublished" : "2021-12-11T09:24:53",
+  "dateModified" : "2021-12-11T09:24:53",
   "image" : "https:\/\/whatacold.io\/img\/avatar.png",
-  "keywords" : [ "Emacs" ],
-  "mainEntityOfPage" : "https:\/\/whatacold.io\/blog\/2020-03-07-ppcompile-to-help-stay-coding-locally\/",
+  "keywords" : [ "Emacs, Python" ],
+  "mainEntityOfPage" : "https:\/\/whatacold.io\/blog\/2021-12-11-writing-python-in-emacs\/",
   "publisher" : {
     "@type": "Organization",
     "name" : "https:\/\/whatacold.io",
@@ -83,15 +83,15 @@
 }
 </script>
 
-<meta property="og:title" content="ppcompile: An Emacs Package to Help Coding Locally" />
-<meta property="og:description" content="Tired of rsync&#39;ing files around and locating the compilation errors manually? This ppcompile package can help...">
+<meta property="og:title" content="Writing a Python Script in Emacs in 45 Minutes!" />
+<meta property="og:description" content="Note: this is a complementary note for my live coding session: Intro If you&#39;ve heard some rumors of Emacs that it has a very steep learning curve (or that Emacs makes a computer slow), you may be too scared to look at it. It indeed has some learning curve (learning anything does have one), but it isn&#39;t very steep. I learned this after getting my hands dirty with Emacs a">
 <meta property="og:image" content="https://whatacold.io/img/avatar.png" />
-<meta property="og:url" content="https://whatacold.io/blog/2020-03-07-ppcompile-to-help-stay-coding-locally/" />
+<meta property="og:url" content="https://whatacold.io/blog/2021-12-11-writing-python-in-emacs/" />
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="whatacold&#39;s space" />
 
-  <meta name="twitter:title" content="ppcompile: An Emacs Package to Help Coding Locally" />
-  <meta name="twitter:description" content="Tired of rsync&#39;ing files around and locating the compilation errors manually? This ppcompile package can help...">
+  <meta name="twitter:title" content="Writing a Python Script in Emacs in 45 Minutes!" />
+  <meta name="twitter:description" content="Note: this is a complementary note for my live coding session: Intro If you&#39;ve heard some rumors of Emacs that it has a very steep learning curve (or that Emacs makes a computer slow), you may be …">
   <meta name="twitter:image" content="https://whatacold.io/img/avatar.png" />
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:site" content="@whatacold" />
@@ -255,7 +255,7 @@ if (!doNotTrack) {
           <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
             <div class="blog-heading">
               
-                <h1>ppcompile: An Emacs Package to Help Coding Locally</h1>
+                <h1>Writing a Python Script in Emacs in 45 Minutes!</h1>
               
               
                 <hr class="small">
@@ -275,41 +275,130 @@ if (!doNotTrack) {
   <div class="row">
     <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
       <article role="main" class="blog-post">
-        <p>
-If you are a C/C++ programmer like me, you may experience jumping around different machines to write and compile your code, or you may write code on different machines for different projects, and scp/rsync/ftp the projects around. It works, but it&#39;s a bit tedious and takes too much burden on our brains.</p>
+        
 <p>
-For example, say I have two projects that should be compiled on their compiling machines respectively. There are two obvious workflows for writing code for them &#34;simultaneously&#34;:</p>
-<ol>
+Note: this is a complementary note for my live coding session:
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+  <iframe src="https://www.youtube.com/embed/MXF81Q0a91M" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
+</div>
+</p>
+<div id="outline-container-headline-1" class="outline-2">
+<h2 id="headline-1">
+Intro
+</h2>
+<div id="outline-text-headline-1" class="outline-text-2">
+<p>
+If you&#39;ve heard some rumors of Emacs that it has a very steep learning curve (or that Emacs makes a computer slow), you may be too scared to look at it. It indeed has some learning curve (learning anything does have one), but it isn&#39;t very steep. I learned this after getting my hands dirty with Emacs a few years ago.</p>
+<p>
+Anyway, if you&#39;re still curious about it, here I want to show you what it is like to write a python script in Emacs, using the <a href="https://github.com/jorgenschaefer/elpy">Elpy</a> (<a href="https://elpy.readthedocs.io/en/latest/index.html">Elpy Docs</a>) package.</p>
+<p>
+The task is to join every single line of a few files into a new line of a result file, separated by a user-specified delimiter.</p>
+<p>
+For example, if I have three text files as below:</p>
+<div class="src src-text">
+<div class="highlight"><pre class="chroma"><code class="language-text" data-lang="text">$ cat software.txt
+GNU Emacs
+Linux
+Python
+
+$ cat software-author.txt
+Richard Stallman
+Linus Torvalds
+Guido van Rossum
+
+$ cat software-birthdate.txt
+1989-03-20
+1991-09-17
+1991-02-20</code></pre></div>
+</div>
+<p>
+Now I want to merge them into a new CSV (comma-separated values) file, all I have to do is typing: <code class="verbatim">python merge-files.py software-info.csv , software.txt software-author.txt software-birthdate.txt</code></p>
+<p>
+And <code class="verbatim">software-info.csv</code> will have the result as follows:</p>
+<div class="src src-text">
+<div class="highlight"><pre class="chroma"><code class="language-text" data-lang="text">$ cat software-info.csv
+GNU Emacs,Richard Stallman,1989-03-20
+Linux,Linus Torvalds,1991-09-17
+Python,Guido van Rossum,1991-02-20</code></pre></div>
+</div>
+<p>
+You may ask, what&#39;s the use scenario of this script?</p>
+<p>
+The idea came up when I was completing a data processing task of CSV files at work, which required me to decrypt some encrypted fields of data dumped from a database. With this script and some shell scripting, I first split the fields into different files, decrypted specific files, and then joined them back into a CSV file.</p>
+</div>
+</div>
+<div id="outline-container-headline-2" class="outline-2">
+<h2 id="headline-2">
+Writing the Python script
+</h2>
+<div id="outline-text-headline-2" class="outline-text-2">
+<p>
+The requirement is quite straightforward, the next step is to design the script and implement it.</p>
+<p>
+Here I want to write the core function in <a href="https://en.wikipedia.org/wiki/Functional_programming">functional programming</a>, so that despite reading and writing files, the core function is a pure function without any external dependencies (it only depends on its arguments), which has a signature as following:</p>
+<div class="src src-python">
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="k">def</span> <span class="nf">merge_multi_lines</span><span class="p">(</span><span class="n">separator</span><span class="p">,</span> <span class="o">*</span><span class="n">multi_lines</span><span class="p">):</span>
+    <span class="s1">&#39;&#39;&#39;Merge every line of `multi_lines` into a new line, which are
+</span><span class="s1">delimited by the separator.&#39;&#39;&#39;</span>
+    <span class="n">merged_lines</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="o">...</span>
+
+    <span class="k">return</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">merged_lines</span><span class="p">)</span></code></pre></div>
+</div>
+<p>
+And I can then evaluate the function and test it with some simple test cases to quickly fix bugs. If you don&#39;t know, this is the workflow of <a href="https://en.wikipedia.org/wiki/Interactive_programming">interactive programming</a>, which helps us test the snippet as early as possible in the process of development. So We have to postpone the testing until the whole program is finished.</p>
+</div>
+</div>
+<div id="outline-container-headline-3" class="outline-2">
+<h2 id="headline-3">
+Elpy
+</h2>
+<div id="outline-text-headline-3" class="outline-text-2">
+<p>
+Next, I want to highlight some commands of Elpy, which makes interactive programming possible along the trip. (To make it simple, I recommend you to create a dedicated virtualenv for it and its dependencies.)</p>
+<p>
+Interactive programming support:</p>
+<ul>
 <li>
-<p>Write code locally, rsync files to their compiling machine and compile them, fix errors according to the compiling result.</p>
-<p>
-Pros: I have only one coding environment to maintain, and I have full control of it. Install packages? Start some services? No problem, just a few commands.</p>
-<p>
-Cons: I have to sync the source code, spot the errors by my eyes and fix them accordingly.</p>
+<p><code class="verbatim">M-x elpy-shell-send-defun (C-c C-y f)</code></p>
 </li>
 <li>
-<p>Write code on the compiling machine, compile them and fix errors locally there, taking the advantage of <code class="verbatim">M-x next-error</code>.</p>
-<p>
-Pros: <code class="verbatim">M-x next-error</code> works like a charm to fix errors, just a piece of cake. Eye friendly.</p>
-<p>
-Cons: Several Emacs environment to maintain, and I don&#39;t always have the root privilege.</p>
-<p>
-Update: Tramp is a built-in package for editing remote files, which also falls into this category, although it&#39;s quite handy to edit single files like confs, at least for me.</p>
+<p><code class="verbatim">M-x elpy-shell-send-statement (C-c C-y e)</code></p>
 </li>
-</ol>
-<p>(Update: There is another option using <a href="https://github.com/libfuse/sshfs">sshfs</a>, which mounts the remote FS, it&#39;s a general and nice solution if you have a stable network.)</p>
-<p>
-So I was wondering if there is a way to take the good part of both approaches so that I have the full privilege and fix compiling errors locally as if I were compiling locally? Well, the answer was yes, and <a href="https://github.com/whatacold/ppcompile">ppcompile</a> was my solution for it.</p>
-<p>
-<code class="verbatim">ppcompile</code> stands for ping-pong compile, as it works like playing ping-pong. First, it rsync&#39;s the files to the compiling machines (&#34;ping&#34;). Second, it gets the result back (&#34;pong&#34;) and gets them fixed locally.</p>
-<p>
-It works now, and I hope it helps you too. :)</p>
+<li>
+<p><code class="verbatim">M-x elpy-shell-switch-to-shell (C-c C-z)</code></p>
+</li>
+</ul>
+<p>Code navigation:</p>
+<ul>
+<li>
+<p><code class="verbatim">M-x elpy-goto-definition (M-.)</code></p>
+</li>
+<li>
+<p><code class="verbatim">M-x xref-pop-marker-stack (M-,)</code></p>
+</li>
+<li>
+<p><code class="verbatim">M-x elpy-occur-definitions (C-c C-o)</code></p>
+</li>
+</ul>
+<p>Documentation:</p>
+<ul>
+<li>
+<p><code class="verbatim">M-x elpy-doc (C-c C-d)</code></p>
+</li>
+</ul>
+<p>P.S. Elpy is great, but the maintainer is too busy to maintain it. If you can help, don&#39;t hesitate to get in touch with the maintainer (@galaunay).</p>
+</div>
+</div>
 
 
         
           <div class="blog-tags">
             
               <a href="https://whatacold.io/tags/emacs/">Emacs</a>&nbsp;
+            
+              <a href="https://whatacold.io/tags/python/">Python</a>&nbsp;
             
           </div>
         
@@ -324,42 +413,42 @@ It works now, and I hope it helps you too. :)</p>
     <ul class="share">
       
       <li>
-        <a href="//twitter.com/share?url=https%3a%2f%2fwhatacold.io%2fblog%2f2020-03-07-ppcompile-to-help-stay-coding-locally%2f&amp;text=ppcompile%3a%20An%20Emacs%20Package%20to%20Help%20Coding%20Locally&amp;via=whatacold" target="_blank" title="Share on Twitter">
+        <a href="//twitter.com/share?url=https%3a%2f%2fwhatacold.io%2fblog%2f2021-12-11-writing-python-in-emacs%2f&amp;text=Writing%20a%20Python%20Script%20in%20Emacs%20in%2045%20Minutes%21&amp;via=whatacold" target="_blank" title="Share on Twitter">
           <i class="fab fa-twitter"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fwhatacold.io%2fblog%2f2020-03-07-ppcompile-to-help-stay-coding-locally%2f" target="_blank" title="Share on Facebook">
+        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fwhatacold.io%2fblog%2f2021-12-11-writing-python-in-emacs%2f" target="_blank" title="Share on Facebook">
           <i class="fab fa-facebook"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//reddit.com/submit?url=https%3a%2f%2fwhatacold.io%2fblog%2f2020-03-07-ppcompile-to-help-stay-coding-locally%2f&amp;title=ppcompile%3a%20An%20Emacs%20Package%20to%20Help%20Coding%20Locally" target="_blank" title="Share on Reddit">
+        <a href="//reddit.com/submit?url=https%3a%2f%2fwhatacold.io%2fblog%2f2021-12-11-writing-python-in-emacs%2f&amp;title=Writing%20a%20Python%20Script%20in%20Emacs%20in%2045%20Minutes%21" target="_blank" title="Share on Reddit">
           <i class="fab fa-reddit"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fwhatacold.io%2fblog%2f2020-03-07-ppcompile-to-help-stay-coding-locally%2f&amp;title=ppcompile%3a%20An%20Emacs%20Package%20to%20Help%20Coding%20Locally" target="_blank" title="Share on LinkedIn">
+        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fwhatacold.io%2fblog%2f2021-12-11-writing-python-in-emacs%2f&amp;title=Writing%20a%20Python%20Script%20in%20Emacs%20in%2045%20Minutes%21" target="_blank" title="Share on LinkedIn">
           <i class="fab fa-linkedin"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fwhatacold.io%2fblog%2f2020-03-07-ppcompile-to-help-stay-coding-locally%2f&amp;title=ppcompile%3a%20An%20Emacs%20Package%20to%20Help%20Coding%20Locally" target="_blank" title="Share on StumbleUpon">
+        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fwhatacold.io%2fblog%2f2021-12-11-writing-python-in-emacs%2f&amp;title=Writing%20a%20Python%20Script%20in%20Emacs%20in%2045%20Minutes%21" target="_blank" title="Share on StumbleUpon">
           <i class="fab fa-stumbleupon"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fwhatacold.io%2fblog%2f2020-03-07-ppcompile-to-help-stay-coding-locally%2f&amp;description=ppcompile%3a%20An%20Emacs%20Package%20to%20Help%20Coding%20Locally" target="_blank" title="Share on Pinterest">
+        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fwhatacold.io%2fblog%2f2021-12-11-writing-python-in-emacs%2f&amp;description=Writing%20a%20Python%20Script%20in%20Emacs%20in%2045%20Minutes%21" target="_blank" title="Share on Pinterest">
           <i class="fab fa-pinterest"></i>
         </a>
       </li>
@@ -381,15 +470,15 @@ It works now, and I hope it helps you too. :)</p>
                   <ul>
                 
                 
-                    <li><a href="/blog/2021-12-11-writing-python-in-emacs/">Writing a Python Script in Emacs in 45 Minutes!</a></li>
+                    <li><a href="/blog/2021-12-05-beautifulsoup4-cheatsheet/">Beautiful Soup 4 Cheatsheet</a></li>
+                
+                    <li><a href="/blog/2021-07-25-clojure-string-title-case/">String Title Case in Clojure</a></li>
+                
+                    <li><a href="/blog/2021-07-22-clojure-string-manipulation/">String Manipulation in Clojure</a></li>
                 
                     <li><a href="/blog/2021-07-17-emacs-i3wm-dunst/">Send Notifications from Emacs with i3wm and Dunst</a></li>
                 
-                    <li><a href="/blog/2020-08-22-generate-call-graphs-using-doxygen-in-emacs/">Generate Call Graphs Using Doxygen in Emacs</a></li>
-                
-                    <li><a href="/blog/2020-05-30-a-trick-to-troubleshoot-emacs-subprocess-creating/">A Trick to Troubleshoot Emacs Subprocess Creating</a></li>
-                
-                    <li><a href="/blog/2019-07-20-generating-org-mode-outlines-for-wikihow-articles/">Generating org-mode Outlines for wikiHow Articles</a></li>
+                    <li><a href="/blog/2020-10-21-a-python-re.findall-service/">An Online Python re.findall Service</a></li>
                 
               </ul>
 
@@ -401,13 +490,9 @@ It works now, and I hope it helps you too. :)</p>
         <ul class="pager blog-pager">
           
             <li class="previous">
-              <a href="https://whatacold.io/blog/2020-02-04-binary-search-algorithm-vs-problem-solving/" data-toggle="tooltip" data-placement="top" title="The Binary Search Idea for Narrowing Down Problem Space">&larr; Previous Post</a>
+              <a href="https://whatacold.io/blog/2021-12-05-beautifulsoup4-cheatsheet/" data-toggle="tooltip" data-placement="top" title="Beautiful Soup 4 Cheatsheet">&larr; Previous Post</a>
             </li>
           
-          
-            <li class="next">
-              <a href="https://whatacold.io/blog/2020-05-30-a-trick-to-troubleshoot-emacs-subprocess-creating/" data-toggle="tooltip" data-placement="top" title="A Trick to Troubleshoot Emacs Subprocess Creating">Next Post &rarr;</a>
-            </li>
           
         </ul>
       
