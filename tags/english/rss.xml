@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>English on whatacold&#39;s space</title>
+    <link>https://whatacold.io/tags/english/</link>
+    <description>Recent content in English on whatacold&#39;s space</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <managingEditor>whatacold@gmail.com (whatacold)</managingEditor>
+    <webMaster>whatacold@gmail.com (whatacold)</webMaster>
+    <lastBuildDate>Wed, 12 Jan 2022 21:41:54 +0800</lastBuildDate><atom:link href="https://whatacold.io/tags/english/rss.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Writing a Python Script in Emacs in 45 Minutes!</title>
+      <link>https://whatacold.io/blog/2022-01-12-language-shadowing-with-subed-emacs/</link>
+      <pubDate>Wed, 12 Jan 2022 21:41:54 +0800</pubDate>
+      <author>whatacold@gmail.com (whatacold)</author>
+      <guid>https://whatacold.io/blog/2022-01-12-language-shadowing-with-subed-emacs/</guid>
+      <description>So I&amp;#39;m trying to improve my English speaking skill by shadowing while watching TV episodes. The workflow before was to loop over video clips using mpv:
+  hit l to mark the start of the loop
+  play the video and wait for it to be at the end of the loop
+  hit l again to mark the end
+  Then mpv will loop over the clip, it basically works, but it&amp;#39;s a bit hard and tedious to set the start and end precisely.</description>
+    </item>
+    
+  </channel>
+</rss>

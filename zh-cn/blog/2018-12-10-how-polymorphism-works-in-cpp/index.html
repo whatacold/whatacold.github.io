@@ -300,8 +300,7 @@ if (!doNotTrack) {
     <span class="n">Derived</span> <span class="n">foo</span><span class="p">;</span>
 
     <span class="k">return</span> <span class="n">foo</span><span class="p">.</span><span class="n">bar</span><span class="p">();</span>
-<span class="p">}</span>
-</code></pre></div>
+<span class="p">}</span></code></pre></div>
 </div>
 <p>
 <code class="verbatim">g++ -g -O0 non-virtual-class.cpp</code> 编译之后，用 <code class="verbatim">gdb a.out</code> 查看它的汇编代码：</p>
@@ -354,8 +353,7 @@ End of assembler dump.</code></pre></div>
     <span class="n">p</span><span class="o">-&gt;</span><span class="n">foo</span><span class="p">();</span>
 
     <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre></div>
+<span class="p">}</span></code></pre></div>
 </div>
 <p>
 这次我们通过在 GDB 运行时观察：</p>
