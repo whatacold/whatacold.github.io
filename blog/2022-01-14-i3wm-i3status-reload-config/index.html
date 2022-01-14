@@ -12,12 +12,10 @@
 
   
 
-  <title>Language Shadowing with subed in Emacs - whatacold&#39;s space</title>
-  <meta name="description" content="So I&#39;m trying to improve my English speaking skill by shadowing while watching TV episodes. The workflow before was to loop over video clips using mpv:
-  hit l to mark the start of the loop
-  play the video and wait for it to be at the end of the loop
-  hit l again to mark the end
-  Then mpv will loop over the clip, it basically works, but it&#39;s a bit hard and tedious to set the start and end precisely.">
+  <title>How to Reload i3status config On the Fly - whatacold&#39;s space</title>
+  <meta name="description" content="Sometimes I want to change the status (i3status) of i3wm temporarily, but it seems that i3wm doesn&#39;t support it directly, although reloading the config for i3wm itself is a piece of cake (bindsym $mod&#43;Shift&#43;c reload in the config, or i3-msg -t command reload in the command line).
+ But this issue scratched my itch, and I swear that I must solve it today.
+ Following this Reddit post, it looks like it can be done by restarting the process of i3bar:">
   <meta name="author" content="whatacold"/><script type="application/ld+json">
 {
     "@context": "http://schema.org",
@@ -53,8 +51,8 @@
         "@type": "ListItem",
         "position": 3,
         "item": {
-          "@id": "https:\/\/whatacold.io\/blog\/2022-01-12-language-shadowing-with-subed-emacs\/",
-          "name": "Language shadowing with subed in emacs"
+          "@id": "https:\/\/whatacold.io\/blog\/2022-01-14-i3wm-i3status-reload-config\/",
+          "name": "How to reload i3status config on the fly"
         }
     }]
 }
@@ -65,15 +63,15 @@
   "author": {
     "name" : "whatacold"
   },
-  "headline": "Language Shadowing with subed in Emacs",
-  "description" : "So I\u0026#39;m trying to improve my English speaking skill by shadowing while watching TV episodes. The workflow before was to loop over video clips using mpv:\n  hit l to mark the start of the loop\n  play the video and wait for it to be at the end of the loop\n  hit l again to mark the end\n  Then mpv will loop over the clip, it basically works, but it\u0026#39;s a bit hard and tedious to set the start and end precisely.",
+  "headline": "How to Reload i3status config On the Fly",
+  "description" : "Sometimes I want to change the status (i3status) of i3wm temporarily, but it seems that i3wm doesn\u0026#39;t support it directly, although reloading the config for i3wm itself is a piece of cake (bindsym $mod\u002bShift\u002bc reload in the config, or i3-msg -t command reload in the command line).\n But this issue scratched my itch, and I swear that I must solve it today.\n Following this Reddit post, it looks like it can be done by restarting the process of i3bar:",
   "inLanguage" : "en",
-  "wordCount":  327 ,
-  "datePublished" : "2022-01-12T21:41:54",
-  "dateModified" : "2022-01-12T21:41:54",
+  "wordCount":  293 ,
+  "datePublished" : "2022-01-14T22:36:13",
+  "dateModified" : "2022-01-14T22:36:13",
   "image" : "https:\/\/whatacold.io\/img\/avatar.png",
-  "keywords" : [ "Emacs, English" ],
-  "mainEntityOfPage" : "https:\/\/whatacold.io\/blog\/2022-01-12-language-shadowing-with-subed-emacs\/",
+  "keywords" : [ "i3wm" ],
+  "mainEntityOfPage" : "https:\/\/whatacold.io\/blog\/2022-01-14-i3wm-i3status-reload-config\/",
   "publisher" : {
     "@type": "Organization",
     "name" : "https:\/\/whatacold.io",
@@ -87,21 +85,17 @@
 }
 </script>
 
-<meta property="og:title" content="Language Shadowing with subed in Emacs" />
-<meta property="og:description" content="So I&#39;m trying to improve my English speaking skill by shadowing while watching TV episodes. The workflow before was to loop over video clips using mpv:
-  hit l to mark the start of the loop
-  play the video and wait for it to be at the end of the loop
-  hit l again to mark the end
-  Then mpv will loop over the clip, it basically works, but it&#39;s a bit hard and tedious to set the start and end precisely.">
+<meta property="og:title" content="How to Reload i3status config On the Fly" />
+<meta property="og:description" content="Sometimes I want to change the status (i3status) of i3wm temporarily, but it seems that i3wm doesn&#39;t support it directly, although reloading the config for i3wm itself is a piece of cake (bindsym $mod&#43;Shift&#43;c reload in the config, or i3-msg -t command reload in the command line).
+ But this issue scratched my itch, and I swear that I must solve it today.
+ Following this Reddit post, it looks like it can be done by restarting the process of i3bar:">
 <meta property="og:image" content="https://whatacold.io/img/avatar.png" />
-<meta property="og:url" content="https://whatacold.io/blog/2022-01-12-language-shadowing-with-subed-emacs/" />
+<meta property="og:url" content="https://whatacold.io/blog/2022-01-14-i3wm-i3status-reload-config/" />
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="whatacold&#39;s space" />
 
-  <meta name="twitter:title" content="Language Shadowing with subed in Emacs" />
-  <meta name="twitter:description" content="So I&#39;m trying to improve my English speaking skill by shadowing while watching TV episodes. The workflow before was to loop over video clips using mpv:
-  hit l to mark the start of the loop
-  play …">
+  <meta name="twitter:title" content="How to Reload i3status config On the Fly" />
+  <meta name="twitter:description" content="Sometimes I want to change the status (i3status) of i3wm temporarily, but it seems that i3wm doesn&#39;t support it directly, although reloading the config for i3wm itself is a piece of cake (bindsym …">
   <meta name="twitter:image" content="https://whatacold.io/img/avatar.png" />
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:site" content="@whatacold" />
@@ -265,7 +259,7 @@ if (!doNotTrack) {
           <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
             <div class="blog-heading">
               
-                <h1>Language Shadowing with subed in Emacs</h1>
+                <h1>How to Reload i3status config On the Fly</h1>
               
               
                 <hr class="small">
@@ -286,58 +280,72 @@ if (!doNotTrack) {
     <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
       <article role="main" class="blog-post">
         <p>
-So I&#39;m trying to improve my English speaking skill by shadowing while watching TV episodes. The workflow before was to loop over video clips using mpv:</p>
+Sometimes I want to change the status (<code class="verbatim">i3status</code>) of <code class="verbatim">i3wm</code> temporarily, but it seems that <code class="verbatim">i3wm</code> doesn&#39;t support it directly, although reloading the config for <code class="verbatim">i3wm</code> itself is a piece of cake (<code class="verbatim">bindsym $mod+Shift+c reload</code> in the config, or <code class="verbatim">i3-msg -t command reload</code> in the command line).</p>
+<p>
+But this issue scratched my itch, and I swear that I must solve it today.</p>
+<p>
+Following <a href="https://www.reddit.com/r/i3wm/comments/7n3aac/how_to_force_running_i3status_to_reload_its_config/">this Reddit post</a>, it looks like it can be done by restarting the process of <code class="verbatim">i3bar</code>:</p>
+<blockquote>
 <ol>
 <li>
-<p>hit <code class="verbatim">l</code> to mark the start of the loop</p>
+<p>Add a bar id (e.g., <code class="verbatim">bar-0</code>) and reload your config.</p>
 </li>
 <li>
-<p>play the video and wait for it to be at the end of the loop</p>
-</li>
-<li>
-<p>hit <code class="verbatim">l</code> again to mark the end</p>
+<p>Add a binding for <code class="verbatim">killall i3bar; i3bar --bar_id=bar-0</code></p>
 </li>
 </ol>
-<p>Then mpv will loop over the clip, it basically works, but it&#39;s a bit hard and tedious to set the start and end precisely.</p>
+</blockquote>
 <p>
-Recently, I came up with an idea that I can practice language-speaking using subtitle files, as they already have the timestamps along with subtitle texts. I can loop over specific parts of a video file easily by taking advantage of those timestamps instead of manually setting the start time and end time of the playback and then looping over it.</p>
+But I failed to make it work on my side, with something like below in a specific mode in i3&#39;s config:
+<code>bindsym p exec --no-startup-id killall i3bar; i3bar --bar_id=bar-0</code></p>
 <p>
-And then I thought of a package, <a href="https://github.com/sachac/subed">subed</a>, which caught my eyes when I was lurking around <a href="https://sachachua.com/blog/">Sacha Chua&#39;s blog site</a>. And I found that it was perfect for this idea after playing with it for ~10 minutes.</p>
-<figure>
-<img src="/img/2022-01-12-language-shadowing-subed-emacs.jpg" alt="/img/2022-01-12-language-shadowing-subed-emacs.jpg" title="/img/2022-01-12-language-shadowing-subed-emacs.jpg" /><figcaption>
-subed and mpv side by side
-</figcaption>
-</figure>
+And tweaking the config in other ways didn&#39;t help too. So it seems it came to a dead end.</p>
 <p>
-Here are the steps:</p>
-<ol>
-<li>
-<p>Open a subtitle file, say <code class="verbatim">/path/to/foo.srt</code>, subed will automatically open the accompanying video file having the name foo.mp4/foo.mk4/foo.avi, etc. using mpv.</p>
-</li>
-<li>
-<p>Then, in the subtitle buffer, only these three key bindings will do the job:</p>
-<ol>
-<li>
-<p><code class="verbatim">C-c C-l</code> toggles looping over the current subtitle
-By default, there is an extra second before and after the time span, as specified in the config <code class="verbatim">subed-loop-seconds-before</code> &amp; <code class="verbatim">subed-loop-seconds-after</code>.</p>
-</li>
-<li>
-<p><code class="verbatim">M-n</code> moves the point to the next subtitle, and it automatically seeks the playback to the corresponding timeline.</p>
-</li>
-<li>
-<p><code class="verbatim">M-p</code> moves the point to the previous subtitle and seeks the playback to the correct position of the timeline.</p>
-</li>
-</ol>
-</li>
-</ol>
-<p>Although the package is designed to edit subtitles efficiently, it could also shine in language shadowing and speaking.</p>
+But suddenly, I think that maybe I can give it a try to invoke the commands via <code class="verbatim">i3-msg</code>, the RPC client to <code class="verbatim">i3wm</code>. And following that rabbit hole, I finally made a shell script to do it.</p>
 <p>
-If you&#39;re also learning to speak foreign languages, I believe this workflow can help you.✌</p>
+The fundamental is to restart the <code class="verbatim">i3bar</code> process:</p>
+<div class="src src-shell">
+<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell"><span class="k">function</span> i3status_reload<span class="o">()</span>
+<span class="o">{</span>
+    i3-msg -t <span class="nb">command</span> <span class="s1">&#39;exec --no-startup-id killall i3bar&#39;</span>
+    i3-msg -t <span class="nb">command</span> <span class="s1">&#39;exec --no-startup-id i3bar --bar_id=bar-0&#39;</span>
+<span class="o">}</span></code></pre></div>
+</div>
 <p>
-Also on:</p>
+And, here is the whole script:</p>
+<div class="src src-shell">
+<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell"><span class="cp">#!/bin/sh
+</span><span class="cp"></span>
+<span class="k">if</span> <span class="o">[</span> <span class="nv">$#</span> -ne <span class="m">1</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
+    <span class="nb">echo</span> <span class="s2">&#34;Usage: </span><span class="nv">$0</span><span class="s2"> on/off&#34;</span>
+    <span class="nb">exit</span> <span class="m">1</span>
+<span class="k">fi</span>
+
+<span class="k">function</span> i3status_reload<span class="o">()</span>
+<span class="o">{</span>
+    i3-msg -t <span class="nb">command</span> <span class="s1">&#39;exec --no-startup-id killall i3bar&#39;</span>
+    i3-msg -t <span class="nb">command</span> <span class="s1">&#39;exec --no-startup-id i3bar --bar_id=bar-0&#39;</span>
+<span class="o">}</span>
+
+<span class="nv">ymd</span><span class="o">=</span><span class="s2">&#34;%Y-%m-%d&#34;</span>
+<span class="nv">config</span><span class="o">=</span>~/.config/i3status/config
+
+<span class="k">if</span> <span class="o">[</span> <span class="s2">&#34;</span><span class="nv">$1</span><span class="s2">&#34;</span> <span class="o">==</span> <span class="s2">&#34;on&#34;</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
+    sed -i <span class="s2">&#34;s/^.*</span><span class="nv">$ymd</span><span class="s2">.*</span>$<span class="s2">/        format = &#39;%Y-%m-%d %H:%M:%S&#39;/&#34;</span> <span class="nv">$config</span>
+<span class="k">else</span>
+    sed -i <span class="s2">&#34;s/^.*</span><span class="nv">$ymd</span><span class="s2">.*</span>$<span class="s2">/        format = &#39;%Y-%m-%d&#39;/&#34;</span> <span class="nv">$config</span>
+<span class="k">fi</span>
+
+i3status_reload</code></pre></div>
+</div>
+<p>
+Reference:</p>
 <ul>
 <li>
-<p>Reddit <a href="https://www.reddit.com/r/emacs/comments/rxg1s9/practicing_language_speaking_with_subed_in_emacs/">/r/emacs</a></p>
+<p>Reddit post: <a href="https://www.reddit.com/r/i3wm/comments/7n3aac/how_to_force_running_i3status_to_reload_its_config/">How to force running i3status to reload it&#39;s config? : i3wm - www.reddit.com</a></p>
+</li>
+<li>
+<p>My <code class="verbatim">i3wm</code> config: <a href="https://github.com/whatacold/extensible-dotfiles/blob/master/home/.config/i3/config">https://github.com/whatacold/extensible-dotfiles/blob/master/home/.config/i3/config</a></p>
 </li>
 </ul>
 
@@ -345,9 +353,7 @@ Also on:</p>
         
           <div class="blog-tags">
             
-              <a href="https://whatacold.io/tags/emacs/">Emacs</a>&nbsp;
-            
-              <a href="https://whatacold.io/tags/english/">English</a>&nbsp;
+              <a href="https://whatacold.io/tags/i3wm/">i3wm</a>&nbsp;
             
           </div>
         
@@ -362,42 +368,42 @@ Also on:</p>
     <ul class="share">
       
       <li>
-        <a href="//twitter.com/share?url=https%3a%2f%2fwhatacold.io%2fblog%2f2022-01-12-language-shadowing-with-subed-emacs%2f&amp;text=Language%20Shadowing%20with%20subed%20in%20Emacs&amp;via=whatacold" target="_blank" title="Share on Twitter">
+        <a href="//twitter.com/share?url=https%3a%2f%2fwhatacold.io%2fblog%2f2022-01-14-i3wm-i3status-reload-config%2f&amp;text=How%20to%20Reload%20i3status%20config%20On%20the%20Fly&amp;via=whatacold" target="_blank" title="Share on Twitter">
           <i class="fab fa-twitter"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fwhatacold.io%2fblog%2f2022-01-12-language-shadowing-with-subed-emacs%2f" target="_blank" title="Share on Facebook">
+        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fwhatacold.io%2fblog%2f2022-01-14-i3wm-i3status-reload-config%2f" target="_blank" title="Share on Facebook">
           <i class="fab fa-facebook"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//reddit.com/submit?url=https%3a%2f%2fwhatacold.io%2fblog%2f2022-01-12-language-shadowing-with-subed-emacs%2f&amp;title=Language%20Shadowing%20with%20subed%20in%20Emacs" target="_blank" title="Share on Reddit">
+        <a href="//reddit.com/submit?url=https%3a%2f%2fwhatacold.io%2fblog%2f2022-01-14-i3wm-i3status-reload-config%2f&amp;title=How%20to%20Reload%20i3status%20config%20On%20the%20Fly" target="_blank" title="Share on Reddit">
           <i class="fab fa-reddit"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fwhatacold.io%2fblog%2f2022-01-12-language-shadowing-with-subed-emacs%2f&amp;title=Language%20Shadowing%20with%20subed%20in%20Emacs" target="_blank" title="Share on LinkedIn">
+        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fwhatacold.io%2fblog%2f2022-01-14-i3wm-i3status-reload-config%2f&amp;title=How%20to%20Reload%20i3status%20config%20On%20the%20Fly" target="_blank" title="Share on LinkedIn">
           <i class="fab fa-linkedin"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fwhatacold.io%2fblog%2f2022-01-12-language-shadowing-with-subed-emacs%2f&amp;title=Language%20Shadowing%20with%20subed%20in%20Emacs" target="_blank" title="Share on StumbleUpon">
+        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fwhatacold.io%2fblog%2f2022-01-14-i3wm-i3status-reload-config%2f&amp;title=How%20to%20Reload%20i3status%20config%20On%20the%20Fly" target="_blank" title="Share on StumbleUpon">
           <i class="fab fa-stumbleupon"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fwhatacold.io%2fblog%2f2022-01-12-language-shadowing-with-subed-emacs%2f&amp;description=Language%20Shadowing%20with%20subed%20in%20Emacs" target="_blank" title="Share on Pinterest">
+        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fwhatacold.io%2fblog%2f2022-01-14-i3wm-i3status-reload-config%2f&amp;description=How%20to%20Reload%20i3status%20config%20On%20the%20Fly" target="_blank" title="Share on Pinterest">
           <i class="fab fa-pinterest"></i>
         </a>
       </li>
@@ -419,15 +425,7 @@ Also on:</p>
                   <ul>
                 
                 
-                    <li><a href="/blog/2021-12-11-writing-python-in-emacs/">Writing a Python Script in Emacs in 45 Minutes!</a></li>
-                
                     <li><a href="/blog/2021-07-17-emacs-i3wm-dunst/">Send Notifications from Emacs with i3wm and Dunst</a></li>
-                
-                    <li><a href="/blog/2020-08-22-generate-call-graphs-using-doxygen-in-emacs/">Generate Call Graphs Using Doxygen in Emacs</a></li>
-                
-                    <li><a href="/blog/2020-05-30-a-trick-to-troubleshoot-emacs-subprocess-creating/">A Trick to Troubleshoot Emacs Subprocess Creating</a></li>
-                
-                    <li><a href="/blog/2020-03-07-ppcompile-to-help-stay-coding-locally/">ppcompile: An Emacs Package to Help Coding Locally</a></li>
                 
               </ul>
 
@@ -439,13 +437,9 @@ Also on:</p>
         <ul class="pager blog-pager">
           
             <li class="previous">
-              <a href="https://whatacold.io/blog/2021-12-11-writing-python-in-emacs/" data-toggle="tooltip" data-placement="top" title="Writing a Python Script in Emacs in 45 Minutes!">&larr; Previous Post</a>
+              <a href="https://whatacold.io/blog/2022-01-12-language-shadowing-with-subed-emacs/" data-toggle="tooltip" data-placement="top" title="Language Shadowing with subed in Emacs">&larr; Previous Post</a>
             </li>
           
-          
-            <li class="next">
-              <a href="https://whatacold.io/blog/2022-01-14-i3wm-i3status-reload-config/" data-toggle="tooltip" data-placement="top" title="How to Reload i3status config On the Fly">Next Post &rarr;</a>
-            </li>
           
         </ul>
       

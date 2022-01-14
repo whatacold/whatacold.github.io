@@ -7,7 +7,18 @@
     <generator>Hugo -- gohugo.io</generator>
     <managingEditor>whatacold@gmail.com (whatacold)</managingEditor>
     <webMaster>whatacold@gmail.com (whatacold)</webMaster>
-    <lastBuildDate>Wed, 12 Jan 2022 21:41:54 +0800</lastBuildDate><atom:link href="https://whatacold.io/rss.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 14 Jan 2022 22:36:13 +0800</lastBuildDate><atom:link href="https://whatacold.io/rss.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>How to Reload i3status config On the Fly</title>
+      <link>https://whatacold.io/blog/2022-01-14-i3wm-i3status-reload-config/</link>
+      <pubDate>Fri, 14 Jan 2022 22:36:13 +0800</pubDate>
+      <author>whatacold@gmail.com (whatacold)</author>
+      <guid>https://whatacold.io/blog/2022-01-14-i3wm-i3status-reload-config/</guid>
+      <description>Sometimes I want to change the status (i3status) of i3wm temporarily, but it seems that i3wm doesn&amp;#39;t support it directly, although reloading the config for i3wm itself is a piece of cake (bindsym $mod+Shift+c reload in the config, or i3-msg -t command reload in the command line).
+ But this issue scratched my itch, and I swear that I must solve it today.
+ Following this Reddit post, it looks like it can be done by restarting the process of i3bar:</description>
+    </item>
+    
     <item>
       <title>Language Shadowing with subed in Emacs</title>
       <link>https://whatacold.io/blog/2022-01-12-language-shadowing-with-subed-emacs/</link>
