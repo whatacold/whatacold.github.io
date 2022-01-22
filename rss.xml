@@ -7,7 +7,18 @@
     <generator>Hugo -- gohugo.io</generator>
     <managingEditor>whatacold@gmail.com (whatacold)</managingEditor>
     <webMaster>whatacold@gmail.com (whatacold)</webMaster>
-    <lastBuildDate>Fri, 14 Jan 2022 22:36:13 +0800</lastBuildDate><atom:link href="https://whatacold.io/rss.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 22 Jan 2022 11:36:18 +0800</lastBuildDate><atom:link href="https://whatacold.io/rss.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Eglot for better programming experience in Emacs</title>
+      <link>https://whatacold.io/blog/2022-01-22-emacs-eglot-lsp/</link>
+      <pubDate>Sat, 22 Jan 2022 11:36:18 +0800</pubDate>
+      <author>whatacold@gmail.com (whatacold)</author>
+      <guid>https://whatacold.io/blog/2022-01-22-emacs-eglot-lsp/</guid>
+      <description>LSP, or Language Server Protocol, makes programming easier by features like better auto-completion and definition lookup. It may have scratched your itches, and you are wondering what the experience is like in Emacs.
+ Emacs has mainly two LSP clients out there, eglot and lsp-mode. eglot is lightweight, and it could almost run out of the box.
+ As a user, we only need to know these commands to get started of eglot:</description>
+    </item>
+    
     <item>
       <title>How to Reload i3status config On the Fly</title>
       <link>https://whatacold.io/blog/2022-01-14-i3wm-i3status-reload-config/</link>

@@ -7,7 +7,18 @@
     <generator>Hugo -- gohugo.io</generator>
     <managingEditor>whatacold@gmail.com (whatacold)</managingEditor>
     <webMaster>whatacold@gmail.com (whatacold)</webMaster>
-    <lastBuildDate>Wed, 12 Jan 2022 21:41:54 +0800</lastBuildDate><atom:link href="https://whatacold.io/tags/emacs/rss.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 22 Jan 2022 11:36:18 +0800</lastBuildDate><atom:link href="https://whatacold.io/tags/emacs/rss.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Eglot for better programming experience in Emacs</title>
+      <link>https://whatacold.io/blog/2022-01-22-emacs-eglot-lsp/</link>
+      <pubDate>Sat, 22 Jan 2022 11:36:18 +0800</pubDate>
+      <author>whatacold@gmail.com (whatacold)</author>
+      <guid>https://whatacold.io/blog/2022-01-22-emacs-eglot-lsp/</guid>
+      <description>LSP, or Language Server Protocol, makes programming easier by features like better auto-completion and definition lookup. It may have scratched your itches, and you are wondering what the experience is like in Emacs.
+ Emacs has mainly two LSP clients out there, eglot and lsp-mode. eglot is lightweight, and it could almost run out of the box.
+ As a user, we only need to know these commands to get started of eglot:</description>
+    </item>
+    
     <item>
       <title>Language Shadowing with subed in Emacs</title>
       <link>https://whatacold.io/blog/2022-01-12-language-shadowing-with-subed-emacs/</link>
@@ -71,6 +82,17 @@
       <guid>https://whatacold.io/blog/2020-03-07-ppcompile-to-help-stay-coding-locally/</guid>
       <description>If you are a C/C++ programmer like me, you may experience jumping around different machines to write and compile your code, or you may write code on different machines for different projects, and scp/rsync/ftp the projects around. It works, but it&amp;#39;s a bit tedious and takes too much burden on our brains.
  For example, say I have two projects that should be compiled on their compiling machines respectively. There are two obvious workflows for writing code for them &amp;#34;simultaneously&amp;#34;:</description>
+    </item>
+    
+    <item>
+      <title>How To Revert a Series of Git Commits?</title>
+      <link>https://whatacold.io/blog/2019-09-24-how-to-revert-a-series-of-commits-with-git/</link>
+      <pubDate>Tue, 24 Sep 2019 23:14:00 +0800</pubDate>
+      <author>whatacold@gmail.com (whatacold)</author>
+      <guid>https://whatacold.io/blog/2019-09-24-how-to-revert-a-series-of-commits-with-git/</guid>
+      <description>Sometimes, I need to revert a series of commits that I&amp;#39;ve already pushed, doing a git hard reset (git reset --hard) is not an option, as someone may already have new commits based on mine.
+ For example, assume that I&amp;#39;ve made a few commits like below:
+65a2c62 * commit 10 25cad43 * commit 9 72ad583 * commit 8 ceebf9a * commit 7 acf8a11 * commit 6 28d526f * commit 5 63af1e2 * commit 4 982c71c * commit 3 0fb4c2d * commit 2 acf9da1 * commit 1 b5f9933 * commit 0   For whatever reason, I need to &amp;#34;drop&amp;#34; the changes made by commit 6 to commit 10, that is, go back to &amp;#34;commit 5&amp;#34; without deleting these commits.</description>
     </item>
     
     <item>

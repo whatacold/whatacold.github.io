@@ -227,6 +227,55 @@ if (!doNotTrack) {
         <div class="posts-list">
           
             <article class="post-preview">
+    <a href="https://whatacold.io/blog/2022-01-22-emacs-eglot-lsp/">
+        <h2 class="post-title">Eglot for better programming experience in Emacs</h2>
+        
+        
+        
+    </a>
+
+    <p class="post-meta">
+        <span class="post-meta">
+  
+  
+  <i class="fas fa-calendar"></i>&nbsp;Posted on 2022-01-22
+  
+  
+    &nbsp;|&nbsp;<i class="fas fa-clock"></i>&nbsp;2&nbsp;minutes
+  
+  
+    &nbsp;|&nbsp;<i class="fas fa-book"></i>&nbsp;405&nbsp;words
+  
+  
+  
+</span>
+
+
+    </p>
+    <div class="post-entry">
+        
+        LSP, or Language Server Protocol, makes programming easier by features like better auto-completion and definition lookup. It may have scratched your itches, and you are wondering what the experience is like in Emacs.
+ Emacs has mainly two LSP clients out there, eglot and lsp-mode. eglot is lightweight, and it could almost run out of the box.
+ As a user, we only need to know these commands to get started of eglot:
+        <a href="https://whatacold.io/blog/2022-01-22-emacs-eglot-lsp/" class="post-read-more">[Read More]</a>
+        
+    </div>
+
+    
+    <div class="blog-tags">
+        
+        <a href="https://whatacold.io/tags/emacs/">Emacs</a>&nbsp;
+        
+        <a href="https://whatacold.io/tags/eglot/">Eglot</a>&nbsp;
+        
+        <a href="https://whatacold.io/tags/youtube/">YouTube</a>&nbsp;
+        
+    </div>
+    
+
+</article>
+          
+            <article class="post-preview">
     <a href="https://whatacold.io/blog/2022-01-12-language-shadowing-with-subed-emacs/">
         <h2 class="post-title">Language Shadowing with subed in Emacs</h2>
         
@@ -316,6 +365,8 @@ if (!doNotTrack) {
         <a href="https://whatacold.io/tags/emacs/">Emacs</a>&nbsp;
         
         <a href="https://whatacold.io/tags/python/">Python</a>&nbsp;
+        
+        <a href="https://whatacold.io/tags/youtube/">YouTube</a>&nbsp;
         
     </div>
     
@@ -510,6 +561,59 @@ if (!doNotTrack) {
 </article>
           
             <article class="post-preview">
+    <a href="https://whatacold.io/blog/2019-09-24-how-to-revert-a-series-of-commits-with-git/">
+        <h2 class="post-title">How To Revert a Series of Git Commits?</h2>
+        
+        
+        
+    </a>
+
+    <p class="post-meta">
+        <span class="post-meta">
+  
+  
+  <i class="fas fa-calendar"></i>&nbsp;Posted on 2019-09-24
+  
+    &nbsp;(Last modified on 2021-10-03)
+  
+  
+    &nbsp;|&nbsp;<i class="fas fa-clock"></i>&nbsp;3&nbsp;minutes
+  
+  
+    &nbsp;|&nbsp;<i class="fas fa-book"></i>&nbsp;508&nbsp;words
+  
+  
+  
+</span>
+
+
+    </p>
+    <div class="post-entry">
+        
+        Sometimes, I need to revert a series of commits that I&#39;ve already pushed, doing a git hard reset (git reset --hard) is not an option, as someone may already have new commits based on mine.
+ For example, assume that I&#39;ve made a few commits like below:
+65a2c62 * commit 10 25cad43 * commit 9 72ad583 * commit 8 ceebf9a * commit 7 acf8a11 * commit 6 28d526f * commit 5 63af1e2 * commit 4 982c71c * commit 3 0fb4c2d * commit 2 acf9da1 * commit 1 b5f9933 * commit 0   For whatever reason, I need to &#34;drop&#34; the changes made by commit 6 to commit 10, that is, go back to &#34;commit 5&#34; without deleting these commits.
+        <a href="https://whatacold.io/blog/2019-09-24-how-to-revert-a-series-of-commits-with-git/" class="post-read-more">[Read More]</a>
+        
+    </div>
+
+    
+    <div class="blog-tags">
+        
+        <a href="https://whatacold.io/tags/git/">Git</a>&nbsp;
+        
+        <a href="https://whatacold.io/tags/magit/">Magit</a>&nbsp;
+        
+        <a href="https://whatacold.io/tags/emacs/">Emacs</a>&nbsp;
+        
+        <a href="https://whatacold.io/tags/youtube/">YouTube</a>&nbsp;
+        
+    </div>
+    
+
+</article>
+          
+            <article class="post-preview">
     <a href="https://whatacold.io/blog/2019-07-20-generating-org-mode-outlines-for-wikihow-articles/">
         <h2 class="post-title">Generating org-mode Outlines for wikiHow Articles</h2>
         
@@ -604,53 +708,16 @@ if (!doNotTrack) {
 
 </article>
           
-            <article class="post-preview">
-    <a href="https://whatacold.io/blog/2019-02-24-fine-tune-style-of-yasnippet-snippet-on-the-fly/">
-        <h2 class="post-title">Fine-tune Curly Braces Style of yasnippet Snippet on the Fly</h2>
-        
-        
-        
-    </a>
-
-    <p class="post-meta">
-        <span class="post-meta">
-  
-  
-  <i class="fas fa-calendar"></i>&nbsp;Posted on 2019-02-24
-  
-    &nbsp;(Last modified on 2019-03-10)
-  
-  
-    &nbsp;|&nbsp;<i class="fas fa-clock"></i>&nbsp;3&nbsp;minutes
-  
-  
-    &nbsp;|&nbsp;<i class="fas fa-book"></i>&nbsp;475&nbsp;words
-  
-  
-  
-</span>
-
-
-    </p>
-    <div class="post-entry">
-        
-        Yasnippet is a good friend to help us type less and write more, whenever we write some text snippets repeatedly. And there is also an official repository called yasnippet-snippets that contains various snippets for many programming languages(modes), so that we can have many snippets in no time by installing it.
- But there is a little problem when it comes to conforming to different coding styles. Take the if snippet for example, normally it will generate code like this:
-        <a href="https://whatacold.io/blog/2019-02-24-fine-tune-style-of-yasnippet-snippet-on-the-fly/" class="post-read-more">[Read More]</a>
-        
-    </div>
-
-    
-    <div class="blog-tags">
-        
-        <a href="https://whatacold.io/tags/emacs/">Emacs</a>&nbsp;
-        
-    </div>
-    
-
-</article>
-          
         </div>
+        
+          <ul class="pager main-pager">
+            
+            
+              <li class="next">
+                <a href="https://whatacold.io/tags/emacs/page/2/">Older Posts &rarr;</a>
+              </li>
+            
+          </ul>
         
       </div>
     </div>

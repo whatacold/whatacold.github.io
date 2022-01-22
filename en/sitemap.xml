@@ -4,7 +4,7 @@
   
   <url>
     <loc>https://whatacold.io/blog/</loc>
-    <lastmod>2022-01-14T22:36:18+08:00</lastmod>
+    <lastmod>2022-01-22T11:36:22+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="zh-cn"
@@ -15,6 +15,66 @@
                 hreflang="en"
                 href="https://whatacold.io/blog/"
                 />
+  </url>
+  
+  <url>
+    <loc>https://whatacold.io/tags/eglot/</loc>
+    <lastmod>2022-01-22T11:36:22+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://whatacold.io/blog/2022-01-22-emacs-eglot-lsp/</loc>
+    <lastmod>2022-01-22T11:36:22+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://whatacold.io/tags/emacs/</loc>
+    <lastmod>2022-01-22T11:36:22+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-cn"
+                href="https://whatacold.io/zh-cn/tags/emacs/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://whatacold.io/tags/emacs/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://whatacold.io/tags/</loc>
+    <lastmod>2022-01-22T11:36:22+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-cn"
+                href="https://whatacold.io/zh-cn/tags/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://whatacold.io/tags/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://whatacold.io/</loc>
+    <lastmod>2022-01-22T11:36:22+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-cn"
+                href="https://whatacold.io/zh-cn/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://whatacold.io/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://whatacold.io/tags/youtube/</loc>
+    <lastmod>2022-01-22T11:36:22+08:00</lastmod>
   </url>
   
   <url>
@@ -34,51 +94,6 @@
                 rel="alternate"
                 hreflang="en"
                 href="https://whatacold.io/tags/i3wm/"
-                />
-  </url>
-  
-  <url>
-    <loc>https://whatacold.io/tags/</loc>
-    <lastmod>2022-01-14T22:36:18+08:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh-cn"
-                href="https://whatacold.io/zh-cn/tags/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://whatacold.io/tags/"
-                />
-  </url>
-  
-  <url>
-    <loc>https://whatacold.io/</loc>
-    <lastmod>2022-01-14T22:36:18+08:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh-cn"
-                href="https://whatacold.io/zh-cn/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://whatacold.io/"
-                />
-  </url>
-  
-  <url>
-    <loc>https://whatacold.io/tags/emacs/</loc>
-    <lastmod>2022-01-13T21:41:59+08:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh-cn"
-                href="https://whatacold.io/zh-cn/tags/emacs/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://whatacold.io/tags/emacs/"
                 />
   </url>
   
