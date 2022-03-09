@@ -64,7 +64,7 @@
   "headline": "Manage SSH Connections with ~\/.ssh\/config",
   "description" : "Still type the whole long ssh commands in your shell? Save it, you can hide them in the config file...",
   "inLanguage" : "en",
-  "wordCount":  526 ,
+  "wordCount":  528 ,
   "datePublished" : "2019-12-22T18:52:00",
   "dateModified" : "2019-12-22T18:52:00",
   "image" : "https:\/\/whatacold.io\/img\/avatar.png",
@@ -311,7 +311,7 @@ Now I can do things straightly in a higher level:</p>
 <p><code class="verbatim">scp /tmp/a.log new-test:/tmp</code>, copy a file to it</p>
 </li>
 <li>
-<p><code class="verbatim">rsync -e ssh /tmp/foo /tmp/</code>, even let <code class="verbatim">rsync</code> sync files over SSH</p>
+<p><code class="verbatim">rsync -e ssh --exclude</code>&#39;.git/*&#39; –exclude=&#39;.venv/*&#39; /tmp/foo /tmp/=, even let <code class="verbatim">rsync</code> sync files over SSH</p>
 </li>
 </ol>
 <p>There is one that hasn&#39;t be mentioned is <code class="verbatim">IdentityFile</code>, which means I can log in that host using public key authentication, so that I don&#39;t have to type a password when logging in the host anymore, which really smooths the workflow.</p>
