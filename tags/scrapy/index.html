@@ -12,12 +12,7 @@
 
   
 
-  <title>Language Shadowing with subed in Emacs - whatacold&#39;s space</title>
-  <meta name="description" content="So I&#39;m trying to improve my English speaking skill by shadowing while watching TV episodes. The workflow before was to loop over video clips using mpv:
-  hit l to mark the start of the loop
-  play the video and wait for it to be at the end of the loop
-  hit l again to mark the end
-  Then mpv will loop over the clip, it basically works, but it&#39;s a bit hard and tedious to set the start and end precisely.">
+  <title>Scrapy - whatacold&#39;s space</title>
   <meta name="author" content="whatacold"/><script type="application/ld+json">
 {
     "@context": "http://schema.org",
@@ -38,70 +33,14 @@
   
 }
 </script>
-<script type="application/ld+json">
-{
-  "@context": "http://schema.org",
-  "@type": "BreadcrumbList",
-  "itemListElement": [{
-        "@type": "ListItem",
-        "position": 1,
-        "item": {
-          "@id": "https:\/\/whatacold.io",
-          "name": "home"
-        }
-    },{
-        "@type": "ListItem",
-        "position": 3,
-        "item": {
-          "@id": "https:\/\/whatacold.io\/blog\/2022-01-12-language-shadowing-with-subed-emacs\/",
-          "name": "Language shadowing with subed in emacs"
-        }
-    }]
-}
-</script><script type="application/ld+json">
-{
-  "@context": "http://schema.org",
-  "@type": "Article",
-  "author": {
-    "name" : "whatacold"
-  },
-  "headline": "Language Shadowing with subed in Emacs",
-  "description" : "So I\u0026#39;m trying to improve my English speaking skill by shadowing while watching TV episodes. The workflow before was to loop over video clips using mpv:\n  hit l to mark the start of the loop\n  play the video and wait for it to be at the end of the loop\n  hit l again to mark the end\n  Then mpv will loop over the clip, it basically works, but it\u0026#39;s a bit hard and tedious to set the start and end precisely.",
-  "inLanguage" : "en",
-  "wordCount":  327 ,
-  "datePublished" : "2022-01-12T21:41:54",
-  "dateModified" : "2022-01-12T21:41:54",
-  "image" : "https:\/\/whatacold.io\/img\/avatar.png",
-  "keywords" : [ "Emacs, English" ],
-  "mainEntityOfPage" : "https:\/\/whatacold.io\/blog\/2022-01-12-language-shadowing-with-subed-emacs\/",
-  "publisher" : {
-    "@type": "Organization",
-    "name" : "https:\/\/whatacold.io",
-    "logo" : {
-        "@type" : "ImageObject",
-        "url" : "https:\/\/whatacold.io\/img\/avatar.png",
-        "height" :  60 ,
-        "width" :  60
-    }
-  }
-}
-</script>
 
-<meta property="og:title" content="Language Shadowing with subed in Emacs" />
-<meta property="og:description" content="So I&#39;m trying to improve my English speaking skill by shadowing while watching TV episodes. The workflow before was to loop over video clips using mpv:
-  hit l to mark the start of the loop
-  play the video and wait for it to be at the end of the loop
-  hit l again to mark the end
-  Then mpv will loop over the clip, it basically works, but it&#39;s a bit hard and tedious to set the start and end precisely.">
+<meta property="og:title" content="Scrapy" />
 <meta property="og:image" content="https://whatacold.io/img/avatar.png" />
-<meta property="og:url" content="https://whatacold.io/blog/2022-01-12-language-shadowing-with-subed-emacs/" />
+<meta property="og:url" content="https://whatacold.io/tags/scrapy/" />
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="whatacold&#39;s space" />
 
-  <meta name="twitter:title" content="Language Shadowing with subed in Emacs" />
-  <meta name="twitter:description" content="So I&#39;m trying to improve my English speaking skill by shadowing while watching TV episodes. The workflow before was to loop over video clips using mpv:
-  hit l to mark the start of the loop
-  play …">
+  <meta name="twitter:title" content="Scrapy" />
   <meta name="twitter:image" content="https://whatacold.io/img/avatar.png" />
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:site" content="@whatacold" />
@@ -263,9 +202,9 @@ if (!doNotTrack) {
       <div class="container">
         <div class="row">
           <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-            <div class="blog-heading">
+            <div class="tags-heading">
               
-                <h1>Language Shadowing with subed in Emacs</h1>
+                <h1>Scrapy</h1>
               
               
                 <hr class="small">
@@ -281,209 +220,65 @@ if (!doNotTrack) {
 
 
     
-<div class="container" role="main">
-  <div class="row">
-    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-      <article role="main" class="blog-post">
-        <p>
-So I&#39;m trying to improve my English speaking skill by shadowing while watching TV episodes. The workflow before was to loop over video clips using mpv:</p>
-<ol>
-<li>
-<p>hit <code class="verbatim">l</code> to mark the start of the loop</p>
-</li>
-<li>
-<p>play the video and wait for it to be at the end of the loop</p>
-</li>
-<li>
-<p>hit <code class="verbatim">l</code> again to mark the end</p>
-</li>
-</ol>
-<p>Then mpv will loop over the clip, it basically works, but it&#39;s a bit hard and tedious to set the start and end precisely.</p>
-<p>
-Recently, I came up with an idea that I can practice language-speaking using subtitle files, as they already have the timestamps along with subtitle texts. I can loop over specific parts of a video file easily by taking advantage of those timestamps instead of manually setting the start time and end time of the playback and then looping over it.</p>
-<p>
-And then I thought of a package, <a href="https://github.com/sachac/subed">subed</a>, which caught my eyes when I was lurking around <a href="https://sachachua.com/blog/">Sacha Chua&#39;s blog site</a>. And I found that it was perfect for this idea after playing with it for ~10 minutes.</p>
-<figure>
-<img src="/img/2022-01-12-language-shadowing-subed-emacs.jpg" alt="/img/2022-01-12-language-shadowing-subed-emacs.jpg" title="/img/2022-01-12-language-shadowing-subed-emacs.jpg" /><figcaption>
-subed and mpv side by side
-</figcaption>
-</figure>
-<p>
-Here are the steps:</p>
-<ol>
-<li>
-<p>Open a subtitle file, say <code class="verbatim">/path/to/foo.srt</code>, subed will automatically open the accompanying video file having the name foo.mp4/foo.mk4/foo.avi, etc. using mpv.</p>
-</li>
-<li>
-<p>Then, in the subtitle buffer, only these three key bindings will do the job:</p>
-<ol>
-<li>
-<p><code class="verbatim">C-c C-l</code> toggles looping over the current subtitle
-By default, there is an extra second before and after the time span, as specified in the config <code class="verbatim">subed-loop-seconds-before</code> &amp; <code class="verbatim">subed-loop-seconds-after</code>.</p>
-</li>
-<li>
-<p><code class="verbatim">M-n</code> moves the point to the next subtitle, and it automatically seeks the playback to the corresponding timeline.</p>
-</li>
-<li>
-<p><code class="verbatim">M-p</code> moves the point to the previous subtitle and seeks the playback to the correct position of the timeline.</p>
-</li>
-</ol>
-</li>
-</ol>
-<p>Although the package is designed to edit subtitles efficiently, it could also shine in language shadowing and speaking.</p>
-<p>
-If you&#39;re also learning to speak foreign languages, I believe this workflow can help you.✌</p>
-<p>
-Also on:</p>
-<ul>
-<li>
-<p>Reddit <a href="https://www.reddit.com/r/emacs/comments/rxg1s9/practicing_language_speaking_with_subed_in_emacs/">/r/emacs</a></p>
-</li>
-</ul>
-
-
+  <div class="container" role="main">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
         
-          <div class="blog-tags">
-            
-              <a href="https://whatacold.io/tags/emacs/">Emacs</a>&nbsp;
-            
-              <a href="https://whatacold.io/tags/english/">English</a>&nbsp;
-            
-          </div>
+        <div class="posts-list">
+          
+            <article class="post-preview">
+    <a href="https://whatacold.io/blog/2022-04-09-scrapy-csv-without-header/">
+        <h2 class="post-title">How to append items to the CSV file without header row?</h2>
         
-
         
-            <hr/>
-            <section id="social-share">
-              <div class="list-inline footer-links">
-                
+        
+    </a>
 
-<div class="share-box" aria-hidden="true">
-    <ul class="share">
-      
-      <li>
-        <a href="//twitter.com/share?url=https%3a%2f%2fwhatacold.io%2fblog%2f2022-01-12-language-shadowing-with-subed-emacs%2f&amp;text=Language%20Shadowing%20with%20subed%20in%20Emacs&amp;via=whatacold" target="_blank" title="Share on Twitter">
-          <i class="fab fa-twitter"></i>
-        </a>
-      </li>
+    <p class="post-meta">
+        <span class="post-meta">
   
-      
-      <li>
-        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fwhatacold.io%2fblog%2f2022-01-12-language-shadowing-with-subed-emacs%2f" target="_blank" title="Share on Facebook">
-          <i class="fab fa-facebook"></i>
-        </a>
-      </li>
   
-      
-      <li>
-        <a href="//reddit.com/submit?url=https%3a%2f%2fwhatacold.io%2fblog%2f2022-01-12-language-shadowing-with-subed-emacs%2f&amp;title=Language%20Shadowing%20with%20subed%20in%20Emacs" target="_blank" title="Share on Reddit">
-          <i class="fab fa-reddit"></i>
-        </a>
-      </li>
+  <i class="fas fa-calendar"></i>&nbsp;Posted on 2022-04-09
   
-      
-      <li>
-        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fwhatacold.io%2fblog%2f2022-01-12-language-shadowing-with-subed-emacs%2f&amp;title=Language%20Shadowing%20with%20subed%20in%20Emacs" target="_blank" title="Share on LinkedIn">
-          <i class="fab fa-linkedin"></i>
-        </a>
-      </li>
   
-      
-      <li>
-        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fwhatacold.io%2fblog%2f2022-01-12-language-shadowing-with-subed-emacs%2f&amp;title=Language%20Shadowing%20with%20subed%20in%20Emacs" target="_blank" title="Share on StumbleUpon">
-          <i class="fab fa-stumbleupon"></i>
-        </a>
-      </li>
+    &nbsp;|&nbsp;<i class="fas fa-clock"></i>&nbsp;2&nbsp;minutes
   
-      
-      <li>
-        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fwhatacold.io%2fblog%2f2022-01-12-language-shadowing-with-subed-emacs%2f&amp;description=Language%20Shadowing%20with%20subed%20in%20Emacs" target="_blank" title="Share on Pinterest">
-          <i class="fab fa-pinterest"></i>
-        </a>
-      </li>
-    </ul>
-  </div>
   
+    &nbsp;|&nbsp;<i class="fas fa-book"></i>&nbsp;313&nbsp;words
+  
+  
+  
+</span>
 
-              </div>
-            </section>
+
+    </p>
+    <div class="post-entry">
         
-
+        Scrapy Architecture    Scrapy provides a few item exporters by default to export items in commonly used file formats like CSV/JSON/XML. I usually use CSV to export items, it is pretty convenient, and it comes in two ways:
+  appending mode, for example, scrapy crawl foo -o test.csv
+  overwriting mode with -O option, like scrapy crawl foo -O test.csv
+  But in the appending mode, it&#39;s a bit annoying that it always appends the header row before the newly scraped items, which is not correctly in terms of CSV format.
+        <a href="https://whatacold.io/blog/2022-04-09-scrapy-csv-without-header/" class="post-read-more">[Read More]</a>
         
-          
-            
-          
+    </div>
 
-          
-                  <h4 class="see-also">See also</h4>
-                  <ul>
-                
-                
-                    <li><a href="/blog/2022-04-09-emacs-kill-other-buffer/">How to kill other buffers in Emacs</a></li>
-                
-                    <li><a href="/blog/2022-01-22-emacs-eglot-lsp/">Eglot for better programming experience in Emacs</a></li>
-                
-                    <li><a href="/blog/2021-12-11-writing-python-in-emacs/">Writing a Python Script in Emacs in 45 Minutes!</a></li>
-                
-                    <li><a href="/blog/2021-07-17-emacs-i3wm-dunst/">Send Notifications from Emacs with i3wm and Dunst</a></li>
-                
-                    <li><a href="/blog/2020-08-22-generate-call-graphs-using-doxygen-in-emacs/">Generate Call Graphs Using Doxygen in Emacs</a></li>
-                
-              </ul>
-
-          
-        
-      </article>
-
-      
-        <ul class="pager blog-pager">
-          
-            <li class="previous">
-              <a href="https://whatacold.io/blog/2021-12-11-writing-python-in-emacs/" data-toggle="tooltip" data-placement="top" title="Writing a Python Script in Emacs in 45 Minutes!">&larr; Previous Post</a>
-            </li>
-          
-          
-            <li class="next">
-              <a href="https://whatacold.io/blog/2022-01-14-i3wm-i3status-reload-config/" data-toggle="tooltip" data-placement="top" title="How to Reload i3status config On the Fly">Next Post &rarr;</a>
-            </li>
-          
-        </ul>
-      
-
-
-      
-        
-          
-          <div class="disqus-comments">
-            <div id="disqus_thread"></div>
-<script type="application/javascript">
-    var disqus_config = function () {
     
-    
-    
-    };
-    (function() {
-        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
-            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
-            return;
-        }
-        var d = document, s = d.createElement('script'); s.async = true;
-        s.src = '//' + "whatacold" + '.disqus.com/embed.js';
-        s.setAttribute('data-timestamp', +new Date());
-        (d.head || d.body).appendChild(s);
-    })();
-</script>
-<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
-          </div>
-          
+    <div class="blog-tags">
         
+        <a href="https://whatacold.io/tags/python/">Python</a>&nbsp;
         
-      
+        <a href="https://whatacold.io/tags/scrapy/">Scrapy</a>&nbsp;
+        
+    </div>
+    
 
+</article>
+          
+        </div>
+        
+      </div>
     </div>
   </div>
-</div>
 
       
 <footer>
@@ -542,6 +337,15 @@ Also on:</p>
               </li>
 
           
+          
+          <li>
+              <a href="/tags/scrapy/rss.xml" title="RSS">
+                  <span class="fa-stack fa-lg">
+                      <i class="fas fa-circle fa-stack-2x"></i>
+                      <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+                  </span>
+              </a>
+          </li>
           
           
 

@@ -7,7 +7,17 @@
     <generator>Hugo -- gohugo.io</generator>
     <managingEditor>whatacold@gmail.com (whatacold)</managingEditor>
     <webMaster>whatacold@gmail.com (whatacold)</webMaster>
-    <lastBuildDate>Sat, 22 Jan 2022 11:36:18 +0800</lastBuildDate><atom:link href="https://whatacold.io/tags/emacs/rss.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 09 Apr 2022 23:11:36 +0800</lastBuildDate><atom:link href="https://whatacold.io/tags/emacs/rss.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>How to kill other buffers in Emacs</title>
+      <link>https://whatacold.io/blog/2022-04-09-emacs-kill-other-buffer/</link>
+      <pubDate>Sat, 09 Apr 2022 23:11:36 +0800</pubDate>
+      <author>whatacold@gmail.com (whatacold)</author>
+      <guid>https://whatacold.io/blog/2022-04-09-emacs-kill-other-buffer/</guid>
+      <description>Selecting Emacs windows using ace-window    Recently I&amp;#39;ve been building a simple Emacs config for myself, along the way I re-discovered some fantastic packages, for example, I found that ace-window is a simple yet powerful package to enhance the default other-window command to select other windows quickly when it has more than two windows in a frame.
+ I replaced the key binding of other-window to ace-window by simply (global-set-key (kbd &amp;#34;C-x o&amp;#34;) #&amp;#39;ace-window), then when there are &amp;gt;2 windows, it will show a white-in-red number at the top-left corner for every window, press the number (1, 2, 3, …) and then the corresponding window is selected (as demonstrated in the above screenshot).</description>
+    </item>
+    
     <item>
       <title>Eglot for better programming experience in Emacs</title>
       <link>https://whatacold.io/blog/2022-01-22-emacs-eglot-lsp/</link>

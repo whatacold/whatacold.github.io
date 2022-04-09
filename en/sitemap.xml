@@ -3,23 +3,8 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://whatacold.io/about/</loc>
-    <lastmod>2022-03-09T12:37:20+08:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh-cn"
-                href="https://whatacold.io/zh-cn/about/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://whatacold.io/about/"
-                />
-  </url>
-  
-  <url>
     <loc>https://whatacold.io/blog/</loc>
-    <lastmod>2022-01-22T11:36:22+08:00</lastmod>
+    <lastmod>2022-04-09T23:02:16+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="zh-cn"
@@ -30,16 +15,6 @@
                 hreflang="en"
                 href="https://whatacold.io/blog/"
                 />
-  </url>
-  
-  <url>
-    <loc>https://whatacold.io/tags/eglot/</loc>
-    <lastmod>2022-01-22T11:36:22+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://whatacold.io/blog/2022-01-22-emacs-eglot-lsp/</loc>
-    <lastmod>2022-01-22T11:36:22+08:00</lastmod>
   </url>
   
   <url>
@@ -58,8 +33,13 @@
   </url>
   
   <url>
-    <loc>https://whatacold.io/tags/</loc>
+    <loc>https://whatacold.io/blog/2022-04-09-emacs-kill-other-buffer/</loc>
     <lastmod>2022-01-22T11:36:22+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://whatacold.io/tags/</loc>
+    <lastmod>2022-04-09T23:02:16+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="zh-cn"
@@ -74,7 +54,7 @@
   
   <url>
     <loc>https://whatacold.io/</loc>
-    <lastmod>2022-01-22T11:36:22+08:00</lastmod>
+    <lastmod>2022-04-09T23:02:16+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="zh-cn"
@@ -85,6 +65,56 @@
                 hreflang="en"
                 href="https://whatacold.io/"
                 />
+  </url>
+  
+  <url>
+    <loc>https://whatacold.io/blog/2022-04-09-scrapy-csv-without-header/</loc>
+    <lastmod>2022-04-09T23:02:16+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://whatacold.io/tags/python/</loc>
+    <lastmod>2022-04-09T23:02:16+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-cn"
+                href="https://whatacold.io/zh-cn/tags/python/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://whatacold.io/tags/python/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://whatacold.io/tags/scrapy/</loc>
+    <lastmod>2022-04-09T23:02:16+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://whatacold.io/about/</loc>
+    <lastmod>2022-03-09T12:37:20+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-cn"
+                href="https://whatacold.io/zh-cn/about/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://whatacold.io/about/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://whatacold.io/tags/eglot/</loc>
+    <lastmod>2022-01-22T11:36:22+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://whatacold.io/blog/2022-01-22-emacs-eglot-lsp/</loc>
+    <lastmod>2022-01-22T11:36:22+08:00</lastmod>
   </url>
   
   <url>
@@ -120,21 +150,6 @@
   <url>
     <loc>https://whatacold.io/blog/2022-01-12-language-shadowing-with-subed-emacs/</loc>
     <lastmod>2022-01-13T21:41:59+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://whatacold.io/tags/python/</loc>
-    <lastmod>2021-12-11T09:25:01+08:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh-cn"
-                href="https://whatacold.io/zh-cn/tags/python/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://whatacold.io/tags/python/"
-                />
   </url>
   
   <url>

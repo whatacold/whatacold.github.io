@@ -227,6 +227,100 @@ if (!doNotTrack) {
         <div class="posts-list">
           
             <article class="post-preview">
+    <a href="https://whatacold.io/blog/2022-04-09-emacs-kill-other-buffer/">
+        <h2 class="post-title">How to kill other buffers in Emacs</h2>
+        
+        
+        
+    </a>
+
+    <p class="post-meta">
+        <span class="post-meta">
+  
+  
+  <i class="fas fa-calendar"></i>&nbsp;Posted on 2022-04-09
+  
+    &nbsp;(Last modified on 2022-01-22)
+  
+  
+    &nbsp;|&nbsp;<i class="fas fa-clock"></i>&nbsp;2&nbsp;minutes
+  
+  
+    &nbsp;|&nbsp;<i class="fas fa-book"></i>&nbsp;331&nbsp;words
+  
+  
+  
+</span>
+
+
+    </p>
+    <div class="post-entry">
+        
+        Selecting Emacs windows using ace-window    Recently I&#39;ve been building a simple Emacs config for myself, along the way I re-discovered some fantastic packages, for example, I found that ace-window is a simple yet powerful package to enhance the default other-window command to select other windows quickly when it has more than two windows in a frame.
+ I replaced the key binding of other-window to ace-window by simply (global-set-key (kbd &#34;C-x o&#34;) #&#39;ace-window), then when there are &gt;2 windows, it will show a white-in-red number at the top-left corner for every window, press the number (1, 2, 3, …) and then the corresponding window is selected (as demonstrated in the above screenshot).
+        <a href="https://whatacold.io/blog/2022-04-09-emacs-kill-other-buffer/" class="post-read-more">[Read More]</a>
+        
+    </div>
+
+    
+    <div class="blog-tags">
+        
+        <a href="https://whatacold.io/tags/emacs/">Emacs</a>&nbsp;
+        
+    </div>
+    
+
+</article>
+          
+            <article class="post-preview">
+    <a href="https://whatacold.io/blog/2022-04-09-scrapy-csv-without-header/">
+        <h2 class="post-title">How to append items to the CSV file without header row?</h2>
+        
+        
+        
+    </a>
+
+    <p class="post-meta">
+        <span class="post-meta">
+  
+  
+  <i class="fas fa-calendar"></i>&nbsp;Posted on 2022-04-09
+  
+  
+    &nbsp;|&nbsp;<i class="fas fa-clock"></i>&nbsp;2&nbsp;minutes
+  
+  
+    &nbsp;|&nbsp;<i class="fas fa-book"></i>&nbsp;313&nbsp;words
+  
+  
+  
+</span>
+
+
+    </p>
+    <div class="post-entry">
+        
+        Scrapy Architecture    Scrapy provides a few item exporters by default to export items in commonly used file formats like CSV/JSON/XML. I usually use CSV to export items, it is pretty convenient, and it comes in two ways:
+  appending mode, for example, scrapy crawl foo -o test.csv
+  overwriting mode with -O option, like scrapy crawl foo -O test.csv
+  But in the appending mode, it&#39;s a bit annoying that it always appends the header row before the newly scraped items, which is not correctly in terms of CSV format.
+        <a href="https://whatacold.io/blog/2022-04-09-scrapy-csv-without-header/" class="post-read-more">[Read More]</a>
+        
+    </div>
+
+    
+    <div class="blog-tags">
+        
+        <a href="https://whatacold.io/tags/python/">Python</a>&nbsp;
+        
+        <a href="https://whatacold.io/tags/scrapy/">Scrapy</a>&nbsp;
+        
+    </div>
+    
+
+</article>
+          
+            <article class="post-preview">
     <a href="https://whatacold.io/blog/2022-01-22-emacs-eglot-lsp/">
         <h2 class="post-title">Eglot for better programming experience in Emacs</h2>
         
@@ -609,107 +703,6 @@ sum of two numbers: #+begin_src clojure(+ 1 2) #+end_src   I want to have a resu
         <a href="https://whatacold.io/tags/clojure/">Clojure</a>&nbsp;
         
         <a href="https://whatacold.io/tags/python/">Python</a>&nbsp;
-        
-    </div>
-    
-
-</article>
-          
-            <article class="post-preview">
-    <a href="https://whatacold.io/blog/2021-07-22-clojure-string-manipulation/">
-        <h2 class="post-title">String Manipulation in Clojure</h2>
-        
-        
-        
-    </a>
-
-    <p class="post-meta">
-        <span class="post-meta">
-  
-  
-  <i class="fas fa-calendar"></i>&nbsp;Posted on 2021-07-22
-  
-    &nbsp;(Last modified on 2021-09-19)
-  
-  
-    &nbsp;|&nbsp;<i class="fas fa-clock"></i>&nbsp;5&nbsp;minutes
-  
-  
-    &nbsp;|&nbsp;<i class="fas fa-book"></i>&nbsp;866&nbsp;words
-  
-  
-  
-</span>
-
-
-    </p>
-    <div class="post-entry">
-        
-        Python string APIs are powerful and concise, that is an important reason I use it to do a lot of scripting these days, join, split, strip, to name a few.
- Since I am learning Clojure recently, I am wondering, how is string manipulation like in Clojure and how to implement equivalent ones?
- I think it&#39;s an excellent opportunity to get familiar with Clojure. Before diving into the implementation, how to declare a multi-line string?
-        <a href="https://whatacold.io/blog/2021-07-22-clojure-string-manipulation/" class="post-read-more">[Read More]</a>
-        
-    </div>
-
-    
-    <div class="blog-tags">
-        
-        <a href="https://whatacold.io/tags/clojure/">Clojure</a>&nbsp;
-        
-        <a href="https://whatacold.io/tags/python/">Python</a>&nbsp;
-        
-    </div>
-    
-
-</article>
-          
-            <article class="post-preview">
-    <a href="https://whatacold.io/blog/2021-07-17-emacs-i3wm-dunst/">
-        <h2 class="post-title">Send Notifications from Emacs with i3wm and Dunst</h2>
-        
-        
-        
-    </a>
-
-    <p class="post-meta">
-        <span class="post-meta">
-  
-  
-  <i class="fas fa-calendar"></i>&nbsp;Posted on 2021-07-17
-  
-  
-    &nbsp;|&nbsp;<i class="fas fa-clock"></i>&nbsp;4&nbsp;minutes
-  
-  
-    &nbsp;|&nbsp;<i class="fas fa-book"></i>&nbsp;774&nbsp;words
-  
-  
-  
-</span>
-
-
-    </p>
-    <div class="post-entry">
-        
-        I barely use notifications, but recently I think it&#39;s a valuable way to remind me things like helping me nurture habits, or to notify me of emergencies like a critically low laptop battery.
- So I try to integrate notifications to org-mode and Emacs today.
- I knew the built-in org-notify could do this job easily before, so I first test it in the minibuffer with (org-notify &#34;test&#34;).
- Unfortunately, it errors out:
-        <a href="https://whatacold.io/blog/2021-07-17-emacs-i3wm-dunst/" class="post-read-more">[Read More]</a>
-        
-    </div>
-
-    
-    <div class="blog-tags">
-        
-        <a href="https://whatacold.io/tags/emacs/">Emacs</a>&nbsp;
-        
-        <a href="https://whatacold.io/tags/i3wm/">i3wm</a>&nbsp;
-        
-        <a href="https://whatacold.io/tags/tiling-wm/">tiling-wm</a>&nbsp;
-        
-        <a href="https://whatacold.io/tags/extensible-dotfiles/">extensible-dotfiles</a>&nbsp;
         
     </div>
     
