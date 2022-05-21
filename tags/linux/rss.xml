@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Linux on whatacold&#39;s space</title>
+    <link>https://whatacold.io/tags/linux/</link>
+    <description>Recent content in Linux on whatacold&#39;s space</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <managingEditor>whatacold@gmail.com (whatacold)</managingEditor>
+    <webMaster>whatacold@gmail.com (whatacold)</webMaster>
+    <lastBuildDate>Sat, 21 May 2022 11:50:25 +0800</lastBuildDate><atom:link href="https://whatacold.io/tags/linux/rss.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Adjust the laptop&#39;s screen brightness from Emacs</title>
+      <link>https://whatacold.io/blog/2022-05-21-adjust-screen-brightness-emacs/</link>
+      <pubDate>Sat, 21 May 2022 11:50:25 +0800</pubDate>
+      <author>whatacold@gmail.com (whatacold)</author>
+      <guid>https://whatacold.io/blog/2022-05-21-adjust-screen-brightness-emacs/</guid>
+      <description>Adjust the screen brightness from Emacs    If you&amp;#39;re using i3wm on Linux, how do you adjust the laptop&amp;#39;s screen brightness?
+ Most of the time, I use the laptop with an external monitor. But when I am out, I have no monitors. And it seems no easy way to adjust the brightness in i3wm. Being too bright or dim is terrible for the eyes.
+ Recently, I found a command-line tool called brightnessctl, which can adjust the brightness in a terminal.</description>
+    </item>
+    
+  </channel>
+</rss>

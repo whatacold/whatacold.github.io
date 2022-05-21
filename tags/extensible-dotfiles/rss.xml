@@ -16,8 +16,7 @@
       <guid>https://whatacold.io/blog/2021-07-17-emacs-i3wm-dunst/</guid>
       <description>I barely use notifications, but recently I think it&amp;#39;s a valuable way to remind me things like helping me nurture habits, or to notify me of emergencies like a critically low laptop battery.
  So I try to integrate notifications to org-mode and Emacs today.
- I knew the built-in org-notify could do this job easily before, so I first test it in the minibuffer with (org-notify &amp;#34;test&amp;#34;).
- Unfortunately, it errors out:</description>
+ The org-notify package from org-contrib (install it by (package-install &amp;#39;org-contrib) ) could do this job easily before, so I first test it in the minibuffer with (org-notify &amp;#34;test&amp;#34;).</description>
     </item>
     
   </channel>

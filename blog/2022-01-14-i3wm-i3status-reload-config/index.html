@@ -66,7 +66,7 @@
   "headline": "How to Reload i3status config On the Fly",
   "description" : "Sometimes I want to change the status (i3status) of i3wm temporarily, but it seems that i3wm doesn\u0026#39;t support it directly, although reloading the config for i3wm itself is a piece of cake (bindsym $mod\u002bShift\u002bc reload in the config, or i3-msg -t command reload in the command line).\n But this issue scratched my itch, and I swear that I must solve it today.\n Following this Reddit post, it looks like it can be done by restarting the process of i3bar:",
   "inLanguage" : "en",
-  "wordCount":  293 ,
+  "wordCount":  332 ,
   "datePublished" : "2022-01-14T22:36:13",
   "dateModified" : "2022-01-14T22:36:13",
   "image" : "https:\/\/whatacold.io\/img\/avatar.png",
@@ -312,7 +312,7 @@ The fundamental is to restart the <code class="verbatim">i3bar</code> process:</
 <span class="o">}</span></code></pre></div>
 </div>
 <p>
-And, here is the whole script:</p>
+And, here is the whole script, say, <code class="verbatim">~/bin/i3status_reload.sh</code> :</p>
 <div class="src src-shell">
 <div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell"><span class="cp">#!/bin/sh
 </span><span class="cp"></span>
@@ -338,6 +338,10 @@ And, here is the whole script:</p>
 
 i3status_reload</code></pre></div>
 </div>
+<p>
+When I want to execute it, I just run the command from a shell. Or, if
+you like, you can also bind it to a key in i3wm, for example, <code>bindsym
+$mod+s exec --no-startup-id sh ~/bin/i3status_reload.sh</code></p>
 <p>
 Reference:</p>
 <ul>

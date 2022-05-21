@@ -12,8 +12,10 @@
 
   
 
-  <title>A Trick to Troubleshoot Emacs Subprocess Creating - whatacold&#39;s space</title>
-  <meta name="description" content="A fews Elisp functions to help you find what&#39;s exactly going on under the hood of Emacs packages that forks subprocesses internally...">
+  <title>Adjust the laptop&#39;s screen brightness from Emacs - whatacold&#39;s space</title>
+  <meta name="description" content="Adjust the screen brightness from Emacs    If you&#39;re using i3wm on Linux, how do you adjust the laptop&#39;s screen brightness?
+ Most of the time, I use the laptop with an external monitor. But when I am out, I have no monitors. And it seems no easy way to adjust the brightness in i3wm. Being too bright or dim is terrible for the eyes.
+ Recently, I found a command-line tool called brightnessctl, which can adjust the brightness in a terminal.">
   <meta name="author" content="whatacold"/><script type="application/ld+json">
 {
     "@context": "http://schema.org",
@@ -49,8 +51,8 @@
         "@type": "ListItem",
         "position": 3,
         "item": {
-          "@id": "https:\/\/whatacold.io\/blog\/2020-05-30-a-trick-to-troubleshoot-emacs-subprocess-creating\/",
-          "name": "A trick to troubleshoot emacs subprocess creating"
+          "@id": "https:\/\/whatacold.io\/blog\/2022-05-21-adjust-screen-brightness-emacs\/",
+          "name": "Adjust the laptop\u0027s screen brightness from emacs"
         }
     }]
 }
@@ -61,15 +63,15 @@
   "author": {
     "name" : "whatacold"
   },
-  "headline": "A Trick to Troubleshoot Emacs Subprocess Creating",
-  "description" : "A fews Elisp functions to help you find what\u0027s exactly going on under the hood of Emacs packages that forks subprocesses internally...",
+  "headline": "Adjust the laptop\u0027s screen brightness from Emacs",
+  "description" : "Adjust the screen brightness from Emacs    If you\u0026#39;re using i3wm on Linux, how do you adjust the laptop\u0026#39;s screen brightness?\n Most of the time, I use the laptop with an external monitor. But when I am out, I have no monitors. And it seems no easy way to adjust the brightness in i3wm. Being too bright or dim is terrible for the eyes.\n Recently, I found a command-line tool called brightnessctl, which can adjust the brightness in a terminal.",
   "inLanguage" : "en",
-  "wordCount":  290 ,
-  "datePublished" : "2020-05-30T11:52:00",
-  "dateModified" : "2020-05-30T11:52:00",
+  "wordCount":  453 ,
+  "datePublished" : "2022-05-21T11:50:25",
+  "dateModified" : "2022-05-21T11:50:25",
   "image" : "https:\/\/whatacold.io\/img\/avatar.png",
-  "keywords" : [ "Emacs, troubleshooting" ],
-  "mainEntityOfPage" : "https:\/\/whatacold.io\/blog\/2020-05-30-a-trick-to-troubleshoot-emacs-subprocess-creating\/",
+  "keywords" : [ "Emacs, Linux, tiling-wm" ],
+  "mainEntityOfPage" : "https:\/\/whatacold.io\/blog\/2022-05-21-adjust-screen-brightness-emacs\/",
   "publisher" : {
     "@type": "Organization",
     "name" : "https:\/\/whatacold.io",
@@ -83,15 +85,18 @@
 }
 </script>
 
-<meta property="og:title" content="A Trick to Troubleshoot Emacs Subprocess Creating" />
-<meta property="og:description" content="A fews Elisp functions to help you find what&#39;s exactly going on under the hood of Emacs packages that forks subprocesses internally...">
+<meta property="og:title" content="Adjust the laptop&#39;s screen brightness from Emacs" />
+<meta property="og:description" content="Adjust the screen brightness from Emacs    If you&#39;re using i3wm on Linux, how do you adjust the laptop&#39;s screen brightness?
+ Most of the time, I use the laptop with an external monitor. But when I am out, I have no monitors. And it seems no easy way to adjust the brightness in i3wm. Being too bright or dim is terrible for the eyes.
+ Recently, I found a command-line tool called brightnessctl, which can adjust the brightness in a terminal.">
 <meta property="og:image" content="https://whatacold.io/img/avatar.png" />
-<meta property="og:url" content="https://whatacold.io/blog/2020-05-30-a-trick-to-troubleshoot-emacs-subprocess-creating/" />
+<meta property="og:url" content="https://whatacold.io/blog/2022-05-21-adjust-screen-brightness-emacs/" />
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="whatacold&#39;s space" />
 
-  <meta name="twitter:title" content="A Trick to Troubleshoot Emacs Subprocess Creating" />
-  <meta name="twitter:description" content="A fews Elisp functions to help you find what&#39;s exactly going on under the hood of Emacs packages that forks subprocesses internally...">
+  <meta name="twitter:title" content="Adjust the laptop&#39;s screen brightness from Emacs" />
+  <meta name="twitter:description" content="Adjust the screen brightness from Emacs    If you&#39;re using i3wm on Linux, how do you adjust the laptop&#39;s screen brightness?
+ Most of the time, I use the laptop with an external monitor. But …">
   <meta name="twitter:image" content="https://whatacold.io/img/avatar.png" />
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:site" content="@whatacold" />
@@ -255,7 +260,7 @@ if (!doNotTrack) {
           <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
             <div class="blog-heading">
               
-                <h1>A Trick to Troubleshoot Emacs Subprocess Creating</h1>
+                <h1>Adjust the laptop&#39;s screen brightness from Emacs</h1>
               
               
                 <hr class="small">
@@ -275,48 +280,99 @@ if (!doNotTrack) {
   <div class="row">
     <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
       <article role="main" class="blog-post">
-        <p>
-There are many packages of Emacs that leverage subprocesses to do their jobs, <a href="https://magit.vc/">Magit</a>, <a href="https://github.com/joaotavora/eglot">eglot</a>, <a href="https://github.com/jorgenschaefer/elpy">elpy</a>, to name a few. And there are times that a subprocess doesn&#39;t work as expected, for example, Magit is slow, and you&#39;re sure that it&#39;s ok when running git commands on shell. So how to spot these problems effectively and quickly?</p>
+        <figure>
+<img src="/img/2022-05-21-adjust-screen-brightness-emacs.png" alt="/img/2022-05-21-adjust-screen-brightness-emacs.png" title="/img/2022-05-21-adjust-screen-brightness-emacs.png" /><figcaption>
+Adjust the screen brightness from Emacs
+</figcaption>
+</figure>
 <p>
-The problem is that we don&#39;t know what&#39;s going on exactly, so here I want to share a few Elisp advices to make the subprocess creating visible, and print the exact program and its arguments to the <code class="verbatim">*Message*</code> buffer. Visibility is the key.</p>
+If you&#39;re using i3wm on Linux, how do you adjust the laptop&#39;s screen
+brightness?</p>
+<p>
+Most of the time, I use the laptop with an external monitor. But when
+I am out, I have no monitors. And it seems no easy way to adjust the
+brightness in i3wm. Being too bright or dim is terrible for the eyes.</p>
+<p>
+Recently, I found a command-line tool called <code class="verbatim">brightnessctl</code>, which
+can adjust the brightness in a terminal. Its primary usage would be:</p>
+<ul>
+<li>
+<p><code>brightnessctl set +10%</code> to increase the brightness by 10%</p>
+</li>
+<li>
+<p><code>brightnessctl set 10%-</code> to decrease it by 10%</p>
+</li>
+</ul>
+<p>It works, but I want to make it easier to control it. It would be nice
+if I could do it from Emacs. Then I thought of the <code class="verbatim">text-scale-adjust</code>
+command in Emacs, the user experience is what I am looking for.</p>
+<p>
+By imitating the command, I came up with a command
+<code class="verbatim">w/adjust-screen-brightness</code>. Here is how to use it:</p>
+<ol>
+<li>
+<p><code>M-x w/adjust-screen-brightness</code> to invoke the command.</p>
+<p>
+By default, the delta percentage is 10%. If you want to change it,
+prefix the command with an argument. For example, <code>C-u 2 M-x
+w/adjust-screen-brightness</code> to make it 20%.</p>
+</li>
+<li>
+<p>Hit <code class="verbatim">+</code> or <code>=</code> to increase the brightness by 10% continually, or
+hit <code class="verbatim">-</code> to decrease it by 10%</p>
+</li>
+<li>
+<p>Hit any other keys to end the command when you&#39;re satisfied with
+the result.</p>
+</li>
+</ol>
+<p>Here is the complete code:</p>
 <div class="src src-elisp">
-<div class="highlight"><pre class="chroma"><code class="language-elisp" data-lang="elisp"><span class="p">(</span><span class="nb">defvar</span> <span class="nv">trace-subprocess-p</span> <span class="no">nil</span>
-  <span class="s">&#34;Whether to trace subprocess creating or not.&#34;</span><span class="p">)</span>
+<div class="highlight"><pre class="chroma"><code class="language-elisp" data-lang="elisp">  <span class="p">(</span><span class="nb">defun</span> <span class="nv">w/adjust-screen-brightness</span> <span class="p">(</span><span class="nv">inc</span><span class="p">)</span>
+    <span class="s">&#34;Adjust the screen brightness by INC*10%.
+</span><span class="s">
+</span><span class="s">  INC may be passed as a numeric prefix argument.
+</span><span class="s">
+</span><span class="s">  The actual adjustment made depends on the final component of the
+</span><span class="s">  key-binding used to invoke the command, with all modifiers removed:
+</span><span class="s">
+</span><span class="s">     +, =   Increase the height of the default face by one step
+</span><span class="s">     -      Decrease the height of the default face by one step
+</span><span class="s">
+</span><span class="s">  After adjusting, continue to read input events and further adjust
+</span><span class="s">  the screen brightness as long as the input event read
+</span><span class="s">  \(with all modifiers removed) is one of the above characters.
+</span><span class="s">  &#34;</span>
+    <span class="p">(</span><span class="nb">interactive</span> <span class="s">&#34;p&#34;</span><span class="p">)</span>
+    <span class="p">(</span><span class="nb">let</span> <span class="p">((</span><span class="nv">ev</span> <span class="nv">last-command-event</span><span class="p">)</span>
+          <span class="p">(</span><span class="nv">echo-keystrokes</span> <span class="no">nil</span><span class="p">))</span>
+      <span class="p">(</span><span class="nb">let*</span> <span class="p">((</span><span class="nv">base</span> <span class="p">(</span><span class="nv">event-basic-type</span> <span class="nv">ev</span><span class="p">))</span>
+             <span class="p">(</span><span class="nv">step</span> <span class="p">(</span><span class="nf">*</span> <span class="nv">inc</span> <span class="mi">10</span><span class="p">))</span>
+             <span class="p">(</span><span class="nv">cmd</span> <span class="p">(</span><span class="nf">format</span> <span class="s">&#34;brightnessctl set %s%d%%%s&#34;</span> <span class="c1">; +10% or 10%-</span>
+                          <span class="p">(</span><span class="nb">if</span> <span class="p">(</span><span class="nb">or</span> <span class="p">(</span><span class="nf">=</span> <span class="sc">?+</span> <span class="nv">base</span><span class="p">)</span>
+                                  <span class="p">(</span><span class="nf">=</span> <span class="sc">?=</span> <span class="nv">base</span><span class="p">))</span>
+                              <span class="s">&#34;+&#34;</span>
+                            <span class="s">&#34;&#34;</span><span class="p">)</span>
+                          <span class="nv">step</span>
+                          <span class="p">(</span><span class="nb">if</span> <span class="p">(</span><span class="nf">=</span> <span class="sc">?-</span> <span class="nv">base</span><span class="p">)</span> <span class="s">&#34;-&#34;</span> <span class="s">&#34;&#34;</span><span class="p">))))</span>
+        <span class="p">(</span><span class="nv">shell-command</span> <span class="nv">cmd</span><span class="p">)</span>
 
-<span class="p">(</span><span class="nb">defun</span> <span class="nv">my-toggle-trace-subprocess</span> <span class="p">()</span>
-  <span class="s">&#34;Toggle whether to trace subprocess creating.&#34;</span>
-  <span class="p">(</span><span class="nb">interactive</span><span class="p">)</span>
-  <span class="p">(</span><span class="nb">setq</span> <span class="nv">trace-subprocess-p</span> <span class="p">(</span><span class="nv">not</span> <span class="nv">trace-subprocess-p</span><span class="p">))</span>
-  <span class="p">(</span><span class="nb">when</span> <span class="nv">trace-subprocess-p</span>
-    <span class="p">(</span><span class="nf">message</span> <span class="s">&#34;Trace subprocess creating.&#34;</span><span class="p">)))</span>
-
-<span class="p">(</span><span class="nb">defun</span> <span class="nv">my-quote-argument</span> <span class="p">(</span><span class="nv">arg</span><span class="p">)</span>
-  <span class="s">&#34;Double quote ARG.&#34;</span>
-  <span class="p">(</span><span class="nf">concat</span> <span class="s">&#34;\&#34;&#34;</span> <span class="nv">arg</span> <span class="s">&#34;\&#34;&#34;</span><span class="p">))</span>
-
-<span class="p">(</span><span class="nb">define-advice</span> <span class="nf">start-process</span> <span class="p">(</span><span class="nb">:before</span> <span class="p">(</span><span class="nv">name</span> <span class="nv">buffer</span> <span class="nv">program</span> <span class="kp">&amp;rest</span> <span class="nv">program-args</span><span class="p">)</span> <span class="nv">trace</span><span class="p">)</span>
-  <span class="p">(</span><span class="nb">when</span> <span class="nv">trace-subprocess-p</span>
-    <span class="p">(</span><span class="nf">message</span> <span class="s">&#34;Trace start-process: name: %s, buffer: %s, program and args: %s %s&#34;</span>
-             <span class="nv">name</span> <span class="nv">buffer</span> <span class="nv">program</span>
-             <span class="p">(</span><span class="nf">mapconcat</span> <span class="nf">#&#39;</span><span class="nv">my-quote-argument</span> <span class="nv">program-args</span> <span class="s">&#34; &#34;</span><span class="p">))))</span>
-
-<span class="p">(</span><span class="nb">define-advice</span> <span class="nv">shell-command-to-string</span> <span class="p">(</span><span class="nb">:before</span> <span class="p">(</span><span class="nv">command</span><span class="p">)</span> <span class="nv">trace</span><span class="p">)</span>
-  <span class="p">(</span><span class="nb">when</span> <span class="nv">trace-subprocess-p</span>
-    <span class="p">(</span><span class="nf">message</span> <span class="s">&#34;Trace shell-command-to-string: %s&#34;</span> <span class="nv">command</span><span class="p">)))</span>
-
-<span class="p">(</span><span class="nb">define-advice</span> <span class="nf">call-process</span> <span class="p">(</span><span class="nb">:before</span> <span class="p">(</span><span class="nv">program</span> <span class="kp">&amp;optional</span> <span class="nv">infile</span> <span class="nv">destination</span> <span class="nv">display</span> <span class="kp">&amp;rest</span> <span class="nv">args</span><span class="p">)</span> <span class="nv">trace</span><span class="p">)</span>
-  <span class="p">(</span><span class="nb">when</span> <span class="nv">trace-subprocess-p</span>
-    <span class="p">(</span><span class="nf">message</span> <span class="s">&#34;Trace call-process: %s %s&#34;</span>
-             <span class="nv">program</span>
-             <span class="p">(</span><span class="nf">mapconcat</span> <span class="nf">#&#39;</span><span class="nv">my-quote-argument</span> <span class="nv">args</span> <span class="s">&#34; &#34;</span><span class="p">))))</span></code></pre></div>
+        <span class="p">(</span><span class="nf">message</span> <span class="s">&#34;Use +,- for further adjustment by %d%%&#34;</span> <span class="nv">step</span><span class="p">)</span>
+        <span class="p">(</span><span class="nv">set-transient-map</span>
+         <span class="p">(</span><span class="nb">let</span> <span class="p">((</span><span class="nv">map</span> <span class="p">(</span><span class="nf">make-sparse-keymap</span><span class="p">)))</span>
+           <span class="p">(</span><span class="nb">dolist</span> <span class="p">(</span><span class="nv">mods</span> <span class="o">&#39;</span><span class="p">(()</span> <span class="p">(</span><span class="nv">control</span><span class="p">)))</span>
+             <span class="p">(</span><span class="nb">dolist</span> <span class="p">(</span><span class="nv">key</span> <span class="o">&#39;</span><span class="p">(</span><span class="sc">?-</span> <span class="sc">?+</span> <span class="sc">?=</span><span class="p">))</span> <span class="c1">;; = is often unshifted +.</span>
+               <span class="p">(</span><span class="nf">define-key</span> <span class="nv">map</span> <span class="p">(</span><span class="nf">vector</span> <span class="p">(</span><span class="nf">append</span> <span class="nv">mods</span> <span class="p">(</span><span class="nf">list</span> <span class="nv">key</span><span class="p">)))</span>
+                 <span class="p">(</span><span class="nb">lambda</span> <span class="p">()</span> <span class="p">(</span><span class="nb">interactive</span><span class="p">)</span>
+                   <span class="p">(</span><span class="nv">w/adjust-screen-brightness</span> <span class="p">(</span><span class="nf">abs</span> <span class="nv">inc</span><span class="p">))))))</span>
+           <span class="nv">map</span><span class="p">)))))</span></code></pre></div>
 </div>
 <p>
-Add these to your <code class="verbatim">.emacs.d</code> and type <code class="verbatim">M-x my-toggle-trace-subprocess RET</code> when you want to see what is going on under the neath. The following is how it looks like when I run <code class="verbatim">M-x elpy-mode</code> on a Python buffer:</p>
-<div class="src src-text">
-<div class="highlight"><pre class="chroma"><code class="language-text" data-lang="text">Trace start-process: name:  *elpy-rpc [project:~/python/qtile/ environment:/home/whatacold/virtualenv/elpy]*, buffer:  *elpy-rpc [project:~/python/qtile/ environment:/home/whatacold/virtualenv/elpy]*, program and args: /home/whatacold/.emacs.d/elpy/rpc-venv/bin/python &#34;-W&#34; &#34;ignore&#34; &#34;-m&#34; &#34;elpy.__main__&#34;</code></pre></div>
-</div>
-<p>
-With the help of these advice, I successfully resolved a performance issue of Magit with a particular repo the other day, which was caused by <a href="https://github.com/emacsorphanage/magit-svn">magit-svn</a> hooks.</p>
+The interesting API here for increasing/decreasing the brightness
+continually is <code class="verbatim">set-transient-map</code>.  It will allow us to set a
+temporary keymap taking precedence over other keymaps so that I can
+intercept <code class="verbatim">+</code>, <code>=</code>, and <code class="verbatim">-</code> keys here to invoke the command again and
+again.</p>
 
 
         
@@ -324,7 +380,9 @@ With the help of these advice, I successfully resolved a performance issue of Ma
             
               <a href="https://whatacold.io/tags/emacs/">Emacs</a>&nbsp;
             
-              <a href="https://whatacold.io/tags/troubleshooting/">troubleshooting</a>&nbsp;
+              <a href="https://whatacold.io/tags/linux/">Linux</a>&nbsp;
+            
+              <a href="https://whatacold.io/tags/tiling-wm/">tiling-wm</a>&nbsp;
             
           </div>
         
@@ -339,42 +397,42 @@ With the help of these advice, I successfully resolved a performance issue of Ma
     <ul class="share">
       
       <li>
-        <a href="//twitter.com/share?url=https%3a%2f%2fwhatacold.io%2fblog%2f2020-05-30-a-trick-to-troubleshoot-emacs-subprocess-creating%2f&amp;text=A%20Trick%20to%20Troubleshoot%20Emacs%20Subprocess%20Creating&amp;via=whatacold" target="_blank" title="Share on Twitter">
+        <a href="//twitter.com/share?url=https%3a%2f%2fwhatacold.io%2fblog%2f2022-05-21-adjust-screen-brightness-emacs%2f&amp;text=Adjust%20the%20laptop%27s%20screen%20brightness%20from%20Emacs&amp;via=whatacold" target="_blank" title="Share on Twitter">
           <i class="fab fa-twitter"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fwhatacold.io%2fblog%2f2020-05-30-a-trick-to-troubleshoot-emacs-subprocess-creating%2f" target="_blank" title="Share on Facebook">
+        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fwhatacold.io%2fblog%2f2022-05-21-adjust-screen-brightness-emacs%2f" target="_blank" title="Share on Facebook">
           <i class="fab fa-facebook"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//reddit.com/submit?url=https%3a%2f%2fwhatacold.io%2fblog%2f2020-05-30-a-trick-to-troubleshoot-emacs-subprocess-creating%2f&amp;title=A%20Trick%20to%20Troubleshoot%20Emacs%20Subprocess%20Creating" target="_blank" title="Share on Reddit">
+        <a href="//reddit.com/submit?url=https%3a%2f%2fwhatacold.io%2fblog%2f2022-05-21-adjust-screen-brightness-emacs%2f&amp;title=Adjust%20the%20laptop%27s%20screen%20brightness%20from%20Emacs" target="_blank" title="Share on Reddit">
           <i class="fab fa-reddit"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fwhatacold.io%2fblog%2f2020-05-30-a-trick-to-troubleshoot-emacs-subprocess-creating%2f&amp;title=A%20Trick%20to%20Troubleshoot%20Emacs%20Subprocess%20Creating" target="_blank" title="Share on LinkedIn">
+        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fwhatacold.io%2fblog%2f2022-05-21-adjust-screen-brightness-emacs%2f&amp;title=Adjust%20the%20laptop%27s%20screen%20brightness%20from%20Emacs" target="_blank" title="Share on LinkedIn">
           <i class="fab fa-linkedin"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fwhatacold.io%2fblog%2f2020-05-30-a-trick-to-troubleshoot-emacs-subprocess-creating%2f&amp;title=A%20Trick%20to%20Troubleshoot%20Emacs%20Subprocess%20Creating" target="_blank" title="Share on StumbleUpon">
+        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fwhatacold.io%2fblog%2f2022-05-21-adjust-screen-brightness-emacs%2f&amp;title=Adjust%20the%20laptop%27s%20screen%20brightness%20from%20Emacs" target="_blank" title="Share on StumbleUpon">
           <i class="fab fa-stumbleupon"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fwhatacold.io%2fblog%2f2020-05-30-a-trick-to-troubleshoot-emacs-subprocess-creating%2f&amp;description=A%20Trick%20to%20Troubleshoot%20Emacs%20Subprocess%20Creating" target="_blank" title="Share on Pinterest">
+        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fwhatacold.io%2fblog%2f2022-05-21-adjust-screen-brightness-emacs%2f&amp;description=Adjust%20the%20laptop%27s%20screen%20brightness%20from%20Emacs" target="_blank" title="Share on Pinterest">
           <i class="fab fa-pinterest"></i>
         </a>
       </li>
@@ -396,8 +454,6 @@ With the help of these advice, I successfully resolved a performance issue of Ma
                   <ul>
                 
                 
-                    <li><a href="/blog/2022-05-21-adjust-screen-brightness-emacs/">Adjust the laptop&#39;s screen brightness from Emacs</a></li>
-                
                     <li><a href="/blog/2022-04-09-emacs-kill-other-buffer/">How to kill other buffers in Emacs</a></li>
                 
                     <li><a href="/blog/2022-01-22-emacs-eglot-lsp/">Eglot for better programming experience in Emacs</a></li>
@@ -405,6 +461,8 @@ With the help of these advice, I successfully resolved a performance issue of Ma
                     <li><a href="/blog/2022-01-12-language-shadowing-with-subed-emacs/">Language Shadowing with subed in Emacs</a></li>
                 
                     <li><a href="/blog/2021-12-11-writing-python-in-emacs/">Writing a Python Script in Emacs in 45 Minutes!</a></li>
+                
+                    <li><a href="/blog/2021-07-17-emacs-i3wm-dunst/">Send Notifications from Emacs with i3wm and Dunst</a></li>
                 
               </ul>
 
@@ -416,13 +474,9 @@ With the help of these advice, I successfully resolved a performance issue of Ma
         <ul class="pager blog-pager">
           
             <li class="previous">
-              <a href="https://whatacold.io/blog/2020-03-07-ppcompile-to-help-stay-coding-locally/" data-toggle="tooltip" data-placement="top" title="ppcompile: An Emacs Package to Help Coding Locally">&larr; Previous Post</a>
+              <a href="https://whatacold.io/blog/2022-04-09-emacs-kill-other-buffer/" data-toggle="tooltip" data-placement="top" title="How to kill other buffers in Emacs">&larr; Previous Post</a>
             </li>
           
-          
-            <li class="next">
-              <a href="https://whatacold.io/blog/2020-06-25-is-it-safe-to-use-redis-as-a-data-store/" data-toggle="tooltip" data-placement="top" title="Is It Safe to Use Redis As a Data Store?">Next Post &rarr;</a>
-            </li>
           
         </ul>
       
