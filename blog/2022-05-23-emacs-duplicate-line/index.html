@@ -12,10 +12,10 @@
 
   
 
-  <title>Adjust the laptop&#39;s screen brightness from Emacs - whatacold&#39;s space</title>
-  <meta name="description" content="Adjust the screen brightness from Emacs    If you&#39;re using i3wm on Linux, how do you adjust the laptop&#39;s screen brightness?
- Most of the time, I use the laptop with an external monitor. But when I am out, I have no monitors. And it seems no easy way to adjust the brightness in i3wm. Being too bright or dim is terrible for the eyes.
- Recently, I found a command-line tool called brightnessctl, which can adjust the brightness in a terminal.">
+  <title>Duplicate the current line in Emacs - whatacold&#39;s space</title>
+  <meta name="description" content="Duplicate the current in Emacs    Duplicating the current line is frequent editing for me when I am coding. Initially, I copied a snippet as a commend in Emacs from the Internet:
+(defun w/duplicate-line() &#34;Duplicate the current line.&#34; (interactive) (move-beginning-of-line 1) (kill-line) (yank) (open-line 1) (next-line 1) (yank))   Most of the time, I was happy with it, but it has two drawbacks:
+  It cannot keep the column position when moving to the next line">
   <meta name="author" content="whatacold"/><script type="application/ld+json">
 {
     "@context": "http://schema.org",
@@ -51,8 +51,8 @@
         "@type": "ListItem",
         "position": 3,
         "item": {
-          "@id": "https:\/\/whatacold.io\/blog\/2022-05-21-adjust-screen-brightness-emacs\/",
-          "name": "Adjust the laptop\u0027s screen brightness from emacs"
+          "@id": "https:\/\/whatacold.io\/blog\/2022-05-23-emacs-duplicate-line\/",
+          "name": "Duplicate the current line in emacs"
         }
     }]
 }
@@ -63,15 +63,15 @@
   "author": {
     "name" : "whatacold"
   },
-  "headline": "Adjust the laptop\u0027s screen brightness from Emacs",
-  "description" : "Adjust the screen brightness from Emacs    If you\u0026#39;re using i3wm on Linux, how do you adjust the laptop\u0026#39;s screen brightness?\n Most of the time, I use the laptop with an external monitor. But when I am out, I have no monitors. And it seems no easy way to adjust the brightness in i3wm. Being too bright or dim is terrible for the eyes.\n Recently, I found a command-line tool called brightnessctl, which can adjust the brightness in a terminal.",
+  "headline": "Duplicate the current line in Emacs",
+  "description" : "Duplicate the current in Emacs    Duplicating the current line is frequent editing for me when I am coding. Initially, I copied a snippet as a commend in Emacs from the Internet:\n(defun w\/duplicate-line() \u0026#34;Duplicate the current line.\u0026#34; (interactive) (move-beginning-of-line 1) (kill-line) (yank) (open-line 1) (next-line 1) (yank))   Most of the time, I was happy with it, but it has two drawbacks:\n  It cannot keep the column position when moving to the next line",
   "inLanguage" : "en",
-  "wordCount":  453 ,
-  "datePublished" : "2022-05-21T11:50:25",
-  "dateModified" : "2022-05-21T11:50:25",
+  "wordCount":  170 ,
+  "datePublished" : "2022-05-23T21:29:28",
+  "dateModified" : "2022-05-23T21:29:28",
   "image" : "https:\/\/whatacold.io\/img\/avatar.png",
-  "keywords" : [ "Emacs, Linux, tiling-wm" ],
-  "mainEntityOfPage" : "https:\/\/whatacold.io\/blog\/2022-05-21-adjust-screen-brightness-emacs\/",
+  "keywords" : [ "Emacs" ],
+  "mainEntityOfPage" : "https:\/\/whatacold.io\/blog\/2022-05-23-emacs-duplicate-line\/",
   "publisher" : {
     "@type": "Organization",
     "name" : "https:\/\/whatacold.io",
@@ -85,18 +85,18 @@
 }
 </script>
 
-<meta property="og:title" content="Adjust the laptop&#39;s screen brightness from Emacs" />
-<meta property="og:description" content="Adjust the screen brightness from Emacs    If you&#39;re using i3wm on Linux, how do you adjust the laptop&#39;s screen brightness?
- Most of the time, I use the laptop with an external monitor. But when I am out, I have no monitors. And it seems no easy way to adjust the brightness in i3wm. Being too bright or dim is terrible for the eyes.
- Recently, I found a command-line tool called brightnessctl, which can adjust the brightness in a terminal.">
+<meta property="og:title" content="Duplicate the current line in Emacs" />
+<meta property="og:description" content="Duplicate the current in Emacs    Duplicating the current line is frequent editing for me when I am coding. Initially, I copied a snippet as a commend in Emacs from the Internet:
+(defun w/duplicate-line() &#34;Duplicate the current line.&#34; (interactive) (move-beginning-of-line 1) (kill-line) (yank) (open-line 1) (next-line 1) (yank))   Most of the time, I was happy with it, but it has two drawbacks:
+  It cannot keep the column position when moving to the next line">
 <meta property="og:image" content="https://whatacold.io/img/avatar.png" />
-<meta property="og:url" content="https://whatacold.io/blog/2022-05-21-adjust-screen-brightness-emacs/" />
+<meta property="og:url" content="https://whatacold.io/blog/2022-05-23-emacs-duplicate-line/" />
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="whatacold&#39;s space" />
 
-  <meta name="twitter:title" content="Adjust the laptop&#39;s screen brightness from Emacs" />
-  <meta name="twitter:description" content="Adjust the screen brightness from Emacs    If you&#39;re using i3wm on Linux, how do you adjust the laptop&#39;s screen brightness?
- Most of the time, I use the laptop with an external monitor. But …">
+  <meta name="twitter:title" content="Duplicate the current line in Emacs" />
+  <meta name="twitter:description" content="Duplicate the current in Emacs    Duplicating the current line is frequent editing for me when I am coding. Initially, I copied a snippet as a commend in Emacs from the Internet:
+(defun …">
   <meta name="twitter:image" content="https://whatacold.io/img/avatar.png" />
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:site" content="@whatacold" />
@@ -260,7 +260,7 @@ if (!doNotTrack) {
           <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
             <div class="blog-heading">
               
-                <h1>Adjust the laptop&#39;s screen brightness from Emacs</h1>
+                <h1>Duplicate the current line in Emacs</h1>
               
               
                 <hr class="small">
@@ -281,108 +281,65 @@ if (!doNotTrack) {
     <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
       <article role="main" class="blog-post">
         <figure>
-<img src="/img/2022-05-21-adjust-screen-brightness-emacs.png" alt="/img/2022-05-21-adjust-screen-brightness-emacs.png" title="/img/2022-05-21-adjust-screen-brightness-emacs.png" /><figcaption>
-Adjust the screen brightness from Emacs
+<img src="/img/2022-05-23-emacs-duplicate-current-line.png" alt="/img/2022-05-23-emacs-duplicate-current-line.png" title="/img/2022-05-23-emacs-duplicate-current-line.png" /><figcaption>
+Duplicate the current in Emacs
 </figcaption>
 </figure>
 <p>
-If you&#39;re using i3wm on Linux, how do you adjust the laptop&#39;s screen
-brightness?</p>
-<p>
-Most of the time, I use the laptop with an external monitor. But when
-I am out, I have no monitors. And it seems no easy way to adjust the
-brightness in i3wm. Being too bright or dim is terrible for the eyes.</p>
-<p>
-Recently, I found a command-line tool called <code class="verbatim">brightnessctl</code>, which
-can adjust the brightness in a terminal. Its primary usage would be:</p>
-<ul>
-<li>
-<p><code>brightnessctl set +10%</code> to increase the brightness by 10%</p>
-</li>
-<li>
-<p><code>brightnessctl set 10%-</code> to decrease it by 10%</p>
-</li>
-</ul>
-<p>It works, but I want to make it easier to control it. It would be nice
-if I could do it from Emacs. Then I thought of the <code class="verbatim">text-scale-adjust</code>
-command in Emacs, the user experience is what I am looking for.</p>
-<p>
-By imitating the command, I came up with a command
-<code class="verbatim">w/adjust-screen-brightness</code>. Here is how to use it:</p>
-<ol>
-<li>
-<p><code>M-x w/adjust-screen-brightness</code> to invoke the command.</p>
-<p>
-By default, the delta percentage is 10%. If you want to change it,
-prefix the command with an argument. For example, <code>C-u 2 M-x
-w/adjust-screen-brightness</code> to make it 20%.</p>
-</li>
-<li>
-<p>Hit <code class="verbatim">+</code> or <code>=</code> to increase the brightness by 10% continually, or
-hit <code class="verbatim">-</code> to decrease it by 10%</p>
-</li>
-<li>
-<p>Hit any other keys to end the command when you&#39;re satisfied with
-the result.</p>
-</li>
-</ol>
-<p>Here is the complete code:</p>
+Duplicating the current line is frequent editing for me when I am
+coding. Initially, I copied a snippet as a commend in Emacs from the
+Internet:</p>
 <div class="src src-elisp">
-<div class="highlight"><pre class="chroma"><code class="language-elisp" data-lang="elisp">  <span class="p">(</span><span class="nb">defun</span> <span class="nv">w/adjust-screen-brightness</span> <span class="p">(</span><span class="nv">inc</span><span class="p">)</span>
-    <span class="s">&#34;Adjust the screen brightness by INC*10%.
-</span><span class="s">
-</span><span class="s">  INC may be passed as a numeric prefix argument.
-</span><span class="s">
-</span><span class="s">  The actual adjustment made depends on the final component of the
-</span><span class="s">  key-binding used to invoke the command, with all modifiers removed:
-</span><span class="s">
-</span><span class="s">     +, =   Increase the height of the default face by one step
-</span><span class="s">     -      Decrease the height of the default face by one step
-</span><span class="s">
-</span><span class="s">  After adjusting, continue to read input events and further adjust
-</span><span class="s">  the screen brightness as long as the input event read
-</span><span class="s">  \(with all modifiers removed) is one of the above characters.
-</span><span class="s">  &#34;</span>
-    <span class="p">(</span><span class="nb">interactive</span> <span class="s">&#34;p&#34;</span><span class="p">)</span>
-    <span class="p">(</span><span class="nb">let</span> <span class="p">((</span><span class="nv">ev</span> <span class="nv">last-command-event</span><span class="p">)</span>
-          <span class="p">(</span><span class="nv">echo-keystrokes</span> <span class="no">nil</span><span class="p">))</span>
-      <span class="p">(</span><span class="nb">let*</span> <span class="p">((</span><span class="nv">base</span> <span class="p">(</span><span class="nv">event-basic-type</span> <span class="nv">ev</span><span class="p">))</span>
-             <span class="p">(</span><span class="nv">step</span> <span class="p">(</span><span class="nf">*</span> <span class="nv">inc</span> <span class="mi">10</span><span class="p">))</span>
-             <span class="p">(</span><span class="nv">cmd</span> <span class="p">(</span><span class="nf">format</span> <span class="s">&#34;brightnessctl set %s%d%%%s&#34;</span> <span class="c1">; +10% or 10%-</span>
-                          <span class="p">(</span><span class="nb">if</span> <span class="p">(</span><span class="nb">or</span> <span class="p">(</span><span class="nf">=</span> <span class="sc">?+</span> <span class="nv">base</span><span class="p">)</span>
-                                  <span class="p">(</span><span class="nf">=</span> <span class="sc">?=</span> <span class="nv">base</span><span class="p">))</span>
-                              <span class="s">&#34;+&#34;</span>
-                            <span class="s">&#34;&#34;</span><span class="p">)</span>
-                          <span class="nv">step</span>
-                          <span class="p">(</span><span class="nb">if</span> <span class="p">(</span><span class="nf">=</span> <span class="sc">?-</span> <span class="nv">base</span><span class="p">)</span> <span class="s">&#34;-&#34;</span> <span class="s">&#34;&#34;</span><span class="p">))))</span>
-        <span class="p">(</span><span class="nv">shell-command</span> <span class="nv">cmd</span><span class="p">)</span>
-
-        <span class="p">(</span><span class="nf">message</span> <span class="s">&#34;Use +,- for further adjustment by %d%%&#34;</span> <span class="nv">step</span><span class="p">)</span>
-        <span class="p">(</span><span class="nv">set-transient-map</span>
-         <span class="p">(</span><span class="nb">let</span> <span class="p">((</span><span class="nv">map</span> <span class="p">(</span><span class="nf">make-sparse-keymap</span><span class="p">)))</span>
-           <span class="p">(</span><span class="nb">dolist</span> <span class="p">(</span><span class="nv">mods</span> <span class="o">&#39;</span><span class="p">(()</span> <span class="p">(</span><span class="nv">control</span><span class="p">)))</span>
-             <span class="p">(</span><span class="nb">dolist</span> <span class="p">(</span><span class="nv">key</span> <span class="o">&#39;</span><span class="p">(</span><span class="sc">?-</span> <span class="sc">?+</span> <span class="sc">?=</span><span class="p">))</span> <span class="c1">;; = is often unshifted +.</span>
-               <span class="p">(</span><span class="nf">define-key</span> <span class="nv">map</span> <span class="p">(</span><span class="nf">vector</span> <span class="p">(</span><span class="nf">append</span> <span class="nv">mods</span> <span class="p">(</span><span class="nf">list</span> <span class="nv">key</span><span class="p">)))</span>
-                 <span class="p">(</span><span class="nb">lambda</span> <span class="p">()</span> <span class="p">(</span><span class="nb">interactive</span><span class="p">)</span>
-                   <span class="p">(</span><span class="nv">w/adjust-screen-brightness</span> <span class="p">(</span><span class="nf">abs</span> <span class="nv">inc</span><span class="p">))))))</span>
-           <span class="nv">map</span><span class="p">)))))</span></code></pre></div>
+<div class="highlight"><pre class="chroma"><code class="language-elisp" data-lang="elisp"><span class="p">(</span><span class="nb">defun</span> <span class="nv">w/duplicate-line</span><span class="p">()</span>
+  <span class="s">&#34;Duplicate the current line.&#34;</span>
+  <span class="p">(</span><span class="nb">interactive</span><span class="p">)</span>
+  <span class="p">(</span><span class="nv">move-beginning-of-line</span> <span class="mi">1</span><span class="p">)</span>
+  <span class="p">(</span><span class="nv">kill-line</span><span class="p">)</span>
+  <span class="p">(</span><span class="nv">yank</span><span class="p">)</span>
+  <span class="p">(</span><span class="nv">open-line</span> <span class="mi">1</span><span class="p">)</span>
+  <span class="p">(</span><span class="nv">next-line</span> <span class="mi">1</span><span class="p">)</span>
+  <span class="p">(</span><span class="nv">yank</span><span class="p">))</span></code></pre></div>
 </div>
 <p>
-The interesting API here for increasing/decreasing the brightness
-continually is <code class="verbatim">set-transient-map</code>.  It will allow us to set a
-temporary keymap taking precedence over other keymaps so that I can
-intercept <code class="verbatim">+</code>, <code>=</code>, and <code class="verbatim">-</code> keys here to invoke the command again and
-again.</p>
+Most of the time, I was happy with it, but it has two drawbacks:</p>
+<ol>
+<li>
+<p>It cannot keep the column position when moving to the next line</p>
+</li>
+<li>
+<p>It messes up with the yank ring as it yanks the text along the way</p>
+</li>
+</ol>
+<p>So today, I took some time to fix these two problems, and I also want
+it to be capable of commenting the current line out if I prefix the
+command.</p>
+<p>
+Here is the improved version (it still doesn&#39;t handle the column position perfectly when the user commenting on the line first):</p>
+<div class="src src-elisp">
+<div class="highlight"><pre class="chroma"><code class="language-elisp" data-lang="elisp">  <span class="p">(</span><span class="nb">defun</span> <span class="nv">w/duplicate-line</span><span class="p">(</span><span class="nv">comment-first</span><span class="p">)</span>
+    <span class="s">&#34;Duplicate the current line.&#34;</span>
+    <span class="p">(</span><span class="nb">interactive</span> <span class="s">&#34;P&#34;</span><span class="p">)</span>
+    <span class="p">(</span><span class="nb">let</span> <span class="p">((</span><span class="nv">line-text</span> <span class="p">(</span><span class="nf">buffer-substring-no-properties</span>
+                      <span class="p">(</span><span class="nf">line-beginning-position</span><span class="p">)</span>
+                      <span class="p">(</span><span class="nf">line-end-position</span><span class="p">))))</span>
+      <span class="p">(</span><span class="nb">save-excursion</span>
+        <span class="p">(</span><span class="nb">if</span> <span class="nv">comment-first</span>
+            <span class="p">(</span><span class="nb">progn</span>
+              <span class="p">(</span><span class="nv">comment-line</span> <span class="mi">1</span><span class="p">)</span>
+              <span class="p">(</span><span class="nv">move-beginning-of-line</span> <span class="mi">1</span><span class="p">)</span>
+              <span class="p">(</span><span class="nv">open-line</span> <span class="mi">1</span><span class="p">))</span>
+          <span class="p">(</span><span class="nv">move-end-of-line</span> <span class="mi">1</span><span class="p">)</span>
+          <span class="p">(</span><span class="nv">open-line</span> <span class="mi">1</span><span class="p">)</span>
+          <span class="p">(</span><span class="nf">forward-char</span><span class="p">))</span>
+        <span class="p">(</span><span class="nf">insert</span> <span class="nv">line-text</span><span class="p">))</span>
+      <span class="p">(</span><span class="nv">next-line</span><span class="p">)))</span></code></pre></div>
+</div>
 
 
         
           <div class="blog-tags">
             
               <a href="https://whatacold.io/tags/emacs/">Emacs</a>&nbsp;
-            
-              <a href="https://whatacold.io/tags/linux/">Linux</a>&nbsp;
-            
-              <a href="https://whatacold.io/tags/tiling-wm/">tiling-wm</a>&nbsp;
             
           </div>
         
@@ -397,42 +354,42 @@ again.</p>
     <ul class="share">
       
       <li>
-        <a href="//twitter.com/share?url=https%3a%2f%2fwhatacold.io%2fblog%2f2022-05-21-adjust-screen-brightness-emacs%2f&amp;text=Adjust%20the%20laptop%27s%20screen%20brightness%20from%20Emacs&amp;via=whatacold" target="_blank" title="Share on Twitter">
+        <a href="//twitter.com/share?url=https%3a%2f%2fwhatacold.io%2fblog%2f2022-05-23-emacs-duplicate-line%2f&amp;text=Duplicate%20the%20current%20line%20in%20Emacs&amp;via=whatacold" target="_blank" title="Share on Twitter">
           <i class="fab fa-twitter"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fwhatacold.io%2fblog%2f2022-05-21-adjust-screen-brightness-emacs%2f" target="_blank" title="Share on Facebook">
+        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fwhatacold.io%2fblog%2f2022-05-23-emacs-duplicate-line%2f" target="_blank" title="Share on Facebook">
           <i class="fab fa-facebook"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//reddit.com/submit?url=https%3a%2f%2fwhatacold.io%2fblog%2f2022-05-21-adjust-screen-brightness-emacs%2f&amp;title=Adjust%20the%20laptop%27s%20screen%20brightness%20from%20Emacs" target="_blank" title="Share on Reddit">
+        <a href="//reddit.com/submit?url=https%3a%2f%2fwhatacold.io%2fblog%2f2022-05-23-emacs-duplicate-line%2f&amp;title=Duplicate%20the%20current%20line%20in%20Emacs" target="_blank" title="Share on Reddit">
           <i class="fab fa-reddit"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fwhatacold.io%2fblog%2f2022-05-21-adjust-screen-brightness-emacs%2f&amp;title=Adjust%20the%20laptop%27s%20screen%20brightness%20from%20Emacs" target="_blank" title="Share on LinkedIn">
+        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fwhatacold.io%2fblog%2f2022-05-23-emacs-duplicate-line%2f&amp;title=Duplicate%20the%20current%20line%20in%20Emacs" target="_blank" title="Share on LinkedIn">
           <i class="fab fa-linkedin"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fwhatacold.io%2fblog%2f2022-05-21-adjust-screen-brightness-emacs%2f&amp;title=Adjust%20the%20laptop%27s%20screen%20brightness%20from%20Emacs" target="_blank" title="Share on StumbleUpon">
+        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fwhatacold.io%2fblog%2f2022-05-23-emacs-duplicate-line%2f&amp;title=Duplicate%20the%20current%20line%20in%20Emacs" target="_blank" title="Share on StumbleUpon">
           <i class="fab fa-stumbleupon"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fwhatacold.io%2fblog%2f2022-05-21-adjust-screen-brightness-emacs%2f&amp;description=Adjust%20the%20laptop%27s%20screen%20brightness%20from%20Emacs" target="_blank" title="Share on Pinterest">
+        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fwhatacold.io%2fblog%2f2022-05-23-emacs-duplicate-line%2f&amp;description=Duplicate%20the%20current%20line%20in%20Emacs" target="_blank" title="Share on Pinterest">
           <i class="fab fa-pinterest"></i>
         </a>
       </li>
@@ -454,7 +411,7 @@ again.</p>
                   <ul>
                 
                 
-                    <li><a href="/blog/2022-05-23-emacs-duplicate-line/">Duplicate the current line in Emacs</a></li>
+                    <li><a href="/blog/2022-05-21-adjust-screen-brightness-emacs/">Adjust the laptop&#39;s screen brightness from Emacs</a></li>
                 
                     <li><a href="/blog/2022-04-09-emacs-kill-other-buffer/">How to kill other buffers in Emacs</a></li>
                 
@@ -474,13 +431,9 @@ again.</p>
         <ul class="pager blog-pager">
           
             <li class="previous">
-              <a href="https://whatacold.io/blog/2022-04-09-emacs-kill-other-buffer/" data-toggle="tooltip" data-placement="top" title="How to kill other buffers in Emacs">&larr; Previous Post</a>
+              <a href="https://whatacold.io/blog/2022-05-21-adjust-screen-brightness-emacs/" data-toggle="tooltip" data-placement="top" title="Adjust the laptop&#39;s screen brightness from Emacs">&larr; Previous Post</a>
             </li>
           
-          
-            <li class="next">
-              <a href="https://whatacold.io/blog/2022-05-23-emacs-duplicate-line/" data-toggle="tooltip" data-placement="top" title="Duplicate the current line in Emacs">Next Post &rarr;</a>
-            </li>
           
         </ul>
       

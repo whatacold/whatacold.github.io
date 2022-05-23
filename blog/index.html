@@ -227,6 +227,51 @@ if (!doNotTrack) {
         <div class="posts-list">
           
             <article class="post-preview">
+    <a href="https://whatacold.io/blog/2022-05-23-emacs-duplicate-line/">
+        <h2 class="post-title">Duplicate the current line in Emacs</h2>
+        
+        
+        
+    </a>
+
+    <p class="post-meta">
+        <span class="post-meta">
+  
+  
+  <i class="fas fa-calendar"></i>&nbsp;Posted on 2022-05-23
+  
+  
+    &nbsp;|&nbsp;<i class="fas fa-clock"></i>&nbsp;1&nbsp;minutes
+  
+  
+    &nbsp;|&nbsp;<i class="fas fa-book"></i>&nbsp;170&nbsp;words
+  
+  
+  
+</span>
+
+
+    </p>
+    <div class="post-entry">
+        
+        Duplicate the current in Emacs    Duplicating the current line is frequent editing for me when I am coding. Initially, I copied a snippet as a commend in Emacs from the Internet:
+(defun w/duplicate-line() &#34;Duplicate the current line.&#34; (interactive) (move-beginning-of-line 1) (kill-line) (yank) (open-line 1) (next-line 1) (yank))   Most of the time, I was happy with it, but it has two drawbacks:
+  It cannot keep the column position when moving to the next line
+        <a href="https://whatacold.io/blog/2022-05-23-emacs-duplicate-line/" class="post-read-more">[Read More]</a>
+        
+    </div>
+
+    
+    <div class="blog-tags">
+        
+        <a href="https://whatacold.io/tags/emacs/">Emacs</a>&nbsp;
+        
+    </div>
+    
+
+</article>
+          
+            <article class="post-preview">
     <a href="https://whatacold.io/blog/2022-05-21-adjust-screen-brightness-emacs/">
         <h2 class="post-title">Adjust the laptop&#39;s screen brightness from Emacs</h2>
         
@@ -655,56 +700,6 @@ sum of two numbers: #+begin_src clojure(+ 1 2) #+end_src   I want to have a resu
         <a href="https://whatacold.io/tags/clojure/">Clojure</a>&nbsp;
         
         <a href="https://whatacold.io/tags/babashka/">Babashka</a>&nbsp;
-        
-    </div>
-    
-
-</article>
-          
-            <article class="post-preview">
-    <a href="https://whatacold.io/blog/2021-08-07-illustrate-clojure-snippet/">
-        <h2 class="post-title">illustrate.clj to Illustrate Clojure Snippet</h2>
-        
-        
-        
-    </a>
-
-    <p class="post-meta">
-        <span class="post-meta">
-  
-  
-  <i class="fas fa-calendar"></i>&nbsp;Posted on 2021-08-07
-  
-    &nbsp;(Last modified on 2021-08-08)
-  
-  
-    &nbsp;|&nbsp;<i class="fas fa-clock"></i>&nbsp;5&nbsp;minutes
-  
-  
-    &nbsp;|&nbsp;<i class="fas fa-book"></i>&nbsp;1002&nbsp;words
-  
-  
-  
-</span>
-
-
-    </p>
-    <div class="post-entry">
-        
-        To get my hands dirty with Clojure, I am trying to find or implement Clojure&#39;s string functions in the sense of Python. Python has powerful string APIs, and I also want to see how powerful Clojure could be in this field. That would be interesting.
- As shown in the cheatsheet, Clojure has implemented most of them, and there are some that I have to implement myself, like title-case.
-        <a href="https://whatacold.io/blog/2021-08-07-illustrate-clojure-snippet/" class="post-read-more">[Read More]</a>
-        
-    </div>
-
-    
-    <div class="blog-tags">
-        
-        <a href="https://whatacold.io/tags/babashka/">Babashka</a>&nbsp;
-        
-        <a href="https://whatacold.io/tags/clojure/">Clojure</a>&nbsp;
-        
-        <a href="https://whatacold.io/tags/hugo/">Hugo</a>&nbsp;
         
     </div>
     
