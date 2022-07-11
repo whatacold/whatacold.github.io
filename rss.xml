@@ -14,18 +14,18 @@
       <pubDate>Mon, 23 May 2022 21:29:28 +0800</pubDate>
       <author>whatacold@gmail.com (whatacold)</author>
       <guid>https://whatacold.io/blog/2022-05-23-emacs-duplicate-line/</guid>
-      <description>Duplicate the current in Emacs    Duplicating the current line is frequent editing for me when I am coding. Initially, I copied a snippet as a commend in Emacs from the Internet:
-(defun w/duplicate-line() &amp;#34;Duplicate the current line.&amp;#34; (interactive) (move-beginning-of-line 1) (kill-line) (yank) (open-line 1) (next-line 1) (yank))   Most of the time, I was happy with it, but it has two drawbacks:
+      <description>Duplicate the current in Emacs    Duplicating the current line is frequent editing for me when I am coding. Initially, I copied a snippet as a command in Emacs from the Internet:
+(defun w/duplicate-line() &amp;#34;Duplicate the current line.&amp;#34; (interactive) (move-beginning-of-line 1) (kill-line) (yank) (open-line 1) (next-line 1) (yank))   Most of the time, I was happy with it, but it has mainly two drawbacks:
   It cannot keep the column position when moving to the next line</description>
     </item>
     
     <item>
-      <title>Adjust the laptop&#39;s screen brightness from Emacs</title>
+      <title>Adjust the laptop&#39;s screen brightness in Emacs</title>
       <link>https://whatacold.io/blog/2022-05-21-adjust-screen-brightness-emacs/</link>
       <pubDate>Sat, 21 May 2022 11:50:25 +0800</pubDate>
       <author>whatacold@gmail.com (whatacold)</author>
       <guid>https://whatacold.io/blog/2022-05-21-adjust-screen-brightness-emacs/</guid>
-      <description>Adjust the screen brightness from Emacs    If you&amp;#39;re using i3wm on Linux, how do you adjust the laptop&amp;#39;s screen brightness?
+      <description>Adjust the screen brightness in Emacs    If you&amp;#39;re using i3wm on Linux, how do you adjust the laptop&amp;#39;s screen brightness?
  Most of the time, I use the laptop with an external monitor. But when I am out, I have no monitors. And it seems no easy way to adjust the brightness in i3wm. Being too bright or dim is terrible for the eyes.
  Recently, I found a command-line tool called brightnessctl, which can adjust the brightness in a terminal.</description>
     </item>

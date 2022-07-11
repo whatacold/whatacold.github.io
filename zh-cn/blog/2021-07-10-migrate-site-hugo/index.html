@@ -13,7 +13,7 @@
   
 
   <title>个人网站迁移 Hugo 记 - whatacold 的空间</title>
-  <meta name="description" content="从 2018 年开始用 org-static-org 写博客到现在也有几年时间了，写的文章比较少，总体上这个简单的静态网站生成方案都能够满足需求。 但中途也发现一些不够用的地方，比如">
+  <meta name="description" content="从 2018 年开始用 org-static-blog 写博客到现在也有几年时间了，写的文章比较少，总体上这个简单的静态网站生成方案都能够满足需求。 但中途也发现一些不够用的地方，比如">
   <meta name="author" content="whatacold"/><script type="application/ld+json">
 {
     "@context": "http://schema.org",
@@ -62,9 +62,9 @@
     "name" : "whatacold"
   },
   "headline": "个人网站迁移 Hugo 记",
-  "description" : "从 2018 年开始用 org-static-org 写博客到现在也有几年时间了，写的文章比较少，总体上这个简单的静态网站生成方案都能够满足需求。 但中途也发现一些不够用的地方，比如",
+  "description" : "从 2018 年开始用 org-static-blog 写博客到现在也有几年时间了，写的文章比较少，总体上这个简单的静态网站生成方案都能够满足需求。 但中途也发现一些不够用的地方，比如",
   "inLanguage" : "zh-cn",
-  "wordCount":  2636 ,
+  "wordCount":  2638 ,
   "datePublished" : "2021-07-10T20:37:11",
   "dateModified" : "2021-07-10T20:37:11",
   "image" : "https:\/\/whatacold.io\/img\/avatar.png",
@@ -84,14 +84,14 @@
 </script>
 
 <meta property="og:title" content="个人网站迁移 Hugo 记" />
-<meta property="og:description" content="从 2018 年开始用 org-static-org 写博客到现在也有几年时间了，写的文章比较少，总体上这个简单的静态网站生成方案都能够满足需求。 但中途也发现一些不够用的地方，比如">
+<meta property="og:description" content="从 2018 年开始用 org-static-blog 写博客到现在也有几年时间了，写的文章比较少，总体上这个简单的静态网站生成方案都能够满足需求。 但中途也发现一些不够用的地方，比如">
 <meta property="og:image" content="https://whatacold.io/img/avatar.png" />
 <meta property="og:url" content="https://whatacold.io/zh-cn/blog/2021-07-10-migrate-site-hugo/" />
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="whatacold 的空间" />
 
   <meta name="twitter:title" content="个人网站迁移 Hugo 记" />
-  <meta name="twitter:description" content="从 2018 年开始用 org-static-org 写博客到现在也有几年时间了，写的文章比较少，总体上这个简单的静态网站生成方案都能够满足需求。 但中途也发现一些不够用的地方，比如">
+  <meta name="twitter:description" content="从 2018 年开始用 org-static-blog 写博客到现在也有几年时间了，写的文章比较少，总体上这个简单的静态网站生成方案都能够满足需求。 但中途也发现一些不够用的地方，比如">
   <meta name="twitter:image" content="https://whatacold.io/img/avatar.png" />
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:site" content="@whatacold" />
@@ -277,7 +277,7 @@ if (!doNotTrack) {
       <article role="main" class="blog-post">
         
 <p>
-从 2018 年开始用 <a href="https://github.com/bastibe/org-static-blog">org-static-org</a> 写博客到现在也有几年时间了，写的文章比较少，总体上这个简单的静态网站生成方案都能够满足需求。</p>
+从 2018 年开始用 <a href="https://github.com/bastibe/org-static-blog">org-static-blog</a> 写博客到现在也有几年时间了，写的文章比较少，总体上这个简单的静态网站生成方案都能够满足需求。</p>
 <p>
 但中途也发现一些不够用的地方，比如之前想要并贡献了一个生成 meta description 的 <a href="https://github.com/bastibe/org-static-blog/pull/94">PR</a> ，以便更好地在搜索引擎展示结果（ SEO ）；又比如中途一度有区分中英双语博客的需求（ index 列表、 RSS 等），但苦于没有想到很好的方法，就只能把两种文章都混杂在一起展示，用户体验不好。</p>
 <figure>
@@ -327,7 +327,7 @@ if (!doNotTrack) {
   lastmod 字段
 <span class="k">- [X]</span> 社交分享效果验证
 <span class="k">- [X]</span> 选择一个合适的主题 theme
-  需要支持的特性：
+  需要支持的特性（ 综合考虑，最终选择 beautifulhugo ）：
   <span class="k">- [X]</span> 需要 responsive
   <span class="k">- [X]</span> 多语言支持
   <span class="k">- [X]</span> 展示 social links
@@ -338,9 +338,7 @@ if (!doNotTrack) {
   <span class="k">- [X]</span> 支持 toc 目录
     暂不支持，但可以接受： https://github.com/halogenica/beautifulhugo/issues/219
   <span class="k">- [X]</span> 验证分页条数及效果
-    默认 10 条
-
-  综合考虑，最终选 beautifulhugo 。</code></pre></div>
+    默认 10 条</code></pre></div>
 </div>
 <p>
 根据 orgmode 官网 <a href="https://orgmode.org/worg/org-blog-wiki.html">Blogs and Wikis with Org - orgmode.org</a> 推荐，大致考察了几种方案：</p>
@@ -810,7 +808,7 @@ Hugo 不支持的 orgmode 特性
 
           &nbsp;&bull;&nbsp;&copy;
           
-            2018 - 2021
+            2018 - 2022
           
 
           

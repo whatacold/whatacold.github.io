@@ -64,7 +64,7 @@
   "headline": "Doxygen 终于可以正确生成函数调用图了！",
   "description" : "Doxygen 有一个很不错的功能，能够顺带生成类关系图、函数调用图，但是却有一个 bug 导致它有的时候无法正常生成。最近花了点时间终于把这个问题原因找到并修复了，已经被合并，等到下一个版本发布了就可以正常使用了……",
   "inLanguage" : "zh-cn",
-  "wordCount":  746 ,
+  "wordCount":  769 ,
   "datePublished" : "2021-02-16T16:08:00",
   "dateModified" : "2021-02-16T16:08:00",
   "image" : "https:\/\/whatacold.io\/img\/avatar.png",
@@ -340,9 +340,9 @@ test.cpp 代码
 </figcaption>
 </figure>
 <p>
-虽然这种直接包含命名空间的用法不推荐，但是在已有项目中却很常见，这就意味着 Doxygen 基本不可用了。</p>
+虽然这种直接包含命名空间的用法不推荐，但是在已有项目中却很常见，这种情况下 Doxygen 基本就不可用了。</p>
 <p>
-由于当时没有时间，就先给官方报了一个 <a href="https://github.com/doxygen/doxygen/issues/8011">Issue</a> ，等待他们解决。</p>
+由于当时没有时间，就先给官方报了一个 <a href="https://github.com/doxygen/doxygen/issues/8011">issue</a> ，等待他们解决。</p>
 <p>
 没想到几个月之后，官方也还没有解决，而最近正好有点时间，就重新去分析这个 bug ，看如何解决。解决过程虽然花了不少时间，但总结起来就几点：</p>
 <ol>
@@ -365,7 +365,15 @@ Test::foo() 的调用图
 </figcaption>
 </figure>
 <p>
-目前（2021.02）这个 PR 已经合并到 master 了，但是还没有发布，需要再等一等。</p>
+Updates:</p>
+<ol>
+<li>
+<p>目前（2021.02）这个 PR 已经合并到 master 了，但是还没有发布，需要再等一等。</p>
+</li>
+<li>
+<p>2021.08.19 发布的 <a href="https://github.com/doxygen/doxygen/releases/tag/Release_1_9_2">版本 1.9.2</a>，已经包含了这个 fix 。</p>
+</li>
+</ol>
 
 
         
@@ -573,7 +581,7 @@ Test::foo() 的调用图
 
           &nbsp;&bull;&nbsp;&copy;
           
-            2018 - 2021
+            2018 - 2022
           
 
           

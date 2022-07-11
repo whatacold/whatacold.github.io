@@ -13,8 +13,8 @@
   
 
   <title>Duplicate the current line in Emacs - whatacold&#39;s space</title>
-  <meta name="description" content="Duplicate the current in Emacs    Duplicating the current line is frequent editing for me when I am coding. Initially, I copied a snippet as a commend in Emacs from the Internet:
-(defun w/duplicate-line() &#34;Duplicate the current line.&#34; (interactive) (move-beginning-of-line 1) (kill-line) (yank) (open-line 1) (next-line 1) (yank))   Most of the time, I was happy with it, but it has two drawbacks:
+  <meta name="description" content="Duplicate the current in Emacs    Duplicating the current line is frequent editing for me when I am coding. Initially, I copied a snippet as a command in Emacs from the Internet:
+(defun w/duplicate-line() &#34;Duplicate the current line.&#34; (interactive) (move-beginning-of-line 1) (kill-line) (yank) (open-line 1) (next-line 1) (yank))   Most of the time, I was happy with it, but it has mainly two drawbacks:
   It cannot keep the column position when moving to the next line">
   <meta name="author" content="whatacold"/><script type="application/ld+json">
 {
@@ -64,9 +64,9 @@
     "name" : "whatacold"
   },
   "headline": "Duplicate the current line in Emacs",
-  "description" : "Duplicate the current in Emacs    Duplicating the current line is frequent editing for me when I am coding. Initially, I copied a snippet as a commend in Emacs from the Internet:\n(defun w\/duplicate-line() \u0026#34;Duplicate the current line.\u0026#34; (interactive) (move-beginning-of-line 1) (kill-line) (yank) (open-line 1) (next-line 1) (yank))   Most of the time, I was happy with it, but it has two drawbacks:\n  It cannot keep the column position when moving to the next line",
+  "description" : "Duplicate the current in Emacs    Duplicating the current line is frequent editing for me when I am coding. Initially, I copied a snippet as a command in Emacs from the Internet:\n(defun w\/duplicate-line() \u0026#34;Duplicate the current line.\u0026#34; (interactive) (move-beginning-of-line 1) (kill-line) (yank) (open-line 1) (next-line 1) (yank))   Most of the time, I was happy with it, but it has mainly two drawbacks:\n  It cannot keep the column position when moving to the next line",
   "inLanguage" : "en",
-  "wordCount":  170 ,
+  "wordCount":  196 ,
   "datePublished" : "2022-05-23T21:29:28",
   "dateModified" : "2022-05-23T21:29:28",
   "image" : "https:\/\/whatacold.io\/img\/avatar.png",
@@ -86,8 +86,8 @@
 </script>
 
 <meta property="og:title" content="Duplicate the current line in Emacs" />
-<meta property="og:description" content="Duplicate the current in Emacs    Duplicating the current line is frequent editing for me when I am coding. Initially, I copied a snippet as a commend in Emacs from the Internet:
-(defun w/duplicate-line() &#34;Duplicate the current line.&#34; (interactive) (move-beginning-of-line 1) (kill-line) (yank) (open-line 1) (next-line 1) (yank))   Most of the time, I was happy with it, but it has two drawbacks:
+<meta property="og:description" content="Duplicate the current in Emacs    Duplicating the current line is frequent editing for me when I am coding. Initially, I copied a snippet as a command in Emacs from the Internet:
+(defun w/duplicate-line() &#34;Duplicate the current line.&#34; (interactive) (move-beginning-of-line 1) (kill-line) (yank) (open-line 1) (next-line 1) (yank))   Most of the time, I was happy with it, but it has mainly two drawbacks:
   It cannot keep the column position when moving to the next line">
 <meta property="og:image" content="https://whatacold.io/img/avatar.png" />
 <meta property="og:url" content="https://whatacold.io/blog/2022-05-23-emacs-duplicate-line/" />
@@ -95,7 +95,7 @@
 <meta property="og:site_name" content="whatacold&#39;s space" />
 
   <meta name="twitter:title" content="Duplicate the current line in Emacs" />
-  <meta name="twitter:description" content="Duplicate the current in Emacs    Duplicating the current line is frequent editing for me when I am coding. Initially, I copied a snippet as a commend in Emacs from the Internet:
+  <meta name="twitter:description" content="Duplicate the current in Emacs    Duplicating the current line is frequent editing for me when I am coding. Initially, I copied a snippet as a command in Emacs from the Internet:
 (defun …">
   <meta name="twitter:image" content="https://whatacold.io/img/avatar.png" />
   <meta name="twitter:card" content="summary" />
@@ -287,7 +287,7 @@ Duplicate the current in Emacs
 </figure>
 <p>
 Duplicating the current line is frequent editing for me when I am
-coding. Initially, I copied a snippet as a commend in Emacs from the
+coding. Initially, I copied a snippet as a command in Emacs from the
 Internet:</p>
 <div class="src src-elisp">
 <div class="highlight"><pre class="chroma"><code class="language-elisp" data-lang="elisp"><span class="p">(</span><span class="nb">defun</span> <span class="nv">w/duplicate-line</span><span class="p">()</span>
@@ -301,20 +301,20 @@ Internet:</p>
   <span class="p">(</span><span class="nv">yank</span><span class="p">))</span></code></pre></div>
 </div>
 <p>
-Most of the time, I was happy with it, but it has two drawbacks:</p>
+Most of the time, I was happy with it, but it has mainly two drawbacks:</p>
 <ol>
 <li>
 <p>It cannot keep the column position when moving to the next line</p>
 </li>
 <li>
-<p>It messes up with the yank ring as it yanks the text along the way</p>
+<p>It messes up with the yank ring as it yanks the text under the hood</p>
 </li>
 </ol>
 <p>So today, I took some time to fix these two problems, and I also want
 it to be capable of commenting the current line out if I prefix the
 command.</p>
 <p>
-Here is the improved version (it still doesn&#39;t handle the column position perfectly when the user commenting on the line first):</p>
+Here is the improved version (it still doesn&#39;t handle the column position perfectly when the user commenting on the line first, but I am ok with it):</p>
 <div class="src src-elisp">
 <div class="highlight"><pre class="chroma"><code class="language-elisp" data-lang="elisp">  <span class="p">(</span><span class="nb">defun</span> <span class="nv">w/duplicate-line</span><span class="p">(</span><span class="nv">comment-first</span><span class="p">)</span>
     <span class="s">&#34;Duplicate the current line.&#34;</span>
@@ -334,6 +334,8 @@ Here is the improved version (it still doesn&#39;t handle the column position pe
         <span class="p">(</span><span class="nf">insert</span> <span class="nv">line-text</span><span class="p">))</span>
       <span class="p">(</span><span class="nv">next-line</span><span class="p">)))</span></code></pre></div>
 </div>
+<p>
+Update: Interestingly, Lars Ingebrigtsen also introduced a <code class="verbatim">duplicate-line</code> command to Emacs 29 recently, see discussions on this <a href="https://lists.gnu.org/archive/html/emacs-devel/2022-06/msg00912.html">emacs-devel thread</a>.</p>
 
 
         
@@ -411,7 +413,7 @@ Here is the improved version (it still doesn&#39;t handle the column position pe
                   <ul>
                 
                 
-                    <li><a href="/blog/2022-05-21-adjust-screen-brightness-emacs/">Adjust the laptop&#39;s screen brightness from Emacs</a></li>
+                    <li><a href="/blog/2022-05-21-adjust-screen-brightness-emacs/">Adjust the laptop&#39;s screen brightness in Emacs</a></li>
                 
                     <li><a href="/blog/2022-04-09-emacs-kill-other-buffer/">How to kill other buffers in Emacs</a></li>
                 
@@ -431,7 +433,7 @@ Here is the improved version (it still doesn&#39;t handle the column position pe
         <ul class="pager blog-pager">
           
             <li class="previous">
-              <a href="https://whatacold.io/blog/2022-05-21-adjust-screen-brightness-emacs/" data-toggle="tooltip" data-placement="top" title="Adjust the laptop&#39;s screen brightness from Emacs">&larr; Previous Post</a>
+              <a href="https://whatacold.io/blog/2022-05-21-adjust-screen-brightness-emacs/" data-toggle="tooltip" data-placement="top" title="Adjust the laptop&#39;s screen brightness in Emacs">&larr; Previous Post</a>
             </li>
           
           
