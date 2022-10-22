@@ -97,7 +97,7 @@
   <meta name="twitter:site" content="@whatacold" />
   <meta name="twitter:creator" content="@whatacold" />
   <link href='https://whatacold.io/img/favicon.ico' rel='icon' type='image/x-icon'/>
-  <meta name="generator" content="Hugo 0.80.0" />
+  <meta name="generator" content="Hugo 0.93.3" />
   <link rel="alternate" href="https://whatacold.io/index.xml" type="application/rss+xml" title="whatacold&#39;s space"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"><link rel="stylesheet" href="https://whatacold.io/css/main.css" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
@@ -143,13 +143,13 @@ if (!doNotTrack) {
         
           
             <li>
-              <a title="About" href="/about/">About</a>
+              <a title="Tags" href="/tags">Tags</a>
             </li>
           
         
           
             <li>
-              <a title="Tags" href="/tags">Tags</a>
+              <a title="About" href="/about/">About</a>
             </li>
           
         
@@ -281,30 +281,26 @@ I use its trivial version(without prefix arg) regularly on day-to-day programmin
 <p>
 For example, I can use it to align below code quickly by:</p>
 <ol>
-<li>
-<p>Choose the region</p>
-</li>
-<li>
-<p><code class="verbatim">M-x align-regexp</code> and type <code>=</code> and <code class="verbatim">Enter</code></p>
-</li>
+<li>Choose the region</li>
+<li><code class="verbatim">M-x align-regexp</code> and type <code>=</code> and <code class="verbatim">Enter</code></li>
 </ol>
 <div class="src src-python">
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">aaaaaaaaaaaaaa</span> <span class="o">=</span> <span class="n">fields</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-<span class="n">bbb</span> <span class="o">=</span> <span class="n">fields</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
-<span class="n">cccccccc</span> <span class="o">=</span> <span class="n">fields</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span></code></pre></div>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">aaaaaaaaaaaaaa</span> <span class="o">=</span> <span class="n">fields</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="n">bbb</span> <span class="o">=</span> <span class="n">fields</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="n">cccccccc</span> <span class="o">=</span> <span class="n">fields</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span></span></span></code></pre></div>
 </div>
 <p>
 It will be aligned to below code, now it&#39;s better to read:</p>
 <div class="src src-python">
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">aaaaaaaaaaaaaa</span> <span class="o">=</span> <span class="n">fields</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-<span class="n">bbb</span>            <span class="o">=</span> <span class="n">fields</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
-<span class="n">cccccccc</span>       <span class="o">=</span> <span class="n">fields</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span></code></pre></div>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">aaaaaaaaaaaaaa</span> <span class="o">=</span> <span class="n">fields</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="n">bbb</span>            <span class="o">=</span> <span class="n">fields</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="n">cccccccc</span>       <span class="o">=</span> <span class="n">fields</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span></span></span></code></pre></div>
 </div>
 <p>
 A few days ago, I found myself don&#39;t understand how it works when I read the code of <a href="https://github.com/manateelazycat/smart-align">smart-align</a>, A simple <code class="verbatim">align-regexp</code> wrapper for easier usage.
 I was confused by the parameters, especially <code class="verbatim">REGEXP</code> and <code class="verbatim">GROUP</code>, and <code class="verbatim">SPACING</code>, here is its signature:</p>
 <div class="src src-text">
-<div class="highlight"><pre class="chroma"><code class="language-text" data-lang="text">(align-regexp BEG END REGEXP &amp;optional GROUP SPACING REPEAT)</code></pre></div>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">(align-regexp BEG END REGEXP &amp;optional GROUP SPACING REPEAT)</span></span></code></pre></div>
 </div>
 <p>
 As for <code class="verbatim">REGEXP</code> and <code class="verbatim">GROUP</code>, as in the above example, I think the regexp should be <code>\(\s-*=\)</code>, so that group 1 will be aligned by prepending spaces.
@@ -401,15 +397,15 @@ As for the <code class="verbatim">SPACING</code>, it means how many spaces shoul
                   <ul>
                 
                 
+                    <li><a href="/blog/2022-10-10-emacs-hugo-blogging/">Hugo Blogging in Emacs</a></li>
+                
+                    <li><a href="/blog/2022-09-10-emacs-beancount-account-files/">Auto-complete Accounts From Other Beancount Files in Emacs</a></li>
+                
+                    <li><a href="/blog/2022-08-08-org-link-bookmarklet/">A Bookmarklet for Copying a Link as an Org-mode Link</a></li>
+                
+                    <li><a href="/blog/2022-07-17-emacs-elisp-debug/">Emacs Debugging Basics</a></li>
+                
                     <li><a href="/blog/2022-05-23-emacs-duplicate-line/">Duplicate the current line in Emacs</a></li>
-                
-                    <li><a href="/blog/2022-05-21-adjust-screen-brightness-emacs/">Adjust the laptop&#39;s screen brightness in Emacs</a></li>
-                
-                    <li><a href="/blog/2022-04-09-emacs-kill-other-buffer/">How to kill other buffers in Emacs</a></li>
-                
-                    <li><a href="/blog/2022-01-22-emacs-eglot-lsp/">Eglot for better programming experience in Emacs</a></li>
-                
-                    <li><a href="/blog/2022-01-12-language-shadowing-with-subed-emacs/">Language Shadowing with subed in Emacs</a></li>
                 
               </ul>
 
@@ -421,7 +417,7 @@ As for the <code class="verbatim">SPACING</code>, it means how many spaces shoul
         <ul class="pager blog-pager">
           
             <li class="previous">
-              <a href="https://whatacold.io/blog/2019-07-06-render-erd-on-the-web/" data-toggle="tooltip" data-placement="top" title="Render erd Diagrams Online">&larr; Previous Post</a>
+              <a href="https://whatacold.io/blog/2019-07-06-render-erd-on-the-web/" data-toggle="tooltip" data-placement="top" title="ER Diagrams in Plain Text">&larr; Previous Post</a>
             </li>
           
           
@@ -439,7 +435,7 @@ As for the <code class="verbatim">SPACING</code>, it means how many spaces shoul
           <div class="disqus-comments">
             <div id="disqus_thread"></div>
 <script type="application/javascript">
-    var disqus_config = function () {
+    window.disqus_config = function () {
     
     
     
@@ -547,7 +543,7 @@ As for the <code class="verbatim">SPACING</code>, it means how many spaces shoul
         </p>
         
         <p class="credits theme-by text-muted">
-          <a href="https://gohugo.io">Hugo v0.80.0</a> powered &nbsp;&bull;&nbsp; Theme <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> adapted from <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
+          <a href="https://gohugo.io">Hugo v0.93.3</a> powered &nbsp;&bull;&nbsp; Theme <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> adapted from <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
           
         </p>
       </div>

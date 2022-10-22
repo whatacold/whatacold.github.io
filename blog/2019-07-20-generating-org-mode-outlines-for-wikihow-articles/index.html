@@ -64,7 +64,7 @@
   "headline": "Generating org-mode Outlines for wikiHow Articles",
   "description" : "Introduce a handy Python script to extract wikiHow articles\u0027 ToC to org-mode outlines, so as to take notes accordingly...",
   "inLanguage" : "en",
-  "wordCount":  249 ,
+  "wordCount":  248 ,
   "datePublished" : "2019-07-20T20:04:00",
   "dateModified" : "2019-07-20T20:04:00",
   "image" : "https:\/\/whatacold.io\/img\/avatar.png",
@@ -97,7 +97,7 @@
   <meta name="twitter:site" content="@whatacold" />
   <meta name="twitter:creator" content="@whatacold" />
   <link href='https://whatacold.io/img/favicon.ico' rel='icon' type='image/x-icon'/>
-  <meta name="generator" content="Hugo 0.80.0" />
+  <meta name="generator" content="Hugo 0.93.3" />
   <link rel="alternate" href="https://whatacold.io/index.xml" type="application/rss+xml" title="whatacold&#39;s space"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"><link rel="stylesheet" href="https://whatacold.io/css/main.css" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
@@ -143,13 +143,13 @@ if (!doNotTrack) {
         
           
             <li>
-              <a title="About" href="/about/">About</a>
+              <a title="Tags" href="/tags">Tags</a>
             </li>
           
         
           
             <li>
-              <a title="Tags" href="/tags">Tags</a>
+              <a title="About" href="/about/">About</a>
             </li>
           
         
@@ -285,46 +285,46 @@ For example, execute <code class="verbatim">C-u M-! python wikihow-org-outline.p
 <p>
 Here is the source code:</p>
 <div class="src src-python">
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="ch">#!/usr/bin/env python</span>
-<span class="c1"># -*- coding: utf-8 -*-</span>
-
-<span class="kn">from</span> <span class="nn">bs4</span> <span class="kn">import</span> <span class="n">BeautifulSoup</span>
-<span class="kn">import</span> <span class="nn">requests</span>
-<span class="kn">import</span> <span class="nn">sys</span>
-
-<span class="k">def</span> <span class="nf">gen_wikihow_org_outline</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">containing_heading_level</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
-    <span class="s1">&#39;&#39;&#39;Generating a org outline for the specified wikiHow article at URL.&#39;&#39;&#39;</span>
-    <span class="n">user_agent</span><span class="o">=</span><span class="s2">&#34;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.103 Safari/537.36&#34;</span>
-    <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s2">&#34;User-Agent&#34;</span><span class="p">:</span><span class="n">user_agent</span><span class="p">}</span>
-    <span class="n">html</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span><span class="o">.</span><span class="n">content</span>
-
-    <span class="n">soup</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">html</span><span class="p">,</span> <span class="s2">&#34;html.parser&#34;</span><span class="p">)</span>
-    <span class="n">level_prefix</span> <span class="o">=</span> <span class="s1">&#39;*&#39;</span> <span class="o">*</span> <span class="n">containing_heading_level</span>
-
-    <span class="n">title</span> <span class="o">=</span> <span class="n">soup</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="s2">&#34;h1 &gt; a&#34;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">get_text</span><span class="p">()</span>
-    <span class="k">print</span><span class="p">(</span><span class="s2">&#34;{}* [[{}][{}]]&#34;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">level_prefix</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">title</span><span class="p">))</span>
-
-    <span class="n">sections</span> <span class="o">=</span> <span class="n">soup</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="s2">&#34;h3 &gt; span&#34;</span><span class="p">)</span>
-    <span class="k">for</span> <span class="n">section</span> <span class="ow">in</span> <span class="n">sections</span><span class="p">:</span>
-        <span class="k">print</span><span class="p">(</span><span class="s2">&#34;{}** {}&#34;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">level_prefix</span><span class="p">,</span> <span class="n">section</span><span class="o">.</span><span class="n">get_text</span><span class="p">()))</span>
-        <span class="n">subsections</span> <span class="o">=</span> <span class="n">section</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s2">&#34;b&#34;</span><span class="p">,</span> <span class="n">class_</span><span class="o">=</span><span class="s2">&#34;whb&#34;</span><span class="p">)</span>
-        <span class="k">for</span> <span class="n">subsection</span> <span class="ow">in</span> <span class="n">subsections</span><span class="p">:</span>
-            <span class="n">subsection_title</span> <span class="o">=</span> <span class="n">subsection</span><span class="o">.</span><span class="n">get_text</span><span class="p">()</span>
-            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">subsection_title</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">3</span><span class="p">:</span>
-                <span class="k">continue</span> <span class="c1"># it may contain only &#34;.&#34;, just work around it.</span>
-            <span class="k">print</span><span class="p">(</span><span class="s2">&#34;{}*** {}&#34;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">level_prefix</span><span class="p">,</span> <span class="n">subsection_title</span><span class="p">))</span>
-
-<span class="n">containing_heading_level</span><span class="o">=</span><span class="mi">0</span>
-
-<span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">:</span>
-    <span class="k">print</span><span class="p">(</span><span class="s2">&#34;Usage: {} &lt;url&gt; [containing heading level]&#34;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
-    <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-
-<span class="n">url</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
-<span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">)</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
-    <span class="n">containing_heading_level</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
-
-<span class="n">gen_wikihow_org_outline</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">containing_heading_level</span><span class="p">)</span></code></pre></div>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="ch">#!/usr/bin/env python</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># -*- coding: utf-8 -*-</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">bs4</span> <span class="kn">import</span> <span class="n">BeautifulSoup</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">requests</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">sys</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">gen_wikihow_org_outline</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">containing_heading_level</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="s1">&#39;&#39;&#39;Generating a org outline for the specified wikiHow article at URL.&#39;&#39;&#39;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">user_agent</span><span class="o">=</span><span class="s2">&#34;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.103 Safari/537.36&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s2">&#34;User-Agent&#34;</span><span class="p">:</span><span class="n">user_agent</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="n">html</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span><span class="o">.</span><span class="n">content</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">soup</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">html</span><span class="p">,</span> <span class="s2">&#34;html.parser&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">level_prefix</span> <span class="o">=</span> <span class="s1">&#39;*&#39;</span> <span class="o">*</span> <span class="n">containing_heading_level</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">title</span> <span class="o">=</span> <span class="n">soup</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="s2">&#34;h1 &gt; a&#34;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">get_text</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;</span><span class="si">{}</span><span class="s2">* [[</span><span class="si">{}</span><span class="s2">][</span><span class="si">{}</span><span class="s2">]]&#34;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">level_prefix</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">title</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">sections</span> <span class="o">=</span> <span class="n">soup</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="s2">&#34;h3 &gt; span&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="n">section</span> <span class="ow">in</span> <span class="n">sections</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;</span><span class="si">{}</span><span class="s2">** </span><span class="si">{}</span><span class="s2">&#34;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">level_prefix</span><span class="p">,</span> <span class="n">section</span><span class="o">.</span><span class="n">get_text</span><span class="p">()))</span>
+</span></span><span class="line"><span class="cl">        <span class="n">subsections</span> <span class="o">=</span> <span class="n">section</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s2">&#34;b&#34;</span><span class="p">,</span> <span class="n">class_</span><span class="o">=</span><span class="s2">&#34;whb&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="n">subsection</span> <span class="ow">in</span> <span class="n">subsections</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="n">subsection_title</span> <span class="o">=</span> <span class="n">subsection</span><span class="o">.</span><span class="n">get_text</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">subsection_title</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">3</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                <span class="k">continue</span> <span class="c1"># it may contain only &#34;.&#34;, just work around it.</span>
+</span></span><span class="line"><span class="cl">            <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;</span><span class="si">{}</span><span class="s2">*** </span><span class="si">{}</span><span class="s2">&#34;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">level_prefix</span><span class="p">,</span> <span class="n">subsection_title</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">containing_heading_level</span><span class="o">=</span><span class="mi">0</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;Usage: </span><span class="si">{}</span><span class="s2"> &lt;url&gt; [containing heading level]&#34;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
+</span></span><span class="line"><span class="cl">    <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">url</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">)</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">containing_heading_level</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">gen_wikihow_org_outline</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">containing_heading_level</span><span class="p">)</span></span></span></code></pre></div>
 </div>
 
 
@@ -407,15 +407,15 @@ Here is the source code:</p>
                   <ul>
                 
                 
+                    <li><a href="/blog/2022-10-10-emacs-hugo-blogging/">Hugo Blogging in Emacs</a></li>
+                
+                    <li><a href="/blog/2022-09-10-emacs-beancount-account-files/">Auto-complete Accounts From Other Beancount Files in Emacs</a></li>
+                
+                    <li><a href="/blog/2022-08-08-org-link-bookmarklet/">A Bookmarklet for Copying a Link as an Org-mode Link</a></li>
+                
+                    <li><a href="/blog/2022-07-17-emacs-elisp-debug/">Emacs Debugging Basics</a></li>
+                
                     <li><a href="/blog/2022-05-23-emacs-duplicate-line/">Duplicate the current line in Emacs</a></li>
-                
-                    <li><a href="/blog/2022-05-21-adjust-screen-brightness-emacs/">Adjust the laptop&#39;s screen brightness in Emacs</a></li>
-                
-                    <li><a href="/blog/2022-04-09-emacs-kill-other-buffer/">How to kill other buffers in Emacs</a></li>
-                
-                    <li><a href="/blog/2022-04-09-scrapy-csv-without-header/">How to append items to the CSV file without header row?</a></li>
-                
-                    <li><a href="/blog/2022-01-22-emacs-eglot-lsp/">Eglot for better programming experience in Emacs</a></li>
                 
               </ul>
 
@@ -445,7 +445,7 @@ Here is the source code:</p>
           <div class="disqus-comments">
             <div id="disqus_thread"></div>
 <script type="application/javascript">
-    var disqus_config = function () {
+    window.disqus_config = function () {
     
     
     
@@ -553,7 +553,7 @@ Here is the source code:</p>
         </p>
         
         <p class="credits theme-by text-muted">
-          <a href="https://gohugo.io">Hugo v0.80.0</a> powered &nbsp;&bull;&nbsp; Theme <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> adapted from <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
+          <a href="https://gohugo.io">Hugo v0.93.3</a> powered &nbsp;&bull;&nbsp; Theme <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> adapted from <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
           
         </p>
       </div>

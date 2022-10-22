@@ -1,25 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
-  
-  <url>
-    <loc>https://whatacold.io/zh-cn/about/</loc>
-    <lastmod>2021-11-12T22:11:52+08:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://whatacold.io/about/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh-cn"
-                href="https://whatacold.io/zh-cn/about/"
-                />
-  </url>
-  
   <url>
     <loc>https://whatacold.io/zh-cn/blog/</loc>
-    <lastmod>2022-07-12T00:01:35+08:00</lastmod>
+    <lastmod>2022-10-15T16:43:20+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -30,31 +14,22 @@
                 hreflang="zh-cn"
                 href="https://whatacold.io/zh-cn/blog/"
                 />
-  </url>
-  
-  <url>
-    <loc>https://whatacold.io/zh-cn/tags/clojurescript/</loc>
-    <lastmod>2021-09-05T10:39:33+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://whatacold.io/zh-cn/blog/2021-09-05-lein-reagent-frontend-shibai/</loc>
-    <lastmod>2021-09-05T10:39:33+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://whatacold.io/zh-cn/tags/leiningen/</loc>
-    <lastmod>2021-09-05T10:39:33+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://whatacold.io/zh-cn/tags/reagent/</loc>
-    <lastmod>2021-09-05T10:39:33+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
+    <loc>https://whatacold.io/zh-cn/tags/hugo/</loc>
+    <lastmod>2022-10-15T16:19:46+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://whatacold.io/tags/hugo/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-cn"
+                href="https://whatacold.io/zh-cn/tags/hugo/"
+                />
+  </url><url>
     <loc>https://whatacold.io/zh-cn/tags/</loc>
-    <lastmod>2022-07-12T00:01:35+08:00</lastmod>
+    <lastmod>2022-10-15T16:43:20+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -65,11 +40,9 @@
                 hreflang="zh-cn"
                 href="https://whatacold.io/zh-cn/tags/"
                 />
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://whatacold.io/zh-cn/</loc>
-    <lastmod>2022-07-12T00:01:35+08:00</lastmod>
+    <lastmod>2022-10-15T16:43:20+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -80,11 +53,31 @@
                 hreflang="zh-cn"
                 href="https://whatacold.io/zh-cn/"
                 />
-  </url>
-  
-  <url>
+  </url><url>
+    <loc>https://whatacold.io/zh-cn/blog/2022-10-05-beautifulhugo-banner-image/</loc>
+    <lastmod>2022-10-05T18:17:43+08:00</lastmod>
+  </url><url>
+    <loc>https://whatacold.io/zh-cn/tags/linux/</loc>
+    <lastmod>2022-10-10T22:48:03+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://whatacold.io/tags/linux/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-cn"
+                href="https://whatacold.io/zh-cn/tags/linux/"
+                />
+  </url><url>
+    <loc>https://whatacold.io/zh-cn/tags/rime/</loc>
+    <lastmod>2022-10-15T16:19:49+08:00</lastmod>
+  </url><url>
+    <loc>https://whatacold.io/zh-cn/blog/2022-10-04-rime-double-pinyin-flypy/</loc>
+    <lastmod>2022-10-10T22:48:03+08:00</lastmod>
+  </url><url>
     <loc>https://whatacold.io/zh-cn/tags/emacs/</loc>
-    <lastmod>2021-11-24T08:21:39+08:00</lastmod>
+    <lastmod>2022-10-15T16:43:20+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -95,9 +88,87 @@
                 hreflang="zh-cn"
                 href="https://whatacold.io/zh-cn/tags/emacs/"
                 />
-  </url>
-  
-  <url>
+  </url><url>
+    <loc>https://whatacold.io/zh-cn/blog/2022-09-11-emacs-smart-input-source-rime/</loc>
+    <lastmod>2022-10-15T16:19:49+08:00</lastmod>
+  </url><url>
+    <loc>https://whatacold.io/zh-cn/tags/beancount/</loc>
+    <lastmod>2022-10-15T16:21:21+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://whatacold.io/tags/beancount/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-cn"
+                href="https://whatacold.io/zh-cn/tags/beancount/"
+                />
+  </url><url>
+    <loc>https://whatacold.io/zh-cn/blog/2022-09-10-emacs-beancount-account-files/</loc>
+    <lastmod>2022-10-15T16:21:21+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://whatacold.io/blog/2022-09-10-emacs-beancount-account-files/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-cn"
+                href="https://whatacold.io/zh-cn/blog/2022-09-10-emacs-beancount-account-files/"
+                />
+  </url><url>
+    <loc>https://whatacold.io/zh-cn/tags/debugging/</loc>
+    <lastmod>2022-10-15T16:43:20+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://whatacold.io/tags/debugging/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-cn"
+                href="https://whatacold.io/zh-cn/tags/debugging/"
+                />
+  </url><url>
+    <loc>https://whatacold.io/zh-cn/blog/2022-07-17-emacs-elisp-debug/</loc>
+    <lastmod>2022-10-15T16:43:20+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://whatacold.io/blog/2022-07-17-emacs-elisp-debug/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-cn"
+                href="https://whatacold.io/zh-cn/blog/2022-07-17-emacs-elisp-debug/"
+                />
+  </url><url>
+    <loc>https://whatacold.io/zh-cn/about/</loc>
+    <lastmod>2022-10-22T09:03:15+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://whatacold.io/about/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-cn"
+                href="https://whatacold.io/zh-cn/about/"
+                />
+  </url><url>
+    <loc>https://whatacold.io/zh-cn/tags/clojurescript/</loc>
+    <lastmod>2021-09-05T10:39:33+08:00</lastmod>
+  </url><url>
+    <loc>https://whatacold.io/zh-cn/blog/2021-09-05-lein-reagent-frontend-shibai/</loc>
+    <lastmod>2021-09-05T10:39:33+08:00</lastmod>
+  </url><url>
+    <loc>https://whatacold.io/zh-cn/tags/leiningen/</loc>
+    <lastmod>2021-09-05T10:39:33+08:00</lastmod>
+  </url><url>
+    <loc>https://whatacold.io/zh-cn/tags/reagent/</loc>
+    <lastmod>2021-09-05T10:39:33+08:00</lastmod>
+  </url><url>
     <loc>https://whatacold.io/zh-cn/tags/i3wm/</loc>
     <lastmod>2021-08-29T13:58:21+08:00</lastmod>
     <xhtml:link
@@ -110,14 +181,10 @@
                 hreflang="zh-cn"
                 href="https://whatacold.io/zh-cn/tags/i3wm/"
                 />
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://whatacold.io/zh-cn/blog/2021-08-29-i3wm-workspace-emacs-frame/</loc>
     <lastmod>2021-08-29T13:58:21+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://whatacold.io/zh-cn/tags/clojure/</loc>
     <lastmod>2021-07-30T00:38:50+08:00</lastmod>
     <xhtml:link
@@ -130,16 +197,12 @@
                 hreflang="zh-cn"
                 href="https://whatacold.io/zh-cn/tags/clojure/"
                 />
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://whatacold.io/zh-cn/blog/2021-07-28-clojure-reduce-yongfang/</loc>
     <lastmod>2021-07-30T00:38:50+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://whatacold.io/zh-cn/tags/python/</loc>
-    <lastmod>2021-07-12T23:34:11+08:00</lastmod>
+    <lastmod>2022-08-20T10:24:44+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -150,9 +213,7 @@
                 hreflang="zh-cn"
                 href="https://whatacold.io/zh-cn/tags/python/"
                 />
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://whatacold.io/zh-cn/tags/texttoolkit/</loc>
     <lastmod>2021-07-12T23:34:11+08:00</lastmod>
     <xhtml:link
@@ -165,9 +226,7 @@
                 hreflang="zh-cn"
                 href="https://whatacold.io/zh-cn/tags/texttoolkit/"
                 />
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://whatacold.io/zh-cn/blog/2021-07-12-python-re-chazhao/</loc>
     <lastmod>2021-07-12T23:34:11+08:00</lastmod>
     <xhtml:link
@@ -180,26 +239,9 @@
                 hreflang="zh-cn"
                 href="https://whatacold.io/zh-cn/blog/2021-07-12-python-re-chazhao/"
                 />
-  </url>
-  
-  <url>
-    <loc>https://whatacold.io/zh-cn/tags/hugo/</loc>
-    <lastmod>2022-07-12T00:01:35+08:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://whatacold.io/tags/hugo/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh-cn"
-                href="https://whatacold.io/zh-cn/tags/hugo/"
-                />
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://whatacold.io/zh-cn/tags/org-mode/</loc>
-    <lastmod>2022-07-12T00:01:35+08:00</lastmod>
+    <lastmod>2022-10-15T16:19:46+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -210,54 +252,34 @@
                 hreflang="zh-cn"
                 href="https://whatacold.io/zh-cn/tags/org-mode/"
                 />
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://whatacold.io/zh-cn/blog/2021-07-10-migrate-site-hugo/</loc>
-    <lastmod>2022-07-12T00:01:35+08:00</lastmod>
-  </url>
-  
-  <url>
+    <lastmod>2022-10-15T16:19:46+08:00</lastmod>
+  </url><url>
     <loc>https://whatacold.io/zh-cn/tags/c/</loc>
     <lastmod>2021-02-27T10:27:00+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://whatacold.io/zh-cn/blog/2021-02-27-wrk-yuanli/</loc>
     <lastmod>2021-02-27T10:27:00+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://whatacold.io/zh-cn/tags/performance/</loc>
     <lastmod>2021-02-27T10:27:00+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://whatacold.io/zh-cn/tags/c&#43;&#43;/</loc>
-    <lastmod>2022-07-12T00:01:05+08:00</lastmod>
-  </url>
-  
-  <url>
+    <lastmod>2022-10-15T16:21:09+08:00</lastmod>
+  </url><url>
     <loc>https://whatacold.io/zh-cn/blog/2021-02-16-doxygen-cpp-correct-callgraphs/</loc>
-    <lastmod>2022-07-12T00:01:05+08:00</lastmod>
-  </url>
-  
-  <url>
+    <lastmod>2022-10-15T16:21:09+08:00</lastmod>
+  </url><url>
     <loc>https://whatacold.io/zh-cn/blog/2020-04-11-use-ppcompile-to-remote-compile-in-emacs/</loc>
     <lastmod>2020-04-11T22:17:00+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://whatacold.io/zh-cn/blog/2019-10-01-reboot-tianyi-router-using-python-requests/</loc>
     <lastmod>2019-10-01T22:28:00+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://whatacold.io/zh-cn/blog/2019-02-03-emacs-kmacro-characters-repeated-bug/</loc>
     <lastmod>2021-11-24T08:21:39+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://whatacold.io/zh-cn/tags/git/</loc>
     <lastmod>2019-02-17T16:07:00+08:00</lastmod>
     <xhtml:link
@@ -270,29 +292,19 @@
                 hreflang="zh-cn"
                 href="https://whatacold.io/zh-cn/tags/git/"
                 />
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://whatacold.io/zh-cn/blog/2019-01-13-understand-git-submodule/</loc>
     <lastmod>2019-02-17T16:07:00+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://whatacold.io/zh-cn/blog/2018-12-22-c-cpp-devel-with-lsp-in-emacs/</loc>
-    <lastmod>2018-12-22T20:24:00+08:00</lastmod>
-  </url>
-  
-  <url>
+    <lastmod>2022-08-20T10:24:44+08:00</lastmod>
+  </url><url>
     <loc>https://whatacold.io/zh-cn/blog/2018-12-10-how-polymorphism-works-in-cpp/</loc>
     <lastmod>2018-12-10T00:16:00+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://whatacold.io/zh-cn/tags/gdb/</loc>
     <lastmod>2018-12-10T00:16:00+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://whatacold.io/zh-cn/categories/</loc>
     <xhtml:link
                 rel="alternate"

@@ -7,7 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <managingEditor>whatacold@gmail.com (whatacold)</managingEditor>
     <webMaster>whatacold@gmail.com (whatacold)</webMaster>
-    <lastBuildDate>Sat, 20 Jul 2019 20:04:00 +0800</lastBuildDate><atom:link href="https://whatacold.io/tags/org-mode/rss.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 08 Aug 2022 23:33:05 +0800</lastBuildDate><atom:link href="https://whatacold.io/tags/org-mode/rss.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>A Bookmarklet for Copying a Link as an Org-mode Link</title>
+      <link>https://whatacold.io/blog/2022-08-08-org-link-bookmarklet/</link>
+      <pubDate>Mon, 08 Aug 2022 23:33:05 +0800</pubDate>
+      <author>whatacold@gmail.com (whatacold)</author>
+      <guid>https://whatacold.io/blog/2022-08-08-org-link-bookmarklet/</guid>
+      <description>In this blog post, I&amp;#39;d like to share a bookmarklet for copying a web page&amp;#39;s URL as an org-mode link on Firefox, Chrome, or whatever web browsers support bookmarklets.
+ It&amp;#39;s handy when the URL isn&amp;#39;t SEO-friendly, which means you can&amp;#39;t tell what its content is about at first glance of the URL. So a little description text on the link would help.
+ Here is the bookmarklet:
+javascript:window.prompt(&amp;#34;Copy to clipboard: Ctrl+C, Esc&amp;#34;, &amp;#34;[[&amp;#34; + document.</description>
+    </item>
+    
     <item>
       <title>Generating org-mode Outlines for wikiHow Articles</title>
       <link>https://whatacold.io/blog/2019-07-20-generating-org-mode-outlines-for-wikihow-articles/</link>

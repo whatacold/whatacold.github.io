@@ -13,7 +13,7 @@
   
 
   <title>Doxygen 终于可以正确生成函数调用图了！ - whatacold 的空间</title>
-  <meta name="description" content="Doxygen 有一个很不错的功能，能够顺带生成类关系图、函数调用图，但是却有一个 bug 导致它有的时候无法正常生成。最近花了点时间终于把这个问题原因找到并修复了，已经被合并，等到下一个版本发布了就可以正常使用了……">
+  <meta name="description" content="大家都知道， Doxygen 可以用于提取代码的注释生成项目的文档，只要注释满足它规定的格式。我喜欢通过它生成类继承图（inheritance diagram">
   <meta name="author" content="whatacold"/><script type="application/ld+json">
 {
     "@context": "http://schema.org",
@@ -62,13 +62,13 @@
     "name" : "whatacold"
   },
   "headline": "Doxygen 终于可以正确生成函数调用图了！",
-  "description" : "Doxygen 有一个很不错的功能，能够顺带生成类关系图、函数调用图，但是却有一个 bug 导致它有的时候无法正常生成。最近花了点时间终于把这个问题原因找到并修复了，已经被合并，等到下一个版本发布了就可以正常使用了……",
+  "description" : "大家都知道， Doxygen 可以用于提取代码的注释生成项目的文档，只要注释满足它规定的格式。我喜欢通过它生成类继承图（inheritance diagram",
   "inLanguage" : "zh-cn",
-  "wordCount":  769 ,
+  "wordCount":  789 ,
   "datePublished" : "2021-02-16T16:08:00",
   "dateModified" : "2021-02-16T16:08:00",
   "image" : "https:\/\/whatacold.io\/img\/avatar.png",
-  "keywords" : [ "C\u002b\u002b" ],
+  "keywords" : [ "C\u002b\u002b, Debugging" ],
   "mainEntityOfPage" : "https:\/\/whatacold.io\/zh-cn\/blog\/2021-02-16-doxygen-cpp-correct-callgraphs\/",
   "publisher" : {
     "@type": "Organization",
@@ -84,20 +84,20 @@
 </script>
 
 <meta property="og:title" content="Doxygen 终于可以正确生成函数调用图了！" />
-<meta property="og:description" content="Doxygen 有一个很不错的功能，能够顺带生成类关系图、函数调用图，但是却有一个 bug 导致它有的时候无法正常生成。最近花了点时间终于把这个问题原因找到并修复了，已经被合并，等到下一个版本发布了就可以正常使用了……">
+<meta property="og:description" content="大家都知道， Doxygen 可以用于提取代码的注释生成项目的文档，只要注释满足它规定的格式。我喜欢通过它生成类继承图（inheritance diagram">
 <meta property="og:image" content="https://whatacold.io/img/avatar.png" />
 <meta property="og:url" content="https://whatacold.io/zh-cn/blog/2021-02-16-doxygen-cpp-correct-callgraphs/" />
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="whatacold 的空间" />
 
   <meta name="twitter:title" content="Doxygen 终于可以正确生成函数调用图了！" />
-  <meta name="twitter:description" content="Doxygen 有一个很不错的功能，能够顺带生成类关系图、函数调用图，但是却有一个 bug 导致它有的时候无法正常生成。最近花了点时间终于把这个问题原因找到并修复了，已经被合并，等到下一个版本发布了就可以正常使用了……">
+  <meta name="twitter:description" content="大家都知道， Doxygen 可以用于提取代码的注释生成项目的文档，只要注释满足它规定的格式。我喜欢通过它生成类继承图（inheritance diagram">
   <meta name="twitter:image" content="https://whatacold.io/img/avatar.png" />
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:site" content="@whatacold" />
   <meta name="twitter:creator" content="@whatacold" />
   <link href='https://whatacold.io/img/favicon.ico' rel='icon' type='image/x-icon'/>
-  <meta name="generator" content="Hugo 0.80.0" />
+  <meta name="generator" content="Hugo 0.93.3" />
   <link rel="alternate" href="https://whatacold.io/zh-cn/index.xml" type="application/rss+xml" title="whatacold 的空间"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"><link rel="stylesheet" href="https://whatacold.io/css/main.css" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
@@ -137,19 +137,19 @@ if (!doNotTrack) {
         
           
             <li>
-              <a title="Blog" href="/zh-cn">Blog</a>
+              <a title="博客" href="/zh-cn">博客</a>
             </li>
           
         
           
             <li>
-              <a title="About" href="/zh-cn/about/">About</a>
+              <a title="标签" href="/zh-cn/tags">标签</a>
             </li>
           
         
           
             <li>
-              <a title="Tags" href="/zh-cn/tags">Tags</a>
+              <a title="关于" href="/zh-cn/about/">关于</a>
             </li>
           
         
@@ -276,9 +276,9 @@ if (!doNotTrack) {
     <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
       <article role="main" class="blog-post">
         <p>
-大家都知道， Doxygen 可以用于提取代码的注释生成项目的文档，只要注释满足其规定的格式。但我更喜欢利用它生成类继承图（inheritance diagram）和函数调用图（callgraph），通过他们能够加快对代码的理解。</p>
+大家都知道， <a href="https://doxygen.nl/">Doxygen</a> 可以用于提取代码的注释生成项目的文档，只要注释满足它规定的格式。我喜欢通过它生成类继承图（inheritance diagram）和函数调用图（callgraph），有了他们能够加快对代码的理解。</p>
 <p>
-以 MySQL 代码为例， Doxygen 生成的类继承图和调用图分别是这样的：</p>
+以 <a href="https://github.com/mysql/mysql-server">MySQL</a> 代码为例， Doxygen 生成的类继承图和调用图分别是这样的：</p>
 <figure>
 <img src="/img/2021-02-16-doxygen_innodb_classhandler__inherit__graph.png" alt="/img/2021-02-16-doxygen_innodb_classhandler__inherit__graph.png" title="/img/2021-02-16-doxygen_innodb_classhandler__inherit__graph.png" /><figcaption>
 handler （存储引擎）类继承图
@@ -291,20 +291,22 @@ ha_recover() crash recovery 函数调用图
 </figcaption>
 </figure>
 <p>
-之前工作中交接了几个 C++ 项目，由于还不熟悉，就想用 Doxygen 来生成这两种图来加快熟悉代码，但结果却生成失败了。</p>
+之前工作中交接了几个 C++ 项目，由于还不熟悉代码，就想用 Doxygen 来生成这两种图来加快熟悉代码，但结果却生成失败了。</p>
+<p>
+而一个普通的 hello world 程序却没有问题，说明是 Doxygen 对特定的代码处理有 bug 。</p>
 <p>
 几经排查，最后发现只要代码中包含2个以上的 <code class="verbatim">using namespace xxx;</code> 语句，调用图就无法生成。比如下面这样一个简单的类实现，就无法生成调用关系图。</p>
 <figure>
 <div class="src src-c++">
-<div class="highlight"><pre class="chroma"><code class="language-c++" data-lang="c++"><span class="cp">#pragma once
-</span><span class="cp"></span>
-<span class="k">namespace</span> <span class="n">demo</span> <span class="p">{</span>
-    <span class="k">class</span> <span class="nc">Test</span> <span class="p">{</span>
-    <span class="k">public</span><span class="o">:</span>
-        <span class="kt">void</span> <span class="n">foo</span><span class="p">();</span>
-        <span class="kt">void</span> <span class="nf">bar</span><span class="p">();</span>
-    <span class="p">};</span>
-<span class="p">}</span></code></pre></div>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="cp">#pragma once
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span>
+</span></span><span class="line"><span class="cl"><span class="k">namespace</span> <span class="n">demo</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">class</span> <span class="nc">Test</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">public</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">        <span class="kt">void</span> <span class="n">foo</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">        <span class="kt">void</span> <span class="nf">bar</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">    <span class="p">};</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></div>
 </div>
 <figcaption>
 test.h 代码
@@ -312,53 +314,51 @@ test.h 代码
 </figure>
 <figure>
 <div class="src src-c++">
-<div class="highlight"><pre class="chroma"><code class="language-c++" data-lang="c++"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
-</span><span class="cp">#include</span> <span class="cpf">&#34;test.h&#34;</span><span class="cp">
-</span><span class="cp"></span>
-<span class="k">using</span> <span class="k">namespace</span> <span class="n">demo</span><span class="p">;</span>
-<span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
-
-<span class="kt">void</span> <span class="n">Test</span><span class="o">::</span><span class="n">foo</span><span class="p">()</span>
-<span class="p">{</span>
-    <span class="n">bar</span><span class="p">();</span>
-<span class="p">}</span>
-
-<span class="kt">void</span> <span class="n">Test</span><span class="o">::</span><span class="n">bar</span><span class="p">()</span>
-<span class="p">{</span>
-    <span class="k">return</span><span class="p">;</span>
-<span class="p">}</span>
-
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
-<span class="p">{</span>
-    <span class="n">Test</span> <span class="n">test</span><span class="p">;</span>
-    <span class="n">test</span><span class="p">.</span><span class="n">foo</span><span class="p">();</span>
-    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-<span class="p">}</span></code></pre></div>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&#34;test.h&#34;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span>
+</span></span><span class="line"><span class="cl"><span class="k">using</span> <span class="k">namespace</span> <span class="n">demo</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kt">void</span> <span class="n">Test</span><span class="o">::</span><span class="n">foo</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">bar</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kt">void</span> <span class="n">Test</span><span class="o">::</span><span class="n">bar</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">Test</span> <span class="n">test</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">test</span><span class="p">.</span><span class="n">foo</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></div>
 </div>
 <figcaption>
 test.cpp 代码
 </figcaption>
 </figure>
 <p>
-虽然这种直接包含命名空间的用法不推荐，但是在已有项目中却很常见，这种情况下 Doxygen 基本就不可用了。</p>
+虽然这种直接包含命名空间的用法不推荐，但是在已有项目中却很常见，这样的话 Doxygen 基本就不可用了。</p>
 <p>
 由于当时没有时间，就先给官方报了一个 <a href="https://github.com/doxygen/doxygen/issues/8011">issue</a> ，等待他们解决。</p>
 <p>
-没想到几个月之后，官方也还没有解决，而最近正好有点时间，就重新去分析这个 bug ，看如何解决。解决过程虽然花了不少时间，但总结起来就几点：</p>
-<ol>
-<li>
-<p>对比正常生成调用图和无法生成调用图的两种输出，再 grep 差异信息定位到生成 callgraph 图的相关代码；</p>
-</li>
-<li>
-<p>添加 printf 调试信息，找出 callgraph 元数据的来源，即 Doxygen 怎么得到调用关系的，最终找到实现在 <code class="verbatim">code.l</code> （C族语言的 flex 实现，用于解析工程源码）中，其中基于 flex 自己实现了词法解析；</p>
-</li>
-<li>
-<p>学习 flex 的使用方法；</p>
-</li>
-</ol>
-<p>最后终于找到问题的根源在于， Doxygen 在解析 <code class="verbatim">using namespace xxx;</code> 指令的时候，错误地把文件中其后的代码包围在 xxx 命名空间中（ <code class="verbatim">pushScope</code> ），从而把函数的绝对命名空间弄错，就没法解析出正确的调用关系了。</p>
+没想到几个月之后，官方也还没有解决。而最近正好有点时间，就重新去分析这个 bug ，看如何解决。</p>
 <p>
-提了 <a href="https://github.com/doxygen/doxygen/pull/8376">PR</a> 修复了之后， Doxygen 就能够正常地生成调用图了，前面的测试代码就能正确地生成如下的函数调用图了。</p>
+解决过程虽然花了不少时间，但总结起来有几点：</p>
+<ol>
+<li>缩小范围：对比正常生成调用图和无法生成调用图的两种情况下的 stdout 输出，再根据差异信息 grep 定位到生成 callgraph 图的相关代码；</li>
+<li>添加 printf 调试信息，找出 callgraph 元数据的来源，即 Doxygen 怎么得到调用关系的；
+
+最终找到这部份实现在 <code class="verbatim">code.l</code> （C族语言的 Flex 实现，用于解析工程源码）中， Doxygen 基于 Flex 实现了自己的词法解析；</li>
+<li>学习 <a href="https://en.wikipedia.org/wiki/Flex_(lexical_analyser_generator)">Flex</a> 的使用方法；</li>
+</ol>
+<p>最后终于找到问题的根源在于， Doxygen 在解析 <code class="verbatim">using namespace xxx;</code> 指令的时候，错误地认为文件中往后的代码属于 xxx 命名空间（ <code class="verbatim">pushScope</code> ），从而把函数的绝对命名空间弄错，就没法解析出正确的调用关系了。</p>
+<p>
+提了 <a href="https://github.com/doxygen/doxygen/pull/8376">PR</a> 修复了之后，前面的测试代码就能正确地生成如下的函数调用图了。</p>
 <figure>
 <img src="/img/2021-02-16-doxygen_fix_test_callgraph.png" alt="/img/2021-02-16-doxygen_fix_test_callgraph.png" title="/img/2021-02-16-doxygen_fix_test_callgraph.png" /><figcaption>
 Test::foo() 的调用图
@@ -367,12 +367,8 @@ Test::foo() 的调用图
 <p>
 Updates:</p>
 <ol>
-<li>
-<p>目前（2021.02）这个 PR 已经合并到 master 了，但是还没有发布，需要再等一等。</p>
-</li>
-<li>
-<p>2021.08.19 发布的 <a href="https://github.com/doxygen/doxygen/releases/tag/Release_1_9_2">版本 1.9.2</a>，已经包含了这个 fix 。</p>
-</li>
+<li>2021.02 这个 PR 已经合并到 master 了，但是还没有发布，需要再等一等。</li>
+<li>2021.08.19 发布的 <a href="https://github.com/doxygen/doxygen/releases/tag/Release_1_9_2">版本 1.9.2</a>，已经包含了这个 bugfix 。</li>
 </ol>
 
 
@@ -380,6 +376,8 @@ Updates:</p>
           <div class="blog-tags">
             
               <a href="https://whatacold.io/zh-cn/tags/c&#43;&#43;/">C&#43;&#43;</a>&nbsp;
+            
+              <a href="https://whatacold.io/zh-cn/tags/debugging/">Debugging</a>&nbsp;
             
           </div>
         
@@ -451,6 +449,8 @@ Updates:</p>
                   <ul>
                 
                 
+                    <li><a href="/zh-cn/blog/2022-07-17-emacs-elisp-debug/">Emacs 常用 debug 手段</a></li>
+                
                     <li><a href="/zh-cn/blog/2018-12-22-c-cpp-devel-with-lsp-in-emacs/">在 Emacs 中使用 LSP 开发 C/C&#43;&#43; 工程</a></li>
                 
                     <li><a href="/zh-cn/blog/2018-12-10-how-polymorphism-works-in-cpp/">C&#43;&#43; 多态是如何实现的？</a></li>
@@ -483,7 +483,7 @@ Updates:</p>
           <div class="disqus-comments">
             <div id="disqus_thread"></div>
 <script type="application/javascript">
-    var disqus_config = function () {
+    window.disqus_config = function () {
     
     
     
@@ -591,7 +591,7 @@ Updates:</p>
         </p>
         
         <p class="credits theme-by text-muted">
-          由 <a href="https://gohugo.io">Hugo v0.80.0</a> 强力驱动 &nbsp;&bull;&nbsp; 主题 <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> 移植自 <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
+          由 <a href="https://gohugo.io">Hugo v0.93.3</a> 强力驱动 &nbsp;&bull;&nbsp; 主题 <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> 移植自 <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
           
         </p>
       </div>

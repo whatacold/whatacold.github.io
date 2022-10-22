@@ -97,7 +97,7 @@
   <meta name="twitter:site" content="@whatacold" />
   <meta name="twitter:creator" content="@whatacold" />
   <link href='https://whatacold.io/img/favicon.ico' rel='icon' type='image/x-icon'/>
-  <meta name="generator" content="Hugo 0.80.0" />
+  <meta name="generator" content="Hugo 0.93.3" />
   <link rel="alternate" href="https://whatacold.io/index.xml" type="application/rss+xml" title="whatacold&#39;s space"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"><link rel="stylesheet" href="https://whatacold.io/css/main.css" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
@@ -143,13 +143,13 @@ if (!doNotTrack) {
         
           
             <li>
-              <a title="About" href="/about/">About</a>
+              <a title="Tags" href="/tags">Tags</a>
             </li>
           
         
           
             <li>
-              <a title="Tags" href="/tags">Tags</a>
+              <a title="About" href="/about/">About</a>
             </li>
           
         
@@ -291,25 +291,25 @@ Today I had some time at hand, and I confirmed that the option is the cause by r
 <p>
 Let&#39;s demonstrate it by cloning my dotfiles repo with different options, and it shows clearly that Git will only fetch <code class="verbatim">master</code> of the remote repo if only specifying <code class="verbatim">--depth</code>:</p>
 <div class="src src-shell">
-<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell">$ <span class="nb">cd</span> /tmp/
-$ git clone --depth <span class="m">1</span> https://github.com/whatacold/extensible-dotfiles.git dotfiles-depth1
-$ git clone --no-single-branch --depth <span class="m">1</span> https://github.com/whatacold/extensible-dotfiles.git dotfiles-no-single-branch
-$ git clone https://github.com/whatacold/extensible-dotfiles.git dotfiles-full
-
-$ grep <span class="s1">&#39;remote &#34;origin&#34;&#39;</span> -A <span class="m">2</span> dotfiles-depth1/.git/config 
-<span class="o">[</span>remote <span class="s2">&#34;origin&#34;</span><span class="o">]</span>
-	<span class="nv">url</span> <span class="o">=</span> https://github.com/whatacold/extensible-dotfiles.git
-	<span class="nv">fetch</span> <span class="o">=</span> +refs/heads/master:refs/remotes/origin/master
-
-$ grep <span class="s1">&#39;remote &#34;origin&#34;&#39;</span> -A <span class="m">2</span> dotfiles-no-single-branch/.git/config 
-<span class="o">[</span>remote <span class="s2">&#34;origin&#34;</span><span class="o">]</span>
-	<span class="nv">url</span> <span class="o">=</span> https://github.com/whatacold/extensible-dotfiles.git
-	<span class="nv">fetch</span> <span class="o">=</span> +refs/heads/*:refs/remotes/origin/*
-
-$ grep <span class="s1">&#39;remote &#34;origin&#34;&#39;</span> -A <span class="m">2</span> dotfiles-full/.git/config
-<span class="o">[</span>remote <span class="s2">&#34;origin&#34;</span><span class="o">]</span>
-	<span class="nv">url</span> <span class="o">=</span> https://github.com/whatacold/extensible-dotfiles.git
-	<span class="nv">fetch</span> <span class="o">=</span> +refs/heads/*:refs/remotes/origin/*</code></pre></div>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">$ <span class="nb">cd</span> /tmp/
+</span></span><span class="line"><span class="cl">$ git clone --depth <span class="m">1</span> https://github.com/whatacold/extensible-dotfiles.git dotfiles-depth1
+</span></span><span class="line"><span class="cl">$ git clone --no-single-branch --depth <span class="m">1</span> https://github.com/whatacold/extensible-dotfiles.git dotfiles-no-single-branch
+</span></span><span class="line"><span class="cl">$ git clone https://github.com/whatacold/extensible-dotfiles.git dotfiles-full
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">$ grep <span class="s1">&#39;remote &#34;origin&#34;&#39;</span> -A <span class="m">2</span> dotfiles-depth1/.git/config 
+</span></span><span class="line"><span class="cl"><span class="o">[</span>remote <span class="s2">&#34;origin&#34;</span><span class="o">]</span>
+</span></span><span class="line"><span class="cl">	<span class="nv">url</span> <span class="o">=</span> https://github.com/whatacold/extensible-dotfiles.git
+</span></span><span class="line"><span class="cl">	<span class="nv">fetch</span> <span class="o">=</span> +refs/heads/master:refs/remotes/origin/master
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">$ grep <span class="s1">&#39;remote &#34;origin&#34;&#39;</span> -A <span class="m">2</span> dotfiles-no-single-branch/.git/config 
+</span></span><span class="line"><span class="cl"><span class="o">[</span>remote <span class="s2">&#34;origin&#34;</span><span class="o">]</span>
+</span></span><span class="line"><span class="cl">	<span class="nv">url</span> <span class="o">=</span> https://github.com/whatacold/extensible-dotfiles.git
+</span></span><span class="line"><span class="cl">	<span class="nv">fetch</span> <span class="o">=</span> +refs/heads/*:refs/remotes/origin/*
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">$ grep <span class="s1">&#39;remote &#34;origin&#34;&#39;</span> -A <span class="m">2</span> dotfiles-full/.git/config
+</span></span><span class="line"><span class="cl"><span class="o">[</span>remote <span class="s2">&#34;origin&#34;</span><span class="o">]</span>
+</span></span><span class="line"><span class="cl">	<span class="nv">url</span> <span class="o">=</span> https://github.com/whatacold/extensible-dotfiles.git
+</span></span><span class="line"><span class="cl">	<span class="nv">fetch</span> <span class="o">=</span> +refs/heads/*:refs/remotes/origin/*</span></span></code></pre></div>
 </div>
 <p>
 I don&#39;t know why <code class="verbatim">--single-branch</code> should be implied by default, at least for me, I just want to fetch all the remote branches.</p>
@@ -404,7 +404,7 @@ I don&#39;t know why <code class="verbatim">--single-branch</code> should be imp
         <ul class="pager blog-pager">
           
             <li class="previous">
-              <a href="https://whatacold.io/blog/2019-11-25-start-a-new-urxvt-terminal-on-emacs/" data-toggle="tooltip" data-placement="top" title="Start a New Terminal(urxvt) at Current Buffer&#39;s default-directory on Emacs">&larr; Previous Post</a>
+              <a href="https://whatacold.io/blog/2019-11-25-start-a-new-urxvt-terminal-on-emacs/" data-toggle="tooltip" data-placement="top" title="Open New Urxvt from within Emacs">&larr; Previous Post</a>
             </li>
           
           
@@ -422,7 +422,7 @@ I don&#39;t know why <code class="verbatim">--single-branch</code> should be imp
           <div class="disqus-comments">
             <div id="disqus_thread"></div>
 <script type="application/javascript">
-    var disqus_config = function () {
+    window.disqus_config = function () {
     
     
     
@@ -530,7 +530,7 @@ I don&#39;t know why <code class="verbatim">--single-branch</code> should be imp
         </p>
         
         <p class="credits theme-by text-muted">
-          <a href="https://gohugo.io">Hugo v0.80.0</a> powered &nbsp;&bull;&nbsp; Theme <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> adapted from <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
+          <a href="https://gohugo.io">Hugo v0.93.3</a> powered &nbsp;&bull;&nbsp; Theme <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> adapted from <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
           
         </p>
       </div>

@@ -7,9 +7,18 @@
     <generator>Hugo -- gohugo.io</generator>
     <managingEditor>whatacold@gmail.com (whatacold)</managingEditor>
     <webMaster>whatacold@gmail.com (whatacold)</webMaster>
-    <lastBuildDate>Sat, 10 Jul 2021 20:37:11 +0800</lastBuildDate><atom:link href="https://whatacold.io/zh-cn/tags/hugo/rss.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 05 Oct 2022 18:17:37 +0800</lastBuildDate><atom:link href="https://whatacold.io/zh-cn/tags/hugo/rss.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>个人网站迁移 Hugo 记</title>
+      <title>修改 Beautiful Hugo Banner 头图</title>
+      <link>https://whatacold.io/zh-cn/blog/2022-10-05-beautifulhugo-banner-image/</link>
+      <pubDate>Wed, 05 Oct 2022 18:17:37 +0800</pubDate>
+      <author>whatacold@gmail.com (whatacold)</author>
+      <guid>https://whatacold.io/zh-cn/blog/2022-10-05-beautifulhugo-banner-image/</guid>
+      <description>博客迁移 Hugo 也有一年多了，最近对 Beautiful Hugo 用的头图 Sphere 产生了审美疲劳，感觉它太过朴素，于是萌生了更换头图的念头。 旧版头图 那换什么图片好点呢？ 经过几秒钟</description>
+    </item>
+    
+    <item>
+      <title>个人博客网站迁移 Hugo 小记</title>
       <link>https://whatacold.io/zh-cn/blog/2021-07-10-migrate-site-hugo/</link>
       <pubDate>Sat, 10 Jul 2021 20:37:11 +0800</pubDate>
       <author>whatacold@gmail.com (whatacold)</author>

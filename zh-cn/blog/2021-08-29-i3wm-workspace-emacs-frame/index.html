@@ -97,7 +97,7 @@
   <meta name="twitter:site" content="@whatacold" />
   <meta name="twitter:creator" content="@whatacold" />
   <link href='https://whatacold.io/img/favicon.ico' rel='icon' type='image/x-icon'/>
-  <meta name="generator" content="Hugo 0.80.0" />
+  <meta name="generator" content="Hugo 0.93.3" />
   <link rel="alternate" href="https://whatacold.io/zh-cn/index.xml" type="application/rss+xml" title="whatacold 的空间"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"><link rel="stylesheet" href="https://whatacold.io/css/main.css" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
@@ -137,19 +137,19 @@ if (!doNotTrack) {
         
           
             <li>
-              <a title="Blog" href="/zh-cn">Blog</a>
+              <a title="博客" href="/zh-cn">博客</a>
             </li>
           
         
           
             <li>
-              <a title="About" href="/zh-cn/about/">About</a>
+              <a title="标签" href="/zh-cn/tags">标签</a>
             </li>
           
         
           
             <li>
-              <a title="Tags" href="/zh-cn/tags">Tags</a>
+              <a title="关于" href="/zh-cn/about/">关于</a>
             </li>
           
         
@@ -282,15 +282,9 @@ if (!doNotTrack) {
 <p>
 想了一下，这种情况有几种解决办法：</p>
 <ol>
-<li>
-<p>在工作区之间移动应用</p>
-</li>
-<li>
-<p>把应用放到 scratchpad 中，这样在所有的工作区都能够通过下拉 scratchpad 把应用找出来</p>
-</li>
-<li>
-<p>如果应用支持多窗口，在任意工作区按需创建新的窗口</p>
-</li>
+<li>在工作区之间移动应用</li>
+<li>把应用放到 scratchpad 中，这样在所有的工作区都能够通过下拉 scratchpad 把应用找出来</li>
+<li>如果应用支持多窗口，在任意工作区按需创建新的窗口</li>
 </ol>
 <p>第一种方法相对来说过于繁琐，后两种方法里，我更习惯用第三种方法。那么如何实现呢？</p>
 <p>
@@ -300,12 +294,8 @@ if (!doNotTrack) {
 <p>
 基于此，再结合 i3wm 的绑定按键功能，我们就可以实现快速创建 Emacs 窗口，具体做法是：</p>
 <ol>
-<li>
-<p>在 Emacs 配置中开启 server 功能： <code class="verbatim">(server-start)</code></p>
-</li>
-<li>
-<p>i3wm 绑定按键来执行命令： <code class="verbatim">bindsym $mod+e exec --no-startup-id emacsclient --eval &#39;(make-frame-command)&#39;</code> ，注意必须指定 <code class="verbatim">--no-startup-id</code> 选项才比较可靠</p>
-</li>
+<li>在 Emacs 配置中开启 server 功能： <code class="verbatim">(server-start)</code></li>
+<li>i3wm 绑定按键来执行命令： <code class="verbatim">bindsym $mod+e exec --no-startup-id emacsclient --eval &#39;(make-frame-command)&#39;</code> ，注意必须指定 <code class="verbatim">--no-startup-id</code> 选项才比较可靠</li>
 </ol>
 <p>然后重启 Emacs （或者直接 eval <code class="verbatim">(server-start)</code> ）且重新加载 i3wm 的配置，就可以通过 mod+e 按键来快速地创建 Emacs 窗口了：</p>
 <figure>
@@ -392,11 +382,15 @@ if (!doNotTrack) {
                   <ul>
                 
                 
+                    <li><a href="/zh-cn/blog/2022-09-11-emacs-smart-input-source-rime/">Emacs 中使用 smart-input-source 配合 Rime 进行流畅地中英文输入</a></li>
+                
+                    <li><a href="/zh-cn/blog/2022-09-10-emacs-beancount-account-files/">Emacs Beancount ：记账时从其他的账户文件补全账户</a></li>
+                
+                    <li><a href="/zh-cn/blog/2022-07-17-emacs-elisp-debug/">Emacs 常用 debug 手段</a></li>
+                
                     <li><a href="/zh-cn/blog/2020-04-11-use-ppcompile-to-remote-compile-in-emacs/">Emacs 中使用 ppcompile 进行远程编译</a></li>
                 
                     <li><a href="/zh-cn/blog/2019-02-03-emacs-kmacro-characters-repeated-bug/">记一个 Emacs 26 Keyboard Macro 输入字符重复的 Bug</a></li>
-                
-                    <li><a href="/zh-cn/blog/2018-12-22-c-cpp-devel-with-lsp-in-emacs/">在 Emacs 中使用 LSP 开发 C/C&#43;&#43; 工程</a></li>
                 
               </ul>
 
@@ -426,7 +420,7 @@ if (!doNotTrack) {
           <div class="disqus-comments">
             <div id="disqus_thread"></div>
 <script type="application/javascript">
-    var disqus_config = function () {
+    window.disqus_config = function () {
     
     
     
@@ -534,7 +528,7 @@ if (!doNotTrack) {
         </p>
         
         <p class="credits theme-by text-muted">
-          由 <a href="https://gohugo.io">Hugo v0.80.0</a> 强力驱动 &nbsp;&bull;&nbsp; 主题 <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> 移植自 <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
+          由 <a href="https://gohugo.io">Hugo v0.93.3</a> 强力驱动 &nbsp;&bull;&nbsp; 主题 <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> 移植自 <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
           
         </p>
       </div>

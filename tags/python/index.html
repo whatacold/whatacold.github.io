@@ -46,7 +46,7 @@
   <meta name="twitter:site" content="@whatacold" />
   <meta name="twitter:creator" content="@whatacold" />
   <link href='https://whatacold.io/img/favicon.ico' rel='icon' type='image/x-icon'/>
-  <meta name="generator" content="Hugo 0.80.0" />
+  <meta name="generator" content="Hugo 0.93.3" />
   <link rel="alternate" href="https://whatacold.io/index.xml" type="application/rss+xml" title="whatacold&#39;s space"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"><link rel="stylesheet" href="https://whatacold.io/css/main.css" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
@@ -92,13 +92,13 @@ if (!doNotTrack) {
         
           
             <li>
-              <a title="About" href="/about/">About</a>
+              <a title="Tags" href="/tags">Tags</a>
             </li>
           
         
           
             <li>
-              <a title="Tags" href="/tags">Tags</a>
+              <a title="About" href="/about/">About</a>
             </li>
           
         
@@ -244,7 +244,7 @@ if (!doNotTrack) {
     &nbsp;|&nbsp;<i class="fas fa-clock"></i>&nbsp;2&nbsp;minutes
   
   
-    &nbsp;|&nbsp;<i class="fas fa-book"></i>&nbsp;313&nbsp;words
+    &nbsp;|&nbsp;<i class="fas fa-book"></i>&nbsp;312&nbsp;words
   
   
   
@@ -255,9 +255,7 @@ if (!doNotTrack) {
     <div class="post-entry">
         
         Scrapy Architecture    Scrapy provides a few item exporters by default to export items in commonly used file formats like CSV/JSON/XML. I usually use CSV to export items, it is pretty convenient, and it comes in two ways:
-  appending mode, for example, scrapy crawl foo -o test.csv
-  overwriting mode with -O option, like scrapy crawl foo -O test.csv
-  But in the appending mode, it&#39;s a bit annoying that it always appends the header row before the newly scraped items, which is not correctly in terms of CSV format.
+ appending mode, for example, scrapy crawl foo -o test.csv overwriting mode with -O option, like scrapy crawl foo -O test.csv  But in the appending mode, it&#39;s a bit annoying that it always appends the header row before the newly scraped items, which is not correctly in terms of CSV format.
         <a href="https://whatacold.io/blog/2022-04-09-scrapy-csv-without-header/" class="post-read-more">[Read More]</a>
         
     </div>
@@ -341,7 +339,7 @@ if (!doNotTrack) {
     &nbsp;|&nbsp;<i class="fas fa-clock"></i>&nbsp;2&nbsp;minutes
   
   
-    &nbsp;|&nbsp;<i class="fas fa-book"></i>&nbsp;324&nbsp;words
+    &nbsp;|&nbsp;<i class="fas fa-book"></i>&nbsp;313&nbsp;words
   
   
   
@@ -352,11 +350,8 @@ if (!doNotTrack) {
     <div class="post-entry">
         
         Beautiful Soup    Detailed docs: the Beautiful Soup 4 Docs.
- Want to scrape data from websites? I can help you: https://www.fiverr.com/share/j7qgrm
  Assume t is an object of Tag.
-Core concepts (classes)    Tag, a Tag object corresponds to an XML or HTML tag.
-  BeautifulSoup, the BeautifulSoup object represents the parsed document as a whole.
- You can treat it like a special Tag.
+Core concepts (classes)   Tag, a Tag object corresponds to an XML or HTML tag. BeautifulSoup, the BeautifulSoup object represents the parsed document as a whole. You can treat it like a special Tag. It needs a parser to parse the document, a built-in parser is &#34;html.
         <a href="https://whatacold.io/blog/2021-12-05-beautifulsoup4-cheatsheet/" class="post-read-more">[Read More]</a>
         
     </div>
@@ -483,11 +478,13 @@ Core concepts (classes)    Tag, a Tag object corresponds to an XML or HTML tag.
   
   <i class="fas fa-calendar"></i>&nbsp;Posted on 2020-10-21
   
+    &nbsp;(Last modified on 2022-10-15)
+  
   
     &nbsp;|&nbsp;<i class="fas fa-clock"></i>&nbsp;3&nbsp;minutes
   
   
-    &nbsp;|&nbsp;<i class="fas fa-book"></i>&nbsp;564&nbsp;words
+    &nbsp;|&nbsp;<i class="fas fa-book"></i>&nbsp;563&nbsp;words
   
   
   &nbsp;&bull;&nbsp;Other languages: <a href="https://whatacold.io/zh-cn/blog/2021-07-12-python-re-chazhao/" lang="zh-cn">简体中文</a>
@@ -511,6 +508,8 @@ Core concepts (classes)    Tag, a Tag object corresponds to an XML or HTML tag.
         
         <a href="https://whatacold.io/tags/texttoolkit/">texttoolkit</a>&nbsp;
         
+        <a href="https://whatacold.io/tags/tools/">Tools</a>&nbsp;
+        
     </div>
     
 
@@ -530,11 +529,13 @@ Core concepts (classes)    Tag, a Tag object corresponds to an XML or HTML tag.
   
   <i class="fas fa-calendar"></i>&nbsp;Posted on 2019-09-29
   
+    &nbsp;(Last modified on 2022-10-14)
+  
   
     &nbsp;|&nbsp;<i class="fas fa-clock"></i>&nbsp;2&nbsp;minutes
   
   
-    &nbsp;|&nbsp;<i class="fas fa-book"></i>&nbsp;353&nbsp;words
+    &nbsp;|&nbsp;<i class="fas fa-book"></i>&nbsp;359&nbsp;words
   
   
   
@@ -580,7 +581,7 @@ Core concepts (classes)    Tag, a Tag object corresponds to an XML or HTML tag.
     &nbsp;|&nbsp;<i class="fas fa-clock"></i>&nbsp;2&nbsp;minutes
   
   
-    &nbsp;|&nbsp;<i class="fas fa-book"></i>&nbsp;249&nbsp;words
+    &nbsp;|&nbsp;<i class="fas fa-book"></i>&nbsp;248&nbsp;words
   
   
   
@@ -612,7 +613,7 @@ Core concepts (classes)    Tag, a Tag object corresponds to an XML or HTML tag.
           
             <article class="post-preview">
     <a href="https://whatacold.io/blog/2019-07-06-render-erd-on-the-web/">
-        <h2 class="post-title">Render erd Diagrams Online</h2>
+        <h2 class="post-title">ER Diagrams in Plain Text</h2>
         
         
         
@@ -624,11 +625,13 @@ Core concepts (classes)    Tag, a Tag object corresponds to an XML or HTML tag.
   
   <i class="fas fa-calendar"></i>&nbsp;Posted on 2019-07-06
   
+    &nbsp;(Last modified on 2022-10-22)
   
-    &nbsp;|&nbsp;<i class="fas fa-clock"></i>&nbsp;2&nbsp;minutes
+  
+    &nbsp;|&nbsp;<i class="fas fa-clock"></i>&nbsp;3&nbsp;minutes
   
   
-    &nbsp;|&nbsp;<i class="fas fa-book"></i>&nbsp;296&nbsp;words
+    &nbsp;|&nbsp;<i class="fas fa-book"></i>&nbsp;520&nbsp;words
   
   
   
@@ -650,6 +653,8 @@ Core concepts (classes)    Tag, a Tag object corresponds to an XML or HTML tag.
         <a href="https://whatacold.io/tags/python/">Python</a>&nbsp;
         
         <a href="https://whatacold.io/tags/tools/">Tools</a>&nbsp;
+        
+        <a href="https://whatacold.io/tags/texttoolkit/">texttoolkit</a>&nbsp;
         
     </div>
     
@@ -751,7 +756,7 @@ Core concepts (classes)    Tag, a Tag object corresponds to an XML or HTML tag.
         </p>
         
         <p class="credits theme-by text-muted">
-          <a href="https://gohugo.io">Hugo v0.80.0</a> powered &nbsp;&bull;&nbsp; Theme <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> adapted from <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
+          <a href="https://gohugo.io">Hugo v0.93.3</a> powered &nbsp;&bull;&nbsp; Theme <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> adapted from <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
           
         </p>
       </div>

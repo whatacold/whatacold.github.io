@@ -97,7 +97,7 @@
   <meta name="twitter:site" content="@whatacold" />
   <meta name="twitter:creator" content="@whatacold" />
   <link href='https://whatacold.io/img/favicon.ico' rel='icon' type='image/x-icon'/>
-  <meta name="generator" content="Hugo 0.80.0" />
+  <meta name="generator" content="Hugo 0.93.3" />
   <link rel="alternate" href="https://whatacold.io/index.xml" type="application/rss+xml" title="whatacold&#39;s space"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"><link rel="stylesheet" href="https://whatacold.io/css/main.css" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
@@ -143,13 +143,13 @@ if (!doNotTrack) {
         
           
             <li>
-              <a title="About" href="/about/">About</a>
+              <a title="Tags" href="/tags">Tags</a>
             </li>
           
         
           
             <li>
-              <a title="Tags" href="/tags">Tags</a>
+              <a title="About" href="/about/">About</a>
             </li>
           
         
@@ -297,30 +297,30 @@ The task is to join every single line of a few files into a new line of a result
 <p>
 For example, if I have three text files as below:</p>
 <div class="src src-text">
-<div class="highlight"><pre class="chroma"><code class="language-text" data-lang="text">$ cat software.txt
-GNU Emacs
-Linux
-Python
-
-$ cat software-author.txt
-Richard Stallman
-Linus Torvalds
-Guido van Rossum
-
-$ cat software-birthdate.txt
-1989-03-20
-1991-09-17
-1991-02-20</code></pre></div>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">$ cat software.txt
+</span></span><span class="line"><span class="cl">GNU Emacs
+</span></span><span class="line"><span class="cl">Linux
+</span></span><span class="line"><span class="cl">Python
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">$ cat software-author.txt
+</span></span><span class="line"><span class="cl">Richard Stallman
+</span></span><span class="line"><span class="cl">Linus Torvalds
+</span></span><span class="line"><span class="cl">Guido van Rossum
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">$ cat software-birthdate.txt
+</span></span><span class="line"><span class="cl">1989-03-20
+</span></span><span class="line"><span class="cl">1991-09-17
+</span></span><span class="line"><span class="cl">1991-02-20</span></span></code></pre></div>
 </div>
 <p>
 Now I want to merge them into a new CSV (comma-separated values) file, all I have to do is typing: <code class="verbatim">python merge-files.py software-info.csv , software.txt software-author.txt software-birthdate.txt</code></p>
 <p>
 And <code class="verbatim">software-info.csv</code> will have the result as follows:</p>
 <div class="src src-text">
-<div class="highlight"><pre class="chroma"><code class="language-text" data-lang="text">$ cat software-info.csv
-GNU Emacs,Richard Stallman,1989-03-20
-Linux,Linus Torvalds,1991-09-17
-Python,Guido van Rossum,1991-02-20</code></pre></div>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">$ cat software-info.csv
+</span></span><span class="line"><span class="cl">GNU Emacs,Richard Stallman,1989-03-20
+</span></span><span class="line"><span class="cl">Linux,Linus Torvalds,1991-09-17
+</span></span><span class="line"><span class="cl">Python,Guido van Rossum,1991-02-20</span></span></code></pre></div>
 </div>
 <p>
 You may ask, what&#39;s the use scenario of this script?</p>
@@ -338,13 +338,13 @@ The requirement is quite straightforward, the next step is to design the script 
 <p>
 Here I want to write the core function in <a href="https://en.wikipedia.org/wiki/Functional_programming">functional programming</a>, so that despite reading and writing files, the core function is a pure function without any external dependencies (it only depends on its arguments), which has a signature as following:</p>
 <div class="src src-python">
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="k">def</span> <span class="nf">merge_multi_lines</span><span class="p">(</span><span class="n">separator</span><span class="p">,</span> <span class="o">*</span><span class="n">multi_lines</span><span class="p">):</span>
-    <span class="s1">&#39;&#39;&#39;Merge every line of `multi_lines` into a new line, which are
-</span><span class="s1">delimited by the separator.&#39;&#39;&#39;</span>
-    <span class="n">merged_lines</span> <span class="o">=</span> <span class="p">[]</span>
-    <span class="o">...</span>
-
-    <span class="k">return</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">merged_lines</span><span class="p">)</span></code></pre></div>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">merge_multi_lines</span><span class="p">(</span><span class="n">separator</span><span class="p">,</span> <span class="o">*</span><span class="n">multi_lines</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="s1">&#39;&#39;&#39;Merge every line of `multi_lines` into a new line, which are
+</span></span></span><span class="line"><span class="cl"><span class="s1">delimited by the separator.&#39;&#39;&#39;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">merged_lines</span> <span class="o">=</span> <span class="p">[]</span>
+</span></span><span class="line"><span class="cl">    <span class="o">...</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">merged_lines</span><span class="p">)</span></span></span></code></pre></div>
 </div>
 <p>
 And I can then evaluate the function and test it with some simple test cases to quickly fix bugs. If you don&#39;t know, this is the workflow of <a href="https://en.wikipedia.org/wiki/Interactive_programming">interactive programming</a>, which helps us test the snippet as early as possible in the process of development. So We have to postpone the testing until the whole program is finished.</p>
@@ -356,10 +356,10 @@ Performance
 <p>
 Since this script loads all the lines in memory, it may be slow for large files. If you encounter this performance problem, you can also try this awk snippet:</p>
 <div class="src src-shell">
-<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell">awk -v <span class="nv">OFS</span><span class="o">=</span><span class="s1">&#39;,&#39;</span> <span class="s1">&#39;
-</span><span class="s1">NR==FNR { col[FNR]=$0; next }
-</span><span class="s1">{ print col[FNR], $1 }
-</span><span class="s1">&#39;</span> part1.txt part2.txt &gt; joined.txt</code></pre></div>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">awk -v <span class="nv">OFS</span><span class="o">=</span><span class="s1">&#39;,&#39;</span> <span class="s1">&#39;
+</span></span></span><span class="line"><span class="cl"><span class="s1">NR==FNR { col[FNR]=$0; next }
+</span></span></span><span class="line"><span class="cl"><span class="s1">{ print col[FNR], $1 }
+</span></span></span><span class="line"><span class="cl"><span class="s1">&#39;</span> part1.txt part2.txt &gt; joined.txt</span></span></code></pre></div>
 </div>
 </div>
 </div>
@@ -375,33 +375,19 @@ Next, I want to highlight some commands of Elpy, which makes interactive program
 <p>
 Interactive programming support:</p>
 <ul>
-<li>
-<p><code class="verbatim">M-x elpy-shell-send-defun (C-c C-y f)</code></p>
-</li>
-<li>
-<p><code class="verbatim">M-x elpy-shell-send-statement (C-c C-y e)</code></p>
-</li>
-<li>
-<p><code class="verbatim">M-x elpy-shell-switch-to-shell (C-c C-z)</code></p>
-</li>
+<li><code class="verbatim">M-x elpy-shell-send-defun (C-c C-y f)</code></li>
+<li><code class="verbatim">M-x elpy-shell-send-statement (C-c C-y e)</code></li>
+<li><code class="verbatim">M-x elpy-shell-switch-to-shell (C-c C-z)</code></li>
 </ul>
 <p>Code navigation:</p>
 <ul>
-<li>
-<p><code class="verbatim">M-x elpy-goto-definition (M-.)</code></p>
-</li>
-<li>
-<p><code class="verbatim">M-x xref-pop-marker-stack (M-,)</code></p>
-</li>
-<li>
-<p><code class="verbatim">M-x elpy-occur-definitions (C-c C-o)</code></p>
-</li>
+<li><code class="verbatim">M-x elpy-goto-definition (M-.)</code></li>
+<li><code class="verbatim">M-x xref-pop-marker-stack (M-,)</code></li>
+<li><code class="verbatim">M-x elpy-occur-definitions (C-c C-o)</code></li>
 </ul>
 <p>Documentation:</p>
 <ul>
-<li>
-<p><code class="verbatim">M-x elpy-doc (C-c C-d)</code></p>
-</li>
+<li><code class="verbatim">M-x elpy-doc (C-c C-d)</code></li>
 </ul>
 <p>P.S. Elpy is great, but the maintainer is too busy to maintain it. If you can help, don&#39;t hesitate to get in touch with the maintainer (@galaunay).</p>
 </div>
@@ -487,15 +473,15 @@ Interactive programming support:</p>
                   <ul>
                 
                 
+                    <li><a href="/blog/2022-10-10-emacs-hugo-blogging/">Hugo Blogging in Emacs</a></li>
+                
+                    <li><a href="/blog/2022-09-10-emacs-beancount-account-files/">Auto-complete Accounts From Other Beancount Files in Emacs</a></li>
+                
+                    <li><a href="/blog/2022-08-08-org-link-bookmarklet/">A Bookmarklet for Copying a Link as an Org-mode Link</a></li>
+                
+                    <li><a href="/blog/2022-07-17-emacs-elisp-debug/">Emacs Debugging Basics</a></li>
+                
                     <li><a href="/blog/2022-05-23-emacs-duplicate-line/">Duplicate the current line in Emacs</a></li>
-                
-                    <li><a href="/blog/2022-05-21-adjust-screen-brightness-emacs/">Adjust the laptop&#39;s screen brightness in Emacs</a></li>
-                
-                    <li><a href="/blog/2022-04-09-emacs-kill-other-buffer/">How to kill other buffers in Emacs</a></li>
-                
-                    <li><a href="/blog/2022-04-09-scrapy-csv-without-header/">How to append items to the CSV file without header row?</a></li>
-                
-                    <li><a href="/blog/2022-01-22-emacs-eglot-lsp/">Eglot for better programming experience in Emacs</a></li>
                 
               </ul>
 
@@ -525,7 +511,7 @@ Interactive programming support:</p>
           <div class="disqus-comments">
             <div id="disqus_thread"></div>
 <script type="application/javascript">
-    var disqus_config = function () {
+    window.disqus_config = function () {
     
     
     
@@ -633,7 +619,7 @@ Interactive programming support:</p>
         </p>
         
         <p class="credits theme-by text-muted">
-          <a href="https://gohugo.io">Hugo v0.80.0</a> powered &nbsp;&bull;&nbsp; Theme <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> adapted from <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
+          <a href="https://gohugo.io">Hugo v0.93.3</a> powered &nbsp;&bull;&nbsp; Theme <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> adapted from <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
           
         </p>
       </div>

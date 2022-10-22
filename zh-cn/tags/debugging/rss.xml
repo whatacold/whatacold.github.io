@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Debugging on whatacold 的空间</title>
+    <link>https://whatacold.io/zh-cn/tags/debugging/</link>
+    <description>Recent content in Debugging on whatacold 的空间</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <managingEditor>whatacold@gmail.com (whatacold)</managingEditor>
+    <webMaster>whatacold@gmail.com (whatacold)</webMaster>
+    <lastBuildDate>Sun, 17 Jul 2022 09:57:31 +0800</lastBuildDate><atom:link href="https://whatacold.io/zh-cn/tags/debugging/rss.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Emacs 常用 debug 手段</title>
+      <link>https://whatacold.io/zh-cn/blog/2022-07-17-emacs-elisp-debug/</link>
+      <pubDate>Sun, 17 Jul 2022 09:57:31 +0800</pubDate>
+      <author>whatacold@gmail.com (whatacold)</author>
+      <guid>https://whatacold.io/zh-cn/blog/2022-07-17-emacs-elisp-debug/</guid>
+      <description>折腾 Emacs 难免会遇到问题。 论坛里经常可以看到有同学遇到各种配置问题的，但却不知从何入手排查。这里我给大家简单地介绍一些常用的方法，当你下次遇到问</description>
+    </item>
+    
+    <item>
+      <title>Doxygen 终于可以正确生成函数调用图了！</title>
+      <link>https://whatacold.io/zh-cn/blog/2021-02-16-doxygen-cpp-correct-callgraphs/</link>
+      <pubDate>Tue, 16 Feb 2021 16:08:00 +0800</pubDate>
+      <author>whatacold@gmail.com (whatacold)</author>
+      <guid>https://whatacold.io/zh-cn/blog/2021-02-16-doxygen-cpp-correct-callgraphs/</guid>
+      <description>大家都知道， Doxygen 可以用于提取代码的注释生成项目的文档，只要注释满足它规定的格式。我喜欢通过它生成类继承图（inheritance diagram</description>
+    </item>
+    
+  </channel>
+</rss>

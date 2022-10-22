@@ -97,7 +97,7 @@
   <meta name="twitter:site" content="@whatacold" />
   <meta name="twitter:creator" content="@whatacold" />
   <link href='https://whatacold.io/img/favicon.ico' rel='icon' type='image/x-icon'/>
-  <meta name="generator" content="Hugo 0.80.0" />
+  <meta name="generator" content="Hugo 0.93.3" />
   <link rel="alternate" href="https://whatacold.io/zh-cn/index.xml" type="application/rss+xml" title="whatacold 的空间"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"><link rel="stylesheet" href="https://whatacold.io/css/main.css" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
@@ -137,19 +137,19 @@ if (!doNotTrack) {
         
           
             <li>
-              <a title="Blog" href="/zh-cn">Blog</a>
+              <a title="博客" href="/zh-cn">博客</a>
             </li>
           
         
           
             <li>
-              <a title="About" href="/zh-cn/about/">About</a>
+              <a title="标签" href="/zh-cn/tags">标签</a>
             </li>
           
         
           
             <li>
-              <a title="Tags" href="/zh-cn/tags">Tags</a>
+              <a title="关于" href="/zh-cn/about/">关于</a>
             </li>
           
         
@@ -290,23 +290,13 @@ if (!doNotTrack) {
 <p>
 使用方式上，只需要把 <code class="verbatim">ppcompile.el</code> 拷贝到 load-path 中进行加载，然后设置一些选项即可。具体可以参考项目 README 。当前提供以下几个命令：</p>
 <ol>
-<li>
-<p><code class="verbatim">ppcompile-ping</code> 仅同步代码到远端</p>
-</li>
-<li>
-<p><code class="verbatim">ppcompile-pong</code> 仅在远端编译</p>
-</li>
-<li>
-<p><code class="verbatim">ppcompile</code> 同步代码以及编译，即一次 ping-pong 往返。</p>
-<p>
-这个命令和 <code class="verbatim">ppcompile-pong</code> 命令在使用上同时考虑了 compile 命令的使用习惯，会遵循你的 <code class="verbatim">compilation-read-command</code> 设置决定是否编译时弹窗让你选择编译命令。</p>
-</li>
-<li>
-<p><code class="verbatim">ppcompile-config-project</code> 配置项目配置到根目录的 <code class="verbatim">.dir-locals.el</code> 中，主要是为了方便有很多项目时的个性化定制需求，否则直接配置全局的就可以了。</p>
-</li>
-<li>
-<p><code class="verbatim">ppcompile-toggle-debug</code> 调试开关命令，在开启的情况下会把当前执行的命令行打印到 <code class="verbatim">*Message*</code> 中。</p>
-</li>
+<li><code class="verbatim">ppcompile-ping</code> 仅同步代码到远端</li>
+<li><code class="verbatim">ppcompile-pong</code> 仅在远端编译</li>
+<li><code class="verbatim">ppcompile</code> 同步代码以及编译，即一次 ping-pong 往返。
+
+这个命令和 <code class="verbatim">ppcompile-pong</code> 命令在使用上同时考虑了 compile 命令的使用习惯，会遵循你的 <code class="verbatim">compilation-read-command</code> 设置决定是否编译时弹窗让你选择编译命令。</li>
+<li><code class="verbatim">ppcompile-config-project</code> 配置项目配置到根目录的 <code class="verbatim">.dir-locals.el</code> 中，主要是为了方便有很多项目时的个性化定制需求，否则直接配置全局的就可以了。</li>
+<li><code class="verbatim">ppcompile-toggle-debug</code> 调试开关命令，在开启的情况下会把当前执行的命令行打印到 <code class="verbatim">*Message*</code> 中。</li>
 </ol>
 <p>目前，我自己使用 ppcompile 已经没有什么问题了，它在最近的项目开发中帮我节省了不少精力，欢迎大家试用和使用 :)</p>
 
@@ -386,11 +376,15 @@ if (!doNotTrack) {
                   <ul>
                 
                 
+                    <li><a href="/zh-cn/blog/2022-09-11-emacs-smart-input-source-rime/">Emacs 中使用 smart-input-source 配合 Rime 进行流畅地中英文输入</a></li>
+                
+                    <li><a href="/zh-cn/blog/2022-09-10-emacs-beancount-account-files/">Emacs Beancount ：记账时从其他的账户文件补全账户</a></li>
+                
+                    <li><a href="/zh-cn/blog/2022-07-17-emacs-elisp-debug/">Emacs 常用 debug 手段</a></li>
+                
                     <li><a href="/zh-cn/blog/2021-08-29-i3wm-workspace-emacs-frame/">i3wm 工作区如何快速创建 Emacs 窗口</a></li>
                 
                     <li><a href="/zh-cn/blog/2019-02-03-emacs-kmacro-characters-repeated-bug/">记一个 Emacs 26 Keyboard Macro 输入字符重复的 Bug</a></li>
-                
-                    <li><a href="/zh-cn/blog/2018-12-22-c-cpp-devel-with-lsp-in-emacs/">在 Emacs 中使用 LSP 开发 C/C&#43;&#43; 工程</a></li>
                 
               </ul>
 
@@ -420,7 +414,7 @@ if (!doNotTrack) {
           <div class="disqus-comments">
             <div id="disqus_thread"></div>
 <script type="application/javascript">
-    var disqus_config = function () {
+    window.disqus_config = function () {
     
     
     
@@ -528,7 +522,7 @@ if (!doNotTrack) {
         </p>
         
         <p class="credits theme-by text-muted">
-          由 <a href="https://gohugo.io">Hugo v0.80.0</a> 强力驱动 &nbsp;&bull;&nbsp; 主题 <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> 移植自 <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
+          由 <a href="https://gohugo.io">Hugo v0.93.3</a> 强力驱动 &nbsp;&bull;&nbsp; 主题 <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> 移植自 <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
           
         </p>
       </div>

@@ -12,10 +12,9 @@
 
   
 
-  <title>Eglot for better programming experience in Emacs - whatacold&#39;s space</title>
-  <meta name="description" content="LSP, or Language Server Protocol, makes programming easier by features like better auto-completion and definition lookup. It may have scratched your itches, and you are wondering what the experience is like in Emacs.
- Emacs has mainly two LSP clients out there, eglot and lsp-mode. eglot is lightweight, and it could almost run out of the box.
- As a user, we only need to know these commands to get started of eglot:">
+  <title>Eglot for Better Programming Experience in Emacs - whatacold&#39;s space</title>
+  <meta name="description" content="LSP, or Language Server Protocol, makes programming easier by introducing features like more precise auto-completion and definition lookup. It may have scratched your itches, and you are wondering what the experience is like in Emacs.
+ Emacs has mainly two LSP clients out there, eglot and lsp-mode. Eglot is lightweight, and it could almost run out of the box. So in this post I will briefly show you how to use eglot.">
   <meta name="author" content="whatacold"/><script type="application/ld+json">
 {
     "@context": "http://schema.org",
@@ -63,10 +62,10 @@
   "author": {
     "name" : "whatacold"
   },
-  "headline": "Eglot for better programming experience in Emacs",
-  "description" : "LSP, or Language Server Protocol, makes programming easier by features like better auto-completion and definition lookup. It may have scratched your itches, and you are wondering what the experience is like in Emacs.\n Emacs has mainly two LSP clients out there, eglot and lsp-mode. eglot is lightweight, and it could almost run out of the box.\n As a user, we only need to know these commands to get started of eglot:",
+  "headline": "Eglot for Better Programming Experience in Emacs",
+  "description" : "LSP, or Language Server Protocol, makes programming easier by introducing features like more precise auto-completion and definition lookup. It may have scratched your itches, and you are wondering what the experience is like in Emacs.\n Emacs has mainly two LSP clients out there, eglot and lsp-mode. Eglot is lightweight, and it could almost run out of the box. So in this post I will briefly show you how to use eglot.",
   "inLanguage" : "en",
-  "wordCount":  407 ,
+  "wordCount":  450 ,
   "datePublished" : "2022-01-22T11:36:18",
   "dateModified" : "2022-01-22T11:36:18",
   "image" : "https:\/\/whatacold.io\/img\/avatar.png",
@@ -85,23 +84,22 @@
 }
 </script>
 
-<meta property="og:title" content="Eglot for better programming experience in Emacs" />
-<meta property="og:description" content="LSP, or Language Server Protocol, makes programming easier by features like better auto-completion and definition lookup. It may have scratched your itches, and you are wondering what the experience is like in Emacs.
- Emacs has mainly two LSP clients out there, eglot and lsp-mode. eglot is lightweight, and it could almost run out of the box.
- As a user, we only need to know these commands to get started of eglot:">
+<meta property="og:title" content="Eglot for Better Programming Experience in Emacs" />
+<meta property="og:description" content="LSP, or Language Server Protocol, makes programming easier by introducing features like more precise auto-completion and definition lookup. It may have scratched your itches, and you are wondering what the experience is like in Emacs.
+ Emacs has mainly two LSP clients out there, eglot and lsp-mode. Eglot is lightweight, and it could almost run out of the box. So in this post I will briefly show you how to use eglot.">
 <meta property="og:image" content="https://whatacold.io/img/avatar.png" />
 <meta property="og:url" content="https://whatacold.io/blog/2022-01-22-emacs-eglot-lsp/" />
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="whatacold&#39;s space" />
 
-  <meta name="twitter:title" content="Eglot for better programming experience in Emacs" />
-  <meta name="twitter:description" content="LSP, or Language Server Protocol, makes programming easier by features like better auto-completion and definition lookup. It may have scratched your itches, and you are wondering what the experience …">
+  <meta name="twitter:title" content="Eglot for Better Programming Experience in Emacs" />
+  <meta name="twitter:description" content="LSP, or Language Server Protocol, makes programming easier by introducing features like more precise auto-completion and definition lookup. It may have scratched your itches, and you are wondering …">
   <meta name="twitter:image" content="https://whatacold.io/img/avatar.png" />
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:site" content="@whatacold" />
   <meta name="twitter:creator" content="@whatacold" />
   <link href='https://whatacold.io/img/favicon.ico' rel='icon' type='image/x-icon'/>
-  <meta name="generator" content="Hugo 0.80.0" />
+  <meta name="generator" content="Hugo 0.93.3" />
   <link rel="alternate" href="https://whatacold.io/index.xml" type="application/rss+xml" title="whatacold&#39;s space"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"><link rel="stylesheet" href="https://whatacold.io/css/main.css" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
@@ -147,13 +145,13 @@ if (!doNotTrack) {
         
           
             <li>
-              <a title="About" href="/about/">About</a>
+              <a title="Tags" href="/tags">Tags</a>
             </li>
           
         
           
             <li>
-              <a title="Tags" href="/tags">Tags</a>
+              <a title="About" href="/about/">About</a>
             </li>
           
         
@@ -259,7 +257,7 @@ if (!doNotTrack) {
           <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
             <div class="blog-heading">
               
-                <h1>Eglot for better programming experience in Emacs</h1>
+                <h1>Eglot for Better Programming Experience in Emacs</h1>
               
               
                 <hr class="small">
@@ -280,39 +278,23 @@ if (!doNotTrack) {
     <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
       <article role="main" class="blog-post">
         <p>
-LSP, or Language Server Protocol, makes programming easier by features like better auto-completion and definition lookup. It may have scratched your itches, and you are wondering what the experience is like in Emacs.</p>
+<a href="https://microsoft.github.io/language-server-protocol/">LSP</a>, or Language Server Protocol, makes programming easier by introducing features like more precise auto-completion and definition lookup. It may have scratched your itches, and you are wondering what the experience is like in Emacs.</p>
 <p>
-Emacs has mainly two LSP clients out there, eglot and lsp-mode. eglot is lightweight, and it could almost run out of the box.</p>
+Emacs has mainly two LSP clients out there, <a href="https://github.com/joaotavora/eglot">eglot</a> and <a href="https://github.com/emacs-lsp/lsp-mode">lsp-mode</a>. Eglot is lightweight, and it could almost run out of the box. So in this post I will briefly show you how to use eglot.</p>
 <p>
-As a user, we only need to know these commands to get started of eglot:</p>
+As a user, we only need to know these commands to get started:</p>
 <ol>
-<li>
-<p><code class="verbatim">M-x eglot</code> connects to an LSP server for the current project</p>
-</li>
-<li>
-<p><code class="verbatim">M-x flymake-goto-next-error</code> goes to previous error</p>
-</li>
-<li>
-<p><code class="verbatim">M-x flymake-goto-prev-error</code> goes to next error</p>
-</li>
-<li>
-<p><code class="verbatim">M-. or M-x xref-find-definitions</code> finds the definition and opens it in the current window</p>
-</li>
-<li>
-<p><code class="verbatim">M-. or M-x xref-pop-marker-stack</code> jumps back</p>
-</li>
-<li>
-<p><code class="verbatim">M-? or M-x xref-find-references</code> finds the references</p>
-</li>
+<li><code class="verbatim">M-x eglot</code> connects to an LSP server for the current project</li>
+<li><code class="verbatim">M-x flymake-goto-next-error</code> goes to previous error in the current buffer</li>
+<li><code class="verbatim">M-x flymake-goto-prev-error</code> goes to next error in the current buffer</li>
+<li><code class="verbatim">M-.</code> or <code class="verbatim">M-x xref-find-definitions</code> finds the definition of the symbol at point and opens it in the current window</li>
+<li><code class="verbatim">M-,</code> or <code class="verbatim">M-x xref-pop-marker-stack</code> jumps back</li>
+<li><code class="verbatim">M-?</code> or <code class="verbatim">M-x xref-find-references</code> finds the references of the symbol at point</li>
 </ol>
 <p>Occasionally, we may need:</p>
 <ol>
-<li>
-<p><code class="verbatim">M-x company-complete</code> to trigger completions manually</p>
-</li>
-<li>
-<p><code class="verbatim">M-x eldoc-doc-buffer</code></p>
-</li>
+<li><code class="verbatim">M-x company-complete</code> to trigger completions manually</li>
+<li><code class="verbatim">M-x eldoc-doc-buffer</code> to show docs for the symbol at point in a dedicated buffer</li>
 </ol>
 <p>I&#39;ve also made a video to demonstrate the workflow as below:
 
@@ -324,90 +306,90 @@ As a user, we only need to know these commands to get started of eglot:</p>
 And, the <code class="verbatim">emacs-showcase.el</code> is following for the video:</p>
 <figure>
 <div class="src src-elisp">
-<div class="highlight"><pre class="chroma"><code class="language-elisp" data-lang="elisp"><span class="c1">;;;; basics</span>
-<span class="c1">;; don&#39;t auto-save and back up files</span>
-<span class="p">(</span><span class="nb">setq</span> <span class="nv">auto-save-default</span> <span class="no">nil</span>
-      <span class="nv">make-backup-files</span> <span class="no">nil</span><span class="p">)</span>
-
-<span class="c1">;;; look and feel</span>
-<span class="p">(</span><span class="nv">load-theme</span> <span class="ss">&#39;leuven</span> <span class="ss">&#39;no-confirm</span><span class="p">)</span>
-
-<span class="p">(</span><span class="nv">tool-bar-mode</span> <span class="mi">-1</span><span class="p">)</span>
-<span class="p">(</span><span class="nv">menu-bar-mode</span> <span class="mi">-1</span><span class="p">)</span>
-<span class="p">(</span><span class="nv">scroll-bar-mode</span> <span class="mi">-1</span><span class="p">)</span>
-
-<span class="c1">;; font &amp; font size</span>
-<span class="p">(</span><span class="nv">add-to-list</span> <span class="ss">&#39;default-frame-alist</span>
-             <span class="o">&#39;</span><span class="p">(</span><span class="nv">font</span> <span class="o">.</span> <span class="s">&#34;DejaVu Sans Mono-16&#34;</span><span class="p">))</span>
-
-<span class="c1">;;;; install &amp; customize packages</span>
-<span class="p">(</span><span class="nb">require</span> <span class="ss">&#39;package</span><span class="p">)</span>
-<span class="p">(</span><span class="nb">setq</span> <span class="nv">package-user-dir</span> <span class="s">&#34;~/tmp/elpa/&#34;</span><span class="p">)</span>
-<span class="p">(</span><span class="nb">setq</span> <span class="nv">package-archives</span> <span class="o">&#39;</span><span class="p">(</span>
-                         <span class="p">(</span><span class="s">&#34;gnu&#34;</span> <span class="o">.</span> <span class="s">&#34;https://elpa.gnu.org/packages/&#34;</span><span class="p">)</span>
-                         <span class="p">(</span><span class="s">&#34;melpa&#34;</span> <span class="o">.</span> <span class="s">&#34;https://melpa.org/packages/&#34;</span><span class="p">)</span>
-                         <span class="p">(</span><span class="s">&#34;melpa-stable&#34;</span> <span class="o">.</span> <span class="s">&#34;http://stable.melpa.org/packages/&#34;</span><span class="p">)</span>
-                         <span class="p">))</span>
-<span class="c1">;;(package-refresh-contents)</span>
-<span class="p">(</span><span class="nv">package-initialize</span><span class="p">)</span>
-
-<span class="c1">;;; keycast</span>
-<span class="c1">;; use the newest keycast</span>
-<span class="p">(</span><span class="nv">load-file</span> <span class="s">&#34;~/workspace/elisp/keycast/keycast.el&#34;</span><span class="p">)</span>
-<span class="c1">;;(package-install &#39;keycast)</span>
-<span class="p">(</span><span class="nv">keycast-mode</span><span class="p">)</span>
-<span class="c1">;; (keycast-log-mode)</span>
-<span class="p">(</span><span class="nb">setq</span> <span class="nv">keycast-log-format</span> <span class="s">&#34;%-18K%C%R\n&#34;</span>
-      <span class="nv">keycast-remove-tail-elements</span> <span class="no">nil</span>
-      <span class="nv">keycast-log-frame-alist</span> <span class="o">&#39;</span><span class="p">((</span><span class="nv">inhibit-switch-frame</span> <span class="o">.</span> <span class="no">t</span><span class="p">)</span>
-                                <span class="p">(</span><span class="nv">pop-up-frame-parameters</span> <span class="o">.</span> <span class="p">((</span><span class="nv">font</span> <span class="o">.</span> <span class="s">&#34;DejaVu Sans Mono-12&#34;</span><span class="p">)</span>
-                                                            <span class="p">(</span><span class="nv">minibuffer</span> <span class="o">.</span> <span class="no">nil</span><span class="p">)))))</span>
-<span class="p">(</span><span class="nb">push</span> <span class="o">&#39;</span><span class="p">(</span><span class="nf">self-insert-command</span> <span class="no">nil</span> <span class="no">nil</span><span class="p">)</span> <span class="nv">keycast-substitute-alist</span><span class="p">)</span>
-
-<span class="c1">;;; org</span>
-<span class="p">(</span><span class="nb">setq</span> <span class="nv">org-agenda-files</span> <span class="o">&#39;</span><span class="p">(</span><span class="s">&#34;~/test/video-agenda.org&#34;</span><span class="p">))</span>
-<span class="p">(</span><span class="nv">global-set-key</span> <span class="p">(</span><span class="nv">kbd</span> <span class="s">&#34;C-c o a&#34;</span><span class="p">)</span> <span class="nf">#&#39;</span><span class="nv">org-agenda</span><span class="p">)</span>
-
-<span class="c1">;;;; eglot</span>
-<span class="c1">;; it needs to install `jsonrpc&#39; from elpa</span>
-<span class="p">(</span><span class="nv">package-install</span> <span class="ss">&#39;eglot</span><span class="p">)</span>
-
-<span class="p">(</span><span class="nv">package-install</span> <span class="ss">&#39;company</span><span class="p">)</span>
-<span class="p">(</span><span class="nv">global-company-mode</span><span class="p">)</span>
-
-<span class="p">(</span><span class="nb">setq</span> <span class="nv">eldoc-echo-area-use-multiline-p</span> <span class="no">nil</span><span class="p">)</span>
-
-<span class="p">(</span><span class="nb">require</span> <span class="ss">&#39;eglot</span><span class="p">)</span>
-<span class="p">(</span><span class="nf">define-key</span> <span class="nv">eglot-mode-map</span> <span class="p">(</span><span class="nv">kbd</span> <span class="s">&#34;C-c &lt;tab&gt;&#34;</span><span class="p">)</span> <span class="nf">#&#39;</span><span class="nv">company-complete</span><span class="p">)</span> <span class="c1">; initiate the completion manually</span>
-<span class="p">(</span><span class="nf">define-key</span> <span class="nv">eglot-mode-map</span> <span class="p">(</span><span class="nv">kbd</span> <span class="s">&#34;C-c e f n&#34;</span><span class="p">)</span> <span class="nf">#&#39;</span><span class="nv">flymake-goto-next-error</span><span class="p">)</span>
-<span class="p">(</span><span class="nf">define-key</span> <span class="nv">eglot-mode-map</span> <span class="p">(</span><span class="nv">kbd</span> <span class="s">&#34;C-c e f p&#34;</span><span class="p">)</span> <span class="nf">#&#39;</span><span class="nv">flymake-goto-prev-error</span><span class="p">)</span>
-<span class="p">(</span><span class="nf">define-key</span> <span class="nv">eglot-mode-map</span> <span class="p">(</span><span class="nv">kbd</span> <span class="s">&#34;C-c e r&#34;</span><span class="p">)</span> <span class="nf">#&#39;</span><span class="nv">eglot-rename</span><span class="p">)</span>
-
-<span class="c1">;;; python venv for LSP</span>
-<span class="c1">;;; python -m venv ~/workspace/virtualenv/devel</span>
-<span class="c1">;;; pip install &#39;python-language-server[all]&#39; scrapy</span>
-<span class="p">(</span><span class="nv">package-install</span> <span class="ss">&#39;pyvenv</span><span class="p">)</span>
-<span class="p">(</span><span class="nv">pyvenv-activate</span> <span class="s">&#34;~/workspace/virtualenv/devel/&#34;</span><span class="p">)</span>
-
-<span class="c1">;;;; Show the topic</span>
-<span class="p">(</span><span class="nb">defun</span> <span class="nv">w/topic-butterfly</span> <span class="p">(</span><span class="nv">topic</span><span class="p">)</span>
-  <span class="s">&#34;Show a TOPIC in a buffer, based on M-x butterfly.&#34;</span>
-  <span class="p">(</span><span class="nb">interactive</span> <span class="s">&#34;Mtopic: &#34;</span><span class="p">)</span>
-  <span class="p">(</span><span class="nb">progn</span>
-	<span class="p">(</span><span class="nv">switch-to-buffer</span> <span class="p">(</span><span class="nf">get-buffer-create</span> <span class="s">&#34;*video-topic*&#34;</span><span class="p">))</span>
-	<span class="p">(</span><span class="nf">erase-buffer</span><span class="p">)</span>
-	<span class="p">(</span><span class="nv">sit-for</span> <span class="mi">0</span><span class="p">)</span>
-	<span class="p">(</span><span class="nv">animate-string</span> <span class="nv">topic</span>
-			        <span class="p">(</span><span class="nf">-</span> <span class="p">(</span><span class="nf">/</span> <span class="p">(</span><span class="nv">window-height</span><span class="p">)</span> <span class="mi">2</span><span class="p">)</span>
-                       <span class="mi">5</span><span class="p">)</span>
-                    <span class="p">(</span><span class="nf">-</span> <span class="p">(</span><span class="nf">/</span> <span class="p">(</span><span class="nv">window-width</span><span class="p">)</span> <span class="mi">2</span><span class="p">)</span>
-                       <span class="p">(</span><span class="nf">/</span> <span class="p">(</span><span class="nf">length</span> <span class="nv">topic</span><span class="p">)</span> <span class="mi">2</span><span class="p">)))</span>
-	<span class="p">(</span><span class="nv">sit-for</span> <span class="p">(</span><span class="nf">*</span> <span class="mi">5</span> <span class="p">(</span><span class="nf">/</span> <span class="p">(</span><span class="nf">abs</span> <span class="p">(</span><span class="nf">random</span><span class="p">))</span> <span class="p">(</span><span class="nf">float</span> <span class="nv">most-positive-fixnum</span><span class="p">))))))</span>
-
-<span class="p">(</span><span class="nv">global-set-key</span> <span class="p">(</span><span class="nv">kbd</span> <span class="s">&#34;&lt;f6&gt;&#34;</span><span class="p">)</span>
-                <span class="p">(</span><span class="nb">lambda</span> <span class="p">()</span>
-                  <span class="p">(</span><span class="nb">interactive</span><span class="p">)</span>
-                  <span class="p">(</span><span class="nv">w/topic-butterfly</span> <span class="s">&#34;eglot for better programming experience&#34;</span><span class="p">)))</span></code></pre></div>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-elisp" data-lang="elisp"><span class="line"><span class="cl"><span class="c1">;;;; basics</span>
+</span></span><span class="line"><span class="cl"><span class="c1">;; don&#39;t auto-save and back up files</span>
+</span></span><span class="line"><span class="cl"><span class="p">(</span><span class="nb">setq</span> <span class="nv">auto-save-default</span> <span class="no">nil</span>
+</span></span><span class="line"><span class="cl">      <span class="nv">make-backup-files</span> <span class="no">nil</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">;;; look and feel</span>
+</span></span><span class="line"><span class="cl"><span class="p">(</span><span class="nv">load-theme</span> <span class="ss">&#39;leuven</span> <span class="ss">&#39;no-confirm</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">(</span><span class="nv">tool-bar-mode</span> <span class="mi">-1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">(</span><span class="nv">menu-bar-mode</span> <span class="mi">-1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">(</span><span class="nv">scroll-bar-mode</span> <span class="mi">-1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">;; font &amp; font size</span>
+</span></span><span class="line"><span class="cl"><span class="p">(</span><span class="nv">add-to-list</span> <span class="ss">&#39;default-frame-alist</span>
+</span></span><span class="line"><span class="cl">             <span class="o">&#39;</span><span class="p">(</span><span class="nv">font</span> <span class="o">.</span> <span class="s">&#34;DejaVu Sans Mono-16&#34;</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">;;;; install &amp; customize packages</span>
+</span></span><span class="line"><span class="cl"><span class="p">(</span><span class="nb">require</span> <span class="ss">&#39;package</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">(</span><span class="nb">setq</span> <span class="nv">package-user-dir</span> <span class="s">&#34;~/tmp/elpa/&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">(</span><span class="nb">setq</span> <span class="nv">package-archives</span> <span class="o">&#39;</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">                         <span class="p">(</span><span class="s">&#34;gnu&#34;</span> <span class="o">.</span> <span class="s">&#34;https://elpa.gnu.org/packages/&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                         <span class="p">(</span><span class="s">&#34;melpa&#34;</span> <span class="o">.</span> <span class="s">&#34;https://melpa.org/packages/&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                         <span class="p">(</span><span class="s">&#34;melpa-stable&#34;</span> <span class="o">.</span> <span class="s">&#34;http://stable.melpa.org/packages/&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                         <span class="p">))</span>
+</span></span><span class="line"><span class="cl"><span class="c1">;;(package-refresh-contents)</span>
+</span></span><span class="line"><span class="cl"><span class="p">(</span><span class="nv">package-initialize</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">;;; keycast</span>
+</span></span><span class="line"><span class="cl"><span class="c1">;; use the newest keycast</span>
+</span></span><span class="line"><span class="cl"><span class="p">(</span><span class="nv">load-file</span> <span class="s">&#34;~/workspace/elisp/keycast/keycast.el&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="c1">;;(package-install &#39;keycast)</span>
+</span></span><span class="line"><span class="cl"><span class="p">(</span><span class="nv">keycast-mode</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="c1">;; (keycast-log-mode)</span>
+</span></span><span class="line"><span class="cl"><span class="p">(</span><span class="nb">setq</span> <span class="nv">keycast-log-format</span> <span class="s">&#34;%-18K%C%R\n&#34;</span>
+</span></span><span class="line"><span class="cl">      <span class="nv">keycast-remove-tail-elements</span> <span class="no">nil</span>
+</span></span><span class="line"><span class="cl">      <span class="nv">keycast-log-frame-alist</span> <span class="o">&#39;</span><span class="p">((</span><span class="nv">inhibit-switch-frame</span> <span class="o">.</span> <span class="no">t</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                                <span class="p">(</span><span class="nv">pop-up-frame-parameters</span> <span class="o">.</span> <span class="p">((</span><span class="nv">font</span> <span class="o">.</span> <span class="s">&#34;DejaVu Sans Mono-12&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                                                            <span class="p">(</span><span class="nv">minibuffer</span> <span class="o">.</span> <span class="no">nil</span><span class="p">)))))</span>
+</span></span><span class="line"><span class="cl"><span class="p">(</span><span class="nb">push</span> <span class="o">&#39;</span><span class="p">(</span><span class="nf">self-insert-command</span> <span class="no">nil</span> <span class="no">nil</span><span class="p">)</span> <span class="nv">keycast-substitute-alist</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">;;; org</span>
+</span></span><span class="line"><span class="cl"><span class="p">(</span><span class="nb">setq</span> <span class="nv">org-agenda-files</span> <span class="o">&#39;</span><span class="p">(</span><span class="s">&#34;~/test/video-agenda.org&#34;</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl"><span class="p">(</span><span class="nv">global-set-key</span> <span class="p">(</span><span class="nv">kbd</span> <span class="s">&#34;C-c o a&#34;</span><span class="p">)</span> <span class="nf">#&#39;</span><span class="nv">org-agenda</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">;;;; eglot</span>
+</span></span><span class="line"><span class="cl"><span class="c1">;; it needs to install `jsonrpc&#39; from elpa</span>
+</span></span><span class="line"><span class="cl"><span class="p">(</span><span class="nv">package-install</span> <span class="ss">&#39;eglot</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">(</span><span class="nv">package-install</span> <span class="ss">&#39;company</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">(</span><span class="nv">global-company-mode</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">(</span><span class="nb">setq</span> <span class="nv">eldoc-echo-area-use-multiline-p</span> <span class="no">nil</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">(</span><span class="nb">require</span> <span class="ss">&#39;eglot</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">(</span><span class="nf">define-key</span> <span class="nv">eglot-mode-map</span> <span class="p">(</span><span class="nv">kbd</span> <span class="s">&#34;C-c &lt;tab&gt;&#34;</span><span class="p">)</span> <span class="nf">#&#39;</span><span class="nv">company-complete</span><span class="p">)</span> <span class="c1">; initiate the completion manually</span>
+</span></span><span class="line"><span class="cl"><span class="p">(</span><span class="nf">define-key</span> <span class="nv">eglot-mode-map</span> <span class="p">(</span><span class="nv">kbd</span> <span class="s">&#34;C-c e f n&#34;</span><span class="p">)</span> <span class="nf">#&#39;</span><span class="nv">flymake-goto-next-error</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">(</span><span class="nf">define-key</span> <span class="nv">eglot-mode-map</span> <span class="p">(</span><span class="nv">kbd</span> <span class="s">&#34;C-c e f p&#34;</span><span class="p">)</span> <span class="nf">#&#39;</span><span class="nv">flymake-goto-prev-error</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">(</span><span class="nf">define-key</span> <span class="nv">eglot-mode-map</span> <span class="p">(</span><span class="nv">kbd</span> <span class="s">&#34;C-c e r&#34;</span><span class="p">)</span> <span class="nf">#&#39;</span><span class="nv">eglot-rename</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">;;; python venv for LSP</span>
+</span></span><span class="line"><span class="cl"><span class="c1">;;; python -m venv ~/workspace/virtualenv/devel</span>
+</span></span><span class="line"><span class="cl"><span class="c1">;;; pip install &#39;python-language-server[all]&#39; scrapy</span>
+</span></span><span class="line"><span class="cl"><span class="p">(</span><span class="nv">package-install</span> <span class="ss">&#39;pyvenv</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">(</span><span class="nv">pyvenv-activate</span> <span class="s">&#34;~/workspace/virtualenv/devel/&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">;;;; Show the topic</span>
+</span></span><span class="line"><span class="cl"><span class="p">(</span><span class="nb">defun</span> <span class="nv">w/topic-butterfly</span> <span class="p">(</span><span class="nv">topic</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="s">&#34;Show a TOPIC in a buffer, based on M-x butterfly.&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">(</span><span class="nb">interactive</span> <span class="s">&#34;Mtopic: &#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="p">(</span><span class="nb">progn</span>
+</span></span><span class="line"><span class="cl">	<span class="p">(</span><span class="nv">switch-to-buffer</span> <span class="p">(</span><span class="nf">get-buffer-create</span> <span class="s">&#34;*video-topic*&#34;</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">	<span class="p">(</span><span class="nf">erase-buffer</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="p">(</span><span class="nv">sit-for</span> <span class="mi">0</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="p">(</span><span class="nv">animate-string</span> <span class="nv">topic</span>
+</span></span><span class="line"><span class="cl">			        <span class="p">(</span><span class="nf">-</span> <span class="p">(</span><span class="nf">/</span> <span class="p">(</span><span class="nv">window-height</span><span class="p">)</span> <span class="mi">2</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                       <span class="mi">5</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                    <span class="p">(</span><span class="nf">-</span> <span class="p">(</span><span class="nf">/</span> <span class="p">(</span><span class="nv">window-width</span><span class="p">)</span> <span class="mi">2</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                       <span class="p">(</span><span class="nf">/</span> <span class="p">(</span><span class="nf">length</span> <span class="nv">topic</span><span class="p">)</span> <span class="mi">2</span><span class="p">)))</span>
+</span></span><span class="line"><span class="cl">	<span class="p">(</span><span class="nv">sit-for</span> <span class="p">(</span><span class="nf">*</span> <span class="mi">5</span> <span class="p">(</span><span class="nf">/</span> <span class="p">(</span><span class="nf">abs</span> <span class="p">(</span><span class="nf">random</span><span class="p">))</span> <span class="p">(</span><span class="nf">float</span> <span class="nv">most-positive-fixnum</span><span class="p">))))))</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">(</span><span class="nv">global-set-key</span> <span class="p">(</span><span class="nv">kbd</span> <span class="s">&#34;&lt;f6&gt;&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                <span class="p">(</span><span class="nb">lambda</span> <span class="p">()</span>
+</span></span><span class="line"><span class="cl">                  <span class="p">(</span><span class="nb">interactive</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                  <span class="p">(</span><span class="nv">w/topic-butterfly</span> <span class="s">&#34;eglot for better programming experience&#34;</span><span class="p">)))</span></span></span></code></pre></div>
 </div>
 <figcaption>
 The minimal config for the demo video
@@ -437,7 +419,7 @@ The minimal config for the demo video
     <ul class="share">
       
       <li>
-        <a href="//twitter.com/share?url=https%3a%2f%2fwhatacold.io%2fblog%2f2022-01-22-emacs-eglot-lsp%2f&amp;text=Eglot%20for%20better%20programming%20experience%20in%20Emacs&amp;via=whatacold" target="_blank" title="Share on Twitter">
+        <a href="//twitter.com/share?url=https%3a%2f%2fwhatacold.io%2fblog%2f2022-01-22-emacs-eglot-lsp%2f&amp;text=Eglot%20for%20Better%20Programming%20Experience%20in%20Emacs&amp;via=whatacold" target="_blank" title="Share on Twitter">
           <i class="fab fa-twitter"></i>
         </a>
       </li>
@@ -451,28 +433,28 @@ The minimal config for the demo video
   
       
       <li>
-        <a href="//reddit.com/submit?url=https%3a%2f%2fwhatacold.io%2fblog%2f2022-01-22-emacs-eglot-lsp%2f&amp;title=Eglot%20for%20better%20programming%20experience%20in%20Emacs" target="_blank" title="Share on Reddit">
+        <a href="//reddit.com/submit?url=https%3a%2f%2fwhatacold.io%2fblog%2f2022-01-22-emacs-eglot-lsp%2f&amp;title=Eglot%20for%20Better%20Programming%20Experience%20in%20Emacs" target="_blank" title="Share on Reddit">
           <i class="fab fa-reddit"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fwhatacold.io%2fblog%2f2022-01-22-emacs-eglot-lsp%2f&amp;title=Eglot%20for%20better%20programming%20experience%20in%20Emacs" target="_blank" title="Share on LinkedIn">
+        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fwhatacold.io%2fblog%2f2022-01-22-emacs-eglot-lsp%2f&amp;title=Eglot%20for%20Better%20Programming%20Experience%20in%20Emacs" target="_blank" title="Share on LinkedIn">
           <i class="fab fa-linkedin"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fwhatacold.io%2fblog%2f2022-01-22-emacs-eglot-lsp%2f&amp;title=Eglot%20for%20better%20programming%20experience%20in%20Emacs" target="_blank" title="Share on StumbleUpon">
+        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fwhatacold.io%2fblog%2f2022-01-22-emacs-eglot-lsp%2f&amp;title=Eglot%20for%20Better%20Programming%20Experience%20in%20Emacs" target="_blank" title="Share on StumbleUpon">
           <i class="fab fa-stumbleupon"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fwhatacold.io%2fblog%2f2022-01-22-emacs-eglot-lsp%2f&amp;description=Eglot%20for%20better%20programming%20experience%20in%20Emacs" target="_blank" title="Share on Pinterest">
+        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fwhatacold.io%2fblog%2f2022-01-22-emacs-eglot-lsp%2f&amp;description=Eglot%20for%20Better%20Programming%20Experience%20in%20Emacs" target="_blank" title="Share on Pinterest">
           <i class="fab fa-pinterest"></i>
         </a>
       </li>
@@ -494,15 +476,15 @@ The minimal config for the demo video
                   <ul>
                 
                 
+                    <li><a href="/blog/2022-10-10-emacs-hugo-blogging/">Hugo Blogging in Emacs</a></li>
+                
+                    <li><a href="/blog/2022-09-10-emacs-beancount-account-files/">Auto-complete Accounts From Other Beancount Files in Emacs</a></li>
+                
+                    <li><a href="/blog/2022-08-08-org-link-bookmarklet/">A Bookmarklet for Copying a Link as an Org-mode Link</a></li>
+                
+                    <li><a href="/blog/2022-07-17-emacs-elisp-debug/">Emacs Debugging Basics</a></li>
+                
                     <li><a href="/blog/2022-05-23-emacs-duplicate-line/">Duplicate the current line in Emacs</a></li>
-                
-                    <li><a href="/blog/2022-05-21-adjust-screen-brightness-emacs/">Adjust the laptop&#39;s screen brightness in Emacs</a></li>
-                
-                    <li><a href="/blog/2022-04-09-emacs-kill-other-buffer/">How to kill other buffers in Emacs</a></li>
-                
-                    <li><a href="/blog/2022-01-12-language-shadowing-with-subed-emacs/">Language Shadowing with subed in Emacs</a></li>
-                
-                    <li><a href="/blog/2021-12-11-writing-python-in-emacs/">Writing a Python Script in Emacs in 45 Minutes!</a></li>
                 
               </ul>
 
@@ -532,7 +514,7 @@ The minimal config for the demo video
           <div class="disqus-comments">
             <div id="disqus_thread"></div>
 <script type="application/javascript">
-    var disqus_config = function () {
+    window.disqus_config = function () {
     
     
     
@@ -640,7 +622,7 @@ The minimal config for the demo video
         </p>
         
         <p class="credits theme-by text-muted">
-          <a href="https://gohugo.io">Hugo v0.80.0</a> powered &nbsp;&bull;&nbsp; Theme <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> adapted from <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
+          <a href="https://gohugo.io">Hugo v0.93.3</a> powered &nbsp;&bull;&nbsp; Theme <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> adapted from <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
           
         </p>
       </div>

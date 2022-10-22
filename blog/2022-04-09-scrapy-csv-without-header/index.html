@@ -14,9 +14,7 @@
 
   <title>How to append items to the CSV file without header row? - whatacold&#39;s space</title>
   <meta name="description" content="Scrapy Architecture    Scrapy provides a few item exporters by default to export items in commonly used file formats like CSV/JSON/XML. I usually use CSV to export items, it is pretty convenient, and it comes in two ways:
-  appending mode, for example, scrapy crawl foo -o test.csv
-  overwriting mode with -O option, like scrapy crawl foo -O test.csv
-  But in the appending mode, it&#39;s a bit annoying that it always appends the header row before the newly scraped items, which is not correctly in terms of CSV format.">
+ appending mode, for example, scrapy crawl foo -o test.csv overwriting mode with -O option, like scrapy crawl foo -O test.csv  But in the appending mode, it&#39;s a bit annoying that it always appends the header row before the newly scraped items, which is not correctly in terms of CSV format.">
   <meta name="author" content="whatacold"/><script type="application/ld+json">
 {
     "@context": "http://schema.org",
@@ -53,7 +51,7 @@
         "position": 3,
         "item": {
           "@id": "https:\/\/whatacold.io\/blog\/2022-04-09-scrapy-csv-without-header\/",
-          "name": "How to append items to the c s v file without header row?"
+          "name": "How to append items to the csv file without header row?"
         }
     }]
 }
@@ -65,9 +63,9 @@
     "name" : "whatacold"
   },
   "headline": "How to append items to the CSV file without header row?",
-  "description" : "Scrapy Architecture    Scrapy provides a few item exporters by default to export items in commonly used file formats like CSV\/JSON\/XML. I usually use CSV to export items, it is pretty convenient, and it comes in two ways:\n  appending mode, for example, scrapy crawl foo -o test.csv\n  overwriting mode with -O option, like scrapy crawl foo -O test.csv\n  But in the appending mode, it\u0026#39;s a bit annoying that it always appends the header row before the newly scraped items, which is not correctly in terms of CSV format.",
+  "description" : "Scrapy Architecture    Scrapy provides a few item exporters by default to export items in commonly used file formats like CSV\/JSON\/XML. I usually use CSV to export items, it is pretty convenient, and it comes in two ways:\n appending mode, for example, scrapy crawl foo -o test.csv overwriting mode with -O option, like scrapy crawl foo -O test.csv  But in the appending mode, it\u0026#39;s a bit annoying that it always appends the header row before the newly scraped items, which is not correctly in terms of CSV format.",
   "inLanguage" : "en",
-  "wordCount":  313 ,
+  "wordCount":  312 ,
   "datePublished" : "2022-04-09T22:32:11",
   "dateModified" : "2022-04-09T22:32:11",
   "image" : "https:\/\/whatacold.io\/img\/avatar.png",
@@ -88,9 +86,7 @@
 
 <meta property="og:title" content="How to append items to the CSV file without header row?" />
 <meta property="og:description" content="Scrapy Architecture    Scrapy provides a few item exporters by default to export items in commonly used file formats like CSV/JSON/XML. I usually use CSV to export items, it is pretty convenient, and it comes in two ways:
-  appending mode, for example, scrapy crawl foo -o test.csv
-  overwriting mode with -O option, like scrapy crawl foo -O test.csv
-  But in the appending mode, it&#39;s a bit annoying that it always appends the header row before the newly scraped items, which is not correctly in terms of CSV format.">
+ appending mode, for example, scrapy crawl foo -o test.csv overwriting mode with -O option, like scrapy crawl foo -O test.csv  But in the appending mode, it&#39;s a bit annoying that it always appends the header row before the newly scraped items, which is not correctly in terms of CSV format.">
 <meta property="og:image" content="https://whatacold.io/img/avatar.png" />
 <meta property="og:url" content="https://whatacold.io/blog/2022-04-09-scrapy-csv-without-header/" />
 <meta property="og:type" content="website" />
@@ -103,7 +99,7 @@
   <meta name="twitter:site" content="@whatacold" />
   <meta name="twitter:creator" content="@whatacold" />
   <link href='https://whatacold.io/img/favicon.ico' rel='icon' type='image/x-icon'/>
-  <meta name="generator" content="Hugo 0.80.0" />
+  <meta name="generator" content="Hugo 0.93.3" />
   <link rel="alternate" href="https://whatacold.io/index.xml" type="application/rss+xml" title="whatacold&#39;s space"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"><link rel="stylesheet" href="https://whatacold.io/css/main.css" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
@@ -149,13 +145,13 @@ if (!doNotTrack) {
         
           
             <li>
-              <a title="About" href="/about/">About</a>
+              <a title="Tags" href="/tags">Tags</a>
             </li>
           
         
           
             <li>
-              <a title="Tags" href="/tags">Tags</a>
+              <a title="About" href="/about/">About</a>
             </li>
           
         
@@ -291,12 +287,8 @@ Scrapy provides a few <a href="https://docs.scrapy.org/en/latest/topics/exporter
 commonly used file formats like CSV/JSON/XML. I usually use CSV to
 export items, it is pretty convenient, and it comes in two ways:</p>
 <ul>
-<li>
-<p>appending mode, for example, <code>scrapy crawl foo -o test.csv</code></p>
-</li>
-<li>
-<p>overwriting mode with <code class="verbatim">-O</code> option, like <code>scrapy crawl foo -O test.csv</code></p>
-</li>
+<li>appending mode, for example, <code>scrapy crawl foo -o test.csv</code></li>
+<li>overwriting mode with <code class="verbatim">-O</code> option, like <code>scrapy crawl foo -O test.csv</code></li>
 </ul>
 <p>But in the appending mode, it&#39;s a bit annoying that it always appends
 the header row before the newly scraped items, which is not correctly
@@ -312,19 +304,19 @@ There was also an <a href="https://stackoverflow.com/questions/34485789/scrapy-c
 accepted answer from @furas was in this way. It enhanced the default
 <code class="verbatim">CsvItemExporter</code> by adjusting <code class="verbatim">include_headers_line</code> in the constructor:</p>
 <div class="src src-python">
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="kn">from</span> <span class="nn">scrapy.exporters</span> <span class="kn">import</span> <span class="n">CsvItemExporter</span>
-
-
-<span class="k">class</span> <span class="nc">HeadlessCsvItemExporter</span><span class="p">(</span><span class="n">CsvItemExporter</span><span class="p">):</span>
-
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-
-        <span class="c1"># args[0] is (opened) file handler</span>
-        <span class="c1"># if file is not empty then skip headers</span>
-        <span class="k">if</span> <span class="n">args</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">tell</span><span class="p">()</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
-            <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;include_headers_line&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">False</span>
-
-        <span class="nb">super</span><span class="p">(</span><span class="n">HeadlessCsvItemExporter</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></code></pre></div>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">scrapy.exporters</span> <span class="kn">import</span> <span class="n">CsvItemExporter</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">HeadlessCsvItemExporter</span><span class="p">(</span><span class="n">CsvItemExporter</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="c1"># args[0] is (opened) file handler</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># if file is not empty then skip headers</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="n">args</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">tell</span><span class="p">()</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;include_headers_line&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">False</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="nb">super</span><span class="p">(</span><span class="n">HeadlessCsvItemExporter</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></span></span></code></pre></div>
 </div>
 <p>
 That&#39;s one way by utilizing the scrapy architecture.</p>
@@ -337,27 +329,27 @@ duplicate row.</p>
 With that in mind, here is the snippet that runs after the scrapy
 command finishes:</p>
 <div class="src src-python">
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="k">def</span> <span class="nf">dedup_csv_header</span><span class="p">(</span><span class="n">fname</span><span class="p">,</span> <span class="n">fname_new</span><span class="p">):</span>
-    <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">fname</span><span class="p">):</span>
-        <span class="k">print</span><span class="p">(</span><span class="s1">&#39;csv file not exist:&#39;</span><span class="p">,</span> <span class="n">fname</span><span class="p">)</span>
-        <span class="k">return</span>
-
-    <span class="k">print</span><span class="p">(</span><span class="n">f</span><span class="s1">&#39;dedup csv headers, file {fname} to {fname_new}&#39;</span><span class="p">)</span>
-    <span class="n">fnew</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">fname_new</span><span class="p">,</span> <span class="s1">&#39;wt&#39;</span><span class="p">)</span>
-
-    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">fname</span><span class="p">,</span> <span class="s1">&#39;rt&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
-        <span class="n">header</span> <span class="o">=</span> <span class="bp">None</span>
-        <span class="n">first</span> <span class="o">=</span> <span class="bp">True</span>
-        <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">f</span><span class="p">:</span>
-            <span class="k">if</span> <span class="bp">None</span> <span class="o">==</span> <span class="n">header</span><span class="p">:</span>
-                <span class="n">header</span> <span class="o">=</span> <span class="n">line</span>
-
-            <span class="k">if</span> <span class="ow">not</span> <span class="n">first</span> <span class="ow">and</span> <span class="n">header</span> <span class="o">==</span> <span class="n">line</span><span class="p">:</span>
-                <span class="k">continue</span>
-            <span class="n">fnew</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
-            <span class="n">first</span> <span class="o">=</span> <span class="bp">False</span>
-
-    <span class="n">fnew</span><span class="o">.</span><span class="n">close</span><span class="p">()</span></code></pre></div>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">dedup_csv_header</span><span class="p">(</span><span class="n">fname</span><span class="p">,</span> <span class="n">fname_new</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">fname</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;csv file not exist:&#39;</span><span class="p">,</span> <span class="n">fname</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;dedup csv headers, file </span><span class="si">{</span><span class="n">fname</span><span class="si">}</span><span class="s1"> to </span><span class="si">{</span><span class="n">fname_new</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">fnew</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">fname_new</span><span class="p">,</span> <span class="s1">&#39;wt&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">fname</span><span class="p">,</span> <span class="s1">&#39;rt&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="n">header</span> <span class="o">=</span> <span class="kc">None</span>
+</span></span><span class="line"><span class="cl">        <span class="n">first</span> <span class="o">=</span> <span class="kc">True</span>
+</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">f</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="kc">None</span> <span class="o">==</span> <span class="n">header</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                <span class="n">header</span> <span class="o">=</span> <span class="n">line</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="ow">not</span> <span class="n">first</span> <span class="ow">and</span> <span class="n">header</span> <span class="o">==</span> <span class="n">line</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                <span class="k">continue</span>
+</span></span><span class="line"><span class="cl">            <span class="n">fnew</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">            <span class="n">first</span> <span class="o">=</span> <span class="kc">False</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">fnew</span><span class="o">.</span><span class="n">close</span><span class="p">()</span></span></span></code></pre></div>
 </div>
 
 
@@ -458,12 +450,12 @@ command finishes:</p>
         <ul class="pager blog-pager">
           
             <li class="previous">
-              <a href="https://whatacold.io/blog/2022-01-22-emacs-eglot-lsp/" data-toggle="tooltip" data-placement="top" title="Eglot for better programming experience in Emacs">&larr; Previous Post</a>
+              <a href="https://whatacold.io/blog/2022-01-22-emacs-eglot-lsp/" data-toggle="tooltip" data-placement="top" title="Eglot for Better Programming Experience in Emacs">&larr; Previous Post</a>
             </li>
           
           
             <li class="next">
-              <a href="https://whatacold.io/blog/2022-04-09-emacs-kill-other-buffer/" data-toggle="tooltip" data-placement="top" title="How to kill other buffers in Emacs">Next Post &rarr;</a>
+              <a href="https://whatacold.io/blog/2022-04-09-emacs-kill-other-buffer/" data-toggle="tooltip" data-placement="top" title="How to Kill a &#34;Visible&#34; Buffer Quickly in Emacs">Next Post &rarr;</a>
             </li>
           
         </ul>
@@ -476,7 +468,7 @@ command finishes:</p>
           <div class="disqus-comments">
             <div id="disqus_thread"></div>
 <script type="application/javascript">
-    var disqus_config = function () {
+    window.disqus_config = function () {
     
     
     
@@ -584,7 +576,7 @@ command finishes:</p>
         </p>
         
         <p class="credits theme-by text-muted">
-          <a href="https://gohugo.io">Hugo v0.80.0</a> powered &nbsp;&bull;&nbsp; Theme <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> adapted from <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
+          <a href="https://gohugo.io">Hugo v0.93.3</a> powered &nbsp;&bull;&nbsp; Theme <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> adapted from <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
           
         </p>
       </div>

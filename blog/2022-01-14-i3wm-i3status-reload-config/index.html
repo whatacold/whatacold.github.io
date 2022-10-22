@@ -70,7 +70,7 @@
   "datePublished" : "2022-01-14T22:36:13",
   "dateModified" : "2022-01-14T22:36:13",
   "image" : "https:\/\/whatacold.io\/img\/avatar.png",
-  "keywords" : [ "i3wm" ],
+  "keywords" : [ "i3wm, Linux" ],
   "mainEntityOfPage" : "https:\/\/whatacold.io\/blog\/2022-01-14-i3wm-i3status-reload-config\/",
   "publisher" : {
     "@type": "Organization",
@@ -101,7 +101,7 @@
   <meta name="twitter:site" content="@whatacold" />
   <meta name="twitter:creator" content="@whatacold" />
   <link href='https://whatacold.io/img/favicon.ico' rel='icon' type='image/x-icon'/>
-  <meta name="generator" content="Hugo 0.80.0" />
+  <meta name="generator" content="Hugo 0.93.3" />
   <link rel="alternate" href="https://whatacold.io/index.xml" type="application/rss+xml" title="whatacold&#39;s space"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"><link rel="stylesheet" href="https://whatacold.io/css/main.css" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
@@ -147,13 +147,13 @@ if (!doNotTrack) {
         
           
             <li>
-              <a title="About" href="/about/">About</a>
+              <a title="Tags" href="/tags">Tags</a>
             </li>
           
         
           
             <li>
-              <a title="Tags" href="/tags">Tags</a>
+              <a title="About" href="/about/">About</a>
             </li>
           
         
@@ -287,12 +287,8 @@ But this issue scratched my itch, and I swear that I must solve it today.</p>
 Following <a href="https://www.reddit.com/r/i3wm/comments/7n3aac/how_to_force_running_i3status_to_reload_its_config/">this Reddit post</a>, it looks like it can be done by restarting the process of <code class="verbatim">i3bar</code>:</p>
 <blockquote>
 <ol>
-<li>
-<p>Add a bar id (e.g., <code class="verbatim">bar-0</code>) and reload your config.</p>
-</li>
-<li>
-<p>Add a binding for <code class="verbatim">killall i3bar; i3bar --bar_id=bar-0</code></p>
-</li>
+<li>Add a bar id (e.g., <code class="verbatim">bar-0</code>) and reload your config.</li>
+<li>Add a binding for <code class="verbatim">killall i3bar; i3bar --bar_id=bar-0</code></li>
 </ol>
 </blockquote>
 <p>
@@ -305,38 +301,38 @@ But suddenly, I think that maybe I can give it a try to invoke the commands via 
 <p>
 The fundamental is to restart the <code class="verbatim">i3bar</code> process:</p>
 <div class="src src-shell">
-<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell"><span class="k">function</span> i3status_reload<span class="o">()</span>
-<span class="o">{</span>
-    i3-msg -t <span class="nb">command</span> <span class="s1">&#39;exec --no-startup-id killall i3bar&#39;</span>
-    i3-msg -t <span class="nb">command</span> <span class="s1">&#39;exec --no-startup-id i3bar --bar_id=bar-0&#39;</span>
-<span class="o">}</span></code></pre></div>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="k">function</span> i3status_reload<span class="o">()</span>
+</span></span><span class="line"><span class="cl"><span class="o">{</span>
+</span></span><span class="line"><span class="cl">    i3-msg -t <span class="nb">command</span> <span class="s1">&#39;exec --no-startup-id killall i3bar&#39;</span>
+</span></span><span class="line"><span class="cl">    i3-msg -t <span class="nb">command</span> <span class="s1">&#39;exec --no-startup-id i3bar --bar_id=bar-0&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span></span></span></code></pre></div>
 </div>
 <p>
 And, here is the whole script, say, <code class="verbatim">~/bin/i3status_reload.sh</code> :</p>
 <div class="src src-shell">
-<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell"><span class="cp">#!/bin/sh
-</span><span class="cp"></span>
-<span class="k">if</span> <span class="o">[</span> <span class="nv">$#</span> -ne <span class="m">1</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
-    <span class="nb">echo</span> <span class="s2">&#34;Usage: </span><span class="nv">$0</span><span class="s2"> on/off&#34;</span>
-    <span class="nb">exit</span> <span class="m">1</span>
-<span class="k">fi</span>
-
-<span class="k">function</span> i3status_reload<span class="o">()</span>
-<span class="o">{</span>
-    i3-msg -t <span class="nb">command</span> <span class="s1">&#39;exec --no-startup-id killall i3bar&#39;</span>
-    i3-msg -t <span class="nb">command</span> <span class="s1">&#39;exec --no-startup-id i3bar --bar_id=bar-0&#39;</span>
-<span class="o">}</span>
-
-<span class="nv">ymd</span><span class="o">=</span><span class="s2">&#34;%Y-%m-%d&#34;</span>
-<span class="nv">config</span><span class="o">=</span>~/.config/i3status/config
-
-<span class="k">if</span> <span class="o">[</span> <span class="s2">&#34;</span><span class="nv">$1</span><span class="s2">&#34;</span> <span class="o">==</span> <span class="s2">&#34;on&#34;</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
-    sed -i <span class="s2">&#34;s/^.*</span><span class="nv">$ymd</span><span class="s2">.*</span>$<span class="s2">/        format = &#39;%Y-%m-%d %H:%M:%S&#39;/&#34;</span> <span class="nv">$config</span>
-<span class="k">else</span>
-    sed -i <span class="s2">&#34;s/^.*</span><span class="nv">$ymd</span><span class="s2">.*</span>$<span class="s2">/        format = &#39;%Y-%m-%d&#39;/&#34;</span> <span class="nv">$config</span>
-<span class="k">fi</span>
-
-i3status_reload</code></pre></div>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="cp">#!/bin/sh
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span>
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="o">[</span> <span class="nv">$#</span> -ne <span class="m">1</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">echo</span> <span class="s2">&#34;Usage: </span><span class="nv">$0</span><span class="s2"> on/off&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">exit</span> <span class="m">1</span>
+</span></span><span class="line"><span class="cl"><span class="k">fi</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">function</span> i3status_reload<span class="o">()</span>
+</span></span><span class="line"><span class="cl"><span class="o">{</span>
+</span></span><span class="line"><span class="cl">    i3-msg -t <span class="nb">command</span> <span class="s1">&#39;exec --no-startup-id killall i3bar&#39;</span>
+</span></span><span class="line"><span class="cl">    i3-msg -t <span class="nb">command</span> <span class="s1">&#39;exec --no-startup-id i3bar --bar_id=bar-0&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nv">ymd</span><span class="o">=</span><span class="s2">&#34;%Y-%m-%d&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nv">config</span><span class="o">=</span>~/.config/i3status/config
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="o">[</span> <span class="s2">&#34;</span><span class="nv">$1</span><span class="s2">&#34;</span> <span class="o">==</span> <span class="s2">&#34;on&#34;</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
+</span></span><span class="line"><span class="cl">    sed -i <span class="s2">&#34;s/^.*</span><span class="nv">$ymd</span><span class="s2">.*</span>$<span class="s2">/        format = &#39;%Y-%m-%d %H:%M:%S&#39;/&#34;</span> <span class="nv">$config</span>
+</span></span><span class="line"><span class="cl"><span class="k">else</span>
+</span></span><span class="line"><span class="cl">    sed -i <span class="s2">&#34;s/^.*</span><span class="nv">$ymd</span><span class="s2">.*</span>$<span class="s2">/        format = &#39;%Y-%m-%d&#39;/&#34;</span> <span class="nv">$config</span>
+</span></span><span class="line"><span class="cl"><span class="k">fi</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">i3status_reload</span></span></code></pre></div>
 </div>
 <p>
 When I want to execute it, I just run the command from a shell. Or, if
@@ -345,12 +341,8 @@ $mod+s exec --no-startup-id sh ~/bin/i3status_reload.sh</code></p>
 <p>
 Reference:</p>
 <ul>
-<li>
-<p>Reddit post: <a href="https://www.reddit.com/r/i3wm/comments/7n3aac/how_to_force_running_i3status_to_reload_its_config/">How to force running i3status to reload it&#39;s config? : i3wm - www.reddit.com</a></p>
-</li>
-<li>
-<p>My <code class="verbatim">i3wm</code> config: <a href="https://github.com/whatacold/extensible-dotfiles/blob/master/home/.config/i3/config">https://github.com/whatacold/extensible-dotfiles/blob/master/home/.config/i3/config</a></p>
-</li>
+<li>Reddit post: <a href="https://www.reddit.com/r/i3wm/comments/7n3aac/how_to_force_running_i3status_to_reload_its_config/">How to force running i3status to reload it&#39;s config? : i3wm - www.reddit.com</a></li>
+<li>My <code class="verbatim">i3wm</code> config: <a href="https://github.com/whatacold/extensible-dotfiles/blob/master/home/.config/i3/config">https://github.com/whatacold/extensible-dotfiles/blob/master/home/.config/i3/config</a></li>
 </ul>
 
 
@@ -358,6 +350,8 @@ Reference:</p>
           <div class="blog-tags">
             
               <a href="https://whatacold.io/tags/i3wm/">i3wm</a>&nbsp;
+            
+              <a href="https://whatacold.io/tags/linux/">Linux</a>&nbsp;
             
           </div>
         
@@ -429,7 +423,11 @@ Reference:</p>
                   <ul>
                 
                 
+                    <li><a href="/blog/2022-05-21-adjust-screen-brightness-emacs/">Adjust the laptop&#39;s screen brightness in Emacs</a></li>
+                
                     <li><a href="/blog/2021-07-17-emacs-i3wm-dunst/">Send Notifications from Emacs with i3wm and Dunst</a></li>
+                
+                    <li><a href="/blog/2019-11-25-start-a-new-urxvt-terminal-on-emacs/">Open New Urxvt from within Emacs</a></li>
                 
               </ul>
 
@@ -446,7 +444,7 @@ Reference:</p>
           
           
             <li class="next">
-              <a href="https://whatacold.io/blog/2022-01-22-emacs-eglot-lsp/" data-toggle="tooltip" data-placement="top" title="Eglot for better programming experience in Emacs">Next Post &rarr;</a>
+              <a href="https://whatacold.io/blog/2022-01-22-emacs-eglot-lsp/" data-toggle="tooltip" data-placement="top" title="Eglot for Better Programming Experience in Emacs">Next Post &rarr;</a>
             </li>
           
         </ul>
@@ -459,7 +457,7 @@ Reference:</p>
           <div class="disqus-comments">
             <div id="disqus_thread"></div>
 <script type="application/javascript">
-    var disqus_config = function () {
+    window.disqus_config = function () {
     
     
     
@@ -567,7 +565,7 @@ Reference:</p>
         </p>
         
         <p class="credits theme-by text-muted">
-          <a href="https://gohugo.io">Hugo v0.80.0</a> powered &nbsp;&bull;&nbsp; Theme <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> adapted from <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
+          <a href="https://gohugo.io">Hugo v0.93.3</a> powered &nbsp;&bull;&nbsp; Theme <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> adapted from <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
           
         </p>
       </div>

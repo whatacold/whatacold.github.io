@@ -97,7 +97,7 @@
   <meta name="twitter:site" content="@whatacold" />
   <meta name="twitter:creator" content="@whatacold" />
   <link href='https://whatacold.io/img/favicon.ico' rel='icon' type='image/x-icon'/>
-  <meta name="generator" content="Hugo 0.80.0" />
+  <meta name="generator" content="Hugo 0.93.3" />
   <link rel="alternate" href="https://whatacold.io/zh-cn/index.xml" type="application/rss+xml" title="whatacold 的空间"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"><link rel="stylesheet" href="https://whatacold.io/css/main.css" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
@@ -137,19 +137,19 @@ if (!doNotTrack) {
         
           
             <li>
-              <a title="Blog" href="/zh-cn">Blog</a>
+              <a title="博客" href="/zh-cn">博客</a>
             </li>
           
         
           
             <li>
-              <a title="About" href="/zh-cn/about/">About</a>
+              <a title="标签" href="/zh-cn/tags">标签</a>
             </li>
           
         
           
             <li>
-              <a title="Tags" href="/zh-cn/tags">Tags</a>
+              <a title="关于" href="/zh-cn/about/">关于</a>
             </li>
           
         
@@ -282,41 +282,41 @@ if (!doNotTrack) {
 <p>
 通过使用 <a href="https://requests.kennethreitz.org/en/master/">Python Requests</a> 库串联登录及重启两个步骤，可以达到“一键”自动重启路由器的目的。 Python 脚本如下：</p>
 <div class="src src-python">
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="ch">#!/usr/bin/env python3</span>
-<span class="c1"># -*- coding: utf-8 -*-</span>
-
-<span class="kn">import</span> <span class="nn">requests</span>
-<span class="kn">import</span> <span class="nn">re</span>
-
-<span class="c1"># 这里的配置，请按需修改。</span>
-<span class="n">DEVICE_IP</span><span class="o">=</span><span class="s2">&#34;192.168.1.1&#34;</span>
-<span class="n">USERNAME</span><span class="o">=</span><span class="s1">&#39;admin&#39;</span>
-<span class="n">PASSWORD</span><span class="o">=</span><span class="s1">&#39;foobar&#39;</span>
-
-<span class="k">def</span> <span class="nf">reboot</span><span class="p">():</span>
-    <span class="s1">&#39;&#39;&#39;Reboot the Tianyi Gateway automatically&#39;&#39;&#39;</span>
-    <span class="n">s</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">Session</span><span class="p">()</span>
-    <span class="n">login_data</span> <span class="o">=</span> <span class="s2">&#34;username={}&amp;password={}&#34;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">USERNAME</span><span class="p">,</span> <span class="n">PASSWORD</span><span class="p">)</span>
-    <span class="n">response</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s2">&#34;http://{}/login.cgi&#34;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">DEVICE_IP</span><span class="p">),</span> <span class="n">login_data</span><span class="p">)</span>
-    <span class="n">response_html</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">text</span>
-    <span class="n">matches</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="s1">&#39;var mysessionid=([0-9]+);&#39;</span><span class="p">,</span> <span class="n">response_html</span><span class="p">)</span>
-    <span class="k">if</span> <span class="mi">1</span> <span class="o">!=</span> <span class="nb">len</span><span class="p">(</span><span class="n">matches</span><span class="p">):</span>
-        <span class="k">raise</span> <span class="s2">&#34;No session id matched!&#34;</span>
-
-    <span class="n">session_id</span> <span class="o">=</span> <span class="n">matches</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-    <span class="c1"># session_id = 1111 # It doesn&#39;t care what it REALLY is</span>
-    <span class="n">response</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s2">&#34;http://{}/restartGateWay.json?sessionKey={}&#34;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">DEVICE_IP</span><span class="p">,</span>
-                                                                           <span class="n">session_id</span><span class="p">),</span>
-                      <span class="s2">&#34;action=restartGateWay&amp;actionid=8&#34;</span><span class="p">)</span>
-    <span class="n">text</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">text</span> <span class="c1"># { &#34;status&#34;: &#34;success&#34;, &#34;actionid&#34;: &#34;8&#34; }</span>
-    <span class="n">return_object</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
-    <span class="k">if</span> <span class="s2">&#34;success&#34;</span> <span class="o">==</span> <span class="n">return_object</span><span class="p">[</span><span class="s2">&#34;status&#34;</span><span class="p">]:</span>
-        <span class="k">print</span><span class="p">(</span><span class="s2">&#34;Device rebooted successfully, wait a minute!&#34;</span><span class="p">)</span>
-    <span class="k">else</span><span class="p">:</span>
-        <span class="k">print</span><span class="p">(</span><span class="s2">&#34;Failed to reboot the device, return json: {}&#34;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">text</span><span class="p">))</span>
-
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
-    <span class="n">reboot</span><span class="p">()</span></code></pre></div>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="ch">#!/usr/bin/env python3</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># -*- coding: utf-8 -*-</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">requests</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">re</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 这里的配置，请按需修改。</span>
+</span></span><span class="line"><span class="cl"><span class="n">DEVICE_IP</span><span class="o">=</span><span class="s2">&#34;192.168.1.1&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">USERNAME</span><span class="o">=</span><span class="s1">&#39;admin&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="n">PASSWORD</span><span class="o">=</span><span class="s1">&#39;foobar&#39;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">reboot</span><span class="p">():</span>
+</span></span><span class="line"><span class="cl">    <span class="s1">&#39;&#39;&#39;Reboot the Tianyi Gateway automatically&#39;&#39;&#39;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">s</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">Session</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="n">login_data</span> <span class="o">=</span> <span class="s2">&#34;username=</span><span class="si">{}</span><span class="s2">&amp;password=</span><span class="si">{}</span><span class="s2">&#34;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">USERNAME</span><span class="p">,</span> <span class="n">PASSWORD</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">response</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s2">&#34;http://</span><span class="si">{}</span><span class="s2">/login.cgi&#34;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">DEVICE_IP</span><span class="p">),</span> <span class="n">login_data</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">response_html</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">text</span>
+</span></span><span class="line"><span class="cl">    <span class="n">matches</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="s1">&#39;var mysessionid=([0-9]+);&#39;</span><span class="p">,</span> <span class="n">response_html</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="mi">1</span> <span class="o">!=</span> <span class="nb">len</span><span class="p">(</span><span class="n">matches</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="k">raise</span> <span class="s2">&#34;No session id matched!&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">session_id</span> <span class="o">=</span> <span class="n">matches</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># session_id = 1111 # It doesn&#39;t care what it REALLY is</span>
+</span></span><span class="line"><span class="cl">    <span class="n">response</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s2">&#34;http://</span><span class="si">{}</span><span class="s2">/restartGateWay.json?sessionKey=</span><span class="si">{}</span><span class="s2">&#34;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">DEVICE_IP</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                                                                           <span class="n">session_id</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">                      <span class="s2">&#34;action=restartGateWay&amp;actionid=8&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">text</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">text</span> <span class="c1"># { &#34;status&#34;: &#34;success&#34;, &#34;actionid&#34;: &#34;8&#34; }</span>
+</span></span><span class="line"><span class="cl">    <span class="n">return_object</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="s2">&#34;success&#34;</span> <span class="o">==</span> <span class="n">return_object</span><span class="p">[</span><span class="s2">&#34;status&#34;</span><span class="p">]:</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;Device rebooted successfully, wait a minute!&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">else</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;Failed to reboot the device, return json: </span><span class="si">{}</span><span class="s2">&#34;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">text</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">reboot</span><span class="p">()</span></span></span></code></pre></div>
 </div>
 <p>
 此脚本依赖 Python Requests 库，可以通过 <code class="verbatim">pip</code> 来安装；我使用 Python3 ，不过 Python2 应该也不会有太大问题。
@@ -432,7 +432,7 @@ if (!doNotTrack) {
           <div class="disqus-comments">
             <div id="disqus_thread"></div>
 <script type="application/javascript">
-    var disqus_config = function () {
+    window.disqus_config = function () {
     
     
     
@@ -540,7 +540,7 @@ if (!doNotTrack) {
         </p>
         
         <p class="credits theme-by text-muted">
-          由 <a href="https://gohugo.io">Hugo v0.80.0</a> 强力驱动 &nbsp;&bull;&nbsp; 主题 <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> 移植自 <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
+          由 <a href="https://gohugo.io">Hugo v0.93.3</a> 强力驱动 &nbsp;&bull;&nbsp; 主题 <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> 移植自 <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
           
         </p>
       </div>

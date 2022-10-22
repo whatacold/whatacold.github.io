@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="en" itemscope itemtype="http://schema.org/WebPage">
+  <head>
+    
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+
+
+
+  
+
+  <title>Auto-complete Accounts From Other Beancount Files in Emacs - whatacold&#39;s space</title>
+  <meta name="description" content="Auto-complete accounts from another accounts.bean file    If you&#39;re using Beancount with Emacs, you may be using beancount-mode. It can auto-complete the accounts defined in the current buffer when we are typing in new transactions so that we can do it more efficiently.
+ But it can only auto-complete the accounts from the current buffer, which makes it less useful when we have a stand-alone file or a few files of beancount accounts.">
+  <meta name="author" content="whatacold"/><script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "WebSite",
+    "name": "whatacold\u0027s space",
+    
+    "url": "https:\/\/whatacold.io"
+}
+</script><script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Organization",
+  "name": "",
+  "url": "https:\/\/whatacold.io"
+  
+  
+  
+  
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "item": {
+          "@id": "https:\/\/whatacold.io",
+          "name": "home"
+        }
+    },{
+        "@type": "ListItem",
+        "position": 3,
+        "item": {
+          "@id": "https:\/\/whatacold.io\/blog\/2022-09-10-emacs-beancount-account-files\/",
+          "name": "Auto complete accounts from other beancount files in emacs"
+        }
+    }]
+}
+</script><script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Article",
+  "author": {
+    "name" : "whatacold"
+  },
+  "headline": "Auto-complete Accounts From Other Beancount Files in Emacs",
+  "description" : "Auto-complete accounts from another accounts.bean file    If you\u0026#39;re using Beancount with Emacs, you may be using beancount-mode. It can auto-complete the accounts defined in the current buffer when we are typing in new transactions so that we can do it more efficiently.\n But it can only auto-complete the accounts from the current buffer, which makes it less useful when we have a stand-alone file or a few files of beancount accounts.",
+  "inLanguage" : "en",
+  "wordCount":  230 ,
+  "datePublished" : "2022-09-10T11:13:38",
+  "dateModified" : "2022-09-10T11:13:38",
+  "image" : "https:\/\/whatacold.io\/img\/avatar.png",
+  "keywords" : [ "Emacs, Beancount" ],
+  "mainEntityOfPage" : "https:\/\/whatacold.io\/blog\/2022-09-10-emacs-beancount-account-files\/",
+  "publisher" : {
+    "@type": "Organization",
+    "name" : "https:\/\/whatacold.io",
+    "logo" : {
+        "@type" : "ImageObject",
+        "url" : "https:\/\/whatacold.io\/img\/avatar.png",
+        "height" :  60 ,
+        "width" :  60
+    }
+  }
+}
+</script>
+
+<meta property="og:title" content="Auto-complete Accounts From Other Beancount Files in Emacs" />
+<meta property="og:description" content="Auto-complete accounts from another accounts.bean file    If you&#39;re using Beancount with Emacs, you may be using beancount-mode. It can auto-complete the accounts defined in the current buffer when we are typing in new transactions so that we can do it more efficiently.
+ But it can only auto-complete the accounts from the current buffer, which makes it less useful when we have a stand-alone file or a few files of beancount accounts.">
+<meta property="og:image" content="https://whatacold.io/img/avatar.png" />
+<meta property="og:url" content="https://whatacold.io/blog/2022-09-10-emacs-beancount-account-files/" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="whatacold&#39;s space" />
+
+  <meta name="twitter:title" content="Auto-complete Accounts From Other Beancount Files in Emacs" />
+  <meta name="twitter:description" content="Auto-complete accounts from another accounts.bean file    If you&#39;re using Beancount with Emacs, you may be using beancount-mode. It can auto-complete the accounts defined in the current buffer …">
+  <meta name="twitter:image" content="https://whatacold.io/img/avatar.png" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@whatacold" />
+  <meta name="twitter:creator" content="@whatacold" />
+  <link href='https://whatacold.io/img/favicon.ico' rel='icon' type='image/x-icon'/>
+  <meta name="generator" content="Hugo 0.93.3" />
+  <link rel="alternate" href="https://whatacold.io/index.xml" type="application/rss+xml" title="whatacold&#39;s space"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"><link rel="stylesheet" href="https://whatacold.io/css/main.css" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
+  <link rel="stylesheet" href="https://whatacold.io/css/highlight.min.css" /><link rel="stylesheet" href="https://whatacold.io/css/codeblock.css" /><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.css" integrity="sha384-h/L2W9KefUClHWaty3SLE5F/qvc4djlyR4qY3NUV5HGQBBW7stbcfff1+I/vmsHh" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/default-skin/default-skin.min.css" integrity="sha384-iD0dNku6PYSIQLyfTOpB06F2KCZJAKLOThS5HRe8b3ibhdEQ6eKsFf/EeFxdOt5R" crossorigin="anonymous">
+
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-74588785-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+  </head>
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://whatacold.io">whatacold&#39;s space</a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+          
+            <li>
+              <a title="Blog" href="/">Blog</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="Tags" href="/tags">Tags</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="About" href="/about/">About</a>
+            </li>
+          
+        
+
+        
+          
+            <li>
+              
+                
+              
+                
+                  <a href="/zh-cn" lang="zh-cn">简体中文</a>
+                
+              
+            </li>
+          
+        
+
+        
+      </ul>
+    </div>
+
+    
+      <div class="avatar-container">
+        <div class="avatar-img-border">
+          <a title="whatacold&#39;s space" href="https://whatacold.io">
+            <img class="avatar-img" src="https://whatacold.io/img/avatar.png" alt="whatacold&#39;s space" />
+          </a>
+        </div>
+      </div>
+    
+
+  </div>
+</nav>
+
+
+
+
+    
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+  
+  
+  
+
+
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    <div class="intro-header no-img">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <div class="blog-heading">
+              
+                <h1>Auto-complete Accounts From Other Beancount Files in Emacs</h1>
+              
+              
+                <hr class="small">
+              
+              
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+    
+<div class="container" role="main">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+      <article role="main" class="blog-post">
+        <figure>
+<img src="/img/2022-09-10-beancount-mode-comple-accounts-from-files.png" alt="/img/2022-09-10-beancount-mode-comple-accounts-from-files.png" title="/img/2022-09-10-beancount-mode-comple-accounts-from-files.png" /><figcaption>
+Auto-complete accounts from another accounts.bean file
+</figcaption>
+</figure>
+<p>
+If you&#39;re using Beancount with Emacs, you may be using <a href="https://github.com/beancount/beancount-mode">beancount-mode</a>. It can auto-complete the accounts defined in the current buffer when we are typing in new transactions so that we can do it more efficiently.</p>
+<p>
+But it can <strong><strong>only</strong></strong> auto-complete the accounts from the current buffer, which makes it less useful when we have a stand-alone file or a few files of beancount accounts.</p>
+<p>
+Based on <a href="https://github.com/cnsunyour/beancount.el">cnsunyour&#39;s fork</a>, here is how to also auto-complete accounts from other files using the <a href="https://www.gnu.org/software/emacs/manual/html_node/elisp/Advising-Functions.html">advice mechanism</a> of Emacs:</p>
+<div class="src src-elisp">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-elisp" data-lang="elisp"><span class="line"><span class="cl"><span class="p">(</span><span class="nb">defvar</span> <span class="nv">beancount-account-files</span> <span class="no">nil</span>
+</span></span><span class="line"><span class="cl">  <span class="s">&#34;List of account files&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">(</span><span class="nb">defun</span> <span class="nv">w/beancount--collect-accounts-from-files</span> <span class="p">(</span><span class="nv">oldfun</span> <span class="nv">regex</span> <span class="nv">n</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="p">(</span><span class="nb">let</span> <span class="p">((</span><span class="nv">keys</span> <span class="p">(</span><span class="nf">funcall</span> <span class="nv">oldfun</span> <span class="nv">regex</span> <span class="nv">n</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">        <span class="p">(</span><span class="nv">hash</span> <span class="p">(</span><span class="nf">make-hash-table</span> <span class="nb">:test</span> <span class="ss">&#39;equal</span><span class="p">)))</span>
+</span></span><span class="line"><span class="cl">    <span class="p">(</span><span class="nb">dolist</span> <span class="p">(</span><span class="nv">key</span> <span class="nv">keys</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">      <span class="p">(</span><span class="nf">puthash</span> <span class="nv">key</span> <span class="no">nil</span> <span class="nv">hash</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">;; collect accounts from files</span>
+</span></span><span class="line"><span class="cl">    <span class="p">(</span><span class="nb">save-excursion</span>
+</span></span><span class="line"><span class="cl">      <span class="p">(</span><span class="nb">dolist</span> <span class="p">(</span><span class="nv">f</span> <span class="nv">beancount-account-files</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="p">(</span><span class="nb">with-current-buffer</span> <span class="p">(</span><span class="nv">find-file-noselect</span> <span class="nv">f</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">          <span class="p">(</span><span class="nf">goto-char</span> <span class="p">(</span><span class="nf">point-min</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">          <span class="p">(</span><span class="nb">while</span> <span class="p">(</span><span class="nf">re-search-forward</span> <span class="nv">beancount-account-regexp</span> <span class="no">nil</span> <span class="no">t</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">            <span class="p">(</span><span class="nf">puthash</span> <span class="p">(</span><span class="nv">match-string-no-properties</span> <span class="nv">n</span><span class="p">)</span> <span class="no">nil</span> <span class="nv">hash</span><span class="p">)))))</span>
+</span></span><span class="line"><span class="cl">    <span class="p">(</span><span class="nv">hash-table-keys</span> <span class="nv">hash</span><span class="p">)))</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">(</span><span class="nv">advice-add</span> <span class="nf">#&#39;</span><span class="nv">beancount-collect</span>
+</span></span><span class="line"><span class="cl">            <span class="nb">:around</span> <span class="nf">#&#39;</span><span class="nv">w/beancount--collect-accounts-from-files</span>
+</span></span><span class="line"><span class="cl">            <span class="o">&#39;</span><span class="p">((</span><span class="nv">name</span> <span class="o">.</span> <span class="s">&#34;collect accounts from files as well&#34;</span><span class="p">)))</span></span></span></code></pre></div>
+</div>
+<p>
+Put the code in your &#34;init.el&#34;, and then define your account files by, for example, <code>(setq beancount-account-files &#39;(&#34;/path/to/accounts.bean&#34;))</code>. Now it will work perfectly when you <code>M-x beancount-insert-account</code> (Revert the current beancount buffer to make the advice effective if necessary).</p>
+<p>
+P.S. If you prefer not to use the ido style to auto-complete the accounts, you can <code>(setq beancount-use-ido nil)</code> so that a completion frontend like <a href="https://github.com/abo-abo/swiper">ivy</a> will have the chance to take control.</p>
+
+
+        
+          <div class="blog-tags">
+            
+              <a href="https://whatacold.io/tags/emacs/">Emacs</a>&nbsp;
+            
+              <a href="https://whatacold.io/tags/beancount/">Beancount</a>&nbsp;
+            
+          </div>
+        
+
+        
+            <hr/>
+            <section id="social-share">
+              <div class="list-inline footer-links">
+                
+
+<div class="share-box" aria-hidden="true">
+    <ul class="share">
+      
+      <li>
+        <a href="//twitter.com/share?url=https%3a%2f%2fwhatacold.io%2fblog%2f2022-09-10-emacs-beancount-account-files%2f&amp;text=Auto-complete%20Accounts%20From%20Other%20Beancount%20Files%20in%20Emacs&amp;via=whatacold" target="_blank" title="Share on Twitter">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fwhatacold.io%2fblog%2f2022-09-10-emacs-beancount-account-files%2f" target="_blank" title="Share on Facebook">
+          <i class="fab fa-facebook"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//reddit.com/submit?url=https%3a%2f%2fwhatacold.io%2fblog%2f2022-09-10-emacs-beancount-account-files%2f&amp;title=Auto-complete%20Accounts%20From%20Other%20Beancount%20Files%20in%20Emacs" target="_blank" title="Share on Reddit">
+          <i class="fab fa-reddit"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fwhatacold.io%2fblog%2f2022-09-10-emacs-beancount-account-files%2f&amp;title=Auto-complete%20Accounts%20From%20Other%20Beancount%20Files%20in%20Emacs" target="_blank" title="Share on LinkedIn">
+          <i class="fab fa-linkedin"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fwhatacold.io%2fblog%2f2022-09-10-emacs-beancount-account-files%2f&amp;title=Auto-complete%20Accounts%20From%20Other%20Beancount%20Files%20in%20Emacs" target="_blank" title="Share on StumbleUpon">
+          <i class="fab fa-stumbleupon"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fwhatacold.io%2fblog%2f2022-09-10-emacs-beancount-account-files%2f&amp;description=Auto-complete%20Accounts%20From%20Other%20Beancount%20Files%20in%20Emacs" target="_blank" title="Share on Pinterest">
+          <i class="fab fa-pinterest"></i>
+        </a>
+      </li>
+    </ul>
+  </div>
+  
+
+              </div>
+            </section>
+        
+
+        
+          
+            
+          
+
+          
+                  <h4 class="see-also">See also</h4>
+                  <ul>
+                
+                
+                    <li><a href="/blog/2022-10-10-emacs-hugo-blogging/">Hugo Blogging in Emacs</a></li>
+                
+                    <li><a href="/blog/2022-08-08-org-link-bookmarklet/">A Bookmarklet for Copying a Link as an Org-mode Link</a></li>
+                
+                    <li><a href="/blog/2022-07-17-emacs-elisp-debug/">Emacs Debugging Basics</a></li>
+                
+                    <li><a href="/blog/2022-05-23-emacs-duplicate-line/">Duplicate the current line in Emacs</a></li>
+                
+                    <li><a href="/blog/2022-05-21-adjust-screen-brightness-emacs/">Adjust the laptop&#39;s screen brightness in Emacs</a></li>
+                
+              </ul>
+
+          
+        
+      </article>
+
+      
+        <ul class="pager blog-pager">
+          
+            <li class="previous">
+              <a href="https://whatacold.io/blog/2022-08-08-org-link-bookmarklet/" data-toggle="tooltip" data-placement="top" title="A Bookmarklet for Copying a Link as an Org-mode Link">&larr; Previous Post</a>
+            </li>
+          
+          
+            <li class="next">
+              <a href="https://whatacold.io/blog/2022-10-10-emacs-hugo-blogging/" data-toggle="tooltip" data-placement="top" title="Hugo Blogging in Emacs">Next Post &rarr;</a>
+            </li>
+          
+        </ul>
+      
+
+
+      
+        
+          
+          <div class="disqus-comments">
+            <div id="disqus_thread"></div>
+<script type="application/javascript">
+    window.disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "whatacold" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+          </div>
+          
+        
+        
+      
+
+    </div>
+  </div>
+</div>
+
+      
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+          
+              <li>
+                <a href="mailto:whatacold@gmail.com" title="Email me">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fas fa-envelope fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://github.com/whatacold" title="GitHub">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://twitter.com/whatacold" title="Twitter">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://reddit.com/u/whatacold" title="Reddit">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-reddit-alien fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://stackoverflow.com/users/910978/whatacold" title="StackOverflow">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-stack-overflow fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://www.youtube.com/channel/UC2unslchfhzbub47Qq2U88w" title="Youtube">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-youtube fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+
+          
+          
+          
+
+        </ul>
+        <p class="credits copyright text-muted">
+          
+            
+              whatacold
+            
+          
+
+          &nbsp;&bull;&nbsp;&copy;
+          
+            2018 - 2022
+          
+
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://whatacold.io">whatacold&#39;s space</a>
+          
+        </p>
+        
+        <p class="credits theme-by text-muted">
+          <a href="https://gohugo.io">Hugo v0.93.3</a> powered &nbsp;&bull;&nbsp; Theme <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> adapted from <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer><script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.js" integrity="sha384-K3vbOmF2BtaVai+Qk37uypf7VrgBubhQreNQe9aGsz9lB63dIFiQVlJbr92dw2Lx" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/contrib/auto-render.min.js" integrity="sha384-kmZOZB5ObwgQnS/DuDg6TScgOiWWBiVt0plIRkZCmE6rDZGrEOQeHM5PcHi+nyqe" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+<script src="https://whatacold.io/js/main.js"></script>
+<script src="https://whatacold.io/js/highlight.min.js"></script>
+<script> hljs.initHighlightingOnLoad(); </script>
+<script> $(document).ready(function() {$("pre.chroma").css("padding","0");}); </script><script> renderMathInElement(document.body); </script><script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.js" integrity="sha384-QELNnmcmU8IR9ZAykt67vGr9/rZJdHbiWi64V88fCPaOohUlHCqUD/unNN0BXSqy" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe-ui-default.min.js" integrity="sha384-m67o7SkQ1ALzKZIFh4CiTA8tmadaujiTa9Vu+nqPSwDOqHrDmxLezTdFln8077+q" crossorigin="anonymous"></script><script src="https://whatacold.io/js/load-photoswipe.js"></script>
+
+
+
+
+
+
+
+
+
+    
+  </body>
+</html>
+

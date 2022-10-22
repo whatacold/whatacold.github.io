@@ -102,7 +102,7 @@
   <meta name="twitter:site" content="@whatacold" />
   <meta name="twitter:creator" content="@whatacold" />
   <link href='https://whatacold.io/img/favicon.ico' rel='icon' type='image/x-icon'/>
-  <meta name="generator" content="Hugo 0.80.0" />
+  <meta name="generator" content="Hugo 0.93.3" />
   <link rel="alternate" href="https://whatacold.io/index.xml" type="application/rss+xml" title="whatacold&#39;s space"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"><link rel="stylesheet" href="https://whatacold.io/css/main.css" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
@@ -148,13 +148,13 @@ if (!doNotTrack) {
         
           
             <li>
-              <a title="About" href="/about/">About</a>
+              <a title="Tags" href="/tags">Tags</a>
             </li>
           
         
           
             <li>
-              <a title="Tags" href="/tags">Tags</a>
+              <a title="About" href="/about/">About</a>
             </li>
           
         
@@ -331,38 +331,38 @@ If I soft-reset HEAD from &#34;commit 5&#34; to &#34;commit 10&#34;, it will mov
 <p>
 Here are the steps:</p>
 <div class="src src-shell">
-<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell">git branch master-bak    <span class="c1"># create a backup branch in case commits lost</span>
-git reset --hard 28d526f <span class="c1"># the commit 5</span>
-git reset --soft master-bak
-git commit -m <span class="s2">&#34;Revert the commits [6,10]&#34;</span>
-git diff 28d526f..HEAD   <span class="c1"># confirm that it doesn&#39;t have any diffs</span></code></pre></div>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">git branch master-bak    <span class="c1"># create a backup branch in case commits lost</span>
+</span></span><span class="line"><span class="cl">git reset --hard 28d526f <span class="c1"># the commit 5</span>
+</span></span><span class="line"><span class="cl">git reset --soft master-bak
+</span></span><span class="line"><span class="cl">git commit -m <span class="s2">&#34;Revert the commits [6,10]&#34;</span>
+</span></span><span class="line"><span class="cl">git diff 28d526f..HEAD   <span class="c1"># confirm that it doesn&#39;t have any diffs</span></span></span></code></pre></div>
 </div>
 <p>
 P.S. It&#39;s a bit boring to prepare git commits above, so I bake a helper script to do that:</p>
 <div class="src src-shell">
-<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell"><span class="cp">#!/bin/bash
-</span><span class="cp"></span>
-<span class="nv">COUNT</span><span class="o">=</span><span class="m">0</span>
-<span class="nv">REPO</span><span class="o">=</span><span class="s2">&#34;&#34;</span>
-<span class="k">if</span> <span class="o">[</span> <span class="nv">$#</span> -ne <span class="m">2</span> <span class="o">]</span>
-<span class="k">then</span>
-    <span class="nb">echo</span> <span class="s2">&#34;Usage: </span><span class="nv">$0</span><span class="s2"> &lt;REPO-DIR&gt; &lt;COUNT&gt;&#34;</span>
-    <span class="nb">exit</span> <span class="m">1</span>
-<span class="k">fi</span>
-<span class="nv">REPO</span><span class="o">=</span><span class="nv">$1</span>
-<span class="nv">COUNT</span><span class="o">=</span><span class="nv">$2</span>
-
-<span class="nb">echo</span> <span class="s2">&#34;Creating the repo and cd&#39;ing into it...&#34;</span>
-mkdir -p <span class="nv">$REPO</span> <span class="o">&amp;&amp;</span> <span class="nb">cd</span> <span class="nv">$REPO</span>
-<span class="o">[</span> ! -d .git/ <span class="o">]</span> <span class="o">&amp;&amp;</span> git init .
-
-<span class="nb">echo</span> <span class="s2">&#34;Making commits...&#34;</span>
-<span class="k">for</span> i in <span class="sb">`</span>seq <span class="m">0</span> <span class="nv">$COUNT</span><span class="sb">`</span><span class="p">;</span>
-<span class="k">do</span>
-    <span class="nb">echo</span> <span class="s2">&#34;modification made by commit </span><span class="nv">$i</span><span class="s2">&#34;</span> &gt;&gt; demo.txt
-    git add demo.txt
-    git commit -m <span class="s2">&#34;commit </span><span class="nv">$i</span><span class="s2">&#34;</span>
-<span class="k">done</span></code></pre></div>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="cp">#!/bin/bash
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span>
+</span></span><span class="line"><span class="cl"><span class="nv">COUNT</span><span class="o">=</span><span class="m">0</span>
+</span></span><span class="line"><span class="cl"><span class="nv">REPO</span><span class="o">=</span><span class="s2">&#34;&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="o">[</span> <span class="nv">$#</span> -ne <span class="m">2</span> <span class="o">]</span>
+</span></span><span class="line"><span class="cl"><span class="k">then</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">echo</span> <span class="s2">&#34;Usage: </span><span class="nv">$0</span><span class="s2"> &lt;REPO-DIR&gt; &lt;COUNT&gt;&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">exit</span> <span class="m">1</span>
+</span></span><span class="line"><span class="cl"><span class="k">fi</span>
+</span></span><span class="line"><span class="cl"><span class="nv">REPO</span><span class="o">=</span><span class="nv">$1</span>
+</span></span><span class="line"><span class="cl"><span class="nv">COUNT</span><span class="o">=</span><span class="nv">$2</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s2">&#34;Creating the repo and cd&#39;ing into it...&#34;</span>
+</span></span><span class="line"><span class="cl">mkdir -p <span class="nv">$REPO</span> <span class="o">&amp;&amp;</span> <span class="nb">cd</span> <span class="nv">$REPO</span>
+</span></span><span class="line"><span class="cl"><span class="o">[</span> ! -d .git/ <span class="o">]</span> <span class="o">&amp;&amp;</span> git init .
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s2">&#34;Making commits...&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="k">for</span> i in <span class="sb">`</span>seq <span class="m">0</span> <span class="nv">$COUNT</span><span class="sb">`</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="k">do</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">echo</span> <span class="s2">&#34;modification made by commit </span><span class="nv">$i</span><span class="s2">&#34;</span> &gt;&gt; demo.txt
+</span></span><span class="line"><span class="cl">    git add demo.txt
+</span></span><span class="line"><span class="cl">    git commit -m <span class="s2">&#34;commit </span><span class="nv">$i</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="k">done</span></span></span></code></pre></div>
 </div>
 <p>
 P.P.S. It&#39;s much easier to do that with <a href="https://magit.vc/">Magit</a>, a Git porcelain inside Emacs, check out this video to see how:
@@ -454,15 +454,15 @@ P.P.S. It&#39;s much easier to do that with <a href="https://magit.vc/">Magit</a
                   <ul>
                 
                 
+                    <li><a href="/blog/2022-10-10-emacs-hugo-blogging/">Hugo Blogging in Emacs</a></li>
+                
+                    <li><a href="/blog/2022-09-10-emacs-beancount-account-files/">Auto-complete Accounts From Other Beancount Files in Emacs</a></li>
+                
+                    <li><a href="/blog/2022-08-08-org-link-bookmarklet/">A Bookmarklet for Copying a Link as an Org-mode Link</a></li>
+                
+                    <li><a href="/blog/2022-07-17-emacs-elisp-debug/">Emacs Debugging Basics</a></li>
+                
                     <li><a href="/blog/2022-05-23-emacs-duplicate-line/">Duplicate the current line in Emacs</a></li>
-                
-                    <li><a href="/blog/2022-05-21-adjust-screen-brightness-emacs/">Adjust the laptop&#39;s screen brightness in Emacs</a></li>
-                
-                    <li><a href="/blog/2022-04-09-emacs-kill-other-buffer/">How to kill other buffers in Emacs</a></li>
-                
-                    <li><a href="/blog/2022-01-22-emacs-eglot-lsp/">Eglot for better programming experience in Emacs</a></li>
-                
-                    <li><a href="/blog/2022-01-12-language-shadowing-with-subed-emacs/">Language Shadowing with subed in Emacs</a></li>
                 
               </ul>
 
@@ -492,7 +492,7 @@ P.P.S. It&#39;s much easier to do that with <a href="https://magit.vc/">Magit</a
           <div class="disqus-comments">
             <div id="disqus_thread"></div>
 <script type="application/javascript">
-    var disqus_config = function () {
+    window.disqus_config = function () {
     
     
     
@@ -600,7 +600,7 @@ P.P.S. It&#39;s much easier to do that with <a href="https://magit.vc/">Magit</a
         </p>
         
         <p class="credits theme-by text-muted">
-          <a href="https://gohugo.io">Hugo v0.80.0</a> powered &nbsp;&bull;&nbsp; Theme <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> adapted from <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
+          <a href="https://gohugo.io">Hugo v0.93.3</a> powered &nbsp;&bull;&nbsp; Theme <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> adapted from <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
           
         </p>
       </div>

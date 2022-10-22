@@ -50,7 +50,7 @@
         "position": 3,
         "item": {
           "@id": "https:\/\/whatacold.io\/blog\/2019-12-22-manage-ssh-connections-with-ssh-config\/",
-          "name": "Manage ssh connections with ~\/.ssh\/config"
+          "name": "Manage SSH connections with .ssh config"
         }
     }]
 }
@@ -97,7 +97,7 @@
   <meta name="twitter:site" content="@whatacold" />
   <meta name="twitter:creator" content="@whatacold" />
   <link href='https://whatacold.io/img/favicon.ico' rel='icon' type='image/x-icon'/>
-  <meta name="generator" content="Hugo 0.80.0" />
+  <meta name="generator" content="Hugo 0.93.3" />
   <link rel="alternate" href="https://whatacold.io/index.xml" type="application/rss+xml" title="whatacold&#39;s space"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"><link rel="stylesheet" href="https://whatacold.io/css/main.css" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
@@ -143,13 +143,13 @@ if (!doNotTrack) {
         
           
             <li>
-              <a title="About" href="/about/">About</a>
+              <a title="Tags" href="/tags">Tags</a>
             </li>
           
         
           
             <li>
-              <a title="Tags" href="/tags">Tags</a>
+              <a title="About" href="/about/">About</a>
             </li>
           
         
@@ -292,27 +292,19 @@ For every SSH connection, there are some specific arguments like IP, port, user 
 <p>
 Actually, all these connection details can be put in <code class="verbatim">~/.ssh/config</code> like below, it&#39;s organized in sections per hosts:</p>
 <div class="src src-conf">
-<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">Host new-test
-     Hostname 10.1.2.3
-     Port 2234
-     User whatacold
-     IdentityFile ~/.ssh/id_dev</code></pre></div>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">Host new-test
+</span></span><span class="line"><span class="cl">     Hostname 10.1.2.3
+</span></span><span class="line"><span class="cl">     Port 2234
+</span></span><span class="line"><span class="cl">     User whatacold
+</span></span><span class="line"><span class="cl">     IdentityFile ~/.ssh/id_dev</span></span></code></pre></div>
 </div>
 <p>
 Now I can do things straightly in a higher level:</p>
 <ol>
-<li>
-<p><code class="verbatim">ssh new-test</code>, log in that host</p>
-</li>
-<li>
-<p><code class="verbatim">ssh new-test date</code>, log in it and run a command there</p>
-</li>
-<li>
-<p><code class="verbatim">scp /tmp/a.log new-test:/tmp</code>, copy a file to it</p>
-</li>
-<li>
-<p><code class="verbatim">rsync -e ssh --exclude</code>&#39;.git/*&#39; –exclude=&#39;.venv/*&#39; /tmp/foo /tmp/=, even let <code class="verbatim">rsync</code> sync files over SSH</p>
-</li>
+<li><code class="verbatim">ssh new-test</code>, log in that host</li>
+<li><code class="verbatim">ssh new-test date</code>, log in it and run a command there</li>
+<li><code class="verbatim">scp /tmp/a.log new-test:/tmp</code>, copy a file to it</li>
+<li><code class="verbatim">rsync -e ssh --exclude</code>&#39;.git/*&#39; –exclude=&#39;.venv/*&#39; /tmp/foo /tmp/=, even let <code class="verbatim">rsync</code> sync files over SSH</li>
 </ol>
 <p>There is one that hasn&#39;t be mentioned is <code class="verbatim">IdentityFile</code>, which means I can log in that host using public key authentication, so that I don&#39;t have to type a password when logging in the host anymore, which really smooths the workflow.</p>
 </div>
@@ -340,10 +332,10 @@ Common Configurations
 <p>
 If there are some common configurations for every host, they can be put under a default &#34;section&#34; named <code class="verbatim">Host *</code>. For example, I want to keep alive the connections, so I have these directives for all hosts:</p>
 <div class="src src-conf">
-<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">    # Default settings for all hosts
-    Host *
-        ServerAliveInterval 10
-        ServerAliveCountMax 100</code></pre></div>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">    # Default settings for all hosts
+</span></span><span class="line"><span class="cl">    Host *
+</span></span><span class="line"><span class="cl">        ServerAliveInterval 10
+</span></span><span class="line"><span class="cl">        ServerAliveCountMax 100</span></span></code></pre></div>
 </div>
 <p>
 Note that this default setting should be put at the end of the file, as it seems that the first matched directive of two <code class="verbatim">Host</code> wins if .</p>
@@ -432,11 +424,11 @@ Note that this default setting should be put at the end of the file, as it seems
                 
                     <li><a href="/blog/2021-07-17-emacs-i3wm-dunst/">Send Notifications from Emacs with i3wm and Dunst</a></li>
                 
-                    <li><a href="/blog/2019-11-25-start-a-new-urxvt-terminal-on-emacs/">Start a New Terminal(urxvt) at Current Buffer&#39;s default-directory on Emacs</a></li>
+                    <li><a href="/blog/2020-10-21-a-python-re.findall-service/">An Online Python re.findall Service</a></li>
+                
+                    <li><a href="/blog/2019-11-25-start-a-new-urxvt-terminal-on-emacs/">Open New Urxvt from within Emacs</a></li>
                 
                     <li><a href="/blog/2019-09-29-how-to-run-the-bleeding-edge-code-of-qtile/">How To Run Bleeding-edge Qtile Within a Virtualenv</a></li>
-                
-                    <li><a href="/blog/2019-08-18-how-to-rename-web-page-titles-in-a-lightweight-way/">How to Rename Web Page Titles Easily</a></li>
                 
               </ul>
 
@@ -466,7 +458,7 @@ Note that this default setting should be put at the end of the file, as it seems
           <div class="disqus-comments">
             <div id="disqus_thread"></div>
 <script type="application/javascript">
-    var disqus_config = function () {
+    window.disqus_config = function () {
     
     
     
@@ -574,7 +566,7 @@ Note that this default setting should be put at the end of the file, as it seems
         </p>
         
         <p class="credits theme-by text-muted">
-          <a href="https://gohugo.io">Hugo v0.80.0</a> powered &nbsp;&bull;&nbsp; Theme <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> adapted from <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
+          <a href="https://gohugo.io">Hugo v0.93.3</a> powered &nbsp;&bull;&nbsp; Theme <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> adapted from <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
           
         </p>
       </div>

@@ -32,7 +32,7 @@
       <pubDate>Sat, 22 Dec 2018 20:24:00 +0800</pubDate>
       <author>whatacold@gmail.com (whatacold)</author>
       <guid>https://whatacold.io/zh-cn/blog/2018-12-22-c-cpp-devel-with-lsp-in-emacs/</guid>
-      <description>写代码的时候，如果能够基于当前的上下文提示补全，不仅能提高写代码的效率，还能提升体验，有种行云流水的感觉。 Emacs 中之前我用 gtags 等静态的工具来辅助写</description>
+      <description>写代码的时候，如果能够基于当前的上下文提示补全，不仅能提高写代码的效率，还能提升编程体验，有种行云流水的快感。 Emacs 中之前我用 GNU Global (gtags) 等静态的工具</description>
     </item>
     
   </channel>

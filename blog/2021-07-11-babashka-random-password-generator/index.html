@@ -100,7 +100,7 @@
   <meta name="twitter:site" content="@whatacold" />
   <meta name="twitter:creator" content="@whatacold" />
   <link href='https://whatacold.io/img/favicon.ico' rel='icon' type='image/x-icon'/>
-  <meta name="generator" content="Hugo 0.80.0" />
+  <meta name="generator" content="Hugo 0.93.3" />
   <link rel="alternate" href="https://whatacold.io/index.xml" type="application/rss+xml" title="whatacold&#39;s space"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"><link rel="stylesheet" href="https://whatacold.io/css/main.css" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
@@ -146,13 +146,13 @@ if (!doNotTrack) {
         
           
             <li>
-              <a title="About" href="/about/">About</a>
+              <a title="Tags" href="/tags">Tags</a>
             </li>
           
         
           
             <li>
-              <a title="Tags" href="/tags">Tags</a>
+              <a title="About" href="/about/">About</a>
             </li>
           
         
@@ -291,17 +291,11 @@ Many websites require us to have a username and a password, and it&#39;s risky t
 <p>
 The requirements for it would be:</p>
 <ol>
-<li>
-<p>The characters should be random.</p>
-</li>
-<li>
-<p>It should be long enough. 12 or 16 is good.</p>
-</li>
-<li>
-<p>The password should be a combination of lowercase letters, uppercase letters, numbers, and symbols.</p>
-<p>
-Well, this requirement is not met yet.</p>
-</li>
+<li>The characters should be random.</li>
+<li>It should be long enough. 12 or 16 is good.</li>
+<li>The password should be a combination of lowercase letters, uppercase letters, numbers, and symbols.
+
+Well, this requirement is not met yet.</li>
 </ol>
 <p>As for the first one, I learned how to do it in Clojure when I read <a href="https://github.com/lk-geimfari/secrets.clj">secrets.clj</a>, <code class="verbatim">java.security</code> is a good fit for it.</p>
 <p>
@@ -314,23 +308,23 @@ Generate Random Passwords in No Time
 <p>
 The final code is quite simple:</p>
 <div class="src src-clojure">
-<div class="highlight"><pre class="chroma"><code class="language-clojure" data-lang="clojure"><span class="o">#</span><span class="nv">!/usr/bin/env</span> <span class="nv">bb</span>
-
-<span class="p">(</span><span class="nb">import </span><span class="p">[</span><span class="nv">java.security</span> <span class="nv">SecureRandom</span><span class="p">])</span>
-
-<span class="p">(</span><span class="k">def </span><span class="o">^</span><span class="ss">:private</span> <span class="nv">rng</span> <span class="p">(</span><span class="nf">SecureRandom.</span><span class="p">))</span>
-
-<span class="p">(</span><span class="k">let </span><span class="p">[</span><span class="nv">len</span> <span class="mi">16</span>
-      <span class="nv">passwd</span> <span class="p">(</span><span class="nf">char-array</span> <span class="nv">len</span><span class="p">)</span>
-      <span class="nv">chars</span> <span class="p">(</span><span class="nb">map char </span><span class="p">(</span><span class="nb">concat </span><span class="p">(</span><span class="nb">range </span><span class="mi">48</span> <span class="mi">58</span><span class="p">)</span> <span class="c1">; 0-9</span>
-                              <span class="p">(</span><span class="nb">range </span><span class="mi">65</span> <span class="mi">91</span><span class="p">)</span> <span class="c1">; A-Z</span>
-                              <span class="p">(</span><span class="nb">range </span><span class="mi">97</span> <span class="mi">123</span><span class="p">)</span> <span class="c1">; a-z</span>
-                              <span class="p">[</span><span class="sc">\~</span> <span class="sc">\!</span> <span class="sc">\@</span> <span class="sc">\#</span> <span class="sc">\$</span> <span class="sc">\%</span> <span class="sc">\^</span> <span class="sc">\&amp;</span> <span class="sc">\*</span> <span class="sc">\(</span> <span class="sc">\)</span> <span class="sc">\-</span> <span class="sc">\+</span> <span class="sc">\=</span><span class="p">]))</span>
-      <span class="nv">nchars</span> <span class="p">(</span><span class="nb">count </span><span class="nv">chars</span><span class="p">)]</span>
-  <span class="p">(</span><span class="nb">println </span><span class="p">(</span><span class="nf">clojure.string/join</span> <span class="s">&#34;&#34;</span>
-                                <span class="p">(</span><span class="nb">mapcat </span><span class="p">(</span><span class="k">fn </span><span class="p">[</span><span class="nv">char</span><span class="p">]</span>
-                                          <span class="p">(</span><span class="nb">str </span><span class="p">(</span><span class="nb">nth </span><span class="nv">chars</span> <span class="p">(</span><span class="nf">.nextInt</span> <span class="nv">rng</span> <span class="nv">nchars</span><span class="p">))))</span>
-                                        <span class="nv">passwd</span><span class="p">))))</span></code></pre></div>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-clojure" data-lang="clojure"><span class="line"><span class="cl"><span class="o">#</span><span class="nv">!/usr/bin/env</span> <span class="nv">bb</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">(</span><span class="nb">import </span><span class="p">[</span><span class="nv">java.security</span> <span class="nv">SecureRandom</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">(</span><span class="k">def </span><span class="o">^</span><span class="ss">:private</span> <span class="nv">rng</span> <span class="p">(</span><span class="nf">SecureRandom.</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">(</span><span class="k">let </span><span class="p">[</span><span class="nv">len</span> <span class="mi">16</span>
+</span></span><span class="line"><span class="cl">      <span class="nv">passwd</span> <span class="p">(</span><span class="nf">char-array</span> <span class="nv">len</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">      <span class="nv">chars</span> <span class="p">(</span><span class="nb">map char </span><span class="p">(</span><span class="nb">concat </span><span class="p">(</span><span class="nb">range </span><span class="mi">48</span> <span class="mi">58</span><span class="p">)</span> <span class="c1">; 0-9</span>
+</span></span><span class="line"><span class="cl">                              <span class="p">(</span><span class="nb">range </span><span class="mi">65</span> <span class="mi">91</span><span class="p">)</span> <span class="c1">; A-Z</span>
+</span></span><span class="line"><span class="cl">                              <span class="p">(</span><span class="nb">range </span><span class="mi">97</span> <span class="mi">123</span><span class="p">)</span> <span class="c1">; a-z</span>
+</span></span><span class="line"><span class="cl">                              <span class="p">[</span><span class="sc">\~</span> <span class="sc">\!</span> <span class="sc">\@</span> <span class="sc">\#</span> <span class="sc">\$</span> <span class="sc">\%</span> <span class="sc">\^</span> <span class="sc">\&amp;</span> <span class="sc">\*</span> <span class="sc">\(</span> <span class="sc">\)</span> <span class="sc">\-</span> <span class="sc">\+</span> <span class="sc">\=</span><span class="p">]))</span>
+</span></span><span class="line"><span class="cl">      <span class="nv">nchars</span> <span class="p">(</span><span class="nb">count </span><span class="nv">chars</span><span class="p">)]</span>
+</span></span><span class="line"><span class="cl">  <span class="p">(</span><span class="nb">println </span><span class="p">(</span><span class="nf">clojure.string/join</span> <span class="s">&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">                                <span class="p">(</span><span class="nb">mapcat </span><span class="p">(</span><span class="k">fn </span><span class="p">[</span><span class="nv">char</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">                                          <span class="p">(</span><span class="nb">str </span><span class="p">(</span><span class="nb">nth </span><span class="nv">chars</span> <span class="p">(</span><span class="nf">.nextInt</span> <span class="nv">rng</span> <span class="nv">nchars</span><span class="p">))))</span>
+</span></span><span class="line"><span class="cl">                                        <span class="nv">passwd</span><span class="p">))))</span></span></span></code></pre></div>
 </div>
 <p>
 I make a git repo, <a href="https://github.com/whatacold/babashka-tools">babashka-tools</a>, for it at GitHub. I can&#39;t wait to have other ideas to write code in Babashka.</p>
@@ -451,7 +445,7 @@ Any ideas or suggestions?</p>
           <div class="disqus-comments">
             <div id="disqus_thread"></div>
 <script type="application/javascript">
-    var disqus_config = function () {
+    window.disqus_config = function () {
     
     
     
@@ -559,7 +553,7 @@ Any ideas or suggestions?</p>
         </p>
         
         <p class="credits theme-by text-muted">
-          <a href="https://gohugo.io">Hugo v0.80.0</a> powered &nbsp;&bull;&nbsp; Theme <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> adapted from <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
+          <a href="https://gohugo.io">Hugo v0.93.3</a> powered &nbsp;&bull;&nbsp; Theme <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> adapted from <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
           
         </p>
       </div>

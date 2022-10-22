@@ -46,7 +46,7 @@
   <meta name="twitter:site" content="@whatacold" />
   <meta name="twitter:creator" content="@whatacold" />
   <link href='https://whatacold.io/img/favicon.ico' rel='icon' type='image/x-icon'/>
-  <meta name="generator" content="Hugo 0.80.0" />
+  <meta name="generator" content="Hugo 0.93.3" />
   <link rel="alternate" href="https://whatacold.io/index.xml" type="application/rss+xml" title="whatacold&#39;s space"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"><link rel="stylesheet" href="https://whatacold.io/css/main.css" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
@@ -92,13 +92,13 @@ if (!doNotTrack) {
         
           
             <li>
-              <a title="About" href="/about/">About</a>
+              <a title="Tags" href="/tags">Tags</a>
             </li>
           
         
           
             <li>
-              <a title="Tags" href="/tags">Tags</a>
+              <a title="About" href="/about/">About</a>
             </li>
           
         
@@ -198,7 +198,7 @@ if (!doNotTrack) {
     <div id="header-big-imgs" data-num-img=1 
       
          
-          data-img-src-1="/img/sphere.jpg" 
+          data-img-src-1="/img/space.jpg" 
          
          
       ></div>
@@ -262,8 +262,203 @@ if (!doNotTrack) {
           
           
             <article class="post-preview">
+    <a href="https://whatacold.io/blog/2019-09-24-how-to-revert-a-series-of-commits-with-git/">
+        <h2 class="post-title">How To Revert a Series of Git Commits?</h2>
+        
+        
+        
+    </a>
+
+    <p class="post-meta">
+        <span class="post-meta">
+  
+  
+  <i class="fas fa-calendar"></i>&nbsp;Posted on 2019-09-24
+  
+    &nbsp;(Last modified on 2021-10-03)
+  
+  
+    &nbsp;|&nbsp;<i class="fas fa-clock"></i>&nbsp;3&nbsp;minutes
+  
+  
+    &nbsp;|&nbsp;<i class="fas fa-book"></i>&nbsp;508&nbsp;words
+  
+  
+  
+</span>
+
+
+    </p>
+    <div class="post-entry">
+        
+        Sometimes, I need to revert a series of commits that I&#39;ve already pushed, doing a git hard reset (git reset --hard) is not an option, as someone may already have new commits based on mine.
+ For example, assume that I&#39;ve made a few commits like below:
+65a2c62 * commit 10 25cad43 * commit 9 72ad583 * commit 8 ceebf9a * commit 7 acf8a11 * commit 6 28d526f * commit 5 63af1e2 * commit 4 982c71c * commit 3 0fb4c2d * commit 2 acf9da1 * commit 1 b5f9933 * commit 0   For whatever reason, I need to &#34;drop&#34; the changes made by commit 6 to commit 10, that is, go back to &#34;commit 5&#34; without deleting these commits.
+        <a href="https://whatacold.io/blog/2019-09-24-how-to-revert-a-series-of-commits-with-git/" class="post-read-more">[Read More]</a>
+        
+    </div>
+
+    
+    <div class="blog-tags">
+        
+        <a href="https://whatacold.io/tags/git/">Git</a>&nbsp;
+        
+        <a href="https://whatacold.io/tags/magit/">Magit</a>&nbsp;
+        
+        <a href="https://whatacold.io/tags/emacs/">Emacs</a>&nbsp;
+        
+        <a href="https://whatacold.io/tags/youtube/">YouTube</a>&nbsp;
+        
+    </div>
+    
+
+</article>
+          
+            <article class="post-preview">
+    <a href="https://whatacold.io/blog/2019-08-18-how-to-rename-web-page-titles-in-a-lightweight-way/">
+        <h2 class="post-title">How to Rename Web Page Titles Easily</h2>
+        
+        
+        
+    </a>
+
+    <p class="post-meta">
+        <span class="post-meta">
+  
+  
+  <i class="fas fa-calendar"></i>&nbsp;Posted on 2019-08-18
+  
+    &nbsp;(Last modified on 2022-10-15)
+  
+  
+    &nbsp;|&nbsp;<i class="fas fa-clock"></i>&nbsp;2&nbsp;minutes
+  
+  
+    &nbsp;|&nbsp;<i class="fas fa-book"></i>&nbsp;222&nbsp;words
+  
+  
+  
+</span>
+
+
+    </p>
+    <div class="post-entry">
+        
+        There are times that I need to open many web pages of some specific websites within a browser, and there are so many tabs that I can&#39;t efficiently access one of them, as their favicons are all the same.
+ So I tried to find a way to rename their titles, preferably in a lightweight way, so that I can spot them quickly with my eyes.
+ The first thought came into my mind was to find some browser extensions to do the job.
+        <a href="https://whatacold.io/blog/2019-08-18-how-to-rename-web-page-titles-in-a-lightweight-way/" class="post-read-more">[Read More]</a>
+        
+    </div>
+
+    
+    <div class="blog-tags">
+        
+        <a href="https://whatacold.io/tags/tools/">Tools</a>&nbsp;
+        
+        <a href="https://whatacold.io/tags/bookmarklet/">Bookmarklet</a>&nbsp;
+        
+    </div>
+    
+
+</article>
+          
+            <article class="post-preview">
+    <a href="https://whatacold.io/blog/2019-07-20-generating-org-mode-outlines-for-wikihow-articles/">
+        <h2 class="post-title">Generating org-mode Outlines for wikiHow Articles</h2>
+        
+        
+        
+    </a>
+
+    <p class="post-meta">
+        <span class="post-meta">
+  
+  
+  <i class="fas fa-calendar"></i>&nbsp;Posted on 2019-07-20
+  
+  
+    &nbsp;|&nbsp;<i class="fas fa-clock"></i>&nbsp;2&nbsp;minutes
+  
+  
+    &nbsp;|&nbsp;<i class="fas fa-book"></i>&nbsp;248&nbsp;words
+  
+  
+  
+</span>
+
+
+    </p>
+    <div class="post-entry">
+        
+        Recently I found some great articles on wikiHow, then I want to keep notes of them in org-mode files.
+ At first, I manually copied the ToC of articles, but soon I found it&#39;s tedious and takes a lot of time. Today I wrote a requests-based Python script to help me extract the ToCs (Table of Content) into org-mode outlines. It takes two arguments, the first one is the URL, the second one is the containing heading&#39;s level for the generated ToC in org-mode.
+        <a href="https://whatacold.io/blog/2019-07-20-generating-org-mode-outlines-for-wikihow-articles/" class="post-read-more">[Read More]</a>
+        
+    </div>
+
+    
+    <div class="blog-tags">
+        
+        <a href="https://whatacold.io/tags/org-mode/">Org-mode</a>&nbsp;
+        
+        <a href="https://whatacold.io/tags/python/">Python</a>&nbsp;
+        
+        <a href="https://whatacold.io/tags/emacs/">Emacs</a>&nbsp;
+        
+    </div>
+    
+
+</article>
+          
+            <article class="post-preview">
+    <a href="https://whatacold.io/blog/2019-07-20-understanding-align-regexp-of-emacs/">
+        <h2 class="post-title">Understanding align-regexp of Emacs</h2>
+        
+        
+        
+    </a>
+
+    <p class="post-meta">
+        <span class="post-meta">
+  
+  
+  <i class="fas fa-calendar"></i>&nbsp;Posted on 2019-07-20
+  
+  
+    &nbsp;|&nbsp;<i class="fas fa-clock"></i>&nbsp;2&nbsp;minutes
+  
+  
+    &nbsp;|&nbsp;<i class="fas fa-book"></i>&nbsp;281&nbsp;words
+  
+  
+  
+</span>
+
+
+    </p>
+    <div class="post-entry">
+        
+        Emacs&#39; M-x align-regex is neat when I want to align some similar text, especially when we&#39;re coding. I use its trivial version(without prefix arg) regularly on day-to-day programming work before.
+ For example, I can use it to align below code quickly by:
+ Choose the region M-x align-regexp and type = and Enter  aaaaaaaaaaaaaa = fields[0] bbb = fields[1] cccccccc = fields[2]   It will be aligned to below code, now it&#39;s better to read:
+        <a href="https://whatacold.io/blog/2019-07-20-understanding-align-regexp-of-emacs/" class="post-read-more">[Read More]</a>
+        
+    </div>
+
+    
+    <div class="blog-tags">
+        
+        <a href="https://whatacold.io/tags/emacs/">Emacs</a>&nbsp;
+        
+    </div>
+    
+
+</article>
+          
+            <article class="post-preview">
     <a href="https://whatacold.io/blog/2019-07-06-render-erd-on-the-web/">
-        <h2 class="post-title">Render erd Diagrams Online</h2>
+        <h2 class="post-title">ER Diagrams in Plain Text</h2>
         
         
         
@@ -275,11 +470,13 @@ if (!doNotTrack) {
   
   <i class="fas fa-calendar"></i>&nbsp;Posted on 2019-07-06
   
+    &nbsp;(Last modified on 2022-10-22)
   
-    &nbsp;|&nbsp;<i class="fas fa-clock"></i>&nbsp;2&nbsp;minutes
+  
+    &nbsp;|&nbsp;<i class="fas fa-clock"></i>&nbsp;3&nbsp;minutes
   
   
-    &nbsp;|&nbsp;<i class="fas fa-book"></i>&nbsp;296&nbsp;words
+    &nbsp;|&nbsp;<i class="fas fa-book"></i>&nbsp;520&nbsp;words
   
   
   
@@ -302,6 +499,8 @@ if (!doNotTrack) {
         
         <a href="https://whatacold.io/tags/tools/">Tools</a>&nbsp;
         
+        <a href="https://whatacold.io/tags/texttoolkit/">texttoolkit</a>&nbsp;
+        
     </div>
     
 
@@ -309,7 +508,7 @@ if (!doNotTrack) {
           
             <article class="post-preview">
     <a href="https://whatacold.io/blog/2019-02-24-fine-tune-style-of-yasnippet-snippet-on-the-fly/">
-        <h2 class="post-title">Fine-tune Curly Braces Style of yasnippet Snippet on the Fly</h2>
+        <h2 class="post-title">Fine-tune Curly Braces Style of Yasnippet Snippet on the Fly</h2>
         
         
         
@@ -327,7 +526,7 @@ if (!doNotTrack) {
     &nbsp;|&nbsp;<i class="fas fa-clock"></i>&nbsp;3&nbsp;minutes
   
   
-    &nbsp;|&nbsp;<i class="fas fa-book"></i>&nbsp;475&nbsp;words
+    &nbsp;|&nbsp;<i class="fas fa-book"></i>&nbsp;477&nbsp;words
   
   
   
@@ -337,8 +536,9 @@ if (!doNotTrack) {
     </p>
     <div class="post-entry">
         
-        Yasnippet is a good friend to help us type less and write more, whenever we write some text snippets repeatedly. And there is also an official repository called yasnippet-snippets that contains various snippets for many programming languages(modes), so that we can have many snippets in no time by installing it.
- But there is a little problem when it comes to conforming to different coding styles. Take the if snippet for example, normally it will generate code like this:
+        Yasnippet is a good friend to help us type less and write more, whenever we write some text snippets repeatedly. And there is also an official repository called yasnippet-snippets that contains various snippets for many programming languages (modes), so that we can have many snippets in no time by installing it.
+ But there is a little problem when it comes to conforming to different coding styles.
+ Take the if snippet for example, normally it will generate code like this:
         <a href="https://whatacold.io/blog/2019-02-24-fine-tune-style-of-yasnippet-snippet-on-the-fly/" class="post-read-more">[Read More]</a>
         
     </div>
@@ -374,7 +574,7 @@ if (!doNotTrack) {
   
   
   
-    (Last modified on 2022-07-12)
+    (Last modified on 2022-10-22)
   
 </div>
 
@@ -468,7 +668,7 @@ if (!doNotTrack) {
         </p>
         
         <p class="credits theme-by text-muted">
-          <a href="https://gohugo.io">Hugo v0.80.0</a> powered &nbsp;&bull;&nbsp; Theme <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> adapted from <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
+          <a href="https://gohugo.io">Hugo v0.93.3</a> powered &nbsp;&bull;&nbsp; Theme <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> adapted from <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
           
         </p>
       </div>

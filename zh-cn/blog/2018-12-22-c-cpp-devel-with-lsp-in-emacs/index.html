@@ -13,7 +13,7 @@
   
 
   <title>在 Emacs 中使用 LSP 开发 C/C&#43;&#43; 工程 - whatacold 的空间</title>
-  <meta name="description" content="本文简要介绍了 Emacs C&#43;&#43; LSP 的补全有哪些选择，如何选择，遇到的问题如何解决……">
+  <meta name="description" content="写代码的时候，如果能够基于当前的上下文提示补全，不仅能提高写代码的效率，还能提升编程体验，有种行云流水的快感。 Emacs 中之前我用 GNU Global (gtags) 等静态的工具">
   <meta name="author" content="whatacold"/><script type="application/ld+json">
 {
     "@context": "http://schema.org",
@@ -50,7 +50,7 @@
         "position": 3,
         "item": {
           "@id": "https:\/\/whatacold.io\/zh-cn\/blog\/2018-12-22-c-cpp-devel-with-lsp-in-emacs\/",
-          "name": "在 emacs 中使用 l s p 开发 c\/ c\u002b\u002b 工程"
+          "name": "在 emacs 中使用 lsp 开发 c c 工程"
         }
     }]
 }
@@ -62,9 +62,9 @@
     "name" : "whatacold"
   },
   "headline": "在 Emacs 中使用 LSP 开发 C\/C\u002b\u002b 工程",
-  "description" : "本文简要介绍了 Emacs C\u002b\u002b LSP 的补全有哪些选择，如何选择，遇到的问题如何解决……",
+  "description" : "写代码的时候，如果能够基于当前的上下文提示补全，不仅能提高写代码的效率，还能提升编程体验，有种行云流水的快感。 Emacs 中之前我用 GNU Global (gtags) 等静态的工具",
   "inLanguage" : "zh-cn",
-  "wordCount":  1341 ,
+  "wordCount":  1373 ,
   "datePublished" : "2018-12-22T20:24:00",
   "dateModified" : "2018-12-22T20:24:00",
   "image" : "https:\/\/whatacold.io\/img\/avatar.png",
@@ -84,20 +84,20 @@
 </script>
 
 <meta property="og:title" content="在 Emacs 中使用 LSP 开发 C/C&#43;&#43; 工程" />
-<meta property="og:description" content="本文简要介绍了 Emacs C&#43;&#43; LSP 的补全有哪些选择，如何选择，遇到的问题如何解决……">
+<meta property="og:description" content="写代码的时候，如果能够基于当前的上下文提示补全，不仅能提高写代码的效率，还能提升编程体验，有种行云流水的快感。 Emacs 中之前我用 GNU Global (gtags) 等静态的工具">
 <meta property="og:image" content="https://whatacold.io/img/avatar.png" />
 <meta property="og:url" content="https://whatacold.io/zh-cn/blog/2018-12-22-c-cpp-devel-with-lsp-in-emacs/" />
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="whatacold 的空间" />
 
   <meta name="twitter:title" content="在 Emacs 中使用 LSP 开发 C/C&#43;&#43; 工程" />
-  <meta name="twitter:description" content="本文简要介绍了 Emacs C&#43;&#43; LSP 的补全有哪些选择，如何选择，遇到的问题如何解决……">
+  <meta name="twitter:description" content="写代码的时候，如果能够基于当前的上下文提示补全，不仅能提高写代码的效率，还能提升编程体验，有种行云流水的快感。 Emacs 中之前我用 GNU Global (gtags) 等静态的工具">
   <meta name="twitter:image" content="https://whatacold.io/img/avatar.png" />
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:site" content="@whatacold" />
   <meta name="twitter:creator" content="@whatacold" />
   <link href='https://whatacold.io/img/favicon.ico' rel='icon' type='image/x-icon'/>
-  <meta name="generator" content="Hugo 0.80.0" />
+  <meta name="generator" content="Hugo 0.93.3" />
   <link rel="alternate" href="https://whatacold.io/zh-cn/index.xml" type="application/rss+xml" title="whatacold 的空间"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"><link rel="stylesheet" href="https://whatacold.io/css/main.css" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
@@ -137,19 +137,19 @@ if (!doNotTrack) {
         
           
             <li>
-              <a title="Blog" href="/zh-cn">Blog</a>
+              <a title="博客" href="/zh-cn">博客</a>
             </li>
           
         
           
             <li>
-              <a title="About" href="/zh-cn/about/">About</a>
+              <a title="标签" href="/zh-cn/tags">标签</a>
             </li>
           
         
           
             <li>
-              <a title="Tags" href="/zh-cn/tags">Tags</a>
+              <a title="关于" href="/zh-cn/about/">关于</a>
             </li>
           
         
@@ -276,121 +276,107 @@ if (!doNotTrack) {
     <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
       <article role="main" class="blog-post">
         <p>
-写代码的时候，如果能够基于当前的上下文提示补全，不仅能提高写代码的效率，还能提升体验，有种行云流水的感觉。
-Emacs 中之前我用 gtags 等静态的工具来辅助写代码，最大的问题是无法根据上下文补全，体验不好。
-有了 LSP 协议之后， Emacs 中现在也能实现这个功能了，体验相当不错。
+写代码的时候，如果能够基于当前的上下文提示补全，不仅能提高写代码的效率，还能提升编程体验，有种行云流水的快感。</p>
+<p>
+Emacs 中之前我用 <a href="https://www.gnu.org/software/global/">GNU Global (gtags)</a> 等静态的工具来辅助写代码，最大的问题是无法根据上下文补全，体验不好。现在有了 LSP 协议之后， Emacs 中现在也能实现这个功能了，体验相当不错。</p>
+<p>
 前段时间折腾了一下，在此作个小结。</p>
 <p>
 目前 Emacs 上有两个客户端实现： <a href="https://github.com/joaotavora/eglot">eglot</a> 和 <a href="https://github.com/emacs-lsp/lsp-mode">lsp-mode</a> ，由于 eglot 相对比较简洁，只需要很少的配置，因此我就选它了（暂时还没试过 lsp-mode ，等有需要时再看）。</p>
 <p>
-对于服务端，目前有三个选择 clangd,  <a href="https://github.com/cquery-project/cquery">cquery</a> 和 <a href="https://github.com/MaskRay/ccls">ccls</a> ， ccls 是在 cquery 的基础之上 fork 改进的。
-clangd 安装最简单，但功能据说比较弱，我没有试过；一开始我在自己电脑上编译了 ccls ，再把二进制文件拷贝到公司机器，
-但是补全始终有问题（怀疑必须在使用的机器上编译，直接拷贝行不通），没有找到具体的原因；
-后来在公司机器上直接编译了 cquery ，可以补全，就没有再折腾 ccls 了。</p>
+对于服务端，目前有三个选择 clangd,  <a href="https://github.com/cquery-project/cquery">cquery</a> 和 <a href="https://github.com/MaskRay/ccls">ccls</a> ， ccls 是在 cquery 的基础之上 fork 改进的。 clangd 安装最简单，但功能据说比较弱，我没有试过；一开始我在自己电脑上编译了 ccls ，再把二进制文件拷贝到公司机器，但是补全始终有问题（怀疑必须在使用的机器上编译，直接拷贝行不通），没有找到具体的原因；后来在公司机器上直接编译了 cquery ，可以补全，就没有再折腾 ccls 了。</p>
 <p>
-选定了客户端和服务端之后，接下来就是对具体工程的配置了， cquery 和 ccls 都要求工程根目录有 compilation database 或者 <code class="verbatim">.cquery</code> / <code class="verbatim">.ccls</code> 文件。
-由于我们的工程都是用 GNU Make 进行构建的，没法使用 <code class="verbatim">cmake</code> 直接生成 compilation database 。
-其他方案比如 <a href="https://github.com/rizsotto/Bear">Bear</a> ，由于我们的工具链太老，没有 <code class="verbatim">cmake</code> 无法编译 <code class="verbatim">Bear</code> ，因此也派不上用场。
-至此由于无法生成服务器的配置文件，看来似乎与 LSP 无缘了。</p>
+选定了客户端和服务端之后，接下来就是对具体工程的配置了， cquery 和 ccls 都要求工程根目录有 compilation database 或者 <code class="verbatim">.cquery</code> / <code class="verbatim">.ccls</code> 文件。</p>
 <p>
-后来有一天，突然想到可以直接自己解析 <code class="verbatim">make</code> 的输出（就用 Elisp ），解析 <code class="verbatim">Entering directory</code> , <code class="verbatim">Leaving directory</code> 以及 <code class="verbatim">g++</code> 编译的相关行，
-提取生成为 <code class="verbatim">compile_commands.json</code> ，这样就无须再依赖其他软件（最近实现了一个相关的在线服务 <a href="https://texttoolkit.com/compilation-database-generator">Compilation Database Generator</a> ，可以很方便地解析 GNU Make 输出，得到 json 文件）。
-但是此方法有一个缺点，在新增文件的时候，得人工在 json 文件中增加一条记录，比较麻烦，不易维护。</p>
+由于我们的工程都是用 GNU Make 进行构建的，没法使用 <code class="verbatim">cmake</code> 直接生成 compilation database 。其他方案比如 <a href="https://github.com/rizsotto/Bear">Bear</a> ，由于我们的工具链太老，没有 <code class="verbatim">cmake</code> 无法编译 <code class="verbatim">Bear</code> ，因此也派不上用场。至此由于无法生成服务器的配置文件，看来似乎与 LSP 无缘了。</p>
 <p>
-其实此种情况下直接用 <code class="verbatim">.cquery</code> 文件最好，无需指定特定的源码文件，
-只需要配置编译选项以及头文件目录，因此新增文件时不需要修改。
-举一个 cquery wiki 中的 <a href="https://github.com/cquery-project/cquery/wiki/.cquery">例子</a> ：</p>
+后来有一天，我突然想到可以直接自己解析 <code class="verbatim">make</code> 的输出（就用 Elisp ），解析 <code class="verbatim">Entering directory</code> 、 <code class="verbatim">Leaving directory</code> 以及 <code class="verbatim">g++</code> 编译的相关行，提取生成为 <code class="verbatim">compile_commands.json</code> ，这样就无须再依赖其他软件。</p>
+<p>
+但是此方法有一个缺点，在新增文件的时候，得人工在 json 文件中增加一条记录，比较麻烦，不易维护。（后来我把这个逻辑实现在一个 web app <a href="https://texttoolkit.com/compilation-database-generator">Compilation Database Generator</a> 中，它可以很方便地解析 GNU Make 输出，得到 json 文件；这样手动维护也不麻烦了。）</p>
+<p>
+其实此种情况下直接用 <code class="verbatim">.cquery</code> 文件最好，无需指定特定的源码文件，只需要配置编译选项以及头文件目录，因此新增文件时不需要修改。举一个 cquery wiki 中的 <a href="https://github.com/cquery-project/cquery/wiki/.cquery">例子</a> ：</p>
 <div class="src src-text">
-<div class="highlight"><pre class="chroma"><code class="language-text" data-lang="text"># it will expend to clang/clang++ according to the extension name
-%clang
-
-# C specific options
-%c -std=gnu11
-
-# C++ specific options
-%cpp -std=gnu++14
--pthread
-
-# Includes
--I/work/cquery/third_party
--I/work/cquery/another_third_party
-# -I space_is_not_allowed</code></pre></div>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl"># it will expend to clang/clang++ according to the extension name
+</span></span><span class="line"><span class="cl">%clang
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"># C specific options
+</span></span><span class="line"><span class="cl">%c -std=gnu11
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"># C++ specific options
+</span></span><span class="line"><span class="cl">%cpp -std=gnu++14
+</span></span><span class="line"><span class="cl">-pthread
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"># Includes
+</span></span><span class="line"><span class="cl">-I/work/cquery/third_party
+</span></span><span class="line"><span class="cl">-I/work/cquery/another_third_party
+</span></span><span class="line"><span class="cl"># -I space_is_not_allowed</span></span></code></pre></div>
 </div>
 <p>
-到此似乎万事俱备，可以愉快地写代码了，最终却发现还有一个问题：由于历史原因，我们的工程源码都是使用 GBK 编码的，
-但是 LSP 只支持 UTF-8 ，导致由于编码问题无法显示类、函数注释的问题，当时还在 eglot 提了一个 <a href="https://github.com/joaotavora/eglot/issues/135">issue</a> （其实不是 eglot 的问题）。</p>
+到此似乎万事俱备，可以愉快地写代码了，最终却发现还有一个问题：由于历史原因，我们的工程源码都是使用 GBK 编码的，但是 LSP 只支持 UTF-8 ，导致由于编码问题无法显示类、函数注释的问题，当时还在 eglot 提了一个 <a href="https://github.com/joaotavora/eglot/issues/135">issue</a> （其实不是 eglot 的问题）。</p>
 <p>
 为了解决这个问题想过几种方法：</p>
 <ol>
-<li>
-<p>cquery 中在输出之前，把内容转为 UTF-8 编码（利用 <code class="verbatim">iconv</code> 库）</p>
-</li>
-<li>
-<p><code class="verbatim">eglot</code> 在解析服务端返回的数据时，根据指定的编码进行 decode</p>
-</li>
+<li>cquery 中在输出之前，把内容转为 UTF-8 编码（利用 <code class="verbatim">iconv</code> 库）</li>
+<li><code class="verbatim">eglot</code> 在解析服务端返回的数据时，根据指定的编码进行 decode</li>
 </ol>
-<p>第一种方法适用面太窄，因为 LSP 的实现还不是非常成熟，有时需要切换到 <code class="verbatim">ccls</code> 来体验，
-这就意味着得在 <code class="verbatim">ccls</code> 中也用 <code class="verbatim">iconv</code> 再转一道，太麻烦，不符合 <code class="verbatim">DRY</code> 的原则。</p>
+<p>第一种方法适用面太窄，因为 LSP 的实现还不是非常成熟，有时需要切换到 <code class="verbatim">ccls</code> 来体验，这就意味着得在 <code class="verbatim">ccls</code> 中也用 <code class="verbatim">iconv</code> 再转一道，太麻烦，不符合 <code class="verbatim">DRY</code> 的原则。</p>
 <p>
-第二种方法，需要在 <code class="verbatim">eglot.el</code> 和其依赖的低层通信库 <code class="verbatim">jsonrpc.el</code> 中同时服务端传回数据的编码方式。
-当时也实现了，后来觉得不是很直接、优雅，就没再继续用了。另外，如果有一天改用 lsp-mode ，
-那又需要在 lsp-mode 中做一遍类似的修改，同样也不符合 <code class="verbatim">DRY</code> 原则。</p>
+第二种方法，需要在 <code class="verbatim">eglot.el</code> 和其依赖的低层通信库 <code class="verbatim">jsonrpc.el</code> 中同时服务端传回数据的编码方式。当时也实现了，后来觉得不是很直接、优雅，就没再继续用了。另外，如果有一天改用 lsp-mode ，那又需要在 lsp-mode 中做一遍类似的修改，同样也不符合 <code class="verbatim">DRY</code> 原则。</p>
 <p>
-最后使用了适配器的 <a href="https://github.com/whatacold/lsa">方案</a> ，使用 Python 3 实现，既不动客户端也不动服务端，在中间加一层，用于转换服务端的编码。
-这样就是一个比较通用的方案了，能适配所有的客户端和服务端。</p>
+最后使用了适配器的方案 <a href="https://github.com/whatacold/lsa">Language Server Adapter, or lsa</a> ，使用 Python 3 实现。这样既不动客户端也不动服务端，在他们中间加一层，用于转换服务端的编码。这样就是一个比较通用的方案了，能适配所有的客户端和服务端。</p>
 <p>
 在 eglot 中根据项目的编码情况（通过 <code class="verbatim">.dir-locals.el</code> 区分）决定是否使用此适配器：</p>
 <div class="src src-elisp">
-<div class="highlight"><pre class="chroma"><code class="language-elisp" data-lang="elisp">
-<span class="p">(</span><span class="nb">defcustom</span> <span class="nv">ccls-init-args</span> <span class="no">nil</span>
-  <span class="s">&#34;Init args for ccls, e.g. &#39;(:clang (:extraArgs (\&#34;-std=c++03\&#34;)))&#34;</span><span class="p">)</span>
-
-<span class="p">(</span><span class="nb">defcustom</span> <span class="nv">eglot-ls-output-encoding</span> <span class="s">&#34;utf-8&#34;</span>
-  <span class="s">&#34;The LS&#39;s output encoding&#34;</span><span class="p">)</span>
-
-<span class="p">(</span><span class="nb">defcustom</span> <span class="nv">eglot-cpp-ls</span> <span class="s">&#34;cquery&#34;</span>
-  <span class="s">&#34;The language server for C/C++.&#34;</span><span class="p">)</span>
-
-<span class="p">(</span><span class="nb">defun</span> <span class="nv">whatacold/eglot-ccls-contact</span> <span class="p">(</span><span class="nv">interactive-p</span><span class="p">)</span>
-  <span class="s">&#34;A contact function to assemble args for ccls.
-</span><span class="s">Argument INTERACTIVE-P indicates where it&#39;s called interactively.&#34;</span>
-  <span class="p">(</span><span class="nb">let</span> <span class="p">((</span><span class="nv">json-object-type</span> <span class="ss">&#39;plist</span><span class="p">)</span>
-        <span class="p">(</span><span class="nv">json-array-type</span> <span class="ss">&#39;list</span><span class="p">)</span>
-        <span class="nv">result</span><span class="p">)</span>
-    <span class="p">(</span><span class="nb">cond</span> <span class="p">((</span><span class="nf">equal</span> <span class="s">&#34;ccls&#34;</span> <span class="nv">eglot-cpp-ls</span><span class="p">)</span>
-           <span class="p">(</span><span class="nb">push</span> <span class="p">(</span><span class="nf">format</span> <span class="s">&#34;-log-file=/tmp/ccls-%s.log&#34;</span>
-                         <span class="p">(</span><span class="nv">file-name-base</span>
-                          <span class="p">(</span><span class="nf">directory-file-name</span>
-                           <span class="p">(</span><span class="nf">car</span>
-                            <span class="p">(</span><span class="nv">project-roots</span>
-                             <span class="p">(</span><span class="nv">project-current</span><span class="p">))))))</span>
-                 <span class="nv">result</span><span class="p">)</span>
-           <span class="p">(</span><span class="nb">when</span> <span class="nv">ccls-init-args</span>
-             <span class="p">(</span><span class="nb">push</span> <span class="p">(</span><span class="nf">format</span> <span class="s">&#34;-init=%s&#34;</span> <span class="p">(</span><span class="nv">json-encode</span>
-                                       <span class="nv">ccls-init-args</span><span class="p">))</span>
-                   <span class="nv">result</span><span class="p">))</span>
-           <span class="p">(</span><span class="nb">push</span> <span class="s">&#34;ccls&#34;</span> <span class="nv">result</span><span class="p">))</span>
-          <span class="p">((</span><span class="nf">equal</span> <span class="s">&#34;cquery&#34;</span> <span class="nv">eglot-cpp-ls</span><span class="p">)</span>
-           <span class="p">(</span><span class="nb">setq</span> <span class="nv">result</span> <span class="p">(</span><span class="nf">list</span> <span class="s">&#34;cquery&#34;</span> <span class="s">&#34;--log-all-to-stderr&#34;</span><span class="p">)))</span>
-          <span class="p">(</span><span class="no">t</span> <span class="c1">; e.g. clangd</span>
-           <span class="p">(</span><span class="nb">push</span> <span class="nv">eglot-cpp-ls</span> <span class="nv">result</span><span class="p">)))</span>
-    <span class="c1">;; apply the adapter if necessary</span>
-    <span class="p">(</span><span class="nb">unless</span> <span class="p">(</span><span class="nf">equal</span> <span class="nv">eglot-ls-output-encoding</span> <span class="s">&#34;utf-8&#34;</span><span class="p">)</span>
-      <span class="p">(</span><span class="nb">dolist</span> <span class="p">(</span><span class="nv">item</span> <span class="p">(</span><span class="nf">reverse</span> <span class="p">(</span><span class="nf">list</span> <span class="s">&#34;lsa.py&#34;</span>
-                                   <span class="p">(</span><span class="nf">concat</span> <span class="s">&#34;--original-response-encoding=&#34;</span>
-                                           <span class="nv">eglot-ls-output-encoding</span><span class="p">)</span>
-                                   <span class="s">&#34;--log-level=DEBUG&#34;</span>
-                                   <span class="s">&#34;--&#34;</span><span class="p">)))</span>
-        <span class="p">(</span><span class="nb">push</span> <span class="nv">item</span> <span class="nv">result</span><span class="p">)))</span>
-    <span class="c1">;; cquery should apply the specific class in eglot</span>
-    <span class="p">(</span><span class="nb">when</span> <span class="p">(</span><span class="nf">equal</span> <span class="s">&#34;cquery&#34;</span> <span class="nv">eglot-cpp-ls</span><span class="p">)</span>
-      <span class="p">(</span><span class="nb">push</span> <span class="ss">&#39;eglot-cquery</span> <span class="nv">result</span><span class="p">))</span>
-    <span class="nv">result</span><span class="p">))</span>
-
-<span class="p">(</span><span class="nv">eval-after-load</span> <span class="ss">&#39;eglot</span>
-  <span class="o">&#39;</span><span class="p">(</span><span class="nb">progn</span>
-     <span class="p">(</span><span class="nv">add-to-list</span> <span class="ss">&#39;eglot-server-programs</span>
-                  <span class="p">(</span><span class="nf">cons</span> <span class="o">&#39;</span><span class="p">(</span><span class="nv">c-mode</span> <span class="nv">c++-mode</span> <span class="nv">foo-mode</span><span class="p">)</span> <span class="nf">#&#39;</span><span class="nv">whatacold/eglot-ccls-contact</span><span class="p">))))</span></code></pre></div>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-elisp" data-lang="elisp"><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">(</span><span class="nb">defcustom</span> <span class="nv">ccls-init-args</span> <span class="no">nil</span>
+</span></span><span class="line"><span class="cl">  <span class="s">&#34;Init args for ccls, e.g. &#39;(:clang (:extraArgs (\&#34;-std=c++03\&#34;)))&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">(</span><span class="nb">defcustom</span> <span class="nv">eglot-ls-output-encoding</span> <span class="s">&#34;utf-8&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="s">&#34;The LS&#39;s output encoding&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">(</span><span class="nb">defcustom</span> <span class="nv">eglot-cpp-ls</span> <span class="s">&#34;cquery&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="s">&#34;The language server for C/C++.&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">(</span><span class="nb">defun</span> <span class="nv">whatacold/eglot-ccls-contact</span> <span class="p">(</span><span class="nv">interactive-p</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="s">&#34;A contact function to assemble args for ccls.
+</span></span></span><span class="line"><span class="cl"><span class="s">Argument INTERACTIVE-P indicates where it&#39;s called interactively.&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">(</span><span class="nb">let</span> <span class="p">((</span><span class="nv">json-object-type</span> <span class="ss">&#39;plist</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="p">(</span><span class="nv">json-array-type</span> <span class="ss">&#39;list</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="nv">result</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">(</span><span class="nb">cond</span> <span class="p">((</span><span class="nf">equal</span> <span class="s">&#34;ccls&#34;</span> <span class="nv">eglot-cpp-ls</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">           <span class="p">(</span><span class="nb">push</span> <span class="p">(</span><span class="nf">format</span> <span class="s">&#34;-log-file=/tmp/ccls-%s.log&#34;</span>
+</span></span><span class="line"><span class="cl">                         <span class="p">(</span><span class="nv">file-name-base</span>
+</span></span><span class="line"><span class="cl">                          <span class="p">(</span><span class="nf">directory-file-name</span>
+</span></span><span class="line"><span class="cl">                           <span class="p">(</span><span class="nf">car</span>
+</span></span><span class="line"><span class="cl">                            <span class="p">(</span><span class="nv">project-roots</span>
+</span></span><span class="line"><span class="cl">                             <span class="p">(</span><span class="nv">project-current</span><span class="p">))))))</span>
+</span></span><span class="line"><span class="cl">                 <span class="nv">result</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">           <span class="p">(</span><span class="nb">when</span> <span class="nv">ccls-init-args</span>
+</span></span><span class="line"><span class="cl">             <span class="p">(</span><span class="nb">push</span> <span class="p">(</span><span class="nf">format</span> <span class="s">&#34;-init=%s&#34;</span> <span class="p">(</span><span class="nv">json-encode</span>
+</span></span><span class="line"><span class="cl">                                       <span class="nv">ccls-init-args</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">                   <span class="nv">result</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">           <span class="p">(</span><span class="nb">push</span> <span class="s">&#34;ccls&#34;</span> <span class="nv">result</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">          <span class="p">((</span><span class="nf">equal</span> <span class="s">&#34;cquery&#34;</span> <span class="nv">eglot-cpp-ls</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">           <span class="p">(</span><span class="nb">setq</span> <span class="nv">result</span> <span class="p">(</span><span class="nf">list</span> <span class="s">&#34;cquery&#34;</span> <span class="s">&#34;--log-all-to-stderr&#34;</span><span class="p">)))</span>
+</span></span><span class="line"><span class="cl">          <span class="p">(</span><span class="no">t</span> <span class="c1">; e.g. clangd</span>
+</span></span><span class="line"><span class="cl">           <span class="p">(</span><span class="nb">push</span> <span class="nv">eglot-cpp-ls</span> <span class="nv">result</span><span class="p">)))</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">;; apply the adapter if necessary</span>
+</span></span><span class="line"><span class="cl">    <span class="p">(</span><span class="nb">unless</span> <span class="p">(</span><span class="nf">equal</span> <span class="nv">eglot-ls-output-encoding</span> <span class="s">&#34;utf-8&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">      <span class="p">(</span><span class="nb">dolist</span> <span class="p">(</span><span class="nv">item</span> <span class="p">(</span><span class="nf">reverse</span> <span class="p">(</span><span class="nf">list</span> <span class="s">&#34;lsa.py&#34;</span>
+</span></span><span class="line"><span class="cl">                                   <span class="p">(</span><span class="nf">concat</span> <span class="s">&#34;--original-response-encoding=&#34;</span>
+</span></span><span class="line"><span class="cl">                                           <span class="nv">eglot-ls-output-encoding</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                                   <span class="s">&#34;--log-level=DEBUG&#34;</span>
+</span></span><span class="line"><span class="cl">                                   <span class="s">&#34;--&#34;</span><span class="p">)))</span>
+</span></span><span class="line"><span class="cl">        <span class="p">(</span><span class="nb">push</span> <span class="nv">item</span> <span class="nv">result</span><span class="p">)))</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">;; cquery should apply the specific class in eglot</span>
+</span></span><span class="line"><span class="cl">    <span class="p">(</span><span class="nb">when</span> <span class="p">(</span><span class="nf">equal</span> <span class="s">&#34;cquery&#34;</span> <span class="nv">eglot-cpp-ls</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">      <span class="p">(</span><span class="nb">push</span> <span class="ss">&#39;eglot-cquery</span> <span class="nv">result</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">    <span class="nv">result</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">(</span><span class="nv">eval-after-load</span> <span class="ss">&#39;eglot</span>
+</span></span><span class="line"><span class="cl">  <span class="o">&#39;</span><span class="p">(</span><span class="nb">progn</span>
+</span></span><span class="line"><span class="cl">     <span class="p">(</span><span class="nv">add-to-list</span> <span class="ss">&#39;eglot-server-programs</span>
+</span></span><span class="line"><span class="cl">                  <span class="p">(</span><span class="nf">cons</span> <span class="o">&#39;</span><span class="p">(</span><span class="nv">c-mode</span> <span class="nv">c++-mode</span> <span class="nv">foo-mode</span><span class="p">)</span> <span class="nf">#&#39;</span><span class="nv">whatacold/eglot-ccls-contact</span><span class="p">))))</span></span></span></code></pre></div>
 </div>
 <p>
 至此 LSP 基本可用了。</p>
@@ -475,15 +461,15 @@ clangd 安装最简单，但功能据说比较弱，我没有试过；一开始�
                   <ul>
                 
                 
+                    <li><a href="/zh-cn/blog/2022-09-11-emacs-smart-input-source-rime/">Emacs 中使用 smart-input-source 配合 Rime 进行流畅地中英文输入</a></li>
+                
+                    <li><a href="/zh-cn/blog/2022-09-10-emacs-beancount-account-files/">Emacs Beancount ：记账时从其他的账户文件补全账户</a></li>
+                
+                    <li><a href="/zh-cn/blog/2022-07-17-emacs-elisp-debug/">Emacs 常用 debug 手段</a></li>
+                
                     <li><a href="/zh-cn/blog/2021-08-29-i3wm-workspace-emacs-frame/">i3wm 工作区如何快速创建 Emacs 窗口</a></li>
                 
                     <li><a href="/zh-cn/blog/2021-07-12-python-re-chazhao/">在线用 Python 正则查找文本</a></li>
-                
-                    <li><a href="/zh-cn/blog/2021-02-16-doxygen-cpp-correct-callgraphs/">Doxygen 终于可以正确生成函数调用图了！</a></li>
-                
-                    <li><a href="/zh-cn/blog/2020-04-11-use-ppcompile-to-remote-compile-in-emacs/">Emacs 中使用 ppcompile 进行远程编译</a></li>
-                
-                    <li><a href="/zh-cn/blog/2019-10-01-reboot-tianyi-router-using-python-requests/">用 Python Requests “一键”重启天翼路由器</a></li>
                 
               </ul>
 
@@ -513,7 +499,7 @@ clangd 安装最简单，但功能据说比较弱，我没有试过；一开始�
           <div class="disqus-comments">
             <div id="disqus_thread"></div>
 <script type="application/javascript">
-    var disqus_config = function () {
+    window.disqus_config = function () {
     
     
     
@@ -621,7 +607,7 @@ clangd 安装最简单，但功能据说比较弱，我没有试过；一开始�
         </p>
         
         <p class="credits theme-by text-muted">
-          由 <a href="https://gohugo.io">Hugo v0.80.0</a> 强力驱动 &nbsp;&bull;&nbsp; 主题 <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> 移植自 <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
+          由 <a href="https://gohugo.io">Hugo v0.93.3</a> 强力驱动 &nbsp;&bull;&nbsp; 主题 <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> 移植自 <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
           
         </p>
       </div>

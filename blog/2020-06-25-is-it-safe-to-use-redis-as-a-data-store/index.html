@@ -97,7 +97,7 @@
   <meta name="twitter:site" content="@whatacold" />
   <meta name="twitter:creator" content="@whatacold" />
   <link href='https://whatacold.io/img/favicon.ico' rel='icon' type='image/x-icon'/>
-  <meta name="generator" content="Hugo 0.80.0" />
+  <meta name="generator" content="Hugo 0.93.3" />
   <link rel="alternate" href="https://whatacold.io/index.xml" type="application/rss+xml" title="whatacold&#39;s space"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"><link rel="stylesheet" href="https://whatacold.io/css/main.css" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
@@ -143,13 +143,13 @@ if (!doNotTrack) {
         
           
             <li>
-              <a title="About" href="/about/">About</a>
+              <a title="Tags" href="/tags">Tags</a>
             </li>
           
         
           
             <li>
-              <a title="Tags" href="/tags">Tags</a>
+              <a title="About" href="/about/">About</a>
             </li>
           
         
@@ -282,29 +282,17 @@ So I wonder, is it safe to use Redis as a data store directly? Since if that&#39
 <p>
 Redis has two data <a href="https://redis.io/topics/persistence">persistence</a> solutions: the RDB persistence and AOF persistence. The RDB persistence is suitable for making complete point-in-time backups every a few minutes, which can be configured via the <code class="verbatim">save</code> directive. And the AOF persistence is finer-grained, as it logs every command that it executes, and there are three options for how frequent it flushes (<code class="verbatim">[[https://man7.org/linux/man-pages/man2/fsync.2.html][fsync]]</code>&#39;ing in the syscall level) the AOF file to the disk (the <code class="verbatim">appendfsync</code> option):</p>
 <ul>
-<li>
-<p>always: <code class="verbatim">fsync</code> every time a new command is appended to the AOF.</p>
-</li>
-<li>
-<p>everysec: <code class="verbatim">fsync</code> every second.</p>
-</li>
-<li>
-<p>no: Never <code class="verbatim">fsync</code>, it&#39;s up to the OS when to fsync the file.</p>
-</li>
+<li>always: <code class="verbatim">fsync</code> every time a new command is appended to the AOF.</li>
+<li>everysec: <code class="verbatim">fsync</code> every second.</li>
+<li>no: Never <code class="verbatim">fsync</code>, it&#39;s up to the OS when to fsync the file.</li>
 </ul>
 <p>So the answer is yes, for a situation that Redis is more suitable to organize the data in a NoSQL style. Use <code class="verbatim">always</code> for <code class="verbatim">appendfsync</code> if we can&#39;t tolerate any data loss, and use <code class="verbatim">everysec</code> if the data is not that important, and we can endure a second of data loss, at most.</p>
 <p>
 As a comparison, MySQL has a similar mechanism called binary log (binlog) to log its SQL statements, and there is also a configuration directive, <a href="https://dev.mysql.com/doc/refman/5.7/en/replication-options-binary-log.html#sysvar_sync_binlog">sync_binlog</a>, to control how often it <code class="verbatim">fsync</code>&#39;s:</p>
 <ul>
-<li>
-<p>0, never <code class="verbatim">fsync</code> explicitly</p>
-</li>
-<li>
-<p>1, <code class="verbatim">fsync</code> every statement</p>
-</li>
-<li>
-<p>N (N&gt;1), <code class="verbatim">fsync</code> every N statements</p>
-</li>
+<li>0, never <code class="verbatim">fsync</code> explicitly</li>
+<li>1, <code class="verbatim">fsync</code> every statement</li>
+<li>N (N&gt;1), <code class="verbatim">fsync</code> every N statements</li>
 </ul>
 <p>So it&#39;s OK to use Redis as a data store with the AOF persistence enabled, it can be as safe as MySQL in theory.</p>
 
@@ -405,7 +393,7 @@ As a comparison, MySQL has a similar mechanism called binary log (binlog) to log
           <div class="disqus-comments">
             <div id="disqus_thread"></div>
 <script type="application/javascript">
-    var disqus_config = function () {
+    window.disqus_config = function () {
     
     
     
@@ -513,7 +501,7 @@ As a comparison, MySQL has a similar mechanism called binary log (binlog) to log
         </p>
         
         <p class="credits theme-by text-muted">
-          <a href="https://gohugo.io">Hugo v0.80.0</a> powered &nbsp;&bull;&nbsp; Theme <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> adapted from <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
+          <a href="https://gohugo.io">Hugo v0.93.3</a> powered &nbsp;&bull;&nbsp; Theme <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> adapted from <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
           
         </p>
       </div>

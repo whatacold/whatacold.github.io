@@ -13,7 +13,8 @@
   
 
   <title>How To Run Bleeding-edge Qtile Within a Virtualenv - whatacold&#39;s space</title>
-  <meta name="description" content="Want to have a try of bleeding-edge qtile? Here are the steps with virtualenv...">
+  <meta name="description" content="For having been using GNOME for quite a long time, I was considering trying some tiling window managers to see what it&#39;s like a few weeks ago. Along the way, I found a nice window manager written in Python: Qtile, what interests me most is that it&#39;s a hackable window manager, which makes it flexible to extend or change its behaviors.
+ Well, switching to use a tiling window manager is far simpler than I thought.">
   <meta name="author" content="whatacold"/><script type="application/ld+json">
 {
     "@context": "http://schema.org",
@@ -62,9 +63,9 @@
     "name" : "whatacold"
   },
   "headline": "How To Run Bleeding-edge Qtile Within a Virtualenv",
-  "description" : "Want to have a try of bleeding-edge qtile? Here are the steps with virtualenv...",
+  "description" : "For having been using GNOME for quite a long time, I was considering trying some tiling window managers to see what it\u0026#39;s like a few weeks ago. Along the way, I found a nice window manager written in Python: Qtile, what interests me most is that it\u0026#39;s a hackable window manager, which makes it flexible to extend or change its behaviors.\n Well, switching to use a tiling window manager is far simpler than I thought.",
   "inLanguage" : "en",
-  "wordCount":  353 ,
+  "wordCount":  359 ,
   "datePublished" : "2019-09-29T17:05:00",
   "dateModified" : "2019-09-29T17:05:00",
   "image" : "https:\/\/whatacold.io\/img\/avatar.png",
@@ -84,20 +85,21 @@
 </script>
 
 <meta property="og:title" content="How To Run Bleeding-edge Qtile Within a Virtualenv" />
-<meta property="og:description" content="Want to have a try of bleeding-edge qtile? Here are the steps with virtualenv...">
+<meta property="og:description" content="For having been using GNOME for quite a long time, I was considering trying some tiling window managers to see what it&#39;s like a few weeks ago. Along the way, I found a nice window manager written in Python: Qtile, what interests me most is that it&#39;s a hackable window manager, which makes it flexible to extend or change its behaviors.
+ Well, switching to use a tiling window manager is far simpler than I thought.">
 <meta property="og:image" content="https://whatacold.io/img/avatar.png" />
 <meta property="og:url" content="https://whatacold.io/blog/2019-09-29-how-to-run-the-bleeding-edge-code-of-qtile/" />
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="whatacold&#39;s space" />
 
   <meta name="twitter:title" content="How To Run Bleeding-edge Qtile Within a Virtualenv" />
-  <meta name="twitter:description" content="Want to have a try of bleeding-edge qtile? Here are the steps with virtualenv...">
+  <meta name="twitter:description" content="For having been using GNOME for quite a long time, I was considering trying some tiling window managers to see what it&#39;s like a few weeks ago. Along the way, I found a nice window manager written …">
   <meta name="twitter:image" content="https://whatacold.io/img/avatar.png" />
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:site" content="@whatacold" />
   <meta name="twitter:creator" content="@whatacold" />
   <link href='https://whatacold.io/img/favicon.ico' rel='icon' type='image/x-icon'/>
-  <meta name="generator" content="Hugo 0.80.0" />
+  <meta name="generator" content="Hugo 0.93.3" />
   <link rel="alternate" href="https://whatacold.io/index.xml" type="application/rss+xml" title="whatacold&#39;s space"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"><link rel="stylesheet" href="https://whatacold.io/css/main.css" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
@@ -143,13 +145,13 @@ if (!doNotTrack) {
         
           
             <li>
-              <a title="About" href="/about/">About</a>
+              <a title="Tags" href="/tags">Tags</a>
             </li>
           
         
           
             <li>
-              <a title="Tags" href="/tags">Tags</a>
+              <a title="About" href="/about/">About</a>
             </li>
           
         
@@ -280,56 +282,54 @@ For having been using <a href="https://www.gnome.org/">GNOME</a> for quite a lon
 <p>
 Well, switching to use a tiling window manager is far simpler than I thought. There are two ways to have it:</p>
 <ol>
-<li>
-<p>Installing it via the system&#39;s package manager, e.g. <code class="verbatim">dnf</code> for Fedora</p>
-</li>
-<li>
-<p>Installing it from the source code repo.</p>
-</li>
+<li>Installing it via the system&#39;s package manager, e.g. <code class="verbatim">dnf</code> for Fedora</li>
+<li>Installing it from the source code repo.</li>
 </ol>
-<p>If you just want to give it a try, you can just install it via a package manager, logout the current X session, and re-login with Qtile as your window manager (there are options when you log in), and you&#39;re done. It&#39;s that simple.</p>
+<p>If you just want to give it a try, you can just install it via the package manager, logout the current X session, and re-login with Qtile as your window manager (there are options when you log in), and you&#39;re done. It&#39;s that simple.</p>
 <p>
-As Qtile is still under development, I would like to run the bleeding-edge source code to catch up with Qtile.</p>
+As Qtile is still under active development, I would like to run the bleeding-edge source code to catch up with the main Qtile.</p>
 <p>
-As in the <a href="http://docs.qtile.org/en/latest/manual/install/index.html#qtile">docs</a> , it&#39;s quite straight-forward to install it.</p>
+As in the <a href="http://docs.qtile.org/en/latest/manual/install/index.html#qtile">docs</a>, it&#39;s quite straight-forward to install it.</p>
 <div class="src src-shell">
-<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell">git clone git://github.com/qtile/qtile.git
-<span class="nb">cd</span> qtile
-pip3 install .</code></pre></div>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">git clone git://github.com/qtile/qtile.git
+</span></span><span class="line"><span class="cl"><span class="nb">cd</span> qtile
+</span></span><span class="line"><span class="cl">pip3 install .</span></span></code></pre></div>
 </div>
 <p>
-But it will pollute the environment, so I&#39;d rather contain it within a <a href="https://docs.python.org/3/library/venv.html">virtualenv</a>, here are the steps how to run it within a dedicated virtualenv for user <code class="verbatim">foo</code> on Fedora.</p>
+But it will pollute the system environment, so I&#39;d rather run it within a <a href="https://docs.python.org/3/library/venv.html">virtualenv</a>.</p>
+<p>
+Here are the steps on how to run it within a dedicated virtualenv for a user, say <code class="verbatim">foo</code>, on Fedora.</p>
 <ol>
 <li>
 <p>Clone the repo</p>
 <div class="src src-shell">
-<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell">mkdir -p ~/local/
-git clone https://github.com/qtile/qtile.git</code></pre></div>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">mkdir -p ~/local/
+</span></span><span class="line"><span class="cl">git clone https://github.com/qtile/qtile.git</span></span></code></pre></div>
 </div>
 </li>
 <li>
 <p>Create a new virtualenv, and install dependencies there</p>
 <div class="src src-shell">
-<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell">python3 -m venv ~/local/qtile/qtile-env/
-<span class="nb">source</span> ~/local/qtile/qtile-env/bin/activate
-
-<span class="c1"># Install dependencies</span>
-pip install xcffib
-pip install --no-cache-dir cairocffi</code></pre></div>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">python3 -m venv ~/local/qtile/qtile-env/
+</span></span><span class="line"><span class="cl"><span class="nb">source</span> ~/local/qtile/qtile-env/bin/activate
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Install dependencies</span>
+</span></span><span class="line"><span class="cl">pip install xcffib
+</span></span><span class="line"><span class="cl">pip install --no-cache-dir cairocffi</span></span></code></pre></div>
 </div>
 </li>
 <li>
 <p>Make a glue shell script to use the virtualenv</p>
 <div class="src src-shell">
-<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell">cat &gt; /home/foo/local/qtile/qtile-venv-entry <span class="s">&lt;&lt;EOF
-</span><span class="s">#!/bin/bash
-</span><span class="s">
-</span><span class="s"># This glue shell is only needed when you want to
-</span><span class="s"># run Qtile within a virtualenv
-</span><span class="s">
-</span><span class="s">source ~/local/qtile/qtile-env/bin/activate
-</span><span class="s">python ~/local/qtile/bin/qtile $*
-</span><span class="s">EOF</span></code></pre></div>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">cat &gt; /home/foo/local/qtile/qtile-venv-entry <span class="s">&lt;&lt;EOF
+</span></span></span><span class="line"><span class="cl"><span class="s">#!/bin/bash
+</span></span></span><span class="line"><span class="cl"><span class="s">
+</span></span></span><span class="line"><span class="cl"><span class="s"># This glue shell is only needed when you want to
+</span></span></span><span class="line"><span class="cl"><span class="s"># run Qtile within a virtualenv
+</span></span></span><span class="line"><span class="cl"><span class="s">
+</span></span></span><span class="line"><span class="cl"><span class="s">source ~/local/qtile/qtile-env/bin/activate
+</span></span></span><span class="line"><span class="cl"><span class="s">python ~/local/qtile/bin/qtile $*
+</span></span></span><span class="line"><span class="cl"><span class="s">EOF</span></span></span></code></pre></div>
 </div>
 <p>
 Also, make sure to make it executable, that is, <code class="verbatim">chmod +x /home/foo/local/qtile/qtile-venv-entry</code></p>
@@ -337,21 +337,19 @@ Also, make sure to make it executable, that is, <code class="verbatim">chmod +x 
 <li>
 <p>Make a entry desktop file for the display manager</p>
 <div class="src src-shell">
-<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell">cat &gt; /usr/share/xsessions/qtile-venv.desktop <span class="s">&lt;&lt;EOF
-</span><span class="s">[Desktop Entry]
-</span><span class="s">Name=Qtile(venv)
-</span><span class="s">Comment=Qtile Session Within Venv
-</span><span class="s">Exec=/home/foo/local/qtile/qtile-venv-entry
-</span><span class="s">Type=Application
-</span><span class="s">Keywords=wm;tiling
-</span><span class="s">EOF</span></code></pre></div>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">cat &gt; /usr/share/xsessions/qtile-venv.desktop <span class="s">&lt;&lt;EOF
+</span></span></span><span class="line"><span class="cl"><span class="s">[Desktop Entry]
+</span></span></span><span class="line"><span class="cl"><span class="s">Name=Qtile(venv)
+</span></span></span><span class="line"><span class="cl"><span class="s">Comment=Qtile Session Within Venv
+</span></span></span><span class="line"><span class="cl"><span class="s">Exec=/home/foo/local/qtile/qtile-venv-entry
+</span></span></span><span class="line"><span class="cl"><span class="s">Type=Application
+</span></span></span><span class="line"><span class="cl"><span class="s">Keywords=wm;tiling
+</span></span></span><span class="line"><span class="cl"><span class="s">EOF</span></span></span></code></pre></div>
 </div>
 <p>
 Pay attention to the <code class="verbatim">Exec</code> directive, it points to the glue script.</p>
 </li>
-<li>
-<p>Log out or reboot your system, then select “Qtile(venv)” as your window manager by clicking the setting icon when logging in.</p>
-</li>
+<li>Log out or reboot your system, then select &#34;Qtile(venv)&#34; as your window manager by clicking the setting icon when logging in.</li>
 </ol>
 
 
@@ -470,7 +468,7 @@ Pay attention to the <code class="verbatim">Exec</code> directive, it points to 
           <div class="disqus-comments">
             <div id="disqus_thread"></div>
 <script type="application/javascript">
-    var disqus_config = function () {
+    window.disqus_config = function () {
     
     
     
@@ -578,7 +576,7 @@ Pay attention to the <code class="verbatim">Exec</code> directive, it points to 
         </p>
         
         <p class="credits theme-by text-muted">
-          <a href="https://gohugo.io">Hugo v0.80.0</a> powered &nbsp;&bull;&nbsp; Theme <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> adapted from <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
+          <a href="https://gohugo.io">Hugo v0.93.3</a> powered &nbsp;&bull;&nbsp; Theme <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> adapted from <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
           
         </p>
       </div>

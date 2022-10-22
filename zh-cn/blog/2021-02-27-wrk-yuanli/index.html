@@ -97,7 +97,7 @@
   <meta name="twitter:site" content="@whatacold" />
   <meta name="twitter:creator" content="@whatacold" />
   <link href='https://whatacold.io/img/favicon.ico' rel='icon' type='image/x-icon'/>
-  <meta name="generator" content="Hugo 0.80.0" />
+  <meta name="generator" content="Hugo 0.93.3" />
   <link rel="alternate" href="https://whatacold.io/zh-cn/index.xml" type="application/rss+xml" title="whatacold 的空间"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"><link rel="stylesheet" href="https://whatacold.io/css/main.css" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
@@ -137,19 +137,19 @@ if (!doNotTrack) {
         
           
             <li>
-              <a title="Blog" href="/zh-cn">Blog</a>
+              <a title="博客" href="/zh-cn">博客</a>
             </li>
           
         
           
             <li>
-              <a title="About" href="/zh-cn/about/">About</a>
+              <a title="标签" href="/zh-cn/tags">标签</a>
             </li>
           
         
           
             <li>
-              <a title="Tags" href="/zh-cn/tags">Tags</a>
+              <a title="关于" href="/zh-cn/about/">关于</a>
             </li>
           
         
@@ -282,21 +282,21 @@ wrk 是一个用 C 实现的 HTTP 压测工具，所有的参数都是通过命�
 <p>
 它的运行参数只有几个：</p>
 <div class="src src-text">
-<div class="highlight"><pre class="chroma"><code class="language-text" data-lang="text">$ ./wrk
-Usage: wrk &lt;options&gt; &lt;url&gt;
-  Options:
-    -c, --connections &lt;N&gt;  Connections to keep open
-    -d, --duration    &lt;T&gt;  Duration of test
-    -t, --threads     &lt;N&gt;  Number of threads to use
-
-    -s, --script      &lt;S&gt;  Load Lua script file
-    -H, --header      &lt;H&gt;  Add header to request
-        --latency          Print latency statistics
-        --timeout     &lt;T&gt;  Socket/request timeout
-    -v, --version          Print version details
-
-  Numeric arguments may include a SI unit (1k, 1M, 1G)
-  Time arguments may include a time unit (2s, 2m, 2h)</code></pre></div>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">$ ./wrk
+</span></span><span class="line"><span class="cl">Usage: wrk &lt;options&gt; &lt;url&gt;
+</span></span><span class="line"><span class="cl">  Options:
+</span></span><span class="line"><span class="cl">    -c, --connections &lt;N&gt;  Connections to keep open
+</span></span><span class="line"><span class="cl">    -d, --duration    &lt;T&gt;  Duration of test
+</span></span><span class="line"><span class="cl">    -t, --threads     &lt;N&gt;  Number of threads to use
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    -s, --script      &lt;S&gt;  Load Lua script file
+</span></span><span class="line"><span class="cl">    -H, --header      &lt;H&gt;  Add header to request
+</span></span><span class="line"><span class="cl">        --latency          Print latency statistics
+</span></span><span class="line"><span class="cl">        --timeout     &lt;T&gt;  Socket/request timeout
+</span></span><span class="line"><span class="cl">    -v, --version          Print version details
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  Numeric arguments may include a SI unit (1k, 1M, 1G)
+</span></span><span class="line"><span class="cl">  Time arguments may include a time unit (2s, 2m, 2h)</span></span></code></pre></div>
 </div>
 <p>
 另一方面， wrk 还支持通过 LuaJit 来定制每个测试用例，这点比 ab 强大。</p>
@@ -305,15 +305,15 @@ Usage: wrk &lt;options&gt; &lt;url&gt;
 <p>
 一次 wrk 运行的效果如下：</p>
 <div class="src src-text">
-<div class="highlight"><pre class="chroma"><code class="language-text" data-lang="text">./wrk -t 2 -d 10s http://localhost:8000
-Running 10s test @ http://localhost:8000
-  2 threads and 10 connections
-  Thread Stats   Avg      Stdev     Max   +/- Stdev
-    Latency    24.86ms   17.36ms  72.64ms   60.35%
-    Req/Sec   207.41     21.92   262.00     70.00%
-  4135 requests in 10.01s, 20.49MB read
-Requests/sec:    413.02
-Transfer/sec:      2.05MB</code></pre></div>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">./wrk -t 2 -d 10s http://localhost:8000
+</span></span><span class="line"><span class="cl">Running 10s test @ http://localhost:8000
+</span></span><span class="line"><span class="cl">  2 threads and 10 connections
+</span></span><span class="line"><span class="cl">  Thread Stats   Avg      Stdev     Max   +/- Stdev
+</span></span><span class="line"><span class="cl">    Latency    24.86ms   17.36ms  72.64ms   60.35%
+</span></span><span class="line"><span class="cl">    Req/Sec   207.41     21.92   262.00     70.00%
+</span></span><span class="line"><span class="cl">  4135 requests in 10.01s, 20.49MB read
+</span></span><span class="line"><span class="cl">Requests/sec:    413.02
+</span></span><span class="line"><span class="cl">Transfer/sec:      2.05MB</span></span></code></pre></div>
 </div>
 <p>
 了解了 wrk 的基本使用之后，接下来我们来看一下 wrk 内部的实现原理。</p>
@@ -327,31 +327,23 @@ wrk 内部架构图
 <p>
 首先，每个线程有一个 epoll 来处理非阻塞的网络事件，主要有以下几个函数来负责处理：</p>
 <ol>
-<li>
-<p>connect_socket</p>
-</li>
-<li>
-<p>socket_connected</p>
-</li>
-<li>
-<p>socket_readable</p>
-</li>
-<li>
-<p>socket_writable</p>
-</li>
+<li>connect_socket</li>
+<li>socket_connected</li>
+<li>socket_readable</li>
+<li>socket_writable</li>
 </ol>
 <p>其中 <code class="verbatim">connect_socket</code> 这个函数需要特别注意，它的功能是连接 HTTP 服务器。但它有一个问题，那就是在 <code class="verbatim">thread_main</code> 线程入口中把当前线程的所有连接都一次性创建好，多个压测请求会复用同一个 TCP 连接。</p>
 <p>
 <code class="verbatim">thread_main</code> 相关代码片段如下：</p>
 <div class="src src-c">
-<div class="highlight"><pre class="chroma"><code class="language-c" data-lang="c">    <span class="k">for</span> <span class="p">(</span><span class="n">uint64_t</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="kr">thread</span><span class="o">-&gt;</span><span class="n">connections</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">,</span> <span class="n">c</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-        <span class="n">c</span><span class="o">-&gt;</span><span class="kr">thread</span> <span class="o">=</span> <span class="kr">thread</span><span class="p">;</span>
-        <span class="n">c</span><span class="o">-&gt;</span><span class="n">ssl</span>     <span class="o">=</span> <span class="n">cfg</span><span class="p">.</span><span class="n">ctx</span> <span class="o">?</span> <span class="n">SSL_new</span><span class="p">(</span><span class="n">cfg</span><span class="p">.</span><span class="n">ctx</span><span class="p">)</span> <span class="o">:</span> <span class="nb">NULL</span><span class="p">;</span>
-        <span class="n">c</span><span class="o">-&gt;</span><span class="n">request</span> <span class="o">=</span> <span class="n">request</span><span class="p">;</span>
-        <span class="n">c</span><span class="o">-&gt;</span><span class="n">length</span>  <span class="o">=</span> <span class="n">length</span><span class="p">;</span>
-        <span class="n">c</span><span class="o">-&gt;</span><span class="n">delayed</span> <span class="o">=</span> <span class="n">cfg</span><span class="p">.</span><span class="n">delay</span><span class="p">;</span>
-        <span class="n">connect_socket</span><span class="p">(</span><span class="kr">thread</span><span class="p">,</span> <span class="n">c</span><span class="p">);</span>
-    <span class="p">}</span></code></pre></div>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl">    <span class="k">for</span> <span class="p">(</span><span class="kt">uint64_t</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="kr">thread</span><span class="o">-&gt;</span><span class="n">connections</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">,</span> <span class="n">c</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">c</span><span class="o">-&gt;</span><span class="kr">thread</span> <span class="o">=</span> <span class="kr">thread</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">c</span><span class="o">-&gt;</span><span class="n">ssl</span>     <span class="o">=</span> <span class="n">cfg</span><span class="p">.</span><span class="n">ctx</span> <span class="o">?</span> <span class="n">SSL_new</span><span class="p">(</span><span class="n">cfg</span><span class="p">.</span><span class="n">ctx</span><span class="p">)</span> <span class="o">:</span> <span class="nb">NULL</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">c</span><span class="o">-&gt;</span><span class="n">request</span> <span class="o">=</span> <span class="n">request</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">c</span><span class="o">-&gt;</span><span class="n">length</span>  <span class="o">=</span> <span class="n">length</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">c</span><span class="o">-&gt;</span><span class="n">delayed</span> <span class="o">=</span> <span class="n">cfg</span><span class="p">.</span><span class="n">delay</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">connect_socket</span><span class="p">(</span><span class="kr">thread</span><span class="p">,</span> <span class="n">c</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span></span></span></code></pre></div>
 </div>
 <p>
 通过 tcpdump 抓包并使用 Wireshark 查看，也能确认这两点。</p>
@@ -372,36 +364,32 @@ wrk 启动时一次性建立了所有 TCP 连接
 <p>
 相关结构体定义：</p>
 <div class="src src-c">
-<div class="highlight"><pre class="chroma"><code class="language-c" data-lang="c"><span class="k">static</span> <span class="k">struct</span> <span class="p">{</span>
-    <span class="n">stats</span> <span class="o">*</span><span class="n">latency</span><span class="p">;</span>
-    <span class="n">stats</span> <span class="o">*</span><span class="n">requests</span><span class="p">;</span>
-<span class="p">}</span> <span class="n">statistics</span><span class="p">;</span>
-
-<span class="k">typedef</span> <span class="k">struct</span> <span class="p">{</span>
-    <span class="n">uint64_t</span> <span class="n">count</span><span class="p">;</span>  <span class="c1">// data 中被使用的
-</span><span class="c1"></span>    <span class="n">uint64_t</span> <span class="n">limit</span><span class="p">;</span>
-    <span class="n">uint64_t</span> <span class="n">min</span><span class="p">;</span>
-    <span class="n">uint64_t</span> <span class="n">max</span><span class="p">;</span>
-    <span class="n">uint64_t</span> <span class="n">data</span><span class="p">[];</span> <span class="c1">// 元素个数是 limit
-</span><span class="c1"></span><span class="p">}</span> <span class="n">stats</span><span class="p">;</span></code></pre></div>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="k">static</span> <span class="k">struct</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">stats</span> <span class="o">*</span><span class="n">latency</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">stats</span> <span class="o">*</span><span class="n">requests</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span> <span class="n">statistics</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">typedef</span> <span class="k">struct</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">uint64_t</span> <span class="n">count</span><span class="p">;</span>  <span class="c1">// data 中被使用的
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="kt">uint64_t</span> <span class="n">limit</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">uint64_t</span> <span class="n">min</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">uint64_t</span> <span class="n">max</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">uint64_t</span> <span class="n">data</span><span class="p">[];</span> <span class="c1">// 元素个数是 limit
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">}</span> <span class="n">stats</span><span class="p">;</span></span></span></code></pre></div>
 </div>
 <p>
 比如当 data 用于表示 QPS 时，其中的数据是：</p>
 <div class="src src-text">
-<div class="highlight"><pre class="chroma"><code class="language-text" data-lang="text">index(QPS):     0    1    2    3    4    5
-value(count): | 0 | 12 | 44 | 90 | 29 | 42 |</code></pre></div>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">index(QPS):     0    1    2    3    4    5
+</span></span><span class="line"><span class="cl">value(count): | 0 | 12 | 44 | 90 | 29 | 42 |</span></span></code></pre></div>
 </div>
 <p>
 那么平均 QPS 就是 <code>(1*12+2*44+3*90+4*29+5*42)/(12+44+90+29+42)=3.21</code></p>
 <p>
 由于整个程序是多线程的，而 <code class="verbatim">statistics</code> 又是全局变量，因此需要有顺序更新机制来保证多线程的顺序访问。这里 wrk 采用 CAS 方式，而不是直接用锁，粒度更细：</p>
 <ul>
-<li>
-<p><code class="verbatim">__sync_fetch_and_add</code> 增加对应下标的计数；</p>
-</li>
-<li>
-<p><code class="verbatim">__sync_val_compare_and_swap</code> 更细当前下标的 min max 边界，如果由于并发导致更新失败，会一直尝试直到成功；</p>
-</li>
+<li><code class="verbatim">__sync_fetch_and_add</code> 增加对应下标的计数；</li>
+<li><code class="verbatim">__sync_val_compare_and_swap</code> 更细当前下标的 min max 边界，如果由于并发导致更新失败，会一直尝试直到成功；</li>
 </ul>
 <p>总的来说， wrk 代码写得不错，简洁易读。功能上， wrk 具有简单易用等优点，但同时也要注意，它的所有连接都是在启动时建立的，压测的 HTTP 请求会复用 TCP 连接，与真实的用户场景可能不一样；另外它的统计数据也比较简单，缺少时间维度，这样就绘制不了按时间推移的曲线，不直观。</p>
 
@@ -489,7 +477,7 @@ value(count): | 0 | 12 | 44 | 90 | 29 | 42 |</code></pre></div>
           
           
             <li class="next">
-              <a href="https://whatacold.io/zh-cn/blog/2021-07-10-migrate-site-hugo/" data-toggle="tooltip" data-placement="top" title="个人网站迁移 Hugo 记">后一篇 &rarr;</a>
+              <a href="https://whatacold.io/zh-cn/blog/2021-07-10-migrate-site-hugo/" data-toggle="tooltip" data-placement="top" title="个人博客网站迁移 Hugo 小记">后一篇 &rarr;</a>
             </li>
           
         </ul>
@@ -502,7 +490,7 @@ value(count): | 0 | 12 | 44 | 90 | 29 | 42 |</code></pre></div>
           <div class="disqus-comments">
             <div id="disqus_thread"></div>
 <script type="application/javascript">
-    var disqus_config = function () {
+    window.disqus_config = function () {
     
     
     
@@ -610,7 +598,7 @@ value(count): | 0 | 12 | 44 | 90 | 29 | 42 |</code></pre></div>
         </p>
         
         <p class="credits theme-by text-muted">
-          由 <a href="https://gohugo.io">Hugo v0.80.0</a> 强力驱动 &nbsp;&bull;&nbsp; 主题 <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> 移植自 <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
+          由 <a href="https://gohugo.io">Hugo v0.93.3</a> 强力驱动 &nbsp;&bull;&nbsp; 主题 <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> 移植自 <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
           
         </p>
       </div>

@@ -13,7 +13,9 @@
   
 
   <title>How to Rename Web Page Titles Easily - whatacold&#39;s space</title>
-  <meta name="description" content="Introduce a handy bookmarklet to rename web pages&#39; titles temporarily...">
+  <meta name="description" content="There are times that I need to open many web pages of some specific websites within a browser, and there are so many tabs that I can&#39;t efficiently access one of them, as their favicons are all the same.
+ So I tried to find a way to rename their titles, preferably in a lightweight way, so that I can spot them quickly with my eyes.
+ The first thought came into my mind was to find some browser extensions to do the job.">
   <meta name="author" content="whatacold"/><script type="application/ld+json">
 {
     "@context": "http://schema.org",
@@ -62,13 +64,13 @@
     "name" : "whatacold"
   },
   "headline": "How to Rename Web Page Titles Easily",
-  "description" : "Introduce a handy bookmarklet to rename web pages\u0027 titles temporarily...",
+  "description" : "There are times that I need to open many web pages of some specific websites within a browser, and there are so many tabs that I can\u0026#39;t efficiently access one of them, as their favicons are all the same.\n So I tried to find a way to rename their titles, preferably in a lightweight way, so that I can spot them quickly with my eyes.\n The first thought came into my mind was to find some browser extensions to do the job.",
   "inLanguage" : "en",
   "wordCount":  222 ,
   "datePublished" : "2019-08-18T14:57:00",
   "dateModified" : "2019-08-18T14:57:00",
   "image" : "https:\/\/whatacold.io\/img\/avatar.png",
-  "keywords" : [ "Tools" ],
+  "keywords" : [ "Tools, Bookmarklet" ],
   "mainEntityOfPage" : "https:\/\/whatacold.io\/blog\/2019-08-18-how-to-rename-web-page-titles-in-a-lightweight-way\/",
   "publisher" : {
     "@type": "Organization",
@@ -84,20 +86,22 @@
 </script>
 
 <meta property="og:title" content="How to Rename Web Page Titles Easily" />
-<meta property="og:description" content="Introduce a handy bookmarklet to rename web pages&#39; titles temporarily...">
+<meta property="og:description" content="There are times that I need to open many web pages of some specific websites within a browser, and there are so many tabs that I can&#39;t efficiently access one of them, as their favicons are all the same.
+ So I tried to find a way to rename their titles, preferably in a lightweight way, so that I can spot them quickly with my eyes.
+ The first thought came into my mind was to find some browser extensions to do the job.">
 <meta property="og:image" content="https://whatacold.io/img/avatar.png" />
 <meta property="og:url" content="https://whatacold.io/blog/2019-08-18-how-to-rename-web-page-titles-in-a-lightweight-way/" />
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="whatacold&#39;s space" />
 
   <meta name="twitter:title" content="How to Rename Web Page Titles Easily" />
-  <meta name="twitter:description" content="Introduce a handy bookmarklet to rename web pages&#39; titles temporarily...">
+  <meta name="twitter:description" content="There are times that I need to open many web pages of some specific websites within a browser, and there are so many tabs that I can&#39;t efficiently access one of them, as their favicons are all the …">
   <meta name="twitter:image" content="https://whatacold.io/img/avatar.png" />
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:site" content="@whatacold" />
   <meta name="twitter:creator" content="@whatacold" />
   <link href='https://whatacold.io/img/favicon.ico' rel='icon' type='image/x-icon'/>
-  <meta name="generator" content="Hugo 0.80.0" />
+  <meta name="generator" content="Hugo 0.93.3" />
   <link rel="alternate" href="https://whatacold.io/index.xml" type="application/rss+xml" title="whatacold&#39;s space"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"><link rel="stylesheet" href="https://whatacold.io/css/main.css" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
@@ -143,13 +147,13 @@ if (!doNotTrack) {
         
           
             <li>
-              <a title="About" href="/about/">About</a>
+              <a title="Tags" href="/tags">Tags</a>
             </li>
           
         
           
             <li>
-              <a title="Tags" href="/tags">Tags</a>
+              <a title="About" href="/about/">About</a>
             </li>
           
         
@@ -286,15 +290,15 @@ Then I thought maybe I can simply do it with a <a href="https://de.wikipedia.org
 <p>
 With that in my mind, it didn&#39;t take me much time to write this bookmarklet:</p>
 <div class="src src-js">
-<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="nx">javascript</span><span class="o">:</span>
-<span class="p">(</span><span class="kd">function</span> <span class="p">()</span>
- <span class="p">{</span>
-     <span class="kd">var</span> <span class="nx">title</span> <span class="o">=</span> <span class="nb">window</span><span class="p">.</span><span class="nx">prompt</span><span class="p">(</span><span class="s2">&#34;Enter new title: &#34;</span><span class="p">,</span> <span class="s2">&#34;&#34;</span><span class="p">);</span>
-     <span class="k">if</span> <span class="p">(</span><span class="nx">title</span><span class="p">)</span>
-     <span class="p">{</span>
-         <span class="nb">document</span><span class="p">.</span><span class="nx">title</span><span class="o">=</span> <span class="nx">title</span><span class="p">;</span>
-     <span class="p">}</span>
- <span class="p">})()</span></code></pre></div>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="nx">javascript</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl"><span class="p">(</span><span class="kd">function</span> <span class="p">()</span>
+</span></span><span class="line"><span class="cl"> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">     <span class="kd">var</span> <span class="nx">title</span> <span class="o">=</span> <span class="nb">window</span><span class="p">.</span><span class="nx">prompt</span><span class="p">(</span><span class="s2">&#34;Enter new title: &#34;</span><span class="p">,</span> <span class="s2">&#34;&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">     <span class="k">if</span> <span class="p">(</span><span class="nx">title</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">     <span class="p">{</span>
+</span></span><span class="line"><span class="cl">         <span class="nb">document</span><span class="p">.</span><span class="nx">title</span><span class="o">=</span> <span class="nx">title</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">     <span class="p">}</span>
+</span></span><span class="line"><span class="cl"> <span class="p">})()</span></span></span></code></pre></div>
 </div>
 <p>
 Save it as a browser bookmark, click it when you want to rename a tab:</p>
@@ -314,6 +318,8 @@ The Bookmarklet Pop-up UI
           <div class="blog-tags">
             
               <a href="https://whatacold.io/tags/tools/">Tools</a>&nbsp;
+            
+              <a href="https://whatacold.io/tags/bookmarklet/">Bookmarklet</a>&nbsp;
             
           </div>
         
@@ -385,9 +391,13 @@ The Bookmarklet Pop-up UI
                   <ul>
                 
                 
+                    <li><a href="/blog/2022-08-08-org-link-bookmarklet/">A Bookmarklet for Copying a Link as an Org-mode Link</a></li>
+                
+                    <li><a href="/blog/2020-10-21-a-python-re.findall-service/">An Online Python re.findall Service</a></li>
+                
                     <li><a href="/blog/2019-12-22-manage-ssh-connections-with-ssh-config/">Manage SSH Connections with ~/.ssh/config</a></li>
                 
-                    <li><a href="/blog/2019-07-06-render-erd-on-the-web/">Render erd Diagrams Online</a></li>
+                    <li><a href="/blog/2019-07-06-render-erd-on-the-web/">ER Diagrams in Plain Text</a></li>
                 
               </ul>
 
@@ -417,7 +427,7 @@ The Bookmarklet Pop-up UI
           <div class="disqus-comments">
             <div id="disqus_thread"></div>
 <script type="application/javascript">
-    var disqus_config = function () {
+    window.disqus_config = function () {
     
     
     
@@ -525,7 +535,7 @@ The Bookmarklet Pop-up UI
         </p>
         
         <p class="credits theme-by text-muted">
-          <a href="https://gohugo.io">Hugo v0.80.0</a> powered &nbsp;&bull;&nbsp; Theme <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> adapted from <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
+          <a href="https://gohugo.io">Hugo v0.93.3</a> powered &nbsp;&bull;&nbsp; Theme <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> adapted from <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
           
         </p>
       </div>

@@ -102,7 +102,7 @@
   <meta name="twitter:site" content="@whatacold" />
   <meta name="twitter:creator" content="@whatacold" />
   <link href='https://whatacold.io/img/favicon.ico' rel='icon' type='image/x-icon'/>
-  <meta name="generator" content="Hugo 0.80.0" />
+  <meta name="generator" content="Hugo 0.93.3" />
   <link rel="alternate" href="https://whatacold.io/index.xml" type="application/rss+xml" title="whatacold&#39;s space"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"><link rel="stylesheet" href="https://whatacold.io/css/main.css" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
@@ -148,13 +148,13 @@ if (!doNotTrack) {
         
           
             <li>
-              <a title="About" href="/about/">About</a>
+              <a title="Tags" href="/tags">Tags</a>
             </li>
           
         
           
             <li>
-              <a title="Tags" href="/tags">Tags</a>
+              <a title="About" href="/about/">About</a>
             </li>
           
         
@@ -290,13 +290,13 @@ I think it&#39;s an excellent opportunity to get familiar with Clojure. Before d
 <p>
 Just do it literally:</p>
 <div class="src src-clojure">
-<div class="highlight"><pre class="chroma"><code class="language-clojure" data-lang="clojure"><span class="p">(</span><span class="k">def </span><span class="nv">greet-multiline</span> <span class="s">&#34;Hello,
-</span><span class="s">
-</span><span class="s">    See you!&#34;</span><span class="p">)</span>
-<span class="c1">;; =&gt; #&#39;user/greet-multiline</span>
-
-<span class="p">(</span><span class="nb">count </span><span class="nv">greet-multiline</span><span class="p">)</span>
-<span class="c1">;; =&gt; 20</span></code></pre></div>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-clojure" data-lang="clojure"><span class="line"><span class="cl"><span class="p">(</span><span class="k">def </span><span class="nv">greet-multiline</span> <span class="s">&#34;Hello,
+</span></span></span><span class="line"><span class="cl"><span class="s">
+</span></span></span><span class="line"><span class="cl"><span class="s">    See you!&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="c1">;; =&gt; #&#39;user/greet-multiline</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">(</span><span class="nb">count </span><span class="nv">greet-multiline</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="c1">;; =&gt; 20</span></span></span></code></pre></div>
 </div>
 <p>
 Below are some string functions that I came up with along the course.</p>
@@ -306,52 +306,52 @@ String creating
 </h2>
 <div id="outline-text-headline-1" class="outline-text-2">
 <div class="src src-clojure">
-<div class="highlight"><pre class="chroma"><code class="language-clojure" data-lang="clojure"><span class="c1">;; &#34;a&#34; + &#34;b&#34;</span>
-<span class="p">(</span><span class="kd">defn </span><span class="nv">s-add</span>
-  <span class="p">[</span><span class="o">&amp;</span> <span class="nv">strings</span><span class="p">]</span>
-  <span class="p">(</span><span class="k">if </span><span class="p">(</span><span class="nf">empty?</span> <span class="nv">strings</span><span class="p">)</span>
-    <span class="s">&#34;&#34;</span>
-    <span class="p">(</span><span class="nb">apply str </span><span class="nv">strings</span><span class="p">)))</span>
-<span class="c1">;; =&gt; #&#39;user/s-add</span>
-<span class="p">(</span><span class="nf">s-add</span> <span class="s">&#34;a&#34;</span> <span class="s">&#34;b&#34;</span><span class="p">)</span>
-<span class="c1">;; =&gt; ab</span>
-
-<span class="c1">;; &#34;a&#34; * 10</span>
-<span class="c1">;; https://stackoverflow.com/questions/5433691/how-to-repeat-string-n-times-in-idiomatic-clojure-way</span>
-<span class="p">(</span><span class="kd">defn </span><span class="nv">s-multiply</span>
-  <span class="p">[</span><span class="nv">s</span> <span class="nv">cnt</span><span class="p">]</span>
-  <span class="p">(</span><span class="nb">apply str </span><span class="p">(</span><span class="nb">repeat </span><span class="nv">cnt</span> <span class="nv">s</span><span class="p">)))</span>
-<span class="c1">;; =&gt; #&#39;user/s-multiply</span>
-
-<span class="p">(</span><span class="nf">s-multiply</span> <span class="s">&#34;hello&#34;</span> <span class="mi">3</span><span class="p">)</span>
-<span class="c1">;; =&gt; hellohellohello</span>
-
-<span class="p">(</span><span class="kd">defn </span><span class="nv">s-format</span>
-  <span class="p">[</span><span class="o">&amp;</span> <span class="nv">args</span><span class="p">]</span>                              <span class="c1">; why [:as args] not work???</span>
-  <span class="p">(</span><span class="nb">apply </span><span class="nv">format</span> <span class="nv">args</span><span class="p">))</span>
-<span class="c1">;; =&gt; #&#39;user/s-format</span>
-
-<span class="p">(</span><span class="nf">s-format</span> <span class="s">&#34;Hello there, %s&#34;</span> <span class="s">&#34;bob&#34;</span><span class="p">)</span>
-<span class="c1">;; =&gt; Hello there, bob</span>
-<span class="p">(</span><span class="nf">s-format</span> <span class="s">&#34;1 + 1 = %d&#34;</span> <span class="p">(</span><span class="nb">+ </span><span class="mi">1</span> <span class="mi">1</span><span class="p">))</span>
-<span class="c1">;; =&gt; 1 + 1 = 2</span>
-
-<span class="p">(</span><span class="kd">defn </span><span class="nv">s-join</span>
-  <span class="p">([</span><span class="nv">strings</span><span class="p">]</span>
-   <span class="p">(</span><span class="nf">s-join</span> <span class="nv">strings</span> <span class="s">&#34; &#34;</span><span class="p">))</span>
-  <span class="p">([</span><span class="nv">strings</span> <span class="nv">sep</span><span class="p">]</span>
-   <span class="p">(</span><span class="nb">reduce </span><span class="p">(</span><span class="nf">fn</span>
-             <span class="p">([]</span> <span class="s">&#34;&#34;</span><span class="p">)</span>                     <span class="c1">; for a empty list of strings</span>
-             <span class="p">([</span><span class="nv">a</span> <span class="nv">b</span><span class="p">]</span> <span class="p">(</span><span class="nb">str </span><span class="nv">a</span> <span class="nv">sep</span> <span class="nv">b</span><span class="p">)))</span>
-           <span class="nv">strings</span><span class="p">)))</span>
-<span class="c1">;; =&gt; #&#39;user/s-join</span>
-
-<span class="p">(</span><span class="nf">s-join</span> <span class="p">[</span><span class="s">&#34;a&#34;</span> <span class="s">&#34;b&#34;</span> <span class="s">&#34;c&#34;</span><span class="p">])</span>
-<span class="c1">;; =&gt; a b c</span>
-<span class="p">(</span><span class="nf">s-join</span> <span class="p">[</span><span class="s">&#34;a&#34;</span> <span class="s">&#34;b&#34;</span> <span class="s">&#34;c&#34;</span><span class="p">]</span> <span class="s">&#34;, &#34;</span><span class="p">)</span>
-<span class="c1">;; =&gt; a, b, c</span>
-<span class="p">(</span><span class="nf">s-join</span> <span class="p">[])</span>
-<span class="c1">;; =&gt;</span></code></pre></div>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-clojure" data-lang="clojure"><span class="line"><span class="cl"><span class="c1">;; &#34;a&#34; + &#34;b&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="p">(</span><span class="kd">defn </span><span class="nv">s-add</span>
+</span></span><span class="line"><span class="cl">  <span class="p">[</span><span class="o">&amp;</span> <span class="nv">strings</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">  <span class="p">(</span><span class="k">if </span><span class="p">(</span><span class="nf">empty?</span> <span class="nv">strings</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="s">&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">(</span><span class="nb">apply str </span><span class="nv">strings</span><span class="p">)))</span>
+</span></span><span class="line"><span class="cl"><span class="c1">;; =&gt; #&#39;user/s-add</span>
+</span></span><span class="line"><span class="cl"><span class="p">(</span><span class="nf">s-add</span> <span class="s">&#34;a&#34;</span> <span class="s">&#34;b&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="c1">;; =&gt; ab</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">;; &#34;a&#34; * 10</span>
+</span></span><span class="line"><span class="cl"><span class="c1">;; https://stackoverflow.com/questions/5433691/how-to-repeat-string-n-times-in-idiomatic-clojure-way</span>
+</span></span><span class="line"><span class="cl"><span class="p">(</span><span class="kd">defn </span><span class="nv">s-multiply</span>
+</span></span><span class="line"><span class="cl">  <span class="p">[</span><span class="nv">s</span> <span class="nv">cnt</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">  <span class="p">(</span><span class="nb">apply str </span><span class="p">(</span><span class="nb">repeat </span><span class="nv">cnt</span> <span class="nv">s</span><span class="p">)))</span>
+</span></span><span class="line"><span class="cl"><span class="c1">;; =&gt; #&#39;user/s-multiply</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">(</span><span class="nf">s-multiply</span> <span class="s">&#34;hello&#34;</span> <span class="mi">3</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="c1">;; =&gt; hellohellohello</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">(</span><span class="kd">defn </span><span class="nv">s-format</span>
+</span></span><span class="line"><span class="cl">  <span class="p">[</span><span class="o">&amp;</span> <span class="nv">args</span><span class="p">]</span>                              <span class="c1">; why [:as args] not work???</span>
+</span></span><span class="line"><span class="cl">  <span class="p">(</span><span class="nb">apply </span><span class="nv">format</span> <span class="nv">args</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl"><span class="c1">;; =&gt; #&#39;user/s-format</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">(</span><span class="nf">s-format</span> <span class="s">&#34;Hello there, %s&#34;</span> <span class="s">&#34;bob&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="c1">;; =&gt; Hello there, bob</span>
+</span></span><span class="line"><span class="cl"><span class="p">(</span><span class="nf">s-format</span> <span class="s">&#34;1 + 1 = %d&#34;</span> <span class="p">(</span><span class="nb">+ </span><span class="mi">1</span> <span class="mi">1</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl"><span class="c1">;; =&gt; 1 + 1 = 2</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">(</span><span class="kd">defn </span><span class="nv">s-join</span>
+</span></span><span class="line"><span class="cl">  <span class="p">([</span><span class="nv">strings</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">   <span class="p">(</span><span class="nf">s-join</span> <span class="nv">strings</span> <span class="s">&#34; &#34;</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">  <span class="p">([</span><span class="nv">strings</span> <span class="nv">sep</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">   <span class="p">(</span><span class="nb">reduce </span><span class="p">(</span><span class="nf">fn</span>
+</span></span><span class="line"><span class="cl">             <span class="p">([]</span> <span class="s">&#34;&#34;</span><span class="p">)</span>                     <span class="c1">; for a empty list of strings</span>
+</span></span><span class="line"><span class="cl">             <span class="p">([</span><span class="nv">a</span> <span class="nv">b</span><span class="p">]</span> <span class="p">(</span><span class="nb">str </span><span class="nv">a</span> <span class="nv">sep</span> <span class="nv">b</span><span class="p">)))</span>
+</span></span><span class="line"><span class="cl">           <span class="nv">strings</span><span class="p">)))</span>
+</span></span><span class="line"><span class="cl"><span class="c1">;; =&gt; #&#39;user/s-join</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">(</span><span class="nf">s-join</span> <span class="p">[</span><span class="s">&#34;a&#34;</span> <span class="s">&#34;b&#34;</span> <span class="s">&#34;c&#34;</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl"><span class="c1">;; =&gt; a b c</span>
+</span></span><span class="line"><span class="cl"><span class="p">(</span><span class="nf">s-join</span> <span class="p">[</span><span class="s">&#34;a&#34;</span> <span class="s">&#34;b&#34;</span> <span class="s">&#34;c&#34;</span><span class="p">]</span> <span class="s">&#34;, &#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="c1">;; =&gt; a, b, c</span>
+</span></span><span class="line"><span class="cl"><span class="p">(</span><span class="nf">s-join</span> <span class="p">[])</span>
+</span></span><span class="line"><span class="cl"><span class="c1">;; =&gt;</span></span></span></code></pre></div>
 </div>
 </div>
 </div>
@@ -361,29 +361,29 @@ String properties
 </h2>
 <div id="outline-text-headline-2" class="outline-text-2">
 <div class="src src-clojure">
-<div class="highlight"><pre class="chroma"><code class="language-clojure" data-lang="clojure"><span class="p">(</span><span class="kd">defn </span><span class="nv">s-len</span>
-  <span class="p">[</span><span class="nv">s</span><span class="p">]</span>
-  <span class="p">(</span><span class="nb">count </span><span class="nv">s</span><span class="p">))</span>
-<span class="c1">;; =&gt; #&#39;user/s-len</span>
-
-<span class="p">(</span><span class="nf">s-len</span> <span class="s">&#34;hello&#34;</span><span class="p">)</span>
-<span class="c1">;; =&gt; 5</span>
-
-<span class="p">(</span><span class="kd">defn </span><span class="nv">s-count-char</span>
-  <span class="s">&#34;Count the number of the specified `char` in `str`&#34;</span>
-  <span class="p">[</span><span class="nb">str </span><span class="nv">char</span><span class="p">]</span>
-  <span class="p">(</span><span class="nb">reduce </span><span class="o">#</span><span class="p">(</span><span class="k">if </span><span class="p">(</span><span class="nb">= char </span><span class="nv">%2</span><span class="p">)</span>
-             <span class="p">(</span><span class="nb">+ </span><span class="nv">%1</span> <span class="mi">1</span><span class="p">)</span>
-             <span class="nv">%1</span><span class="p">)</span>
-          <span class="mi">0</span> <span class="nv">str</span><span class="p">))</span>
-<span class="c1">;; =&gt; #&#39;user/s-count-char</span>
-
-<span class="p">(</span><span class="nf">s-count-char</span> <span class="s">&#34;hello world&#34;</span> <span class="sc">\o</span><span class="p">)</span>
-<span class="c1">;; =&gt; 2</span>
-<span class="p">(</span><span class="nf">s-count-char</span> <span class="s">&#34;hello world&#34;</span> <span class="sc">\x</span><span class="p">)</span>
-<span class="c1">;; =&gt; 0</span>
-<span class="p">(</span><span class="nf">s-count-char</span> <span class="s">&#34;&#34;</span> <span class="sc">\o</span><span class="p">)</span>
-<span class="c1">;; =&gt; 0</span></code></pre></div>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-clojure" data-lang="clojure"><span class="line"><span class="cl"><span class="p">(</span><span class="kd">defn </span><span class="nv">s-len</span>
+</span></span><span class="line"><span class="cl">  <span class="p">[</span><span class="nv">s</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">  <span class="p">(</span><span class="nb">count </span><span class="nv">s</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl"><span class="c1">;; =&gt; #&#39;user/s-len</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">(</span><span class="nf">s-len</span> <span class="s">&#34;hello&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="c1">;; =&gt; 5</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">(</span><span class="kd">defn </span><span class="nv">s-count-char</span>
+</span></span><span class="line"><span class="cl">  <span class="s">&#34;Count the number of the specified `char` in `str`&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">[</span><span class="nb">str </span><span class="nv">char</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">  <span class="p">(</span><span class="nb">reduce </span><span class="o">#</span><span class="p">(</span><span class="k">if </span><span class="p">(</span><span class="nb">= char </span><span class="nv">%2</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">             <span class="p">(</span><span class="nb">+ </span><span class="nv">%1</span> <span class="mi">1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">             <span class="nv">%1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">          <span class="mi">0</span> <span class="nv">str</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl"><span class="c1">;; =&gt; #&#39;user/s-count-char</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">(</span><span class="nf">s-count-char</span> <span class="s">&#34;hello world&#34;</span> <span class="sc">\o</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="c1">;; =&gt; 2</span>
+</span></span><span class="line"><span class="cl"><span class="p">(</span><span class="nf">s-count-char</span> <span class="s">&#34;hello world&#34;</span> <span class="sc">\x</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="c1">;; =&gt; 0</span>
+</span></span><span class="line"><span class="cl"><span class="p">(</span><span class="nf">s-count-char</span> <span class="s">&#34;&#34;</span> <span class="sc">\o</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="c1">;; =&gt; 0</span></span></span></code></pre></div>
 </div>
 </div>
 </div>
@@ -393,41 +393,41 @@ String predicates
 </h2>
 <div id="outline-text-headline-3" class="outline-text-2">
 <div class="src src-clojure">
-<div class="highlight"><pre class="chroma"><code class="language-clojure" data-lang="clojure"><span class="p">(</span><span class="kd">defn </span><span class="nv">s-endswith?</span>
-  <span class="c1">;; or based on clojure.string/ends-with?</span>
-  <span class="p">([</span><span class="nv">s</span> <span class="nv">suffix</span><span class="p">]</span>
-   <span class="p">(</span><span class="nf">s-endswith?</span> <span class="nv">s</span> <span class="nv">suffix</span> <span class="mi">0</span> <span class="p">(</span><span class="nb">count </span><span class="nv">s</span><span class="p">)))</span>
-  <span class="p">([</span><span class="nv">s</span> <span class="nv">suffix</span> <span class="nv">start</span> <span class="nv">end</span><span class="p">]</span>
-   <span class="s">&#34;boundaries are: [start, end)&#34;</span>
-   <span class="p">(</span><span class="k">let </span><span class="p">[</span><span class="nv">start</span> <span class="p">(</span><span class="nb">min </span><span class="nv">start</span> <span class="p">(</span><span class="nb">- </span><span class="p">(</span><span class="nb">count </span><span class="nv">s</span><span class="p">)</span> <span class="mi">1</span><span class="p">))</span>
-         <span class="nv">end</span> <span class="p">(</span><span class="nb">min </span><span class="nv">end</span> <span class="p">(</span><span class="nb">count </span><span class="nv">s</span><span class="p">))]</span>
-     <span class="c1">;; (println start end)</span>
-     <span class="p">(</span><span class="nb">= </span><span class="nv">suffix</span> <span class="p">(</span><span class="nb">subs </span><span class="nv">s</span>
-                     <span class="p">(</span><span class="nb">max </span><span class="nv">start</span> <span class="p">(</span><span class="nb">- </span><span class="nv">end</span> <span class="p">(</span><span class="nb">count </span><span class="nv">suffix</span><span class="p">)))</span>
-                     <span class="nv">end</span><span class="p">)))))</span>
-<span class="c1">;; =&gt; #&#39;user/s-endswith?</span>
-
-<span class="p">(</span><span class="nf">s-endswith?</span> <span class="s">&#34;abc&#34;</span> <span class="s">&#34;bc&#34;</span><span class="p">)</span>
-<span class="c1">;; =&gt; true</span>
-
-<span class="p">(</span><span class="kd">defn </span><span class="nv">s-isalpha</span>
-  <span class="p">[</span><span class="nv">s</span><span class="p">]</span>
-  <span class="p">(</span><span class="k">if </span><span class="p">(</span><span class="nf">empty?</span> <span class="nv">s</span><span class="p">)</span>
-    <span class="nv">false</span>
-    <span class="p">(</span><span class="nb">reduce </span><span class="o">#</span><span class="p">(</span><span class="k">if </span><span class="p">(</span><span class="nb">not </span><span class="nv">%1</span><span class="p">)</span>
-               <span class="nv">false</span>
-               <span class="p">(</span><span class="nb">or </span><span class="p">(</span><span class="nb">&lt;= </span><span class="p">(</span><span class="nb">int </span><span class="sc">\a</span><span class="p">)</span> <span class="p">(</span><span class="nb">int </span><span class="nv">%2</span><span class="p">)</span> <span class="p">(</span><span class="nb">int </span><span class="sc">\z</span><span class="p">))</span>
-                   <span class="p">(</span><span class="nb">&lt;= </span><span class="p">(</span><span class="nb">int </span><span class="sc">\A</span><span class="p">)</span> <span class="p">(</span><span class="nb">int </span><span class="nv">%2</span><span class="p">)</span> <span class="p">(</span><span class="nb">int </span><span class="sc">\Z</span><span class="p">))))</span>
-            <span class="nv">true</span>
-            <span class="nv">s</span><span class="p">)))</span>
-<span class="c1">;; =&gt; #&#39;user/s-isalpha</span>
-
-<span class="p">(</span><span class="nf">s-isalpha</span> <span class="s">&#34;&#34;</span><span class="p">)</span>
-<span class="c1">;; =&gt; false</span>
-<span class="p">(</span><span class="nf">s-isalpha</span> <span class="s">&#34;abcABC&#34;</span><span class="p">)</span>
-<span class="c1">;; =&gt; true</span>
-<span class="p">(</span><span class="nf">s-isalpha</span> <span class="s">&#34;abcABC11&#34;</span><span class="p">)</span>
-<span class="c1">;; =&gt; false</span></code></pre></div>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-clojure" data-lang="clojure"><span class="line"><span class="cl"><span class="p">(</span><span class="kd">defn </span><span class="nv">s-endswith?</span>
+</span></span><span class="line"><span class="cl">  <span class="c1">;; or based on clojure.string/ends-with?</span>
+</span></span><span class="line"><span class="cl">  <span class="p">([</span><span class="nv">s</span> <span class="nv">suffix</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">   <span class="p">(</span><span class="nf">s-endswith?</span> <span class="nv">s</span> <span class="nv">suffix</span> <span class="mi">0</span> <span class="p">(</span><span class="nb">count </span><span class="nv">s</span><span class="p">)))</span>
+</span></span><span class="line"><span class="cl">  <span class="p">([</span><span class="nv">s</span> <span class="nv">suffix</span> <span class="nv">start</span> <span class="nv">end</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">   <span class="s">&#34;boundaries are: [start, end)&#34;</span>
+</span></span><span class="line"><span class="cl">   <span class="p">(</span><span class="k">let </span><span class="p">[</span><span class="nv">start</span> <span class="p">(</span><span class="nb">min </span><span class="nv">start</span> <span class="p">(</span><span class="nb">- </span><span class="p">(</span><span class="nb">count </span><span class="nv">s</span><span class="p">)</span> <span class="mi">1</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">         <span class="nv">end</span> <span class="p">(</span><span class="nb">min </span><span class="nv">end</span> <span class="p">(</span><span class="nb">count </span><span class="nv">s</span><span class="p">))]</span>
+</span></span><span class="line"><span class="cl">     <span class="c1">;; (println start end)</span>
+</span></span><span class="line"><span class="cl">     <span class="p">(</span><span class="nb">= </span><span class="nv">suffix</span> <span class="p">(</span><span class="nb">subs </span><span class="nv">s</span>
+</span></span><span class="line"><span class="cl">                     <span class="p">(</span><span class="nb">max </span><span class="nv">start</span> <span class="p">(</span><span class="nb">- </span><span class="nv">end</span> <span class="p">(</span><span class="nb">count </span><span class="nv">suffix</span><span class="p">)))</span>
+</span></span><span class="line"><span class="cl">                     <span class="nv">end</span><span class="p">)))))</span>
+</span></span><span class="line"><span class="cl"><span class="c1">;; =&gt; #&#39;user/s-endswith?</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">(</span><span class="nf">s-endswith?</span> <span class="s">&#34;abc&#34;</span> <span class="s">&#34;bc&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="c1">;; =&gt; true</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">(</span><span class="kd">defn </span><span class="nv">s-isalpha</span>
+</span></span><span class="line"><span class="cl">  <span class="p">[</span><span class="nv">s</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">  <span class="p">(</span><span class="k">if </span><span class="p">(</span><span class="nf">empty?</span> <span class="nv">s</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nv">false</span>
+</span></span><span class="line"><span class="cl">    <span class="p">(</span><span class="nb">reduce </span><span class="o">#</span><span class="p">(</span><span class="k">if </span><span class="p">(</span><span class="nb">not </span><span class="nv">%1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">               <span class="nv">false</span>
+</span></span><span class="line"><span class="cl">               <span class="p">(</span><span class="nb">or </span><span class="p">(</span><span class="nb">&lt;= </span><span class="p">(</span><span class="nb">int </span><span class="sc">\a</span><span class="p">)</span> <span class="p">(</span><span class="nb">int </span><span class="nv">%2</span><span class="p">)</span> <span class="p">(</span><span class="nb">int </span><span class="sc">\z</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">                   <span class="p">(</span><span class="nb">&lt;= </span><span class="p">(</span><span class="nb">int </span><span class="sc">\A</span><span class="p">)</span> <span class="p">(</span><span class="nb">int </span><span class="nv">%2</span><span class="p">)</span> <span class="p">(</span><span class="nb">int </span><span class="sc">\Z</span><span class="p">))))</span>
+</span></span><span class="line"><span class="cl">            <span class="nv">true</span>
+</span></span><span class="line"><span class="cl">            <span class="nv">s</span><span class="p">)))</span>
+</span></span><span class="line"><span class="cl"><span class="c1">;; =&gt; #&#39;user/s-isalpha</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">(</span><span class="nf">s-isalpha</span> <span class="s">&#34;&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="c1">;; =&gt; false</span>
+</span></span><span class="line"><span class="cl"><span class="p">(</span><span class="nf">s-isalpha</span> <span class="s">&#34;abcABC&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="c1">;; =&gt; true</span>
+</span></span><span class="line"><span class="cl"><span class="p">(</span><span class="nf">s-isalpha</span> <span class="s">&#34;abcABC11&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="c1">;; =&gt; false</span></span></span></code></pre></div>
 </div>
 </div>
 </div>
@@ -437,42 +437,42 @@ Find and replace
 </h2>
 <div id="outline-text-headline-4" class="outline-text-2">
 <div class="src src-clojure">
-<div class="highlight"><pre class="chroma"><code class="language-clojure" data-lang="clojure"><span class="p">(</span><span class="kd">defn </span><span class="nv">s-find</span>
-  <span class="p">([</span><span class="nv">s</span> <span class="nv">sub-str</span><span class="p">]</span>
-   <span class="p">(</span><span class="nf">s-find</span> <span class="nv">s</span> <span class="nv">sub-str</span> <span class="mi">0</span> <span class="p">(</span><span class="nb">count </span><span class="nv">s</span><span class="p">)))</span>
-
-  <span class="p">([</span><span class="nv">s</span> <span class="nv">sub-str</span> <span class="nv">start</span> <span class="nv">end</span><span class="p">]</span>
-   <span class="p">(</span><span class="k">let </span><span class="p">[</span><span class="nv">pos</span> <span class="p">(</span><span class="nf">clojure.string/index-of</span> <span class="nv">s</span>
-                                      <span class="nv">sub-str</span>
-                                      <span class="nv">start</span><span class="p">)]</span>
-     <span class="p">(</span><span class="k">if </span><span class="p">(</span><span class="nb">and </span><span class="nv">pos</span>
-              <span class="p">(</span><span class="nb">&lt;= </span><span class="p">(</span><span class="nb">+ </span><span class="nv">pos</span> <span class="p">(</span><span class="nb">count </span><span class="nv">sub-str</span><span class="p">))</span> <span class="nv">end</span><span class="p">))</span>
-       <span class="nv">pos</span>
-       <span class="mi">-1</span><span class="p">))))</span>
-<span class="c1">;; =&gt; #&#39;user/s-find</span>
-
-<span class="p">(</span><span class="nf">s-find</span> <span class="s">&#34;abc&#34;</span> <span class="s">&#34;a&#34;</span><span class="p">)</span>
-<span class="c1">;; =&gt; 0</span>
-<span class="p">(</span><span class="nf">s-find</span> <span class="s">&#34;abc&#34;</span> <span class="s">&#34;bc&#34;</span><span class="p">)</span>
-<span class="c1">;; =&gt; 1</span>
-
-<span class="p">(</span><span class="kd">defn </span><span class="nv">s-replace</span>
-  <span class="p">[</span><span class="nv">s</span> <span class="nv">match</span> <span class="nv">replacement</span><span class="p">]</span>
-  <span class="p">(</span><span class="nf">clojure.string/replace</span> <span class="nv">s</span> <span class="nv">match</span> <span class="nv">replacement</span><span class="p">))</span>
-<span class="c1">;; =&gt; #&#39;user/s-replace</span>
-
-<span class="c1">;; by char/char</span>
-<span class="p">(</span><span class="nf">s-replace</span> <span class="s">&#34;abc&#34;</span> <span class="sc">\a</span> <span class="sc">\1</span><span class="p">)</span>
-<span class="c1">;; =&gt; 1bc</span>
-<span class="c1">;; by string/string</span>
-<span class="p">(</span><span class="nf">s-replace</span> <span class="s">&#34;abc&#34;</span> <span class="s">&#34;a&#34;</span> <span class="s">&#34;1&#34;</span><span class="p">)</span>
-<span class="c1">;; =&gt; 1bc</span>
-<span class="c1">;; by pattern/string</span>
-<span class="p">(</span><span class="nf">s-replace</span> <span class="s">&#34;abc&#34;</span> <span class="o">#</span><span class="s">&#34;[a-z]&#34;</span> <span class="s">&#34;1&#34;</span><span class="p">)</span>
-<span class="c1">;; =&gt; 111</span>
-<span class="c1">;; by pattern/function</span>
-<span class="p">(</span><span class="nf">s-replace</span> <span class="s">&#34;abc&#34;</span> <span class="o">#</span><span class="s">&#34;[a-z]&#34;</span> <span class="o">#</span><span class="p">(</span><span class="nf">clojure.string/upper-case</span> <span class="nv">%1</span><span class="p">))</span>
-<span class="c1">;; =&gt; ABC</span></code></pre></div>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-clojure" data-lang="clojure"><span class="line"><span class="cl"><span class="p">(</span><span class="kd">defn </span><span class="nv">s-find</span>
+</span></span><span class="line"><span class="cl">  <span class="p">([</span><span class="nv">s</span> <span class="nv">sub-str</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">   <span class="p">(</span><span class="nf">s-find</span> <span class="nv">s</span> <span class="nv">sub-str</span> <span class="mi">0</span> <span class="p">(</span><span class="nb">count </span><span class="nv">s</span><span class="p">)))</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="p">([</span><span class="nv">s</span> <span class="nv">sub-str</span> <span class="nv">start</span> <span class="nv">end</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">   <span class="p">(</span><span class="k">let </span><span class="p">[</span><span class="nv">pos</span> <span class="p">(</span><span class="nf">clojure.string/index-of</span> <span class="nv">s</span>
+</span></span><span class="line"><span class="cl">                                      <span class="nv">sub-str</span>
+</span></span><span class="line"><span class="cl">                                      <span class="nv">start</span><span class="p">)]</span>
+</span></span><span class="line"><span class="cl">     <span class="p">(</span><span class="k">if </span><span class="p">(</span><span class="nb">and </span><span class="nv">pos</span>
+</span></span><span class="line"><span class="cl">              <span class="p">(</span><span class="nb">&lt;= </span><span class="p">(</span><span class="nb">+ </span><span class="nv">pos</span> <span class="p">(</span><span class="nb">count </span><span class="nv">sub-str</span><span class="p">))</span> <span class="nv">end</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">       <span class="nv">pos</span>
+</span></span><span class="line"><span class="cl">       <span class="mi">-1</span><span class="p">))))</span>
+</span></span><span class="line"><span class="cl"><span class="c1">;; =&gt; #&#39;user/s-find</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">(</span><span class="nf">s-find</span> <span class="s">&#34;abc&#34;</span> <span class="s">&#34;a&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="c1">;; =&gt; 0</span>
+</span></span><span class="line"><span class="cl"><span class="p">(</span><span class="nf">s-find</span> <span class="s">&#34;abc&#34;</span> <span class="s">&#34;bc&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="c1">;; =&gt; 1</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">(</span><span class="kd">defn </span><span class="nv">s-replace</span>
+</span></span><span class="line"><span class="cl">  <span class="p">[</span><span class="nv">s</span> <span class="nv">match</span> <span class="nv">replacement</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">  <span class="p">(</span><span class="nf">clojure.string/replace</span> <span class="nv">s</span> <span class="nv">match</span> <span class="nv">replacement</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl"><span class="c1">;; =&gt; #&#39;user/s-replace</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">;; by char/char</span>
+</span></span><span class="line"><span class="cl"><span class="p">(</span><span class="nf">s-replace</span> <span class="s">&#34;abc&#34;</span> <span class="sc">\a</span> <span class="sc">\1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="c1">;; =&gt; 1bc</span>
+</span></span><span class="line"><span class="cl"><span class="c1">;; by string/string</span>
+</span></span><span class="line"><span class="cl"><span class="p">(</span><span class="nf">s-replace</span> <span class="s">&#34;abc&#34;</span> <span class="s">&#34;a&#34;</span> <span class="s">&#34;1&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="c1">;; =&gt; 1bc</span>
+</span></span><span class="line"><span class="cl"><span class="c1">;; by pattern/string</span>
+</span></span><span class="line"><span class="cl"><span class="p">(</span><span class="nf">s-replace</span> <span class="s">&#34;abc&#34;</span> <span class="o">#</span><span class="s">&#34;[a-z]&#34;</span> <span class="s">&#34;1&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="c1">;; =&gt; 111</span>
+</span></span><span class="line"><span class="cl"><span class="c1">;; by pattern/function</span>
+</span></span><span class="line"><span class="cl"><span class="p">(</span><span class="nf">s-replace</span> <span class="s">&#34;abc&#34;</span> <span class="o">#</span><span class="s">&#34;[a-z]&#34;</span> <span class="o">#</span><span class="p">(</span><span class="nf">clojure.string/upper-case</span> <span class="nv">%1</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl"><span class="c1">;; =&gt; ABC</span></span></span></code></pre></div>
 </div>
 </div>
 </div>
@@ -482,107 +482,107 @@ String transformation
 </h2>
 <div id="outline-text-headline-5" class="outline-text-2">
 <div class="src src-clojure">
-<div class="highlight"><pre class="chroma"><code class="language-clojure" data-lang="clojure"><span class="p">(</span><span class="kd">defn </span><span class="nv">s-center</span>
-  <span class="p">[</span><span class="nv">s</span> <span class="nv">width</span> <span class="nv">fillchar</span><span class="p">]</span>
-  <span class="p">(</span><span class="k">let </span><span class="p">[</span><span class="nv">len</span> <span class="p">(</span><span class="nb">count </span><span class="nv">s</span><span class="p">)]</span>
-    <span class="p">(</span><span class="k">if </span><span class="p">(</span><span class="nb">&lt;= </span><span class="nv">width</span> <span class="nv">len</span><span class="p">)</span>
-      <span class="nv">s</span>
-      <span class="p">(</span><span class="k">let </span><span class="p">[</span><span class="nv">llen</span> <span class="p">(</span><span class="nb">int </span><span class="p">(</span><span class="nb">/ </span><span class="p">(</span><span class="nb">- </span><span class="nv">width</span> <span class="nv">len</span><span class="p">)</span> <span class="mi">2</span><span class="p">))</span>
-            <span class="nv">rlen</span> <span class="p">(</span><span class="nb">- </span><span class="nv">width</span> <span class="nv">len</span> <span class="nv">llen</span><span class="p">)]</span>
-        <span class="p">(</span><span class="nb">str </span><span class="p">(</span><span class="nf">clojure.string/join</span> <span class="p">(</span><span class="nb">repeat </span><span class="nv">llen</span> <span class="nv">fillchar</span><span class="p">))</span>
-             <span class="nv">s</span>
-             <span class="p">(</span><span class="nf">clojure.string/join</span> <span class="p">(</span><span class="nb">repeat </span><span class="nv">rlen</span> <span class="nv">fillchar</span><span class="p">)))))))</span>
-<span class="c1">;; =&gt; #&#39;user/s-center</span>
-
-<span class="p">(</span><span class="nf">s-center</span> <span class="s">&#34;hello&#34;</span> <span class="mi">10</span> <span class="sc">\x</span><span class="p">)</span>
-<span class="c1">;; =&gt; xxhelloxxx</span>
-
-<span class="p">(</span><span class="kd">defn </span><span class="nv">s-expandtabs</span>
-  <span class="p">([</span><span class="nv">s</span><span class="p">]</span>
-   <span class="p">(</span><span class="nf">s-expandtabs</span> <span class="nv">s</span> <span class="mi">8</span><span class="p">))</span>
-  <span class="p">([</span><span class="nv">s</span> <span class="nv">tabsize</span><span class="p">]</span>
-   <span class="p">(</span><span class="nf">second</span>
-    <span class="p">(</span><span class="nb">reduce </span><span class="p">(</span><span class="k">fn </span><span class="p">[</span><span class="nv">state</span> <span class="nv">char</span><span class="p">]</span>
-              <span class="p">(</span><span class="k">if </span><span class="p">(</span><span class="nb">not= </span><span class="sc">\t</span><span class="nv">ab</span> <span class="nv">char</span><span class="p">)</span>
-                <span class="p">[(</span><span class="nb">+ </span><span class="mi">1</span> <span class="p">(</span><span class="nb">first </span><span class="nv">state</span><span class="p">))</span> <span class="p">(</span><span class="nb">str </span><span class="p">(</span><span class="nb">second </span><span class="nv">state</span><span class="p">)</span> <span class="nv">char</span><span class="p">)]</span>
-                <span class="p">(</span><span class="k">let </span><span class="p">[</span><span class="nv">cur-index</span> <span class="p">(</span><span class="nb">first </span><span class="nv">state</span><span class="p">)</span>
-                      <span class="nv">next-index</span> <span class="p">(</span><span class="nb">+ </span><span class="nv">cur-index</span> <span class="p">(</span><span class="nb">- </span><span class="nv">tabsize</span> <span class="p">(</span><span class="nb">rem </span><span class="nv">cur-index</span> <span class="nv">tabsize</span><span class="p">)))</span>
-                      <span class="nv">nspaces</span> <span class="p">(</span><span class="nb">- </span><span class="nv">next-index</span> <span class="nv">cur-index</span><span class="p">)]</span>
-                  <span class="p">[</span><span class="nv">next-index</span> <span class="p">(</span><span class="nb">str </span><span class="p">(</span><span class="nb">second </span><span class="nv">state</span><span class="p">)</span>
-                                   <span class="p">(</span><span class="nf">clojure.string/join</span> <span class="p">(</span><span class="nb">repeat </span><span class="nv">nspaces</span> <span class="sc">\s</span><span class="nv">pace</span><span class="p">)))])))</span>
-            <span class="p">[</span><span class="mi">0</span> <span class="s">&#34;&#34;</span><span class="p">]</span>
-            <span class="nv">s</span><span class="p">))))</span>
-<span class="c1">;; =&gt; #&#39;user/s-expandtabs</span>
-
-<span class="p">(</span><span class="nf">s-expandtabs</span> <span class="s">&#34;\ta&#34;</span><span class="p">)</span>
-<span class="c1">;; =&gt;         a</span>
-<span class="p">(</span><span class="nf">s-expandtabs</span> <span class="s">&#34;a\tb&#34;</span> <span class="mi">2</span><span class="p">)</span>
-<span class="c1">;; =&gt; a b</span>
-<span class="p">(</span><span class="nf">s-expandtabs</span> <span class="s">&#34;a\t\tb&#34;</span> <span class="mi">2</span><span class="p">)</span>
-<span class="c1">;; =&gt; a   b</span>
-<span class="p">(</span><span class="nb">count </span><span class="p">(</span><span class="nf">s-expandtabs</span> <span class="s">&#34;a\tb&#34;</span> <span class="mi">2</span><span class="p">))</span>
-<span class="c1">;; =&gt; 3</span>
-<span class="p">(</span><span class="nb">count </span><span class="p">(</span><span class="nf">s-expandtabs</span> <span class="s">&#34;a\t\tb&#34;</span> <span class="mi">2</span><span class="p">))</span>
-<span class="c1">;; =&gt; 5</span>
-
-<span class="c1">;; in a idiomatic way</span>
-<span class="p">(</span><span class="kd">defn </span><span class="nv">title-case-idiomatic</span>
-  <span class="p">[</span><span class="nv">str</span><span class="p">]</span>
-  <span class="p">(</span><span class="nf">clojure.string/join</span> <span class="s">&#34; &#34;</span>
-                       <span class="p">(</span><span class="nb">map </span><span class="o">#</span><span class="p">(</span><span class="nf">clojure.string/capitalize</span> <span class="nv">%</span><span class="p">)</span>
-                            <span class="p">(</span><span class="nf">clojure.string/split</span> <span class="nb">str </span><span class="o">#</span><span class="s">&#34; +&#34;</span><span class="p">))))</span>
-<span class="c1">;; =&gt; #&#39;user/title-case-idiomatic</span>
-
-<span class="p">(</span><span class="nf">title-case-idiomatic</span> <span class="s">&#34; hello world &#34;</span><span class="p">)</span>
-<span class="c1">;; =&gt;  Hello World</span>
-
-<span class="c1">;; a.upper()</span>
-<span class="p">(</span><span class="kd">defn </span><span class="nv">s-upper</span>
-  <span class="p">[</span><span class="nv">str</span><span class="p">]</span>
-  <span class="p">(</span><span class="nf">clojure.string/upper-case</span> <span class="nv">str</span><span class="p">))</span>
-<span class="c1">;; =&gt; #&#39;user/s-upper</span>
-
-<span class="p">(</span><span class="nf">s-upper</span> <span class="s">&#34;hello&#34;</span><span class="p">)</span>
-<span class="c1">;; =&gt; HELLO</span>
-
-<span class="p">(</span><span class="kd">defn </span><span class="nv">s-lower</span>
-  <span class="p">[</span><span class="nv">str</span><span class="p">]</span>
-  <span class="p">(</span><span class="nf">clojure.string/lower-case</span> <span class="nv">str</span><span class="p">))</span>
-<span class="c1">;; =&gt; #&#39;user/s-lower</span>
-
-<span class="p">(</span><span class="nf">s-lower</span> <span class="s">&#34;ABc&#34;</span><span class="p">)</span>
-<span class="c1">;; =&gt; abc</span>
-
-<span class="p">(</span><span class="kd">defn </span><span class="nv">s-capitalize</span> <span class="p">[</span><span class="nv">str</span><span class="p">]</span>
-  <span class="p">(</span><span class="nf">clojure.string/capitalize</span> <span class="nv">str</span><span class="p">))</span>
-<span class="c1">;; =&gt; #&#39;user/s-capitalize</span>
-
-<span class="p">(</span><span class="nf">s-capitalize</span> <span class="s">&#34;abc DEf&#34;</span><span class="p">)</span>
-<span class="c1">;; =&gt; Abc def</span>
-
-<span class="p">(</span><span class="kd">defn </span><span class="nv">s-lstrip</span>
-  <span class="p">[</span><span class="nv">str</span><span class="p">]</span>
-  <span class="p">(</span><span class="nf">clojure.string/triml</span> <span class="nv">str</span><span class="p">))</span>
-<span class="c1">;; =&gt; #&#39;user/s-lstrip</span>
-
-<span class="p">(</span><span class="nf">s-lstrip</span> <span class="s">&#34;  cde .&#34;</span><span class="p">)</span>
-<span class="c1">;; =&gt; cde .</span>
-
-<span class="p">(</span><span class="kd">defn </span><span class="nv">s-rstrip</span>
-  <span class="p">[</span><span class="nv">str</span><span class="p">]</span>
-  <span class="p">(</span><span class="nf">clojure.string/trimr</span> <span class="nv">str</span><span class="p">))</span>
-<span class="c1">;; =&gt; #&#39;user/s-rstrip</span>
-
-<span class="p">(</span><span class="nf">s-rstrip</span> <span class="s">&#34;  cde &#34;</span><span class="p">)</span>
-<span class="c1">;; =&gt;   cde</span>
-
-<span class="p">(</span><span class="kd">defn </span><span class="nv">s-strip</span>
-  <span class="p">[</span><span class="nv">str</span><span class="p">]</span>
-  <span class="p">(</span><span class="nf">clojure.string/trim</span> <span class="nv">str</span><span class="p">))</span>
-<span class="c1">;; =&gt; #&#39;user/s-strip</span>
-
-<span class="p">(</span><span class="nf">s-strip</span> <span class="s">&#34;  cde &#34;</span><span class="p">)</span>
-<span class="c1">;; =&gt; cde</span></code></pre></div>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-clojure" data-lang="clojure"><span class="line"><span class="cl"><span class="p">(</span><span class="kd">defn </span><span class="nv">s-center</span>
+</span></span><span class="line"><span class="cl">  <span class="p">[</span><span class="nv">s</span> <span class="nv">width</span> <span class="nv">fillchar</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">  <span class="p">(</span><span class="k">let </span><span class="p">[</span><span class="nv">len</span> <span class="p">(</span><span class="nb">count </span><span class="nv">s</span><span class="p">)]</span>
+</span></span><span class="line"><span class="cl">    <span class="p">(</span><span class="k">if </span><span class="p">(</span><span class="nb">&lt;= </span><span class="nv">width</span> <span class="nv">len</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">      <span class="nv">s</span>
+</span></span><span class="line"><span class="cl">      <span class="p">(</span><span class="k">let </span><span class="p">[</span><span class="nv">llen</span> <span class="p">(</span><span class="nb">int </span><span class="p">(</span><span class="nb">/ </span><span class="p">(</span><span class="nb">- </span><span class="nv">width</span> <span class="nv">len</span><span class="p">)</span> <span class="mi">2</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">            <span class="nv">rlen</span> <span class="p">(</span><span class="nb">- </span><span class="nv">width</span> <span class="nv">len</span> <span class="nv">llen</span><span class="p">)]</span>
+</span></span><span class="line"><span class="cl">        <span class="p">(</span><span class="nb">str </span><span class="p">(</span><span class="nf">clojure.string/join</span> <span class="p">(</span><span class="nb">repeat </span><span class="nv">llen</span> <span class="nv">fillchar</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">             <span class="nv">s</span>
+</span></span><span class="line"><span class="cl">             <span class="p">(</span><span class="nf">clojure.string/join</span> <span class="p">(</span><span class="nb">repeat </span><span class="nv">rlen</span> <span class="nv">fillchar</span><span class="p">)))))))</span>
+</span></span><span class="line"><span class="cl"><span class="c1">;; =&gt; #&#39;user/s-center</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">(</span><span class="nf">s-center</span> <span class="s">&#34;hello&#34;</span> <span class="mi">10</span> <span class="sc">\x</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="c1">;; =&gt; xxhelloxxx</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">(</span><span class="kd">defn </span><span class="nv">s-expandtabs</span>
+</span></span><span class="line"><span class="cl">  <span class="p">([</span><span class="nv">s</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">   <span class="p">(</span><span class="nf">s-expandtabs</span> <span class="nv">s</span> <span class="mi">8</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">  <span class="p">([</span><span class="nv">s</span> <span class="nv">tabsize</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">   <span class="p">(</span><span class="nf">second</span>
+</span></span><span class="line"><span class="cl">    <span class="p">(</span><span class="nb">reduce </span><span class="p">(</span><span class="k">fn </span><span class="p">[</span><span class="nv">state</span> <span class="nv">char</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">              <span class="p">(</span><span class="k">if </span><span class="p">(</span><span class="nb">not= </span><span class="sc">\t</span><span class="nv">ab</span> <span class="nv">char</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                <span class="p">[(</span><span class="nb">+ </span><span class="mi">1</span> <span class="p">(</span><span class="nb">first </span><span class="nv">state</span><span class="p">))</span> <span class="p">(</span><span class="nb">str </span><span class="p">(</span><span class="nb">second </span><span class="nv">state</span><span class="p">)</span> <span class="nv">char</span><span class="p">)]</span>
+</span></span><span class="line"><span class="cl">                <span class="p">(</span><span class="k">let </span><span class="p">[</span><span class="nv">cur-index</span> <span class="p">(</span><span class="nb">first </span><span class="nv">state</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                      <span class="nv">next-index</span> <span class="p">(</span><span class="nb">+ </span><span class="nv">cur-index</span> <span class="p">(</span><span class="nb">- </span><span class="nv">tabsize</span> <span class="p">(</span><span class="nb">rem </span><span class="nv">cur-index</span> <span class="nv">tabsize</span><span class="p">)))</span>
+</span></span><span class="line"><span class="cl">                      <span class="nv">nspaces</span> <span class="p">(</span><span class="nb">- </span><span class="nv">next-index</span> <span class="nv">cur-index</span><span class="p">)]</span>
+</span></span><span class="line"><span class="cl">                  <span class="p">[</span><span class="nv">next-index</span> <span class="p">(</span><span class="nb">str </span><span class="p">(</span><span class="nb">second </span><span class="nv">state</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                                   <span class="p">(</span><span class="nf">clojure.string/join</span> <span class="p">(</span><span class="nb">repeat </span><span class="nv">nspaces</span> <span class="sc">\s</span><span class="nv">pace</span><span class="p">)))])))</span>
+</span></span><span class="line"><span class="cl">            <span class="p">[</span><span class="mi">0</span> <span class="s">&#34;&#34;</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">            <span class="nv">s</span><span class="p">))))</span>
+</span></span><span class="line"><span class="cl"><span class="c1">;; =&gt; #&#39;user/s-expandtabs</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">(</span><span class="nf">s-expandtabs</span> <span class="s">&#34;\ta&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="c1">;; =&gt;         a</span>
+</span></span><span class="line"><span class="cl"><span class="p">(</span><span class="nf">s-expandtabs</span> <span class="s">&#34;a\tb&#34;</span> <span class="mi">2</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="c1">;; =&gt; a b</span>
+</span></span><span class="line"><span class="cl"><span class="p">(</span><span class="nf">s-expandtabs</span> <span class="s">&#34;a\t\tb&#34;</span> <span class="mi">2</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="c1">;; =&gt; a   b</span>
+</span></span><span class="line"><span class="cl"><span class="p">(</span><span class="nb">count </span><span class="p">(</span><span class="nf">s-expandtabs</span> <span class="s">&#34;a\tb&#34;</span> <span class="mi">2</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl"><span class="c1">;; =&gt; 3</span>
+</span></span><span class="line"><span class="cl"><span class="p">(</span><span class="nb">count </span><span class="p">(</span><span class="nf">s-expandtabs</span> <span class="s">&#34;a\t\tb&#34;</span> <span class="mi">2</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl"><span class="c1">;; =&gt; 5</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">;; in a idiomatic way</span>
+</span></span><span class="line"><span class="cl"><span class="p">(</span><span class="kd">defn </span><span class="nv">title-case-idiomatic</span>
+</span></span><span class="line"><span class="cl">  <span class="p">[</span><span class="nv">str</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">  <span class="p">(</span><span class="nf">clojure.string/join</span> <span class="s">&#34; &#34;</span>
+</span></span><span class="line"><span class="cl">                       <span class="p">(</span><span class="nb">map </span><span class="o">#</span><span class="p">(</span><span class="nf">clojure.string/capitalize</span> <span class="nv">%</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                            <span class="p">(</span><span class="nf">clojure.string/split</span> <span class="nb">str </span><span class="o">#</span><span class="s">&#34; +&#34;</span><span class="p">))))</span>
+</span></span><span class="line"><span class="cl"><span class="c1">;; =&gt; #&#39;user/title-case-idiomatic</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">(</span><span class="nf">title-case-idiomatic</span> <span class="s">&#34; hello world &#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="c1">;; =&gt;  Hello World</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">;; a.upper()</span>
+</span></span><span class="line"><span class="cl"><span class="p">(</span><span class="kd">defn </span><span class="nv">s-upper</span>
+</span></span><span class="line"><span class="cl">  <span class="p">[</span><span class="nv">str</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">  <span class="p">(</span><span class="nf">clojure.string/upper-case</span> <span class="nv">str</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl"><span class="c1">;; =&gt; #&#39;user/s-upper</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">(</span><span class="nf">s-upper</span> <span class="s">&#34;hello&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="c1">;; =&gt; HELLO</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">(</span><span class="kd">defn </span><span class="nv">s-lower</span>
+</span></span><span class="line"><span class="cl">  <span class="p">[</span><span class="nv">str</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">  <span class="p">(</span><span class="nf">clojure.string/lower-case</span> <span class="nv">str</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl"><span class="c1">;; =&gt; #&#39;user/s-lower</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">(</span><span class="nf">s-lower</span> <span class="s">&#34;ABc&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="c1">;; =&gt; abc</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">(</span><span class="kd">defn </span><span class="nv">s-capitalize</span> <span class="p">[</span><span class="nv">str</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">  <span class="p">(</span><span class="nf">clojure.string/capitalize</span> <span class="nv">str</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl"><span class="c1">;; =&gt; #&#39;user/s-capitalize</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">(</span><span class="nf">s-capitalize</span> <span class="s">&#34;abc DEf&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="c1">;; =&gt; Abc def</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">(</span><span class="kd">defn </span><span class="nv">s-lstrip</span>
+</span></span><span class="line"><span class="cl">  <span class="p">[</span><span class="nv">str</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">  <span class="p">(</span><span class="nf">clojure.string/triml</span> <span class="nv">str</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl"><span class="c1">;; =&gt; #&#39;user/s-lstrip</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">(</span><span class="nf">s-lstrip</span> <span class="s">&#34;  cde .&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="c1">;; =&gt; cde .</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">(</span><span class="kd">defn </span><span class="nv">s-rstrip</span>
+</span></span><span class="line"><span class="cl">  <span class="p">[</span><span class="nv">str</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">  <span class="p">(</span><span class="nf">clojure.string/trimr</span> <span class="nv">str</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl"><span class="c1">;; =&gt; #&#39;user/s-rstrip</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">(</span><span class="nf">s-rstrip</span> <span class="s">&#34;  cde &#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="c1">;; =&gt;   cde</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">(</span><span class="kd">defn </span><span class="nv">s-strip</span>
+</span></span><span class="line"><span class="cl">  <span class="p">[</span><span class="nv">str</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">  <span class="p">(</span><span class="nf">clojure.string/trim</span> <span class="nv">str</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl"><span class="c1">;; =&gt; #&#39;user/s-strip</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">(</span><span class="nf">s-strip</span> <span class="s">&#34;  cde &#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="c1">;; =&gt; cde</span></span></span></code></pre></div>
 </div>
 </div>
 </div>
@@ -594,17 +594,11 @@ A very brief summary
 <p>
 There are three string APIs in Clojure, and you can find them briefly at <a href="https://clojure.org/api/cheatsheet:">https://clojure.org/api/cheatsheet:</a></p>
 <ol>
-<li>
-<p>core API, e.g. <a href="https://clojuredocs.org/clojure_core/clojure.core/count">count</a>, <a href="https://clojuredocs.org/clojure_core/clojure.core/str">str</a>.</p>
-</li>
-<li>
-<p>clojure/string, e.g. <a href="https://clojuredocs.org/clojure_core/clojure.string/join">join</a></p>
-</li>
-<li>
-<p>Java API, e.g. <code class="verbatim">(.toUpperCase &#34;abc&#34;)</code></p>
-<p>
-<strong><strong>Try</strong></strong> not to use these APIs as they are JVM-specific, which means they are not portable for JS or CLR runtime.</p>
-</li>
+<li>core API, e.g. <a href="https://clojuredocs.org/clojure_core/clojure.core/count">count</a>, <a href="https://clojuredocs.org/clojure_core/clojure.core/str">str</a>.</li>
+<li>clojure/string, e.g. <a href="https://clojuredocs.org/clojure_core/clojure.string/join">join</a></li>
+<li>Java API, e.g. <code class="verbatim">(.toUpperCase &#34;abc&#34;)</code>
+
+<strong><strong>Try</strong></strong> not to use these APIs as they are JVM-specific, which means they are not portable for JS or CLR runtime.</li>
 </ol>
 <p>By the way, if you&#39;re wondering how to add the evaluation result for the code snippets above, you are not alone. You can try my <a href="/blog/2021-08-07-illustrate-clojure-snippet/">illustrate.clj</a>, a babashka script to add the comments quickly.</p>
 </div>
@@ -726,7 +720,7 @@ There are three string APIs in Clojure, and you can find them briefly at <a href
           <div class="disqus-comments">
             <div id="disqus_thread"></div>
 <script type="application/javascript">
-    var disqus_config = function () {
+    window.disqus_config = function () {
     
     
     
@@ -834,7 +828,7 @@ There are three string APIs in Clojure, and you can find them briefly at <a href
         </p>
         
         <p class="credits theme-by text-muted">
-          <a href="https://gohugo.io">Hugo v0.80.0</a> powered &nbsp;&bull;&nbsp; Theme <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> adapted from <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
+          <a href="https://gohugo.io">Hugo v0.93.3</a> powered &nbsp;&bull;&nbsp; Theme <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> adapted from <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
           
         </p>
       </div>

@@ -1,0 +1,713 @@
+<!DOCTYPE html>
+<html lang="zh-cn" itemscope itemtype="http://schema.org/WebPage">
+  <head>
+    
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+
+
+
+  
+
+  <title>RIME 小鹤双拼快速设置 - whatacold 的空间</title>
+  <meta name="description" content="RIME 输入引擎 如果你也使用 Linux 操作系统，那么 RIME 输入法基本是必备的。它开源、跨平台，支持各种输入方案；无服务器，不会泄漏你的输入数据。但同时相比各个">
+  <meta name="author" content="whatacold"/><script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "WebSite",
+    "name": "whatacold 的空间",
+    
+    "url": "https:\/\/whatacold.io"
+}
+</script><script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Organization",
+  "name": "",
+  "url": "https:\/\/whatacold.io"
+  
+  
+  
+  
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "item": {
+          "@id": "https:\/\/whatacold.io",
+          "name": "home"
+        }
+    },{
+        "@type": "ListItem",
+        "position": 3,
+        "item": {
+          "@id": "https:\/\/whatacold.io\/zh-cn\/blog\/2022-10-04-rime-double-pinyin-flypy\/",
+          "name": "Rime 小鹤双拼快速设置"
+        }
+    }]
+}
+</script><script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Article",
+  "author": {
+    "name" : "whatacold"
+  },
+  "headline": "RIME 小鹤双拼快速设置",
+  "description" : "RIME 输入引擎 如果你也使用 Linux 操作系统，那么 RIME 输入法基本是必备的。它开源、跨平台，支持各种输入方案；无服务器，不会泄漏你的输入数据。但同时相比各个",
+  "inLanguage" : "zh-cn",
+  "wordCount":  1643 ,
+  "datePublished" : "2022-10-04T15:44:54",
+  "dateModified" : "2022-10-04T15:44:54",
+  "image" : "https:\/\/whatacold.io\/img\/avatar.png",
+  "keywords" : [ "Linux, Rime" ],
+  "mainEntityOfPage" : "https:\/\/whatacold.io\/zh-cn\/blog\/2022-10-04-rime-double-pinyin-flypy\/",
+  "publisher" : {
+    "@type": "Organization",
+    "name" : "https:\/\/whatacold.io",
+    "logo" : {
+        "@type" : "ImageObject",
+        "url" : "https:\/\/whatacold.io\/img\/avatar.png",
+        "height" :  60 ,
+        "width" :  60
+    }
+  }
+}
+</script>
+
+<meta property="og:title" content="RIME 小鹤双拼快速设置" />
+<meta property="og:description" content="RIME 输入引擎 如果你也使用 Linux 操作系统，那么 RIME 输入法基本是必备的。它开源、跨平台，支持各种输入方案；无服务器，不会泄漏你的输入数据。但同时相比各个">
+<meta property="og:image" content="https://whatacold.io/img/avatar.png" />
+<meta property="og:url" content="https://whatacold.io/zh-cn/blog/2022-10-04-rime-double-pinyin-flypy/" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="whatacold 的空间" />
+
+  <meta name="twitter:title" content="RIME 小鹤双拼快速设置" />
+  <meta name="twitter:description" content="RIME 输入引擎 如果你也使用 Linux 操作系统，那么 RIME 输入法基本是必备的。它开源、跨平台，支持各种输入方案；无服务器，不会泄漏你的输入数据。但同时相比各个">
+  <meta name="twitter:image" content="https://whatacold.io/img/avatar.png" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@whatacold" />
+  <meta name="twitter:creator" content="@whatacold" />
+  <link href='https://whatacold.io/img/favicon.ico' rel='icon' type='image/x-icon'/>
+  <meta name="generator" content="Hugo 0.93.3" />
+  <link rel="alternate" href="https://whatacold.io/zh-cn/index.xml" type="application/rss+xml" title="whatacold 的空间"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"><link rel="stylesheet" href="https://whatacold.io/css/main.css" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
+  <link rel="stylesheet" href="https://whatacold.io/css/highlight.min.css" /><link rel="stylesheet" href="https://whatacold.io/css/codeblock.css" /><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.css" integrity="sha384-h/L2W9KefUClHWaty3SLE5F/qvc4djlyR4qY3NUV5HGQBBW7stbcfff1+I/vmsHh" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/default-skin/default-skin.min.css" integrity="sha384-iD0dNku6PYSIQLyfTOpB06F2KCZJAKLOThS5HRe8b3ibhdEQ6eKsFf/EeFxdOt5R" crossorigin="anonymous">
+
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-74588785-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+  </head>
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">切换导航</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://whatacold.io/zh-cn/">whatacold 的空间</a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+          
+            <li>
+              <a title="博客" href="/zh-cn">博客</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="标签" href="/zh-cn/tags">标签</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="关于" href="/zh-cn/about/">关于</a>
+            </li>
+          
+        
+
+        
+          
+            <li>
+              
+                
+                  <a href="/en" lang="en">English</a>
+                
+              
+                
+              
+            </li>
+          
+        
+
+        
+      </ul>
+    </div>
+
+    
+      <div class="avatar-container">
+        <div class="avatar-img-border">
+          <a title="whatacold 的空间" href="https://whatacold.io/zh-cn/">
+            <img class="avatar-img" src="https://whatacold.io/img/avatar.png" alt="whatacold 的空间" />
+          </a>
+        </div>
+      </div>
+    
+
+  </div>
+</nav>
+
+
+
+
+    
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+  
+  
+  
+
+
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    <div class="intro-header no-img">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <div class="blog-heading">
+              
+                <h1>RIME 小鹤双拼快速设置</h1>
+              
+              
+                <hr class="small">
+              
+              
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+    
+<div class="container" role="main">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+      <article role="main" class="blog-post">
+        
+<figure>
+<img src="/img/2022-10-04-rime.png" alt="/img/2022-10-04-rime.png" title="/img/2022-10-04-rime.png" /><figcaption>
+RIME 输入引擎
+</figcaption>
+</figure>
+<p>
+如果你也使用 Linux 操作系统，那么 RIME 输入法基本是必备的。它开源、跨平台，支持各种输入方案；无服务器，不会泄漏你的输入数据。但同时相比各个商业公司的输入法方案来说，它的配置略显麻烦，没有图形界面，我曾经也一度不会配置；另外就是它默认词汇很少，也不会实时更新，这样会对我们的输入效率有一定影响。</p>
+<p>
+不过不用担心，本篇文章中我们就来快速设置一个 RIME 的小鹤双拼输入方案。这里，我们先就 RIME 的配置文件做个简单的介绍，然后介绍一下如何快速配置极简的小鹤双拼，以及如何增加词库。</p>
+<p>
+本文以 Linux 平台为例进行说明，其他平台大同小异，不做额外说明；如果你发现有啥叙述不恰当的，欢迎留言指正。</p>
+<p>
+本文使用的 RIME 版本是 1.7.3 ， ibus-rime 版本 1.5.0 ， installation.yaml 的内容如下：</p>
+<pre class="example">
+distribution_code_name: &#34;ibus-rime&#34;
+distribution_name: Rime
+distribution_version: 1.5.0
+install_time: &#34;Sat Nov 20 15:23:37 2021&#34;
+installation_id: &#34;ce4422b3-b133-4287-8de1-dcf6b4487c4d&#34;
+rime_version: 1.7.3
+update_time: &#34;Mon Sep 12 14:52:33 2022&#34;
+</pre>
+<div id="outline-container-headline-1" class="outline-2">
+<h2 id="headline-1">
+配置文件格式及惯例说明
+</h2>
+<div id="outline-text-headline-1" class="outline-text-2">
+<p>
+RIME 的配置文件采用 <a href="https://zh.m.wikipedia.org/zh/YAML">YAML</a> 格式，它的内容以“树状”形式来组织；当某个节点需要包含多个配置时，就需要多一级节点进行配置，语法上通过在当前节点末尾添加英文冒号 <code class="verbatim">:</code> 来表示多一层缩进。例如这样：</p>
+<div class="src src-yaml">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="c"># 启用两个输入方案</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">schema_list</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">schema</span><span class="p">:</span><span class="w"> </span><span class="l">double_pinyin_flypy</span><span class="w"> </span><span class="c"># 小鹤</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">schema</span><span class="p">:</span><span class="w"> </span><span class="l">luna_pinyin        </span><span class="w"> </span><span class="c"># 明月拼音</span></span></span></code></pre></div>
+</div>
+<p>
+RIME 的配置虽然都是 YAML 格式，但是为了区分，它对文件名和内容有一些惯例，或者说约定。</p>
+<p>
+它要求用户自定义的配置文件需要在扩展名之外添加 <code class="verbatim">.custom</code> ，即以 <code class="verbatim">.custom.yaml</code> 结尾。比如我们想更改默认配置文件 <code class="verbatim">default.yaml</code> ，那么我们应该修改 <code class="verbatim">default.custom.yaml</code> 这个文件，默认的配置文件不要去动它。</p>
+<p>
+自定义配置除了文件名有差异之外，它的配置项也比默认的配置多一个层级，需要统一放在 <code class="verbatim">patch</code> 节点之下。比如默认的 <code class="verbatim">schema_list</code> 需要变成 <code class="verbatim">patch/schema_list</code> ，如下所示：</p>
+<div class="src src-yaml">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">patch</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="c"># 只使用一个两个输入方案</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">schema_list</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="nt">schema</span><span class="p">:</span><span class="w"> </span><span class="l">double_pinyin_flypy</span></span></span></code></pre></div>
+</div>
+<p>
+RIME 支持很多的输入方案，每个方案有自己的 id ，也有自己的配置文件，文件名格式为 <code class="verbatim">$id.yaml</code> ；相应的自定义配置文件就是 <code class="verbatim">$id.custom.yaml</code> 。</p>
+<p>
+每个输入方案与它的 id 对应如下（需要记住自己习惯的输入方案 id 在后面我们才知道应该动哪个配置文件）：</p>
+<table>
+<thead>
+<tr>
+<th>输入方案</th>
+<th>id</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>朙月拼音</td>
+<td>luna_pinyin</td>
+</tr>
+<tr>
+<td>朙月拼音·简化字</td>
+<td>luna_pinyin_simp</td>
+</tr>
+<tr>
+<td>朙月拼音·臺灣正體</td>
+<td>luna_pinyin_tw</td>
+</tr>
+<tr>
+<td>朙月拼音·語句流</td>
+<td>luna_pinyin_fluency</td>
+</tr>
+<tr>
+<td>自然碼雙拼</td>
+<td>double_pinyin</td>
+</tr>
+<tr>
+<td>智能ABC雙拼</td>
+<td>double_pinyin_abc</td>
+</tr>
+<tr>
+<td>小鶴雙拼</td>
+<td>double_pinyin_flypy</td>
+</tr>
+<tr>
+<td>MSPY雙拼</td>
+<td>double_pinyin_mspy</td>
+</tr>
+</tbody>
+</table>
+<p>
+另外，字典文件的结尾为 <code class="verbatim">xxx.dict.yaml</code> ，其中的 xxx 名字可以自己取，只要引用这个字典处的配置（ <code class="verbatim">&#34;translator/dictionary&#34;</code> 配置行）能够对应上即可。</p>
+<p>
+Linux 上当前用户的 RIME 配置文件在目录 <code class="verbatim">~/.config/ibus/rime/</code> 中，为方便后文叙述，记此目录为 USER_CONFIG 。</p>
+<p>
+目录中有如下文件和目录：</p>
+<ul>
+<li><code class="verbatim">default.custom.yaml</code> 默认配置（入口配置）的自定义文件</li>
+<li><code class="verbatim">ibus_rime.custom.yaml</code> Linux 平台上 ibus 的自定义配置，比如以横排还是竖排的形式展现输入候选词</li>
+<li><code class="verbatim">double_pinyin_flypy.custom.yaml</code> 小鹤双拼这个输入方案的自定义配置</li>
+<li><code class="verbatim">luna_pinyi.userdb</code> 用户使用过程中产生的词库？总之不需要动</li>
+<li><code class="verbatim">installation.yaml</code> 安装信息，不需要动</li>
+<li><code class="verbatim">user.yaml</code> 从内容看像是存放用户的最新部署时间等信息，总之也不需要动</li>
+<li><code class="verbatim">build/</code> 目录，每次重新对 RIME 进行部署，就会更新这个目录。通常我们不动它。</li>
+</ul>
+<p>总而言之，想要基于 RIME 快速配置一个可用的小鹤双拼输入法，需要改这 2 个配置文件： <code class="verbatim">default.custom.yaml</code> 和 <code class="verbatim">double_pinyin_flypy.custom.yaml</code> ，前者用于指定输入方案，后者用于定制小鹤双拼以及引入词典等。</p>
+</div>
+</div>
+<div id="outline-container-headline-2" class="outline-2">
+<h2 id="headline-2">
+指定使用小鹤双拼
+</h2>
+<div id="outline-text-headline-2" class="outline-text-2">
+<p>
+<code class="verbatim">default.custom.yaml</code> 如下：</p>
+<div class="src src-yaml">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">patch</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">switcher</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">hotkeys</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="s2">&#34;Control+grave&#34;</span><span class="w">            </span><span class="c"># 输入选项菜单 Control + `</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">menu</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">page_size</span><span class="p">:</span><span class="w"> </span><span class="m">7</span><span class="w">                   </span><span class="c"># 候选词数量</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">schema_list</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="nt">schema</span><span class="p">:</span><span class="w"> </span><span class="l">double_pinyin_flypy </span><span class="w"> </span><span class="c"># 使用小鹤双拼</span></span></span></code></pre></div>
+</div>
+</div>
+</div>
+<div id="outline-container-headline-3" class="outline-2">
+<h2 id="headline-3">
+定制小鹤双拼以及导入词典
+</h2>
+<div id="outline-text-headline-3" class="outline-text-2">
+<p>
+<code class="verbatim">double_pinyin_flypy.custom.yaml</code>:</p>
+<div class="src src-yaml">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">patch</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">&#34;translator/dictionary&#34;: </span><span class="l">luna_pinyin.extended</span><span class="w"> </span><span class="c"># 使用额外的词库，对应的文件是 luna_pinyin.extended.dict.yaml</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">switches</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">ascii_mode</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">states</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&#34;中文&#34;</span><span class="p">,</span><span class="w"> </span><span class="s2">&#34;西文&#34;</span><span class="p">]</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">full_shape</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">states</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&#34;半角&#34;</span><span class="p">,</span><span class="w"> </span><span class="s2">&#34;全角&#34;</span><span class="p">]</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">simplification</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">reset</span><span class="p">:</span><span class="w"> </span><span class="m">1</span><span class="w">                  </span><span class="c"># 默认简体</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">states</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&#34;漢字&#34;</span><span class="p">,</span><span class="w"> </span><span class="s2">&#34;汉字&#34;</span><span class="p">]</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">ascii_punct</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">states</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&#34;。，&#34;</span><span class="p">,</span><span class="w"> </span><span class="s2">&#34;．，&#34;</span><span class="p">]</span></span></span></code></pre></div>
+</div>
+<div id="outline-container-headline-4" class="outline-3">
+<h3 id="headline-4">
+导入词典
+</h3>
+<div id="outline-text-headline-4" class="outline-text-3">
+<p>
+词典这块 GitHub 上已经有不少同学做了整理了，我目前在用的是 <a href="https://github.com/rime-aca/dictionaries/tree/master/luna_pinyin.dict">https://github.com/rime-aca/dictionaries/tree/master/luna_pinyin.dict</a> 这个目录下的词典，把其中所有的 *.dict.yaml 文件丢到 USER_CONFIG 目录中即可。</p>
+<p>
+需要注意的是，其中一个词典文件的名字需要与上述 YAML 配置中的 <code class="verbatim">&#34;translator/dictionary&#34;</code> 值一致才行。如果你从别的地方下载词典，需要确保他们一致才行。</p>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-headline-5" class="outline-2">
+<h2 id="headline-5">
+（可选）更改候选词展示
+</h2>
+<div id="outline-text-headline-5" class="outline-text-2">
+<p>
+如果你和我一样，比较习惯横排候选词的方式，那么我们还需要更改下 <code class="verbatim">ibus_rime.custom.yaml</code> ，内容如下：</p>
+<div class="src src-yaml">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">patch</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">style</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">horizontal</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">            </span><span class="c">#  是否横排展示候选词</span></span></span></code></pre></div>
+</div>
+</div>
+</div>
+<div id="outline-container-headline-6" class="outline-2">
+<h2 id="headline-6">
+重新部署
+</h2>
+<div id="outline-text-headline-6" class="outline-text-2">
+<p>
+有了上述配置之后，我们就可以重新部署看看了：在系统托盘中左击 RIME 图标，在弹出菜单中选“部署”即可。</p>
+</div>
+</div>
+
+
+        
+          <div class="blog-tags">
+            
+              <a href="https://whatacold.io/zh-cn/tags/linux/">Linux</a>&nbsp;
+            
+              <a href="https://whatacold.io/zh-cn/tags/rime/">Rime</a>&nbsp;
+            
+          </div>
+        
+
+        
+            <hr/>
+            <section id="social-share">
+              <div class="list-inline footer-links">
+                
+
+<div class="share-box" aria-hidden="true">
+    <ul class="share">
+      
+      <li>
+        <a href="//twitter.com/share?url=https%3a%2f%2fwhatacold.io%2fzh-cn%2fblog%2f2022-10-04-rime-double-pinyin-flypy%2f&amp;text=RIME%20%e5%b0%8f%e9%b9%a4%e5%8f%8c%e6%8b%bc%e5%bf%ab%e9%80%9f%e8%ae%be%e7%bd%ae&amp;via=whatacold" target="_blank" title="Share on Twitter">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fwhatacold.io%2fzh-cn%2fblog%2f2022-10-04-rime-double-pinyin-flypy%2f" target="_blank" title="Share on Facebook">
+          <i class="fab fa-facebook"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//reddit.com/submit?url=https%3a%2f%2fwhatacold.io%2fzh-cn%2fblog%2f2022-10-04-rime-double-pinyin-flypy%2f&amp;title=RIME%20%e5%b0%8f%e9%b9%a4%e5%8f%8c%e6%8b%bc%e5%bf%ab%e9%80%9f%e8%ae%be%e7%bd%ae" target="_blank" title="Share on Reddit">
+          <i class="fab fa-reddit"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fwhatacold.io%2fzh-cn%2fblog%2f2022-10-04-rime-double-pinyin-flypy%2f&amp;title=RIME%20%e5%b0%8f%e9%b9%a4%e5%8f%8c%e6%8b%bc%e5%bf%ab%e9%80%9f%e8%ae%be%e7%bd%ae" target="_blank" title="Share on LinkedIn">
+          <i class="fab fa-linkedin"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fwhatacold.io%2fzh-cn%2fblog%2f2022-10-04-rime-double-pinyin-flypy%2f&amp;title=RIME%20%e5%b0%8f%e9%b9%a4%e5%8f%8c%e6%8b%bc%e5%bf%ab%e9%80%9f%e8%ae%be%e7%bd%ae" target="_blank" title="Share on StumbleUpon">
+          <i class="fab fa-stumbleupon"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fwhatacold.io%2fzh-cn%2fblog%2f2022-10-04-rime-double-pinyin-flypy%2f&amp;description=RIME%20%e5%b0%8f%e9%b9%a4%e5%8f%8c%e6%8b%bc%e5%bf%ab%e9%80%9f%e8%ae%be%e7%bd%ae" target="_blank" title="Share on Pinterest">
+          <i class="fab fa-pinterest"></i>
+        </a>
+      </li>
+    </ul>
+  </div>
+  
+
+              </div>
+            </section>
+        
+
+        
+          
+            
+          
+
+          
+                  <h4 class="see-also">也可以看看</h4>
+                  <ul>
+                
+                
+                    <li><a href="/zh-cn/blog/2022-09-11-emacs-smart-input-source-rime/">Emacs 中使用 smart-input-source 配合 Rime 进行流畅地中英文输入</a></li>
+                
+              </ul>
+
+          
+        
+      </article>
+
+      
+        <ul class="pager blog-pager">
+          
+            <li class="previous">
+              <a href="https://whatacold.io/zh-cn/blog/2022-09-11-emacs-smart-input-source-rime/" data-toggle="tooltip" data-placement="top" title="Emacs 中使用 smart-input-source 配合 Rime 进行流畅地中英文输入">&larr; 前一篇</a>
+            </li>
+          
+          
+            <li class="next">
+              <a href="https://whatacold.io/zh-cn/blog/2022-10-05-beautifulhugo-banner-image/" data-toggle="tooltip" data-placement="top" title="修改 Beautiful Hugo Banner 头图">后一篇 &rarr;</a>
+            </li>
+          
+        </ul>
+      
+
+
+      
+        
+          
+          <div class="disqus-comments">
+            <div id="disqus_thread"></div>
+<script type="application/javascript">
+    window.disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "whatacold" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+          </div>
+          
+        
+        
+      
+
+    </div>
+  </div>
+</div>
+
+      
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+          
+              <li>
+                <a href="mailto:whatacold@gmail.com" title="Email me">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fas fa-envelope fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://github.com/whatacold" title="GitHub">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://twitter.com/whatacold" title="Twitter">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://reddit.com/u/whatacold" title="Reddit">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-reddit-alien fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://stackoverflow.com/users/910978/whatacold" title="StackOverflow">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-stack-overflow fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://www.youtube.com/channel/UC2unslchfhzbub47Qq2U88w" title="Youtube">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-youtube fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+
+          
+          
+          
+
+        </ul>
+        <p class="credits copyright text-muted">
+          
+            
+              whatacold
+            
+          
+
+          &nbsp;&bull;&nbsp;&copy;
+          
+            2018 - 2022
+          
+
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://whatacold.io/zh-cn/">whatacold 的空间</a>
+          
+        </p>
+        
+        <p class="credits theme-by text-muted">
+          由 <a href="https://gohugo.io">Hugo v0.93.3</a> 强力驱动 &nbsp;&bull;&nbsp; 主题 <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> 移植自 <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer><script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.js" integrity="sha384-K3vbOmF2BtaVai+Qk37uypf7VrgBubhQreNQe9aGsz9lB63dIFiQVlJbr92dw2Lx" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/contrib/auto-render.min.js" integrity="sha384-kmZOZB5ObwgQnS/DuDg6TScgOiWWBiVt0plIRkZCmE6rDZGrEOQeHM5PcHi+nyqe" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+<script src="https://whatacold.io/js/main.js"></script>
+<script src="https://whatacold.io/js/highlight.min.js"></script>
+<script> hljs.initHighlightingOnLoad(); </script>
+<script> $(document).ready(function() {$("pre.chroma").css("padding","0");}); </script><script> renderMathInElement(document.body); </script><script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.js" integrity="sha384-QELNnmcmU8IR9ZAykt67vGr9/rZJdHbiWi64V88fCPaOohUlHCqUD/unNN0BXSqy" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe-ui-default.min.js" integrity="sha384-m67o7SkQ1ALzKZIFh4CiTA8tmadaujiTa9Vu+nqPSwDOqHrDmxLezTdFln8077+q" crossorigin="anonymous"></script><script src="https://whatacold.io/js/load-photoswipe.js"></script>
+
+
+
+
+
+
+
+
+
+    
+  </body>
+</html>
+

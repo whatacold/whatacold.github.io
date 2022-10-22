@@ -102,7 +102,7 @@
   <meta name="twitter:site" content="@whatacold" />
   <meta name="twitter:creator" content="@whatacold" />
   <link href='https://whatacold.io/img/favicon.ico' rel='icon' type='image/x-icon'/>
-  <meta name="generator" content="Hugo 0.80.0" />
+  <meta name="generator" content="Hugo 0.93.3" />
   <link rel="alternate" href="https://whatacold.io/index.xml" type="application/rss+xml" title="whatacold&#39;s space"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"><link rel="stylesheet" href="https://whatacold.io/css/main.css" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
@@ -148,13 +148,13 @@ if (!doNotTrack) {
         
           
             <li>
-              <a title="About" href="/about/">About</a>
+              <a title="Tags" href="/tags">Tags</a>
             </li>
           
         
           
             <li>
-              <a title="Tags" href="/tags">Tags</a>
+              <a title="About" href="/about/">About</a>
             </li>
           
         
@@ -296,12 +296,8 @@ brightness in i3wm. Being too bright or dim is terrible for the eyes.</p>
 Recently, I found a command-line tool called <code class="verbatim">brightnessctl</code>, which
 can adjust the brightness in a terminal. Its primary usage would be:</p>
 <ul>
-<li>
-<p><code>brightnessctl set +10%</code> to increase the brightness by 10%</p>
-</li>
-<li>
-<p><code>brightnessctl set 10%-</code> to decrease it by 10%</p>
-</li>
+<li><code>brightnessctl set +10%</code> to increase the brightness by 10%</li>
+<li><code>brightnessctl set 10%-</code> to decrease it by 10%</li>
 </ul>
 <p>It works, but I want to make it easier to control it. It would be nice
 if I could do it in Emacs. Then I thought of the <code class="verbatim">text-scale-adjust</code>
@@ -310,62 +306,56 @@ command in Emacs, the user experience is what I am looking for.</p>
 By imitating the command, I came up with a command
 <code class="verbatim">w/adjust-screen-brightness</code>. Here is how to use it:</p>
 <ol>
-<li>
-<p><code>M-x w/adjust-screen-brightness</code> to invoke the command.</p>
-<p>
+<li><code>M-x w/adjust-screen-brightness</code> to invoke the command.
+
 By default, the delta percentage is 10%. If you want to change it,
 prefix the command with an argument. For example, <code>C-u 2 M-x
-w/adjust-screen-brightness</code> to make it 20%.</p>
-</li>
-<li>
-<p>Hit <code class="verbatim">+</code> or <code>=</code> to increase the brightness by 10% continually, or
-hit <code class="verbatim">-</code> to decrease it by 10%</p>
-</li>
-<li>
-<p>Hit any other keys to end the command when you&#39;re satisfied with
-the result.</p>
-</li>
+w/adjust-screen-brightness</code> to make it 20%.</li>
+<li>Hit <code class="verbatim">+</code> or <code>=</code> to increase the brightness by 10% continually, or
+hit <code class="verbatim">-</code> to decrease it by 10%</li>
+<li>Hit any other keys to end the command when you&#39;re satisfied with
+the result.</li>
 </ol>
 <p>Here is the complete code:</p>
 <div class="src src-elisp">
-<div class="highlight"><pre class="chroma"><code class="language-elisp" data-lang="elisp">  <span class="p">(</span><span class="nb">defun</span> <span class="nv">w/adjust-screen-brightness</span> <span class="p">(</span><span class="nv">inc</span><span class="p">)</span>
-    <span class="s">&#34;Adjust the screen brightness by INC*10%.
-</span><span class="s">
-</span><span class="s">  INC may be passed as a numeric prefix argument.
-</span><span class="s">
-</span><span class="s">  The actual adjustment made depends on the final component of the
-</span><span class="s">  key-binding used to invoke the command, with all modifiers removed:
-</span><span class="s">
-</span><span class="s">     +, =   Increase the height of the default face by one step
-</span><span class="s">     -      Decrease the height of the default face by one step
-</span><span class="s">
-</span><span class="s">  After adjusting, continue to read input events and further adjust
-</span><span class="s">  the screen brightness as long as the input event read
-</span><span class="s">  \(with all modifiers removed) is one of the above characters.
-</span><span class="s">  &#34;</span>
-    <span class="p">(</span><span class="nb">interactive</span> <span class="s">&#34;p&#34;</span><span class="p">)</span>
-    <span class="p">(</span><span class="nb">let</span> <span class="p">((</span><span class="nv">ev</span> <span class="nv">last-command-event</span><span class="p">)</span>
-          <span class="p">(</span><span class="nv">echo-keystrokes</span> <span class="no">nil</span><span class="p">))</span>
-      <span class="p">(</span><span class="nb">let*</span> <span class="p">((</span><span class="nv">base</span> <span class="p">(</span><span class="nv">event-basic-type</span> <span class="nv">ev</span><span class="p">))</span>
-             <span class="p">(</span><span class="nv">step</span> <span class="p">(</span><span class="nf">*</span> <span class="nv">inc</span> <span class="mi">10</span><span class="p">))</span>
-             <span class="p">(</span><span class="nv">cmd</span> <span class="p">(</span><span class="nf">format</span> <span class="s">&#34;brightnessctl set %s%d%%%s&#34;</span> <span class="c1">; +10% or 10%-</span>
-                          <span class="p">(</span><span class="nb">if</span> <span class="p">(</span><span class="nb">or</span> <span class="p">(</span><span class="nf">=</span> <span class="sc">?+</span> <span class="nv">base</span><span class="p">)</span>
-                                  <span class="p">(</span><span class="nf">=</span> <span class="sc">?=</span> <span class="nv">base</span><span class="p">))</span>
-                              <span class="s">&#34;+&#34;</span>
-                            <span class="s">&#34;&#34;</span><span class="p">)</span>
-                          <span class="nv">step</span>
-                          <span class="p">(</span><span class="nb">if</span> <span class="p">(</span><span class="nf">=</span> <span class="sc">?-</span> <span class="nv">base</span><span class="p">)</span> <span class="s">&#34;-&#34;</span> <span class="s">&#34;&#34;</span><span class="p">))))</span>
-        <span class="p">(</span><span class="nv">shell-command</span> <span class="nv">cmd</span><span class="p">)</span>
-
-        <span class="p">(</span><span class="nf">message</span> <span class="s">&#34;Use +,- for further adjustment by %d%%&#34;</span> <span class="nv">step</span><span class="p">)</span>
-        <span class="p">(</span><span class="nv">set-transient-map</span>
-         <span class="p">(</span><span class="nb">let</span> <span class="p">((</span><span class="nv">map</span> <span class="p">(</span><span class="nf">make-sparse-keymap</span><span class="p">)))</span>
-           <span class="p">(</span><span class="nb">dolist</span> <span class="p">(</span><span class="nv">mods</span> <span class="o">&#39;</span><span class="p">(()</span> <span class="p">(</span><span class="nv">control</span><span class="p">)))</span>
-             <span class="p">(</span><span class="nb">dolist</span> <span class="p">(</span><span class="nv">key</span> <span class="o">&#39;</span><span class="p">(</span><span class="sc">?-</span> <span class="sc">?+</span> <span class="sc">?=</span><span class="p">))</span> <span class="c1">;; = is often unshifted +.</span>
-               <span class="p">(</span><span class="nf">define-key</span> <span class="nv">map</span> <span class="p">(</span><span class="nf">vector</span> <span class="p">(</span><span class="nf">append</span> <span class="nv">mods</span> <span class="p">(</span><span class="nf">list</span> <span class="nv">key</span><span class="p">)))</span>
-                 <span class="p">(</span><span class="nb">lambda</span> <span class="p">()</span> <span class="p">(</span><span class="nb">interactive</span><span class="p">)</span>
-                   <span class="p">(</span><span class="nv">w/adjust-screen-brightness</span> <span class="p">(</span><span class="nf">abs</span> <span class="nv">inc</span><span class="p">))))))</span>
-           <span class="nv">map</span><span class="p">)))))</span></code></pre></div>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-elisp" data-lang="elisp"><span class="line"><span class="cl"><span class="p">(</span><span class="nb">defun</span> <span class="nv">w/adjust-screen-brightness</span> <span class="p">(</span><span class="nv">inc</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="s">&#34;Adjust the screen brightness by INC*10%.
+</span></span></span><span class="line"><span class="cl"><span class="s">
+</span></span></span><span class="line"><span class="cl"><span class="s">INC may be passed as a numeric prefix argument.
+</span></span></span><span class="line"><span class="cl"><span class="s">
+</span></span></span><span class="line"><span class="cl"><span class="s">The actual adjustment made depends on the final component of the
+</span></span></span><span class="line"><span class="cl"><span class="s">key-binding used to invoke the command, with all modifiers removed:
+</span></span></span><span class="line"><span class="cl"><span class="s">
+</span></span></span><span class="line"><span class="cl"><span class="s">   +, =   Increase the height of the default face by one step
+</span></span></span><span class="line"><span class="cl"><span class="s">   -      Decrease the height of the default face by one step
+</span></span></span><span class="line"><span class="cl"><span class="s">
+</span></span></span><span class="line"><span class="cl"><span class="s">After adjusting, continue to read input events and further adjust
+</span></span></span><span class="line"><span class="cl"><span class="s">the screen brightness as long as the input event read
+</span></span></span><span class="line"><span class="cl"><span class="s">\(with all modifiers removed) is one of the above characters.
+</span></span></span><span class="line"><span class="cl"><span class="s">&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">(</span><span class="nb">interactive</span> <span class="s">&#34;p&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="p">(</span><span class="nb">let</span> <span class="p">((</span><span class="nv">ev</span> <span class="nv">last-command-event</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="p">(</span><span class="nv">echo-keystrokes</span> <span class="no">nil</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">    <span class="p">(</span><span class="nb">let*</span> <span class="p">((</span><span class="nv">base</span> <span class="p">(</span><span class="nv">event-basic-type</span> <span class="nv">ev</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">           <span class="p">(</span><span class="nv">step</span> <span class="p">(</span><span class="nf">*</span> <span class="nv">inc</span> <span class="mi">10</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">           <span class="p">(</span><span class="nv">cmd</span> <span class="p">(</span><span class="nf">format</span> <span class="s">&#34;brightnessctl set %s%d%%%s&#34;</span> <span class="c1">; +10% or 10%-</span>
+</span></span><span class="line"><span class="cl">                        <span class="p">(</span><span class="nb">if</span> <span class="p">(</span><span class="nb">or</span> <span class="p">(</span><span class="nf">=</span> <span class="sc">?+</span> <span class="nv">base</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                                <span class="p">(</span><span class="nf">=</span> <span class="sc">?=</span> <span class="nv">base</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">                            <span class="s">&#34;+&#34;</span>
+</span></span><span class="line"><span class="cl">                          <span class="s">&#34;&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                        <span class="nv">step</span>
+</span></span><span class="line"><span class="cl">                        <span class="p">(</span><span class="nb">if</span> <span class="p">(</span><span class="nf">=</span> <span class="sc">?-</span> <span class="nv">base</span><span class="p">)</span> <span class="s">&#34;-&#34;</span> <span class="s">&#34;&#34;</span><span class="p">))))</span>
+</span></span><span class="line"><span class="cl">      <span class="p">(</span><span class="nv">shell-command</span> <span class="nv">cmd</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">      <span class="p">(</span><span class="nf">message</span> <span class="s">&#34;Use +,- for further adjustment by %d%%&#34;</span> <span class="nv">step</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">      <span class="p">(</span><span class="nv">set-transient-map</span>
+</span></span><span class="line"><span class="cl">       <span class="p">(</span><span class="nb">let</span> <span class="p">((</span><span class="nv">map</span> <span class="p">(</span><span class="nf">make-sparse-keymap</span><span class="p">)))</span>
+</span></span><span class="line"><span class="cl">         <span class="p">(</span><span class="nb">dolist</span> <span class="p">(</span><span class="nv">mods</span> <span class="o">&#39;</span><span class="p">(()</span> <span class="p">(</span><span class="nv">control</span><span class="p">)))</span>
+</span></span><span class="line"><span class="cl">           <span class="p">(</span><span class="nb">dolist</span> <span class="p">(</span><span class="nv">key</span> <span class="o">&#39;</span><span class="p">(</span><span class="sc">?-</span> <span class="sc">?+</span> <span class="sc">?=</span><span class="p">))</span> <span class="c1">;; = is often unshifted +.</span>
+</span></span><span class="line"><span class="cl">             <span class="p">(</span><span class="nf">define-key</span> <span class="nv">map</span> <span class="p">(</span><span class="nf">vector</span> <span class="p">(</span><span class="nf">append</span> <span class="nv">mods</span> <span class="p">(</span><span class="nf">list</span> <span class="nv">key</span><span class="p">)))</span>
+</span></span><span class="line"><span class="cl">               <span class="p">(</span><span class="nb">lambda</span> <span class="p">()</span> <span class="p">(</span><span class="nb">interactive</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                 <span class="p">(</span><span class="nv">w/adjust-screen-brightness</span> <span class="p">(</span><span class="nf">abs</span> <span class="nv">inc</span><span class="p">))))))</span>
+</span></span><span class="line"><span class="cl">         <span class="nv">map</span><span class="p">)))))</span></span></span></code></pre></div>
 </div>
 <p>
 The interesting API here for increasing/decreasing the brightness
@@ -454,15 +444,15 @@ again.</p>
                   <ul>
                 
                 
+                    <li><a href="/blog/2022-10-10-emacs-hugo-blogging/">Hugo Blogging in Emacs</a></li>
+                
+                    <li><a href="/blog/2022-09-10-emacs-beancount-account-files/">Auto-complete Accounts From Other Beancount Files in Emacs</a></li>
+                
+                    <li><a href="/blog/2022-08-08-org-link-bookmarklet/">A Bookmarklet for Copying a Link as an Org-mode Link</a></li>
+                
+                    <li><a href="/blog/2022-07-17-emacs-elisp-debug/">Emacs Debugging Basics</a></li>
+                
                     <li><a href="/blog/2022-05-23-emacs-duplicate-line/">Duplicate the current line in Emacs</a></li>
-                
-                    <li><a href="/blog/2022-04-09-emacs-kill-other-buffer/">How to kill other buffers in Emacs</a></li>
-                
-                    <li><a href="/blog/2022-01-22-emacs-eglot-lsp/">Eglot for better programming experience in Emacs</a></li>
-                
-                    <li><a href="/blog/2022-01-12-language-shadowing-with-subed-emacs/">Language Shadowing with subed in Emacs</a></li>
-                
-                    <li><a href="/blog/2021-12-11-writing-python-in-emacs/">Writing a Python Script in Emacs in 45 Minutes!</a></li>
                 
               </ul>
 
@@ -474,7 +464,7 @@ again.</p>
         <ul class="pager blog-pager">
           
             <li class="previous">
-              <a href="https://whatacold.io/blog/2022-04-09-emacs-kill-other-buffer/" data-toggle="tooltip" data-placement="top" title="How to kill other buffers in Emacs">&larr; Previous Post</a>
+              <a href="https://whatacold.io/blog/2022-04-09-emacs-kill-other-buffer/" data-toggle="tooltip" data-placement="top" title="How to Kill a &#34;Visible&#34; Buffer Quickly in Emacs">&larr; Previous Post</a>
             </li>
           
           
@@ -492,7 +482,7 @@ again.</p>
           <div class="disqus-comments">
             <div id="disqus_thread"></div>
 <script type="application/javascript">
-    var disqus_config = function () {
+    window.disqus_config = function () {
     
     
     
@@ -600,7 +590,7 @@ again.</p>
         </p>
         
         <p class="credits theme-by text-muted">
-          <a href="https://gohugo.io">Hugo v0.80.0</a> powered &nbsp;&bull;&nbsp; Theme <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> adapted from <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
+          <a href="https://gohugo.io">Hugo v0.93.3</a> powered &nbsp;&bull;&nbsp; Theme <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> adapted from <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
           
         </p>
       </div>

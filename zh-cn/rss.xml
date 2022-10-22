@@ -7,14 +7,59 @@
     <generator>Hugo -- gohugo.io</generator>
     <managingEditor>whatacold@gmail.com (whatacold)</managingEditor>
     <webMaster>whatacold@gmail.com (whatacold)</webMaster>
-    <lastBuildDate>Sun, 05 Sep 2021 10:39:33 +0800</lastBuildDate><atom:link href="https://whatacold.io/zh-cn/rss.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 05 Oct 2022 18:17:37 +0800</lastBuildDate><atom:link href="https://whatacold.io/zh-cn/rss.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>修改 Beautiful Hugo Banner 头图</title>
+      <link>https://whatacold.io/zh-cn/blog/2022-10-05-beautifulhugo-banner-image/</link>
+      <pubDate>Wed, 05 Oct 2022 18:17:37 +0800</pubDate>
+      <author>whatacold@gmail.com (whatacold)</author>
+      <guid>https://whatacold.io/zh-cn/blog/2022-10-05-beautifulhugo-banner-image/</guid>
+      <description>博客迁移 Hugo 也有一年多了，最近对 Beautiful Hugo 用的头图 Sphere 产生了审美疲劳，感觉它太过朴素，于是萌生了更换头图的念头。 旧版头图 那换什么图片好点呢？ 经过几秒钟</description>
+    </item>
+    
+    <item>
+      <title>RIME 小鹤双拼快速设置</title>
+      <link>https://whatacold.io/zh-cn/blog/2022-10-04-rime-double-pinyin-flypy/</link>
+      <pubDate>Tue, 04 Oct 2022 15:44:54 +0800</pubDate>
+      <author>whatacold@gmail.com (whatacold)</author>
+      <guid>https://whatacold.io/zh-cn/blog/2022-10-04-rime-double-pinyin-flypy/</guid>
+      <description>RIME 输入引擎 如果你也使用 Linux 操作系统，那么 RIME 输入法基本是必备的。它开源、跨平台，支持各种输入方案；无服务器，不会泄漏你的输入数据。但同时相比各个</description>
+    </item>
+    
+    <item>
+      <title>Emacs 中使用 smart-input-source 配合 Rime 进行流畅地中英文输入</title>
+      <link>https://whatacold.io/zh-cn/blog/2022-09-11-emacs-smart-input-source-rime/</link>
+      <pubDate>Sun, 11 Sep 2022 15:50:29 +0800</pubDate>
+      <author>whatacold@gmail.com (whatacold)</author>
+      <guid>https://whatacold.io/zh-cn/blog/2022-09-11-emacs-smart-input-source-rime/</guid>
+      <description>Emacs 中文输入有不少方案，既可以用外置的输入法（比如 Rime, sogou 等）进行输入，还可以用内置的输入法（比如 pyim ）利用 Elisp 完成中文输入。作为中文用户，我们很难避</description>
+    </item>
+    
+    <item>
+      <title>Emacs Beancount ：记账时从其他的账户文件补全账户</title>
+      <link>https://whatacold.io/zh-cn/blog/2022-09-10-emacs-beancount-account-files/</link>
+      <pubDate>Sat, 10 Sep 2022 11:13:38 +0800</pubDate>
+      <author>whatacold@gmail.com (whatacold)</author>
+      <guid>https://whatacold.io/zh-cn/blog/2022-09-10-emacs-beancount-account-files/</guid>
+      <description>从单独的 accounts.bean 补全账户 如果你用 Emacs + Beancount 来记账，那你应该有用 beancount-mode 这个包。它可以帮助我们在记账的时候从当前 buffer 中提取出已定义的账户，当我们下达 M-x beancount-insert-account 命令的时</description>
+    </item>
+    
+    <item>
+      <title>Emacs 常用 debug 手段</title>
+      <link>https://whatacold.io/zh-cn/blog/2022-07-17-emacs-elisp-debug/</link>
+      <pubDate>Sun, 17 Jul 2022 09:57:31 +0800</pubDate>
+      <author>whatacold@gmail.com (whatacold)</author>
+      <guid>https://whatacold.io/zh-cn/blog/2022-07-17-emacs-elisp-debug/</guid>
+      <description>折腾 Emacs 难免会遇到问题。 论坛里经常可以看到有同学遇到各种配置问题的，但却不知从何入手排查。这里我给大家简单地介绍一些常用的方法，当你下次遇到问</description>
+    </item>
+    
     <item>
       <title>关于</title>
       <link>https://whatacold.io/zh-cn/about/</link>
       <pubDate>Fri, 12 Nov 2021 22:11:52 +0800</pubDate>
       <author>whatacold@gmail.com (whatacold)</author>
       <guid>https://whatacold.io/zh-cn/about/</guid>
-      <description>C/C++ 后台开发，目前在国内一家 BAT 公司从事互联网业务开发；业余时间学习折腾 Emacs Clojure Python 和前端开发。 另外，我正在制作分享 Emacs 的视频，发布在油管频道、bili</description>
+      <description>嗨，我是 Ken ，目前在国内一家 BAT 公司搞后台开发；业余时间学习折腾 Emacs Clojure Python ，以及前端开发。 另外，我正在制作分享 Emacs 的视频，发布在油管频道、bilibi</description>
     </item>
     
     <item>
@@ -54,7 +99,7 @@
     </item>
     
     <item>
-      <title>个人网站迁移 Hugo 记</title>
+      <title>个人博客网站迁移 Hugo 小记</title>
       <link>https://whatacold.io/zh-cn/blog/2021-07-10-migrate-site-hugo/</link>
       <pubDate>Sat, 10 Jul 2021 20:37:11 +0800</pubDate>
       <author>whatacold@gmail.com (whatacold)</author>
@@ -77,7 +122,7 @@
       <pubDate>Tue, 16 Feb 2021 16:08:00 +0800</pubDate>
       <author>whatacold@gmail.com (whatacold)</author>
       <guid>https://whatacold.io/zh-cn/blog/2021-02-16-doxygen-cpp-correct-callgraphs/</guid>
-      <description>大家都知道， Doxygen 可以用于提取代码的注释生成项目的文档，只要注释满足其规定的格式。但我更喜欢利用它生成类继承图（inheritance diagr</description>
+      <description>大家都知道， Doxygen 可以用于提取代码的注释生成项目的文档，只要注释满足它规定的格式。我喜欢通过它生成类继承图（inheritance diagram</description>
     </item>
     
     <item>
@@ -122,7 +167,7 @@
       <pubDate>Sat, 22 Dec 2018 20:24:00 +0800</pubDate>
       <author>whatacold@gmail.com (whatacold)</author>
       <guid>https://whatacold.io/zh-cn/blog/2018-12-22-c-cpp-devel-with-lsp-in-emacs/</guid>
-      <description>写代码的时候，如果能够基于当前的上下文提示补全，不仅能提高写代码的效率，还能提升体验，有种行云流水的感觉。 Emacs 中之前我用 gtags 等静态的工具来辅助写</description>
+      <description>写代码的时候，如果能够基于当前的上下文提示补全，不仅能提高写代码的效率，还能提升编程体验，有种行云流水的快感。 Emacs 中之前我用 GNU Global (gtags) 等静态的工具</description>
     </item>
     
     <item>

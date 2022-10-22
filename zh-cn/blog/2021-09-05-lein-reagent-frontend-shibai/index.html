@@ -97,7 +97,7 @@
   <meta name="twitter:site" content="@whatacold" />
   <meta name="twitter:creator" content="@whatacold" />
   <link href='https://whatacold.io/img/favicon.ico' rel='icon' type='image/x-icon'/>
-  <meta name="generator" content="Hugo 0.80.0" />
+  <meta name="generator" content="Hugo 0.93.3" />
   <link rel="alternate" href="https://whatacold.io/zh-cn/index.xml" type="application/rss+xml" title="whatacold 的空间"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"><link rel="stylesheet" href="https://whatacold.io/css/main.css" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
@@ -137,19 +137,19 @@ if (!doNotTrack) {
         
           
             <li>
-              <a title="Blog" href="/zh-cn">Blog</a>
+              <a title="博客" href="/zh-cn">博客</a>
             </li>
           
         
           
             <li>
-              <a title="About" href="/zh-cn/about/">About</a>
+              <a title="标签" href="/zh-cn/tags">标签</a>
             </li>
           
         
           
             <li>
-              <a title="Tags" href="/zh-cn/tags">Tags</a>
+              <a title="关于" href="/zh-cn/about/">关于</a>
             </li>
           
         
@@ -280,34 +280,30 @@ if (!doNotTrack) {
 <p>
 看花容易绣花难，那就先搞一个本地工程玩一下看。Leiningen 命令有两种：</p>
 <ol>
-<li>
-<p><code class="verbatim">lein new reagent myproject</code> 创建包含前后端的工程</p>
-</li>
-<li>
-<p><code class="verbatim">lein new reagent-frontend myproject</code> 创建仅前端工程</p>
-</li>
+<li><code class="verbatim">lein new reagent myproject</code> 创建包含前后端的工程</li>
+<li><code class="verbatim">lein new reagent-frontend myproject</code> 创建仅前端工程</li>
 </ol>
 <p>简单起见，创建一个仅包含前端的工程足够了，因此使用第二种方法。但是诡异的是，命令居然报错了：</p>
 <div class="src src-text">
-<div class="highlight"><pre class="chroma"><code class="language-text" data-lang="text">$ lein new reagent-frontend play-reagent-frontent
-Failed to resolve version for reagent-frontend:lein-template:jar:RELEASE: Could not find metadata reagent-frontend:lein-template/maven-metadata.xml in local (/home/whatacold/.m2/repository)
-Failed to read artifact descriptor for reagent-frontend:lein-template:jar:RELEASE
-This could be due to a typo in :dependencies, file system permissions, or network issues.
-If you are behind a proxy, try setting the &#39;http_proxy&#39; environment variable.
-Could not find template reagent-frontend on the classpath.</code></pre></div>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">$ lein new reagent-frontend play-reagent-frontent
+</span></span><span class="line"><span class="cl">Failed to resolve version for reagent-frontend:lein-template:jar:RELEASE: Could not find metadata reagent-frontend:lein-template/maven-metadata.xml in local (/home/whatacold/.m2/repository)
+</span></span><span class="line"><span class="cl">Failed to read artifact descriptor for reagent-frontend:lein-template:jar:RELEASE
+</span></span><span class="line"><span class="cl">This could be due to a typo in :dependencies, file system permissions, or network issues.
+</span></span><span class="line"><span class="cl">If you are behind a proxy, try setting the &#39;http_proxy&#39; environment variable.
+</span></span><span class="line"><span class="cl">Could not find template reagent-frontend on the classpath.</span></span></code></pre></div>
 </div>
 <p>
 而且这个报错在网上也没搜到直接有用的信息， lein 模板工程里倒是有一个相关的 <a href="https://github.com/reagent-project/reagent-template/issues/1">issue</a> ，但它是针对 reagent 模板的（对应上边第一条 lein 命令），而且内容已好几年了。同时我也在 slack 频道上问过，同样也没有得到有用的信息。</p>
 <p>
 无奈之下，只好在 issue 上留言跟进，好在 yogthos 看到了之后给了一些指引，这才发现 <code class="verbatim">~/.m2/repository/reagent-frontend/lein-template/resolver-status.properties</code> 文件全是报错：</p>
 <div class="src src-text">
-<div class="highlight"><pre class="chroma"><code class="language-text" data-lang="text">$ cat ~/.m2/repository/reagent-frontend/lein-template/resolver-status.properties
-#NOTE: This is a Maven Resolver internal implementation file, its format can be changed without prior notice.
-#Tue Aug 31 00:36:44 CST 2021
-maven-metadata-tsinghua.xml/@192.168.1.1\:12345&gt;@default-tsinghua-https\://mirrors.tuna.tsinghua.edu.cn/clojars/.lastUpdated=1630341404261
-maven-metadata-aliyun.xml.error=Could not transfer metadata reagent-frontend\:lein-template/maven-metadata.xml from/to aliyun (https\://maven.aliyun.com/repository/public/)\: Checksum validation failed, no checksums available
-maven-metadata-aliyun.xml/@192.168.1.1\:12345&gt;@default-aliyun-https\://maven.aliyun.com/repository/public/.lastUpdated=1630341404488
-maven-metadata-tsinghua.xml.error=Could not transfer metadata reagent-frontend\:lein-template/maven-metadata.xml from/to tsinghua (https\://mirrors.tuna.tsinghua.edu.cn/clojars/)\: Checksum validation failed, expected f5a8f4da358ee257ead04c314c047dedefbe2962 but is 87caff4a2f9beaad6c80c4f015ac1db0435d27b3</code></pre></div>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">$ cat ~/.m2/repository/reagent-frontend/lein-template/resolver-status.properties
+</span></span><span class="line"><span class="cl">#NOTE: This is a Maven Resolver internal implementation file, its format can be changed without prior notice.
+</span></span><span class="line"><span class="cl">#Tue Aug 31 00:36:44 CST 2021
+</span></span><span class="line"><span class="cl">maven-metadata-tsinghua.xml/@192.168.1.1\:12345&gt;@default-tsinghua-https\://mirrors.tuna.tsinghua.edu.cn/clojars/.lastUpdated=1630341404261
+</span></span><span class="line"><span class="cl">maven-metadata-aliyun.xml.error=Could not transfer metadata reagent-frontend\:lein-template/maven-metadata.xml from/to aliyun (https\://maven.aliyun.com/repository/public/)\: Checksum validation failed, no checksums available
+</span></span><span class="line"><span class="cl">maven-metadata-aliyun.xml/@192.168.1.1\:12345&gt;@default-aliyun-https\://maven.aliyun.com/repository/public/.lastUpdated=1630341404488
+</span></span><span class="line"><span class="cl">maven-metadata-tsinghua.xml.error=Could not transfer metadata reagent-frontend\:lein-template/maven-metadata.xml from/to tsinghua (https\://mirrors.tuna.tsinghua.edu.cn/clojars/)\: Checksum validation failed, expected f5a8f4da358ee257ead04c314c047dedefbe2962 but is 87caff4a2f9beaad6c80c4f015ac1db0435d27b3</span></span></code></pre></div>
 </div>
 <p>
 根据这个错误，推断是因为 aliyun/tsinghua 的镜像有问题，导致 lein 安装不到依赖。</p>
@@ -318,17 +314,17 @@ maven-metadata-tsinghua.xml.error=Could not transfer metadata reagent-frontend\:
 <p>
 再次执行命令，就真的 ok 了：</p>
 <div class="src src-text">
-<div class="highlight"><pre class="chroma"><code class="language-text" data-lang="text">lein new reagent-frontend myproject
-Generating fresh &#39;lein new&#39; Reagent frontend project.</code></pre></div>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">lein new reagent-frontend myproject
+</span></span><span class="line"><span class="cl">Generating fresh &#39;lein new&#39; Reagent frontend project.</span></span></code></pre></div>
 </div>
 <p>
 此时正确的 <code class="verbatim">~/.m2/repository/reagent-frontend/lein-template/resolver-status.properties</code> 是这样的：</p>
 <div class="src src-text">
-<div class="highlight"><pre class="chroma"><code class="language-text" data-lang="text">#NOTE: This is a Maven Resolver internal implementation file, its format can be changed without prior notice.
-#Sun Sep 05 10:28:09 CST 2021
-maven-metadata-clojars.xml.lastUpdated=1630808889985
-maven-metadata-central.xml.lastUpdated=1630808888850
-maven-metadata-central.xml.error=</code></pre></div>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">#NOTE: This is a Maven Resolver internal implementation file, its format can be changed without prior notice.
+</span></span><span class="line"><span class="cl">#Sun Sep 05 10:28:09 CST 2021
+</span></span><span class="line"><span class="cl">maven-metadata-clojars.xml.lastUpdated=1630808889985
+</span></span><span class="line"><span class="cl">maven-metadata-central.xml.lastUpdated=1630808888850
+</span></span><span class="line"><span class="cl">maven-metadata-central.xml.error=</span></span></code></pre></div>
 </div>
 
 
@@ -416,6 +412,10 @@ maven-metadata-central.xml.error=</code></pre></div>
             </li>
           
           
+            <li class="next">
+              <a href="https://whatacold.io/zh-cn/blog/2022-07-17-emacs-elisp-debug/" data-toggle="tooltip" data-placement="top" title="Emacs 常用 debug 手段">后一篇 &rarr;</a>
+            </li>
+          
         </ul>
       
 
@@ -426,7 +426,7 @@ maven-metadata-central.xml.error=</code></pre></div>
           <div class="disqus-comments">
             <div id="disqus_thread"></div>
 <script type="application/javascript">
-    var disqus_config = function () {
+    window.disqus_config = function () {
     
     
     
@@ -534,7 +534,7 @@ maven-metadata-central.xml.error=</code></pre></div>
         </p>
         
         <p class="credits theme-by text-muted">
-          由 <a href="https://gohugo.io">Hugo v0.80.0</a> 强力驱动 &nbsp;&bull;&nbsp; 主题 <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> 移植自 <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
+          由 <a href="https://gohugo.io">Hugo v0.93.3</a> 强力驱动 &nbsp;&bull;&nbsp; 主题 <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> 移植自 <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
           
         </p>
       </div>

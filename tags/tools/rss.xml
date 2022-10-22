@@ -7,7 +7,18 @@
     <generator>Hugo -- gohugo.io</generator>
     <managingEditor>whatacold@gmail.com (whatacold)</managingEditor>
     <webMaster>whatacold@gmail.com (whatacold)</webMaster>
-    <lastBuildDate>Sun, 22 Dec 2019 18:52:00 +0800</lastBuildDate><atom:link href="https://whatacold.io/tags/tools/rss.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 21 Oct 2020 22:51:00 +0800</lastBuildDate><atom:link href="https://whatacold.io/tags/tools/rss.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>An Online Python re.findall Service</title>
+      <link>https://whatacold.io/blog/2020-10-21-a-python-re.findall-service/</link>
+      <pubDate>Wed, 21 Oct 2020 22:51:00 +0800</pubDate>
+      <author>whatacold@gmail.com (whatacold)</author>
+      <guid>https://whatacold.io/blog/2020-10-21-a-python-re.findall-service/</guid>
+      <description>As a programmer, I know that grep, sed and awk are powerful for processing text, but they sometimes aren&amp;#39;t that straight-forward for specific tasks, as I need to think about how to filter the lines and the columns out.
+ So I wonder if there is a handy way to do these tasks?
+ After using it for a while, I think using regex directly can help, so I launched a re.</description>
+    </item>
+    
     <item>
       <title>Manage SSH Connections with ~/.ssh/config</title>
       <link>https://whatacold.io/blog/2019-12-22-manage-ssh-connections-with-ssh-config/</link>
@@ -30,7 +41,7 @@
     </item>
     
     <item>
-      <title>Render erd Diagrams Online</title>
+      <title>ER Diagrams in Plain Text</title>
       <link>https://whatacold.io/blog/2019-07-06-render-erd-on-the-web/</link>
       <pubDate>Sat, 06 Jul 2019 11:59:00 +0800</pubDate>
       <author>whatacold@gmail.com (whatacold)</author>

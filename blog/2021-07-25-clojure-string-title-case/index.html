@@ -102,7 +102,7 @@
   <meta name="twitter:site" content="@whatacold" />
   <meta name="twitter:creator" content="@whatacold" />
   <link href='https://whatacold.io/img/favicon.ico' rel='icon' type='image/x-icon'/>
-  <meta name="generator" content="Hugo 0.80.0" />
+  <meta name="generator" content="Hugo 0.93.3" />
   <link rel="alternate" href="https://whatacold.io/index.xml" type="application/rss+xml" title="whatacold&#39;s space"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"><link rel="stylesheet" href="https://whatacold.io/css/main.css" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
@@ -148,13 +148,13 @@ if (!doNotTrack) {
         
           
             <li>
-              <a title="About" href="/about/">About</a>
+              <a title="Tags" href="/tags">Tags</a>
             </li>
           
         
           
             <li>
-              <a title="Tags" href="/tags">Tags</a>
+              <a title="About" href="/about/">About</a>
             </li>
           
         
@@ -286,29 +286,29 @@ These days I like to write scripts for some tasks in Python instead of shell. On
 <p>
 Recently I&#39;m learning Clojure, and I&#39;m trying to find similar ways in Clojure, one of them is <code class="verbatim">s.title()</code> for getting a title-cased version of a string. For example,</p>
 <div class="src src-text">
-<div class="highlight"><pre class="chroma"><code class="language-text" data-lang="text">&gt;&gt;&gt; &#39; Hello world&#39;.title()
-&#39; Hello World&#39;</code></pre></div>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">&gt;&gt;&gt; &#39; Hello world&#39;.title()
+</span></span><span class="line"><span class="cl">&#39; Hello World&#39;</span></span></code></pre></div>
 </div>
 <p>
 How to do that in Clojure? To make the problem simple, let&#39;s assume that the input string only has letters and spaces, that is, <code class="verbatim">[a-zA-Z ]</code> in regex pattern.</p>
 <p>
 Since I am not good at Clojure right now, a Python version helps clear my mind:</p>
 <div class="src src-python">
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="k">def</span> <span class="nf">title_case</span><span class="p">(</span><span class="n">s</span><span class="p">):</span>
-    <span class="s2">&#34;Return a title cased string for s&#34;</span>
-    <span class="n">result</span> <span class="o">=</span> <span class="p">[]</span>
-    <span class="n">prev_whitespace_p</span> <span class="o">=</span> <span class="bp">True</span>
-    <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">s</span><span class="p">:</span>
-        <span class="k">if</span> <span class="s1">&#39; &#39;</span> <span class="o">==</span> <span class="n">c</span><span class="p">:</span>
-            <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
-            <span class="n">prev_whitespace_p</span> <span class="o">=</span> <span class="bp">True</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">c</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span> <span class="k">if</span> <span class="n">prev_whitespace_p</span> <span class="k">else</span> <span class="n">c</span><span class="p">)</span>
-            <span class="n">prev_whitespace_p</span> <span class="o">=</span> <span class="bp">False</span>
-    <span class="k">return</span> <span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
-
-<span class="c1"># &gt;&gt;&gt; title_case(&#39; hello world &#39;)</span>
-<span class="c1"># &#39; Hello World &#39;</span></code></pre></div>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">title_case</span><span class="p">(</span><span class="n">s</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;Return a title cased string for s&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">result</span> <span class="o">=</span> <span class="p">[]</span>
+</span></span><span class="line"><span class="cl">    <span class="n">prev_whitespace_p</span> <span class="o">=</span> <span class="kc">True</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">s</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="s1">&#39; &#39;</span> <span class="o">==</span> <span class="n">c</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">            <span class="n">prev_whitespace_p</span> <span class="o">=</span> <span class="kc">True</span>
+</span></span><span class="line"><span class="cl">        <span class="k">else</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">c</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span> <span class="k">if</span> <span class="n">prev_whitespace_p</span> <span class="k">else</span> <span class="n">c</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">            <span class="n">prev_whitespace_p</span> <span class="o">=</span> <span class="kc">False</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># &gt;&gt;&gt; title_case(&#39; hello world &#39;)</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># &#39; Hello World &#39;</span></span></span></code></pre></div>
 </div>
 <p>
 Here are a few ways I ended coming up.</p>
@@ -320,56 +320,52 @@ The Iteration Way
 <p>
   As thinking in Python (and also in C/C++), the natural way to do it will be to iterate over the string character by character and see if the current one needs to be cast uppercase based on whether the character before it is whitespace, the code would be like:</p>
 <div class="src src-clojure">
-<div class="highlight"><pre class="chroma"><code class="language-clojure" data-lang="clojure"><span class="p">(</span><span class="kd">defn </span><span class="nv">title-case-iteration</span>
-  <span class="p">[</span><span class="nv">input-str</span><span class="p">]</span>
-  <span class="p">(</span><span class="k">let </span><span class="p">[</span><span class="nv">prev-whitespace-p</span> <span class="p">(</span><span class="nf">atom</span> <span class="nv">true</span><span class="p">)</span>
-        <span class="nv">result</span> <span class="p">(</span><span class="nf">atom</span> <span class="s">&#34;&#34;</span><span class="p">)]</span>
-    <span class="p">(</span><span class="nf">run!</span> <span class="o">#</span><span class="p">(</span><span class="nf">reset!</span> <span class="nv">result</span>
-                   <span class="p">(</span><span class="nb">str </span><span class="o">@</span><span class="nv">result</span>
-                        <span class="p">(</span><span class="k">if </span><span class="o">@</span><span class="nv">prev-whitespace-p</span>
-                          <span class="p">(</span><span class="k">do </span><span class="p">(</span><span class="nf">reset!</span> <span class="nv">prev-whitespace-p</span> <span class="p">(</span><span class="nb">= </span><span class="sc">\s</span><span class="nv">pace</span> <span class="nv">%</span><span class="p">))</span>
-                              <span class="p">(</span><span class="k">if </span><span class="p">(</span><span class="nb">= </span><span class="sc">\s</span><span class="nv">pace</span> <span class="nv">%</span><span class="p">)</span> <span class="nv">%</span> <span class="p">(</span><span class="nf">Character/toUpperCase</span> <span class="nv">%</span><span class="p">)))</span>
-                          <span class="p">(</span><span class="k">do </span><span class="p">(</span><span class="nf">reset!</span> <span class="nv">prev-whitespace-p</span> <span class="p">(</span><span class="nb">= </span><span class="sc">\s</span><span class="nv">pace</span> <span class="nv">%</span><span class="p">))</span>
-                              <span class="nv">%</span><span class="p">))))</span>
-          <span class="nv">input-str</span><span class="p">)</span>
-    <span class="o">@</span><span class="nv">result</span><span class="p">))</span>
-
-<span class="p">(</span><span class="nf">title-case-iteration</span> <span class="s">&#34; hello world &#34;</span><span class="p">)</span>
-                                        <span class="c1">; =&gt; &#34; Hello World &#34;</span></code></pre></div>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-clojure" data-lang="clojure"><span class="line"><span class="cl"><span class="p">(</span><span class="kd">defn </span><span class="nv">title-case-iteration</span>
+</span></span><span class="line"><span class="cl">  <span class="p">[</span><span class="nv">input-str</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">  <span class="p">(</span><span class="k">let </span><span class="p">[</span><span class="nv">prev-whitespace-p</span> <span class="p">(</span><span class="nf">atom</span> <span class="nv">true</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="nv">result</span> <span class="p">(</span><span class="nf">atom</span> <span class="s">&#34;&#34;</span><span class="p">)]</span>
+</span></span><span class="line"><span class="cl">    <span class="p">(</span><span class="nf">run!</span> <span class="o">#</span><span class="p">(</span><span class="nf">reset!</span> <span class="nv">result</span>
+</span></span><span class="line"><span class="cl">                   <span class="p">(</span><span class="nb">str </span><span class="o">@</span><span class="nv">result</span>
+</span></span><span class="line"><span class="cl">                        <span class="p">(</span><span class="k">if </span><span class="o">@</span><span class="nv">prev-whitespace-p</span>
+</span></span><span class="line"><span class="cl">                          <span class="p">(</span><span class="k">do </span><span class="p">(</span><span class="nf">reset!</span> <span class="nv">prev-whitespace-p</span> <span class="p">(</span><span class="nb">= </span><span class="sc">\s</span><span class="nv">pace</span> <span class="nv">%</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">                              <span class="p">(</span><span class="k">if </span><span class="p">(</span><span class="nb">= </span><span class="sc">\s</span><span class="nv">pace</span> <span class="nv">%</span><span class="p">)</span> <span class="nv">%</span> <span class="p">(</span><span class="nf">Character/toUpperCase</span> <span class="nv">%</span><span class="p">)))</span>
+</span></span><span class="line"><span class="cl">                          <span class="p">(</span><span class="k">do </span><span class="p">(</span><span class="nf">reset!</span> <span class="nv">prev-whitespace-p</span> <span class="p">(</span><span class="nb">= </span><span class="sc">\s</span><span class="nv">pace</span> <span class="nv">%</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">                              <span class="nv">%</span><span class="p">))))</span>
+</span></span><span class="line"><span class="cl">          <span class="nv">input-str</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="o">@</span><span class="nv">result</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">(</span><span class="nf">title-case-iteration</span> <span class="s">&#34; hello world &#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                                        <span class="c1">; =&gt; &#34; Hello World &#34;</span></span></span></code></pre></div>
 </div>
 <p>
   As you can see, the code is somewhat complicated, and it also takes me the most time to write it. Here is why:</p>
 <ol>
-<li>
-<p>It&#39;s not common to use states in Clojure. We can define a variable by <code class="verbatim">(def foo &#34;hello&#34;)</code>, but how to change its value after that?
-It is easy to do that in Python by re-assigning the variable, <code>foo = &#34;another string&#34;</code>.</p>
-<p>
-I searched the Internet with different keywords and looked up in the book &#34;Living Clojure&#34; but failed to a solution.</p>
-<p>
-Then @jaju on <a href="http://clojurians.net/">Clojure Slack</a> kindly pointed me to use <a href="https://clojuredocs.org/clojure_core/clojure.core/atom">atom</a>, so that there is many <code class="verbatim">atom</code>, <code class="verbatim">@foo</code>, and <code class="verbatim">reset!</code> there following that lead.</p>
-</li>
-<li>
-<p>You may have noticed the unusual <code class="verbatim">run!</code>.</p>
-<p>
-At first, I use <code class="verbatim">map</code> at the exact place, but it didn&#39;t work. Finally, after some searching, I found the problem: <code class="verbatim">map</code> returns a lazy sequence, and since there is no one to use the result (because I only want the side effect to update atoms), so the <code class="verbatim">#()</code> lambda function is not called at all!</p>
-<p>
-The solution is to use <code class="verbatim">run!</code> to make the side effects happen, and its signature is similar to <code class="verbatim">map</code>.</p>
-</li>
+<li>It&#39;s not common to use states in Clojure. We can define a variable by <code class="verbatim">(def foo &#34;hello&#34;)</code>, but how to change its value after that?
+It is easy to do that in Python by re-assigning the variable, <code>foo = &#34;another string&#34;</code>.
+
+I searched the Internet with different keywords and looked up in the book &#34;Living Clojure&#34; but failed to a solution.
+
+Then @jaju on <a href="http://clojurians.net/">Clojure Slack</a> kindly pointed me to use <a href="https://clojuredocs.org/clojure_core/clojure.core/atom">atom</a>, so that there is many <code class="verbatim">atom</code>, <code class="verbatim">@foo</code>, and <code class="verbatim">reset!</code> there following that lead.</li>
+<li>You may have noticed the unusual <code class="verbatim">run!</code>.
+
+At first, I use <code class="verbatim">map</code> at the exact place, but it didn&#39;t work. Finally, after some searching, I found the problem: <code class="verbatim">map</code> returns a lazy sequence, and since there is no one to use the result (because I only want the side effect to update atoms), so the <code class="verbatim">#()</code> lambda function is not called at all!
+
+The solution is to use <code class="verbatim">run!</code> to make the side effects happen, and its signature is similar to <code class="verbatim">map</code>.</li>
 </ol>
 <p>After I posted the above snippet at the channel, @jaju also helped refactor my code, here is his concise version:</p>
 <div class="src src-clojure">
-<div class="highlight"><pre class="chroma"><code class="language-clojure" data-lang="clojure"><span class="p">(</span><span class="kd">defn </span><span class="nv">title-case-iteration-2</span> <span class="p">[</span><span class="nv">input-str</span><span class="p">]</span>
-  <span class="p">(</span><span class="k">let </span><span class="p">[</span><span class="nv">prev-whitespace-p</span> <span class="p">(</span><span class="nf">atom</span> <span class="nv">true</span><span class="p">)</span>
-        <span class="nv">result</span> <span class="p">(</span><span class="nf">atom</span> <span class="s">&#34;&#34;</span><span class="p">)]</span>
-    <span class="p">(</span><span class="nf">run!</span> <span class="p">(</span><span class="k">fn </span><span class="p">[</span><span class="nv">c</span><span class="p">]</span>
-            <span class="p">(</span><span class="nf">reset!</span> <span class="nv">result</span> 
-                    <span class="p">(</span><span class="nb">str </span><span class="o">@</span><span class="nv">result</span>
-                         <span class="p">(</span><span class="k">if </span><span class="o">@</span><span class="nv">prev-whitespace-p</span>
-                           <span class="p">(</span><span class="nf">Character/toUpperCase</span> <span class="nv">c</span><span class="p">)</span>
-                           <span class="nv">c</span><span class="p">)))</span>
-            <span class="p">(</span><span class="nf">reset!</span> <span class="nv">prev-whitespace-p</span> <span class="p">(</span><span class="nb">= </span><span class="sc">\s</span><span class="nv">pace</span> <span class="nv">c</span><span class="p">)))</span>
-          <span class="nv">input-str</span><span class="p">)</span>
-    <span class="o">@</span><span class="nv">result</span><span class="p">))</span></code></pre></div>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-clojure" data-lang="clojure"><span class="line"><span class="cl"><span class="p">(</span><span class="kd">defn </span><span class="nv">title-case-iteration-2</span> <span class="p">[</span><span class="nv">input-str</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">  <span class="p">(</span><span class="k">let </span><span class="p">[</span><span class="nv">prev-whitespace-p</span> <span class="p">(</span><span class="nf">atom</span> <span class="nv">true</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="nv">result</span> <span class="p">(</span><span class="nf">atom</span> <span class="s">&#34;&#34;</span><span class="p">)]</span>
+</span></span><span class="line"><span class="cl">    <span class="p">(</span><span class="nf">run!</span> <span class="p">(</span><span class="k">fn </span><span class="p">[</span><span class="nv">c</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">            <span class="p">(</span><span class="nf">reset!</span> <span class="nv">result</span> 
+</span></span><span class="line"><span class="cl">                    <span class="p">(</span><span class="nb">str </span><span class="o">@</span><span class="nv">result</span>
+</span></span><span class="line"><span class="cl">                         <span class="p">(</span><span class="k">if </span><span class="o">@</span><span class="nv">prev-whitespace-p</span>
+</span></span><span class="line"><span class="cl">                           <span class="p">(</span><span class="nf">Character/toUpperCase</span> <span class="nv">c</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                           <span class="nv">c</span><span class="p">)))</span>
+</span></span><span class="line"><span class="cl">            <span class="p">(</span><span class="nf">reset!</span> <span class="nv">prev-whitespace-p</span> <span class="p">(</span><span class="nb">= </span><span class="sc">\s</span><span class="nv">pace</span> <span class="nv">c</span><span class="p">)))</span>
+</span></span><span class="line"><span class="cl">          <span class="nv">input-str</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="o">@</span><span class="nv">result</span><span class="p">))</span></span></span></code></pre></div>
 </div>
 </div>
 </div>
@@ -387,39 +383,39 @@ The Reduce Way
 <p>
   This version is like:</p>
 <div class="src src-clojure">
-<div class="highlight"><pre class="chroma"><code class="language-clojure" data-lang="clojure"><span class="p">(</span><span class="kd">defn </span><span class="nv">title-case-reduce</span>
-  <span class="p">[</span><span class="nv">str</span><span class="p">]</span>
-  <span class="p">(</span><span class="nb">first </span><span class="p">(</span><span class="nb">reduce </span><span class="o">#</span><span class="p">(</span><span class="k">if </span><span class="p">(</span><span class="nb">= </span><span class="sc">\s</span><span class="nv">pace</span> <span class="nv">%2</span><span class="p">)</span>
-                    <span class="p">[(</span><span class="nb">str </span><span class="p">(</span><span class="nb">first </span><span class="nv">%1</span><span class="p">)</span> <span class="nv">%2</span><span class="p">)</span> <span class="nv">true</span><span class="p">]</span>
-                    <span class="p">[(</span><span class="nb">str </span><span class="p">(</span><span class="nb">first </span><span class="nv">%1</span><span class="p">)</span> <span class="p">(</span><span class="k">if </span><span class="p">(</span><span class="nb">second </span><span class="nv">%1</span><span class="p">)</span>
-                                       <span class="p">(</span><span class="nf">Character/toUpperCase</span> <span class="nv">%2</span><span class="p">)</span>
-                                       <span class="nv">%2</span><span class="p">))</span> <span class="nv">false</span><span class="p">])</span>
-                 <span class="p">[</span><span class="s">&#34;&#34;</span> <span class="nv">true</span><span class="p">]</span>
-                 <span class="nv">str</span><span class="p">)))</span></code></pre></div>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-clojure" data-lang="clojure"><span class="line"><span class="cl"><span class="p">(</span><span class="kd">defn </span><span class="nv">title-case-reduce</span>
+</span></span><span class="line"><span class="cl">  <span class="p">[</span><span class="nv">str</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">  <span class="p">(</span><span class="nb">first </span><span class="p">(</span><span class="nb">reduce </span><span class="o">#</span><span class="p">(</span><span class="k">if </span><span class="p">(</span><span class="nb">= </span><span class="sc">\s</span><span class="nv">pace</span> <span class="nv">%2</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                    <span class="p">[(</span><span class="nb">str </span><span class="p">(</span><span class="nb">first </span><span class="nv">%1</span><span class="p">)</span> <span class="nv">%2</span><span class="p">)</span> <span class="nv">true</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">                    <span class="p">[(</span><span class="nb">str </span><span class="p">(</span><span class="nb">first </span><span class="nv">%1</span><span class="p">)</span> <span class="p">(</span><span class="k">if </span><span class="p">(</span><span class="nb">second </span><span class="nv">%1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                                       <span class="p">(</span><span class="nf">Character/toUpperCase</span> <span class="nv">%2</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                                       <span class="nv">%2</span><span class="p">))</span> <span class="nv">false</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl">                 <span class="p">[</span><span class="s">&#34;&#34;</span> <span class="nv">true</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">                 <span class="nv">str</span><span class="p">)))</span></span></span></code></pre></div>
 </div>
 <p>
   @jaju also reviewed my code, and gave another reduce solution by using <a href="https://clojuredocs.org/clojure_core/clojure.core/cond">cond</a>:</p>
 <div class="src src-clojure">
-<div class="highlight"><pre class="chroma"><code class="language-clojure" data-lang="clojure"><span class="p">(</span><span class="kd">defn </span><span class="nv">title-case-reduce-2</span> <span class="p">[</span><span class="nv">s</span><span class="p">]</span>
-  <span class="p">(</span><span class="nf">-&gt;&gt;</span> <span class="nv">s</span>
-       <span class="p">(</span><span class="nf">reduce</span>
-        <span class="p">(</span><span class="k">fn </span><span class="p">[[</span><span class="nv">prev</span> <span class="nv">accum</span><span class="p">]</span> <span class="nv">c</span><span class="p">]</span>
-          <span class="p">(</span><span class="nf">cond</span>
-            <span class="p">(</span><span class="nb">= </span><span class="ss">:begin</span> <span class="nv">prev</span><span class="p">)</span>
-            <span class="p">[</span><span class="nv">nil</span> <span class="p">(</span><span class="nf">Character/toUpperCase</span> <span class="nv">c</span><span class="p">)]</span>
-
-            <span class="p">(</span><span class="nb">= </span><span class="sc">\s</span><span class="nv">pace</span> <span class="nv">c</span><span class="p">)</span>
-            <span class="p">[</span><span class="nv">c</span> <span class="p">(</span><span class="nb">str </span><span class="nv">accum</span> <span class="nv">prev</span><span class="p">)]</span>
-
-            <span class="p">(</span><span class="nb">= </span><span class="sc">\s</span><span class="nv">pace</span> <span class="nv">prev</span><span class="p">)</span>
-            <span class="p">[</span><span class="nv">nil</span> <span class="p">(</span><span class="nb">str </span><span class="nv">accum</span> <span class="nv">prev</span> <span class="p">(</span><span class="nf">Character/toUpperCase</span> <span class="nv">c</span><span class="p">))]</span>
-
-            <span class="ss">:else</span>
-            <span class="p">[</span><span class="nv">nil</span> <span class="p">(</span><span class="nb">str </span><span class="nv">accum</span> <span class="nv">c</span><span class="p">)]))</span>
-        <span class="p">[</span><span class="ss">:begin</span> <span class="s">&#34;&#34;</span><span class="p">])</span>
-       <span class="nv">second</span><span class="p">))</span>
-
-<span class="c1">;; You can also choose to use clojure.string/capitalize instead of Character/toUpperCase</span></code></pre></div>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-clojure" data-lang="clojure"><span class="line"><span class="cl"><span class="p">(</span><span class="kd">defn </span><span class="nv">title-case-reduce-2</span> <span class="p">[</span><span class="nv">s</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">  <span class="p">(</span><span class="nf">-&gt;&gt;</span> <span class="nv">s</span>
+</span></span><span class="line"><span class="cl">       <span class="p">(</span><span class="nf">reduce</span>
+</span></span><span class="line"><span class="cl">        <span class="p">(</span><span class="k">fn </span><span class="p">[[</span><span class="nv">prev</span> <span class="nv">accum</span><span class="p">]</span> <span class="nv">c</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">          <span class="p">(</span><span class="nf">cond</span>
+</span></span><span class="line"><span class="cl">            <span class="p">(</span><span class="nb">= </span><span class="ss">:begin</span> <span class="nv">prev</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">            <span class="p">[</span><span class="nv">nil</span> <span class="p">(</span><span class="nf">Character/toUpperCase</span> <span class="nv">c</span><span class="p">)]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">            <span class="p">(</span><span class="nb">= </span><span class="sc">\s</span><span class="nv">pace</span> <span class="nv">c</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">            <span class="p">[</span><span class="nv">c</span> <span class="p">(</span><span class="nb">str </span><span class="nv">accum</span> <span class="nv">prev</span><span class="p">)]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">            <span class="p">(</span><span class="nb">= </span><span class="sc">\s</span><span class="nv">pace</span> <span class="nv">prev</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">            <span class="p">[</span><span class="nv">nil</span> <span class="p">(</span><span class="nb">str </span><span class="nv">accum</span> <span class="nv">prev</span> <span class="p">(</span><span class="nf">Character/toUpperCase</span> <span class="nv">c</span><span class="p">))]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">            <span class="ss">:else</span>
+</span></span><span class="line"><span class="cl">            <span class="p">[</span><span class="nv">nil</span> <span class="p">(</span><span class="nb">str </span><span class="nv">accum</span> <span class="nv">c</span><span class="p">)]))</span>
+</span></span><span class="line"><span class="cl">        <span class="p">[</span><span class="ss">:begin</span> <span class="s">&#34;&#34;</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl">       <span class="nv">second</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">;; You can also choose to use clojure.string/capitalize instead of Character/toUpperCase</span></span></span></code></pre></div>
 </div>
 </div>
 </div>
@@ -433,14 +429,14 @@ The Idiomatic Way
 <p>
   Following the code in a <a href="https://gist.github.com/ericnormand/9d0e28695e84efc27c36970ae1462b9c">gist</a>, it took me the least time to write this idiomatic version:</p>
 <div class="src src-clojure">
-<div class="highlight"><pre class="chroma"><code class="language-clojure" data-lang="clojure"><span class="p">(</span><span class="kd">defn </span><span class="nv">title-case-idiomatic</span>
-  <span class="p">[</span><span class="nv">str</span><span class="p">]</span>
-  <span class="p">(</span><span class="nf">clojure.string/join</span> <span class="s">&#34; &#34;</span>
-                       <span class="p">(</span><span class="nb">map </span><span class="o">#</span><span class="p">(</span><span class="nf">clojure.string/capitalize</span> <span class="nv">%</span><span class="p">)</span>
-                            <span class="p">(</span><span class="nf">clojure.string/split</span> <span class="nb">str </span><span class="o">#</span><span class="s">&#34; +&#34;</span><span class="p">))))</span>
-
-<span class="p">(</span><span class="nf">title-case-idiomatic</span> <span class="s">&#34;    hello   world   &#34;</span><span class="p">)</span>
-                                        <span class="c1">; =&gt; &#34; Hello World&#34;</span></code></pre></div>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-clojure" data-lang="clojure"><span class="line"><span class="cl"><span class="p">(</span><span class="kd">defn </span><span class="nv">title-case-idiomatic</span>
+</span></span><span class="line"><span class="cl">  <span class="p">[</span><span class="nv">str</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">  <span class="p">(</span><span class="nf">clojure.string/join</span> <span class="s">&#34; &#34;</span>
+</span></span><span class="line"><span class="cl">                       <span class="p">(</span><span class="nb">map </span><span class="o">#</span><span class="p">(</span><span class="nf">clojure.string/capitalize</span> <span class="nv">%</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                            <span class="p">(</span><span class="nf">clojure.string/split</span> <span class="nb">str </span><span class="o">#</span><span class="s">&#34; +&#34;</span><span class="p">))))</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">(</span><span class="nf">title-case-idiomatic</span> <span class="s">&#34;    hello   world   &#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                                        <span class="c1">; =&gt; &#34; Hello World&#34;</span></span></span></code></pre></div>
 </div>
 <p>
   Since this version doesn&#39;t walk the string character by character, it may not work as you expect in some corner cases, such as the string has leading or trailing whitespaces, as you may have noticed in the above output.</p>
@@ -454,13 +450,13 @@ The regex Way
 <p>
   @jaju also provides a version using regex <a href="https://docs.oracle.com/javase/8/docs/api/java/util/regex/Pattern.html">patterns</a>, it perserve spaces nicely:</p>
 <div class="src src-clojure">
-<div class="highlight"><pre class="chroma"><code class="language-clojure" data-lang="clojure"><span class="p">(</span><span class="kd">defn </span><span class="nv">title-case-regex</span> <span class="p">[</span><span class="nv">s</span><span class="p">]</span>
-  <span class="p">(</span><span class="nf">-&gt;&gt;</span> <span class="p">(</span><span class="nf">clojure.string/split</span> <span class="nv">s</span> <span class="o">#</span><span class="s">&#34;(?&lt;=\s)|(?=\s)&#34;</span><span class="p">)</span>
-       <span class="p">(</span><span class="nb">map </span><span class="nv">clojure.string/capitalize</span><span class="p">)</span>
-       <span class="p">(</span><span class="nb">apply </span><span class="nv">str</span><span class="p">)))</span>
-
-<span class="p">(</span><span class="nf">title-case-regex</span> <span class="s">&#34;  hello    world  &#34;</span><span class="p">)</span>
-<span class="c1">; =&gt; &#34;  Hello    World  &#34;</span></code></pre></div>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-clojure" data-lang="clojure"><span class="line"><span class="cl"><span class="p">(</span><span class="kd">defn </span><span class="nv">title-case-regex</span> <span class="p">[</span><span class="nv">s</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">  <span class="p">(</span><span class="nf">-&gt;&gt;</span> <span class="p">(</span><span class="nf">clojure.string/split</span> <span class="nv">s</span> <span class="o">#</span><span class="s">&#34;(?&lt;=\s)|(?=\s)&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">       <span class="p">(</span><span class="nb">map </span><span class="nv">clojure.string/capitalize</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">       <span class="p">(</span><span class="nb">apply </span><span class="nv">str</span><span class="p">)))</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">(</span><span class="nf">title-case-regex</span> <span class="s">&#34;  hello    world  &#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="c1">; =&gt; &#34;  Hello    World  &#34;</span></span></span></code></pre></div>
 </div>
 </div>
 </div>
@@ -472,22 +468,14 @@ Summary
 <p>
   Along the journey of implementing this simple function, I learned a few things:</p>
 <ol>
-<li>
-<p>Clojure favors immutability, you have to use <code class="verbatim">atom</code> explicitly to define mutable states, and the company functions stand out by having a <code class="verbatim">!</code> mark at the end of their names.</p>
-</li>
-<li>
-<p>It&#39;s harder to write code using iteration and states than using <code class="verbatim">map</code> and <code class="verbatim">reduce</code>. <code class="verbatim">map</code> and <code class="verbatim">reduce</code> are more idiomatic and works at a higher level of abstraction.</p>
-<p>
-On the other side, although iteration may be more efficient, it may not deserve the extra time you invest in. &#34;Premature optimization is the root of all evil.&#34;, <a href="http://wiki.c2.com/?PrematureOptimization">said Donald Knuth</a>.</p>
-<p>
-For most of the time, &#34;The Idiomatic Way&#34; should be the choice.</p>
-</li>
-<li>
-<p>If you want to keep a state while iterating a sequence, first think about using <code class="verbatim">reduce</code>, it can pass states along the iteration.</p>
-</li>
-<li>
-<p>Pay attention to the side effects, especially along with lazy sequences. Clojure has special functions for this purpose, in addition to <code class="verbatim">run!</code>, there are also <a href="https://clojuredocs.org/clojure_core/clojure.core/doseq">doseq</a>, <a href="https://clojuredocs.org/clojure_core/clojure.core/dorun">dorun</a>, and <a href="https://clojuredocs.org/clojure_core/clojure.core/doall">doall</a>.</p>
-</li>
+<li>Clojure favors immutability, you have to use <code class="verbatim">atom</code> explicitly to define mutable states, and the company functions stand out by having a <code class="verbatim">!</code> mark at the end of their names.</li>
+<li>It&#39;s harder to write code using iteration and states than using <code class="verbatim">map</code> and <code class="verbatim">reduce</code>. <code class="verbatim">map</code> and <code class="verbatim">reduce</code> are more idiomatic and works at a higher level of abstraction.
+
+On the other side, although iteration may be more efficient, it may not deserve the extra time you invest in. &#34;Premature optimization is the root of all evil.&#34;, <a href="http://wiki.c2.com/?PrematureOptimization">said Donald Knuth</a>.
+
+For most of the time, &#34;The Idiomatic Way&#34; should be the choice.</li>
+<li>If you want to keep a state while iterating a sequence, first think about using <code class="verbatim">reduce</code>, it can pass states along the iteration.</li>
+<li>Pay attention to the side effects, especially along with lazy sequences. Clojure has special functions for this purpose, in addition to <code class="verbatim">run!</code>, there are also <a href="https://clojuredocs.org/clojure_core/clojure.core/doseq">doseq</a>, <a href="https://clojuredocs.org/clojure_core/clojure.core/dorun">dorun</a>, and <a href="https://clojuredocs.org/clojure_core/clojure.core/doall">doall</a>.</li>
 </ol>
 <p>At last, big thanks to <a href="https://msync.org/posts/">@jaju</a> for the inspiration and help!</p>
 </div>
@@ -609,7 +597,7 @@ For most of the time, &#34;The Idiomatic Way&#34; should be the choice.</p>
           <div class="disqus-comments">
             <div id="disqus_thread"></div>
 <script type="application/javascript">
-    var disqus_config = function () {
+    window.disqus_config = function () {
     
     
     
@@ -717,7 +705,7 @@ For most of the time, &#34;The Idiomatic Way&#34; should be the choice.</p>
         </p>
         
         <p class="credits theme-by text-muted">
-          <a href="https://gohugo.io">Hugo v0.80.0</a> powered &nbsp;&bull;&nbsp; Theme <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> adapted from <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
+          <a href="https://gohugo.io">Hugo v0.93.3</a> powered &nbsp;&bull;&nbsp; Theme <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> adapted from <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
           
         </p>
       </div>

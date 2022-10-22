@@ -97,7 +97,7 @@
   <meta name="twitter:site" content="@whatacold" />
   <meta name="twitter:creator" content="@whatacold" />
   <link href='https://whatacold.io/img/favicon.ico' rel='icon' type='image/x-icon'/>
-  <meta name="generator" content="Hugo 0.80.0" />
+  <meta name="generator" content="Hugo 0.93.3" />
   <link rel="alternate" href="https://whatacold.io/index.xml" type="application/rss+xml" title="whatacold&#39;s space"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"><link rel="stylesheet" href="https://whatacold.io/css/main.css" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
@@ -143,13 +143,13 @@ if (!doNotTrack) {
         
           
             <li>
-              <a title="About" href="/about/">About</a>
+              <a title="Tags" href="/tags">Tags</a>
             </li>
           
         
           
             <li>
-              <a title="Tags" href="/tags">Tags</a>
+              <a title="About" href="/about/">About</a>
             </li>
           
         
@@ -280,108 +280,104 @@ if (!doNotTrack) {
 <p>
 I take the following steps to generate call graphs for a project on terminals on Linux:</p>
 <ol>
-<li>
-<p><code class="verbatim">cd /path/to/a/project/</code>, and generate a template config file by <code class="verbatim">doxygen -s -g doxygen.conf</code> (Omit <code class="verbatim">-s</code> to generate it with detailed comments).</p>
-</li>
+<li><code class="verbatim">cd /path/to/a/project/</code>, and generate a template config file by <code class="verbatim">doxygen -s -g doxygen.conf</code> (Omit <code class="verbatim">-s</code> to generate it with detailed comments).</li>
 <li>
 <p>Tweak the file by specifying input and output directories, and set <code class="verbatim">HAVE_DOT</code> and <code>CALL_GRAPH</code> to <code class="verbatim">YES</code>.</p>
 <p>
 Here is the complete diff:</p>
 <div class="src src-diff">
-<div class="highlight"><pre class="chroma"><code class="language-diff" data-lang="diff"><span class="gd">--- doxygen.conf.orig
-</span><span class="gd"></span><span class="gi">+++ doxygen.conf
-</span><span class="gi"></span><span class="gu">@@ -8,7 +8,7 @@
-</span><span class="gu"></span> PROJECT_NUMBER         =
- PROJECT_BRIEF          =
- PROJECT_LOGO           =
-<span class="gd">-OUTPUT_DIRECTORY       =
-</span><span class="gd"></span><span class="gi">+OUTPUT_DIRECTORY       = /path/to/doxygen-output/
-</span><span class="gi"></span> CREATE_SUBDIRS         = NO
- ALLOW_UNICODE_NAMES    = NO
- OUTPUT_LANGUAGE        = English
-<span class="gu">@@ -114,7 +114,7 @@
-</span><span class="gu"></span> #---------------------------------------------------------------------------
- # Configuration options related to the input files
- #---------------------------------------------------------------------------
-<span class="gd">-INPUT                  =
-</span><span class="gd"></span><span class="gi">+INPUT                  = /path/to/a/project/ # the directory of the source code
-</span><span class="gi"></span> INPUT_ENCODING         = UTF-8
- FILE_PATTERNS          = *.c \
-                          ,*.cc \
-<span class="gu">@@ -161,7 +161,7 @@
-</span><span class="gu"></span>                          ,*.ucf \
-                          ,*.qsf \
-                          ,*.ice
-<span class="gd">-RECURSIVE              = NO
-</span><span class="gd"></span><span class="gi">+RECURSIVE              = YES
-</span><span class="gi"></span> EXCLUDE                =
- EXCLUDE_SYMLINKS       = NO
- EXCLUDE_PATTERNS       =
-<span class="gu">@@ -255,7 +255,7 @@
-</span><span class="gu"></span> #---------------------------------------------------------------------------
- # Configuration options related to the LaTeX output
- #---------------------------------------------------------------------------
-<span class="gd">-GENERATE_LATEX         = YES
-</span><span class="gd"></span><span class="gi">+GENERATE_LATEX         = NO
-</span><span class="gi"></span> LATEX_OUTPUT           = latex
- LATEX_CMD_NAME         =
- MAKEINDEX_CMD_NAME     = makeindex
-<span class="gu">@@ -345,10 +345,10 @@
-</span><span class="gu"></span> MSCGEN_PATH            =
- DIA_PATH               =
- HIDE_UNDOC_RELATIONS   = YES
-<span class="gd">-HAVE_DOT               = NO
-</span><span class="gd"></span><span class="gi">+HAVE_DOT               = YES
-</span><span class="gi"></span> DOT_NUM_THREADS        = 0
- DOT_FONTNAME           = Helvetica
-<span class="gd">-DOT_FONTSIZE           = 10
-</span><span class="gd"></span><span class="gi">+DOT_FONTSIZE           = 14
-</span><span class="gi"></span> DOT_FONTPATH           =
- CLASS_GRAPH            = YES
- COLLABORATION_GRAPH    = YES
-<span class="gu">@@ -358,7 +358,7 @@
-</span><span class="gu"></span> TEMPLATE_RELATIONS     = NO
- INCLUDE_GRAPH          = YES
- INCLUDED_BY_GRAPH      = YES
-<span class="gd">-CALL_GRAPH             = NO
-</span><span class="gd"></span><span class="gi">+CALL_GRAPH             = YES
-</span><span class="gi"></span> CALLER_GRAPH           = NO
- GRAPHICAL_HIERARCHY    = YES
- DIRECTORY_GRAPH        = YES
-</code></pre></div>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-diff" data-lang="diff"><span class="line"><span class="cl"><span class="gd">--- doxygen.conf.orig
+</span></span></span><span class="line"><span class="cl"><span class="gd"></span><span class="gi">+++ doxygen.conf
+</span></span></span><span class="line"><span class="cl"><span class="gi"></span><span class="gu">@@ -8,7 +8,7 @@
+</span></span></span><span class="line"><span class="cl"><span class="gu"></span> PROJECT_NUMBER         =
+</span></span><span class="line"><span class="cl"> PROJECT_BRIEF          =
+</span></span><span class="line"><span class="cl"> PROJECT_LOGO           =
+</span></span><span class="line"><span class="cl"><span class="gd">-OUTPUT_DIRECTORY       =
+</span></span></span><span class="line"><span class="cl"><span class="gd"></span><span class="gi">+OUTPUT_DIRECTORY       = /path/to/doxygen-output/
+</span></span></span><span class="line"><span class="cl"><span class="gi"></span> CREATE_SUBDIRS         = NO
+</span></span><span class="line"><span class="cl"> ALLOW_UNICODE_NAMES    = NO
+</span></span><span class="line"><span class="cl"> OUTPUT_LANGUAGE        = English
+</span></span><span class="line"><span class="cl"><span class="gu">@@ -114,7 +114,7 @@
+</span></span></span><span class="line"><span class="cl"><span class="gu"></span> #---------------------------------------------------------------------------
+</span></span><span class="line"><span class="cl"> # Configuration options related to the input files
+</span></span><span class="line"><span class="cl"> #---------------------------------------------------------------------------
+</span></span><span class="line"><span class="cl"><span class="gd">-INPUT                  =
+</span></span></span><span class="line"><span class="cl"><span class="gd"></span><span class="gi">+INPUT                  = /path/to/a/project/ # the directory of the source code
+</span></span></span><span class="line"><span class="cl"><span class="gi"></span> INPUT_ENCODING         = UTF-8
+</span></span><span class="line"><span class="cl"> FILE_PATTERNS          = *.c \
+</span></span><span class="line"><span class="cl">                          ,*.cc \
+</span></span><span class="line"><span class="cl"><span class="gu">@@ -161,7 +161,7 @@
+</span></span></span><span class="line"><span class="cl"><span class="gu"></span>                          ,*.ucf \
+</span></span><span class="line"><span class="cl">                          ,*.qsf \
+</span></span><span class="line"><span class="cl">                          ,*.ice
+</span></span><span class="line"><span class="cl"><span class="gd">-RECURSIVE              = NO
+</span></span></span><span class="line"><span class="cl"><span class="gd"></span><span class="gi">+RECURSIVE              = YES
+</span></span></span><span class="line"><span class="cl"><span class="gi"></span> EXCLUDE                =
+</span></span><span class="line"><span class="cl"> EXCLUDE_SYMLINKS       = NO
+</span></span><span class="line"><span class="cl"> EXCLUDE_PATTERNS       =
+</span></span><span class="line"><span class="cl"><span class="gu">@@ -255,7 +255,7 @@
+</span></span></span><span class="line"><span class="cl"><span class="gu"></span> #---------------------------------------------------------------------------
+</span></span><span class="line"><span class="cl"> # Configuration options related to the LaTeX output
+</span></span><span class="line"><span class="cl"> #---------------------------------------------------------------------------
+</span></span><span class="line"><span class="cl"><span class="gd">-GENERATE_LATEX         = YES
+</span></span></span><span class="line"><span class="cl"><span class="gd"></span><span class="gi">+GENERATE_LATEX         = NO
+</span></span></span><span class="line"><span class="cl"><span class="gi"></span> LATEX_OUTPUT           = latex
+</span></span><span class="line"><span class="cl"> LATEX_CMD_NAME         =
+</span></span><span class="line"><span class="cl"> MAKEINDEX_CMD_NAME     = makeindex
+</span></span><span class="line"><span class="cl"><span class="gu">@@ -345,10 +345,10 @@
+</span></span></span><span class="line"><span class="cl"><span class="gu"></span> MSCGEN_PATH            =
+</span></span><span class="line"><span class="cl"> DIA_PATH               =
+</span></span><span class="line"><span class="cl"> HIDE_UNDOC_RELATIONS   = YES
+</span></span><span class="line"><span class="cl"><span class="gd">-HAVE_DOT               = NO
+</span></span></span><span class="line"><span class="cl"><span class="gd"></span><span class="gi">+HAVE_DOT               = YES
+</span></span></span><span class="line"><span class="cl"><span class="gi"></span> DOT_NUM_THREADS        = 0
+</span></span><span class="line"><span class="cl"> DOT_FONTNAME           = Helvetica
+</span></span><span class="line"><span class="cl"><span class="gd">-DOT_FONTSIZE           = 10
+</span></span></span><span class="line"><span class="cl"><span class="gd"></span><span class="gi">+DOT_FONTSIZE           = 14
+</span></span></span><span class="line"><span class="cl"><span class="gi"></span> DOT_FONTPATH           =
+</span></span><span class="line"><span class="cl"> CLASS_GRAPH            = YES
+</span></span><span class="line"><span class="cl"> COLLABORATION_GRAPH    = YES
+</span></span><span class="line"><span class="cl"><span class="gu">@@ -358,7 +358,7 @@
+</span></span></span><span class="line"><span class="cl"><span class="gu"></span> TEMPLATE_RELATIONS     = NO
+</span></span><span class="line"><span class="cl"> INCLUDE_GRAPH          = YES
+</span></span><span class="line"><span class="cl"> INCLUDED_BY_GRAPH      = YES
+</span></span><span class="line"><span class="cl"><span class="gd">-CALL_GRAPH             = NO
+</span></span></span><span class="line"><span class="cl"><span class="gd"></span><span class="gi">+CALL_GRAPH             = YES
+</span></span></span><span class="line"><span class="cl"><span class="gi"></span> CALLER_GRAPH           = NO
+</span></span><span class="line"><span class="cl"> GRAPHICAL_HIERARCHY    = YES
+</span></span><span class="line"><span class="cl"> DIRECTORY_GRAPH        = YES
+</span></span></code></pre></div>
 </div>
 </li>
-<li>
-<p>Run <code class="verbatim">doxygen doxygen.conf</code>, that&#39;s it.</p>
-</li>
+<li>Run <code class="verbatim">doxygen doxygen.conf</code>, that&#39;s it.</li>
 </ol>
 <p>It&#39;s a bit boring to do this for every project, and let&#39;s improve the workflow a bit by using <a href="https://joaotavora.github.io/yasnippet/index.html">yasnippet</a> and making a new Emacs command.</p>
 <p>
 First, make a new config template snippet with 3 placeholders (Set <code class="verbatim">yas-indent-line</code> to avoid reindention by yasnippet):</p>
 <div class="src src-text">
-<div class="highlight"><pre class="chroma"><code class="language-text" data-lang="text"># -*- mode: snippet -*-
-# expand-env: ((yas-indent-line &#39;never))
-# --
-# Doxyfile 1.8.15
-
-PROJECT_NAME           = &#34;${1:my-cool-project}&#34;
-...
-OUTPUT_DIRECTORY       = ${2:`(format &#34;%s/doxygen/&#34; (expand-file-name &#34;~&#34;))`$1}
-...
-INPUT                  = $3 # XXX must be an absolute path</code></pre></div>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl"># -*- mode: snippet -*-
+</span></span><span class="line"><span class="cl"># expand-env: ((yas-indent-line &#39;never))
+</span></span><span class="line"><span class="cl"># --
+</span></span><span class="line"><span class="cl"># Doxyfile 1.8.15
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">PROJECT_NAME           = &#34;${1:my-cool-project}&#34;
+</span></span><span class="line"><span class="cl">...
+</span></span><span class="line"><span class="cl">OUTPUT_DIRECTORY       = ${2:`(format &#34;%s/doxygen/&#34; (expand-file-name &#34;~&#34;))`$1}
+</span></span><span class="line"><span class="cl">...
+</span></span><span class="line"><span class="cl">INPUT                  = $3 # XXX must be an absolute path</span></span></code></pre></div>
 </div>
 <p>
 With this snippet (see the exact file <a href="https://github.com/whatacold/emacs.d/blob/whatacold/snippets/conf-unix-mode/doxygen.yasnippet">here</a>), I can quickly create a doxygen config for a project by &#34;finding&#34; a new file and insert the snippet by <code class="verbatim">M-x yas-insert-snippet</code>.</p>
 <p>
 Second, make a helper command to run doxygen quickly with a projects buffer as the current buffer of Emacs:</p>
 <div class="src src-elisp">
-<div class="highlight"><pre class="chroma"><code class="language-elisp" data-lang="elisp"><span class="p">(</span><span class="nb">defun</span> <span class="nv">w/run-doxygen</span> <span class="p">()</span>
-  <span class="s">&#34;Run doxygen asynchronously.&#34;</span>
-  <span class="p">(</span><span class="nb">interactive</span><span class="p">)</span>
-  <span class="p">(</span><span class="nb">let</span> <span class="p">((</span><span class="nv">conf</span> <span class="p">(</span><span class="nv">locate-dominating-file</span> <span class="nv">default-directory</span> <span class="s">&#34;doxygen.conf&#34;</span><span class="p">)))</span>
-    <span class="p">(</span><span class="nb">if</span> <span class="p">(</span><span class="nv">not</span> <span class="nv">conf</span><span class="p">)</span>
-        <span class="p">(</span><span class="nf">message</span> <span class="s">&#34;No doxygen.conf found!&#34;</span><span class="p">)</span>
-      <span class="p">(</span><span class="nv">shell-command</span> <span class="p">(</span><span class="nf">format</span> <span class="s">&#34;doxygen %sdoxygen.conf&amp;&#34;</span> <span class="nv">conf</span><span class="p">)))))</span></code></pre></div>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-elisp" data-lang="elisp"><span class="line"><span class="cl"><span class="p">(</span><span class="nb">defun</span> <span class="nv">w/run-doxygen</span> <span class="p">()</span>
+</span></span><span class="line"><span class="cl">  <span class="s">&#34;Run doxygen asynchronously.&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">(</span><span class="nb">interactive</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="p">(</span><span class="nb">let</span> <span class="p">((</span><span class="nv">conf</span> <span class="p">(</span><span class="nv">locate-dominating-file</span> <span class="nv">default-directory</span> <span class="s">&#34;doxygen.conf&#34;</span><span class="p">)))</span>
+</span></span><span class="line"><span class="cl">    <span class="p">(</span><span class="nb">if</span> <span class="p">(</span><span class="nv">not</span> <span class="nv">conf</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="p">(</span><span class="nf">message</span> <span class="s">&#34;No doxygen.conf found!&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">      <span class="p">(</span><span class="nv">shell-command</span> <span class="p">(</span><span class="nf">format</span> <span class="s">&#34;doxygen %sdoxygen.conf&amp;&#34;</span> <span class="nv">conf</span><span class="p">)))))</span></span></span></code></pre></div>
 </div>
 <p>
 This time, just type <code class="verbatim">M-x w/run-doxygen</code> to generate call graphs in Emacs.</p>
@@ -462,15 +458,15 @@ This time, just type <code class="verbatim">M-x w/run-doxygen</code> to generate
                   <ul>
                 
                 
+                    <li><a href="/blog/2022-10-10-emacs-hugo-blogging/">Hugo Blogging in Emacs</a></li>
+                
+                    <li><a href="/blog/2022-09-10-emacs-beancount-account-files/">Auto-complete Accounts From Other Beancount Files in Emacs</a></li>
+                
+                    <li><a href="/blog/2022-08-08-org-link-bookmarklet/">A Bookmarklet for Copying a Link as an Org-mode Link</a></li>
+                
+                    <li><a href="/blog/2022-07-17-emacs-elisp-debug/">Emacs Debugging Basics</a></li>
+                
                     <li><a href="/blog/2022-05-23-emacs-duplicate-line/">Duplicate the current line in Emacs</a></li>
-                
-                    <li><a href="/blog/2022-05-21-adjust-screen-brightness-emacs/">Adjust the laptop&#39;s screen brightness in Emacs</a></li>
-                
-                    <li><a href="/blog/2022-04-09-emacs-kill-other-buffer/">How to kill other buffers in Emacs</a></li>
-                
-                    <li><a href="/blog/2022-01-22-emacs-eglot-lsp/">Eglot for better programming experience in Emacs</a></li>
-                
-                    <li><a href="/blog/2022-01-12-language-shadowing-with-subed-emacs/">Language Shadowing with subed in Emacs</a></li>
                 
               </ul>
 
@@ -500,7 +496,7 @@ This time, just type <code class="verbatim">M-x w/run-doxygen</code> to generate
           <div class="disqus-comments">
             <div id="disqus_thread"></div>
 <script type="application/javascript">
-    var disqus_config = function () {
+    window.disqus_config = function () {
     
     
     
@@ -608,7 +604,7 @@ This time, just type <code class="verbatim">M-x w/run-doxygen</code> to generate
         </p>
         
         <p class="credits theme-by text-muted">
-          <a href="https://gohugo.io">Hugo v0.80.0</a> powered &nbsp;&bull;&nbsp; Theme <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> adapted from <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
+          <a href="https://gohugo.io">Hugo v0.93.3</a> powered &nbsp;&bull;&nbsp; Theme <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> adapted from <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
           
         </p>
       </div>

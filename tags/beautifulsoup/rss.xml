@@ -15,11 +15,8 @@
       <author>whatacold@gmail.com (whatacold)</author>
       <guid>https://whatacold.io/blog/2021-12-05-beautifulsoup4-cheatsheet/</guid>
       <description>Beautiful Soup    Detailed docs: the Beautiful Soup 4 Docs.
- Want to scrape data from websites? I can help you: https://www.fiverr.com/share/j7qgrm
  Assume t is an object of Tag.
-Core concepts (classes)    Tag, a Tag object corresponds to an XML or HTML tag.
-  BeautifulSoup, the BeautifulSoup object represents the parsed document as a whole.
- You can treat it like a special Tag.</description>
+Core concepts (classes)   Tag, a Tag object corresponds to an XML or HTML tag. BeautifulSoup, the BeautifulSoup object represents the parsed document as a whole. You can treat it like a special Tag. It needs a parser to parse the document, a built-in parser is &amp;#34;html.</description>
     </item>
     
   </channel>

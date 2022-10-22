@@ -103,7 +103,7 @@ sum of two numbers: #&#43;begin_src clojure(&#43; 1 2) #&#43;end_src   I want to
   <meta name="twitter:site" content="@whatacold" />
   <meta name="twitter:creator" content="@whatacold" />
   <link href='https://whatacold.io/img/favicon.ico' rel='icon' type='image/x-icon'/>
-  <meta name="generator" content="Hugo 0.80.0" />
+  <meta name="generator" content="Hugo 0.93.3" />
   <link rel="alternate" href="https://whatacold.io/index.xml" type="application/rss+xml" title="whatacold&#39;s space"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"><link rel="stylesheet" href="https://whatacold.io/css/main.css" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
@@ -149,13 +149,13 @@ if (!doNotTrack) {
         
           
             <li>
-              <a title="About" href="/about/">About</a>
+              <a title="Tags" href="/tags">Tags</a>
             </li>
           
         
           
             <li>
-              <a title="Tags" href="/tags">Tags</a>
+              <a title="About" href="/about/">About</a>
             </li>
           
         
@@ -288,72 +288,62 @@ But it missed the feature until last night, as I wasn&#39;t sure how to implemen
 <p>
 For example, I may have an org-mode like this:</p>
 <div class="src src-org">
-<div class="highlight"><pre class="chroma"><code class="language-org" data-lang="org">sum of two numbers:
-<span class="c">#+begin_src </span><span class="cs">clojure</span><span class="c">
-</span><span class="c"></span><span class="p">(</span><span class="nb">+ </span><span class="mi">1</span> <span class="mi">2</span><span class="p">)</span>
-<span class="c">#+end_src</span></code></pre></div>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-org" data-lang="org"><span class="line"><span class="cl">sum of two numbers:
+</span></span><span class="line"><span class="cl"><span class="c">#+begin_src </span><span class="cs">clojure</span><span class="c">
+</span></span></span><span class="line"><span class="cl"><span class="c"></span><span class="p">(</span><span class="nb">+ </span><span class="mi">1</span> <span class="mi">2</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="c">#+end_src</span></span></span></code></pre></div>
 </div>
 <p>
 I want to have a result comment (<code class="verbatim">(;; =&gt; 3)</code>) after each top-level form after using <code class="verbatim">illustrate.clj</code>:
 sum of two numbers:</p>
 <div class="src src-org">
-<div class="highlight"><pre class="chroma"><code class="language-org" data-lang="org"><span class="c">#+begin_src </span><span class="cs">clojure</span><span class="c">
-</span><span class="c"></span><span class="p">(</span><span class="nb">+ </span><span class="mi">1</span> <span class="mi">2</span><span class="p">)</span>
-<span class="c1">;; =&gt; 3</span>
-<span class="c">#+end_src</span></code></pre></div>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-org" data-lang="org"><span class="line"><span class="cl"><span class="c">#+begin_src </span><span class="cs">clojure</span><span class="c">
+</span></span></span><span class="line"><span class="cl"><span class="c"></span><span class="p">(</span><span class="nb">+ </span><span class="mi">1</span> <span class="mi">2</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="c1">;; =&gt; 3</span>
+</span></span><span class="line"><span class="cl"><span class="c">#+end_src</span></span></span></code></pre></div>
 </div>
 <p>
 As I come from a background of C++ and Python, the common way to do that in these languages would be:</p>
 <ol>
-<li>
-<p>find the begin of source blocks (<code class="verbatim">#+begin_src</code>), and find their corresponding ends.</p>
-</li>
-<li>
-<p>extract and illustrate the source blocks</p>
-</li>
-<li>
-<p>join the newly source blocks back with the previous content</p>
-</li>
+<li>find the begin of source blocks (<code class="verbatim">#+begin_src</code>), and find their corresponding ends.</li>
+<li>extract and illustrate the source blocks</li>
+<li>join the newly source blocks back with the previous content</li>
 </ol>
 <p>The Clojure way here is similar, but using <code class="verbatim">reduce</code>:</p>
 <ol>
-<li>
-<p>split the file content into lines</p>
-</li>
-<li>
-<p>reduct the lines to final content</p>
-<p>
-Use a state to carry the content before a block and the source block along the way. if a source block ends, call <code class="verbatim">(illustrate-string)</code> to illustrate it and append the result string to previous content.</p>
-</li>
+<li>split the file content into lines</li>
+<li>reduct the lines to final content
+
+Use a state to carry the content before a block and the source block along the way. if a source block ends, call <code class="verbatim">(illustrate-string)</code> to illustrate it and append the result string to previous content.</li>
 </ol>
 <p>The function is like this:</p>
 <div class="src src-clojure">
-<div class="highlight"><pre class="chroma"><code class="language-clojure" data-lang="clojure"><span class="p">(</span><span class="kd">defn </span><span class="nv">illustrate-org-file</span>
-  <span class="s">&#34;Add illustration comments to an org-mode file&#34;</span>
-  <span class="p">[</span><span class="nv">file</span> <span class="nv">new-file</span><span class="p">]</span>
-  <span class="p">(</span><span class="k">let </span><span class="p">[</span><span class="nv">lines</span> <span class="p">(</span><span class="nf">clojure.string/split-lines</span> <span class="p">(</span><span class="nb">slurp </span><span class="nv">file</span><span class="p">))</span>
-        <span class="nv">result</span> <span class="p">(</span><span class="nb">reduce </span><span class="p">(</span><span class="nf">fn</span>
-                         <span class="p">[</span><span class="nv">state</span> <span class="nv">line</span><span class="p">]</span>
-                         <span class="p">(</span><span class="k">let </span><span class="p">[</span><span class="nv">content</span> <span class="p">(</span><span class="nb">nth </span><span class="nv">state</span> <span class="mi">0</span><span class="p">)</span>
-                               <span class="nv">prev-in-block?</span> <span class="p">(</span><span class="nb">nth </span><span class="nv">state</span> <span class="mi">1</span><span class="p">)</span>
-                               <span class="nv">src-block</span> <span class="p">(</span><span class="nb">nth </span><span class="nv">state</span> <span class="mi">2</span><span class="p">)]</span>
-                           <span class="p">(</span><span class="k">if </span><span class="nv">prev-in-block?</span>
-                             <span class="p">(</span><span class="k">if </span><span class="p">(</span><span class="nb">re-matches </span><span class="o">#</span><span class="s">&#34;\s*#\+end_src&#34;</span> <span class="nv">line</span><span class="p">)</span>
-                               <span class="p">[(</span><span class="nb">str </span><span class="nv">content</span> <span class="p">(</span><span class="nf">illustrate-string</span> <span class="nv">src-block</span><span class="p">)</span> <span class="nv">line</span> <span class="s">&#34;\n&#34;</span><span class="p">)</span>
-                                <span class="nv">false</span>
-                                <span class="s">&#34;&#34;</span><span class="p">]</span>
-                               <span class="p">[</span><span class="nv">content</span>
-                                <span class="nv">true</span>
-                                <span class="p">(</span><span class="nb">str </span><span class="nv">src-block</span> <span class="nv">line</span> <span class="s">&#34;\n&#34;</span><span class="p">)])</span> <span class="c1">; append to the source block</span>
-                             <span class="c1">;; not in a src block previously</span>
-                             <span class="p">[(</span><span class="nb">str </span><span class="nv">content</span> <span class="nv">line</span> <span class="s">&#34;\n&#34;</span><span class="p">)</span>
-                              <span class="p">(</span><span class="k">if </span><span class="p">(</span><span class="nb">re-matches </span><span class="o">#</span><span class="s">&#34;\s*#\+begin_src\s+clojure&#34;</span> <span class="nv">line</span><span class="p">)</span>
-                                <span class="nv">true</span>
-                                <span class="nv">false</span><span class="p">)</span>
-                              <span class="s">&#34;&#34;</span><span class="p">])))</span>
-                       <span class="p">[</span><span class="s">&#34;&#34;</span> <span class="nv">false</span> <span class="s">&#34;&#34;</span><span class="p">]</span>
-                       <span class="nv">lines</span><span class="p">)]</span>
-    <span class="p">(</span><span class="nf">spit</span> <span class="nv">new-file</span> <span class="p">(</span><span class="nb">nth </span><span class="nv">result</span> <span class="mi">0</span><span class="p">))))</span></code></pre></div>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-clojure" data-lang="clojure"><span class="line"><span class="cl"><span class="p">(</span><span class="kd">defn </span><span class="nv">illustrate-org-file</span>
+</span></span><span class="line"><span class="cl">  <span class="s">&#34;Add illustration comments to an org-mode file&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">[</span><span class="nv">file</span> <span class="nv">new-file</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">  <span class="p">(</span><span class="k">let </span><span class="p">[</span><span class="nv">lines</span> <span class="p">(</span><span class="nf">clojure.string/split-lines</span> <span class="p">(</span><span class="nb">slurp </span><span class="nv">file</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">        <span class="nv">result</span> <span class="p">(</span><span class="nb">reduce </span><span class="p">(</span><span class="nf">fn</span>
+</span></span><span class="line"><span class="cl">                         <span class="p">[</span><span class="nv">state</span> <span class="nv">line</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">                         <span class="p">(</span><span class="k">let </span><span class="p">[</span><span class="nv">content</span> <span class="p">(</span><span class="nb">nth </span><span class="nv">state</span> <span class="mi">0</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                               <span class="nv">prev-in-block?</span> <span class="p">(</span><span class="nb">nth </span><span class="nv">state</span> <span class="mi">1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                               <span class="nv">src-block</span> <span class="p">(</span><span class="nb">nth </span><span class="nv">state</span> <span class="mi">2</span><span class="p">)]</span>
+</span></span><span class="line"><span class="cl">                           <span class="p">(</span><span class="k">if </span><span class="nv">prev-in-block?</span>
+</span></span><span class="line"><span class="cl">                             <span class="p">(</span><span class="k">if </span><span class="p">(</span><span class="nb">re-matches </span><span class="o">#</span><span class="s">&#34;\s*#\+end_src&#34;</span> <span class="nv">line</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                               <span class="p">[(</span><span class="nb">str </span><span class="nv">content</span> <span class="p">(</span><span class="nf">illustrate-string</span> <span class="nv">src-block</span><span class="p">)</span> <span class="nv">line</span> <span class="s">&#34;\n&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                                <span class="nv">false</span>
+</span></span><span class="line"><span class="cl">                                <span class="s">&#34;&#34;</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">                               <span class="p">[</span><span class="nv">content</span>
+</span></span><span class="line"><span class="cl">                                <span class="nv">true</span>
+</span></span><span class="line"><span class="cl">                                <span class="p">(</span><span class="nb">str </span><span class="nv">src-block</span> <span class="nv">line</span> <span class="s">&#34;\n&#34;</span><span class="p">)])</span> <span class="c1">; append to the source block</span>
+</span></span><span class="line"><span class="cl">                             <span class="c1">;; not in a src block previously</span>
+</span></span><span class="line"><span class="cl">                             <span class="p">[(</span><span class="nb">str </span><span class="nv">content</span> <span class="nv">line</span> <span class="s">&#34;\n&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                              <span class="p">(</span><span class="k">if </span><span class="p">(</span><span class="nb">re-matches </span><span class="o">#</span><span class="s">&#34;\s*#\+begin_src\s+clojure&#34;</span> <span class="nv">line</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                                <span class="nv">true</span>
+</span></span><span class="line"><span class="cl">                                <span class="nv">false</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                              <span class="s">&#34;&#34;</span><span class="p">])))</span>
+</span></span><span class="line"><span class="cl">                       <span class="p">[</span><span class="s">&#34;&#34;</span> <span class="nv">false</span> <span class="s">&#34;&#34;</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">                       <span class="nv">lines</span><span class="p">)]</span>
+</span></span><span class="line"><span class="cl">    <span class="p">(</span><span class="nf">spit</span> <span class="nv">new-file</span> <span class="p">(</span><span class="nb">nth </span><span class="nv">result</span> <span class="mi">0</span><span class="p">))))</span></span></span></code></pre></div>
 </div>
 <p>
 Although it works, it&#39;s not as concise and elegant as I expected. Maybe I would improve the code in the future.</p>
@@ -474,7 +464,7 @@ The complete code is at my <a href="https://github.com/whatacold/babashka-tools/
           <div class="disqus-comments">
             <div id="disqus_thread"></div>
 <script type="application/javascript">
-    var disqus_config = function () {
+    window.disqus_config = function () {
     
     
     
@@ -582,7 +572,7 @@ The complete code is at my <a href="https://github.com/whatacold/babashka-tools/
         </p>
         
         <p class="credits theme-by text-muted">
-          <a href="https://gohugo.io">Hugo v0.80.0</a> powered &nbsp;&bull;&nbsp; Theme <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> adapted from <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
+          <a href="https://gohugo.io">Hugo v0.93.3</a> powered &nbsp;&bull;&nbsp; Theme <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> adapted from <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
           
         </p>
       </div>

@@ -51,7 +51,7 @@
         "position": 3,
         "item": {
           "@id": "https:\/\/whatacold.io\/blog\/2021-08-07-illustrate-clojure-snippet\/",
-          "name": "Illustrate.clj to illustrate clojure snippet"
+          "name": "Illustrate.Clj to illustrate clojure snippet"
         }
     }]
 }
@@ -99,7 +99,7 @@
   <meta name="twitter:site" content="@whatacold" />
   <meta name="twitter:creator" content="@whatacold" />
   <link href='https://whatacold.io/img/favicon.ico' rel='icon' type='image/x-icon'/>
-  <meta name="generator" content="Hugo 0.80.0" />
+  <meta name="generator" content="Hugo 0.93.3" />
   <link rel="alternate" href="https://whatacold.io/index.xml" type="application/rss+xml" title="whatacold&#39;s space"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"><link rel="stylesheet" href="https://whatacold.io/css/main.css" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
@@ -145,13 +145,13 @@ if (!doNotTrack) {
         
           
             <li>
-              <a title="About" href="/about/">About</a>
+              <a title="Tags" href="/tags">Tags</a>
             </li>
           
         
           
             <li>
-              <a title="Tags" href="/tags">Tags</a>
+              <a title="About" href="/about/">About</a>
             </li>
           
         
@@ -285,15 +285,15 @@ As shown in the <a href="https://clojure.org/api/cheatsheet">cheatsheet</a>, Clo
 <p>
 Along the way, I found it was a little cumbersome to append the evaluation result and the result of calling them, for example,</p>
 <div class="src src-clojure">
-<div class="highlight"><pre class="chroma"><code class="language-clojure" data-lang="clojure"><span class="p">(</span><span class="kd">defn </span><span class="nv">title-case-idiomatic</span>
-  <span class="p">[</span><span class="nv">str</span><span class="p">]</span>
-  <span class="p">(</span><span class="nf">clojure.string/join</span> <span class="s">&#34; &#34;</span>
-                       <span class="p">(</span><span class="nb">map </span><span class="o">#</span><span class="p">(</span><span class="nf">clojure.string/capitalize</span> <span class="nv">%</span><span class="p">)</span>
-                            <span class="p">(</span><span class="nf">clojure.string/split</span> <span class="nb">str </span><span class="o">#</span><span class="s">&#34; +&#34;</span><span class="p">))))</span>
-<span class="c1">;; =&gt; #&#39;user/title-case-idiomatic</span>
-
-<span class="p">(</span><span class="nf">title-case-idiomatic</span> <span class="s">&#34; hello world &#34;</span><span class="p">)</span>
-<span class="c1">;; =&gt;  Hello World</span></code></pre></div>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-clojure" data-lang="clojure"><span class="line"><span class="cl"><span class="p">(</span><span class="kd">defn </span><span class="nv">title-case-idiomatic</span>
+</span></span><span class="line"><span class="cl">  <span class="p">[</span><span class="nv">str</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">  <span class="p">(</span><span class="nf">clojure.string/join</span> <span class="s">&#34; &#34;</span>
+</span></span><span class="line"><span class="cl">                       <span class="p">(</span><span class="nb">map </span><span class="o">#</span><span class="p">(</span><span class="nf">clojure.string/capitalize</span> <span class="nv">%</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                            <span class="p">(</span><span class="nf">clojure.string/split</span> <span class="nb">str </span><span class="o">#</span><span class="s">&#34; +&#34;</span><span class="p">))))</span>
+</span></span><span class="line"><span class="cl"><span class="c1">;; =&gt; #&#39;user/title-case-idiomatic</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">(</span><span class="nf">title-case-idiomatic</span> <span class="s">&#34; hello world &#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="c1">;; =&gt;  Hello World</span></span></span></code></pre></div>
 </div>
 <p>
 If I change the function name or add more calling examples, I need to adjust the evaluation comment accordingly, which is not a very good idea.</p>
@@ -319,32 +319,26 @@ The Trivial Version
 <p>
   The idea is simple in 3 steps:</p>
 <ol>
-<li>
-<p>Read the top-level forms</p>
-</li>
-<li>
-<p>Evaluate them</p>
-</li>
-<li>
-<p>Print the forms and their result in comments after them</p>
-</li>
+<li>Read the top-level forms</li>
+<li>Evaluate them</li>
+<li>Print the forms and their result in comments after them</li>
 </ol>
 <p>The most challenging part is how to read top-level forms and evaluate them, but it didn&#39;t take me too long to make it using <code class="verbatim">edn/read</code> and <code class="verbatim">java.io.PushbackReader</code>, based on this <a href="https://stackoverflow.com/a/15237012/910978">StackOverflow answer</a>.</p>
 <p>
   The core part of it is as follows:</p>
 <div class="src src-clojure">
-<div class="highlight"><pre class="chroma"><code class="language-clojure" data-lang="clojure"><span class="p">(</span><span class="kd">defn </span><span class="nv">illustrate</span>
-  <span class="p">[</span><span class="nv">file</span> <span class="nv">suffix</span><span class="p">]</span>
-  <span class="p">(</span><span class="nb">with-open </span><span class="p">[</span><span class="nv">in</span> <span class="p">(</span><span class="nf">java.io.PushbackReader.</span> <span class="p">(</span><span class="nf">clojure.java.io/reader</span>
-                                           <span class="nv">file</span><span class="p">))]</span>
-    <span class="p">(</span><span class="k">let </span><span class="p">[</span><span class="nv">edn-seq</span> <span class="p">(</span><span class="nf">repeatedly</span> <span class="p">(</span><span class="nb">partial </span><span class="nv">edn/read</span> <span class="p">{</span><span class="ss">:eof</span> <span class="ss">:theend</span><span class="p">}</span> <span class="nv">in</span><span class="p">))]</span>
-      <span class="p">(</span><span class="nf">spit</span> <span class="p">(</span><span class="nb">str </span><span class="nv">file</span> <span class="nv">suffix</span><span class="p">)</span>
-            <span class="p">(</span><span class="nf">with-out-str</span>
-              <span class="p">(</span><span class="nb">dorun </span><span class="p">(</span><span class="nb">map </span><span class="p">(</span><span class="k">fn </span><span class="p">[</span><span class="nv">obj</span><span class="p">]</span>
-                            <span class="p">(</span><span class="nf">println</span><span class="p">)</span>
-                            <span class="p">(</span><span class="nb">prn </span><span class="nv">obj</span><span class="p">)</span>
-                            <span class="p">(</span><span class="nb">println </span><span class="s">&#34;; =&gt; &#34;</span> <span class="p">(</span><span class="nb">eval </span><span class="nv">obj</span><span class="p">)))</span>
-                          <span class="p">(</span><span class="nb">take-while </span><span class="p">(</span><span class="nb">partial not= </span><span class="ss">:theend</span><span class="p">)</span> <span class="nv">edn-seq</span><span class="p">))))))))</span></code></pre></div>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-clojure" data-lang="clojure"><span class="line"><span class="cl"><span class="p">(</span><span class="kd">defn </span><span class="nv">illustrate</span>
+</span></span><span class="line"><span class="cl">  <span class="p">[</span><span class="nv">file</span> <span class="nv">suffix</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">  <span class="p">(</span><span class="nb">with-open </span><span class="p">[</span><span class="nv">in</span> <span class="p">(</span><span class="nf">java.io.PushbackReader.</span> <span class="p">(</span><span class="nf">clojure.java.io/reader</span>
+</span></span><span class="line"><span class="cl">                                           <span class="nv">file</span><span class="p">))]</span>
+</span></span><span class="line"><span class="cl">    <span class="p">(</span><span class="k">let </span><span class="p">[</span><span class="nv">edn-seq</span> <span class="p">(</span><span class="nf">repeatedly</span> <span class="p">(</span><span class="nb">partial </span><span class="nv">edn/read</span> <span class="p">{</span><span class="ss">:eof</span> <span class="ss">:theend</span><span class="p">}</span> <span class="nv">in</span><span class="p">))]</span>
+</span></span><span class="line"><span class="cl">      <span class="p">(</span><span class="nf">spit</span> <span class="p">(</span><span class="nb">str </span><span class="nv">file</span> <span class="nv">suffix</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">            <span class="p">(</span><span class="nf">with-out-str</span>
+</span></span><span class="line"><span class="cl">              <span class="p">(</span><span class="nb">dorun </span><span class="p">(</span><span class="nb">map </span><span class="p">(</span><span class="k">fn </span><span class="p">[</span><span class="nv">obj</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">                            <span class="p">(</span><span class="nf">println</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                            <span class="p">(</span><span class="nb">prn </span><span class="nv">obj</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                            <span class="p">(</span><span class="nb">println </span><span class="s">&#34;; =&gt; &#34;</span> <span class="p">(</span><span class="nb">eval </span><span class="nv">obj</span><span class="p">)))</span>
+</span></span><span class="line"><span class="cl">                          <span class="p">(</span><span class="nb">take-while </span><span class="p">(</span><span class="nb">partial not= </span><span class="ss">:theend</span><span class="p">)</span> <span class="nv">edn-seq</span><span class="p">))))))))</span></span></span></code></pre></div>
 </div>
 <p>
   It works, and it only took me some 2 hours to implement it, which is fantastic.</p>
@@ -375,57 +369,57 @@ The First Try that Failed
 <p>
    This is what I came up at first:</p>
 <div class="src src-clojure">
-<div class="highlight"><pre class="chroma"><code class="language-clojure" data-lang="clojure"><span class="p">(</span><span class="nf">require</span> <span class="o">&#39;</span><span class="p">[</span><span class="nv">rewrite-clj.zip</span> <span class="ss">:as</span> <span class="nv">z</span><span class="p">]</span>
-         <span class="o">&#39;</span><span class="p">[</span><span class="nv">rewrite-clj.node</span> <span class="ss">:as</span> <span class="nv">n</span><span class="p">]</span>
-         <span class="o">&#39;</span><span class="p">[</span><span class="nv">rewrite-clj.parser</span> <span class="ss">:as</span> <span class="nv">p</span><span class="p">])</span>
-
-<span class="c1">;; a test string</span>
-<span class="p">(</span><span class="k">def </span><span class="nv">data-string</span> <span class="s">&#34;
-</span><span class="s">(defn my-function [a]
-</span><span class="s">  (* a 3))
-</span><span class="s">
-</span><span class="s">(my-function 7)
-</span><span class="s">&#34;</span><span class="p">)</span>
-
-<span class="c1">;; parse code to nodes, create a zipper, and navigate to the first non-whitespace node</span>
-<span class="p">(</span><span class="k">def </span><span class="nv">zloc</span> <span class="p">(</span><span class="nf">z/of-string</span> <span class="nv">data-string</span><span class="p">))</span>
-
-<span class="p">(</span><span class="k">loop </span><span class="p">[</span><span class="nv">cur</span> <span class="nv">zloc</span>
-       <span class="nb">left </span><span class="nv">cur</span><span class="p">]</span>
-  <span class="p">(</span><span class="nb">println </span><span class="s">&#34;current string {{&#34;</span> <span class="p">(</span><span class="nf">z/string</span> <span class="nv">cur</span><span class="p">)</span> <span class="s">&#34;}}&#34;</span><span class="p">)</span>
-  <span class="p">(</span><span class="k">if </span><span class="p">(</span><span class="nf">z/end?</span> <span class="nv">cur</span><span class="p">)</span>
-    <span class="p">(</span><span class="nb">println </span><span class="s">&#34;final string: {{&#34;</span> <span class="p">(</span><span class="nf">z/root-string</span> <span class="nv">left</span><span class="p">)</span> <span class="s">&#34;}}&#34;</span><span class="p">)</span> <span class="c1">; XXX it doesn&#39;t work as expected!!!</span>
-    <span class="p">(</span><span class="nf">recur</span> <span class="p">(</span><span class="nf">z/right</span> <span class="p">(</span><span class="nf">z/insert-right</span> <span class="nv">cur</span> <span class="p">(</span><span class="nf">p/parse-string</span> <span class="s">&#34;; test\n&#34;</span><span class="p">)))</span>
-           <span class="nv">cur</span><span class="p">)))</span></code></pre></div>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-clojure" data-lang="clojure"><span class="line"><span class="cl"><span class="p">(</span><span class="nf">require</span> <span class="o">&#39;</span><span class="p">[</span><span class="nv">rewrite-clj.zip</span> <span class="ss">:as</span> <span class="nv">z</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">         <span class="o">&#39;</span><span class="p">[</span><span class="nv">rewrite-clj.node</span> <span class="ss">:as</span> <span class="nv">n</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">         <span class="o">&#39;</span><span class="p">[</span><span class="nv">rewrite-clj.parser</span> <span class="ss">:as</span> <span class="nv">p</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">;; a test string</span>
+</span></span><span class="line"><span class="cl"><span class="p">(</span><span class="k">def </span><span class="nv">data-string</span> <span class="s">&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s">(defn my-function [a]
+</span></span></span><span class="line"><span class="cl"><span class="s">  (* a 3))
+</span></span></span><span class="line"><span class="cl"><span class="s">
+</span></span></span><span class="line"><span class="cl"><span class="s">(my-function 7)
+</span></span></span><span class="line"><span class="cl"><span class="s">&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">;; parse code to nodes, create a zipper, and navigate to the first non-whitespace node</span>
+</span></span><span class="line"><span class="cl"><span class="p">(</span><span class="k">def </span><span class="nv">zloc</span> <span class="p">(</span><span class="nf">z/of-string</span> <span class="nv">data-string</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">(</span><span class="k">loop </span><span class="p">[</span><span class="nv">cur</span> <span class="nv">zloc</span>
+</span></span><span class="line"><span class="cl">       <span class="nb">left </span><span class="nv">cur</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">  <span class="p">(</span><span class="nb">println </span><span class="s">&#34;current string {{&#34;</span> <span class="p">(</span><span class="nf">z/string</span> <span class="nv">cur</span><span class="p">)</span> <span class="s">&#34;}}&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="p">(</span><span class="k">if </span><span class="p">(</span><span class="nf">z/end?</span> <span class="nv">cur</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">(</span><span class="nb">println </span><span class="s">&#34;final string: {{&#34;</span> <span class="p">(</span><span class="nf">z/root-string</span> <span class="nv">left</span><span class="p">)</span> <span class="s">&#34;}}&#34;</span><span class="p">)</span> <span class="c1">; XXX it doesn&#39;t work as expected!!!</span>
+</span></span><span class="line"><span class="cl">    <span class="p">(</span><span class="nf">recur</span> <span class="p">(</span><span class="nf">z/right</span> <span class="p">(</span><span class="nf">z/insert-right</span> <span class="nv">cur</span> <span class="p">(</span><span class="nf">p/parse-string</span> <span class="s">&#34;; test\n&#34;</span><span class="p">)))</span>
+</span></span><span class="line"><span class="cl">           <span class="nv">cur</span><span class="p">)))</span></span></span></code></pre></div>
 </div>
 <p>
   The output shows that it only works partially, the last comment didn&#39;t get appended:</p>
 <div class="src src-text">
-<div class="highlight"><pre class="chroma"><code class="language-text" data-lang="text">current string {{ (defn my-function [a]
-  (* a 3)) }}
-current string {{ (my-function 7) }}
-current string {{ nil }}
-final string: {{ 
- (defn my-function [a]
-  (* a 3)) ; test
-
-
-(my-function 7)
- }}</code></pre></div>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">current string {{ (defn my-function [a]
+</span></span><span class="line"><span class="cl">  (* a 3)) }}
+</span></span><span class="line"><span class="cl">current string {{ (my-function 7) }}
+</span></span><span class="line"><span class="cl">current string {{ nil }}
+</span></span><span class="line"><span class="cl">final string: {{ 
+</span></span><span class="line"><span class="cl"> (defn my-function [a]
+</span></span><span class="line"><span class="cl">  (* a 3)) ; test
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">(my-function 7)
+</span></span><span class="line"><span class="cl"> }}</span></span></code></pre></div>
 </div>
 <p>
   It took me a lot of time to figure out why it doesn&#39;t work, but I failed to.</p>
 <p>
   Then I turned to the <a href="https://app.slack.com/client/T03RZGPFR/CHB5Q2XUJ">#rewrite-clj</a> community on Slack for help, <a href="https://twitter.com/NimbleLee">@lread</a> nicely gave me a workable solution:</p>
 <div class="src src-clojure">
-<div class="highlight"><pre class="chroma"><code class="language-clojure" data-lang="clojure"><span class="p">(</span><span class="k">loop </span><span class="p">[</span><span class="nv">zloc</span> <span class="nv">zloc</span><span class="p">]</span>
-  <span class="p">(</span><span class="k">let </span><span class="p">[</span><span class="nv">zloc</span> <span class="p">(</span><span class="nf">some-&gt;</span> <span class="nv">zloc</span>
-                     <span class="p">(</span><span class="nf">z/insert-right*</span> <span class="p">(</span><span class="nf">n/comment-node</span> <span class="s">&#34;; test&#34;</span><span class="p">))</span>
-                     <span class="p">(</span><span class="nf">z/insert-right*</span> <span class="p">(</span><span class="nf">n/newlines</span> <span class="mi">1</span><span class="p">)))</span>
-        <span class="nv">next-sib</span> <span class="p">(</span><span class="nf">z/right</span> <span class="nv">zloc</span><span class="p">)]</span>
-    <span class="p">(</span><span class="k">if </span><span class="nv">next-sib</span>
-      <span class="p">(</span><span class="nf">recur</span> <span class="nv">next-sib</span><span class="p">)</span>
-      <span class="p">(</span><span class="nf">z/print-root</span> <span class="nv">zloc</span><span class="p">))))</span></code></pre></div>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-clojure" data-lang="clojure"><span class="line"><span class="cl"><span class="p">(</span><span class="k">loop </span><span class="p">[</span><span class="nv">zloc</span> <span class="nv">zloc</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">  <span class="p">(</span><span class="k">let </span><span class="p">[</span><span class="nv">zloc</span> <span class="p">(</span><span class="nf">some-&gt;</span> <span class="nv">zloc</span>
+</span></span><span class="line"><span class="cl">                     <span class="p">(</span><span class="nf">z/insert-right*</span> <span class="p">(</span><span class="nf">n/comment-node</span> <span class="s">&#34;; test&#34;</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">                     <span class="p">(</span><span class="nf">z/insert-right*</span> <span class="p">(</span><span class="nf">n/newlines</span> <span class="mi">1</span><span class="p">)))</span>
+</span></span><span class="line"><span class="cl">        <span class="nv">next-sib</span> <span class="p">(</span><span class="nf">z/right</span> <span class="nv">zloc</span><span class="p">)]</span>
+</span></span><span class="line"><span class="cl">    <span class="p">(</span><span class="k">if </span><span class="nv">next-sib</span>
+</span></span><span class="line"><span class="cl">      <span class="p">(</span><span class="nf">recur</span> <span class="nv">next-sib</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">      <span class="p">(</span><span class="nf">z/print-root</span> <span class="nv">zloc</span><span class="p">))))</span></span></span></code></pre></div>
 </div>
 <p>
   That was a good starting point for me. Looking back, the lessons here are:</p>
@@ -435,34 +429,28 @@ final string: {{
 <p>
 The problem above was that the <code class="verbatim">cur</code> in the last <code class="verbatim">recur</code> sexpr is stale after applying <code class="verbatim">z/insert-right</code>, and the correct one would be like this:</p>
 <div class="src src-clojure">
-<div class="highlight"><pre class="chroma"><code class="language-clojure" data-lang="clojure"><span class="p">(</span><span class="k">loop </span><span class="p">[</span><span class="nv">cur</span> <span class="nv">zloc</span>
-       <span class="nb">left </span><span class="nv">cur</span><span class="p">]</span>
-  <span class="p">(</span><span class="nb">println </span><span class="s">&#34;current string {{&#34;</span> <span class="p">(</span><span class="nf">z/string</span> <span class="nv">cur</span><span class="p">)</span> <span class="s">&#34;}}&#34;</span><span class="p">)</span>
-  <span class="p">(</span><span class="k">if </span><span class="p">(</span><span class="nf">z/end?</span> <span class="nv">cur</span><span class="p">)</span>
-    <span class="p">(</span><span class="nb">println </span><span class="s">&#34;final string: {{&#34;</span> <span class="p">(</span><span class="nf">z/root-string</span> <span class="nv">left</span><span class="p">)</span> <span class="s">&#34;}}&#34;</span><span class="p">)</span>
-    <span class="p">(</span><span class="k">let </span><span class="p">[</span><span class="nv">cur</span> <span class="p">(</span><span class="nf">z/insert-right</span> <span class="nv">cur</span> <span class="p">(</span><span class="nf">p/parse-string</span> <span class="s">&#34;; test\n&#34;</span><span class="p">))]</span> <span class="c1">; here is the diff</span>
-      <span class="p">(</span><span class="nf">recur</span> <span class="p">(</span><span class="nf">z/right</span> <span class="nv">cur</span><span class="p">)</span>
-             <span class="nv">cur</span><span class="p">))))</span></code></pre></div>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-clojure" data-lang="clojure"><span class="line"><span class="cl"><span class="p">(</span><span class="k">loop </span><span class="p">[</span><span class="nv">cur</span> <span class="nv">zloc</span>
+</span></span><span class="line"><span class="cl">       <span class="nb">left </span><span class="nv">cur</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">  <span class="p">(</span><span class="nb">println </span><span class="s">&#34;current string {{&#34;</span> <span class="p">(</span><span class="nf">z/string</span> <span class="nv">cur</span><span class="p">)</span> <span class="s">&#34;}}&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="p">(</span><span class="k">if </span><span class="p">(</span><span class="nf">z/end?</span> <span class="nv">cur</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">(</span><span class="nb">println </span><span class="s">&#34;final string: {{&#34;</span> <span class="p">(</span><span class="nf">z/root-string</span> <span class="nv">left</span><span class="p">)</span> <span class="s">&#34;}}&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">(</span><span class="k">let </span><span class="p">[</span><span class="nv">cur</span> <span class="p">(</span><span class="nf">z/insert-right</span> <span class="nv">cur</span> <span class="p">(</span><span class="nf">p/parse-string</span> <span class="s">&#34;; test\n&#34;</span><span class="p">))]</span> <span class="c1">; here is the diff</span>
+</span></span><span class="line"><span class="cl">      <span class="p">(</span><span class="nf">recur</span> <span class="p">(</span><span class="nf">z/right</span> <span class="nv">cur</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">             <span class="nv">cur</span><span class="p">))))</span></span></span></code></pre></div>
 </div>
 </li>
 <li>
 <p>It&#39;s better to create nodes explicitly.
 At first, I thought <code class="verbatim">(z/insert-right* (p/parse-string-all &#34;\n; test\n&#34;))</code> would insert two nodes to the right, but it turned out it didn&#39;t work. Instead, inserting a comment and then a newline node did the trick, that is:</p>
 <div class="src src-clojure">
-<div class="highlight"><pre class="chroma"><code class="language-clojure" data-lang="clojure"><span class="p">(</span><span class="nb">-&gt; </span><span class="nv">zloc</span>
-    <span class="p">(</span><span class="nf">z/insert-right*</span> <span class="p">(</span><span class="nf">n/comment</span> <span class="s">&#34; test&#34;</span><span class="p">))</span>
-    <span class="p">(</span><span class="nf">z/insert-right*</span> <span class="p">(</span><span class="nf">n/newline</span> <span class="mi">1</span><span class="p">)))</span></code></pre></div>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-clojure" data-lang="clojure"><span class="line"><span class="cl"><span class="p">(</span><span class="nb">-&gt; </span><span class="nv">zloc</span>
+</span></span><span class="line"><span class="cl">    <span class="p">(</span><span class="nf">z/insert-right*</span> <span class="p">(</span><span class="nf">n/comment</span> <span class="s">&#34; test&#34;</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">    <span class="p">(</span><span class="nf">z/insert-right*</span> <span class="p">(</span><span class="nf">n/newline</span> <span class="mi">1</span><span class="p">)))</span></span></span></code></pre></div>
 </div>
 </li>
-<li>
-<p><code class="verbatim">whitespace-node</code> is different from <code class="verbatim">newline-node</code> for rewrite-clj, at the first glance, my intuition was that whitespace nodes also contains newlines.</p>
-</li>
-<li>
-<p>Keep the number of <code class="verbatim">loop</code> bindings as little as possible, and only one is the best so that there is little for <code class="verbatim">recur</code> to care about.</p>
-</li>
-<li>
-<p>The <code class="verbatim">let</code> bindings is an excellent place to put some logic so that the body of <code class="verbatim">let</code> would be concise.</p>
-</li>
+<li><code class="verbatim">whitespace-node</code> is different from <code class="verbatim">newline-node</code> for rewrite-clj, at the first glance, my intuition was that whitespace nodes also contains newlines.</li>
+<li>Keep the number of <code class="verbatim">loop</code> bindings as little as possible, and only one is the best so that there is little for <code class="verbatim">recur</code> to care about.</li>
+<li>The <code class="verbatim">let</code> bindings is an excellent place to put some logic so that the body of <code class="verbatim">let</code> would be concise.</li>
 </ol>
 </div>
 </div>
@@ -476,17 +464,11 @@ The Second Version
 <p>
    There are 3 ways to use it:</p>
 <ol>
-<li>
-<p><code class="verbatim">illustrate.clj -i .new foo.clj</code>, to illustrate <code class="verbatim">foo.clj</code> and write the result to <code class="verbatim">foo.new.clj</code>.</p>
-</li>
-<li>
-<p><code class="verbatim">illustrate.clj foo.clj</code>, to illustrate <code class="verbatim">foo.clj</code> and <strong><strong>overwrite</strong></strong> it.</p>
-<p>
-Be careful! You&#39;d better back up your file or put it under the control of git.</p>
-</li>
-<li>
-<p><code class="verbatim">cat foo.clj | illustrate.clj</code> to do it via a pipe. It could be handy if you use it with tools like Emacs/Vim.</p>
-</li>
+<li><code class="verbatim">illustrate.clj -i .new foo.clj</code>, to illustrate <code class="verbatim">foo.clj</code> and write the result to <code class="verbatim">foo.new.clj</code>.</li>
+<li><code class="verbatim">illustrate.clj foo.clj</code>, to illustrate <code class="verbatim">foo.clj</code> and <strong><strong>overwrite</strong></strong> it.
+
+Be careful! You&#39;d better back up your file or put it under the control of git.</li>
+<li><code class="verbatim">cat foo.clj | illustrate.clj</code> to do it via a pipe. It could be handy if you use it with tools like Emacs/Vim.</li>
 </ol>
 <p>There is still one feature that I leave for someday: to illustrate org-mode files containing Clojure source block, which would be wonderful for writing blog posts with Hugo.</p>
 <p>
@@ -576,6 +558,8 @@ Be careful! You&#39;d better back up your file or put it under the control of gi
                   <ul>
                 
                 
+                    <li><a href="/blog/2022-10-10-emacs-hugo-blogging/">Hugo Blogging in Emacs</a></li>
+                
                     <li><a href="/blog/2021-09-19-clojure-reduce-text-processing/">Clojure reduce: one case for text processing</a></li>
                 
                     <li><a href="/blog/2021-07-25-clojure-string-title-case/">String Title Case in Clojure</a></li>
@@ -612,7 +596,7 @@ Be careful! You&#39;d better back up your file or put it under the control of gi
           <div class="disqus-comments">
             <div id="disqus_thread"></div>
 <script type="application/javascript">
-    var disqus_config = function () {
+    window.disqus_config = function () {
     
     
     
@@ -720,7 +704,7 @@ Be careful! You&#39;d better back up your file or put it under the control of gi
         </p>
         
         <p class="credits theme-by text-muted">
-          <a href="https://gohugo.io">Hugo v0.80.0</a> powered &nbsp;&bull;&nbsp; Theme <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> adapted from <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
+          <a href="https://gohugo.io">Hugo v0.93.3</a> powered &nbsp;&bull;&nbsp; Theme <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> adapted from <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
           
         </p>
       </div>

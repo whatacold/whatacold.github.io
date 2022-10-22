@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="en" itemscope itemtype="http://schema.org/WebPage">
+  <head>
+    
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+
+
+
+  
+
+  <title>A Bookmarklet for Copying a Link as an Org-mode Link - whatacold&#39;s space</title>
+  <meta name="description" content="In this blog post, I&#39;d like to share a bookmarklet for copying a web page&#39;s URL as an org-mode link on Firefox, Chrome, or whatever web browsers support bookmarklets.
+ It&#39;s handy when the URL isn&#39;t SEO-friendly, which means you can&#39;t tell what its content is about at first glance of the URL. So a little description text on the link would help.
+ Here is the bookmarklet:
+javascript:window.prompt(&#34;Copy to clipboard: Ctrl&#43;C, Esc&#34;, &#34;[[&#34; &#43; document.">
+  <meta name="author" content="whatacold"/><script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "WebSite",
+    "name": "whatacold\u0027s space",
+    
+    "url": "https:\/\/whatacold.io"
+}
+</script><script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Organization",
+  "name": "",
+  "url": "https:\/\/whatacold.io"
+  
+  
+  
+  
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "item": {
+          "@id": "https:\/\/whatacold.io",
+          "name": "home"
+        }
+    },{
+        "@type": "ListItem",
+        "position": 3,
+        "item": {
+          "@id": "https:\/\/whatacold.io\/blog\/2022-08-08-org-link-bookmarklet\/",
+          "name": "A bookmarklet for copying a link as an org mode link"
+        }
+    }]
+}
+</script><script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Article",
+  "author": {
+    "name" : "whatacold"
+  },
+  "headline": "A Bookmarklet for Copying a Link as an Org-mode Link",
+  "description" : "In this blog post, I\u0026#39;d like to share a bookmarklet for copying a web page\u0026#39;s URL as an org-mode link on Firefox, Chrome, or whatever web browsers support bookmarklets.\n It\u0026#39;s handy when the URL isn\u0026#39;t SEO-friendly, which means you can\u0026#39;t tell what its content is about at first glance of the URL. So a little description text on the link would help.\n Here is the bookmarklet:\njavascript:window.prompt(\u0026#34;Copy to clipboard: Ctrl\u002bC, Esc\u0026#34;, \u0026#34;[[\u0026#34; \u002b document.",
+  "inLanguage" : "en",
+  "wordCount":  377 ,
+  "datePublished" : "2022-08-08T23:33:05",
+  "dateModified" : "2022-08-08T23:33:05",
+  "image" : "https:\/\/whatacold.io\/img\/avatar.png",
+  "keywords" : [ "Emacs, Org-mode, Bookmarklet" ],
+  "mainEntityOfPage" : "https:\/\/whatacold.io\/blog\/2022-08-08-org-link-bookmarklet\/",
+  "publisher" : {
+    "@type": "Organization",
+    "name" : "https:\/\/whatacold.io",
+    "logo" : {
+        "@type" : "ImageObject",
+        "url" : "https:\/\/whatacold.io\/img\/avatar.png",
+        "height" :  60 ,
+        "width" :  60
+    }
+  }
+}
+</script>
+
+<meta property="og:title" content="A Bookmarklet for Copying a Link as an Org-mode Link" />
+<meta property="og:description" content="In this blog post, I&#39;d like to share a bookmarklet for copying a web page&#39;s URL as an org-mode link on Firefox, Chrome, or whatever web browsers support bookmarklets.
+ It&#39;s handy when the URL isn&#39;t SEO-friendly, which means you can&#39;t tell what its content is about at first glance of the URL. So a little description text on the link would help.
+ Here is the bookmarklet:
+javascript:window.prompt(&#34;Copy to clipboard: Ctrl&#43;C, Esc&#34;, &#34;[[&#34; &#43; document.">
+<meta property="og:image" content="https://whatacold.io/img/avatar.png" />
+<meta property="og:url" content="https://whatacold.io/blog/2022-08-08-org-link-bookmarklet/" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="whatacold&#39;s space" />
+
+  <meta name="twitter:title" content="A Bookmarklet for Copying a Link as an Org-mode Link" />
+  <meta name="twitter:description" content="In this blog post, I&#39;d like to share a bookmarklet for copying a web page&#39;s URL as an org-mode link on Firefox, Chrome, or whatever web browsers support bookmarklets.
+ It&#39;s handy when the …">
+  <meta name="twitter:image" content="https://whatacold.io/img/avatar.png" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@whatacold" />
+  <meta name="twitter:creator" content="@whatacold" />
+  <link href='https://whatacold.io/img/favicon.ico' rel='icon' type='image/x-icon'/>
+  <meta name="generator" content="Hugo 0.93.3" />
+  <link rel="alternate" href="https://whatacold.io/index.xml" type="application/rss+xml" title="whatacold&#39;s space"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"><link rel="stylesheet" href="https://whatacold.io/css/main.css" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
+  <link rel="stylesheet" href="https://whatacold.io/css/highlight.min.css" /><link rel="stylesheet" href="https://whatacold.io/css/codeblock.css" /><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.css" integrity="sha384-h/L2W9KefUClHWaty3SLE5F/qvc4djlyR4qY3NUV5HGQBBW7stbcfff1+I/vmsHh" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/default-skin/default-skin.min.css" integrity="sha384-iD0dNku6PYSIQLyfTOpB06F2KCZJAKLOThS5HRe8b3ibhdEQ6eKsFf/EeFxdOt5R" crossorigin="anonymous">
+
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-74588785-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+  </head>
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://whatacold.io">whatacold&#39;s space</a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+          
+            <li>
+              <a title="Blog" href="/">Blog</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="Tags" href="/tags">Tags</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="About" href="/about/">About</a>
+            </li>
+          
+        
+
+        
+          
+            <li>
+              
+                
+              
+                
+                  <a href="/zh-cn" lang="zh-cn">简体中文</a>
+                
+              
+            </li>
+          
+        
+
+        
+      </ul>
+    </div>
+
+    
+      <div class="avatar-container">
+        <div class="avatar-img-border">
+          <a title="whatacold&#39;s space" href="https://whatacold.io">
+            <img class="avatar-img" src="https://whatacold.io/img/avatar.png" alt="whatacold&#39;s space" />
+          </a>
+        </div>
+      </div>
+    
+
+  </div>
+</nav>
+
+
+
+
+    
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+  
+  
+  
+
+
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    <div class="intro-header no-img">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <div class="blog-heading">
+              
+                <h1>A Bookmarklet for Copying a Link as an Org-mode Link</h1>
+              
+              
+                <hr class="small">
+              
+              
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+    
+<div class="container" role="main">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+      <article role="main" class="blog-post">
+        <p>
+In this blog post, I&#39;d like to share a <a href="https://en.wikipedia.org/wiki/Bookmarklet">bookmarklet</a> for copying a web page&#39;s URL as an org-mode link on Firefox, Chrome, or whatever web browsers support bookmarklets.</p>
+<p>
+It&#39;s handy when the URL isn&#39;t SEO-friendly, which means you can&#39;t tell what its content is about at first glance of the URL. So a little description text on the link would help.</p>
+<p>
+Here is the bookmarklet:</p>
+<div class="src src-js">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="nx">javascript</span><span class="o">:</span><span class="nb">window</span><span class="p">.</span><span class="nx">prompt</span><span class="p">(</span><span class="s2">&#34;Copy to clipboard: Ctrl+C, Esc&#34;</span><span class="p">,</span> <span class="s2">&#34;[[&#34;</span> <span class="o">+</span> <span class="nb">document</span><span class="p">.</span><span class="nx">location</span><span class="p">.</span><span class="nx">href</span> <span class="o">+</span> <span class="s2">&#34;][&#34;</span> <span class="o">+</span> <span class="nb">document</span><span class="p">.</span><span class="nx">title</span> <span class="o">+</span> <span class="s2">&#34; - &#34;</span> <span class="o">+</span> <span class="nb">document</span><span class="p">.</span><span class="nx">location</span><span class="p">.</span><span class="nx">hostname</span> <span class="o">+</span> <span class="s2">&#34;]]&#34;</span><span class="p">);</span></span></span></code></pre></div>
+</div>
+<p>
+Add a new bookmark on the browser, give it a name (I name it <code>(org-link)</code>), and then copy and paste the content as URL, just like below on Firefox:</p>
+<figure>
+<img src="/img/2022-08-08-adding-a-bookmarklet.png" alt="/img/2022-08-08-adding-a-bookmarklet.png" title="/img/2022-08-08-adding-a-bookmarklet.png" /><figcaption>
+Add a <code>(org-link)</code> bookmarklet to Firefox
+</figcaption>
+</figure>
+<p>
+Now when you find a nice blog post or whatever on the browser, just click the <code>(org-link)</code> bookmark, and it will pop up a window for you to copy the org-mode link. Paste it into your org-mode file, and you&#39;re done.</p>
+<figure>
+<img src="/img/2022-08-08-copying-the-org-mode-link.png" alt="/img/2022-08-08-copying-the-org-mode-link.png" title="/img/2022-08-08-copying-the-org-mode-link.png" /><figcaption>
+Copying the org-mode link using the <code>(org-link)</code> bookmarklet
+</figcaption>
+</figure>
+<p>
+Oh, there is a minor annoyance here: the page will be blank if you click the <code class="verbatim">OK</code> or <code class="verbatim">Cancel</code> button on the window. The only way to avoid this is to hit <code class="verbatim">ESC</code> after copying the link, as suggested above the box.</p>
+<p>
+In the same spirit, here are its two companions:</p>
+<ol>
+<li>Copy the page as a Markdown link
+
+<code>(md-link)</code>: <code>javascript:window.prompt(&#34;Copy to clipboard: Ctrl+C, Esc&#34;, &#34;[&#34; + document.title + &#34; - &#34; + document.location.hostname + &#34;](&#34; + document.location.href + &#34;)&#34;);</code></li>
+<li>Copy the title as-is
+
+<code>(title)</code>: <code>javascript:window.prompt(&#34;Copy to clipboard: Ctrl+C, Esc&#34;,document.title);</code></li>
+</ol>
+<p>Besides, here is another one that I use a lot, <code>(set-title)</code> for setting the web page title temporarily:
+<code>javascript:(function () {var title = window.prompt(&#34;Enter new title: &#34;, &#34;&#34;); if (title) { document.title= title; }})()</code>.</p>
+<p>
+With it, I can manually name the title so it will stand out when the browser has a lot of tabs.</p>
+<p>
+2022-10-05 update: one of my friend found these bookmarklets very helpful, but he was unsatisfied with the ugly UI. And he had better taste in beauty, so he made a good looking <code class="verbatim">(md-link)</code> bookmarklet in his blog post, <a href="https://ovirgo.com/posts/a-simple-bookmark-copying/">A Simple Bookmark Copying - ovirgo.com</a>. It&#39;s in Chinese, but I don&#39;t think there is a problem with understanding the code, so check it out!</p>
+
+
+        
+          <div class="blog-tags">
+            
+              <a href="https://whatacold.io/tags/emacs/">Emacs</a>&nbsp;
+            
+              <a href="https://whatacold.io/tags/org-mode/">Org-mode</a>&nbsp;
+            
+              <a href="https://whatacold.io/tags/bookmarklet/">Bookmarklet</a>&nbsp;
+            
+          </div>
+        
+
+        
+            <hr/>
+            <section id="social-share">
+              <div class="list-inline footer-links">
+                
+
+<div class="share-box" aria-hidden="true">
+    <ul class="share">
+      
+      <li>
+        <a href="//twitter.com/share?url=https%3a%2f%2fwhatacold.io%2fblog%2f2022-08-08-org-link-bookmarklet%2f&amp;text=A%20Bookmarklet%20for%20Copying%20a%20Link%20as%20an%20Org-mode%20Link&amp;via=whatacold" target="_blank" title="Share on Twitter">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fwhatacold.io%2fblog%2f2022-08-08-org-link-bookmarklet%2f" target="_blank" title="Share on Facebook">
+          <i class="fab fa-facebook"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//reddit.com/submit?url=https%3a%2f%2fwhatacold.io%2fblog%2f2022-08-08-org-link-bookmarklet%2f&amp;title=A%20Bookmarklet%20for%20Copying%20a%20Link%20as%20an%20Org-mode%20Link" target="_blank" title="Share on Reddit">
+          <i class="fab fa-reddit"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fwhatacold.io%2fblog%2f2022-08-08-org-link-bookmarklet%2f&amp;title=A%20Bookmarklet%20for%20Copying%20a%20Link%20as%20an%20Org-mode%20Link" target="_blank" title="Share on LinkedIn">
+          <i class="fab fa-linkedin"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fwhatacold.io%2fblog%2f2022-08-08-org-link-bookmarklet%2f&amp;title=A%20Bookmarklet%20for%20Copying%20a%20Link%20as%20an%20Org-mode%20Link" target="_blank" title="Share on StumbleUpon">
+          <i class="fab fa-stumbleupon"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fwhatacold.io%2fblog%2f2022-08-08-org-link-bookmarklet%2f&amp;description=A%20Bookmarklet%20for%20Copying%20a%20Link%20as%20an%20Org-mode%20Link" target="_blank" title="Share on Pinterest">
+          <i class="fab fa-pinterest"></i>
+        </a>
+      </li>
+    </ul>
+  </div>
+  
+
+              </div>
+            </section>
+        
+
+        
+          
+            
+          
+
+          
+                  <h4 class="see-also">See also</h4>
+                  <ul>
+                
+                
+                    <li><a href="/blog/2022-10-10-emacs-hugo-blogging/">Hugo Blogging in Emacs</a></li>
+                
+                    <li><a href="/blog/2022-09-10-emacs-beancount-account-files/">Auto-complete Accounts From Other Beancount Files in Emacs</a></li>
+                
+                    <li><a href="/blog/2022-07-17-emacs-elisp-debug/">Emacs Debugging Basics</a></li>
+                
+                    <li><a href="/blog/2022-05-23-emacs-duplicate-line/">Duplicate the current line in Emacs</a></li>
+                
+                    <li><a href="/blog/2022-05-21-adjust-screen-brightness-emacs/">Adjust the laptop&#39;s screen brightness in Emacs</a></li>
+                
+              </ul>
+
+          
+        
+      </article>
+
+      
+        <ul class="pager blog-pager">
+          
+            <li class="previous">
+              <a href="https://whatacold.io/blog/2022-07-17-emacs-elisp-debug/" data-toggle="tooltip" data-placement="top" title="Emacs Debugging Basics">&larr; Previous Post</a>
+            </li>
+          
+          
+            <li class="next">
+              <a href="https://whatacold.io/blog/2022-09-10-emacs-beancount-account-files/" data-toggle="tooltip" data-placement="top" title="Auto-complete Accounts From Other Beancount Files in Emacs">Next Post &rarr;</a>
+            </li>
+          
+        </ul>
+      
+
+
+      
+        
+          
+          <div class="disqus-comments">
+            <div id="disqus_thread"></div>
+<script type="application/javascript">
+    window.disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "whatacold" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+          </div>
+          
+        
+        
+      
+
+    </div>
+  </div>
+</div>
+
+      
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+          
+              <li>
+                <a href="mailto:whatacold@gmail.com" title="Email me">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fas fa-envelope fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://github.com/whatacold" title="GitHub">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://twitter.com/whatacold" title="Twitter">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://reddit.com/u/whatacold" title="Reddit">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-reddit-alien fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://stackoverflow.com/users/910978/whatacold" title="StackOverflow">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-stack-overflow fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://www.youtube.com/channel/UC2unslchfhzbub47Qq2U88w" title="Youtube">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-youtube fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+
+          
+          
+          
+
+        </ul>
+        <p class="credits copyright text-muted">
+          
+            
+              whatacold
+            
+          
+
+          &nbsp;&bull;&nbsp;&copy;
+          
+            2018 - 2022
+          
+
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://whatacold.io">whatacold&#39;s space</a>
+          
+        </p>
+        
+        <p class="credits theme-by text-muted">
+          <a href="https://gohugo.io">Hugo v0.93.3</a> powered &nbsp;&bull;&nbsp; Theme <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> adapted from <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer><script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.js" integrity="sha384-K3vbOmF2BtaVai+Qk37uypf7VrgBubhQreNQe9aGsz9lB63dIFiQVlJbr92dw2Lx" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/contrib/auto-render.min.js" integrity="sha384-kmZOZB5ObwgQnS/DuDg6TScgOiWWBiVt0plIRkZCmE6rDZGrEOQeHM5PcHi+nyqe" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+<script src="https://whatacold.io/js/main.js"></script>
+<script src="https://whatacold.io/js/highlight.min.js"></script>
+<script> hljs.initHighlightingOnLoad(); </script>
+<script> $(document).ready(function() {$("pre.chroma").css("padding","0");}); </script><script> renderMathInElement(document.body); </script><script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.js" integrity="sha384-QELNnmcmU8IR9ZAykt67vGr9/rZJdHbiWi64V88fCPaOohUlHCqUD/unNN0BXSqy" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe-ui-default.min.js" integrity="sha384-m67o7SkQ1ALzKZIFh4CiTA8tmadaujiTa9Vu+nqPSwDOqHrDmxLezTdFln8077+q" crossorigin="anonymous"></script><script src="https://whatacold.io/js/load-photoswipe.js"></script>
+
+
+
+
+
+
+
+
+
+    
+  </body>
+</html>
+

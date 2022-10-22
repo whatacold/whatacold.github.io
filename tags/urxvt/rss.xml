@@ -9,7 +9,7 @@
     <webMaster>whatacold@gmail.com (whatacold)</webMaster>
     <lastBuildDate>Mon, 25 Nov 2019 22:47:00 +0800</lastBuildDate><atom:link href="https://whatacold.io/tags/urxvt/rss.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Start a New Terminal(urxvt) at Current Buffer&#39;s default-directory on Emacs</title>
+      <title>Open New Urxvt from within Emacs</title>
       <link>https://whatacold.io/blog/2019-11-25-start-a-new-urxvt-terminal-on-emacs/</link>
       <pubDate>Mon, 25 Nov 2019 22:47:00 +0800</pubDate>
       <author>whatacold@gmail.com (whatacold)</author>

@@ -19,5 +19,15 @@
  After using it for a while, I think using regex directly can help, so I launched a re.</description>
     </item>
     
+    <item>
+      <title>ER Diagrams in Plain Text</title>
+      <link>https://whatacold.io/blog/2019-07-06-render-erd-on-the-web/</link>
+      <pubDate>Sat, 06 Jul 2019 11:59:00 +0800</pubDate>
+      <author>whatacold@gmail.com (whatacold)</author>
+      <guid>https://whatacold.io/blog/2019-07-06-render-erd-on-the-web/</guid>
+      <description>If you ever wonder how to plot ER diagrams in plain text, you may have already heard of erd. It&amp;#39;s a cool command line program written by Andrew Gallant in Haskell, to &amp;#34;compile&amp;#34; plain text files into nicely looking images, leveraging the power of GraphViz.
+ I&amp;#39;ve used erd for some time, it&amp;#39;s cool and the syntax is quite simple. It&amp;#39;s also quite simple to install it on Linux, just install GraphViz and erd itself, by following the instructions in the README page.</description>
+    </item>
+    
   </channel>
 </rss>
