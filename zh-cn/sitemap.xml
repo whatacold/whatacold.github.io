@@ -3,7 +3,7 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://whatacold.io/zh-cn/blog/</loc>
-    <lastmod>2022-10-15T16:43:20+08:00</lastmod>
+    <lastmod>2022-10-22T09:32:04+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -29,7 +29,7 @@
                 />
   </url><url>
     <loc>https://whatacold.io/zh-cn/tags/</loc>
-    <lastmod>2022-10-15T16:43:20+08:00</lastmod>
+    <lastmod>2022-10-22T09:32:04+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -42,7 +42,7 @@
                 />
   </url><url>
     <loc>https://whatacold.io/zh-cn/</loc>
-    <lastmod>2022-10-15T16:43:20+08:00</lastmod>
+    <lastmod>2022-10-22T09:32:04+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -58,7 +58,7 @@
     <lastmod>2022-10-05T18:17:43+08:00</lastmod>
   </url><url>
     <loc>https://whatacold.io/zh-cn/tags/linux/</loc>
-    <lastmod>2022-10-10T22:48:03+08:00</lastmod>
+    <lastmod>2022-10-22T09:32:04+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -71,13 +71,13 @@
                 />
   </url><url>
     <loc>https://whatacold.io/zh-cn/tags/rime/</loc>
-    <lastmod>2022-10-15T16:19:49+08:00</lastmod>
+    <lastmod>2022-10-22T09:32:04+08:00</lastmod>
   </url><url>
     <loc>https://whatacold.io/zh-cn/blog/2022-10-04-rime-double-pinyin-flypy/</loc>
     <lastmod>2022-10-10T22:48:03+08:00</lastmod>
   </url><url>
     <loc>https://whatacold.io/zh-cn/tags/emacs/</loc>
-    <lastmod>2022-10-15T16:43:20+08:00</lastmod>
+    <lastmod>2022-10-22T09:32:04+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -90,7 +90,7 @@
                 />
   </url><url>
     <loc>https://whatacold.io/zh-cn/blog/2022-09-11-emacs-smart-input-source-rime/</loc>
-    <lastmod>2022-10-15T16:19:49+08:00</lastmod>
+    <lastmod>2022-10-22T09:32:04+08:00</lastmod>
   </url><url>
     <loc>https://whatacold.io/zh-cn/tags/beancount/</loc>
     <lastmod>2022-10-15T16:21:21+08:00</lastmod>
@@ -157,20 +157,33 @@
                 href="https://whatacold.io/zh-cn/about/"
                 />
   </url><url>
+    <loc>https://whatacold.io/zh-cn/tags/clojure/</loc>
+    <lastmod>2022-10-22T09:29:19+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://whatacold.io/tags/clojure/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-cn"
+                href="https://whatacold.io/zh-cn/tags/clojure/"
+                />
+  </url><url>
     <loc>https://whatacold.io/zh-cn/tags/clojurescript/</loc>
-    <lastmod>2021-09-05T10:39:33+08:00</lastmod>
+    <lastmod>2022-10-22T09:29:19+08:00</lastmod>
   </url><url>
     <loc>https://whatacold.io/zh-cn/blog/2021-09-05-lein-reagent-frontend-shibai/</loc>
-    <lastmod>2021-09-05T10:39:33+08:00</lastmod>
+    <lastmod>2022-10-22T09:29:19+08:00</lastmod>
   </url><url>
     <loc>https://whatacold.io/zh-cn/tags/leiningen/</loc>
-    <lastmod>2021-09-05T10:39:33+08:00</lastmod>
+    <lastmod>2022-10-22T09:29:19+08:00</lastmod>
   </url><url>
     <loc>https://whatacold.io/zh-cn/tags/reagent/</loc>
-    <lastmod>2021-09-05T10:39:33+08:00</lastmod>
+    <lastmod>2022-10-22T09:29:19+08:00</lastmod>
   </url><url>
     <loc>https://whatacold.io/zh-cn/tags/i3wm/</loc>
-    <lastmod>2021-08-29T13:58:21+08:00</lastmod>
+    <lastmod>2022-10-22T09:29:41+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -183,20 +196,7 @@
                 />
   </url><url>
     <loc>https://whatacold.io/zh-cn/blog/2021-08-29-i3wm-workspace-emacs-frame/</loc>
-    <lastmod>2021-08-29T13:58:21+08:00</lastmod>
-  </url><url>
-    <loc>https://whatacold.io/zh-cn/tags/clojure/</loc>
-    <lastmod>2021-07-30T00:38:50+08:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://whatacold.io/tags/clojure/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh-cn"
-                href="https://whatacold.io/zh-cn/tags/clojure/"
-                />
+    <lastmod>2022-10-22T09:29:41+08:00</lastmod>
   </url><url>
     <loc>https://whatacold.io/zh-cn/blog/2021-07-28-clojure-reduce-yongfang/</loc>
     <lastmod>2021-07-30T00:38:50+08:00</lastmod>

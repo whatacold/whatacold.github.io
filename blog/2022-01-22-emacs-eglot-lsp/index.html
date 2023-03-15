@@ -13,7 +13,7 @@
   
 
   <title>Eglot for Better Programming Experience in Emacs - whatacold&#39;s space</title>
-  <meta name="description" content="LSP, or Language Server Protocol, makes programming easier by introducing features like more precise auto-completion and definition lookup. It may have scratched your itches, and you are wondering what the experience is like in Emacs.
+  <meta name="description" content="LSP, or Language Server Protocol, makes programming easier by introducing features like more precise auto-completion and definition lookup. It may have scratched your itches, and you may wonder what the experience is like in Emacs.
  Emacs has mainly two LSP clients out there, eglot and lsp-mode. Eglot is lightweight, and it could almost run out of the box. So in this post I will briefly show you how to use eglot.">
   <meta name="author" content="whatacold"/><script type="application/ld+json">
 {
@@ -63,9 +63,9 @@
     "name" : "whatacold"
   },
   "headline": "Eglot for Better Programming Experience in Emacs",
-  "description" : "LSP, or Language Server Protocol, makes programming easier by introducing features like more precise auto-completion and definition lookup. It may have scratched your itches, and you are wondering what the experience is like in Emacs.\n Emacs has mainly two LSP clients out there, eglot and lsp-mode. Eglot is lightweight, and it could almost run out of the box. So in this post I will briefly show you how to use eglot.",
+  "description" : "LSP, or Language Server Protocol, makes programming easier by introducing features like more precise auto-completion and definition lookup. It may have scratched your itches, and you may wonder what the experience is like in Emacs.\n Emacs has mainly two LSP clients out there, eglot and lsp-mode. Eglot is lightweight, and it could almost run out of the box. So in this post I will briefly show you how to use eglot.",
   "inLanguage" : "en",
-  "wordCount":  450 ,
+  "wordCount":  510 ,
   "datePublished" : "2022-01-22T11:36:18",
   "dateModified" : "2022-01-22T11:36:18",
   "image" : "https:\/\/whatacold.io\/img\/avatar.png",
@@ -85,7 +85,7 @@
 </script>
 
 <meta property="og:title" content="Eglot for Better Programming Experience in Emacs" />
-<meta property="og:description" content="LSP, or Language Server Protocol, makes programming easier by introducing features like more precise auto-completion and definition lookup. It may have scratched your itches, and you are wondering what the experience is like in Emacs.
+<meta property="og:description" content="LSP, or Language Server Protocol, makes programming easier by introducing features like more precise auto-completion and definition lookup. It may have scratched your itches, and you may wonder what the experience is like in Emacs.
  Emacs has mainly two LSP clients out there, eglot and lsp-mode. Eglot is lightweight, and it could almost run out of the box. So in this post I will briefly show you how to use eglot.">
 <meta property="og:image" content="https://whatacold.io/img/avatar.png" />
 <meta property="og:url" content="https://whatacold.io/blog/2022-01-22-emacs-eglot-lsp/" />
@@ -93,7 +93,7 @@
 <meta property="og:site_name" content="whatacold&#39;s space" />
 
   <meta name="twitter:title" content="Eglot for Better Programming Experience in Emacs" />
-  <meta name="twitter:description" content="LSP, or Language Server Protocol, makes programming easier by introducing features like more precise auto-completion and definition lookup. It may have scratched your itches, and you are wondering …">
+  <meta name="twitter:description" content="LSP, or Language Server Protocol, makes programming easier by introducing features like more precise auto-completion and definition lookup. It may have scratched your itches, and you may wonder what …">
   <meta name="twitter:image" content="https://whatacold.io/img/avatar.png" />
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:site" content="@whatacold" />
@@ -278,7 +278,7 @@ if (!doNotTrack) {
     <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
       <article role="main" class="blog-post">
         <p>
-<a href="https://microsoft.github.io/language-server-protocol/">LSP</a>, or Language Server Protocol, makes programming easier by introducing features like more precise auto-completion and definition lookup. It may have scratched your itches, and you are wondering what the experience is like in Emacs.</p>
+<a href="https://microsoft.github.io/language-server-protocol/">LSP</a>, or Language Server Protocol, makes programming easier by introducing features like more precise auto-completion and definition lookup. It may have scratched your itches, and you may wonder what the experience is like in Emacs.</p>
 <p>
 Emacs has mainly two LSP clients out there, <a href="https://github.com/joaotavora/eglot">eglot</a> and <a href="https://github.com/emacs-lsp/lsp-mode">lsp-mode</a>. Eglot is lightweight, and it could almost run out of the box. So in this post I will briefly show you how to use eglot.</p>
 <p>
@@ -296,14 +296,20 @@ As a user, we only need to know these commands to get started:</p>
 <li><code class="verbatim">M-x company-complete</code> to trigger completions manually</li>
 <li><code class="verbatim">M-x eldoc-doc-buffer</code> to show docs for the symbol at point in a dedicated buffer</li>
 </ol>
-<p>I&#39;ve also made a video to demonstrate the workflow as below:
+<blockquote>
+<p>Hey, thanks for reading this far!</p>
+<p>
+Do you know any opening backend programming positions for foreigners in Canada? I am wondering if it&#39;s possible to get a job from China. If you do know one and think that maybe I could be a fit (I can do C/C++/Python/Shell etc.), would you mind dropping me a message at whatacold@gmail.com? thanks so much!</p>
+</blockquote>
+<p>
+I&#39;ve also made a video to demonstrate the workflow as below:
 
 <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
   <iframe src="https://www.youtube.com/embed/NQJBvp77WCo" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
 </div>
 </p>
 <p>
-And, the <code class="verbatim">emacs-showcase.el</code> is following for the video:</p>
+And, <code class="verbatim">emacs-showcase.el</code> is following for the video:</p>
 <figure>
 <div class="src src-elisp">
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-elisp" data-lang="elisp"><span class="line"><span class="cl"><span class="c1">;;;; basics</span>
@@ -612,7 +618,7 @@ The minimal config for the demo video
 
           &nbsp;&bull;&nbsp;&copy;
           
-            2018 - 2022
+            2018 - 2023
           
 
           

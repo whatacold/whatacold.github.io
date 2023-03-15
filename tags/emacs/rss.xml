@@ -88,7 +88,7 @@ Start Emacs Without Any Configurations   When you have some problems/errors with
       <pubDate>Sat, 22 Jan 2022 11:36:18 +0800</pubDate>
       <author>whatacold@gmail.com (whatacold)</author>
       <guid>https://whatacold.io/blog/2022-01-22-emacs-eglot-lsp/</guid>
-      <description>LSP, or Language Server Protocol, makes programming easier by introducing features like more precise auto-completion and definition lookup. It may have scratched your itches, and you are wondering what the experience is like in Emacs.
+      <description>LSP, or Language Server Protocol, makes programming easier by introducing features like more precise auto-completion and definition lookup. It may have scratched your itches, and you may wonder what the experience is like in Emacs.
  Emacs has mainly two LSP clients out there, eglot and lsp-mode. Eglot is lightweight, and it could almost run out of the box. So in this post I will briefly show you how to use eglot.</description>
     </item>
     
