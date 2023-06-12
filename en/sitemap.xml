@@ -3,7 +3,7 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://whatacold.io/blog/</loc>
-    <lastmod>2023-03-25T16:14:07+08:00</lastmod>
+    <lastmod>2023-06-12T22:41:30+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="zh-cn"
@@ -16,7 +16,7 @@
                 />
   </url><url>
     <loc>https://whatacold.io/tags/emacs/</loc>
-    <lastmod>2023-03-25T16:14:07+08:00</lastmod>
+    <lastmod>2023-06-12T22:41:30+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="zh-cn"
@@ -26,6 +26,35 @@
                 rel="alternate"
                 hreflang="en"
                 href="https://whatacold.io/tags/emacs/"
+                />
+  </url><url>
+    <loc>https://whatacold.io/blog/2023-06-12-emacs-join-lines/</loc>
+    <lastmod>2023-06-12T22:41:30+08:00</lastmod>
+  </url><url>
+    <loc>https://whatacold.io/tags/</loc>
+    <lastmod>2023-06-12T22:41:30+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-cn"
+                href="https://whatacold.io/zh-cn/tags/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://whatacold.io/tags/"
+                />
+  </url><url>
+    <loc>https://whatacold.io/</loc>
+    <lastmod>2023-06-12T22:41:30+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-cn"
+                href="https://whatacold.io/zh-cn/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://whatacold.io/"
                 />
   </url><url>
     <loc>https://whatacold.io/tags/hugo/</loc>
@@ -43,32 +72,6 @@
   </url><url>
     <loc>https://whatacold.io/blog/2022-10-10-emacs-hugo-blogging/</loc>
     <lastmod>2022-10-28T23:24:59+08:00</lastmod>
-  </url><url>
-    <loc>https://whatacold.io/tags/</loc>
-    <lastmod>2023-03-25T16:14:07+08:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh-cn"
-                href="https://whatacold.io/zh-cn/tags/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://whatacold.io/tags/"
-                />
-  </url><url>
-    <loc>https://whatacold.io/</loc>
-    <lastmod>2023-03-25T16:14:07+08:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh-cn"
-                href="https://whatacold.io/zh-cn/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://whatacold.io/"
-                />
   </url><url>
     <loc>https://whatacold.io/tags/yasnippet/</loc>
     <lastmod>2022-10-28T23:24:59+08:00</lastmod>

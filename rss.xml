@@ -7,7 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <managingEditor>whatacold@gmail.com (whatacold)</managingEditor>
     <webMaster>whatacold@gmail.com (whatacold)</webMaster>
-    <lastBuildDate>Mon, 10 Oct 2022 22:50:48 +0800</lastBuildDate><atom:link href="https://whatacold.io/rss.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 12 Jun 2023 22:23:12 +0800</lastBuildDate><atom:link href="https://whatacold.io/rss.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Join Lines By A Separator in Emacs</title>
+      <link>https://whatacold.io/blog/2023-06-12-emacs-join-lines/</link>
+      <pubDate>Mon, 12 Jun 2023 22:23:12 +0800</pubDate>
+      <author>whatacold@gmail.com (whatacold)</author>
+      <guid>https://whatacold.io/blog/2023-06-12-emacs-join-lines/</guid>
+      <description>So sometimes I need to join a few lines by a separator while I&amp;#39;m coding, for example, turn the below lines,
+ foo bar baz
+  into foo + bar + baz. (This is a silly example, I will update if I come up with a better one :-P )
+ When I was in a rush in the past, I usually baked a keyboard macro temporarily and then applied it to achieve this goal, thought reliable, it&amp;#39;s a little bit cumbersome to record it.</description>
+    </item>
+    
     <item>
       <title>Hugo Blogging in Emacs</title>
       <link>https://whatacold.io/blog/2022-10-10-emacs-hugo-blogging/</link>
