@@ -7,7 +7,17 @@
     <generator>Hugo -- gohugo.io</generator>
     <managingEditor>whatacold@gmail.com (whatacold)</managingEditor>
     <webMaster>whatacold@gmail.com (whatacold)</webMaster>
-    <lastBuildDate>Mon, 12 Jun 2023 22:23:12 +0800</lastBuildDate><atom:link href="https://whatacold.io/rss.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 14 Aug 2023 22:48:20 +0800</lastBuildDate><atom:link href="https://whatacold.io/rss.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Emphasize Text By Dragging Mouse in Org-mode</title>
+      <link>https://whatacold.io/blog/2023-08-14-org-emphasis-dragging-mouse/</link>
+      <pubDate>Mon, 14 Aug 2023 22:48:20 +0800</pubDate>
+      <author>whatacold@gmail.com (whatacold)</author>
+      <guid>https://whatacold.io/blog/2023-08-14-org-emphasis-dragging-mouse/</guid>
+      <description>Long story short, I came up with an idea to emphasize content while I was reviewing an org-mode document a few months ago after I was tired of typing tedious * around the content repeatedly. And I&amp;#39;ve been longing for this feature since then, because I was unfamiliar with mouse-based key bindings, and neither did I have the time to investigate it.
+ Today I finally nailed it down while I was attending a boring meeting, and it turned out to be quite simple.</description>
+    </item>
+    
     <item>
       <title>Join Lines By A Separator in Emacs</title>
       <link>https://whatacold.io/blog/2023-06-12-emacs-join-lines/</link>

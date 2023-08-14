@@ -12,8 +12,9 @@
 
   
 
-  <title>ppcompile: An Emacs Package to Help Coding Locally - whatacold&#39;s space</title>
-  <meta name="description" content="Tired of rsync&#39;ing files around and locating the compilation errors manually? This ppcompile package can help...">
+  <title>Emphasize Text By Dragging Mouse in Org-mode - whatacold&#39;s space</title>
+  <meta name="description" content="Long story short, I came up with an idea to emphasize content while I was reviewing an org-mode document a few months ago after I was tired of typing tedious * around the content repeatedly. And I&#39;ve been longing for this feature since then, because I was unfamiliar with mouse-based key bindings, and neither did I have the time to investigate it.
+ Today I finally nailed it down while I was attending a boring meeting, and it turned out to be quite simple.">
   <meta name="author" content="whatacold"/><script type="application/ld+json">
 {
     "@context": "http://schema.org",
@@ -49,8 +50,8 @@
         "@type": "ListItem",
         "position": 3,
         "item": {
-          "@id": "https:\/\/whatacold.io\/blog\/2020-03-07-ppcompile-to-help-stay-coding-locally\/",
-          "name": "Ppcompile an emacs package to help coding locally"
+          "@id": "https:\/\/whatacold.io\/blog\/2023-08-14-org-emphasis-dragging-mouse\/",
+          "name": "Emphasize text by dragging mouse in org mode"
         }
     }]
 }
@@ -61,15 +62,15 @@
   "author": {
     "name" : "whatacold"
   },
-  "headline": "ppcompile: An Emacs Package to Help Coding Locally",
-  "description" : "Tired of rsync\u0027ing files around and locating the compilation errors manually? This ppcompile package can help...",
+  "headline": "Emphasize Text By Dragging Mouse in Org-mode",
+  "description" : "Long story short, I came up with an idea to emphasize content while I was reviewing an org-mode document a few months ago after I was tired of typing tedious * around the content repeatedly. And I\u0026#39;ve been longing for this feature since then, because I was unfamiliar with mouse-based key bindings, and neither did I have the time to investigate it.\n Today I finally nailed it down while I was attending a boring meeting, and it turned out to be quite simple.",
   "inLanguage" : "en",
-  "wordCount":  338 ,
-  "datePublished" : "2020-03-07T23:50:00",
-  "dateModified" : "2020-03-07T23:50:00",
+  "wordCount":  169 ,
+  "datePublished" : "2023-08-14T22:48:20",
+  "dateModified" : "2023-08-14T22:48:20",
   "image" : "https:\/\/whatacold.io\/img\/avatar.png",
-  "keywords" : [ "Emacs" ],
-  "mainEntityOfPage" : "https:\/\/whatacold.io\/blog\/2020-03-07-ppcompile-to-help-stay-coding-locally\/",
+  "keywords" : [ "Emacs, org-mode" ],
+  "mainEntityOfPage" : "https:\/\/whatacold.io\/blog\/2023-08-14-org-emphasis-dragging-mouse\/",
   "publisher" : {
     "@type": "Organization",
     "name" : "https:\/\/whatacold.io",
@@ -83,15 +84,16 @@
 }
 </script>
 
-<meta property="og:title" content="ppcompile: An Emacs Package to Help Coding Locally" />
-<meta property="og:description" content="Tired of rsync&#39;ing files around and locating the compilation errors manually? This ppcompile package can help...">
+<meta property="og:title" content="Emphasize Text By Dragging Mouse in Org-mode" />
+<meta property="og:description" content="Long story short, I came up with an idea to emphasize content while I was reviewing an org-mode document a few months ago after I was tired of typing tedious * around the content repeatedly. And I&#39;ve been longing for this feature since then, because I was unfamiliar with mouse-based key bindings, and neither did I have the time to investigate it.
+ Today I finally nailed it down while I was attending a boring meeting, and it turned out to be quite simple.">
 <meta property="og:image" content="https://whatacold.io/img/avatar.png" />
-<meta property="og:url" content="https://whatacold.io/blog/2020-03-07-ppcompile-to-help-stay-coding-locally/" />
+<meta property="og:url" content="https://whatacold.io/blog/2023-08-14-org-emphasis-dragging-mouse/" />
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="whatacold&#39;s space" />
 
-  <meta name="twitter:title" content="ppcompile: An Emacs Package to Help Coding Locally" />
-  <meta name="twitter:description" content="Tired of rsync&#39;ing files around and locating the compilation errors manually? This ppcompile package can help...">
+  <meta name="twitter:title" content="Emphasize Text By Dragging Mouse in Org-mode" />
+  <meta name="twitter:description" content="Long story short, I came up with an idea to emphasize content while I was reviewing an org-mode document a few months ago after I was tired of typing tedious * around the content repeatedly. And …">
   <meta name="twitter:image" content="https://whatacold.io/img/avatar.png" />
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:site" content="@whatacold" />
@@ -255,7 +257,7 @@ if (!doNotTrack) {
           <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
             <div class="blog-heading">
               
-                <h1>ppcompile: An Emacs Package to Help Coding Locally</h1>
+                <h1>Emphasize Text By Dragging Mouse in Org-mode</h1>
               
               
                 <hr class="small">
@@ -276,36 +278,28 @@ if (!doNotTrack) {
     <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
       <article role="main" class="blog-post">
         <p>
-If you are a C/C++ programmer like me, you may experience jumping around different machines to write and compile your code, or you may write code on different machines for different projects, and scp/rsync/ftp the projects around. It works, but it&#39;s a bit tedious and takes too much burden on our brains.</p>
+Long story short, I came up with an idea to emphasize content while I was reviewing an org-mode document a few months ago after I was tired of typing tedious <code class="verbatim">*</code> around the content repeatedly. And I&#39;ve been longing for this feature since then, because I was unfamiliar with mouse-based key bindings, and neither did I have the time to investigate it.</p>
 <p>
-For example, say I have two projects that should be compiled on their compiling machines respectively. There are two obvious workflows for writing code for them &#34;simultaneously&#34;:</p>
-<ol>
-<li>Write code locally, rsync files to their compiling machine and compile them, fix errors according to the compiling result.
-
-Pros: I have only one coding environment to maintain, and I have full control of it. Install packages? Start some services? No problem, just a few commands.
-
-Cons: I have to sync the source code, spot the errors by my eyes and fix them accordingly.</li>
-<li>Write code on the compiling machine, compile them and fix errors locally there, taking the advantage of <code class="verbatim">M-x next-error</code>.
-
-Pros: <code class="verbatim">M-x next-error</code> works like a charm to fix errors, just a piece of cake. Eye friendly.
-
-Cons: Several Emacs environment to maintain, and I don&#39;t always have the root privilege.
-
-Update: Tramp is a built-in package for editing remote files, which also falls into this category, although it&#39;s quite handy to edit single files like confs, at least for me.</li>
-</ol>
-<p>(Update: There is another option using <a href="https://github.com/libfuse/sshfs">sshfs</a>, which mounts the remote FS, it&#39;s a general and nice solution if you have a stable network.)</p>
+Today I finally nailed it down while I was attending a boring meeting, and it turned out to be quite simple. The exploration journey was not much different than before. First, I managed to find out how to bind a command to a mouse event, taking advantage of the good-old <code class="verbatim">C-h k</code> and <code class="verbatim">(info &#34;emacs&#34;)</code> (or <a href="https://www.gnu.org/software/emacs/manual/html_node/emacs/Mouse-Buttons.html">here at gnu.org</a>). And then wrote a few lines of code to perform the task standing on the shoulder of <a href="https://www.gnu.org/software/emacs/manual/html_node/elisp/Advising-Functions.html">Advice</a>.</p>
 <p>
-So I was wondering if there is a way to take the good part of both approaches so that I have the full privilege and fix compiling errors locally as if I were compiling locally? Well, the answer was yes, and <a href="https://github.com/whatacold/ppcompile">ppcompile</a> was my solution for it.</p>
-<p>
-<code class="verbatim">ppcompile</code> stands for ping-pong compile, as it works like playing ping-pong. First, it rsync&#39;s the files to the compiling machines (&#34;ping&#34;). Second, it gets the result back (&#34;pong&#34;) and gets them fixed locally.</p>
-<p>
-It works now, and I hope it helps you too. :)</p>
+So here is the advice:</p>
+<div class="src src-elisp">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-elisp" data-lang="elisp"><span class="line"><span class="cl"><span class="p">(</span><span class="nb">define-advice</span> <span class="nv">mouse-set-region</span> <span class="p">(</span><span class="nb">:after</span> <span class="p">(</span><span class="nv">click</span><span class="p">)</span> <span class="nv">org-highlight</span> <span class="p">())</span>
+</span></span><span class="line"><span class="cl">  <span class="p">(</span><span class="nb">when</span> <span class="p">(</span><span class="nb">and</span> <span class="p">(</span><span class="nv">derived-mode-p</span> <span class="ss">&#39;org-mode</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">             <span class="p">(</span><span class="nv">use-region-p</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">    <span class="p">(</span><span class="nb">let</span> <span class="p">((</span><span class="nv">origin</span> <span class="p">(</span><span class="nf">buffer-substring</span> <span class="p">(</span><span class="nf">region-beginning</span><span class="p">)</span> <span class="p">(</span><span class="nf">region-end</span><span class="p">)))</span>
+</span></span><span class="line"><span class="cl">          <span class="p">(</span><span class="nv">emphasis-char</span> <span class="s">&#34;*&#34;</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">      <span class="p">(</span><span class="nf">delete-region</span> <span class="p">(</span><span class="nf">region-beginning</span><span class="p">)</span> <span class="p">(</span><span class="nf">region-end</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">      <span class="p">(</span><span class="nf">insert</span> <span class="nv">emphasis-char</span> <span class="nv">origin</span> <span class="nv">emphasis-char</span><span class="p">))))</span></span></span></code></pre></div>
+</div>
 
 
         
           <div class="blog-tags">
             
               <a href="https://whatacold.io/tags/emacs/">Emacs</a>&nbsp;
+            
+              <a href="https://whatacold.io/tags/org-mode/">org-mode</a>&nbsp;
             
           </div>
         
@@ -320,42 +314,42 @@ It works now, and I hope it helps you too. :)</p>
     <ul class="share">
       
       <li>
-        <a href="//twitter.com/share?url=https%3a%2f%2fwhatacold.io%2fblog%2f2020-03-07-ppcompile-to-help-stay-coding-locally%2f&amp;text=ppcompile%3a%20An%20Emacs%20Package%20to%20Help%20Coding%20Locally&amp;via=whatacold" target="_blank" title="Share on Twitter">
+        <a href="//twitter.com/share?url=https%3a%2f%2fwhatacold.io%2fblog%2f2023-08-14-org-emphasis-dragging-mouse%2f&amp;text=Emphasize%20Text%20By%20Dragging%20Mouse%20in%20Org-mode&amp;via=whatacold" target="_blank" title="Share on Twitter">
           <i class="fab fa-twitter"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fwhatacold.io%2fblog%2f2020-03-07-ppcompile-to-help-stay-coding-locally%2f" target="_blank" title="Share on Facebook">
+        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fwhatacold.io%2fblog%2f2023-08-14-org-emphasis-dragging-mouse%2f" target="_blank" title="Share on Facebook">
           <i class="fab fa-facebook"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//reddit.com/submit?url=https%3a%2f%2fwhatacold.io%2fblog%2f2020-03-07-ppcompile-to-help-stay-coding-locally%2f&amp;title=ppcompile%3a%20An%20Emacs%20Package%20to%20Help%20Coding%20Locally" target="_blank" title="Share on Reddit">
+        <a href="//reddit.com/submit?url=https%3a%2f%2fwhatacold.io%2fblog%2f2023-08-14-org-emphasis-dragging-mouse%2f&amp;title=Emphasize%20Text%20By%20Dragging%20Mouse%20in%20Org-mode" target="_blank" title="Share on Reddit">
           <i class="fab fa-reddit"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fwhatacold.io%2fblog%2f2020-03-07-ppcompile-to-help-stay-coding-locally%2f&amp;title=ppcompile%3a%20An%20Emacs%20Package%20to%20Help%20Coding%20Locally" target="_blank" title="Share on LinkedIn">
+        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fwhatacold.io%2fblog%2f2023-08-14-org-emphasis-dragging-mouse%2f&amp;title=Emphasize%20Text%20By%20Dragging%20Mouse%20in%20Org-mode" target="_blank" title="Share on LinkedIn">
           <i class="fab fa-linkedin"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fwhatacold.io%2fblog%2f2020-03-07-ppcompile-to-help-stay-coding-locally%2f&amp;title=ppcompile%3a%20An%20Emacs%20Package%20to%20Help%20Coding%20Locally" target="_blank" title="Share on StumbleUpon">
+        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fwhatacold.io%2fblog%2f2023-08-14-org-emphasis-dragging-mouse%2f&amp;title=Emphasize%20Text%20By%20Dragging%20Mouse%20in%20Org-mode" target="_blank" title="Share on StumbleUpon">
           <i class="fab fa-stumbleupon"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fwhatacold.io%2fblog%2f2020-03-07-ppcompile-to-help-stay-coding-locally%2f&amp;description=ppcompile%3a%20An%20Emacs%20Package%20to%20Help%20Coding%20Locally" target="_blank" title="Share on Pinterest">
+        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fwhatacold.io%2fblog%2f2023-08-14-org-emphasis-dragging-mouse%2f&amp;description=Emphasize%20Text%20By%20Dragging%20Mouse%20in%20Org-mode" target="_blank" title="Share on Pinterest">
           <i class="fab fa-pinterest"></i>
         </a>
       </li>
@@ -377,8 +371,6 @@ It works now, and I hope it helps you too. :)</p>
                   <ul>
                 
                 
-                    <li><a href="/blog/2023-08-14-org-emphasis-dragging-mouse/">Emphasize Text By Dragging Mouse in Org-mode</a></li>
-                
                     <li><a href="/blog/2023-06-12-emacs-join-lines/">Join Lines By A Separator in Emacs</a></li>
                 
                     <li><a href="/blog/2022-10-10-emacs-hugo-blogging/">Hugo Blogging in Emacs</a></li>
@@ -386,6 +378,8 @@ It works now, and I hope it helps you too. :)</p>
                     <li><a href="/blog/2022-09-10-emacs-beancount-account-files/">Auto-complete Accounts From Other Beancount Files in Emacs</a></li>
                 
                     <li><a href="/blog/2022-08-08-org-link-bookmarklet/">A Bookmarklet for Copying a Link as an Org-mode Link</a></li>
+                
+                    <li><a href="/blog/2022-07-17-emacs-elisp-debug/">Emacs Debugging Basics</a></li>
                 
               </ul>
 
@@ -397,13 +391,9 @@ It works now, and I hope it helps you too. :)</p>
         <ul class="pager blog-pager">
           
             <li class="previous">
-              <a href="https://whatacold.io/blog/2020-02-04-binary-search-algorithm-vs-problem-solving/" data-toggle="tooltip" data-placement="top" title="The Binary Search Idea for Narrowing Down Problem Space">&larr; Previous Post</a>
+              <a href="https://whatacold.io/blog/2023-06-12-emacs-join-lines/" data-toggle="tooltip" data-placement="top" title="Join Lines By A Separator in Emacs">&larr; Previous Post</a>
             </li>
           
-          
-            <li class="next">
-              <a href="https://whatacold.io/blog/2020-05-30-a-trick-to-troubleshoot-emacs-subprocess-creating/" data-toggle="tooltip" data-placement="top" title="A Trick to Troubleshoot Emacs Subprocess Creating">Next Post &rarr;</a>
-            </li>
           
         </ul>
       

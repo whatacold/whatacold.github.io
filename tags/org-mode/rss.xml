@@ -7,7 +7,17 @@
     <generator>Hugo -- gohugo.io</generator>
     <managingEditor>whatacold@gmail.com (whatacold)</managingEditor>
     <webMaster>whatacold@gmail.com (whatacold)</webMaster>
-    <lastBuildDate>Mon, 08 Aug 2022 23:33:05 +0800</lastBuildDate><atom:link href="https://whatacold.io/tags/org-mode/rss.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 14 Aug 2023 22:48:20 +0800</lastBuildDate><atom:link href="https://whatacold.io/tags/org-mode/rss.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Emphasize Text By Dragging Mouse in Org-mode</title>
+      <link>https://whatacold.io/blog/2023-08-14-org-emphasis-dragging-mouse/</link>
+      <pubDate>Mon, 14 Aug 2023 22:48:20 +0800</pubDate>
+      <author>whatacold@gmail.com (whatacold)</author>
+      <guid>https://whatacold.io/blog/2023-08-14-org-emphasis-dragging-mouse/</guid>
+      <description>Long story short, I came up with an idea to emphasize content while I was reviewing an org-mode document a few months ago after I was tired of typing tedious * around the content repeatedly. And I&amp;#39;ve been longing for this feature since then, because I was unfamiliar with mouse-based key bindings, and neither did I have the time to investigate it.
+ Today I finally nailed it down while I was attending a boring meeting, and it turned out to be quite simple.</description>
+    </item>
+    
     <item>
       <title>A Bookmarklet for Copying a Link as an Org-mode Link</title>
       <link>https://whatacold.io/blog/2022-08-08-org-link-bookmarklet/</link>
