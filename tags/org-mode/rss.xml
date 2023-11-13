@@ -15,7 +15,7 @@
       <author>whatacold@gmail.com (whatacold)</author>
       <guid>https://whatacold.io/blog/2023-08-14-org-emphasis-dragging-mouse/</guid>
       <description>Long story short, I came up with an idea to emphasize content while I was reviewing an org-mode document a few months ago after I was tired of typing tedious * around the content repeatedly. And I&amp;#39;ve been longing for this feature since then, because I was unfamiliar with mouse-based key bindings, and neither did I have the time to investigate it.
- Today I finally nailed it down while I was attending a boring meeting, and it turned out to be quite simple.</description>
+Today I finally nailed it down while I was attending a boring meeting, and it turned out to be quite simple.</description>
     </item>
     
     <item>
@@ -25,8 +25,8 @@
       <author>whatacold@gmail.com (whatacold)</author>
       <guid>https://whatacold.io/blog/2022-08-08-org-link-bookmarklet/</guid>
       <description>In this blog post, I&amp;#39;d like to share a bookmarklet for copying a web page&amp;#39;s URL as an org-mode link on Firefox, Chrome, or whatever web browsers support bookmarklets.
- It&amp;#39;s handy when the URL isn&amp;#39;t SEO-friendly, which means you can&amp;#39;t tell what its content is about at first glance of the URL. So a little description text on the link would help.
- Here is the bookmarklet:
+It&amp;#39;s handy when the URL isn&amp;#39;t SEO-friendly, which means you can&amp;#39;t tell what its content is about at first glance of the URL. So a little description text on the link would help.
+Here is the bookmarklet:
 javascript:window.prompt(&amp;#34;Copy to clipboard: Ctrl+C, Esc&amp;#34;, &amp;#34;[[&amp;#34; + document.</description>
     </item>
     
@@ -37,7 +37,7 @@ javascript:window.prompt(&amp;#34;Copy to clipboard: Ctrl+C, Esc&amp;#34;, &amp;
       <author>whatacold@gmail.com (whatacold)</author>
       <guid>https://whatacold.io/blog/2019-07-20-generating-org-mode-outlines-for-wikihow-articles/</guid>
       <description>Recently I found some great articles on wikiHow, then I want to keep notes of them in org-mode files.
- At first, I manually copied the ToC of articles, but soon I found it&amp;#39;s tedious and takes a lot of time. Today I wrote a requests-based Python script to help me extract the ToCs (Table of Content) into org-mode outlines. It takes two arguments, the first one is the URL, the second one is the containing heading&amp;#39;s level for the generated ToC in org-mode.</description>
+At first, I manually copied the ToC of articles, but soon I found it&amp;#39;s tedious and takes a lot of time. Today I wrote a requests-based Python script to help me extract the ToCs (Table of Content) into org-mode outlines. It takes two arguments, the first one is the URL, the second one is the containing heading&amp;#39;s level for the generated ToC in org-mode.</description>
     </item>
     
   </channel>

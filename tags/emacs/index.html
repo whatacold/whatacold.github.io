@@ -7,12 +7,11 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
+ 
 
 
+      <title>Emacs - Blog</title>
 
-  
-
-  <title>Emacs - whatacold&#39;s space</title>
   <meta name="author" content="whatacold"/><script type="application/ld+json">
 {
     "@context": "http://schema.org",
@@ -42,30 +41,28 @@
 
   <meta name="twitter:title" content="Emacs" />
   <meta name="twitter:image" content="https://whatacold.io/img/avatar.png" />
-  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:site" content="@whatacold" />
   <meta name="twitter:creator" content="@whatacold" />
   <link href='https://whatacold.io/img/favicon.ico' rel='icon' type='image/x-icon'/>
-  <meta name="generator" content="Hugo 0.98.0" />
-  <link rel="alternate" href="https://whatacold.io/index.xml" type="application/rss+xml" title="whatacold&#39;s space"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
+  <meta name="generator" content="Hugo 0.101.0" />
+  <link rel="alternate" href="https://whatacold.io/index.xml" type="application/rss+xml" title="whatacold&#39;s space"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/katex.min.css" integrity="sha384-3UiQGuEI4TTMaFmGIZumfRPtfKQ3trwQE2JgosJxCnGmQpL/lJdjpcHkaaFwHlcI" crossorigin="anonymous">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"><link rel="stylesheet" href="https://whatacold.io/css/main.css" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous"><link rel="stylesheet" href="https://whatacold.io/css/main.css" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
   <link rel="stylesheet" href="https://whatacold.io/css/highlight.min.css" /><link rel="stylesheet" href="https://whatacold.io/css/codeblock.css" /><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.css" integrity="sha384-h/L2W9KefUClHWaty3SLE5F/qvc4djlyR4qY3NUV5HGQBBW7stbcfff1+I/vmsHh" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/default-skin/default-skin.min.css" integrity="sha384-iD0dNku6PYSIQLyfTOpB06F2KCZJAKLOThS5HRe8b3ibhdEQ6eKsFf/EeFxdOt5R" crossorigin="anonymous">
 
-
-<script type="application/javascript">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-5TGCG9ZG24"></script>
+<script>
 var doNotTrack = false;
 if (!doNotTrack) {
-	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-	ga('create', 'G-5TGCG9ZG24', 'auto');
-	
-	ga('send', 'pageview');
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-5TGCG9ZG24', { 'anonymize_ip': false });
 }
 </script>
-<script async src='https://www.google-analytics.com/analytics.js'></script>
-
 
   </head>
   <body>
@@ -108,9 +105,7 @@ if (!doNotTrack) {
             <li>
               
                 
-              
-                
-                  <a href="/zh-cn" lang="zh-cn">简体中文</a>
+                  <a href="https://whatacold.io/zh-cn/tags/emacs/">简体中文</a>
                 
               
             </li>
@@ -198,6 +193,7 @@ if (!doNotTrack) {
 
   <header class="header-section ">
     
+    
     <div class="intro-header no-img">
       <div class="container">
         <div class="row">
@@ -216,6 +212,7 @@ if (!doNotTrack) {
         </div>
       </div>
     </div>
+  
   </header>
 
 
@@ -255,7 +252,7 @@ if (!doNotTrack) {
     <div class="post-entry">
         
         Long story short, I came up with an idea to emphasize content while I was reviewing an org-mode document a few months ago after I was tired of typing tedious * around the content repeatedly. And I&#39;ve been longing for this feature since then, because I was unfamiliar with mouse-based key bindings, and neither did I have the time to investigate it.
- Today I finally nailed it down while I was attending a boring meeting, and it turned out to be quite simple.
+Today I finally nailed it down while I was attending a boring meeting, and it turned out to be quite simple.
         <a href="https://whatacold.io/blog/2023-08-14-org-emphasis-dragging-mouse/" class="post-read-more">[Read More]</a>
         
     </div>
@@ -303,8 +300,8 @@ if (!doNotTrack) {
     <div class="post-entry">
         
         So sometimes I need to join a few lines by a separator while I&#39;m coding, for example, turn the below lines,
-foo bar baz   into foo + bar + baz. (This is a silly example, I will update if I come up with a better one :-P )
- When I was in a rush in the past, I usually baked a keyboard macro temporarily and then applied it to achieve this goal, thought reliable, it&#39;s a little bit cumbersome to record it.
+foo bar baz into foo + bar + baz. (This is a silly example, I will update if I come up with a better one :-P )
+When I was in a rush in the past, I usually baked a keyboard macro temporarily and then applied it to achieve this goal, thought reliable, it&#39;s a little bit cumbersome to record it.
         <a href="https://whatacold.io/blog/2023-06-12-emacs-join-lines/" class="post-read-more">[Read More]</a>
         
     </div>
@@ -339,7 +336,7 @@ foo bar baz   into foo + bar + baz. (This is a silly example, I will update if I
     &nbsp;|&nbsp;<i class="fas fa-clock"></i>&nbsp;6&nbsp;minutes
   
   
-    &nbsp;|&nbsp;<i class="fas fa-book"></i>&nbsp;1240&nbsp;words
+    &nbsp;|&nbsp;<i class="fas fa-book"></i>&nbsp;1242&nbsp;words
   
   
   
@@ -350,6 +347,7 @@ foo bar baz   into foo + bar + baz. (This is a silly example, I will update if I
     <div class="post-entry">
         
         When I started to use Hugo to write this blog last year, I noticed that there is an easy-hugo package of Emacs that there are many people use it. So I installed it that time, but I didn&#39;t use many of its features along the way. The only command I used was easy-hugo-current-time. I used it to update the Hugo timestamps manually as in the format of 2022-10-15T09:45:35+08:00.
+My most desirable feature is to use it to select tags easily when I start to write a new post, but I never got it to work.
         <a href="https://whatacold.io/blog/2022-10-10-emacs-hugo-blogging/" class="post-read-more">[Read More]</a>
         
     </div>
@@ -398,8 +396,8 @@ foo bar baz   into foo + bar + baz. (This is a silly example, I will update if I
     </p>
     <div class="post-entry">
         
-        Auto-complete accounts from another accounts.bean file    If you&#39;re using Beancount with Emacs, you may be using beancount-mode. It can auto-complete the accounts defined in the current buffer when we are typing in new transactions so that we can do it more efficiently.
- But it can only auto-complete the accounts from the current buffer, which makes it less useful when we have a stand-alone file or a few files of beancount accounts.
+        Auto-complete accounts from another accounts.bean file If you&#39;re using Beancount with Emacs, you may be using beancount-mode. It can auto-complete the accounts defined in the current buffer when we are typing in new transactions so that we can do it more efficiently.
+But it can only auto-complete the accounts from the current buffer, which makes it less useful when we have a stand-alone file or a few files of beancount accounts.
         <a href="https://whatacold.io/blog/2022-09-10-emacs-beancount-account-files/" class="post-read-more">[Read More]</a>
         
     </div>
@@ -447,8 +445,8 @@ foo bar baz   into foo + bar + baz. (This is a silly example, I will update if I
     <div class="post-entry">
         
         In this blog post, I&#39;d like to share a bookmarklet for copying a web page&#39;s URL as an org-mode link on Firefox, Chrome, or whatever web browsers support bookmarklets.
- It&#39;s handy when the URL isn&#39;t SEO-friendly, which means you can&#39;t tell what its content is about at first glance of the URL. So a little description text on the link would help.
- Here is the bookmarklet:
+It&#39;s handy when the URL isn&#39;t SEO-friendly, which means you can&#39;t tell what its content is about at first glance of the URL. So a little description text on the link would help.
+Here is the bookmarklet:
 javascript:window.prompt(&#34;Copy to clipboard: Ctrl+C, Esc&#34;, &#34;[[&#34; + document.
         <a href="https://whatacold.io/blog/2022-08-08-org-link-bookmarklet/" class="post-read-more">[Read More]</a>
         
@@ -499,8 +497,8 @@ javascript:window.prompt(&#34;Copy to clipboard: Ctrl+C, Esc&#34;, &#34;[[&#34; 
     <div class="post-entry">
         
         If you are new to Emacs, you may run into some errors, especially after you absorb elisp snippets from the Internet or elsewhere.
- Don&#39;t panic. It happens. To ease your pain, in this post I will introduce some Emacs built-in features to help you solve the problems yourself.
-Start Emacs Without Any Configurations   When you have some problems/errors with built-in features, the first thing you should do is to run emacs -Q to start another Emacs instance without any configurations from your emacs.
+Don&#39;t panic. It happens. To ease your pain, in this post I will introduce some Emacs built-in features to help you solve the problems yourself.
+Start Emacs Without Any Configurations When you have some problems/errors with built-in features, the first thing you should do is to run emacs -Q to start another Emacs instance without any configurations from your emacs.
         <a href="https://whatacold.io/blog/2022-07-17-emacs-elisp-debug/" class="post-read-more">[Read More]</a>
         
     </div>
@@ -547,9 +545,9 @@ Start Emacs Without Any Configurations   When you have some problems/errors with
     </p>
     <div class="post-entry">
         
-        Duplicate the current in Emacs    Duplicating the current line is frequent editing for me when I am coding. Initially, I copied a snippet as a command in Emacs from the Internet:
-(defun w/duplicate-line() &#34;Duplicate the current line.&#34; (interactive) (move-beginning-of-line 1) (kill-line) (yank) (open-line 1) (next-line 1) (yank))   Most of the time, I was happy with it, but it has mainly two drawbacks:
- It cannot keep the column position when moving to the next line It messes up with the yank ring as it yanks the text under the hood  So today, I took some time to fix these two problems, and I also want it to be capable of commenting the current line out if I prefix the command.
+        Duplicate the current in Emacs Duplicating the current line is frequent editing for me when I am coding. Initially, I copied a snippet as a command in Emacs from the Internet:
+(defun w/duplicate-line() &#34;Duplicate the current line.&#34; (interactive) (move-beginning-of-line 1) (kill-line) (yank) (open-line 1) (next-line 1) (yank)) Most of the time, I was happy with it, but it has mainly two drawbacks:
+It cannot keep the column position when moving to the next line It messes up with the yank ring as it yanks the text under the hood So today, I took some time to fix these two problems, and I also want it to be capable of commenting the current line out if I prefix the command.
         <a href="https://whatacold.io/blog/2022-05-23-emacs-duplicate-line/" class="post-read-more">[Read More]</a>
         
     </div>
@@ -594,9 +592,9 @@ Start Emacs Without Any Configurations   When you have some problems/errors with
     </p>
     <div class="post-entry">
         
-        Adjust the screen brightness in Emacs    If you&#39;re using i3wm on Linux, how do you adjust the laptop&#39;s screen brightness?
- Most of the time, I use the laptop with an external monitor. But when I am out, I have no monitors. And it seems no easy way to adjust the brightness in i3wm. Being too bright or dim is terrible for the eyes.
- Recently, I found a command-line tool called brightnessctl, which can adjust the brightness in a terminal.
+        Adjust the screen brightness in Emacs If you&#39;re using i3wm on Linux, how do you adjust the laptop&#39;s screen brightness?
+Most of the time, I use the laptop with an external monitor. But when I am out, I have no monitors. And it seems no easy way to adjust the brightness in i3wm. Being too bright or dim is terrible for the eyes.
+Recently, I found a command-line tool called brightnessctl, which can adjust the brightness in a terminal.
         <a href="https://whatacold.io/blog/2022-05-21-adjust-screen-brightness-emacs/" class="post-read-more">[Read More]</a>
         
     </div>
@@ -645,8 +643,8 @@ Start Emacs Without Any Configurations   When you have some problems/errors with
     </p>
     <div class="post-entry">
         
-        Selecting Emacs windows using ace-window    Recently I&#39;ve been building a simple Emacs config for myself, along the way I re-discovered some fantastic packages, for example, I found that ace-window is a simple yet powerful package to enhance the default other-window command to select other windows quickly when it has more than two windows in a frame.
- I replaced the key binding of other-window to ace-window by simply doing (global-set-key (kbd &#34;C-x o&#34;) #&#39;ace-window), then when there are &gt;2 windows, it will show a white-in-red number at the top-left corner for every window, hit the number (1, 2, 3, …) and then Emacs will select the corresponding window (as demonstrated in the above screenshot).
+        Selecting Emacs windows using ace-window Recently I&#39;ve been building a simple Emacs config for myself, along the way I re-discovered some fantastic packages, for example, I found that ace-window is a simple yet powerful package to enhance the default other-window command to select other windows quickly when it has more than two windows in a frame.
+I replaced the key binding of other-window to ace-window by simply doing (global-set-key (kbd &#34;C-x o&#34;) #&#39;ace-window), then when there are &gt;2 windows, it will show a white-in-red number at the top-left corner for every window, hit the number (1, 2, 3, …) and then Emacs will select the corresponding window (as demonstrated in the above screenshot).
         <a href="https://whatacold.io/blog/2022-04-09-emacs-kill-other-buffer/" class="post-read-more">[Read More]</a>
         
     </div>
@@ -692,7 +690,7 @@ Start Emacs Without Any Configurations   When you have some problems/errors with
     <div class="post-entry">
         
         LSP, or Language Server Protocol, makes programming easier by introducing features like more precise auto-completion and definition lookup. It may have scratched your itches, and you may wonder what the experience is like in Emacs.
- Emacs has mainly two LSP clients out there, eglot and lsp-mode. Eglot is lightweight, and it could almost run out of the box. So in this post I will briefly show you how to use eglot.
+Emacs has mainly two LSP clients out there, eglot and lsp-mode. Eglot is lightweight, and it could almost run out of the box. So in this post I will briefly show you how to use eglot.
         <a href="https://whatacold.io/blog/2022-01-22-emacs-eglot-lsp/" class="post-read-more">[Read More]</a>
         
     </div>
@@ -729,12 +727,15 @@ Start Emacs Without Any Configurations   When you have some problems/errors with
       
 <footer>
   <div class="container">
+    
     <div class="row">
       <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
         <ul class="list-inline text-center footer-links">
           
               <li>
-                <a href="mailto:whatacold@gmail.com" title="Email me">
+		
+		  <a href="mailto:whatacold@gmail.com" title="Email me">
+		
                   <span class="fa-stack fa-lg">
                     <i class="fas fa-circle fa-stack-2x"></i>
                     <i class="fas fa-envelope fa-stack-1x fa-inverse"></i>
@@ -742,7 +743,9 @@ Start Emacs Without Any Configurations   When you have some problems/errors with
                 </a>
               </li>
               <li>
-                <a href="https://github.com/whatacold" title="GitHub">
+		
+		  <a href="https://github.com/whatacold" title="GitHub">
+		
                   <span class="fa-stack fa-lg">
                     <i class="fas fa-circle fa-stack-2x"></i>
                     <i class="fab fa-github fa-stack-1x fa-inverse"></i>
@@ -750,7 +753,9 @@ Start Emacs Without Any Configurations   When you have some problems/errors with
                 </a>
               </li>
               <li>
-                <a href="https://twitter.com/whatacold" title="Twitter">
+		
+		  <a href="https://twitter.com/whatacold" title="Twitter">
+		
                   <span class="fa-stack fa-lg">
                     <i class="fas fa-circle fa-stack-2x"></i>
                     <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
@@ -758,7 +763,9 @@ Start Emacs Without Any Configurations   When you have some problems/errors with
                 </a>
               </li>
               <li>
-                <a href="https://reddit.com/u/whatacold" title="Reddit">
+		
+		  <a href="https://reddit.com/u/whatacold" title="Reddit">
+		
                   <span class="fa-stack fa-lg">
                     <i class="fas fa-circle fa-stack-2x"></i>
                     <i class="fab fa-reddit-alien fa-stack-1x fa-inverse"></i>
@@ -766,7 +773,9 @@ Start Emacs Without Any Configurations   When you have some problems/errors with
                 </a>
               </li>
               <li>
-                <a href="https://stackoverflow.com/users/910978/whatacold" title="StackOverflow">
+		
+		  <a href="https://stackoverflow.com/users/910978/whatacold" title="StackOverflow">
+		
                   <span class="fa-stack fa-lg">
                     <i class="fas fa-circle fa-stack-2x"></i>
                     <i class="fab fa-stack-overflow fa-stack-1x fa-inverse"></i>
@@ -774,27 +783,25 @@ Start Emacs Without Any Configurations   When you have some problems/errors with
                 </a>
               </li>
               <li>
-                <a href="https://www.youtube.com/channel/UC2unslchfhzbub47Qq2U88w" title="Youtube">
+		
+		  <a href="https://www.youtube.com/channel/UC2unslchfhzbub47Qq2U88w" title="Youtube">
+		
                   <span class="fa-stack fa-lg">
                     <i class="fas fa-circle fa-stack-2x"></i>
                     <i class="fab fa-youtube fa-stack-1x fa-inverse"></i>
                   </span>
                 </a>
               </li>
-
-          
           
           <li>
-              <a href="/tags/emacs/rss.xml" title="RSS">
-                  <span class="fa-stack fa-lg">
-                      <i class="fas fa-circle fa-stack-2x"></i>
-                      <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
-                  </span>
-              </a>
+            <a href="/tags/emacs/rss.xml" title="RSS">
+              <span class="fa-stack fa-lg">
+                <i class="fas fa-circle fa-stack-2x"></i>
+                <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
           </li>
           
-          
-
         </ul>
         <p class="credits copyright text-muted">
           
@@ -815,21 +822,21 @@ Start Emacs Without Any Configurations   When you have some problems/errors with
         </p>
         
         <p class="credits theme-by text-muted">
-          <a href="https://gohugo.io">Hugo v0.98.0</a> powered &nbsp;&bull;&nbsp; Theme <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> adapted from <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
+          <a href="https://gohugo.io">Hugo v0.101.0</a> powered &nbsp;&bull;&nbsp; Theme <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> adapted from <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
           
         </p>
       </div>
     </div>
   </div>
-</footer><script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.js" integrity="sha384-K3vbOmF2BtaVai+Qk37uypf7VrgBubhQreNQe9aGsz9lB63dIFiQVlJbr92dw2Lx" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/contrib/auto-render.min.js" integrity="sha384-kmZOZB5ObwgQnS/DuDg6TScgOiWWBiVt0plIRkZCmE6rDZGrEOQeHM5PcHi+nyqe" crossorigin="anonymous"></script>
-<script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+</footer><script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/katex.min.js" integrity="sha384-G0zcxDFp5LWZtDuRMnBkk3EphCK1lhEf4UEyEM693ka574TZGwo4IWwS6QLzM/2t" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
+<script src="https://code.jquery.com/jquery-3.7.0.slim.min.js" integrity="sha384-w5y/xIeYixWvfM+A1cEbmHPURnvyqmVg5eVENruEdDjcyRLUSNej7512JQGspFUr" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
 
 <script src="https://whatacold.io/js/main.js"></script>
 <script src="https://whatacold.io/js/highlight.min.js"></script>
 <script> hljs.initHighlightingOnLoad(); </script>
-<script> $(document).ready(function() {$("pre.chroma").css("padding","0");}); </script><script> renderMathInElement(document.body); </script><script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.js" integrity="sha384-QELNnmcmU8IR9ZAykt67vGr9/rZJdHbiWi64V88fCPaOohUlHCqUD/unNN0BXSqy" crossorigin="anonymous"></script>
+<script> $(document).ready(function() {$("pre.chroma").css("padding","0");}); </script><script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.js" integrity="sha384-QELNnmcmU8IR9ZAykt67vGr9/rZJdHbiWi64V88fCPaOohUlHCqUD/unNN0BXSqy" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe-ui-default.min.js" integrity="sha384-m67o7SkQ1ALzKZIFh4CiTA8tmadaujiTa9Vu+nqPSwDOqHrDmxLezTdFln8077+q" crossorigin="anonymous"></script><script src="https://whatacold.io/js/load-photoswipe.js"></script>
 
 

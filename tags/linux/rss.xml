@@ -14,9 +14,9 @@
       <pubDate>Sat, 21 May 2022 11:50:25 +0800</pubDate>
       <author>whatacold@gmail.com (whatacold)</author>
       <guid>https://whatacold.io/blog/2022-05-21-adjust-screen-brightness-emacs/</guid>
-      <description>Adjust the screen brightness in Emacs    If you&amp;#39;re using i3wm on Linux, how do you adjust the laptop&amp;#39;s screen brightness?
- Most of the time, I use the laptop with an external monitor. But when I am out, I have no monitors. And it seems no easy way to adjust the brightness in i3wm. Being too bright or dim is terrible for the eyes.
- Recently, I found a command-line tool called brightnessctl, which can adjust the brightness in a terminal.</description>
+      <description>Adjust the screen brightness in Emacs If you&amp;#39;re using i3wm on Linux, how do you adjust the laptop&amp;#39;s screen brightness?
+Most of the time, I use the laptop with an external monitor. But when I am out, I have no monitors. And it seems no easy way to adjust the brightness in i3wm. Being too bright or dim is terrible for the eyes.
+Recently, I found a command-line tool called brightnessctl, which can adjust the brightness in a terminal.</description>
     </item>
     
     <item>
@@ -26,8 +26,8 @@
       <author>whatacold@gmail.com (whatacold)</author>
       <guid>https://whatacold.io/blog/2022-01-14-i3wm-i3status-reload-config/</guid>
       <description>Sometimes I want to change the status (i3status) of i3wm temporarily, but it seems that i3wm doesn&amp;#39;t support it directly, although reloading the config for i3wm itself is a piece of cake (bindsym $mod+Shift+c reload in the config, or i3-msg -t command reload in the command line).
- But this issue scratched my itch, and I swear that I must solve it today.
- Following this Reddit post, it looks like it can be done by restarting the process of i3bar:</description>
+But this issue scratched my itch, and I swear that I must solve it today.
+Following this Reddit post, it looks like it can be done by restarting the process of i3bar:</description>
     </item>
     
     <item>
@@ -37,8 +37,8 @@
       <author>whatacold@gmail.com (whatacold)</author>
       <guid>https://whatacold.io/blog/2021-07-17-emacs-i3wm-dunst/</guid>
       <description>I barely use notifications, but recently I think it&amp;#39;s a valuable way to remind me things like helping me nurture habits, or to notify me of emergencies like a critically low laptop battery.
- So I try to integrate notifications to org-mode and Emacs today.
- The org-notify package from org-contrib (install it by (package-install &amp;#39;org-contrib) ) could do this job easily before, so I first test it in the minibuffer with (org-notify &amp;#34;test&amp;#34;).</description>
+So I try to integrate notifications to org-mode and Emacs today.
+The org-notify package from org-contrib (install it by (package-install &amp;#39;org-contrib) ) could do this job easily before, so I first test it in the minibuffer with (org-notify &amp;#34;test&amp;#34;).</description>
     </item>
     
     <item>
@@ -48,7 +48,7 @@
       <author>whatacold@gmail.com (whatacold)</author>
       <guid>https://whatacold.io/blog/2019-11-25-start-a-new-urxvt-terminal-on-emacs/</guid>
       <description>I have been really enjoying the more concentration workflow qtile, a tiling window manager, brings me, since I started using it a few months ago. I am more focus on the current task now as all the windows I care about are laid out on the same screen.
- As I get more used to qtile at every day&amp;#39;s work, I noticed that I became more depend on short-life terminal sessions.</description>
+As I get more used to qtile at every day&amp;#39;s work, I noticed that I became more depend on short-life terminal sessions.</description>
     </item>
     
   </channel>

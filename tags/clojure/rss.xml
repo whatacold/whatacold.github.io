@@ -15,9 +15,9 @@
       <author>whatacold@gmail.com (whatacold)</author>
       <guid>https://whatacold.io/blog/2021-09-19-clojure-reduce-text-processing/</guid>
       <description>As a practice, I managed to illustrate Clojure files using illustrate.clj, but my original idea was to annotate org-mode files of blogs. It&amp;#39;s not uncommon that a blog post has some code snippets.
- But it missed the feature until last night, as I wasn&amp;#39;t sure how to implement it appropriately before and didn&amp;#39;t have enough time.
- For example, I may have an org-mode like this:
-sum of two numbers: #+begin_src clojure(+ 1 2) #+end_src   I want to have a result comment ((;; =&amp;gt; 3)) after each top-level form after using illustrate.</description>
+But it missed the feature until last night, as I wasn&amp;#39;t sure how to implement it appropriately before and didn&amp;#39;t have enough time.
+For example, I may have an org-mode like this:
+sum of two numbers: #+begin_src clojure (+ 1 2) #+end_src I want to have a result comment ((;; =&amp;gt; 3)) after each top-level form after using illustrate.</description>
     </item>
     
     <item>
@@ -27,7 +27,8 @@ sum of two numbers: #+begin_src clojure(+ 1 2) #+end_src   I want to have a resu
       <author>whatacold@gmail.com (whatacold)</author>
       <guid>https://whatacold.io/blog/2021-08-07-illustrate-clojure-snippet/</guid>
       <description>To get my hands dirty with Clojure, I am trying to find or implement Clojure&amp;#39;s string functions in the sense of Python. Python has powerful string APIs, and I also want to see how powerful Clojure could be in this field. That would be interesting.
- As shown in the cheatsheet, Clojure has implemented most of them, and there are some that I have to implement myself, like title-case.</description>
+As shown in the cheatsheet, Clojure has implemented most of them, and there are some that I have to implement myself, like title-case.
+Along the way, I found it was a little cumbersome to append the evaluation result and the result of calling them, for example,</description>
     </item>
     
     <item>
@@ -37,8 +38,8 @@ sum of two numbers: #+begin_src clojure(+ 1 2) #+end_src   I want to have a resu
       <author>whatacold@gmail.com (whatacold)</author>
       <guid>https://whatacold.io/blog/2021-07-25-clojure-string-title-case/</guid>
       <description>These days I like to write scripts for some tasks in Python instead of shell. One important reason I think that&amp;#39;s because Python is powerful at string manipulation.
- Recently I&amp;#39;m learning Clojure, and I&amp;#39;m trying to find similar ways in Clojure, one of them is s.title() for getting a title-cased version of a string. For example,
-&amp;gt;&amp;gt;&amp;gt; &amp;#39; Hello world&amp;#39;.title() &amp;#39; Hello World&amp;#39;   How to do that in Clojure?</description>
+Recently I&amp;#39;m learning Clojure, and I&amp;#39;m trying to find similar ways in Clojure, one of them is s.title() for getting a title-cased version of a string. For example,
+&amp;gt;&amp;gt;&amp;gt; &amp;#39; Hello world&amp;#39;.title() &amp;#39; Hello World&amp;#39; How to do that in Clojure? To make the problem simple, let&amp;#39;s assume that the input string only has letters and spaces, that is, [a-zA-Z ] in regex pattern.</description>
     </item>
     
     <item>
@@ -48,8 +49,8 @@ sum of two numbers: #+begin_src clojure(+ 1 2) #+end_src   I want to have a resu
       <author>whatacold@gmail.com (whatacold)</author>
       <guid>https://whatacold.io/blog/2021-07-22-clojure-string-manipulation/</guid>
       <description>Python string APIs are powerful and concise, that is an important reason I use it to do a lot of scripting these days, join, split, strip, to name a few.
- Since I am learning Clojure recently, I am wondering, how is string manipulation like in Clojure and how to implement equivalent ones?
- I think it&amp;#39;s an excellent opportunity to get familiar with Clojure. Before diving into the implementation, how to declare a multi-line string?</description>
+Since I am learning Clojure recently, I am wondering, how is string manipulation like in Clojure and how to implement equivalent ones?
+I think it&amp;#39;s an excellent opportunity to get familiar with Clojure. Before diving into the implementation, how to declare a multi-line string?</description>
     </item>
     
     <item>
@@ -59,7 +60,7 @@ sum of two numbers: #+begin_src clojure(+ 1 2) #+end_src   I want to have a resu
       <author>whatacold@gmail.com (whatacold)</author>
       <guid>https://whatacold.io/blog/2021-07-11-babashka-random-password-generator/</guid>
       <description>I&amp;#39;m used to learning by practicing, so when I learned Clojure, I always kept an eye on chances to write code in it.
- Scripting is an excellent field to practice, but the experience is not so good. On the one hand, it&amp;#39;s too hacky to wrap Clojure code in a shell script with the shell bang. On the other hand, the startup time of JVM is too long to hurt the user experience.</description>
+Scripting is an excellent field to practice, but the experience is not so good. On the one hand, it&amp;#39;s too hacky to wrap Clojure code in a shell script with the shell bang. On the other hand, the startup time of JVM is too long to hurt the user experience.</description>
     </item>
     
   </channel>

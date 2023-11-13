@@ -64,23 +64,6 @@ var main = {
 
     // show the big header image
     main.initImgs();
-
-      // my hacks
-      if (true) {
-          $('figure').each(function() {
-              $(this).addClass('figure')
-                  .css('margin', '2em 0');
-          });
-
-          $('figure img').each(function() {
-              $(this).addClass('figure-img img-rounded')
-                  .css('border', '1px solid #EAEAEA');
-          });
-
-          $('figure figcaption').each(function() {
-              $(this).addClass('figure-caption text-center text-muted');
-          });
-      }
   },
 
   initImgs : function() {

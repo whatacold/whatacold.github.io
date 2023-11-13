@@ -15,8 +15,8 @@
       <author>whatacold@gmail.com (whatacold)</author>
       <guid>https://whatacold.io/blog/2022-08-08-org-link-bookmarklet/</guid>
       <description>In this blog post, I&amp;#39;d like to share a bookmarklet for copying a web page&amp;#39;s URL as an org-mode link on Firefox, Chrome, or whatever web browsers support bookmarklets.
- It&amp;#39;s handy when the URL isn&amp;#39;t SEO-friendly, which means you can&amp;#39;t tell what its content is about at first glance of the URL. So a little description text on the link would help.
- Here is the bookmarklet:
+It&amp;#39;s handy when the URL isn&amp;#39;t SEO-friendly, which means you can&amp;#39;t tell what its content is about at first glance of the URL. So a little description text on the link would help.
+Here is the bookmarklet:
 javascript:window.prompt(&amp;#34;Copy to clipboard: Ctrl+C, Esc&amp;#34;, &amp;#34;[[&amp;#34; + document.</description>
     </item>
     
@@ -27,8 +27,8 @@ javascript:window.prompt(&amp;#34;Copy to clipboard: Ctrl+C, Esc&amp;#34;, &amp;
       <author>whatacold@gmail.com (whatacold)</author>
       <guid>https://whatacold.io/blog/2019-08-18-how-to-rename-web-page-titles-in-a-lightweight-way/</guid>
       <description>There are times that I need to open many web pages of some specific websites within a browser, and there are so many tabs that I can&amp;#39;t efficiently access one of them, as their favicons are all the same.
- So I tried to find a way to rename their titles, preferably in a lightweight way, so that I can spot them quickly with my eyes.
- The first thought came into my mind was to find some browser extensions to do the job.</description>
+So I tried to find a way to rename their titles, preferably in a lightweight way, so that I can spot them quickly with my eyes.
+The first thought came into my mind was to find some browser extensions to do the job.</description>
     </item>
     
   </channel>

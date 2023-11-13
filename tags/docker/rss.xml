@@ -15,7 +15,7 @@
       <author>whatacold@gmail.com (whatacold)</author>
       <guid>https://whatacold.io/blog/2019-10-07-build-docker-images-for-qtile/</guid>
       <description>One of Docker&amp;#39;s use cases is to set up identical development environments easily and quickly for a dev team. Recently, I had an opportunity to give it a try, and build Docker images for Qtile, as it didn&amp;#39;t have one yet as I get involved. With the images, it&amp;#39;s easy to set up the environment to easily run the tests, and build the documentation.
- The best way to have a basic idea of Docker is to think it like a chroot environment, as Chris Tankersley stated in his Docker for Developers.</description>
+The best way to have a basic idea of Docker is to think it like a chroot environment, as Chris Tankersley stated in his Docker for Developers.</description>
     </item>
     
   </channel>

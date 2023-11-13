@@ -15,7 +15,7 @@
       <author>whatacold@gmail.com (whatacold)</author>
       <guid>https://whatacold.io/blog/2020-02-04-binary-search-algorithm-vs-problem-solving/</guid>
       <description>Binary search algorithm is a search algorithm that finds the position of a target value within a sorted array. It cuts off the target array in half in a pass, so that it has a worst-case performance of O(log n).
-  Visualization of the binary search algorithm where 7 is the target value(@wikipedia)    We all know that it&amp;#39;s an efficient searching algorithm, but the strategy behind it also applies for narrowing down other problem space, for example, finding out when a bug is first introduced in a series of git commits.</description>
+Visualization of the binary search algorithm where 7 is the target value(@wikipedia) We all know that it&amp;#39;s an efficient searching algorithm, but the strategy behind it also applies for narrowing down other problem space, for example, finding out when a bug is first introduced in a series of git commits.</description>
     </item>
     
     <item>
@@ -25,7 +25,7 @@
       <author>whatacold@gmail.com (whatacold)</author>
       <guid>https://whatacold.io/blog/2019-12-01-why-cant-git-fetch-remote-branches-other-than-master/</guid>
       <description>Last week I came into a problem with Git, that I can&amp;#39;t fetch the remote branch that I just pushed to. It was so weird because I can push it. It never happens before, and it happened when I was in a rush to rebase my code, as someone in my team pushed his code.
- After searching, it seemed that the configuration of fetch of that repo was different(this Stack Overflow thread for example) than before, it was specified that only master can be fetched.</description>
+After searching, it seemed that the configuration of fetch of that repo was different(this Stack Overflow thread for example) than before, it was specified that only master can be fetched.</description>
     </item>
     
     <item>
@@ -35,8 +35,8 @@
       <author>whatacold@gmail.com (whatacold)</author>
       <guid>https://whatacold.io/blog/2019-09-24-how-to-revert-a-series-of-commits-with-git/</guid>
       <description>Sometimes, I need to revert a series of commits that I&amp;#39;ve already pushed, doing a git hard reset (git reset --hard) is not an option, as someone may already have new commits based on mine.
- For example, assume that I&amp;#39;ve made a few commits like below:
-65a2c62 * commit 10 25cad43 * commit 9 72ad583 * commit 8 ceebf9a * commit 7 acf8a11 * commit 6 28d526f * commit 5 63af1e2 * commit 4 982c71c * commit 3 0fb4c2d * commit 2 acf9da1 * commit 1 b5f9933 * commit 0   For whatever reason, I need to &amp;#34;drop&amp;#34; the changes made by commit 6 to commit 10, that is, go back to &amp;#34;commit 5&amp;#34; without deleting these commits.</description>
+For example, assume that I&amp;#39;ve made a few commits like below:
+65a2c62 * commit 10 25cad43 * commit 9 72ad583 * commit 8 ceebf9a * commit 7 acf8a11 * commit 6 28d526f * commit 5 63af1e2 * commit 4 982c71c * commit 3 0fb4c2d * commit 2 acf9da1 * commit 1 b5f9933 * commit 0 For whatever reason, I need to &amp;#34;drop&amp;#34; the changes made by commit 6 to commit 10, that is, go back to &amp;#34;commit 5&amp;#34; without deleting these commits.</description>
     </item>
     
   </channel>

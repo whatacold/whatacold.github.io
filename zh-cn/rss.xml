@@ -179,14 +179,5 @@
       <description>对于 OOP 编程，相信大家对于多态（ polymorphism ）肯定都耳熟能详。 但是对于多态是如何实现的，我不知道大家是否清楚，但我发现自己并不是很了解， 只知道在运行时通</description>
     </item>
     
-    <item>
-      <title>Git 从入门到不放弃</title>
-      <link>https://whatacold.io/zh-cn/slides/2021-10-07-git-rumen/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <author>whatacold@gmail.com (whatacold)</author>
-      <guid>https://whatacold.io/zh-cn/slides/2021-10-07-git-rumen/</guid>
-      <description>前言 起因：Git 的上手有点难度 目的：介绍 Git 基本概念和操作，帮你更快上手 Git Git 优点 本地即可实现文件的版本管理，无需服务器 极轻量的分支操作，方便多</description>
-    </item>
-    
   </channel>
 </rss>

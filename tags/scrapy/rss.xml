@@ -14,8 +14,8 @@
       <pubDate>Sat, 09 Apr 2022 22:32:11 +0800</pubDate>
       <author>whatacold@gmail.com (whatacold)</author>
       <guid>https://whatacold.io/blog/2022-04-09-scrapy-csv-without-header/</guid>
-      <description>Scrapy Architecture    Scrapy provides a few item exporters by default to export items in commonly used file formats like CSV/JSON/XML. I usually use CSV to export items, it is pretty convenient, and it comes in two ways:
- appending mode, for example, scrapy crawl foo -o test.csv overwriting mode with -O option, like scrapy crawl foo -O test.csv  But in the appending mode, it&amp;#39;s a bit annoying that it always appends the header row before the newly scraped items, which is not correctly in terms of CSV format.</description>
+      <description>Scrapy Architecture Scrapy provides a few item exporters by default to export items in commonly used file formats like CSV/JSON/XML. I usually use CSV to export items, it is pretty convenient, and it comes in two ways:
+appending mode, for example, scrapy crawl foo -o test.csv overwriting mode with -O option, like scrapy crawl foo -O test.csv But in the appending mode, it&amp;#39;s a bit annoying that it always appends the header row before the newly scraped items, which is not correctly in terms of CSV format.</description>
     </item>
     
   </channel>

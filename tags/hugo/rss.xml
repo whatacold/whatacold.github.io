@@ -14,7 +14,8 @@
       <pubDate>Mon, 10 Oct 2022 22:50:48 +0800</pubDate>
       <author>whatacold@gmail.com (whatacold)</author>
       <guid>https://whatacold.io/blog/2022-10-10-emacs-hugo-blogging/</guid>
-      <description>When I started to use Hugo to write this blog last year, I noticed that there is an easy-hugo package of Emacs that there are many people use it. So I installed it that time, but I didn&amp;#39;t use many of its features along the way. The only command I used was easy-hugo-current-time. I used it to update the Hugo timestamps manually as in the format of 2022-10-15T09:45:35+08:00.</description>
+      <description>When I started to use Hugo to write this blog last year, I noticed that there is an easy-hugo package of Emacs that there are many people use it. So I installed it that time, but I didn&amp;#39;t use many of its features along the way. The only command I used was easy-hugo-current-time. I used it to update the Hugo timestamps manually as in the format of 2022-10-15T09:45:35+08:00.
+My most desirable feature is to use it to select tags easily when I start to write a new post, but I never got it to work.</description>
     </item>
     
     <item>
@@ -24,7 +25,8 @@
       <author>whatacold@gmail.com (whatacold)</author>
       <guid>https://whatacold.io/blog/2021-08-07-illustrate-clojure-snippet/</guid>
       <description>To get my hands dirty with Clojure, I am trying to find or implement Clojure&amp;#39;s string functions in the sense of Python. Python has powerful string APIs, and I also want to see how powerful Clojure could be in this field. That would be interesting.
- As shown in the cheatsheet, Clojure has implemented most of them, and there are some that I have to implement myself, like title-case.</description>
+As shown in the cheatsheet, Clojure has implemented most of them, and there are some that I have to implement myself, like title-case.
+Along the way, I found it was a little cumbersome to append the evaluation result and the result of calling them, for example,</description>
     </item>
     
   </channel>

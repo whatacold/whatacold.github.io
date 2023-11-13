@@ -15,7 +15,7 @@
       <author>whatacold@gmail.com (whatacold)</author>
       <guid>https://whatacold.io/blog/2023-08-14-org-emphasis-dragging-mouse/</guid>
       <description>Long story short, I came up with an idea to emphasize content while I was reviewing an org-mode document a few months ago after I was tired of typing tedious * around the content repeatedly. And I&amp;#39;ve been longing for this feature since then, because I was unfamiliar with mouse-based key bindings, and neither did I have the time to investigate it.
- Today I finally nailed it down while I was attending a boring meeting, and it turned out to be quite simple.</description>
+Today I finally nailed it down while I was attending a boring meeting, and it turned out to be quite simple.</description>
     </item>
     
     <item>
@@ -25,8 +25,8 @@
       <author>whatacold@gmail.com (whatacold)</author>
       <guid>https://whatacold.io/blog/2023-06-12-emacs-join-lines/</guid>
       <description>So sometimes I need to join a few lines by a separator while I&amp;#39;m coding, for example, turn the below lines,
-foo bar baz   into foo + bar + baz. (This is a silly example, I will update if I come up with a better one :-P )
- When I was in a rush in the past, I usually baked a keyboard macro temporarily and then applied it to achieve this goal, thought reliable, it&amp;#39;s a little bit cumbersome to record it.</description>
+foo bar baz into foo + bar + baz. (This is a silly example, I will update if I come up with a better one :-P )
+When I was in a rush in the past, I usually baked a keyboard macro temporarily and then applied it to achieve this goal, thought reliable, it&amp;#39;s a little bit cumbersome to record it.</description>
     </item>
     
     <item>
@@ -35,7 +35,8 @@ foo bar baz   into foo + bar + baz. (This is a silly example, I will update if I
       <pubDate>Mon, 10 Oct 2022 22:50:48 +0800</pubDate>
       <author>whatacold@gmail.com (whatacold)</author>
       <guid>https://whatacold.io/blog/2022-10-10-emacs-hugo-blogging/</guid>
-      <description>When I started to use Hugo to write this blog last year, I noticed that there is an easy-hugo package of Emacs that there are many people use it. So I installed it that time, but I didn&amp;#39;t use many of its features along the way. The only command I used was easy-hugo-current-time. I used it to update the Hugo timestamps manually as in the format of 2022-10-15T09:45:35+08:00.</description>
+      <description>When I started to use Hugo to write this blog last year, I noticed that there is an easy-hugo package of Emacs that there are many people use it. So I installed it that time, but I didn&amp;#39;t use many of its features along the way. The only command I used was easy-hugo-current-time. I used it to update the Hugo timestamps manually as in the format of 2022-10-15T09:45:35+08:00.
+My most desirable feature is to use it to select tags easily when I start to write a new post, but I never got it to work.</description>
     </item>
     
     <item>
@@ -44,8 +45,8 @@ foo bar baz   into foo + bar + baz. (This is a silly example, I will update if I
       <pubDate>Sat, 10 Sep 2022 11:13:38 +0800</pubDate>
       <author>whatacold@gmail.com (whatacold)</author>
       <guid>https://whatacold.io/blog/2022-09-10-emacs-beancount-account-files/</guid>
-      <description>Auto-complete accounts from another accounts.bean file    If you&amp;#39;re using Beancount with Emacs, you may be using beancount-mode. It can auto-complete the accounts defined in the current buffer when we are typing in new transactions so that we can do it more efficiently.
- But it can only auto-complete the accounts from the current buffer, which makes it less useful when we have a stand-alone file or a few files of beancount accounts.</description>
+      <description>Auto-complete accounts from another accounts.bean file If you&amp;#39;re using Beancount with Emacs, you may be using beancount-mode. It can auto-complete the accounts defined in the current buffer when we are typing in new transactions so that we can do it more efficiently.
+But it can only auto-complete the accounts from the current buffer, which makes it less useful when we have a stand-alone file or a few files of beancount accounts.</description>
     </item>
     
     <item>
@@ -55,8 +56,8 @@ foo bar baz   into foo + bar + baz. (This is a silly example, I will update if I
       <author>whatacold@gmail.com (whatacold)</author>
       <guid>https://whatacold.io/blog/2022-08-08-org-link-bookmarklet/</guid>
       <description>In this blog post, I&amp;#39;d like to share a bookmarklet for copying a web page&amp;#39;s URL as an org-mode link on Firefox, Chrome, or whatever web browsers support bookmarklets.
- It&amp;#39;s handy when the URL isn&amp;#39;t SEO-friendly, which means you can&amp;#39;t tell what its content is about at first glance of the URL. So a little description text on the link would help.
- Here is the bookmarklet:
+It&amp;#39;s handy when the URL isn&amp;#39;t SEO-friendly, which means you can&amp;#39;t tell what its content is about at first glance of the URL. So a little description text on the link would help.
+Here is the bookmarklet:
 javascript:window.prompt(&amp;#34;Copy to clipboard: Ctrl+C, Esc&amp;#34;, &amp;#34;[[&amp;#34; + document.</description>
     </item>
     
@@ -67,8 +68,8 @@ javascript:window.prompt(&amp;#34;Copy to clipboard: Ctrl+C, Esc&amp;#34;, &amp;
       <author>whatacold@gmail.com (whatacold)</author>
       <guid>https://whatacold.io/blog/2022-07-17-emacs-elisp-debug/</guid>
       <description>If you are new to Emacs, you may run into some errors, especially after you absorb elisp snippets from the Internet or elsewhere.
- Don&amp;#39;t panic. It happens. To ease your pain, in this post I will introduce some Emacs built-in features to help you solve the problems yourself.
-Start Emacs Without Any Configurations   When you have some problems/errors with built-in features, the first thing you should do is to run emacs -Q to start another Emacs instance without any configurations from your emacs.</description>
+Don&amp;#39;t panic. It happens. To ease your pain, in this post I will introduce some Emacs built-in features to help you solve the problems yourself.
+Start Emacs Without Any Configurations When you have some problems/errors with built-in features, the first thing you should do is to run emacs -Q to start another Emacs instance without any configurations from your emacs.</description>
     </item>
     
     <item>
@@ -77,9 +78,9 @@ Start Emacs Without Any Configurations   When you have some problems/errors with
       <pubDate>Mon, 23 May 2022 21:29:28 +0800</pubDate>
       <author>whatacold@gmail.com (whatacold)</author>
       <guid>https://whatacold.io/blog/2022-05-23-emacs-duplicate-line/</guid>
-      <description>Duplicate the current in Emacs    Duplicating the current line is frequent editing for me when I am coding. Initially, I copied a snippet as a command in Emacs from the Internet:
-(defun w/duplicate-line() &amp;#34;Duplicate the current line.&amp;#34; (interactive) (move-beginning-of-line 1) (kill-line) (yank) (open-line 1) (next-line 1) (yank))   Most of the time, I was happy with it, but it has mainly two drawbacks:
- It cannot keep the column position when moving to the next line It messes up with the yank ring as it yanks the text under the hood  So today, I took some time to fix these two problems, and I also want it to be capable of commenting the current line out if I prefix the command.</description>
+      <description>Duplicate the current in Emacs Duplicating the current line is frequent editing for me when I am coding. Initially, I copied a snippet as a command in Emacs from the Internet:
+(defun w/duplicate-line() &amp;#34;Duplicate the current line.&amp;#34; (interactive) (move-beginning-of-line 1) (kill-line) (yank) (open-line 1) (next-line 1) (yank)) Most of the time, I was happy with it, but it has mainly two drawbacks:
+It cannot keep the column position when moving to the next line It messes up with the yank ring as it yanks the text under the hood So today, I took some time to fix these two problems, and I also want it to be capable of commenting the current line out if I prefix the command.</description>
     </item>
     
     <item>
@@ -88,9 +89,9 @@ Start Emacs Without Any Configurations   When you have some problems/errors with
       <pubDate>Sat, 21 May 2022 11:50:25 +0800</pubDate>
       <author>whatacold@gmail.com (whatacold)</author>
       <guid>https://whatacold.io/blog/2022-05-21-adjust-screen-brightness-emacs/</guid>
-      <description>Adjust the screen brightness in Emacs    If you&amp;#39;re using i3wm on Linux, how do you adjust the laptop&amp;#39;s screen brightness?
- Most of the time, I use the laptop with an external monitor. But when I am out, I have no monitors. And it seems no easy way to adjust the brightness in i3wm. Being too bright or dim is terrible for the eyes.
- Recently, I found a command-line tool called brightnessctl, which can adjust the brightness in a terminal.</description>
+      <description>Adjust the screen brightness in Emacs If you&amp;#39;re using i3wm on Linux, how do you adjust the laptop&amp;#39;s screen brightness?
+Most of the time, I use the laptop with an external monitor. But when I am out, I have no monitors. And it seems no easy way to adjust the brightness in i3wm. Being too bright or dim is terrible for the eyes.
+Recently, I found a command-line tool called brightnessctl, which can adjust the brightness in a terminal.</description>
     </item>
     
     <item>
@@ -99,8 +100,8 @@ Start Emacs Without Any Configurations   When you have some problems/errors with
       <pubDate>Sat, 09 Apr 2022 23:11:36 +0800</pubDate>
       <author>whatacold@gmail.com (whatacold)</author>
       <guid>https://whatacold.io/blog/2022-04-09-emacs-kill-other-buffer/</guid>
-      <description>Selecting Emacs windows using ace-window    Recently I&amp;#39;ve been building a simple Emacs config for myself, along the way I re-discovered some fantastic packages, for example, I found that ace-window is a simple yet powerful package to enhance the default other-window command to select other windows quickly when it has more than two windows in a frame.
- I replaced the key binding of other-window to ace-window by simply doing (global-set-key (kbd &amp;#34;C-x o&amp;#34;) #&amp;#39;ace-window), then when there are &amp;gt;2 windows, it will show a white-in-red number at the top-left corner for every window, hit the number (1, 2, 3, …) and then Emacs will select the corresponding window (as demonstrated in the above screenshot).</description>
+      <description>Selecting Emacs windows using ace-window Recently I&amp;#39;ve been building a simple Emacs config for myself, along the way I re-discovered some fantastic packages, for example, I found that ace-window is a simple yet powerful package to enhance the default other-window command to select other windows quickly when it has more than two windows in a frame.
+I replaced the key binding of other-window to ace-window by simply doing (global-set-key (kbd &amp;#34;C-x o&amp;#34;) #&amp;#39;ace-window), then when there are &amp;gt;2 windows, it will show a white-in-red number at the top-left corner for every window, hit the number (1, 2, 3, …) and then Emacs will select the corresponding window (as demonstrated in the above screenshot).</description>
     </item>
     
     <item>
@@ -109,8 +110,8 @@ Start Emacs Without Any Configurations   When you have some problems/errors with
       <pubDate>Sat, 09 Apr 2022 22:32:11 +0800</pubDate>
       <author>whatacold@gmail.com (whatacold)</author>
       <guid>https://whatacold.io/blog/2022-04-09-scrapy-csv-without-header/</guid>
-      <description>Scrapy Architecture    Scrapy provides a few item exporters by default to export items in commonly used file formats like CSV/JSON/XML. I usually use CSV to export items, it is pretty convenient, and it comes in two ways:
- appending mode, for example, scrapy crawl foo -o test.csv overwriting mode with -O option, like scrapy crawl foo -O test.csv  But in the appending mode, it&amp;#39;s a bit annoying that it always appends the header row before the newly scraped items, which is not correctly in terms of CSV format.</description>
+      <description>Scrapy Architecture Scrapy provides a few item exporters by default to export items in commonly used file formats like CSV/JSON/XML. I usually use CSV to export items, it is pretty convenient, and it comes in two ways:
+appending mode, for example, scrapy crawl foo -o test.csv overwriting mode with -O option, like scrapy crawl foo -O test.csv But in the appending mode, it&amp;#39;s a bit annoying that it always appends the header row before the newly scraped items, which is not correctly in terms of CSV format.</description>
     </item>
     
     <item>
@@ -120,7 +121,7 @@ Start Emacs Without Any Configurations   When you have some problems/errors with
       <author>whatacold@gmail.com (whatacold)</author>
       <guid>https://whatacold.io/blog/2022-01-22-emacs-eglot-lsp/</guid>
       <description>LSP, or Language Server Protocol, makes programming easier by introducing features like more precise auto-completion and definition lookup. It may have scratched your itches, and you may wonder what the experience is like in Emacs.
- Emacs has mainly two LSP clients out there, eglot and lsp-mode. Eglot is lightweight, and it could almost run out of the box. So in this post I will briefly show you how to use eglot.</description>
+Emacs has mainly two LSP clients out there, eglot and lsp-mode. Eglot is lightweight, and it could almost run out of the box. So in this post I will briefly show you how to use eglot.</description>
     </item>
     
     <item>
@@ -130,8 +131,8 @@ Start Emacs Without Any Configurations   When you have some problems/errors with
       <author>whatacold@gmail.com (whatacold)</author>
       <guid>https://whatacold.io/blog/2022-01-14-i3wm-i3status-reload-config/</guid>
       <description>Sometimes I want to change the status (i3status) of i3wm temporarily, but it seems that i3wm doesn&amp;#39;t support it directly, although reloading the config for i3wm itself is a piece of cake (bindsym $mod+Shift+c reload in the config, or i3-msg -t command reload in the command line).
- But this issue scratched my itch, and I swear that I must solve it today.
- Following this Reddit post, it looks like it can be done by restarting the process of i3bar:</description>
+But this issue scratched my itch, and I swear that I must solve it today.
+Following this Reddit post, it looks like it can be done by restarting the process of i3bar:</description>
     </item>
     
     <item>
@@ -141,7 +142,7 @@ Start Emacs Without Any Configurations   When you have some problems/errors with
       <author>whatacold@gmail.com (whatacold)</author>
       <guid>https://whatacold.io/blog/2022-01-12-language-shadowing-with-subed-emacs/</guid>
       <description>So I&amp;#39;m trying to improve my English speaking skill by shadowing while watching TV episodes. The workflow before was to loop over video clips using mpv:
- hit l to mark the start of the loop play the video and wait for it to be at the end of the loop hit l again to mark the end  Then mpv will loop over the clip, it basically works, but it&amp;#39;s a bit hard and tedious to set the start and end precisely.</description>
+hit l to mark the start of the loop play the video and wait for it to be at the end of the loop hit l again to mark the end Then mpv will loop over the clip, it basically works, but it&amp;#39;s a bit hard and tedious to set the start and end precisely.</description>
     </item>
     
     <item>
@@ -150,7 +151,7 @@ Start Emacs Without Any Configurations   When you have some problems/errors with
       <pubDate>Sat, 11 Dec 2021 09:24:53 +0800</pubDate>
       <author>whatacold@gmail.com (whatacold)</author>
       <guid>https://whatacold.io/blog/2021-12-11-writing-python-in-emacs/</guid>
-      <description>Note: watch my live coding session of this article:   Intro   If you&amp;#39;ve heard some rumors of Emacs that it has a very steep learning curve (or that Emacs makes a computer slow), you may be too scared to look at it. It indeed has some learning curve (learning anything does have one), but it isn&amp;#39;t very steep. I learned this after getting my hands dirty with Emacs a few years ago.</description>
+      <description>Note: watch my live coding session of this article: Intro If you&amp;#39;ve heard some rumors of Emacs that it has a very steep learning curve (or that Emacs makes a computer slow), you may be too scared to look at it. It indeed has some learning curve (learning anything does have one), but it isn&amp;#39;t very steep. I learned this after getting my hands dirty with Emacs a few years ago.</description>
     </item>
     
     <item>
@@ -159,9 +160,9 @@ Start Emacs Without Any Configurations   When you have some problems/errors with
       <pubDate>Sat, 25 Sep 2021 23:01:40 +0800</pubDate>
       <author>whatacold@gmail.com (whatacold)</author>
       <guid>https://whatacold.io/blog/2021-12-05-beautifulsoup4-cheatsheet/</guid>
-      <description>Beautiful Soup    Detailed docs: the Beautiful Soup 4 Docs.
- Assume t is an object of Tag.
-Core concepts (classes)   Tag, a Tag object corresponds to an XML or HTML tag. BeautifulSoup, the BeautifulSoup object represents the parsed document as a whole. You can treat it like a special Tag. It needs a parser to parse the document, a built-in parser is &amp;#34;html.</description>
+      <description>Beautiful Soup Detailed docs: the Beautiful Soup 4 Docs.
+Assume t is an object of Tag.
+Core concepts (classes) Tag, a Tag object corresponds to an XML or HTML tag. BeautifulSoup, the BeautifulSoup object represents the parsed document as a whole. You can treat it like a special Tag. It needs a parser to parse the document, a built-in parser is &amp;#34;html.parser&amp;#34;, e.g. soup = BeautifulSoup(&amp;#34;&amp;lt;html&amp;gt;a web page&amp;lt;/html&amp;gt;&amp;#34;, &amp;#39;html.parser&amp;#39;) NavigableString, a string corresponds to a bit of text (as you see it in the browser) within a tag.</description>
     </item>
     
     <item>
@@ -171,9 +172,9 @@ Core concepts (classes)   Tag, a Tag object corresponds to an XML or HTML tag. B
       <author>whatacold@gmail.com (whatacold)</author>
       <guid>https://whatacold.io/blog/2021-09-19-clojure-reduce-text-processing/</guid>
       <description>As a practice, I managed to illustrate Clojure files using illustrate.clj, but my original idea was to annotate org-mode files of blogs. It&amp;#39;s not uncommon that a blog post has some code snippets.
- But it missed the feature until last night, as I wasn&amp;#39;t sure how to implement it appropriately before and didn&amp;#39;t have enough time.
- For example, I may have an org-mode like this:
-sum of two numbers: #+begin_src clojure(+ 1 2) #+end_src   I want to have a result comment ((;; =&amp;gt; 3)) after each top-level form after using illustrate.</description>
+But it missed the feature until last night, as I wasn&amp;#39;t sure how to implement it appropriately before and didn&amp;#39;t have enough time.
+For example, I may have an org-mode like this:
+sum of two numbers: #+begin_src clojure (+ 1 2) #+end_src I want to have a result comment ((;; =&amp;gt; 3)) after each top-level form after using illustrate.</description>
     </item>
     
     <item>
@@ -183,7 +184,8 @@ sum of two numbers: #+begin_src clojure(+ 1 2) #+end_src   I want to have a resu
       <author>whatacold@gmail.com (whatacold)</author>
       <guid>https://whatacold.io/blog/2021-08-07-illustrate-clojure-snippet/</guid>
       <description>To get my hands dirty with Clojure, I am trying to find or implement Clojure&amp;#39;s string functions in the sense of Python. Python has powerful string APIs, and I also want to see how powerful Clojure could be in this field. That would be interesting.
- As shown in the cheatsheet, Clojure has implemented most of them, and there are some that I have to implement myself, like title-case.</description>
+As shown in the cheatsheet, Clojure has implemented most of them, and there are some that I have to implement myself, like title-case.
+Along the way, I found it was a little cumbersome to append the evaluation result and the result of calling them, for example,</description>
     </item>
     
     <item>
@@ -193,8 +195,8 @@ sum of two numbers: #+begin_src clojure(+ 1 2) #+end_src   I want to have a resu
       <author>whatacold@gmail.com (whatacold)</author>
       <guid>https://whatacold.io/blog/2021-07-25-clojure-string-title-case/</guid>
       <description>These days I like to write scripts for some tasks in Python instead of shell. One important reason I think that&amp;#39;s because Python is powerful at string manipulation.
- Recently I&amp;#39;m learning Clojure, and I&amp;#39;m trying to find similar ways in Clojure, one of them is s.title() for getting a title-cased version of a string. For example,
-&amp;gt;&amp;gt;&amp;gt; &amp;#39; Hello world&amp;#39;.title() &amp;#39; Hello World&amp;#39;   How to do that in Clojure?</description>
+Recently I&amp;#39;m learning Clojure, and I&amp;#39;m trying to find similar ways in Clojure, one of them is s.title() for getting a title-cased version of a string. For example,
+&amp;gt;&amp;gt;&amp;gt; &amp;#39; Hello world&amp;#39;.title() &amp;#39; Hello World&amp;#39; How to do that in Clojure? To make the problem simple, let&amp;#39;s assume that the input string only has letters and spaces, that is, [a-zA-Z ] in regex pattern.</description>
     </item>
     
     <item>
@@ -204,8 +206,8 @@ sum of two numbers: #+begin_src clojure(+ 1 2) #+end_src   I want to have a resu
       <author>whatacold@gmail.com (whatacold)</author>
       <guid>https://whatacold.io/blog/2021-07-22-clojure-string-manipulation/</guid>
       <description>Python string APIs are powerful and concise, that is an important reason I use it to do a lot of scripting these days, join, split, strip, to name a few.
- Since I am learning Clojure recently, I am wondering, how is string manipulation like in Clojure and how to implement equivalent ones?
- I think it&amp;#39;s an excellent opportunity to get familiar with Clojure. Before diving into the implementation, how to declare a multi-line string?</description>
+Since I am learning Clojure recently, I am wondering, how is string manipulation like in Clojure and how to implement equivalent ones?
+I think it&amp;#39;s an excellent opportunity to get familiar with Clojure. Before diving into the implementation, how to declare a multi-line string?</description>
     </item>
     
     <item>
@@ -215,8 +217,8 @@ sum of two numbers: #+begin_src clojure(+ 1 2) #+end_src   I want to have a resu
       <author>whatacold@gmail.com (whatacold)</author>
       <guid>https://whatacold.io/blog/2021-07-17-emacs-i3wm-dunst/</guid>
       <description>I barely use notifications, but recently I think it&amp;#39;s a valuable way to remind me things like helping me nurture habits, or to notify me of emergencies like a critically low laptop battery.
- So I try to integrate notifications to org-mode and Emacs today.
- The org-notify package from org-contrib (install it by (package-install &amp;#39;org-contrib) ) could do this job easily before, so I first test it in the minibuffer with (org-notify &amp;#34;test&amp;#34;).</description>
+So I try to integrate notifications to org-mode and Emacs today.
+The org-notify package from org-contrib (install it by (package-install &amp;#39;org-contrib) ) could do this job easily before, so I first test it in the minibuffer with (org-notify &amp;#34;test&amp;#34;).</description>
     </item>
     
     <item>
@@ -226,7 +228,7 @@ sum of two numbers: #+begin_src clojure(+ 1 2) #+end_src   I want to have a resu
       <author>whatacold@gmail.com (whatacold)</author>
       <guid>https://whatacold.io/blog/2021-07-11-babashka-random-password-generator/</guid>
       <description>I&amp;#39;m used to learning by practicing, so when I learned Clojure, I always kept an eye on chances to write code in it.
- Scripting is an excellent field to practice, but the experience is not so good. On the one hand, it&amp;#39;s too hacky to wrap Clojure code in a shell script with the shell bang. On the other hand, the startup time of JVM is too long to hurt the user experience.</description>
+Scripting is an excellent field to practice, but the experience is not so good. On the one hand, it&amp;#39;s too hacky to wrap Clojure code in a shell script with the shell bang. On the other hand, the startup time of JVM is too long to hurt the user experience.</description>
     </item>
     
     <item>
@@ -236,8 +238,8 @@ sum of two numbers: #+begin_src clojure(+ 1 2) #+end_src   I want to have a resu
       <author>whatacold@gmail.com (whatacold)</author>
       <guid>https://whatacold.io/blog/2020-10-21-a-python-re.findall-service/</guid>
       <description>As a programmer, I know that grep, sed and awk are powerful for processing text, but they sometimes aren&amp;#39;t that straight-forward for specific tasks, as I need to think about how to filter the lines and the columns out.
- So I wonder if there is a handy way to do these tasks?
- After using it for a while, I think using regex directly can help, so I launched a re.</description>
+So I wonder if there is a handy way to do these tasks?
+After using it for a while, I think using regex directly can help, so I launched a re.</description>
     </item>
     
     <item>
@@ -247,8 +249,8 @@ sum of two numbers: #+begin_src clojure(+ 1 2) #+end_src   I want to have a resu
       <author>whatacold@gmail.com (whatacold)</author>
       <guid>https://whatacold.io/blog/2020-08-22-generate-call-graphs-using-doxygen-in-emacs/</guid>
       <description>Doxygen is a nice tool for generating documentations for well-annotated C/C++ projects, the one feature that I like most is generating call graphs and class diagrams, so that I can learn a project quickly by browsing the diagrams from a higher point of view.
- I take the following steps to generate call graphs for a project on terminals on Linux:
- cd /path/to/a/project/, and generate a template config file by doxygen -s -g doxygen.</description>
+I take the following steps to generate call graphs for a project on terminals on Linux:
+cd /path/to/a/project/, and generate a template config file by doxygen -s -g doxygen.</description>
     </item>
     
     <item>
@@ -267,7 +269,7 @@ sum of two numbers: #+begin_src clojure(+ 1 2) #+end_src   I want to have a resu
       <author>whatacold@gmail.com (whatacold)</author>
       <guid>https://whatacold.io/blog/2020-05-30-a-trick-to-troubleshoot-emacs-subprocess-creating/</guid>
       <description>There are many packages of Emacs that leverage subprocesses to do their jobs, Magit, eglot, elpy, to name a few. And there are times that a subprocess doesn&amp;#39;t work as expected, for example, Magit is slow, and you&amp;#39;re sure that it&amp;#39;s ok when running git commands on shell. So how to spot these problems effectively and quickly?
- The problem is that we don&amp;#39;t know what&amp;#39;s going on exactly, so here I want to share a few Elisp advices to make the subprocess creating visible, and print the exact program and its arguments to the *Message* buffer.</description>
+The problem is that we don&amp;#39;t know what&amp;#39;s going on exactly, so here I want to share a few Elisp advices to make the subprocess creating visible, and print the exact program and its arguments to the *Message* buffer.</description>
     </item>
     
     <item>
@@ -277,7 +279,7 @@ sum of two numbers: #+begin_src clojure(+ 1 2) #+end_src   I want to have a resu
       <author>whatacold@gmail.com (whatacold)</author>
       <guid>https://whatacold.io/blog/2020-03-07-ppcompile-to-help-stay-coding-locally/</guid>
       <description>If you are a C/C++ programmer like me, you may experience jumping around different machines to write and compile your code, or you may write code on different machines for different projects, and scp/rsync/ftp the projects around. It works, but it&amp;#39;s a bit tedious and takes too much burden on our brains.
- For example, say I have two projects that should be compiled on their compiling machines respectively. There are two obvious workflows for writing code for them &amp;#34;simultaneously&amp;#34;:</description>
+For example, say I have two projects that should be compiled on their compiling machines respectively. There are two obvious workflows for writing code for them &amp;#34;simultaneously&amp;#34;:</description>
     </item>
     
     <item>
@@ -287,7 +289,7 @@ sum of two numbers: #+begin_src clojure(+ 1 2) #+end_src   I want to have a resu
       <author>whatacold@gmail.com (whatacold)</author>
       <guid>https://whatacold.io/blog/2020-02-04-binary-search-algorithm-vs-problem-solving/</guid>
       <description>Binary search algorithm is a search algorithm that finds the position of a target value within a sorted array. It cuts off the target array in half in a pass, so that it has a worst-case performance of O(log n).
-  Visualization of the binary search algorithm where 7 is the target value(@wikipedia)    We all know that it&amp;#39;s an efficient searching algorithm, but the strategy behind it also applies for narrowing down other problem space, for example, finding out when a bug is first introduced in a series of git commits.</description>
+Visualization of the binary search algorithm where 7 is the target value(@wikipedia) We all know that it&amp;#39;s an efficient searching algorithm, but the strategy behind it also applies for narrowing down other problem space, for example, finding out when a bug is first introduced in a series of git commits.</description>
     </item>
     
     <item>
@@ -297,7 +299,7 @@ sum of two numbers: #+begin_src clojure(+ 1 2) #+end_src   I want to have a resu
       <author>whatacold@gmail.com (whatacold)</author>
       <guid>https://whatacold.io/blog/2019-12-22-manage-ssh-connections-with-ssh-config/</guid>
       <description>I used to manage SSH connection with such GUI apps as MobaXterm, when I wrote code on Windows at work. As I changed my workflow to use a tiling window manager in a VirtualBox guest OS, I continued to improve my way of managing SSH connections, which I want to share here if you don&amp;#39;t know yet.
- At first, I baked a helper Python script, which I named as qssh for &amp;#34;quick ssh&amp;#34;, to help me assemble ssh arguments for me(such as username, Ip, port, etc.</description>
+At first, I baked a helper Python script, which I named as qssh for &amp;#34;quick ssh&amp;#34;, to help me assemble ssh arguments for me(such as username, Ip, port, etc.</description>
     </item>
     
     <item>
@@ -307,7 +309,7 @@ sum of two numbers: #+begin_src clojure(+ 1 2) #+end_src   I want to have a resu
       <author>whatacold@gmail.com (whatacold)</author>
       <guid>https://whatacold.io/blog/2019-12-01-why-cant-git-fetch-remote-branches-other-than-master/</guid>
       <description>Last week I came into a problem with Git, that I can&amp;#39;t fetch the remote branch that I just pushed to. It was so weird because I can push it. It never happens before, and it happened when I was in a rush to rebase my code, as someone in my team pushed his code.
- After searching, it seemed that the configuration of fetch of that repo was different(this Stack Overflow thread for example) than before, it was specified that only master can be fetched.</description>
+After searching, it seemed that the configuration of fetch of that repo was different(this Stack Overflow thread for example) than before, it was specified that only master can be fetched.</description>
     </item>
     
     <item>
@@ -317,7 +319,7 @@ sum of two numbers: #+begin_src clojure(+ 1 2) #+end_src   I want to have a resu
       <author>whatacold@gmail.com (whatacold)</author>
       <guid>https://whatacold.io/blog/2019-11-25-start-a-new-urxvt-terminal-on-emacs/</guid>
       <description>I have been really enjoying the more concentration workflow qtile, a tiling window manager, brings me, since I started using it a few months ago. I am more focus on the current task now as all the windows I care about are laid out on the same screen.
- As I get more used to qtile at every day&amp;#39;s work, I noticed that I became more depend on short-life terminal sessions.</description>
+As I get more used to qtile at every day&amp;#39;s work, I noticed that I became more depend on short-life terminal sessions.</description>
     </item>
     
     <item>
@@ -327,7 +329,7 @@ sum of two numbers: #+begin_src clojure(+ 1 2) #+end_src   I want to have a resu
       <author>whatacold@gmail.com (whatacold)</author>
       <guid>https://whatacold.io/blog/2019-10-07-build-docker-images-for-qtile/</guid>
       <description>One of Docker&amp;#39;s use cases is to set up identical development environments easily and quickly for a dev team. Recently, I had an opportunity to give it a try, and build Docker images for Qtile, as it didn&amp;#39;t have one yet as I get involved. With the images, it&amp;#39;s easy to set up the environment to easily run the tests, and build the documentation.
- The best way to have a basic idea of Docker is to think it like a chroot environment, as Chris Tankersley stated in his Docker for Developers.</description>
+The best way to have a basic idea of Docker is to think it like a chroot environment, as Chris Tankersley stated in his Docker for Developers.</description>
     </item>
     
     <item>
@@ -337,7 +339,7 @@ sum of two numbers: #+begin_src clojure(+ 1 2) #+end_src   I want to have a resu
       <author>whatacold@gmail.com (whatacold)</author>
       <guid>https://whatacold.io/blog/2019-09-29-how-to-run-the-bleeding-edge-code-of-qtile/</guid>
       <description>For having been using GNOME for quite a long time, I was considering trying some tiling window managers to see what it&amp;#39;s like a few weeks ago. Along the way, I found a nice window manager written in Python: Qtile, what interests me most is that it&amp;#39;s a hackable window manager, which makes it flexible to extend or change its behaviors.
- Well, switching to use a tiling window manager is far simpler than I thought.</description>
+Well, switching to use a tiling window manager is far simpler than I thought.</description>
     </item>
     
     <item>
@@ -347,8 +349,8 @@ sum of two numbers: #+begin_src clojure(+ 1 2) #+end_src   I want to have a resu
       <author>whatacold@gmail.com (whatacold)</author>
       <guid>https://whatacold.io/blog/2019-09-24-how-to-revert-a-series-of-commits-with-git/</guid>
       <description>Sometimes, I need to revert a series of commits that I&amp;#39;ve already pushed, doing a git hard reset (git reset --hard) is not an option, as someone may already have new commits based on mine.
- For example, assume that I&amp;#39;ve made a few commits like below:
-65a2c62 * commit 10 25cad43 * commit 9 72ad583 * commit 8 ceebf9a * commit 7 acf8a11 * commit 6 28d526f * commit 5 63af1e2 * commit 4 982c71c * commit 3 0fb4c2d * commit 2 acf9da1 * commit 1 b5f9933 * commit 0   For whatever reason, I need to &amp;#34;drop&amp;#34; the changes made by commit 6 to commit 10, that is, go back to &amp;#34;commit 5&amp;#34; without deleting these commits.</description>
+For example, assume that I&amp;#39;ve made a few commits like below:
+65a2c62 * commit 10 25cad43 * commit 9 72ad583 * commit 8 ceebf9a * commit 7 acf8a11 * commit 6 28d526f * commit 5 63af1e2 * commit 4 982c71c * commit 3 0fb4c2d * commit 2 acf9da1 * commit 1 b5f9933 * commit 0 For whatever reason, I need to &amp;#34;drop&amp;#34; the changes made by commit 6 to commit 10, that is, go back to &amp;#34;commit 5&amp;#34; without deleting these commits.</description>
     </item>
     
     <item>
@@ -358,8 +360,8 @@ sum of two numbers: #+begin_src clojure(+ 1 2) #+end_src   I want to have a resu
       <author>whatacold@gmail.com (whatacold)</author>
       <guid>https://whatacold.io/blog/2019-08-18-how-to-rename-web-page-titles-in-a-lightweight-way/</guid>
       <description>There are times that I need to open many web pages of some specific websites within a browser, and there are so many tabs that I can&amp;#39;t efficiently access one of them, as their favicons are all the same.
- So I tried to find a way to rename their titles, preferably in a lightweight way, so that I can spot them quickly with my eyes.
- The first thought came into my mind was to find some browser extensions to do the job.</description>
+So I tried to find a way to rename their titles, preferably in a lightweight way, so that I can spot them quickly with my eyes.
+The first thought came into my mind was to find some browser extensions to do the job.</description>
     </item>
     
     <item>
@@ -369,7 +371,7 @@ sum of two numbers: #+begin_src clojure(+ 1 2) #+end_src   I want to have a resu
       <author>whatacold@gmail.com (whatacold)</author>
       <guid>https://whatacold.io/blog/2019-07-20-generating-org-mode-outlines-for-wikihow-articles/</guid>
       <description>Recently I found some great articles on wikiHow, then I want to keep notes of them in org-mode files.
- At first, I manually copied the ToC of articles, but soon I found it&amp;#39;s tedious and takes a lot of time. Today I wrote a requests-based Python script to help me extract the ToCs (Table of Content) into org-mode outlines. It takes two arguments, the first one is the URL, the second one is the containing heading&amp;#39;s level for the generated ToC in org-mode.</description>
+At first, I manually copied the ToC of articles, but soon I found it&amp;#39;s tedious and takes a lot of time. Today I wrote a requests-based Python script to help me extract the ToCs (Table of Content) into org-mode outlines. It takes two arguments, the first one is the URL, the second one is the containing heading&amp;#39;s level for the generated ToC in org-mode.</description>
     </item>
     
     <item>
@@ -379,8 +381,8 @@ sum of two numbers: #+begin_src clojure(+ 1 2) #+end_src   I want to have a resu
       <author>whatacold@gmail.com (whatacold)</author>
       <guid>https://whatacold.io/blog/2019-07-20-understanding-align-regexp-of-emacs/</guid>
       <description>Emacs&amp;#39; M-x align-regex is neat when I want to align some similar text, especially when we&amp;#39;re coding. I use its trivial version(without prefix arg) regularly on day-to-day programming work before.
- For example, I can use it to align below code quickly by:
- Choose the region M-x align-regexp and type = and Enter  aaaaaaaaaaaaaa = fields[0] bbb = fields[1] cccccccc = fields[2]   It will be aligned to below code, now it&amp;#39;s better to read:</description>
+For example, I can use it to align below code quickly by:
+Choose the region M-x align-regexp and type = and Enter aaaaaaaaaaaaaa = fields[0] bbb = fields[1] cccccccc = fields[2] It will be aligned to below code, now it&amp;#39;s better to read:</description>
     </item>
     
     <item>
@@ -390,7 +392,7 @@ sum of two numbers: #+begin_src clojure(+ 1 2) #+end_src   I want to have a resu
       <author>whatacold@gmail.com (whatacold)</author>
       <guid>https://whatacold.io/blog/2019-07-06-render-erd-on-the-web/</guid>
       <description>If you ever wonder how to plot ER diagrams in plain text, you may have already heard of erd. It&amp;#39;s a cool command line program written by Andrew Gallant in Haskell, to &amp;#34;compile&amp;#34; plain text files into nicely looking images, leveraging the power of GraphViz.
- I&amp;#39;ve used erd for some time, it&amp;#39;s cool and the syntax is quite simple. It&amp;#39;s also quite simple to install it on Linux, just install GraphViz and erd itself, by following the instructions in the README page.</description>
+I&amp;#39;ve used erd for some time, it&amp;#39;s cool and the syntax is quite simple. It&amp;#39;s also quite simple to install it on Linux, just install GraphViz and erd itself, by following the instructions in the README page.</description>
     </item>
     
     <item>
@@ -400,8 +402,8 @@ sum of two numbers: #+begin_src clojure(+ 1 2) #+end_src   I want to have a resu
       <author>whatacold@gmail.com (whatacold)</author>
       <guid>https://whatacold.io/blog/2019-02-24-fine-tune-style-of-yasnippet-snippet-on-the-fly/</guid>
       <description>Yasnippet is a good friend to help us type less and write more, whenever we write some text snippets repeatedly. And there is also an official repository called yasnippet-snippets that contains various snippets for many programming languages (modes), so that we can have many snippets in no time by installing it.
- But there is a little problem when it comes to conforming to different coding styles.
- Take the if snippet for example, normally it will generate code like this:</description>
+But there is a little problem when it comes to conforming to different coding styles.
+Take the if snippet for example, normally it will generate code like this:</description>
     </item>
     
   </channel>
