@@ -7,7 +7,16 @@
     <generator>Hugo -- gohugo.io</generator>
     <managingEditor>whatacold@gmail.com (whatacold)</managingEditor>
     <webMaster>whatacold@gmail.com (whatacold)</webMaster>
-    <lastBuildDate>Wed, 05 Oct 2022 18:17:37 +0800</lastBuildDate><atom:link href="https://whatacold.io/zh-cn/rss.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 23 Nov 2023 08:19:07 +0800</lastBuildDate><atom:link href="https://whatacold.io/zh-cn/rss.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>英语数字读法练习</title>
+      <link>https://whatacold.io/zh-cn/blog/%E7%99%BD%E9%A9%AC%E8%8B%B1%E8%AF%AD%E4%B9%8B%E6%95%B0%E5%AD%97%E7%BB%83%E4%B9%A0/</link>
+      <pubDate>Thu, 23 Nov 2023 08:19:07 +0800</pubDate>
+      <author>whatacold@gmail.com (whatacold)</author>
+      <guid>https://whatacold.io/zh-cn/blog/%E7%99%BD%E9%A9%AC%E8%8B%B1%E8%AF%AD%E4%B9%8B%E6%95%B0%E5%AD%97%E7%BB%83%E4%B9%A0/</guid>
+      <description>英语里的数字，也简单也困难。简单在规则不难，与汉语差别也不大，大致有以下几个规则（如有错漏，欢迎评论指正）： 1️⃣数字按三个一组，与汉语四个</description>
+    </item>
+    
     <item>
       <title>修改 Beautiful Hugo Banner 头图</title>
       <link>https://whatacold.io/zh-cn/blog/2022-10-05-beautifulhugo-banner-image/</link>

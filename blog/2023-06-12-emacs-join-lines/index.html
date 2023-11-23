@@ -65,7 +65,7 @@ When I was in a rush in the past, I usually baked a keyboard macro temporarily a
   "headline": "Join Lines By A Separator in Emacs",
   "description" : "So sometimes I need to join a few lines by a separator while I\u0026#39;m coding, for example, turn the below lines,\nfoo bar baz into foo \u002b bar \u002b baz. (This is a silly example, I will update if I come up with a better one :-P )\nWhen I was in a rush in the past, I usually baked a keyboard macro temporarily and then applied it to achieve this goal, thought reliable, it\u0026#39;s a little bit cumbersome to record it.",
   "inLanguage" : "en",
-  "wordCount":  231 ,
+  "wordCount":  398 ,
   "datePublished" : "2023-06-12T22:23:12",
   "dateModified" : "2023-06-12T22:23:12",
   "image" : "https:\/\/whatacold.io\/img\/avatar.png",
@@ -273,7 +273,8 @@ if (!doNotTrack) {
   <div class="row">
     <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
       <article role="main" class="blog-post">
-        <p>
+        
+<p>
 So sometimes I need to join a few lines by a separator while I&#39;m coding, for example, turn the below lines,</p>
 <div class="src src-text">
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">foo
@@ -284,6 +285,11 @@ So sometimes I need to join a few lines by a separator while I&#39;m coding, for
 into <code class="verbatim">foo + bar + baz</code>. (This is a silly example, I will update if I come up with a better one :-P )</p>
 <p>
 When I was in a rush in the past, I usually baked a keyboard macro temporarily and then applied it to achieve this goal, thought reliable, it&#39;s a little bit cumbersome to record it. So I wonder maybe it would be a good idea to have a command for it.</p>
+<div id="outline-container-headline-1" class="outline-2">
+<h2 id="headline-1">
+The first version
+</h2>
+<div id="outline-text-headline-1" class="outline-text-2">
 <div class="src src-elisp">
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-elisp" data-lang="elisp"><span class="line"><span class="cl"><span class="p">(</span><span class="nb">defun</span> <span class="nv">w/join-lines</span> <span class="p">(</span><span class="nv">specify-separator</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">  <span class="s">&#34;Join lines in the active region by a separator, by default a comma.
@@ -307,6 +313,44 @@ When I was in a rush in the past, I usually baked a keyboard macro temporarily a
 </div>
 <p>
 So when the task comes up the next time, with this command, I will just select the lines as a region and then <code class="verbatim">M-x w/join-lines</code> to join the lines there. And, if I want a separator other than a comma, I can do that by typing <code class="verbatim">C-u M-x w/join-lines</code>, then it will prompt me to type a separator first, before doing the job.</p>
+</div>
+</div>
+<div id="outline-container-headline-2" class="outline-2">
+<h2 id="headline-2">
+The first version
+</h2>
+<div id="outline-text-headline-2" class="outline-text-2">
+<p>
+After using the first version for some time, I realize that it&#39;s more possible that the separator used in a serial would be same, so if it happens to not be a comma, I need to specify the separator every time, which is definitely cumbersome.</p>
+<p>
+So here is an improved version, which keeps the last used separator. We only have to specify it when we want to change it to a different one.</p>
+<div class="src src-elisp">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-elisp" data-lang="elisp"><span class="line"><span class="cl"><span class="p">(</span><span class="nb">defvar</span> <span class="nv">w/join-lines--last-separator</span> <span class="s">&#34;,&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="s">&#34;Keep the last used separator for </span><span class="ss">`w/join-lines&#39;</span><span class="s">, a comma by default.&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">(</span><span class="nb">defun</span> <span class="nv">w/join-lines</span> <span class="p">(</span><span class="nv">specify-separator</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="s">&#34;Join lines in the active region by a separator, by default the last used.
+</span></span></span><span class="line"><span class="cl"><span class="s">Specify the separator by typing C-u before executing this command.
+</span></span></span><span class="line"><span class="cl"><span class="s">
+</span></span></span><span class="line"><span class="cl"><span class="s">Note: it depends on s.el.&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">(</span><span class="nb">interactive</span> <span class="s">&#34;P&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="p">(</span><span class="nb">require</span> <span class="ss">&#39;s</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="p">(</span><span class="nb">unless</span> <span class="p">(</span><span class="nv">region-active-p</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">(</span><span class="ne">error</span> <span class="s">&#34;select a region of lines first.&#34;</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">  <span class="p">(</span><span class="nb">let*</span> <span class="p">((</span><span class="nv">separator</span> <span class="p">(</span><span class="nb">if</span> <span class="p">(</span><span class="nv">not</span> <span class="nv">specify-separator</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                        <span class="nv">w/join-lines--last-separator</span>
+</span></span><span class="line"><span class="cl">                      <span class="p">(</span><span class="nf">read-string</span> <span class="s">&#34;Separator: &#34;</span><span class="p">)))</span>
+</span></span><span class="line"><span class="cl">         <span class="p">(</span><span class="nv">text</span> <span class="p">(</span><span class="nf">buffer-substring-no-properties</span>
+</span></span><span class="line"><span class="cl">               <span class="p">(</span><span class="nf">region-beginning</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">               <span class="p">(</span><span class="nf">region-end</span><span class="p">)))</span>
+</span></span><span class="line"><span class="cl">         <span class="p">(</span><span class="nv">lines</span> <span class="p">(</span><span class="nv">split-string</span> <span class="nv">text</span> <span class="s">&#34;\n&#34;</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">         <span class="p">(</span><span class="nv">result</span> <span class="p">(</span><span class="nv">s-join</span> <span class="nv">separator</span> <span class="nv">lines</span><span class="p">)))</span>
+</span></span><span class="line"><span class="cl">    <span class="p">(</span><span class="nf">delete-region</span> <span class="p">(</span><span class="nf">region-beginning</span><span class="p">)</span> <span class="p">(</span><span class="nf">region-end</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">    <span class="p">(</span><span class="nf">insert</span> <span class="nv">result</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">(</span><span class="nb">setq</span> <span class="nv">w/join-lines--last-separator</span> <span class="nv">separator</span><span class="p">)))</span></span></span></code></pre></div>
+</div>
+</div>
+</div>
 
 
         
