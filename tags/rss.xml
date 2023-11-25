@@ -7,13 +7,22 @@
     <generator>Hugo -- gohugo.io</generator>
     <managingEditor>whatacold@gmail.com (whatacold)</managingEditor>
     <webMaster>whatacold@gmail.com (whatacold)</webMaster>
-    <lastBuildDate>Mon, 14 Aug 2023 22:48:20 +0800</lastBuildDate><atom:link href="https://whatacold.io/tags/rss.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 19 Nov 2023 13:02:42 +0800</lastBuildDate><atom:link href="https://whatacold.io/tags/rss.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Emacs</title>
       <link>https://whatacold.io/tags/emacs/</link>
-      <pubDate>Mon, 14 Aug 2023 22:48:20 +0800</pubDate>
+      <pubDate>Sun, 19 Nov 2023 13:02:42 +0800</pubDate>
       <author>whatacold@gmail.com (whatacold)</author>
       <guid>https://whatacold.io/tags/emacs/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>hydra</title>
+      <link>https://whatacold.io/tags/hydra/</link>
+      <pubDate>Sun, 19 Nov 2023 13:02:42 +0800</pubDate>
+      <author>whatacold@gmail.com (whatacold)</author>
+      <guid>https://whatacold.io/tags/hydra/</guid>
       <description></description>
     </item>
     

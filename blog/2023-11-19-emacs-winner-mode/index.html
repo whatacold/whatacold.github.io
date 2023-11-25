@@ -12,8 +12,8 @@
 
       <title>Emacs winner-mode to restore your window layouts - Blog</title>
 
-  <meta name="description" content="If you&#39;ve been using Emacs for a while, I bet you must have encountered the annoying problem that your Emacs window layout gets messed up by some operations, such as looking for a help, or checking things in magit.
-It&#39;s ok for me if we can get back to a previous layout, at least for me. Emacs has built in a package for this package: winner-mode. It&#39;s very simple, it only have three commands:">
+  <meta name="description" content="If you&#39;ve been using Emacs for a while, I bet you must have encountered the annoying problem that your Emacs window layout gets messed up by some operations, such as looking for a help (e.g. C-h k), or checking things in magit.
+It&#39;s ok to me if I can get back to a previous used layout. Emacs has built in a package for this package: winner-mode. It&#39;s very simple, it only has three commands:">
   <meta name="author" content="whatacold"/><script type="application/ld+json">
 {
     "@context": "http://schema.org",
@@ -62,9 +62,9 @@ It&#39;s ok for me if we can get back to a previous layout, at least for me. Ema
     "name" : "whatacold"
   },
   "headline": "Emacs winner-mode to restore your window layouts",
-  "description" : "If you\u0026#39;ve been using Emacs for a while, I bet you must have encountered the annoying problem that your Emacs window layout gets messed up by some operations, such as looking for a help, or checking things in magit.\nIt\u0026#39;s ok for me if we can get back to a previous layout, at least for me. Emacs has built in a package for this package: winner-mode. It\u0026#39;s very simple, it only have three commands:",
+  "description" : "If you\u0026#39;ve been using Emacs for a while, I bet you must have encountered the annoying problem that your Emacs window layout gets messed up by some operations, such as looking for a help (e.g. C-h k), or checking things in magit.\nIt\u0026#39;s ok to me if I can get back to a previous used layout. Emacs has built in a package for this package: winner-mode. It\u0026#39;s very simple, it only has three commands:",
   "inLanguage" : "en",
-  "wordCount":  180 ,
+  "wordCount":  187 ,
   "datePublished" : "2023-11-19T13:02:42",
   "dateModified" : "2023-11-19T13:02:42",
   "image" : "https:\/\/whatacold.io\/img\/avatar.png",
@@ -84,15 +84,15 @@ It&#39;s ok for me if we can get back to a previous layout, at least for me. Ema
 </script>
 
 <meta property="og:title" content="Emacs winner-mode to restore your window layouts" />
-<meta property="og:description" content="If you&#39;ve been using Emacs for a while, I bet you must have encountered the annoying problem that your Emacs window layout gets messed up by some operations, such as looking for a help, or checking things in magit.
-It&#39;s ok for me if we can get back to a previous layout, at least for me. Emacs has built in a package for this package: winner-mode. It&#39;s very simple, it only have three commands:">
+<meta property="og:description" content="If you&#39;ve been using Emacs for a while, I bet you must have encountered the annoying problem that your Emacs window layout gets messed up by some operations, such as looking for a help (e.g. C-h k), or checking things in magit.
+It&#39;s ok to me if I can get back to a previous used layout. Emacs has built in a package for this package: winner-mode. It&#39;s very simple, it only has three commands:">
 <meta property="og:image" content="https://whatacold.io/img/avatar.png" />
 <meta property="og:url" content="https://whatacold.io/blog/2023-11-19-emacs-winner-mode/" />
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="whatacold&#39;s space" />
 
   <meta name="twitter:title" content="Emacs winner-mode to restore your window layouts" />
-  <meta name="twitter:description" content="If you&#39;ve been using Emacs for a while, I bet you must have encountered the annoying problem that your Emacs window layout gets messed up by some operations, such as looking for a help, or …">
+  <meta name="twitter:description" content="If you&#39;ve been using Emacs for a while, I bet you must have encountered the annoying problem that your Emacs window layout gets messed up by some operations, such as looking for a help (e.g. C-h …">
   <meta name="twitter:image" content="https://whatacold.io/img/avatar.png" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:site" content="@whatacold" />
@@ -271,16 +271,16 @@ if (!doNotTrack) {
     <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
       <article role="main" class="blog-post">
         <p>
-If you&#39;ve been using Emacs for a while, I bet you must have encountered the annoying problem that your Emacs window layout gets messed up by some operations, such as looking for a help, or checking things in magit.</p>
+If you&#39;ve been using Emacs for a while, I bet you must have encountered the annoying problem that your Emacs window layout gets messed up by some operations, such as looking for a help (e.g. <code class="verbatim">C-h k</code>), or checking things in magit.</p>
 <p>
-It&#39;s ok for me if we can get back to a previous layout, at least for me. Emacs has built in a package for this package: winner-mode. It&#39;s very simple, it only have three commands:</p>
+It&#39;s ok to me if I can get back to a previous used layout. Emacs has built in a package for this package: <a href="https://www.gnu.org/software/emacs/manual/html_node/emacs/Window-Convenience.html">winner-mode</a>. It&#39;s very simple, it only has three commands:</p>
 <ol>
 <li>M-x winner-mode, to enable/disable the function</li>
-<li>M-x winner-undo, to go back to previous layout, execute it repeatedly to go back further</li>
-<li>M-x winner-redo, to go back again to a recent layout
-Unfortunately, you can execute it more than once in a row</li>
+<li>C-c left (winner-undo), to go back to a previous layout, execute it repeatedly to go back further</li>
+<li>C-c right (winner-redo), to go back again to a recent layout
+Unfortunately, you cann&#39;t execute it more than once in a row</li>
 </ol>
-<p>For <code class="verbatim">winner-undo</code>, it&#39;s a little bit tedious to do if you have to go back a long way, but we can improve it with the help of hydra:</p>
+<p>For <code class="verbatim">winner-undo</code>, it&#39;s a little bit tedious to type a lot of <code class="verbatim">C-c left</code> if you have to go back a long way, but we can improve it with the help of a <a href="https://github.com/abo-abo/hydra.git">hydra</a> recipe:</p>
 <div class="src src-elisp">
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-elisp" data-lang="elisp"><span class="line"><span class="cl"><span class="p">(</span><span class="nv">defhydra</span> <span class="nv">hydra</span> <span class="p">(</span><span class="nv">global-map</span> <span class="s">&#34;C-c w&#34;</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">  <span class="s">&#34;Navigate the time machine of the window layout&#34;</span>
@@ -288,8 +288,12 @@ Unfortunately, you can execute it more than once in a row</li>
 </span></span><span class="line"><span class="cl">  <span class="p">(</span><span class="s">&#34;n&#34;</span> <span class="nv">winner-redo</span> <span class="s">&#34;Next layout&#34;</span><span class="p">))</span></span></span></code></pre></div>
 </div>
 <p>
-If you&#39;re curious how it works actually, you can check out below youtube episode:
-TODO</p>
+Check out my youtube episode below to see how it works like:
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+  <iframe src="https://www.youtube.com/embed/Gs230xpkFwI" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
+</div>
+</p>
 
 
         

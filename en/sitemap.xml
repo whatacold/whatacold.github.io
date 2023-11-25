@@ -3,7 +3,7 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://whatacold.io/blog/</loc>
-    <lastmod>2023-11-19T12:43:29+08:00</lastmod>
+    <lastmod>2023-11-25T11:25:58+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="zh-cn"
@@ -16,7 +16,7 @@
                 />
   </url><url>
     <loc>https://whatacold.io/tags/emacs/</loc>
-    <lastmod>2023-11-19T12:43:29+08:00</lastmod>
+    <lastmod>2023-11-25T11:25:58+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="zh-cn"
@@ -26,6 +26,38 @@
                 rel="alternate"
                 hreflang="en"
                 href="https://whatacold.io/tags/emacs/"
+                />
+  </url><url>
+    <loc>https://whatacold.io/blog/2023-11-19-emacs-winner-mode/</loc>
+    <lastmod>2023-11-25T11:25:58+08:00</lastmod>
+  </url><url>
+    <loc>https://whatacold.io/tags/hydra/</loc>
+    <lastmod>2023-11-25T11:25:58+08:00</lastmod>
+  </url><url>
+    <loc>https://whatacold.io/tags/</loc>
+    <lastmod>2023-11-25T11:25:58+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-cn"
+                href="https://whatacold.io/zh-cn/tags/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://whatacold.io/tags/"
+                />
+  </url><url>
+    <loc>https://whatacold.io/</loc>
+    <lastmod>2023-11-25T11:25:58+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-cn"
+                href="https://whatacold.io/zh-cn/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://whatacold.io/"
                 />
   </url><url>
     <loc>https://whatacold.io/blog/2023-08-14-org-emphasis-dragging-mouse/</loc>
@@ -44,34 +76,8 @@
                 href="https://whatacold.io/tags/org-mode/"
                 />
   </url><url>
-    <loc>https://whatacold.io/tags/</loc>
-    <lastmod>2023-11-19T12:43:29+08:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh-cn"
-                href="https://whatacold.io/zh-cn/tags/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://whatacold.io/tags/"
-                />
-  </url><url>
-    <loc>https://whatacold.io/</loc>
-    <lastmod>2023-11-19T12:43:29+08:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh-cn"
-                href="https://whatacold.io/zh-cn/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://whatacold.io/"
-                />
-  </url><url>
     <loc>https://whatacold.io/blog/2023-06-12-emacs-join-lines/</loc>
-    <lastmod>2023-11-19T12:43:29+08:00</lastmod>
+    <lastmod>2023-11-25T10:29:38+08:00</lastmod>
   </url><url>
     <loc>https://whatacold.io/tags/hugo/</loc>
     <lastmod>2022-10-28T23:24:59+08:00</lastmod>

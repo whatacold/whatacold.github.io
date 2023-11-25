@@ -14,8 +14,8 @@
       <pubDate>Sun, 19 Nov 2023 13:02:42 +0800</pubDate>
       <author>whatacold@gmail.com (whatacold)</author>
       <guid>https://whatacold.io/blog/2023-11-19-emacs-winner-mode/</guid>
-      <description>If you&amp;#39;ve been using Emacs for a while, I bet you must have encountered the annoying problem that your Emacs window layout gets messed up by some operations, such as looking for a help, or checking things in magit.
-It&amp;#39;s ok for me if we can get back to a previous layout, at least for me. Emacs has built in a package for this package: winner-mode. It&amp;#39;s very simple, it only have three commands:</description>
+      <description>If you&amp;#39;ve been using Emacs for a while, I bet you must have encountered the annoying problem that your Emacs window layout gets messed up by some operations, such as looking for a help (e.g. C-h k), or checking things in magit.
+It&amp;#39;s ok to me if I can get back to a previous used layout. Emacs has built in a package for this package: winner-mode. It&amp;#39;s very simple, it only has three commands:</description>
     </item>
     
   </channel>
