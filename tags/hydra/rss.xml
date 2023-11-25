@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>hydra on whatacold&#39;s space</title>
+    <link>https://whatacold.io/tags/hydra/</link>
+    <description>Recent content in hydra on whatacold&#39;s space</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <managingEditor>whatacold@gmail.com (whatacold)</managingEditor>
+    <webMaster>whatacold@gmail.com (whatacold)</webMaster>
+    <lastBuildDate>Sun, 19 Nov 2023 13:02:42 +0800</lastBuildDate><atom:link href="https://whatacold.io/tags/hydra/rss.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Emacs winner-mode to restore your window layouts</title>
+      <link>https://whatacold.io/blog/2023-11-19-emacs-winner-mode/</link>
+      <pubDate>Sun, 19 Nov 2023 13:02:42 +0800</pubDate>
+      <author>whatacold@gmail.com (whatacold)</author>
+      <guid>https://whatacold.io/blog/2023-11-19-emacs-winner-mode/</guid>
+      <description>If you&amp;#39;ve been using Emacs for a while, I bet you must have encountered the annoying problem that your Emacs window layout gets messed up by some operations, such as looking for a help, or checking things in magit.
+It&amp;#39;s ok for me if we can get back to a previous layout, at least for me. Emacs has built in a package for this package: winner-mode. It&amp;#39;s very simple, it only have three commands:</description>
+    </item>
+    
+  </channel>
+</rss>
