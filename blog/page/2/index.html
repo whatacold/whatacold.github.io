@@ -224,6 +224,52 @@ if (!doNotTrack) {
         <div class="posts-list">
           
             <article class="post-preview">
+    <a href="https://whatacold.io/blog/2022-04-09-emacs-kill-other-buffer/">
+        <h2 class="post-title">How to Kill a &#34;Visible&#34; Buffer Quickly in Emacs</h2>
+        
+        
+        
+    </a>
+
+    <p class="post-meta">
+        <span class="post-meta">
+  
+  
+  <i class="fas fa-calendar"></i>&nbsp;Posted on 2022-04-09
+  
+    &nbsp;(Last modified on 2022-08-07)
+  
+  
+    &nbsp;|&nbsp;<i class="fas fa-clock"></i>&nbsp;2&nbsp;minutes
+  
+  
+    &nbsp;|&nbsp;<i class="fas fa-book"></i>&nbsp;355&nbsp;words
+  
+  
+  
+</span>
+
+
+    </p>
+    <div class="post-entry">
+        
+        Selecting Emacs windows using ace-window Recently I&#39;ve been building a simple Emacs config for myself, along the way I re-discovered some fantastic packages, for example, I found that ace-window is a simple yet powerful package to enhance the default other-window command to select other windows quickly when it has more than two windows in a frame.
+I replaced the key binding of other-window to ace-window by simply doing (global-set-key (kbd &#34;C-x o&#34;) #&#39;ace-window), then when there are &gt;2 windows, it will show a white-in-red number at the top-left corner for every window, hit the number (1, 2, 3, …) and then Emacs will select the corresponding window (as demonstrated in the above screenshot).
+        <a href="https://whatacold.io/blog/2022-04-09-emacs-kill-other-buffer/" class="post-read-more">[Read More]</a>
+        
+    </div>
+
+    
+    <div class="blog-tags">
+        
+        <a href="https://whatacold.io/tags/emacs/">Emacs</a>&nbsp;
+        
+    </div>
+    
+
+</article>
+          
+            <article class="post-preview">
     <a href="https://whatacold.io/blog/2022-04-09-scrapy-csv-without-header/">
         <h2 class="post-title">How to append items to the CSV file without header row?</h2>
         
@@ -574,7 +620,7 @@ sum of two numbers: #+begin_src clojure (+ 1 2) #+end_src I want to have a resul
   
   <i class="fas fa-calendar"></i>&nbsp;Posted on 2021-08-07
   
-    &nbsp;(Last modified on 2021-08-08)
+    &nbsp;(Last modified on 2023-11-25)
   
   
     &nbsp;|&nbsp;<i class="fas fa-clock"></i>&nbsp;5&nbsp;minutes
@@ -643,55 +689,6 @@ Along the way, I found it was a little cumbersome to append the evaluation resul
 Recently I&#39;m learning Clojure, and I&#39;m trying to find similar ways in Clojure, one of them is s.title() for getting a title-cased version of a string. For example,
 &gt;&gt;&gt; &#39; Hello world&#39;.title() &#39; Hello World&#39; How to do that in Clojure? To make the problem simple, let&#39;s assume that the input string only has letters and spaces, that is, [a-zA-Z ] in regex pattern.
         <a href="https://whatacold.io/blog/2021-07-25-clojure-string-title-case/" class="post-read-more">[Read More]</a>
-        
-    </div>
-
-    
-    <div class="blog-tags">
-        
-        <a href="https://whatacold.io/tags/clojure/">Clojure</a>&nbsp;
-        
-        <a href="https://whatacold.io/tags/python/">Python</a>&nbsp;
-        
-    </div>
-    
-
-</article>
-          
-            <article class="post-preview">
-    <a href="https://whatacold.io/blog/2021-07-22-clojure-string-manipulation/">
-        <h2 class="post-title">String Manipulation in Clojure</h2>
-        
-        
-        
-    </a>
-
-    <p class="post-meta">
-        <span class="post-meta">
-  
-  
-  <i class="fas fa-calendar"></i>&nbsp;Posted on 2021-07-22
-  
-    &nbsp;(Last modified on 2021-09-19)
-  
-  
-    &nbsp;|&nbsp;<i class="fas fa-clock"></i>&nbsp;5&nbsp;minutes
-  
-  
-    &nbsp;|&nbsp;<i class="fas fa-book"></i>&nbsp;866&nbsp;words
-  
-  
-  
-</span>
-
-
-    </p>
-    <div class="post-entry">
-        
-        Python string APIs are powerful and concise, that is an important reason I use it to do a lot of scripting these days, join, split, strip, to name a few.
-Since I am learning Clojure recently, I am wondering, how is string manipulation like in Clojure and how to implement equivalent ones?
-I think it&#39;s an excellent opportunity to get familiar with Clojure. Before diving into the implementation, how to declare a multi-line string?
-        <a href="https://whatacold.io/blog/2021-07-22-clojure-string-manipulation/" class="post-read-more">[Read More]</a>
         
     </div>
 

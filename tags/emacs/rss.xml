@@ -7,7 +7,18 @@
     <generator>Hugo -- gohugo.io</generator>
     <managingEditor>whatacold@gmail.com (whatacold)</managingEditor>
     <webMaster>whatacold@gmail.com (whatacold)</webMaster>
-    <lastBuildDate>Sun, 19 Nov 2023 13:02:42 +0800</lastBuildDate><atom:link href="https://whatacold.io/tags/emacs/rss.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 25 Nov 2023 12:24:24 +0800</lastBuildDate><atom:link href="https://whatacold.io/tags/emacs/rss.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Join Every N Lines By A Separator in Emacs</title>
+      <link>https://whatacold.io/blog/2023-11-25-emacs-join-every-n-lines/</link>
+      <pubDate>Sat, 25 Nov 2023 12:24:24 +0800</pubDate>
+      <author>whatacold@gmail.com (whatacold)</author>
+      <guid>https://whatacold.io/blog/2023-11-25-emacs-join-every-n-lines/</guid>
+      <description>It has been some time since I came along the idea of the w/join-lines command to join lines. After that, sometimes I found that it would be even better to join every a few lines.
+Let&amp;#39;s see the example below, suppose we&amp;#39;ve copies some data from somewhere, and now we want to yank it into an Emacs buffer and slightly modify it to be like an matrix.
+That is, make it from:</description>
+    </item>
+    
     <item>
       <title>Emacs winner-mode to restore your window layouts</title>
       <link>https://whatacold.io/blog/2023-11-19-emacs-winner-mode/</link>

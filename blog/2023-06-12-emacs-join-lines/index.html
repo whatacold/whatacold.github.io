@@ -65,7 +65,7 @@ When I was in a rush in the past, I usually baked a keyboard macro temporarily a
   "headline": "Join Lines By A Separator in Emacs",
   "description" : "So sometimes I need to join a few lines by a separator while I\u0026#39;m coding, for example, turn the below lines,\nfoo bar baz into foo \u002b bar \u002b baz. (This is a silly example, I will update if I come up with a better one :-P )\nWhen I was in a rush in the past, I usually baked a keyboard macro temporarily and then applied it to achieve this goal, thought reliable, it\u0026#39;s a little bit cumbersome to record it.",
   "inLanguage" : "en",
-  "wordCount":  398 ,
+  "wordCount":  399 ,
   "datePublished" : "2023-06-12T22:23:12",
   "dateModified" : "2023-06-12T22:23:12",
   "image" : "https:\/\/whatacold.io\/img\/avatar.png",
@@ -328,7 +328,7 @@ So here is an improved version, which keeps the last used separator. We only hav
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-elisp" data-lang="elisp"><span class="line"><span class="cl"><span class="p">(</span><span class="nb">defvar</span> <span class="nv">w/join-lines--last-separator</span> <span class="s">&#34;,&#34;</span>
 </span></span><span class="line"><span class="cl">  <span class="s">&#34;Keep the last used separator for </span><span class="ss">`w/join-lines&#39;</span><span class="s">, a comma by default.&#34;</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="p">(</span><span class="nb">defun</span> <span class="nv">w/join-lines</span> <span class="p">(</span><span class="nv">specify-separator</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">(</span><span class="nb">defun</span> <span class="nv">w/join-lines</span> <span class="p">(</span><span class="kp">&amp;optional</span> <span class="nv">specify-separator</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">  <span class="s">&#34;Join lines in the active region by a separator, by default the last used.
 </span></span></span><span class="line"><span class="cl"><span class="s">Specify the separator by typing C-u before executing this command.
 </span></span></span><span class="line"><span class="cl"><span class="s">
@@ -428,6 +428,8 @@ So here is an improved version, which keeps the last used separator. We only hav
                   <ul>
                 
                 
+                    <li><a href="/blog/2023-11-25-emacs-join-every-n-lines/">Join Every N Lines By A Separator in Emacs</a></li>
+                
                     <li><a href="/blog/2023-11-19-emacs-winner-mode/">Emacs winner-mode to restore your window layouts</a></li>
                 
                     <li><a href="/blog/2023-08-14-org-emphasis-dragging-mouse/">Emphasize Text By Dragging Mouse in Org-mode</a></li>
@@ -435,8 +437,6 @@ So here is an improved version, which keeps the last used separator. We only hav
                     <li><a href="/blog/2022-10-10-emacs-hugo-blogging/">Hugo Blogging in Emacs</a></li>
                 
                     <li><a href="/blog/2022-09-10-emacs-beancount-account-files/">Auto-complete Accounts From Other Beancount Files in Emacs</a></li>
-                
-                    <li><a href="/blog/2022-08-08-org-link-bookmarklet/">A Bookmarklet for Copying a Link as an Org-mode Link</a></li>
                 
               </ul>
 
