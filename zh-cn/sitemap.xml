@@ -3,7 +3,7 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://whatacold.io/zh-cn/blog/</loc>
-    <lastmod>2023-11-23T08:24:23+08:00</lastmod>
+    <lastmod>2023-12-04T21:33:31+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -16,7 +16,7 @@
                 />
   </url><url>
     <loc>https://whatacold.io/zh-cn/tags/</loc>
-    <lastmod>2023-11-23T08:24:23+08:00</lastmod>
+    <lastmod>2023-12-04T21:33:31+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -29,7 +29,7 @@
                 />
   </url><url>
     <loc>https://whatacold.io/zh-cn/</loc>
-    <lastmod>2023-11-23T08:24:23+08:00</lastmod>
+    <lastmod>2023-12-04T21:33:31+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -64,7 +64,7 @@
     <lastmod>2022-10-05T18:17:43+08:00</lastmod>
   </url><url>
     <loc>https://whatacold.io/zh-cn/tags/linux/</loc>
-    <lastmod>2022-10-22T09:32:04+08:00</lastmod>
+    <lastmod>2023-12-04T21:33:31+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -77,10 +77,10 @@
                 />
   </url><url>
     <loc>https://whatacold.io/zh-cn/tags/rime/</loc>
-    <lastmod>2022-10-22T09:32:04+08:00</lastmod>
+    <lastmod>2023-12-04T21:33:31+08:00</lastmod>
   </url><url>
     <loc>https://whatacold.io/zh-cn/blog/2022-10-04-rime-double-pinyin-flypy/</loc>
-    <lastmod>2022-10-10T22:48:03+08:00</lastmod>
+    <lastmod>2023-12-04T21:33:31+08:00</lastmod>
   </url><url>
     <loc>https://whatacold.io/zh-cn/tags/emacs/</loc>
     <lastmod>2022-10-22T09:32:04+08:00</lastmod>
