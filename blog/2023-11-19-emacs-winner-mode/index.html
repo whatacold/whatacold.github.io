@@ -64,7 +64,7 @@ It&#39;s ok to me if I can get back to a previous used layout. Emacs has built i
   "headline": "Emacs winner-mode to restore your window layouts",
   "description" : "If you\u0026#39;ve been using Emacs for a while, I bet you must have encountered the annoying problem that your Emacs window layout gets messed up by some operations, such as looking for a help (e.g. C-h k), or checking things in magit.\nIt\u0026#39;s ok to me if I can get back to a previous used layout. Emacs has built in a package for this package: winner-mode. It\u0026#39;s very simple, it only has three commands:",
   "inLanguage" : "en",
-  "wordCount":  187 ,
+  "wordCount":  278 ,
   "datePublished" : "2023-11-19T13:02:42",
   "dateModified" : "2023-11-19T13:02:42",
   "image" : "https:\/\/whatacold.io\/img\/avatar.png",
@@ -294,6 +294,22 @@ Check out my youtube episode below to see how it works like:
   <iframe src="https://www.youtube.com/embed/Gs230xpkFwI" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
 </div>
 </p>
+<p>
+UPDATE: After I posted this, @hmelman left a comment below (thanks!) that it was possible to save typing by using built-in <code class="verbatim">repeat-mode</code> since Emacs 28, so here is how to do it in Emacs 28 by defining a keymap for repeat-mode. (If you&#39;re using &gt;= Emacs 29, you don&#39;t have to tune anything.)</p>
+<div class="src src-elisp">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-elisp" data-lang="elisp"><span class="line"><span class="cl"><span class="p">(</span><span class="nb">defvar</span> <span class="nv">w/winner-repeat-map</span>
+</span></span><span class="line"><span class="cl">  <span class="p">(</span><span class="nb">let</span> <span class="p">((</span><span class="nv">map</span> <span class="p">(</span><span class="nf">make-sparse-keymap</span><span class="p">)))</span>
+</span></span><span class="line"><span class="cl">    <span class="p">(</span><span class="nf">define-key</span> <span class="nv">map</span> <span class="p">(</span><span class="nv">kbd</span> <span class="s">&#34;&lt;left&gt;&#34;</span><span class="p">)</span> <span class="ss">&#39;winner-undo</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">(</span><span class="nf">define-key</span> <span class="nv">map</span> <span class="p">(</span><span class="nv">kbd</span> <span class="s">&#34;&lt;right&gt;&#34;</span><span class="p">)</span> <span class="ss">&#39;winner-redo</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nv">map</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="s">&#34;Keymap to repeat </span><span class="ss">`winner&#39;</span><span class="s"> key sequences.  Used in </span><span class="ss">`repeat-mode&#39;</span><span class="s">.&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">(</span><span class="nf">put</span> <span class="ss">&#39;winner-undo</span> <span class="ss">&#39;repeat-map</span> <span class="ss">&#39;w/winner-repeat-map</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">(</span><span class="nf">put</span> <span class="ss">&#39;winner-redo</span> <span class="ss">&#39;repeat-map</span> <span class="ss">&#39;w/winner-repeat-map</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">(</span><span class="nv">repeat-mode</span><span class="p">)</span>                           <span class="c1">; enable it</span></span></span></code></pre></div>
+</div>
+<p>
+Nice!</p>
 
 
         
