@@ -1,33 +1,28 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>texttoolkit on whatacold&#39;s space</title>
+    <title>Texttoolkit on whatacold&#39;s space</title>
     <link>https://whatacold.io/tags/texttoolkit/</link>
-    <description>Recent content in texttoolkit on whatacold&#39;s space</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <description>Recent content in Texttoolkit on whatacold&#39;s space</description>
+    <generator>Hugo</generator>
+    <language>en</language>
     <managingEditor>whatacold@gmail.com (whatacold)</managingEditor>
     <webMaster>whatacold@gmail.com (whatacold)</webMaster>
-    <lastBuildDate>Wed, 21 Oct 2020 22:51:00 +0800</lastBuildDate><atom:link href="https://whatacold.io/tags/texttoolkit/rss.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 22 Oct 2022 09:15:11 +0800</lastBuildDate>
+    <atom:link href="https://whatacold.io/tags/texttoolkit/rss.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>An Online Python re.findall Service</title>
       <link>https://whatacold.io/blog/2020-10-21-a-python-re.findall-service/</link>
-      <pubDate>Wed, 21 Oct 2020 22:51:00 +0800</pubDate>
-      <author>whatacold@gmail.com (whatacold)</author>
+      <pubDate>Wed, 21 Oct 2020 22:51:00 +0800</pubDate><author>whatacold@gmail.com (whatacold)</author>
       <guid>https://whatacold.io/blog/2020-10-21-a-python-re.findall-service/</guid>
-      <description>As a programmer, I know that grep, sed and awk are powerful for processing text, but they sometimes aren&amp;#39;t that straight-forward for specific tasks, as I need to think about how to filter the lines and the columns out.
-So I wonder if there is a handy way to do these tasks?
-After using it for a while, I think using regex directly can help, so I launched a re.</description>
+      <description>As a programmer, I know that grep, sed and awk are powerful for processing text, but they sometimes aren&amp;#39;t that straight-forward for specific tasks, as I need to think about how to filter the lines and the columns out.&#xA;So I wonder if there is a handy way to do these tasks?&#xA;After using it for a while, I think using regex directly can help, so I launched a re.</description>
     </item>
-    
     <item>
       <title>ER Diagrams in Plain Text</title>
       <link>https://whatacold.io/blog/2019-07-06-render-erd-on-the-web/</link>
-      <pubDate>Sat, 06 Jul 2019 11:59:00 +0800</pubDate>
-      <author>whatacold@gmail.com (whatacold)</author>
+      <pubDate>Sat, 06 Jul 2019 11:59:00 +0800</pubDate><author>whatacold@gmail.com (whatacold)</author>
       <guid>https://whatacold.io/blog/2019-07-06-render-erd-on-the-web/</guid>
-      <description>If you ever wonder how to plot ER diagrams in plain text, you may have already heard of erd. It&amp;#39;s a cool command line program written by Andrew Gallant in Haskell, to &amp;#34;compile&amp;#34; plain text files into nicely looking images, leveraging the power of GraphViz.
-I&amp;#39;ve used erd for some time, it&amp;#39;s cool and the syntax is quite simple. It&amp;#39;s also quite simple to install it on Linux, just install GraphViz and erd itself, by following the instructions in the README page.</description>
+      <description>If you ever wonder how to plot ER diagrams in plain text, you may have already heard of erd. It&amp;#39;s a cool command line program written by Andrew Gallant in Haskell, to &amp;#34;compile&amp;#34; plain text files into nicely looking images, leveraging the power of GraphViz.&#xA;I&amp;#39;ve used erd for some time, it&amp;#39;s cool and the syntax is quite simple. It&amp;#39;s also quite simple to install it on Linux, just install GraphViz and erd itself, by following the instructions in the README page.</description>
     </item>
-    
   </channel>
 </rss>

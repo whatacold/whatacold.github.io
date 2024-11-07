@@ -4,30 +4,25 @@
     <title>Debugging on whatacold&#39;s space</title>
     <link>https://whatacold.io/tags/debugging/</link>
     <description>Recent content in Debugging on whatacold&#39;s space</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo</generator>
+    <language>en</language>
     <managingEditor>whatacold@gmail.com (whatacold)</managingEditor>
     <webMaster>whatacold@gmail.com (whatacold)</webMaster>
-    <lastBuildDate>Sun, 17 Jul 2022 09:57:31 +0800</lastBuildDate><atom:link href="https://whatacold.io/tags/debugging/rss.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 15 Oct 2022 16:41:12 +0800</lastBuildDate>
+    <atom:link href="https://whatacold.io/tags/debugging/rss.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Emacs Debugging Basics</title>
       <link>https://whatacold.io/blog/2022-07-17-emacs-elisp-debug/</link>
-      <pubDate>Sun, 17 Jul 2022 09:57:31 +0800</pubDate>
-      <author>whatacold@gmail.com (whatacold)</author>
+      <pubDate>Sun, 17 Jul 2022 09:57:31 +0800</pubDate><author>whatacold@gmail.com (whatacold)</author>
       <guid>https://whatacold.io/blog/2022-07-17-emacs-elisp-debug/</guid>
-      <description>If you are new to Emacs, you may run into some errors, especially after you absorb elisp snippets from the Internet or elsewhere.
-Don&amp;#39;t panic. It happens. To ease your pain, in this post I will introduce some Emacs built-in features to help you solve the problems yourself.
-Start Emacs Without Any Configurations When you have some problems/errors with built-in features, the first thing you should do is to run emacs -Q to start another Emacs instance without any configurations from your emacs.</description>
+      <description>If you are new to Emacs, you may run into some errors, especially after you absorb elisp snippets from the Internet or elsewhere.&#xA;Don&amp;#39;t panic. It happens. To ease your pain, in this post I will introduce some Emacs built-in features to help you solve the problems yourself.&#xA;Start Emacs Without Any Configurations When you have some problems/errors with built-in features, the first thing you should do is to run emacs -Q to start another Emacs instance without any configurations from your emacs.</description>
     </item>
-    
     <item>
       <title>A Trick to Troubleshoot Emacs Subprocess Creating</title>
       <link>https://whatacold.io/blog/2020-05-30-a-trick-to-troubleshoot-emacs-subprocess-creating/</link>
-      <pubDate>Sat, 30 May 2020 11:52:00 +0800</pubDate>
-      <author>whatacold@gmail.com (whatacold)</author>
+      <pubDate>Sat, 30 May 2020 11:52:00 +0800</pubDate><author>whatacold@gmail.com (whatacold)</author>
       <guid>https://whatacold.io/blog/2020-05-30-a-trick-to-troubleshoot-emacs-subprocess-creating/</guid>
-      <description>There are many packages of Emacs that leverage subprocesses to do their jobs, Magit, eglot, elpy, to name a few. And there are times that a subprocess doesn&amp;#39;t work as expected, for example, Magit is slow, and you&amp;#39;re sure that it&amp;#39;s ok when running git commands on shell. So how to spot these problems effectively and quickly?
-The problem is that we don&amp;#39;t know what&amp;#39;s going on exactly, so here I want to share a few Elisp advices to make the subprocess creating visible, and print the exact program and its arguments to the *Message* buffer.</description>
+      <description>There are many packages of Emacs that leverage subprocesses to do their jobs, Magit, eglot, elpy, to name a few. And there are times that a subprocess doesn&amp;#39;t work as expected, for example, Magit is slow, and you&amp;#39;re sure that it&amp;#39;s ok when running git commands on shell. So how to spot these problems effectively and quickly?&#xA;The problem is that we don&amp;#39;t know what&amp;#39;s going on exactly, so here I want to share a few Elisp advices to make the subprocess creating visible, and print the exact program and its arguments to the *Message* buffer.</description>
     </item>
-    
   </channel>
 </rss>

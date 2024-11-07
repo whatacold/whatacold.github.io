@@ -4,18 +4,18 @@
     <title>MySQL on whatacold&#39;s space</title>
     <link>https://whatacold.io/tags/mysql/</link>
     <description>Recent content in MySQL on whatacold&#39;s space</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo</generator>
+    <language>en</language>
     <managingEditor>whatacold@gmail.com (whatacold)</managingEditor>
     <webMaster>whatacold@gmail.com (whatacold)</webMaster>
-    <lastBuildDate>Thu, 25 Jun 2020 22:37:00 +0800</lastBuildDate><atom:link href="https://whatacold.io/tags/mysql/rss.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 25 Jun 2020 22:37:00 +0800</lastBuildDate>
+    <atom:link href="https://whatacold.io/tags/mysql/rss.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Is It Safe to Use Redis As a Data Store?</title>
       <link>https://whatacold.io/blog/2020-06-25-is-it-safe-to-use-redis-as-a-data-store/</link>
-      <pubDate>Thu, 25 Jun 2020 22:37:00 +0800</pubDate>
-      <author>whatacold@gmail.com (whatacold)</author>
+      <pubDate>Thu, 25 Jun 2020 22:37:00 +0800</pubDate><author>whatacold@gmail.com (whatacold)</author>
       <guid>https://whatacold.io/blog/2020-06-25-is-it-safe-to-use-redis-as-a-data-store/</guid>
       <description>Traditionally we are used to storing data in an RDBMS like MySQL, and avoid using in-memory solutions such as Redis, to have a confidence of no data loss. Sometimes I find that we are so stubborn with MySQL that ending up with a complicated design, and I&amp;#39;ve even seen a solution that stores data in MySQL and then using Redis as a cache for it to improve read performance in the meanwhile.</description>
     </item>
-    
   </channel>
 </rss>

@@ -4,19 +4,18 @@
     <title>Yasnippet on whatacold&#39;s space</title>
     <link>https://whatacold.io/tags/yasnippet/</link>
     <description>Recent content in Yasnippet on whatacold&#39;s space</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo</generator>
+    <language>en</language>
     <managingEditor>whatacold@gmail.com (whatacold)</managingEditor>
     <webMaster>whatacold@gmail.com (whatacold)</webMaster>
-    <lastBuildDate>Mon, 10 Oct 2022 22:50:48 +0800</lastBuildDate><atom:link href="https://whatacold.io/tags/yasnippet/rss.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 28 Oct 2022 23:24:59 +0800</lastBuildDate>
+    <atom:link href="https://whatacold.io/tags/yasnippet/rss.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Hugo Blogging in Emacs</title>
       <link>https://whatacold.io/blog/2022-10-10-emacs-hugo-blogging/</link>
-      <pubDate>Mon, 10 Oct 2022 22:50:48 +0800</pubDate>
-      <author>whatacold@gmail.com (whatacold)</author>
+      <pubDate>Mon, 10 Oct 2022 22:50:48 +0800</pubDate><author>whatacold@gmail.com (whatacold)</author>
       <guid>https://whatacold.io/blog/2022-10-10-emacs-hugo-blogging/</guid>
-      <description>When I started to use Hugo to write this blog last year, I noticed that there is an easy-hugo package of Emacs that there are many people use it. So I installed it that time, but I didn&amp;#39;t use many of its features along the way. The only command I used was easy-hugo-current-time. I used it to update the Hugo timestamps manually as in the format of 2022-10-15T09:45:35+08:00.
-My most desirable feature is to use it to select tags easily when I start to write a new post, but I never got it to work.</description>
+      <description>When I started to use Hugo to write this blog last year, I noticed that there is an easy-hugo package of Emacs that there are many people use it. So I installed it that time, but I didn&amp;#39;t use many of its features along the way. The only command I used was easy-hugo-current-time. I used it to update the Hugo timestamps manually as in the format of 2022-10-15T09:45:35+08:00.&#xA;My most desirable feature is to use it to select tags easily when I start to write a new post, but I never got it to work.</description>
     </item>
-    
   </channel>
 </rss>

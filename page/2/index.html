@@ -18,14 +18,14 @@
     "@type": "WebSite",
     "name": "whatacold\u0027s space",
     
-    "url": "https:\/\/whatacold.io"
+    "url": "https:\/\/whatacold.io\/"
 }
 </script><script type="application/ld+json">
 {
   "@context": "http://schema.org",
   "@type": "Organization",
   "name": "",
-  "url": "https:\/\/whatacold.io"
+  "url": "https:\/\/whatacold.io\/"
   
   
   
@@ -45,7 +45,7 @@
   <meta name="twitter:site" content="@whatacold" />
   <meta name="twitter:creator" content="@whatacold" />
   <link href='https://whatacold.io/img/favicon.ico' rel='icon' type='image/x-icon'/>
-  <meta name="generator" content="Hugo 0.101.0" />
+  <meta name="generator" content="Hugo 0.126.2">
   <link rel="alternate" href="https://whatacold.io/index.xml" type="application/rss+xml" title="whatacold&#39;s space"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/katex.min.css" integrity="sha384-3UiQGuEI4TTMaFmGIZumfRPtfKQ3trwQE2JgosJxCnGmQpL/lJdjpcHkaaFwHlcI" crossorigin="anonymous">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous"><link rel="stylesheet" href="https://whatacold.io/css/main.css" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
@@ -53,16 +53,25 @@
   <link rel="stylesheet" href="https://whatacold.io/css/highlight.min.css" /><link rel="stylesheet" href="https://whatacold.io/css/codeblock.css" /><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.css" integrity="sha384-h/L2W9KefUClHWaty3SLE5F/qvc4djlyR4qY3NUV5HGQBBW7stbcfff1+I/vmsHh" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/default-skin/default-skin.min.css" integrity="sha384-iD0dNku6PYSIQLyfTOpB06F2KCZJAKLOThS5HRe8b3ibhdEQ6eKsFf/EeFxdOt5R" crossorigin="anonymous">
 
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-5TGCG9ZG24"></script>
-<script>
-var doNotTrack = false;
-if (!doNotTrack) {
-	window.dataLayer = window.dataLayer || [];
-	function gtag(){dataLayer.push(arguments);}
-	gtag('js', new Date());
-	gtag('config', 'G-5TGCG9ZG24', { 'anonymize_ip': false });
-}
-</script>
+  
+    
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-5TGCG9ZG24"></script>
+      <script>
+        var doNotTrack = false;
+        if ( false ) {
+          var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+          var doNotTrack = (dnt == "1" || dnt == "yes");
+        }
+        if (!doNotTrack) {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-5TGCG9ZG24');
+        }
+      </script>
+    
+  
+
 
   </head>
   <body>
@@ -75,7 +84,7 @@ if (!doNotTrack) {
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="https://whatacold.io">whatacold&#39;s space</a>
+      <a class="navbar-brand" href="https://whatacold.io/">whatacold&#39;s space</a>
     </div>
 
     <div class="collapse navbar-collapse" id="main-navbar">
@@ -119,7 +128,7 @@ if (!doNotTrack) {
     
       <div class="avatar-container">
         <div class="avatar-img-border">
-          <a title="whatacold&#39;s space" href="https://whatacold.io">
+          <a title="whatacold&#39;s space" href="https://whatacold.io/">
             <img class="avatar-img" src="https://whatacold.io/img/avatar.png" alt="whatacold&#39;s space" />
           </a>
         </div>
@@ -260,6 +269,57 @@ if (!doNotTrack) {
           
           
             <article class="post-preview">
+    <a href="https://whatacold.io/blog/2022-05-21-adjust-screen-brightness-emacs/">
+        <h2 class="post-title">Adjust the laptop&#39;s screen brightness in Emacs</h2>
+        
+        
+        
+    </a>
+
+    <p class="post-meta">
+        <span class="post-meta">
+  
+  
+  <i class="fas fa-calendar"></i>&nbsp;Posted on 2022-05-21
+  
+    &nbsp;(Last modified on 2022-10-15)
+  
+  
+    &nbsp;|&nbsp;<i class="fas fa-clock"></i>&nbsp;3&nbsp;minutes
+  
+  
+    &nbsp;|&nbsp;<i class="fas fa-book"></i>&nbsp;453&nbsp;words
+  
+  
+  
+</span>
+
+
+    </p>
+    <div class="post-entry">
+        
+        Adjust the screen brightness in Emacs If you&#39;re using i3wm on Linux, how do you adjust the laptop&#39;s screen brightness?
+Most of the time, I use the laptop with an external monitor. But when I am out, I have no monitors. And it seems no easy way to adjust the brightness in i3wm. Being too bright or dim is terrible for the eyes.
+Recently, I found a command-line tool called brightnessctl, which can adjust the brightness in a terminal.
+        <a href="https://whatacold.io/blog/2022-05-21-adjust-screen-brightness-emacs/" class="post-read-more">[Read More]</a>
+        
+    </div>
+
+    
+    <div class="blog-tags">
+        
+        <a href="https://whatacold.io//tags/emacs/">Emacs</a>&nbsp;
+        
+        <a href="https://whatacold.io//tags/linux/">Linux</a>&nbsp;
+        
+        <a href="https://whatacold.io//tags/tiling-wm/">tiling-wm</a>&nbsp;
+        
+    </div>
+    
+
+</article>
+          
+            <article class="post-preview">
     <a href="https://whatacold.io/blog/2022-04-09-emacs-kill-other-buffer/">
         <h2 class="post-title">How to Kill a &#34;Visible&#34; Buffer Quickly in Emacs</h2>
         
@@ -298,7 +358,7 @@ I replaced the key binding of other-window to ace-window by simply doing (global
     
     <div class="blog-tags">
         
-        <a href="https://whatacold.io/tags/emacs/">Emacs</a>&nbsp;
+        <a href="https://whatacold.io//tags/emacs/">Emacs</a>&nbsp;
         
     </div>
     
@@ -342,9 +402,9 @@ appending mode, for example, scrapy crawl foo -o test.csv overwriting mode with 
     
     <div class="blog-tags">
         
-        <a href="https://whatacold.io/tags/python/">Python</a>&nbsp;
+        <a href="https://whatacold.io//tags/python/">Python</a>&nbsp;
         
-        <a href="https://whatacold.io/tags/scrapy/">Scrapy</a>&nbsp;
+        <a href="https://whatacold.io//tags/scrapy/">Scrapy</a>&nbsp;
         
     </div>
     
@@ -390,11 +450,11 @@ Emacs has mainly two LSP clients out there, eglot and lsp-mode. Eglot is lightwe
     
     <div class="blog-tags">
         
-        <a href="https://whatacold.io/tags/emacs/">Emacs</a>&nbsp;
+        <a href="https://whatacold.io//tags/emacs/">Emacs</a>&nbsp;
         
-        <a href="https://whatacold.io/tags/eglot/">Eglot</a>&nbsp;
+        <a href="https://whatacold.io//tags/eglot/">Eglot</a>&nbsp;
         
-        <a href="https://whatacold.io/tags/youtube/">YouTube</a>&nbsp;
+        <a href="https://whatacold.io//tags/youtube/">YouTube</a>&nbsp;
         
     </div>
     
@@ -441,9 +501,9 @@ Following this Reddit post, it looks like it can be done by restarting the proce
     
     <div class="blog-tags">
         
-        <a href="https://whatacold.io/tags/i3wm/">i3wm</a>&nbsp;
+        <a href="https://whatacold.io//tags/i3wm/">i3wm</a>&nbsp;
         
-        <a href="https://whatacold.io/tags/linux/">Linux</a>&nbsp;
+        <a href="https://whatacold.io//tags/linux/">Linux</a>&nbsp;
         
     </div>
     
@@ -489,9 +549,9 @@ hit l to mark the start of the loop play the video and wait for it to be at the 
     
     <div class="blog-tags">
         
-        <a href="https://whatacold.io/tags/emacs/">Emacs</a>&nbsp;
+        <a href="https://whatacold.io//tags/emacs/">Emacs</a>&nbsp;
         
-        <a href="https://whatacold.io/tags/english/">English</a>&nbsp;
+        <a href="https://whatacold.io//tags/english/">English</a>&nbsp;
         
     </div>
     
@@ -534,11 +594,11 @@ hit l to mark the start of the loop play the video and wait for it to be at the 
     
     <div class="blog-tags">
         
-        <a href="https://whatacold.io/tags/emacs/">Emacs</a>&nbsp;
+        <a href="https://whatacold.io//tags/emacs/">Emacs</a>&nbsp;
         
-        <a href="https://whatacold.io/tags/python/">Python</a>&nbsp;
+        <a href="https://whatacold.io//tags/python/">Python</a>&nbsp;
         
-        <a href="https://whatacold.io/tags/youtube/">YouTube</a>&nbsp;
+        <a href="https://whatacold.io//tags/youtube/">YouTube</a>&nbsp;
         
     </div>
     
@@ -585,9 +645,9 @@ Core concepts (classes) Tag, a Tag object corresponds to an XML or HTML tag. Bea
     
     <div class="blog-tags">
         
-        <a href="https://whatacold.io/tags/python/">Python</a>&nbsp;
+        <a href="https://whatacold.io//tags/python/">Python</a>&nbsp;
         
-        <a href="https://whatacold.io/tags/beautifulsoup/">BeautifulSoup</a>&nbsp;
+        <a href="https://whatacold.io//tags/beautifulsoup/">BeautifulSoup</a>&nbsp;
         
     </div>
     
@@ -633,9 +693,9 @@ sum of two numbers: #+begin_src clojure (+ 1 2) #+end_src I want to have a resul
     
     <div class="blog-tags">
         
-        <a href="https://whatacold.io/tags/clojure/">Clojure</a>&nbsp;
+        <a href="https://whatacold.io//tags/clojure/">Clojure</a>&nbsp;
         
-        <a href="https://whatacold.io/tags/babashka/">Babashka</a>&nbsp;
+        <a href="https://whatacold.io//tags/babashka/">Babashka</a>&nbsp;
         
     </div>
     
@@ -682,58 +742,11 @@ Along the way, I found it was a little cumbersome to append the evaluation resul
     
     <div class="blog-tags">
         
-        <a href="https://whatacold.io/tags/babashka/">Babashka</a>&nbsp;
+        <a href="https://whatacold.io//tags/babashka/">Babashka</a>&nbsp;
         
-        <a href="https://whatacold.io/tags/clojure/">Clojure</a>&nbsp;
+        <a href="https://whatacold.io//tags/clojure/">Clojure</a>&nbsp;
         
-        <a href="https://whatacold.io/tags/hugo/">Hugo</a>&nbsp;
-        
-    </div>
-    
-
-</article>
-          
-            <article class="post-preview">
-    <a href="https://whatacold.io/blog/2021-07-25-clojure-string-title-case/">
-        <h2 class="post-title">String Title Case in Clojure</h2>
-        
-        
-        
-    </a>
-
-    <p class="post-meta">
-        <span class="post-meta">
-  
-  
-  <i class="fas fa-calendar"></i>&nbsp;Posted on 2021-07-25
-  
-  
-    &nbsp;|&nbsp;<i class="fas fa-clock"></i>&nbsp;5&nbsp;minutes
-  
-  
-    &nbsp;|&nbsp;<i class="fas fa-book"></i>&nbsp;994&nbsp;words
-  
-  
-  
-</span>
-
-
-    </p>
-    <div class="post-entry">
-        
-        These days I like to write scripts for some tasks in Python instead of shell. One important reason I think that&#39;s because Python is powerful at string manipulation.
-Recently I&#39;m learning Clojure, and I&#39;m trying to find similar ways in Clojure, one of them is s.title() for getting a title-cased version of a string. For example,
-&gt;&gt;&gt; &#39; Hello world&#39;.title() &#39; Hello World&#39; How to do that in Clojure? To make the problem simple, let&#39;s assume that the input string only has letters and spaces, that is, [a-zA-Z ] in regex pattern.
-        <a href="https://whatacold.io/blog/2021-07-25-clojure-string-title-case/" class="post-read-more">[Read More]</a>
-        
-    </div>
-
-    
-    <div class="blog-tags">
-        
-        <a href="https://whatacold.io/tags/clojure/">Clojure</a>&nbsp;
-        
-        <a href="https://whatacold.io/tags/python/">Python</a>&nbsp;
+        <a href="https://whatacold.io//tags/hugo/">Hugo</a>&nbsp;
         
     </div>
     
@@ -764,8 +777,6 @@ Recently I&#39;m learning Clojure, and I&#39;m trying to find similar ways in Cl
     <div class="page-meta">
   
   
-  
-    (Last modified on 2023-12-10)
   
 </div>
 
@@ -860,17 +871,17 @@ Recently I&#39;m learning Clojure, and I&#39;m trying to find similar ways in Cl
 
           &nbsp;&bull;&nbsp;&copy;
           
-            2018 - 2023
+            2018 - 2024
           
 
           
             &nbsp;&bull;&nbsp;
-            <a href="https://whatacold.io">whatacold&#39;s space</a>
+            <a href="https://whatacold.io/">whatacold&#39;s space</a>
           
         </p>
         
         <p class="credits theme-by text-muted">
-          <a href="https://gohugo.io">Hugo v0.101.0</a> powered &nbsp;&bull;&nbsp; Theme <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> adapted from <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
+          <a href="https://gohugo.io">Hugo v0.126.2</a> powered &nbsp;&bull;&nbsp; Theme <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> adapted from <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
           
         </p>
       </div>

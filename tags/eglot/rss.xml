@@ -4,19 +4,18 @@
     <title>Eglot on whatacold&#39;s space</title>
     <link>https://whatacold.io/tags/eglot/</link>
     <description>Recent content in Eglot on whatacold&#39;s space</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo</generator>
+    <language>en</language>
     <managingEditor>whatacold@gmail.com (whatacold)</managingEditor>
     <webMaster>whatacold@gmail.com (whatacold)</webMaster>
-    <lastBuildDate>Sat, 22 Jan 2022 11:36:18 +0800</lastBuildDate><atom:link href="https://whatacold.io/tags/eglot/rss.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 15 Mar 2023 22:18:41 +0800</lastBuildDate>
+    <atom:link href="https://whatacold.io/tags/eglot/rss.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Eglot for Better Programming Experience in Emacs</title>
       <link>https://whatacold.io/blog/2022-01-22-emacs-eglot-lsp/</link>
-      <pubDate>Sat, 22 Jan 2022 11:36:18 +0800</pubDate>
-      <author>whatacold@gmail.com (whatacold)</author>
+      <pubDate>Sat, 22 Jan 2022 11:36:18 +0800</pubDate><author>whatacold@gmail.com (whatacold)</author>
       <guid>https://whatacold.io/blog/2022-01-22-emacs-eglot-lsp/</guid>
-      <description>LSP, or Language Server Protocol, makes programming easier by introducing features like more precise auto-completion and definition lookup. It may have scratched your itches, and you may wonder what the experience is like in Emacs.
-Emacs has mainly two LSP clients out there, eglot and lsp-mode. Eglot is lightweight, and it could almost run out of the box. So in this post I will briefly show you how to use eglot.</description>
+      <description>LSP, or Language Server Protocol, makes programming easier by introducing features like more precise auto-completion and definition lookup. It may have scratched your itches, and you may wonder what the experience is like in Emacs.&#xA;Emacs has mainly two LSP clients out there, eglot and lsp-mode. Eglot is lightweight, and it could almost run out of the box. So in this post I will briefly show you how to use eglot.</description>
     </item>
-    
   </channel>
 </rss>

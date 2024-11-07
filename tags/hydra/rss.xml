@@ -1,22 +1,21 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>hydra on whatacold&#39;s space</title>
+    <title>Hydra on whatacold&#39;s space</title>
     <link>https://whatacold.io/tags/hydra/</link>
-    <description>Recent content in hydra on whatacold&#39;s space</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <description>Recent content in Hydra on whatacold&#39;s space</description>
+    <generator>Hugo</generator>
+    <language>en</language>
     <managingEditor>whatacold@gmail.com (whatacold)</managingEditor>
     <webMaster>whatacold@gmail.com (whatacold)</webMaster>
-    <lastBuildDate>Sun, 19 Nov 2023 13:02:42 +0800</lastBuildDate><atom:link href="https://whatacold.io/tags/hydra/rss.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 10 Dec 2023 11:33:36 +0800</lastBuildDate>
+    <atom:link href="https://whatacold.io/tags/hydra/rss.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Emacs winner-mode to restore your window layouts</title>
       <link>https://whatacold.io/blog/2023-11-19-emacs-winner-mode/</link>
-      <pubDate>Sun, 19 Nov 2023 13:02:42 +0800</pubDate>
-      <author>whatacold@gmail.com (whatacold)</author>
+      <pubDate>Sun, 19 Nov 2023 13:02:42 +0800</pubDate><author>whatacold@gmail.com (whatacold)</author>
       <guid>https://whatacold.io/blog/2023-11-19-emacs-winner-mode/</guid>
-      <description>If you&amp;#39;ve been using Emacs for a while, I bet you must have encountered the annoying problem that your Emacs window layout gets messed up by some operations, such as looking for a help (e.g. C-h k), or checking things in magit.
-It&amp;#39;s ok to me if I can get back to a previous used layout. Emacs has built in a package for this package: winner-mode. It&amp;#39;s very simple, it only has three commands:</description>
+      <description>If you&amp;#39;ve been using Emacs for a while, I bet you must have encountered the annoying problem that your Emacs window layout gets messed up by some operations, such as looking for a help (e.g. C-h k), or checking things in magit.&#xA;It&amp;#39;s ok to me if I can get back to a previous used layout. Emacs has built in a package for this package: winner-mode. It&amp;#39;s very simple, it only has three commands:</description>
     </item>
-    
   </channel>
 </rss>

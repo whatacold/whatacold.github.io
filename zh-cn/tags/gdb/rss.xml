@@ -4,18 +4,18 @@
     <title>GDB on whatacold 的空间</title>
     <link>https://whatacold.io/zh-cn/tags/gdb/</link>
     <description>Recent content in GDB on whatacold 的空间</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo</generator>
+    <language>zh-cn</language>
     <managingEditor>whatacold@gmail.com (whatacold)</managingEditor>
     <webMaster>whatacold@gmail.com (whatacold)</webMaster>
-    <lastBuildDate>Mon, 10 Dec 2018 00:16:00 +0800</lastBuildDate><atom:link href="https://whatacold.io/zh-cn/tags/gdb/rss.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 10 Dec 2018 00:16:00 +0800</lastBuildDate>
+    <atom:link href="https://whatacold.io/zh-cn/tags/gdb/rss.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>C&#43;&#43; 多态是如何实现的？</title>
       <link>https://whatacold.io/zh-cn/blog/2018-12-10-how-polymorphism-works-in-cpp/</link>
-      <pubDate>Mon, 10 Dec 2018 00:16:00 +0800</pubDate>
-      <author>whatacold@gmail.com (whatacold)</author>
+      <pubDate>Mon, 10 Dec 2018 00:16:00 +0800</pubDate><author>whatacold@gmail.com (whatacold)</author>
       <guid>https://whatacold.io/zh-cn/blog/2018-12-10-how-polymorphism-works-in-cpp/</guid>
       <description>对于 OOP 编程，相信大家对于多态（ polymorphism ）肯定都耳熟能详。 但是对于多态是如何实现的，我不知道大家是否清楚，但我发现自己并不是很了解， 只知道在运行时通</description>
     </item>
-    
   </channel>
 </rss>

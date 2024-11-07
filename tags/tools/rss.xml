@@ -4,51 +4,39 @@
     <title>Tools on whatacold&#39;s space</title>
     <link>https://whatacold.io/tags/tools/</link>
     <description>Recent content in Tools on whatacold&#39;s space</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo</generator>
+    <language>en</language>
     <managingEditor>whatacold@gmail.com (whatacold)</managingEditor>
     <webMaster>whatacold@gmail.com (whatacold)</webMaster>
-    <lastBuildDate>Wed, 21 Oct 2020 22:51:00 +0800</lastBuildDate><atom:link href="https://whatacold.io/tags/tools/rss.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 22 Oct 2022 11:22:31 +0800</lastBuildDate>
+    <atom:link href="https://whatacold.io/tags/tools/rss.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>An Online Python re.findall Service</title>
       <link>https://whatacold.io/blog/2020-10-21-a-python-re.findall-service/</link>
-      <pubDate>Wed, 21 Oct 2020 22:51:00 +0800</pubDate>
-      <author>whatacold@gmail.com (whatacold)</author>
+      <pubDate>Wed, 21 Oct 2020 22:51:00 +0800</pubDate><author>whatacold@gmail.com (whatacold)</author>
       <guid>https://whatacold.io/blog/2020-10-21-a-python-re.findall-service/</guid>
-      <description>As a programmer, I know that grep, sed and awk are powerful for processing text, but they sometimes aren&amp;#39;t that straight-forward for specific tasks, as I need to think about how to filter the lines and the columns out.
-So I wonder if there is a handy way to do these tasks?
-After using it for a while, I think using regex directly can help, so I launched a re.</description>
+      <description>As a programmer, I know that grep, sed and awk are powerful for processing text, but they sometimes aren&amp;#39;t that straight-forward for specific tasks, as I need to think about how to filter the lines and the columns out.&#xA;So I wonder if there is a handy way to do these tasks?&#xA;After using it for a while, I think using regex directly can help, so I launched a re.</description>
     </item>
-    
     <item>
       <title>Manage SSH Connections with ~/.ssh/config</title>
       <link>https://whatacold.io/blog/2019-12-22-manage-ssh-connections-with-ssh-config/</link>
-      <pubDate>Sun, 22 Dec 2019 18:52:00 +0800</pubDate>
-      <author>whatacold@gmail.com (whatacold)</author>
+      <pubDate>Sun, 22 Dec 2019 18:52:00 +0800</pubDate><author>whatacold@gmail.com (whatacold)</author>
       <guid>https://whatacold.io/blog/2019-12-22-manage-ssh-connections-with-ssh-config/</guid>
-      <description>I used to manage SSH connection with such GUI apps as MobaXterm, when I wrote code on Windows at work. As I changed my workflow to use a tiling window manager in a VirtualBox guest OS, I continued to improve my way of managing SSH connections, which I want to share here if you don&amp;#39;t know yet.
-At first, I baked a helper Python script, which I named as qssh for &amp;#34;quick ssh&amp;#34;, to help me assemble ssh arguments for me(such as username, Ip, port, etc.</description>
+      <description>I used to manage SSH connection with such GUI apps as MobaXterm, when I wrote code on Windows at work. As I changed my workflow to use a tiling window manager in a VirtualBox guest OS, I continued to improve my way of managing SSH connections, which I want to share here if you don&amp;#39;t know yet.&#xA;At first, I baked a helper Python script, which I named as qssh for &amp;#34;quick ssh&amp;#34;, to help me assemble ssh arguments for me(such as username, Ip, port, etc.</description>
     </item>
-    
     <item>
       <title>How to Change Web Page Titles Easily</title>
       <link>https://whatacold.io/blog/2019-08-18-how-to-rename-web-page-titles-in-a-lightweight-way/</link>
-      <pubDate>Sun, 18 Aug 2019 14:57:00 +0800</pubDate>
-      <author>whatacold@gmail.com (whatacold)</author>
+      <pubDate>Sun, 18 Aug 2019 14:57:00 +0800</pubDate><author>whatacold@gmail.com (whatacold)</author>
       <guid>https://whatacold.io/blog/2019-08-18-how-to-rename-web-page-titles-in-a-lightweight-way/</guid>
-      <description>There are times that I need to open many web pages of some specific websites within a browser, and there are so many tabs that I can&amp;#39;t efficiently access one of them, as their favicons are all the same.
-So I tried to find a way to rename their titles, preferably in a lightweight way, so that I can spot them quickly with my eyes.
-The first thought came into my mind was to find some browser extensions to do the job.</description>
+      <description>There are times that I need to open many web pages of some specific websites within a browser, and there are so many tabs that I can&amp;#39;t efficiently access one of them, as their favicons are all the same.&#xA;So I tried to find a way to rename their titles, preferably in a lightweight way, so that I can spot them quickly with my eyes.&#xA;The first thought came into my mind was to find some browser extensions to do the job.</description>
     </item>
-    
     <item>
       <title>ER Diagrams in Plain Text</title>
       <link>https://whatacold.io/blog/2019-07-06-render-erd-on-the-web/</link>
-      <pubDate>Sat, 06 Jul 2019 11:59:00 +0800</pubDate>
-      <author>whatacold@gmail.com (whatacold)</author>
+      <pubDate>Sat, 06 Jul 2019 11:59:00 +0800</pubDate><author>whatacold@gmail.com (whatacold)</author>
       <guid>https://whatacold.io/blog/2019-07-06-render-erd-on-the-web/</guid>
-      <description>If you ever wonder how to plot ER diagrams in plain text, you may have already heard of erd. It&amp;#39;s a cool command line program written by Andrew Gallant in Haskell, to &amp;#34;compile&amp;#34; plain text files into nicely looking images, leveraging the power of GraphViz.
-I&amp;#39;ve used erd for some time, it&amp;#39;s cool and the syntax is quite simple. It&amp;#39;s also quite simple to install it on Linux, just install GraphViz and erd itself, by following the instructions in the README page.</description>
+      <description>If you ever wonder how to plot ER diagrams in plain text, you may have already heard of erd. It&amp;#39;s a cool command line program written by Andrew Gallant in Haskell, to &amp;#34;compile&amp;#34; plain text files into nicely looking images, leveraging the power of GraphViz.&#xA;I&amp;#39;ve used erd for some time, it&amp;#39;s cool and the syntax is quite simple. It&amp;#39;s also quite simple to install it on Linux, just install GraphViz and erd itself, by following the instructions in the README page.</description>
     </item>
-    
   </channel>
 </rss>

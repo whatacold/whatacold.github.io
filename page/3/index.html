@@ -18,14 +18,14 @@
     "@type": "WebSite",
     "name": "whatacold\u0027s space",
     
-    "url": "https:\/\/whatacold.io"
+    "url": "https:\/\/whatacold.io\/"
 }
 </script><script type="application/ld+json">
 {
   "@context": "http://schema.org",
   "@type": "Organization",
   "name": "",
-  "url": "https:\/\/whatacold.io"
+  "url": "https:\/\/whatacold.io\/"
   
   
   
@@ -45,7 +45,7 @@
   <meta name="twitter:site" content="@whatacold" />
   <meta name="twitter:creator" content="@whatacold" />
   <link href='https://whatacold.io/img/favicon.ico' rel='icon' type='image/x-icon'/>
-  <meta name="generator" content="Hugo 0.101.0" />
+  <meta name="generator" content="Hugo 0.126.2">
   <link rel="alternate" href="https://whatacold.io/index.xml" type="application/rss+xml" title="whatacold&#39;s space"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/katex.min.css" integrity="sha384-3UiQGuEI4TTMaFmGIZumfRPtfKQ3trwQE2JgosJxCnGmQpL/lJdjpcHkaaFwHlcI" crossorigin="anonymous">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous"><link rel="stylesheet" href="https://whatacold.io/css/main.css" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
@@ -53,16 +53,25 @@
   <link rel="stylesheet" href="https://whatacold.io/css/highlight.min.css" /><link rel="stylesheet" href="https://whatacold.io/css/codeblock.css" /><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.css" integrity="sha384-h/L2W9KefUClHWaty3SLE5F/qvc4djlyR4qY3NUV5HGQBBW7stbcfff1+I/vmsHh" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/default-skin/default-skin.min.css" integrity="sha384-iD0dNku6PYSIQLyfTOpB06F2KCZJAKLOThS5HRe8b3ibhdEQ6eKsFf/EeFxdOt5R" crossorigin="anonymous">
 
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-5TGCG9ZG24"></script>
-<script>
-var doNotTrack = false;
-if (!doNotTrack) {
-	window.dataLayer = window.dataLayer || [];
-	function gtag(){dataLayer.push(arguments);}
-	gtag('js', new Date());
-	gtag('config', 'G-5TGCG9ZG24', { 'anonymize_ip': false });
-}
-</script>
+  
+    
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-5TGCG9ZG24"></script>
+      <script>
+        var doNotTrack = false;
+        if ( false ) {
+          var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+          var doNotTrack = (dnt == "1" || dnt == "yes");
+        }
+        if (!doNotTrack) {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-5TGCG9ZG24');
+        }
+      </script>
+    
+  
+
 
   </head>
   <body>
@@ -75,7 +84,7 @@ if (!doNotTrack) {
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="https://whatacold.io">whatacold&#39;s space</a>
+      <a class="navbar-brand" href="https://whatacold.io/">whatacold&#39;s space</a>
     </div>
 
     <div class="collapse navbar-collapse" id="main-navbar">
@@ -119,7 +128,7 @@ if (!doNotTrack) {
     
       <div class="avatar-container">
         <div class="avatar-img-border">
-          <a title="whatacold&#39;s space" href="https://whatacold.io">
+          <a title="whatacold&#39;s space" href="https://whatacold.io/">
             <img class="avatar-img" src="https://whatacold.io/img/avatar.png" alt="whatacold&#39;s space" />
           </a>
         </div>
@@ -260,6 +269,53 @@ if (!doNotTrack) {
           
           
             <article class="post-preview">
+    <a href="https://whatacold.io/blog/2021-07-25-clojure-string-title-case/">
+        <h2 class="post-title">String Title Case in Clojure</h2>
+        
+        
+        
+    </a>
+
+    <p class="post-meta">
+        <span class="post-meta">
+  
+  
+  <i class="fas fa-calendar"></i>&nbsp;Posted on 2021-07-25
+  
+  
+    &nbsp;|&nbsp;<i class="fas fa-clock"></i>&nbsp;5&nbsp;minutes
+  
+  
+    &nbsp;|&nbsp;<i class="fas fa-book"></i>&nbsp;994&nbsp;words
+  
+  
+  
+</span>
+
+
+    </p>
+    <div class="post-entry">
+        
+        These days I like to write scripts for some tasks in Python instead of shell. One important reason I think that&#39;s because Python is powerful at string manipulation.
+Recently I&#39;m learning Clojure, and I&#39;m trying to find similar ways in Clojure, one of them is s.title() for getting a title-cased version of a string. For example,
+&gt;&gt;&gt; &#39; Hello world&#39;.title() &#39; Hello World&#39; How to do that in Clojure? To make the problem simple, let&#39;s assume that the input string only has letters and spaces, that is, [a-zA-Z ] in regex pattern.
+        <a href="https://whatacold.io/blog/2021-07-25-clojure-string-title-case/" class="post-read-more">[Read More]</a>
+        
+    </div>
+
+    
+    <div class="blog-tags">
+        
+        <a href="https://whatacold.io//tags/clojure/">Clojure</a>&nbsp;
+        
+        <a href="https://whatacold.io//tags/python/">Python</a>&nbsp;
+        
+    </div>
+    
+
+</article>
+          
+            <article class="post-preview">
     <a href="https://whatacold.io/blog/2021-07-22-clojure-string-manipulation/">
         <h2 class="post-title">String Manipulation in Clojure</h2>
         
@@ -299,9 +355,9 @@ I think it&#39;s an excellent opportunity to get familiar with Clojure. Before d
     
     <div class="blog-tags">
         
-        <a href="https://whatacold.io/tags/clojure/">Clojure</a>&nbsp;
+        <a href="https://whatacold.io//tags/clojure/">Clojure</a>&nbsp;
         
-        <a href="https://whatacold.io/tags/python/">Python</a>&nbsp;
+        <a href="https://whatacold.io//tags/python/">Python</a>&nbsp;
         
     </div>
     
@@ -348,15 +404,15 @@ The org-notify package from org-contrib (install it by (package-install &#39;org
     
     <div class="blog-tags">
         
-        <a href="https://whatacold.io/tags/emacs/">Emacs</a>&nbsp;
+        <a href="https://whatacold.io//tags/emacs/">Emacs</a>&nbsp;
         
-        <a href="https://whatacold.io/tags/i3wm/">i3wm</a>&nbsp;
+        <a href="https://whatacold.io//tags/i3wm/">i3wm</a>&nbsp;
         
-        <a href="https://whatacold.io/tags/tiling-wm/">tiling-wm</a>&nbsp;
+        <a href="https://whatacold.io//tags/tiling-wm/">tiling-wm</a>&nbsp;
         
-        <a href="https://whatacold.io/tags/extensible-dotfiles/">extensible-dotfiles</a>&nbsp;
+        <a href="https://whatacold.io//tags/extensible-dotfiles/">extensible-dotfiles</a>&nbsp;
         
-        <a href="https://whatacold.io/tags/linux/">Linux</a>&nbsp;
+        <a href="https://whatacold.io//tags/linux/">Linux</a>&nbsp;
         
     </div>
     
@@ -400,9 +456,9 @@ Scripting is an excellent field to practice, but the experience is not so good. 
     
     <div class="blog-tags">
         
-        <a href="https://whatacold.io/tags/babashka/">Babashka</a>&nbsp;
+        <a href="https://whatacold.io//tags/babashka/">Babashka</a>&nbsp;
         
-        <a href="https://whatacold.io/tags/clojure/">Clojure</a>&nbsp;
+        <a href="https://whatacold.io//tags/clojure/">Clojure</a>&nbsp;
         
     </div>
     
@@ -449,11 +505,11 @@ After using it for a while, I think using regex directly can help, so I launched
     
     <div class="blog-tags">
         
-        <a href="https://whatacold.io/tags/python/">Python</a>&nbsp;
+        <a href="https://whatacold.io//tags/python/">Python</a>&nbsp;
         
-        <a href="https://whatacold.io/tags/texttoolkit/">texttoolkit</a>&nbsp;
+        <a href="https://whatacold.io//tags/texttoolkit/">texttoolkit</a>&nbsp;
         
-        <a href="https://whatacold.io/tags/tools/">Tools</a>&nbsp;
+        <a href="https://whatacold.io//tags/tools/">Tools</a>&nbsp;
         
     </div>
     
@@ -498,7 +554,7 @@ cd /path/to/a/project/, and generate a template config file by doxygen -s -g dox
     
     <div class="blog-tags">
         
-        <a href="https://whatacold.io/tags/emacs/">Emacs</a>&nbsp;
+        <a href="https://whatacold.io//tags/emacs/">Emacs</a>&nbsp;
         
     </div>
     
@@ -541,9 +597,9 @@ cd /path/to/a/project/, and generate a template config file by doxygen -s -g dox
     
     <div class="blog-tags">
         
-        <a href="https://whatacold.io/tags/redis/">Redis</a>&nbsp;
+        <a href="https://whatacold.io//tags/redis/">Redis</a>&nbsp;
         
-        <a href="https://whatacold.io/tags/mysql/">MySQL</a>&nbsp;
+        <a href="https://whatacold.io//tags/mysql/">MySQL</a>&nbsp;
         
     </div>
     
@@ -589,11 +645,11 @@ The problem is that we don&#39;t know what&#39;s going on exactly, so here I wan
     
     <div class="blog-tags">
         
-        <a href="https://whatacold.io/tags/emacs/">Emacs</a>&nbsp;
+        <a href="https://whatacold.io//tags/emacs/">Emacs</a>&nbsp;
         
-        <a href="https://whatacold.io/tags/troubleshooting/">troubleshooting</a>&nbsp;
+        <a href="https://whatacold.io//tags/troubleshooting/">troubleshooting</a>&nbsp;
         
-        <a href="https://whatacold.io/tags/debugging/">Debugging</a>&nbsp;
+        <a href="https://whatacold.io//tags/debugging/">Debugging</a>&nbsp;
         
     </div>
     
@@ -637,7 +693,7 @@ For example, say I have two projects that should be compiled on their compiling 
     
     <div class="blog-tags">
         
-        <a href="https://whatacold.io/tags/emacs/">Emacs</a>&nbsp;
+        <a href="https://whatacold.io//tags/emacs/">Emacs</a>&nbsp;
         
     </div>
     
@@ -681,55 +737,9 @@ Visualization of the binary search algorithm where 7 is the target value(@wikipe
     
     <div class="blog-tags">
         
-        <a href="https://whatacold.io/tags/git/">Git</a>&nbsp;
+        <a href="https://whatacold.io//tags/git/">Git</a>&nbsp;
         
-        <a href="https://whatacold.io/tags/troubleshooting/">troubleshooting</a>&nbsp;
-        
-    </div>
-    
-
-</article>
-          
-            <article class="post-preview">
-    <a href="https://whatacold.io/blog/2019-12-22-manage-ssh-connections-with-ssh-config/">
-        <h2 class="post-title">Manage SSH Connections with ~/.ssh/config</h2>
-        
-        
-        
-    </a>
-
-    <p class="post-meta">
-        <span class="post-meta">
-  
-  
-  <i class="fas fa-calendar"></i>&nbsp;Posted on 2019-12-22
-  
-  
-    &nbsp;|&nbsp;<i class="fas fa-clock"></i>&nbsp;3&nbsp;minutes
-  
-  
-    &nbsp;|&nbsp;<i class="fas fa-book"></i>&nbsp;528&nbsp;words
-  
-  
-  
-</span>
-
-
-    </p>
-    <div class="post-entry">
-        
-        I used to manage SSH connection with such GUI apps as MobaXterm, when I wrote code on Windows at work. As I changed my workflow to use a tiling window manager in a VirtualBox guest OS, I continued to improve my way of managing SSH connections, which I want to share here if you don&#39;t know yet.
-At first, I baked a helper Python script, which I named as qssh for &#34;quick ssh&#34;, to help me assemble ssh arguments for me(such as username, Ip, port, etc.
-        <a href="https://whatacold.io/blog/2019-12-22-manage-ssh-connections-with-ssh-config/" class="post-read-more">[Read More]</a>
-        
-    </div>
-
-    
-    <div class="blog-tags">
-        
-        <a href="https://whatacold.io/tags/tools/">Tools</a>&nbsp;
-        
-        <a href="https://whatacold.io/tags/tiling-wm/">tiling-wm</a>&nbsp;
+        <a href="https://whatacold.io//tags/troubleshooting/">troubleshooting</a>&nbsp;
         
     </div>
     
@@ -760,8 +770,6 @@ At first, I baked a helper Python script, which I named as qssh for &#34;quick s
     <div class="page-meta">
   
   
-  
-    (Last modified on 2023-12-10)
   
 </div>
 
@@ -856,17 +864,17 @@ At first, I baked a helper Python script, which I named as qssh for &#34;quick s
 
           &nbsp;&bull;&nbsp;&copy;
           
-            2018 - 2023
+            2018 - 2024
           
 
           
             &nbsp;&bull;&nbsp;
-            <a href="https://whatacold.io">whatacold&#39;s space</a>
+            <a href="https://whatacold.io/">whatacold&#39;s space</a>
           
         </p>
         
         <p class="credits theme-by text-muted">
-          <a href="https://gohugo.io">Hugo v0.101.0</a> powered &nbsp;&bull;&nbsp; Theme <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> adapted from <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
+          <a href="https://gohugo.io">Hugo v0.126.2</a> powered &nbsp;&bull;&nbsp; Theme <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> adapted from <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
           
         </p>
       </div>

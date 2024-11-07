@@ -4,189 +4,151 @@
     <title>Blogs on whatacold 的空间</title>
     <link>https://whatacold.io/zh-cn/blog/</link>
     <description>Recent content in Blogs on whatacold 的空间</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo</generator>
+    <language>zh-cn</language>
     <managingEditor>whatacold@gmail.com (whatacold)</managingEditor>
     <webMaster>whatacold@gmail.com (whatacold)</webMaster>
-    <lastBuildDate>Sat, 09 Dec 2023 21:56:26 +0800</lastBuildDate><atom:link href="https://whatacold.io/zh-cn/blog/rss.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 10 Dec 2023 10:16:06 +0800</lastBuildDate>
+    <atom:link href="https://whatacold.io/zh-cn/blog/rss.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>2023年最火的十大 TED 演讲</title>
       <link>https://whatacold.io/zh-cn/blog/2023-12-09-2023%E5%B9%B4%E6%9C%80%E7%81%AB%E7%9A%84%E5%8D%81%E5%A4%A7ted%E6%BC%94%E8%AE%B2/</link>
-      <pubDate>Sat, 09 Dec 2023 21:56:26 +0800</pubDate>
-      <author>whatacold@gmail.com (whatacold)</author>
+      <pubDate>Sat, 09 Dec 2023 21:56:26 +0800</pubDate><author>whatacold@gmail.com (whatacold)</author>
       <guid>https://whatacold.io/zh-cn/blog/2023-12-09-2023%E5%B9%B4%E6%9C%80%E7%81%AB%E7%9A%84%E5%8D%81%E5%A4%A7ted%E6%BC%94%E8%AE%B2/</guid>
       <description>The most popular TED Talks of 2023 IAN BREMMER: The next global superpower isn&amp;#39;t who you think (14:58) 全球下一个超级力量不是你想的那位。 IAN BREMMER 是个科学家，他从经济、科技等角度分析接下来十年的全球秩序。 LUIS VON AHN: How</description>
     </item>
-    
     <item>
       <title>英语数字听说练习</title>
       <link>https://whatacold.io/zh-cn/blog/2023-11-23-%E7%99%BD%E9%A9%AC%E8%8B%B1%E8%AF%AD%E4%B9%8B%E6%95%B0%E5%AD%97%E7%BB%83%E4%B9%A0/</link>
-      <pubDate>Thu, 23 Nov 2023 08:19:07 +0800</pubDate>
-      <author>whatacold@gmail.com (whatacold)</author>
+      <pubDate>Thu, 23 Nov 2023 08:19:07 +0800</pubDate><author>whatacold@gmail.com (whatacold)</author>
       <guid>https://whatacold.io/zh-cn/blog/2023-11-23-%E7%99%BD%E9%A9%AC%E8%8B%B1%E8%AF%AD%E4%B9%8B%E6%95%B0%E5%AD%97%E7%BB%83%E4%B9%A0/</guid>
       <description>英语里的数字，也简单也困难。简单在规则不难，与汉语差别也不大，大致有以下几个规则（如有错漏，欢迎评论指正）： 1️⃣数字按三个一组，与汉语四个</description>
     </item>
-    
     <item>
       <title>修改 Beautiful Hugo Banner 头图</title>
       <link>https://whatacold.io/zh-cn/blog/2022-10-05-beautifulhugo-banner-image/</link>
-      <pubDate>Wed, 05 Oct 2022 18:17:37 +0800</pubDate>
-      <author>whatacold@gmail.com (whatacold)</author>
+      <pubDate>Wed, 05 Oct 2022 18:17:37 +0800</pubDate><author>whatacold@gmail.com (whatacold)</author>
       <guid>https://whatacold.io/zh-cn/blog/2022-10-05-beautifulhugo-banner-image/</guid>
       <description>博客迁移 Hugo 也有一年多了，最近对 Beautiful Hugo 用的头图 Sphere 产生了审美疲劳，感觉它太过朴素，于是萌生了更换头图的念头。 旧版头图 那换什么图片好点呢？ 经过几秒钟</description>
     </item>
-    
     <item>
       <title>RIME 小鹤双拼快速设置</title>
       <link>https://whatacold.io/zh-cn/blog/2022-10-04-rime-double-pinyin-flypy/</link>
-      <pubDate>Tue, 04 Oct 2022 15:44:54 +0800</pubDate>
-      <author>whatacold@gmail.com (whatacold)</author>
+      <pubDate>Tue, 04 Oct 2022 15:44:54 +0800</pubDate><author>whatacold@gmail.com (whatacold)</author>
       <guid>https://whatacold.io/zh-cn/blog/2022-10-04-rime-double-pinyin-flypy/</guid>
       <description>RIME 输入引擎 如果你也使用 Linux 操作系统，那么 RIME 输入法基本是必备的。它开源、跨平台，支持各种输入方案；无服务器，不会泄漏你的输入数据。但同时相比各个</description>
     </item>
-    
     <item>
       <title>Emacs 中使用 smart-input-source 配合 Rime 进行流畅地中英文输入</title>
       <link>https://whatacold.io/zh-cn/blog/2022-09-11-emacs-smart-input-source-rime/</link>
-      <pubDate>Sun, 11 Sep 2022 15:50:29 +0800</pubDate>
-      <author>whatacold@gmail.com (whatacold)</author>
+      <pubDate>Sun, 11 Sep 2022 15:50:29 +0800</pubDate><author>whatacold@gmail.com (whatacold)</author>
       <guid>https://whatacold.io/zh-cn/blog/2022-09-11-emacs-smart-input-source-rime/</guid>
       <description>Emacs 中文输入有不少方案，既可以用外置的输入法（比如 Rime, sogou 等）进行输入，还可以用内置的输入法（比如 pyim ）利用 Elisp 完成中文输入。作为中文用户，我们很难避</description>
     </item>
-    
     <item>
       <title>Emacs Beancount ：记账时从其他的账户文件补全账户</title>
       <link>https://whatacold.io/zh-cn/blog/2022-09-10-emacs-beancount-account-files/</link>
-      <pubDate>Sat, 10 Sep 2022 11:13:38 +0800</pubDate>
-      <author>whatacold@gmail.com (whatacold)</author>
+      <pubDate>Sat, 10 Sep 2022 11:13:38 +0800</pubDate><author>whatacold@gmail.com (whatacold)</author>
       <guid>https://whatacold.io/zh-cn/blog/2022-09-10-emacs-beancount-account-files/</guid>
       <description>从单独的 accounts.bean 补全账户 如果你用 Emacs + Beancount 来记账，那你应该有用 beancount-mode 这个包。它可以帮助我们在记账的时候从当前 buffer 中提取出已定义的账户，当我们下达 M-x beancount-insert-account 命令的时</description>
     </item>
-    
     <item>
       <title>Emacs 常用 debug 手段</title>
       <link>https://whatacold.io/zh-cn/blog/2022-07-17-emacs-elisp-debug/</link>
-      <pubDate>Sun, 17 Jul 2022 09:57:31 +0800</pubDate>
-      <author>whatacold@gmail.com (whatacold)</author>
+      <pubDate>Sun, 17 Jul 2022 09:57:31 +0800</pubDate><author>whatacold@gmail.com (whatacold)</author>
       <guid>https://whatacold.io/zh-cn/blog/2022-07-17-emacs-elisp-debug/</guid>
       <description>折腾 Emacs 难免会遇到问题。 论坛里经常可以看到有同学遇到各种配置问题的，但却不知从何入手排查。这里我给大家简单地介绍一些常用的方法，当你下次遇到问</description>
     </item>
-    
     <item>
       <title>lein 新建 reagent-frontend 工程失败问题</title>
       <link>https://whatacold.io/zh-cn/blog/2021-09-05-lein-reagent-frontend-shibai/</link>
-      <pubDate>Sun, 05 Sep 2021 10:39:33 +0800</pubDate>
-      <author>whatacold@gmail.com (whatacold)</author>
+      <pubDate>Sun, 05 Sep 2021 10:39:33 +0800</pubDate><author>whatacold@gmail.com (whatacold)</author>
       <guid>https://whatacold.io/zh-cn/blog/2021-09-05-lein-reagent-frontend-shibai/</guid>
       <description>最近打算用 ClojureScript 做点 web 应用，就准备实践下 Reagent ，它是一个 React.js 的极简封装（A minimalistic ClojureScript interface to React.js），通过官网的几个例子可以看到，确实很简洁。 看花容易</description>
     </item>
-    
     <item>
       <title>i3wm 工作区如何快速创建 Emacs 窗口</title>
       <link>https://whatacold.io/zh-cn/blog/2021-08-29-i3wm-workspace-emacs-frame/</link>
-      <pubDate>Sun, 29 Aug 2021 13:58:21 +0800</pubDate>
-      <author>whatacold@gmail.com (whatacold)</author>
+      <pubDate>Sun, 29 Aug 2021 13:58:21 +0800</pubDate><author>whatacold@gmail.com (whatacold)</author>
       <guid>https://whatacold.io/zh-cn/blog/2021-08-29-i3wm-workspace-emacs-frame/</guid>
       <description>平铺窗口管理器为了提升显示空间的利用率，一般都有工作区（ workspace ）的功能，比如 i3wm 和 qtile 默认定义了10个工作区。工作区可以隔离不同的应用，让我们专注当</description>
     </item>
-    
     <item>
       <title>Clojure Reduce 的两种用法</title>
       <link>https://whatacold.io/zh-cn/blog/2021-07-28-clojure-reduce-yongfang/</link>
-      <pubDate>Wed, 28 Jul 2021 00:01:15 +0800</pubDate>
-      <author>whatacold@gmail.com (whatacold)</author>
+      <pubDate>Wed, 28 Jul 2021 00:01:15 +0800</pubDate><author>whatacold@gmail.com (whatacold)</author>
       <guid>https://whatacold.io/zh-cn/blog/2021-07-28-clojure-reduce-yongfang/</guid>
       <description>map/reduce 在 Lisp 语言中是一种很常见的用法， Clojure 自然也不例外。 自上次 title-case 的练习之后，我以为自己对 reduce 已经有了较为深入的了解了；恰好最近在 StackOverflow 上刚好遇到一个类似的</description>
     </item>
-    
     <item>
       <title>在线用 Python 正则查找文本</title>
       <link>https://whatacold.io/zh-cn/blog/2021-07-12-python-re-chazhao/</link>
-      <pubDate>Mon, 12 Jul 2021 23:34:11 +0800</pubDate>
-      <author>whatacold@gmail.com (whatacold)</author>
+      <pubDate>Mon, 12 Jul 2021 23:34:11 +0800</pubDate><author>whatacold@gmail.com (whatacold)</author>
       <guid>https://whatacold.io/zh-cn/blog/2021-07-12-python-re-chazhao/</guid>
       <description>前段时间做了一个使用 Python 正则提取文本的工具服务： https://texttoolkit.com/re.findall ，用于解决日常一些繁琐的查找文本的需求。 工具主界面 场景 1 日常开发工作中你可能也需要像我一样，</description>
     </item>
-    
     <item>
       <title>个人博客网站迁移 Hugo 小记</title>
       <link>https://whatacold.io/zh-cn/blog/2021-07-10-migrate-site-hugo/</link>
-      <pubDate>Sat, 10 Jul 2021 20:37:11 +0800</pubDate>
-      <author>whatacold@gmail.com (whatacold)</author>
+      <pubDate>Sat, 10 Jul 2021 20:37:11 +0800</pubDate><author>whatacold@gmail.com (whatacold)</author>
       <guid>https://whatacold.io/zh-cn/blog/2021-07-10-migrate-site-hugo/</guid>
       <description>从 2018 年开始用 org-static-blog 写博客到现在也有几年时间了，写的文章比较少，总体上这个简单的静态网站生成方案都能够满足需求。 但中途也发现一些不够用的地方，比如</description>
     </item>
-    
     <item>
       <title>HTTP压测工具wrk的实现原理</title>
       <link>https://whatacold.io/zh-cn/blog/2021-02-27-wrk-yuanli/</link>
-      <pubDate>Sat, 27 Feb 2021 10:27:00 +0800</pubDate>
-      <author>whatacold@gmail.com (whatacold)</author>
+      <pubDate>Sat, 27 Feb 2021 10:27:00 +0800</pubDate><author>whatacold@gmail.com (whatacold)</author>
       <guid>https://whatacold.io/zh-cn/blog/2021-02-27-wrk-yuanli/</guid>
       <description>注：本文分析的是 wrk v4.1.0 的源码。 wrk 是一个用 C 实现的 HTTP 压测工具，所有的参数都是通过命令行传递，没有配置文件，很容易使用；编译产物只有一个二进制文件</description>
     </item>
-    
     <item>
       <title>Doxygen 终于可以正确生成函数调用图了！</title>
       <link>https://whatacold.io/zh-cn/blog/2021-02-16-doxygen-cpp-correct-callgraphs/</link>
-      <pubDate>Tue, 16 Feb 2021 16:08:00 +0800</pubDate>
-      <author>whatacold@gmail.com (whatacold)</author>
+      <pubDate>Tue, 16 Feb 2021 16:08:00 +0800</pubDate><author>whatacold@gmail.com (whatacold)</author>
       <guid>https://whatacold.io/zh-cn/blog/2021-02-16-doxygen-cpp-correct-callgraphs/</guid>
       <description>大家都知道， Doxygen 可以用于提取代码的注释生成项目的文档，只要注释满足它规定的格式。我喜欢通过它生成类继承图（inheritance diagram</description>
     </item>
-    
     <item>
       <title>Emacs 中使用 ppcompile 进行远程编译</title>
       <link>https://whatacold.io/zh-cn/blog/2020-04-11-use-ppcompile-to-remote-compile-in-emacs/</link>
-      <pubDate>Sat, 11 Apr 2020 22:17:00 +0800</pubDate>
-      <author>whatacold@gmail.com (whatacold)</author>
+      <pubDate>Sat, 11 Apr 2020 22:17:00 +0800</pubDate><author>whatacold@gmail.com (whatacold)</author>
       <guid>https://whatacold.io/zh-cn/blog/2020-04-11-use-ppcompile-to-remote-compile-in-emacs/</guid>
       <description>不同于 Python 之类的项目， C/C++ 的项目需要有专门的编译环境，一般国内公司都会搭建特定的编译环境机器，把一些私有的库等依赖放在上面。而这些编译环境的工具</description>
     </item>
-    
     <item>
       <title>用 Python Requests “一键”重启天翼路由器</title>
       <link>https://whatacold.io/zh-cn/blog/2019-10-01-reboot-tianyi-router-using-python-requests/</link>
-      <pubDate>Tue, 01 Oct 2019 22:28:00 +0800</pubDate>
-      <author>whatacold@gmail.com (whatacold)</author>
+      <pubDate>Tue, 01 Oct 2019 22:28:00 +0800</pubDate><author>whatacold@gmail.com (whatacold)</author>
       <guid>https://whatacold.io/zh-cn/blog/2019-10-01-reboot-tianyi-router-using-python-requests/</guid>
       <description>不知道什么原因，我的网络有时候会很慢，而通过重启天翼路由器（版本 V1.0 ）大概率能够恢复。重启的次数多了之后会我觉得好麻烦，本着偷懒的原则，就想写</description>
     </item>
-    
     <item>
       <title>记一个 Emacs 26 Keyboard Macro 输入字符重复的 Bug</title>
       <link>https://whatacold.io/zh-cn/blog/2019-02-03-emacs-kmacro-characters-repeated-bug/</link>
-      <pubDate>Sun, 03 Feb 2019 18:05:00 +0800</pubDate>
-      <author>whatacold@gmail.com (whatacold)</author>
+      <pubDate>Sun, 03 Feb 2019 18:05:00 +0800</pubDate><author>whatacold@gmail.com (whatacold)</author>
       <guid>https://whatacold.io/zh-cn/blog/2019-02-03-emacs-kmacro-characters-repeated-bug/</guid>
       <description>工作中不时地会使用 Emacs keyboard macro 来解决重复性的编辑任务， 但有时录制了再重放却出现输入的字符被重复了，导致出现非预期的结果。 一般此时为了赶进度，只好忍</description>
     </item>
-    
     <item>
       <title>如何理解 Git submodule</title>
       <link>https://whatacold.io/zh-cn/blog/2019-01-13-understand-git-submodule/</link>
-      <pubDate>Thu, 03 Jan 2019 16:07:00 +0800</pubDate>
-      <author>whatacold@gmail.com (whatacold)</author>
+      <pubDate>Thu, 03 Jan 2019 16:07:00 +0800</pubDate><author>whatacold@gmail.com (whatacold)</author>
       <guid>https://whatacold.io/zh-cn/blog/2019-01-13-understand-git-submodule/</guid>
       <description>Git 虽然很强大，但也有少数命令很难理解。 submodule 就是这么一个例子，其文档教程也不少，比如 Git - Submodules - git-scm.com ， 但我之前始终没有真正领悟到如何使用。 直到有天看了</description>
     </item>
-    
     <item>
       <title>在 Emacs 中使用 LSP 开发 C/C&#43;&#43; 工程</title>
       <link>https://whatacold.io/zh-cn/blog/2018-12-22-c-cpp-devel-with-lsp-in-emacs/</link>
-      <pubDate>Sat, 22 Dec 2018 20:24:00 +0800</pubDate>
-      <author>whatacold@gmail.com (whatacold)</author>
+      <pubDate>Sat, 22 Dec 2018 20:24:00 +0800</pubDate><author>whatacold@gmail.com (whatacold)</author>
       <guid>https://whatacold.io/zh-cn/blog/2018-12-22-c-cpp-devel-with-lsp-in-emacs/</guid>
       <description>写代码的时候，如果能够基于当前的上下文提示补全，不仅能提高写代码的效率，还能提升编程体验，有种行云流水的快感。 Emacs 中之前我用 GNU Global (gtags) 等静态的工具</description>
     </item>
-    
     <item>
       <title>C&#43;&#43; 多态是如何实现的？</title>
       <link>https://whatacold.io/zh-cn/blog/2018-12-10-how-polymorphism-works-in-cpp/</link>
-      <pubDate>Mon, 10 Dec 2018 00:16:00 +0800</pubDate>
-      <author>whatacold@gmail.com (whatacold)</author>
+      <pubDate>Mon, 10 Dec 2018 00:16:00 +0800</pubDate><author>whatacold@gmail.com (whatacold)</author>
       <guid>https://whatacold.io/zh-cn/blog/2018-12-10-how-polymorphism-works-in-cpp/</guid>
       <description>对于 OOP 编程，相信大家对于多态（ polymorphism ）肯定都耳熟能详。 但是对于多态是如何实现的，我不知道大家是否清楚，但我发现自己并不是很了解， 只知道在运行时通</description>
     </item>
-    
   </channel>
 </rss>

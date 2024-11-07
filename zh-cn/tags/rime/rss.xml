@@ -4,27 +4,25 @@
     <title>Rime on whatacold 的空间</title>
     <link>https://whatacold.io/zh-cn/tags/rime/</link>
     <description>Recent content in Rime on whatacold 的空间</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo</generator>
+    <language>zh-cn</language>
     <managingEditor>whatacold@gmail.com (whatacold)</managingEditor>
     <webMaster>whatacold@gmail.com (whatacold)</webMaster>
-    <lastBuildDate>Tue, 04 Oct 2022 15:44:54 +0800</lastBuildDate><atom:link href="https://whatacold.io/zh-cn/tags/rime/rss.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 04 Dec 2023 21:33:31 +0800</lastBuildDate>
+    <atom:link href="https://whatacold.io/zh-cn/tags/rime/rss.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>RIME 小鹤双拼快速设置</title>
       <link>https://whatacold.io/zh-cn/blog/2022-10-04-rime-double-pinyin-flypy/</link>
-      <pubDate>Tue, 04 Oct 2022 15:44:54 +0800</pubDate>
-      <author>whatacold@gmail.com (whatacold)</author>
+      <pubDate>Tue, 04 Oct 2022 15:44:54 +0800</pubDate><author>whatacold@gmail.com (whatacold)</author>
       <guid>https://whatacold.io/zh-cn/blog/2022-10-04-rime-double-pinyin-flypy/</guid>
       <description>RIME 输入引擎 如果你也使用 Linux 操作系统，那么 RIME 输入法基本是必备的。它开源、跨平台，支持各种输入方案；无服务器，不会泄漏你的输入数据。但同时相比各个</description>
     </item>
-    
     <item>
       <title>Emacs 中使用 smart-input-source 配合 Rime 进行流畅地中英文输入</title>
       <link>https://whatacold.io/zh-cn/blog/2022-09-11-emacs-smart-input-source-rime/</link>
-      <pubDate>Sun, 11 Sep 2022 15:50:29 +0800</pubDate>
-      <author>whatacold@gmail.com (whatacold)</author>
+      <pubDate>Sun, 11 Sep 2022 15:50:29 +0800</pubDate><author>whatacold@gmail.com (whatacold)</author>
       <guid>https://whatacold.io/zh-cn/blog/2022-09-11-emacs-smart-input-source-rime/</guid>
       <description>Emacs 中文输入有不少方案，既可以用外置的输入法（比如 Rime, sogou 等）进行输入，还可以用内置的输入法（比如 pyim ）利用 Elisp 完成中文输入。作为中文用户，我们很难避</description>
     </item>
-    
   </channel>
 </rss>

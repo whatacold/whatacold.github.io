@@ -4,18 +4,18 @@
     <title>Beancount on whatacold 的空间</title>
     <link>https://whatacold.io/zh-cn/tags/beancount/</link>
     <description>Recent content in Beancount on whatacold 的空间</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo</generator>
+    <language>zh-cn</language>
     <managingEditor>whatacold@gmail.com (whatacold)</managingEditor>
     <webMaster>whatacold@gmail.com (whatacold)</webMaster>
-    <lastBuildDate>Sat, 10 Sep 2022 11:13:38 +0800</lastBuildDate><atom:link href="https://whatacold.io/zh-cn/tags/beancount/rss.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 15 Oct 2022 16:21:21 +0800</lastBuildDate>
+    <atom:link href="https://whatacold.io/zh-cn/tags/beancount/rss.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Emacs Beancount ：记账时从其他的账户文件补全账户</title>
       <link>https://whatacold.io/zh-cn/blog/2022-09-10-emacs-beancount-account-files/</link>
-      <pubDate>Sat, 10 Sep 2022 11:13:38 +0800</pubDate>
-      <author>whatacold@gmail.com (whatacold)</author>
+      <pubDate>Sat, 10 Sep 2022 11:13:38 +0800</pubDate><author>whatacold@gmail.com (whatacold)</author>
       <guid>https://whatacold.io/zh-cn/blog/2022-09-10-emacs-beancount-account-files/</guid>
       <description>从单独的 accounts.bean 补全账户 如果你用 Emacs + Beancount 来记账，那你应该有用 beancount-mode 这个包。它可以帮助我们在记账的时候从当前 buffer 中提取出已定义的账户，当我们下达 M-x beancount-insert-account 命令的时</description>
     </item>
-    
   </channel>
 </rss>

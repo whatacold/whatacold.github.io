@@ -1,44 +1,35 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Org-mode on whatacold&#39;s space</title>
+    <title>Org-Mode on whatacold&#39;s space</title>
     <link>https://whatacold.io/tags/org-mode/</link>
-    <description>Recent content in Org-mode on whatacold&#39;s space</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <description>Recent content in Org-Mode on whatacold&#39;s space</description>
+    <generator>Hugo</generator>
+    <language>en</language>
     <managingEditor>whatacold@gmail.com (whatacold)</managingEditor>
     <webMaster>whatacold@gmail.com (whatacold)</webMaster>
-    <lastBuildDate>Mon, 14 Aug 2023 22:48:20 +0800</lastBuildDate><atom:link href="https://whatacold.io/tags/org-mode/rss.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 14 Aug 2023 22:52:55 +0800</lastBuildDate>
+    <atom:link href="https://whatacold.io/tags/org-mode/rss.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Emphasize Text By Dragging Mouse in Org-mode</title>
       <link>https://whatacold.io/blog/2023-08-14-org-emphasis-dragging-mouse/</link>
-      <pubDate>Mon, 14 Aug 2023 22:48:20 +0800</pubDate>
-      <author>whatacold@gmail.com (whatacold)</author>
+      <pubDate>Mon, 14 Aug 2023 22:48:20 +0800</pubDate><author>whatacold@gmail.com (whatacold)</author>
       <guid>https://whatacold.io/blog/2023-08-14-org-emphasis-dragging-mouse/</guid>
-      <description>Long story short, I came up with an idea to emphasize content while I was reviewing an org-mode document a few months ago after I was tired of typing tedious * around the content repeatedly. And I&amp;#39;ve been longing for this feature since then, because I was unfamiliar with mouse-based key bindings, and neither did I have the time to investigate it.
-Today I finally nailed it down while I was attending a boring meeting, and it turned out to be quite simple.</description>
+      <description>Long story short, I came up with an idea to emphasize content while I was reviewing an org-mode document a few months ago after I was tired of typing tedious * around the content repeatedly. And I&amp;#39;ve been longing for this feature since then, because I was unfamiliar with mouse-based key bindings, and neither did I have the time to investigate it.&#xA;Today I finally nailed it down while I was attending a boring meeting, and it turned out to be quite simple.</description>
     </item>
-    
     <item>
       <title>A Bookmarklet for Copying a Link as an Org-mode Link</title>
       <link>https://whatacold.io/blog/2022-08-08-org-link-bookmarklet/</link>
-      <pubDate>Mon, 08 Aug 2022 23:33:05 +0800</pubDate>
-      <author>whatacold@gmail.com (whatacold)</author>
+      <pubDate>Mon, 08 Aug 2022 23:33:05 +0800</pubDate><author>whatacold@gmail.com (whatacold)</author>
       <guid>https://whatacold.io/blog/2022-08-08-org-link-bookmarklet/</guid>
-      <description>In this blog post, I&amp;#39;d like to share a bookmarklet for copying a web page&amp;#39;s URL as an org-mode link on Firefox, Chrome, or whatever web browsers support bookmarklets.
-It&amp;#39;s handy when the URL isn&amp;#39;t SEO-friendly, which means you can&amp;#39;t tell what its content is about at first glance of the URL. So a little description text on the link would help.
-Here is the bookmarklet:
-javascript:window.prompt(&amp;#34;Copy to clipboard: Ctrl+C, Esc&amp;#34;, &amp;#34;[[&amp;#34; + document.</description>
+      <description>In this blog post, I&amp;#39;d like to share a bookmarklet for copying a web page&amp;#39;s URL as an org-mode link on Firefox, Chrome, or whatever web browsers support bookmarklets.&#xA;It&amp;#39;s handy when the URL isn&amp;#39;t SEO-friendly, which means you can&amp;#39;t tell what its content is about at first glance of the URL. So a little description text on the link would help.&#xA;Here is the bookmarklet:&#xA;javascript:window.prompt(&amp;#34;Copy to clipboard: Ctrl+C, Esc&amp;#34;, &amp;#34;[[&amp;#34; + document.</description>
     </item>
-    
     <item>
       <title>Generating org-mode Outlines for wikiHow Articles</title>
       <link>https://whatacold.io/blog/2019-07-20-generating-org-mode-outlines-for-wikihow-articles/</link>
-      <pubDate>Sat, 20 Jul 2019 20:04:00 +0800</pubDate>
-      <author>whatacold@gmail.com (whatacold)</author>
+      <pubDate>Sat, 20 Jul 2019 20:04:00 +0800</pubDate><author>whatacold@gmail.com (whatacold)</author>
       <guid>https://whatacold.io/blog/2019-07-20-generating-org-mode-outlines-for-wikihow-articles/</guid>
-      <description>Recently I found some great articles on wikiHow, then I want to keep notes of them in org-mode files.
-At first, I manually copied the ToC of articles, but soon I found it&amp;#39;s tedious and takes a lot of time. Today I wrote a requests-based Python script to help me extract the ToCs (Table of Content) into org-mode outlines. It takes two arguments, the first one is the URL, the second one is the containing heading&amp;#39;s level for the generated ToC in org-mode.</description>
+      <description>Recently I found some great articles on wikiHow, then I want to keep notes of them in org-mode files.&#xA;At first, I manually copied the ToC of articles, but soon I found it&amp;#39;s tedious and takes a lot of time. Today I wrote a requests-based Python script to help me extract the ToCs (Table of Content) into org-mode outlines. It takes two arguments, the first one is the URL, the second one is the containing heading&amp;#39;s level for the generated ToC in org-mode.</description>
     </item>
-    
   </channel>
 </rss>

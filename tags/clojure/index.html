@@ -18,14 +18,14 @@
     "@type": "WebSite",
     "name": "whatacold\u0027s space",
     
-    "url": "https:\/\/whatacold.io"
+    "url": "https:\/\/whatacold.io\/"
 }
 </script><script type="application/ld+json">
 {
   "@context": "http://schema.org",
   "@type": "Organization",
   "name": "",
-  "url": "https:\/\/whatacold.io"
+  "url": "https:\/\/whatacold.io\/"
   
   
   
@@ -45,7 +45,7 @@
   <meta name="twitter:site" content="@whatacold" />
   <meta name="twitter:creator" content="@whatacold" />
   <link href='https://whatacold.io/img/favicon.ico' rel='icon' type='image/x-icon'/>
-  <meta name="generator" content="Hugo 0.101.0" />
+  <meta name="generator" content="Hugo 0.126.2">
   <link rel="alternate" href="https://whatacold.io/index.xml" type="application/rss+xml" title="whatacold&#39;s space"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/katex.min.css" integrity="sha384-3UiQGuEI4TTMaFmGIZumfRPtfKQ3trwQE2JgosJxCnGmQpL/lJdjpcHkaaFwHlcI" crossorigin="anonymous">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous"><link rel="stylesheet" href="https://whatacold.io/css/main.css" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
@@ -53,16 +53,25 @@
   <link rel="stylesheet" href="https://whatacold.io/css/highlight.min.css" /><link rel="stylesheet" href="https://whatacold.io/css/codeblock.css" /><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.css" integrity="sha384-h/L2W9KefUClHWaty3SLE5F/qvc4djlyR4qY3NUV5HGQBBW7stbcfff1+I/vmsHh" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/default-skin/default-skin.min.css" integrity="sha384-iD0dNku6PYSIQLyfTOpB06F2KCZJAKLOThS5HRe8b3ibhdEQ6eKsFf/EeFxdOt5R" crossorigin="anonymous">
 
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-5TGCG9ZG24"></script>
-<script>
-var doNotTrack = false;
-if (!doNotTrack) {
-	window.dataLayer = window.dataLayer || [];
-	function gtag(){dataLayer.push(arguments);}
-	gtag('js', new Date());
-	gtag('config', 'G-5TGCG9ZG24', { 'anonymize_ip': false });
-}
-</script>
+  
+    
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-5TGCG9ZG24"></script>
+      <script>
+        var doNotTrack = false;
+        if ( false ) {
+          var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+          var doNotTrack = (dnt == "1" || dnt == "yes");
+        }
+        if (!doNotTrack) {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-5TGCG9ZG24');
+        }
+      </script>
+    
+  
+
 
   </head>
   <body>
@@ -75,7 +84,7 @@ if (!doNotTrack) {
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="https://whatacold.io">whatacold&#39;s space</a>
+      <a class="navbar-brand" href="https://whatacold.io/">whatacold&#39;s space</a>
     </div>
 
     <div class="collapse navbar-collapse" id="main-navbar">
@@ -119,7 +128,7 @@ if (!doNotTrack) {
     
       <div class="avatar-container">
         <div class="avatar-img-border">
-          <a title="whatacold&#39;s space" href="https://whatacold.io">
+          <a title="whatacold&#39;s space" href="https://whatacold.io/">
             <img class="avatar-img" src="https://whatacold.io/img/avatar.png" alt="whatacold&#39;s space" />
           </a>
         </div>
@@ -224,6 +233,53 @@ if (!doNotTrack) {
         <div class="posts-list">
           
             <article class="post-preview">
+    <a href="https://whatacold.io/blog/2024-11-08-cider-clojure-repl-cmdline/">
+        <h2 class="post-title">Start a Clojure nREPL in the Command Line for Cider</h2>
+        
+        
+        
+    </a>
+
+    <p class="post-meta">
+        <span class="post-meta">
+  
+  
+  <i class="fas fa-calendar"></i>&nbsp;Posted on 2024-11-08
+  
+  
+    &nbsp;|&nbsp;<i class="fas fa-clock"></i>&nbsp;1&nbsp;minutes
+  
+  
+    &nbsp;|&nbsp;<i class="fas fa-book"></i>&nbsp;94&nbsp;words
+  
+  
+  
+</span>
+
+
+    </p>
+    <div class="post-entry">
+        
+        While troubleshooting and fixing a live reload bug in Clay today, which requires to start a minimal Clojure environment, I figured out how to start a nREPL from the command line. Instead of using M-x cider-jack-in-clj directly from Emacs, actually we can manully bring up an nREPL with this: clj -Sdeps &#34;{:deps {org.scicloj/clay {:mvn/version \&#34;2-beta21\&#34;} cider/cider-nrepl {:mvn/version \&#34;0.50.2\&#34;}}}&#34; -m nrepl.cmdline --middleware &#39;[cider.nrepl/cider-middleware]&#39; (The clay part is only necessary for this debugging), and then connect to this nREPL using the Emacs command M-x cider-connect-clj.
+        <a href="https://whatacold.io/blog/2024-11-08-cider-clojure-repl-cmdline/" class="post-read-more">[Read More]</a>
+        
+    </div>
+
+    
+    <div class="blog-tags">
+        
+        <a href="https://whatacold.io//tags/cider/">Cider</a>&nbsp;
+        
+        <a href="https://whatacold.io//tags/clojure/">Clojure</a>&nbsp;
+        
+        <a href="https://whatacold.io//tags/tweet/">Tweet</a>&nbsp;
+        
+    </div>
+    
+
+</article>
+          
+            <article class="post-preview">
     <a href="https://whatacold.io/blog/2021-09-19-clojure-reduce-text-processing/">
         <h2 class="post-title">Clojure reduce: one case for text processing</h2>
         
@@ -262,9 +318,9 @@ sum of two numbers: #+begin_src clojure (+ 1 2) #+end_src I want to have a resul
     
     <div class="blog-tags">
         
-        <a href="https://whatacold.io/tags/clojure/">Clojure</a>&nbsp;
+        <a href="https://whatacold.io//tags/clojure/">Clojure</a>&nbsp;
         
-        <a href="https://whatacold.io/tags/babashka/">Babashka</a>&nbsp;
+        <a href="https://whatacold.io//tags/babashka/">Babashka</a>&nbsp;
         
     </div>
     
@@ -311,11 +367,11 @@ Along the way, I found it was a little cumbersome to append the evaluation resul
     
     <div class="blog-tags">
         
-        <a href="https://whatacold.io/tags/babashka/">Babashka</a>&nbsp;
+        <a href="https://whatacold.io//tags/babashka/">Babashka</a>&nbsp;
         
-        <a href="https://whatacold.io/tags/clojure/">Clojure</a>&nbsp;
+        <a href="https://whatacold.io//tags/clojure/">Clojure</a>&nbsp;
         
-        <a href="https://whatacold.io/tags/hugo/">Hugo</a>&nbsp;
+        <a href="https://whatacold.io//tags/hugo/">Hugo</a>&nbsp;
         
     </div>
     
@@ -360,9 +416,9 @@ Recently I&#39;m learning Clojure, and I&#39;m trying to find similar ways in Cl
     
     <div class="blog-tags">
         
-        <a href="https://whatacold.io/tags/clojure/">Clojure</a>&nbsp;
+        <a href="https://whatacold.io//tags/clojure/">Clojure</a>&nbsp;
         
-        <a href="https://whatacold.io/tags/python/">Python</a>&nbsp;
+        <a href="https://whatacold.io//tags/python/">Python</a>&nbsp;
         
     </div>
     
@@ -409,9 +465,9 @@ I think it&#39;s an excellent opportunity to get familiar with Clojure. Before d
     
     <div class="blog-tags">
         
-        <a href="https://whatacold.io/tags/clojure/">Clojure</a>&nbsp;
+        <a href="https://whatacold.io//tags/clojure/">Clojure</a>&nbsp;
         
-        <a href="https://whatacold.io/tags/python/">Python</a>&nbsp;
+        <a href="https://whatacold.io//tags/python/">Python</a>&nbsp;
         
     </div>
     
@@ -455,9 +511,9 @@ Scripting is an excellent field to practice, but the experience is not so good. 
     
     <div class="blog-tags">
         
-        <a href="https://whatacold.io/tags/babashka/">Babashka</a>&nbsp;
+        <a href="https://whatacold.io//tags/babashka/">Babashka</a>&nbsp;
         
-        <a href="https://whatacold.io/tags/clojure/">Clojure</a>&nbsp;
+        <a href="https://whatacold.io//tags/clojure/">Clojure</a>&nbsp;
         
     </div>
     
@@ -560,17 +616,17 @@ Scripting is an excellent field to practice, but the experience is not so good. 
 
           &nbsp;&bull;&nbsp;&copy;
           
-            2018 - 2023
+            2018 - 2024
           
 
           
             &nbsp;&bull;&nbsp;
-            <a href="https://whatacold.io">whatacold&#39;s space</a>
+            <a href="https://whatacold.io/">whatacold&#39;s space</a>
           
         </p>
         
         <p class="credits theme-by text-muted">
-          <a href="https://gohugo.io">Hugo v0.101.0</a> powered &nbsp;&bull;&nbsp; Theme <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> adapted from <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
+          <a href="https://gohugo.io">Hugo v0.126.2</a> powered &nbsp;&bull;&nbsp; Theme <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> adapted from <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
           
         </p>
       </div>
