@@ -10,10 +10,10 @@
  
 
 
-      <title>A Random Password Generator in Babashka - Blog</title>
+      <title>Anonymous Functions in Thread Macros - Blog</title>
 
-  <meta name="description" content="I&#39;m used to learning by practicing, so when I learned Clojure, I always kept an eye on chances to write code in it.
-Scripting is an excellent field to practice, but the experience is not so good. On the one hand, it&#39;s too hacky to wrap Clojure code in a shell script with the shell bang. On the other hand, the startup time of JVM is too long to hurt the user experience.">
+  <meta name="description" content="While adding the live reload feature to Clay, I encountered a problem of applying anonymous functions to thread macros. For example, below is a simple snippet trying to wrap the input directory as a vector with the help of thread macro, but surprisingly, it errors out. After some searching, I figured out that I need to put the anonymous function into another pair of parentheses:
+(-&gt; &#34;/tmp/&#34; #(if (vector? %) % [%])) ;; =&gt; Syntax error (ClassCastException) compiling fn* at (simple4all.">
   <meta name="author" content="whatacold"/><script type="application/ld+json">
 {
     "@context": "http://schema.org",
@@ -49,8 +49,8 @@ Scripting is an excellent field to practice, but the experience is not so good. 
         "@type": "ListItem",
         "position": 3,
         "item": {
-          "@id": "https:\/\/whatacold.io\/blog\/2021-07-11-babashka-random-password-generator\/",
-          "name": "A random password generator in babashka"
+          "@id": "https:\/\/whatacold.io\/blog\/2024-11-08-clojure-thread-macro-anonymous-function\/",
+          "name": "Anonymous functions in thread macros"
         }
     }]
 }
@@ -61,15 +61,15 @@ Scripting is an excellent field to practice, but the experience is not so good. 
   "author": {
     "name" : "whatacold"
   },
-  "headline": "A Random Password Generator in Babashka",
-  "description" : "I\u0026#39;m used to learning by practicing, so when I learned Clojure, I always kept an eye on chances to write code in it.\nScripting is an excellent field to practice, but the experience is not so good. On the one hand, it\u0026#39;s too hacky to wrap Clojure code in a shell script with the shell bang. On the other hand, the startup time of JVM is too long to hurt the user experience.",
+  "headline": "Anonymous Functions in Thread Macros",
+  "description" : "While adding the live reload feature to Clay, I encountered a problem of applying anonymous functions to thread macros. For example, below is a simple snippet trying to wrap the input directory as a vector with the help of thread macro, but surprisingly, it errors out. After some searching, I figured out that I need to put the anonymous function into another pair of parentheses:\n(-\u0026gt; \u0026#34;\/tmp\/\u0026#34; #(if (vector? %) % [%])) ;; =\u0026gt; Syntax error (ClassCastException) compiling fn* at (simple4all.",
   "inLanguage" : "en",
-  "wordCount":  347 ,
-  "datePublished" : "2021-07-11T09:18:41",
-  "dateModified" : "2021-07-11T09:18:41",
+  "wordCount":  194 ,
+  "datePublished" : "2024-11-08T21:02:56",
+  "dateModified" : "2024-11-08T21:02:56",
   "image" : "https:\/\/whatacold.io\/img\/avatar.png",
-  "keywords" : [ "Babashka, Clojure" ],
-  "mainEntityOfPage" : "https:\/\/whatacold.io\/blog\/2021-07-11-babashka-random-password-generator\/",
+  "keywords" : [ "Clojure, Tweet" ],
+  "mainEntityOfPage" : "https:\/\/whatacold.io\/blog\/2024-11-08-clojure-thread-macro-anonymous-function\/",
   "publisher" : {
     "@type": "Organization",
     "name" : "https:\/\/whatacold.io\/",
@@ -83,17 +83,16 @@ Scripting is an excellent field to practice, but the experience is not so good. 
 }
 </script>
 
-<meta property="og:title" content="A Random Password Generator in Babashka" />
-<meta property="og:description" content="I&#39;m used to learning by practicing, so when I learned Clojure, I always kept an eye on chances to write code in it.
-Scripting is an excellent field to practice, but the experience is not so good. On the one hand, it&#39;s too hacky to wrap Clojure code in a shell script with the shell bang. On the other hand, the startup time of JVM is too long to hurt the user experience.">
+<meta property="og:title" content="Anonymous Functions in Thread Macros" />
+<meta property="og:description" content="While adding the live reload feature to Clay, I encountered a problem of applying anonymous functions to thread macros. For example, below is a simple snippet trying to wrap the input directory as a vector with the help of thread macro, but surprisingly, it errors out. After some searching, I figured out that I need to put the anonymous function into another pair of parentheses:
+(-&gt; &#34;/tmp/&#34; #(if (vector? %) % [%])) ;; =&gt; Syntax error (ClassCastException) compiling fn* at (simple4all.">
 <meta property="og:image" content="https://whatacold.io/img/avatar.png" />
-<meta property="og:url" content="https://whatacold.io/blog/2021-07-11-babashka-random-password-generator/" />
+<meta property="og:url" content="https://whatacold.io/blog/2024-11-08-clojure-thread-macro-anonymous-function/" />
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="whatacold&#39;s space" />
 
-  <meta name="twitter:title" content="A Random Password Generator in Babashka" />
-  <meta name="twitter:description" content="I&#39;m used to learning by practicing, so when I learned Clojure, I always kept an eye on chances to write code in it.
-Scripting is an excellent field to practice, but the experience is not so good. …">
+  <meta name="twitter:title" content="Anonymous Functions in Thread Macros" />
+  <meta name="twitter:description" content="While adding the live reload feature to Clay, I encountered a problem of applying anonymous functions to thread macros. For example, below is a simple snippet trying to wrap the input directory as a …">
   <meta name="twitter:image" content="https://whatacold.io/img/avatar.png" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:site" content="@whatacold" />
@@ -259,7 +258,7 @@ Scripting is an excellent field to practice, but the experience is not so good. 
           <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
             <div class="blog-heading">
               
-                <h1>A Random Password Generator in Babashka</h1>
+                <h1>Anonymous Functions in Thread Macros</h1>
               
               
                 <hr class="small">
@@ -281,65 +280,38 @@ Scripting is an excellent field to practice, but the experience is not so good. 
     <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
       <article role="main" class="blog-post">
         <p>
-I&#39;m used to learning by practicing, so when I learned Clojure, I always kept an eye on chances to write code in it.</p>
-<p>
-Scripting is an excellent field to practice, but the experience is not so good. On the one hand, it&#39;s too hacky to wrap Clojure code in a shell script with the shell bang. On the other hand, the startup time of JVM is too long to hurt the user experience.</p>
-<p>
-It seems this is a dead end until I found <a href="https://book.babashka.org/">Babashka</a> on Reddit one day, it really blew my mind with its lightning-fast startup speed, and it&#39;s also Clojure.</p>
-<p>
-So what can I do with it?</p>
-<p>
-Many websites require us to have a username and a password, and it&#39;s risky to have the same or similar passwords for them. But it takes time to come up with passwords for every website. So why not generating random passwords in Babashka?</p>
-<p>
-The requirements for it would be:</p>
-<ol>
-<li>The characters should be random.</li>
-<li>It should be long enough. 12 or 16 is good.</li>
-<li>The password should be a combination of lowercase letters, uppercase letters, numbers, and symbols.
-
-Well, this requirement is not met yet.</li>
-</ol>
-<p>As for the first one, I learned how to do it in Clojure when I read <a href="https://github.com/lk-geimfari/secrets.clj">secrets.clj</a>, <code class="verbatim">java.security</code> is a good fit for it.</p>
-<p>
-The journey to implement it was fun, as I can write the code bottom-up and top-down, and I can quickly experiment and test the code with REPL.</p>
-<figure>
-<img src="/img/2021-07-11-babashka-random-password-generator.png" alt="/img/2021-07-11-babashka-random-password-generator.png" title="/img/2021-07-11-babashka-random-password-generator.png" /><figcaption>
-Generate Random Passwords in No Time
-</figcaption>
-</figure>
-<p>
-The final code is quite simple:</p>
+While adding <a href="https://github.com/scicloj/clay/pull/165">the live reload feature</a> to Clay, I encountered a problem of applying anonymous functions to thread macros. For example, below is a simple snippet trying to wrap the input directory as a vector with the help of thread macro, but surprisingly, it errors out. After some searching, I figured out that I need to put the anonymous function into another pair of parentheses:</p>
 <div class="src src-clojure">
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-clojure" data-lang="clojure"><span class="line"><span class="cl"><span class="o">#</span><span class="nv">!/usr/bin/env</span> <span class="nv">bb</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-clojure" data-lang="clojure"><span class="line"><span class="cl"><span class="p">(</span><span class="nb">-&gt; </span><span class="s">&#34;/tmp/&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="o">#</span><span class="p">(</span><span class="k">if </span><span class="p">(</span><span class="nb">vector? </span><span class="nv">%</span><span class="p">)</span> <span class="nv">%</span> <span class="p">[</span><span class="nv">%</span><span class="p">]))</span>
+</span></span><span class="line"><span class="cl"><span class="c1">;; =&gt; Syntax error (ClassCastException) compiling fn* at (simple4all.clj:19:1).</span>
+</span></span><span class="line"><span class="cl"><span class="c1">;;    class java.lang.String cannot be cast to class clojure.lang.ISeq (java.lang.String is in module java.base of loader &#39;bootstrap&#39;; clojure.lang.ISeq is in unnamed module of loader &#39;app&#39;)</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="p">(</span><span class="nb">import </span><span class="p">[</span><span class="nv">java.security</span> <span class="nv">SecureRandom</span><span class="p">])</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="p">(</span><span class="k">def </span><span class="o">^</span><span class="ss">:private</span> <span class="nv">rng</span> <span class="p">(</span><span class="nf">SecureRandom.</span><span class="p">))</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="p">(</span><span class="k">let </span><span class="p">[</span><span class="nv">len</span> <span class="mi">16</span>
-</span></span><span class="line"><span class="cl">      <span class="nv">passwd</span> <span class="p">(</span><span class="nf">char-array</span> <span class="nv">len</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">      <span class="nv">chars</span> <span class="p">(</span><span class="nb">map char </span><span class="p">(</span><span class="nb">concat </span><span class="p">(</span><span class="nb">range </span><span class="mi">48</span> <span class="mi">58</span><span class="p">)</span> <span class="c1">; 0-9</span>
-</span></span><span class="line"><span class="cl">                              <span class="p">(</span><span class="nb">range </span><span class="mi">65</span> <span class="mi">91</span><span class="p">)</span> <span class="c1">; A-Z</span>
-</span></span><span class="line"><span class="cl">                              <span class="p">(</span><span class="nb">range </span><span class="mi">97</span> <span class="mi">123</span><span class="p">)</span> <span class="c1">; a-z</span>
-</span></span><span class="line"><span class="cl">                              <span class="p">[</span><span class="sc">\~</span> <span class="sc">\!</span> <span class="sc">\@</span> <span class="sc">\#</span> <span class="sc">\$</span> <span class="sc">\%</span> <span class="sc">\^</span> <span class="sc">\&amp;</span> <span class="sc">\*</span> <span class="sc">\(</span> <span class="sc">\)</span> <span class="sc">\-</span> <span class="sc">\+</span> <span class="sc">\=</span><span class="p">]))</span>
-</span></span><span class="line"><span class="cl">      <span class="nv">nchars</span> <span class="p">(</span><span class="nb">count </span><span class="nv">chars</span><span class="p">)]</span>
-</span></span><span class="line"><span class="cl">  <span class="p">(</span><span class="nb">println </span><span class="p">(</span><span class="nf">clojure.string/join</span> <span class="s">&#34;&#34;</span>
-</span></span><span class="line"><span class="cl">                                <span class="p">(</span><span class="nb">mapcat </span><span class="p">(</span><span class="k">fn </span><span class="p">[</span><span class="nv">char</span><span class="p">]</span>
-</span></span><span class="line"><span class="cl">                                          <span class="p">(</span><span class="nb">str </span><span class="p">(</span><span class="nb">nth </span><span class="nv">chars</span> <span class="p">(</span><span class="nf">.nextInt</span> <span class="nv">rng</span> <span class="nv">nchars</span><span class="p">))))</span>
-</span></span><span class="line"><span class="cl">                                        <span class="nv">passwd</span><span class="p">))))</span></span></span></code></pre></div>
+</span></span><span class="line"><span class="cl"><span class="p">(</span><span class="nb">-&gt; </span><span class="s">&#34;/tmp/&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">(</span><span class="o">#</span><span class="p">(</span><span class="k">if </span><span class="p">(</span><span class="nb">vector? </span><span class="nv">%</span><span class="p">)</span> <span class="nv">%</span> <span class="p">[</span><span class="nv">%</span><span class="p">])))</span>
+</span></span><span class="line"><span class="cl"><span class="c1">;; =&gt; [&#34;/tmp/&#34;]</span></span></span></code></pre></div>
 </div>
 <p>
-I make a git repo, <a href="https://github.com/whatacold/babashka-tools">babashka-tools</a>, for it at GitHub. I can&#39;t wait to have other ideas to write code in Babashka.</p>
-<p>
-Any ideas or suggestions?</p>
+Paul has a nice explanation on <a href="https://stackoverflow.com/a/7838577">Stack Overflow</a>, <a href="https://clojuredocs.org/clojure.core/-%3E">thread macros</a> need the function forms to be lists, but anonymous functions are already lists, so the first expression, <code class="verbatim">&#34;/tmp/&#34;</code> in this example, will just be inserted into that list, just as illustrated below:</p>
+<div class="src src-clojure">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-clojure" data-lang="clojure"><span class="line"><span class="cl"><span class="p">(</span><span class="nb">macroexpand </span><span class="o">&#39;#</span><span class="p">(</span><span class="k">if </span><span class="p">(</span><span class="nb">vector? </span><span class="nv">%</span><span class="p">)</span> <span class="nv">%</span> <span class="p">[</span><span class="nv">%</span><span class="p">]))</span>
+</span></span><span class="line"><span class="cl"><span class="c1">;; =&gt; (fn* [p1__11055#] (if (vector? p1__11055#) p1__11055# [p1__11055#]))</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">(</span><span class="nb">macroexpand </span><span class="o">&#39;</span><span class="p">(</span><span class="nb">-&gt; </span><span class="s">&#34;/tmp/&#34;</span>
+</span></span><span class="line"><span class="cl">                  <span class="o">#</span><span class="p">(</span><span class="k">if </span><span class="p">(</span><span class="nb">vector? </span><span class="nv">%</span><span class="p">)</span> <span class="nv">%</span> <span class="p">[</span><span class="nv">%</span><span class="p">])))</span>
+</span></span><span class="line"><span class="cl"><span class="c1">;; =&gt; (fn*</span>
+</span></span><span class="line"><span class="cl"><span class="c1">;;     &#34;/tmp/&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="c1">;;     [p1__11079#]</span>
+</span></span><span class="line"><span class="cl"><span class="c1">;;     (if (vector? p1__11079#) p1__11079# [p1__11079#]))</span></span></span></code></pre></div>
+</div>
 
 
         
           <div class="blog-tags">
             
-              <a href="https://whatacold.io//tags/babashka/">Babashka</a>&nbsp;
-            
               <a href="https://whatacold.io//tags/clojure/">Clojure</a>&nbsp;
+            
+              <a href="https://whatacold.io//tags/tweet/">Tweet</a>&nbsp;
             
           </div>
         
@@ -354,42 +326,42 @@ Any ideas or suggestions?</p>
     <ul class="share">
       
       <li>
-        <a href="//twitter.com/share?url=https%3a%2f%2fwhatacold.io%2fblog%2f2021-07-11-babashka-random-password-generator%2f&amp;text=A%20Random%20Password%20Generator%20in%20Babashka&amp;via=whatacold" target="_blank" title="Share on Twitter">
+        <a href="//twitter.com/share?url=https%3a%2f%2fwhatacold.io%2fblog%2f2024-11-08-clojure-thread-macro-anonymous-function%2f&amp;text=Anonymous%20Functions%20in%20Thread%20Macros&amp;via=whatacold" target="_blank" title="Share on Twitter">
           <i class="fab fa-twitter"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fwhatacold.io%2fblog%2f2021-07-11-babashka-random-password-generator%2f" target="_blank" title="Share on Facebook">
+        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fwhatacold.io%2fblog%2f2024-11-08-clojure-thread-macro-anonymous-function%2f" target="_blank" title="Share on Facebook">
           <i class="fab fa-facebook"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//reddit.com/submit?url=https%3a%2f%2fwhatacold.io%2fblog%2f2021-07-11-babashka-random-password-generator%2f&amp;title=A%20Random%20Password%20Generator%20in%20Babashka" target="_blank" title="Share on Reddit">
+        <a href="//reddit.com/submit?url=https%3a%2f%2fwhatacold.io%2fblog%2f2024-11-08-clojure-thread-macro-anonymous-function%2f&amp;title=Anonymous%20Functions%20in%20Thread%20Macros" target="_blank" title="Share on Reddit">
           <i class="fab fa-reddit"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fwhatacold.io%2fblog%2f2021-07-11-babashka-random-password-generator%2f&amp;title=A%20Random%20Password%20Generator%20in%20Babashka" target="_blank" title="Share on LinkedIn">
+        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fwhatacold.io%2fblog%2f2024-11-08-clojure-thread-macro-anonymous-function%2f&amp;title=Anonymous%20Functions%20in%20Thread%20Macros" target="_blank" title="Share on LinkedIn">
           <i class="fab fa-linkedin"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fwhatacold.io%2fblog%2f2021-07-11-babashka-random-password-generator%2f&amp;title=A%20Random%20Password%20Generator%20in%20Babashka" target="_blank" title="Share on StumbleUpon">
+        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fwhatacold.io%2fblog%2f2024-11-08-clojure-thread-macro-anonymous-function%2f&amp;title=Anonymous%20Functions%20in%20Thread%20Macros" target="_blank" title="Share on StumbleUpon">
           <i class="fab fa-stumbleupon"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fwhatacold.io%2fblog%2f2021-07-11-babashka-random-password-generator%2f&amp;description=A%20Random%20Password%20Generator%20in%20Babashka" target="_blank" title="Share on Pinterest">
+        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fwhatacold.io%2fblog%2f2024-11-08-clojure-thread-macro-anonymous-function%2f&amp;description=Anonymous%20Functions%20in%20Thread%20Macros" target="_blank" title="Share on Pinterest">
           <i class="fab fa-pinterest"></i>
         </a>
       </li>
@@ -411,8 +383,6 @@ Any ideas or suggestions?</p>
                   <ul>
                 
                 
-                    <li><a href="/blog/2024-11-08-clojure-thread-macro-anonymous-function/">Anonymous Functions in Thread Macros</a></li>
-                
                     <li><a href="/blog/2024-11-08-cider-clojure-repl-cmdline/">Start a Clojure nREPL in the Command Line for Cider</a></li>
                 
                     <li><a href="/blog/2021-09-19-clojure-reduce-text-processing/">Clojure reduce: one case for text processing</a></li>
@@ -420,6 +390,8 @@ Any ideas or suggestions?</p>
                     <li><a href="/blog/2021-08-07-illustrate-clojure-snippet/">illustrate.clj to Illustrate Clojure Snippet</a></li>
                 
                     <li><a href="/blog/2021-07-25-clojure-string-title-case/">String Title Case in Clojure</a></li>
+                
+                    <li><a href="/blog/2021-07-22-clojure-string-manipulation/">String Manipulation in Clojure</a></li>
                 
               </ul>
 
@@ -431,13 +403,9 @@ Any ideas or suggestions?</p>
         <ul class="pager blog-pager">
           
             <li class="previous">
-              <a href="https://whatacold.io/blog/2020-10-21-a-python-re.findall-service/" data-toggle="tooltip" data-placement="top" title="An Online Python re.findall Service">&larr; Previous Post</a>
+              <a href="https://whatacold.io/blog/2024-11-08-cider-clojure-repl-cmdline/" data-toggle="tooltip" data-placement="top" title="Start a Clojure nREPL in the Command Line for Cider">&larr; Previous Post</a>
             </li>
           
-          
-            <li class="next">
-              <a href="https://whatacold.io/blog/2021-07-17-emacs-i3wm-dunst/" data-toggle="tooltip" data-placement="top" title="Send Notifications from Emacs with i3wm and Dunst">Next Post &rarr;</a>
-            </li>
           
         </ul>
       

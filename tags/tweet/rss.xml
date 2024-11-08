@@ -8,8 +8,15 @@
     <language>en</language>
     <managingEditor>whatacold@gmail.com (whatacold)</managingEditor>
     <webMaster>whatacold@gmail.com (whatacold)</webMaster>
-    <lastBuildDate>Fri, 08 Nov 2024 00:18:02 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 08 Nov 2024 21:32:45 +0800</lastBuildDate>
     <atom:link href="https://whatacold.io/tags/tweet/rss.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Anonymous Functions in Thread Macros</title>
+      <link>https://whatacold.io/blog/2024-11-08-clojure-thread-macro-anonymous-function/</link>
+      <pubDate>Fri, 08 Nov 2024 21:02:56 +0800</pubDate><author>whatacold@gmail.com (whatacold)</author>
+      <guid>https://whatacold.io/blog/2024-11-08-clojure-thread-macro-anonymous-function/</guid>
+      <description>While adding the live reload feature to Clay, I encountered a problem of applying anonymous functions to thread macros. For example, below is a simple snippet trying to wrap the input directory as a vector with the help of thread macro, but surprisingly, it errors out. After some searching, I figured out that I need to put the anonymous function into another pair of parentheses:&#xA;(-&amp;gt; &amp;#34;/tmp/&amp;#34; #(if (vector? %) % [%])) ;; =&amp;gt; Syntax error (ClassCastException) compiling fn* at (simple4all.</description>
+    </item>
     <item>
       <title>Start a Clojure nREPL in the Command Line for Cider</title>
       <link>https://whatacold.io/blog/2024-11-08-cider-clojure-repl-cmdline/</link>

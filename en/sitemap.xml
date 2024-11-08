@@ -2,8 +2,11 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://whatacold.io/blog/2024-11-08-clojure-thread-macro-anonymous-function/</loc>
+    <lastmod>2024-11-08T21:32:45+08:00</lastmod>
+  </url><url>
     <loc>https://whatacold.io/blog/</loc>
-    <lastmod>2024-11-08T00:18:02+08:00</lastmod>
+    <lastmod>2024-11-08T21:32:45+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="zh-cn"
@@ -15,11 +18,8 @@
                 href="https://whatacold.io/blog/"
                 />
   </url><url>
-    <loc>https://whatacold.io/tags/cider/</loc>
-    <lastmod>2024-11-08T00:18:02+08:00</lastmod>
-  </url><url>
     <loc>https://whatacold.io/tags/clojure/</loc>
-    <lastmod>2024-11-08T00:18:02+08:00</lastmod>
+    <lastmod>2024-11-08T21:32:45+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="zh-cn"
@@ -31,11 +31,8 @@
                 href="https://whatacold.io/tags/clojure/"
                 />
   </url><url>
-    <loc>https://whatacold.io/blog/2024-11-08-cider-clojure-repl-cmdline/</loc>
-    <lastmod>2024-11-08T00:18:02+08:00</lastmod>
-  </url><url>
     <loc>https://whatacold.io/tags/</loc>
-    <lastmod>2024-11-08T00:18:02+08:00</lastmod>
+    <lastmod>2024-11-08T21:32:45+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="zh-cn"
@@ -48,10 +45,10 @@
                 />
   </url><url>
     <loc>https://whatacold.io/tags/tweet/</loc>
-    <lastmod>2024-11-08T00:18:02+08:00</lastmod>
+    <lastmod>2024-11-08T21:32:45+08:00</lastmod>
   </url><url>
     <loc>https://whatacold.io/</loc>
-    <lastmod>2024-11-08T00:18:02+08:00</lastmod>
+    <lastmod>2024-11-08T21:32:45+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="zh-cn"
@@ -62,6 +59,12 @@
                 hreflang="en"
                 href="https://whatacold.io/"
                 />
+  </url><url>
+    <loc>https://whatacold.io/tags/cider/</loc>
+    <lastmod>2024-11-08T00:18:02+08:00</lastmod>
+  </url><url>
+    <loc>https://whatacold.io/blog/2024-11-08-cider-clojure-repl-cmdline/</loc>
+    <lastmod>2024-11-08T00:18:02+08:00</lastmod>
   </url><url>
     <loc>https://whatacold.io/tags/emacs/</loc>
     <lastmod>2023-12-10T11:33:36+08:00</lastmod>
