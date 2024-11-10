@@ -233,6 +233,100 @@
         <div class="posts-list">
           
             <article class="post-preview">
+    <a href="https://whatacold.io/blog/2020-05-30-a-trick-to-troubleshoot-emacs-subprocess-creating/">
+        <h2 class="post-title">A Trick to Troubleshoot Emacs Subprocess Creating</h2>
+        
+        
+        
+    </a>
+
+    <p class="post-meta">
+        <span class="post-meta">
+  
+  
+  <i class="fas fa-calendar"></i>&nbsp;Posted on 2020-05-30
+  
+    &nbsp;(Last modified on 2022-10-15)
+  
+  
+    &nbsp;|&nbsp;<i class="fas fa-clock"></i>&nbsp;2&nbsp;minutes
+  
+  
+    &nbsp;|&nbsp;<i class="fas fa-book"></i>&nbsp;290&nbsp;words
+  
+  
+  
+</span>
+
+
+    </p>
+    <div class="post-entry">
+        
+        There are many packages of Emacs that leverage subprocesses to do their jobs, Magit, eglot, elpy, to name a few. And there are times that a subprocess doesn&#39;t work as expected, for example, Magit is slow, and you&#39;re sure that it&#39;s ok when running git commands on shell. So how to spot these problems effectively and quickly?
+The problem is that we don&#39;t know what&#39;s going on exactly, so here I want to share a few Elisp advices to make the subprocess creating visible, and print the exact program and its arguments to the *Message* buffer.
+        <a href="https://whatacold.io/blog/2020-05-30-a-trick-to-troubleshoot-emacs-subprocess-creating/" class="post-read-more">[Read More]</a>
+        
+    </div>
+
+    
+    <div class="blog-tags">
+        
+        <a href="https://whatacold.io//tags/emacs/">Emacs</a>&nbsp;
+        
+        <a href="https://whatacold.io//tags/troubleshooting/">troubleshooting</a>&nbsp;
+        
+        <a href="https://whatacold.io//tags/debugging/">Debugging</a>&nbsp;
+        
+    </div>
+    
+
+</article>
+          
+            <article class="post-preview">
+    <a href="https://whatacold.io/blog/2020-03-07-ppcompile-to-help-stay-coding-locally/">
+        <h2 class="post-title">ppcompile: An Emacs Package to Help Coding Locally</h2>
+        
+        
+        
+    </a>
+
+    <p class="post-meta">
+        <span class="post-meta">
+  
+  
+  <i class="fas fa-calendar"></i>&nbsp;Posted on 2020-03-07
+  
+  
+    &nbsp;|&nbsp;<i class="fas fa-clock"></i>&nbsp;2&nbsp;minutes
+  
+  
+    &nbsp;|&nbsp;<i class="fas fa-book"></i>&nbsp;338&nbsp;words
+  
+  
+  
+</span>
+
+
+    </p>
+    <div class="post-entry">
+        
+        If you are a C/C++ programmer like me, you may experience jumping around different machines to write and compile your code, or you may write code on different machines for different projects, and scp/rsync/ftp the projects around. It works, but it&#39;s a bit tedious and takes too much burden on our brains.
+For example, say I have two projects that should be compiled on their compiling machines respectively. There are two obvious workflows for writing code for them &#34;simultaneously&#34;:
+        <a href="https://whatacold.io/blog/2020-03-07-ppcompile-to-help-stay-coding-locally/" class="post-read-more">[Read More]</a>
+        
+    </div>
+
+    
+    <div class="blog-tags">
+        
+        <a href="https://whatacold.io//tags/emacs/">Emacs</a>&nbsp;
+        
+    </div>
+    
+
+</article>
+          
+            <article class="post-preview">
     <a href="https://whatacold.io/blog/2020-02-04-binary-search-algorithm-vs-problem-solving/">
         <h2 class="post-title">The Binary Search Idea for Narrowing Down Problem Space</h2>
         
@@ -606,99 +700,6 @@ The first thought came into my mind was to find some browser extensions to do th
         <a href="https://whatacold.io//tags/tools/">Tools</a>&nbsp;
         
         <a href="https://whatacold.io//tags/bookmarklet/">Bookmarklet</a>&nbsp;
-        
-    </div>
-    
-
-</article>
-          
-            <article class="post-preview">
-    <a href="https://whatacold.io/blog/2019-07-20-generating-org-mode-outlines-for-wikihow-articles/">
-        <h2 class="post-title">Generating org-mode Outlines for wikiHow Articles</h2>
-        
-        
-        
-    </a>
-
-    <p class="post-meta">
-        <span class="post-meta">
-  
-  
-  <i class="fas fa-calendar"></i>&nbsp;Posted on 2019-07-20
-  
-  
-    &nbsp;|&nbsp;<i class="fas fa-clock"></i>&nbsp;2&nbsp;minutes
-  
-  
-    &nbsp;|&nbsp;<i class="fas fa-book"></i>&nbsp;249&nbsp;words
-  
-  
-  
-</span>
-
-
-    </p>
-    <div class="post-entry">
-        
-        Recently I found some great articles on wikiHow, then I want to keep notes of them in org-mode files.
-At first, I manually copied the ToC of articles, but soon I found it&#39;s tedious and takes a lot of time. Today I wrote a requests-based Python script to help me extract the ToCs (Table of Content) into org-mode outlines. It takes two arguments, the first one is the URL, the second one is the containing heading&#39;s level for the generated ToC in org-mode.
-        <a href="https://whatacold.io/blog/2019-07-20-generating-org-mode-outlines-for-wikihow-articles/" class="post-read-more">[Read More]</a>
-        
-    </div>
-
-    
-    <div class="blog-tags">
-        
-        <a href="https://whatacold.io//tags/org-mode/">Org-mode</a>&nbsp;
-        
-        <a href="https://whatacold.io//tags/python/">Python</a>&nbsp;
-        
-        <a href="https://whatacold.io//tags/emacs/">Emacs</a>&nbsp;
-        
-    </div>
-    
-
-</article>
-          
-            <article class="post-preview">
-    <a href="https://whatacold.io/blog/2019-07-20-understanding-align-regexp-of-emacs/">
-        <h2 class="post-title">Understanding align-regexp of Emacs</h2>
-        
-        
-        
-    </a>
-
-    <p class="post-meta">
-        <span class="post-meta">
-  
-  
-  <i class="fas fa-calendar"></i>&nbsp;Posted on 2019-07-20
-  
-  
-    &nbsp;|&nbsp;<i class="fas fa-clock"></i>&nbsp;2&nbsp;minutes
-  
-  
-    &nbsp;|&nbsp;<i class="fas fa-book"></i>&nbsp;281&nbsp;words
-  
-  
-  
-</span>
-
-
-    </p>
-    <div class="post-entry">
-        
-        Emacs&#39; M-x align-regex is neat when I want to align some similar text, especially when we&#39;re coding. I use its trivial version(without prefix arg) regularly on day-to-day programming work before.
-For example, I can use it to align below code quickly by:
-Choose the region M-x align-regexp and type = and Enter aaaaaaaaaaaaaa = fields[0] bbb = fields[1] cccccccc = fields[2] It will be aligned to below code, now it&#39;s better to read:
-        <a href="https://whatacold.io/blog/2019-07-20-understanding-align-regexp-of-emacs/" class="post-read-more">[Read More]</a>
-        
-    </div>
-
-    
-    <div class="blog-tags">
-        
-        <a href="https://whatacold.io//tags/emacs/">Emacs</a>&nbsp;
         
     </div>
     

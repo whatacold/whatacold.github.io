@@ -10,10 +10,10 @@
  
 
 
-      <title>Anonymous Functions in Thread Macros - Blog</title>
+      <title>Bitten by Lazy Sequence of map - Blog</title>
 
-  <meta name="description" content="While adding the live reload feature to Clay, I encountered a problem of applying anonymous functions to thread macros. For example, below is a simple snippet trying to wrap the input directory as a vector with the help of thread macro, but surprisingly, it errors out. After some searching, I figured out that I need to put the anonymous function into another pair of parentheses:
-(-&gt; &#34;/tmp/&#34; #(if (vector? %) % [%])) ;; =&gt; Syntax error (ClassCastException) compiling fn* at (simple4all.">
+  <meta name="description" content="While impletenting the live reload feature for Clay a few weeks ago, unfortunately, I was bitten by the laziness of map. It seems quite obvious we all know that its result is a lazy sequence, but I just can&#39;t help fall into the &#34;trap&#34;.
+At that time I was adding a vector to keep track of all beholder instances watching file changes in user specified directories. So then when it&#39;s time to stop all the watchers, I used something like to achieve the goal:">
   <meta name="author" content="whatacold"/><script type="application/ld+json">
 {
     "@context": "http://schema.org",
@@ -49,8 +49,8 @@
         "@type": "ListItem",
         "position": 3,
         "item": {
-          "@id": "https:\/\/whatacold.io\/blog\/2024-11-08-clojure-thread-macro-anonymous-function\/",
-          "name": "Anonymous functions in thread macros"
+          "@id": "https:\/\/whatacold.io\/blog\/2024-11-10-clojure-lazy-seq-case\/",
+          "name": "Bitten by lazy sequence of map"
         }
     }]
 }
@@ -61,15 +61,15 @@
   "author": {
     "name" : "whatacold"
   },
-  "headline": "Anonymous Functions in Thread Macros",
-  "description" : "While adding the live reload feature to Clay, I encountered a problem of applying anonymous functions to thread macros. For example, below is a simple snippet trying to wrap the input directory as a vector with the help of thread macro, but surprisingly, it errors out. After some searching, I figured out that I need to put the anonymous function into another pair of parentheses:\n(-\u0026gt; \u0026#34;\/tmp\/\u0026#34; #(if (vector? %) % [%])) ;; =\u0026gt; Syntax error (ClassCastException) compiling fn* at (simple4all.",
+  "headline": "Bitten by Lazy Sequence of map",
+  "description" : "While impletenting the live reload feature for Clay a few weeks ago, unfortunately, I was bitten by the laziness of map. It seems quite obvious we all know that its result is a lazy sequence, but I just can\u0026#39;t help fall into the \u0026#34;trap\u0026#34;.\nAt that time I was adding a vector to keep track of all beholder instances watching file changes in user specified directories. So then when it\u0026#39;s time to stop all the watchers, I used something like to achieve the goal:",
   "inLanguage" : "en",
-  "wordCount":  194 ,
-  "datePublished" : "2024-11-08T21:02:56",
-  "dateModified" : "2024-11-08T21:02:56",
+  "wordCount":  167 ,
+  "datePublished" : "2024-11-09T21:02:56",
+  "dateModified" : "2024-11-09T21:02:56",
   "image" : "https:\/\/whatacold.io\/img\/avatar.png",
   "keywords" : [ "Clojure, Tweet" ],
-  "mainEntityOfPage" : "https:\/\/whatacold.io\/blog\/2024-11-08-clojure-thread-macro-anonymous-function\/",
+  "mainEntityOfPage" : "https:\/\/whatacold.io\/blog\/2024-11-10-clojure-lazy-seq-case\/",
   "publisher" : {
     "@type": "Organization",
     "name" : "https:\/\/whatacold.io\/",
@@ -83,16 +83,16 @@
 }
 </script>
 
-<meta property="og:title" content="Anonymous Functions in Thread Macros" />
-<meta property="og:description" content="While adding the live reload feature to Clay, I encountered a problem of applying anonymous functions to thread macros. For example, below is a simple snippet trying to wrap the input directory as a vector with the help of thread macro, but surprisingly, it errors out. After some searching, I figured out that I need to put the anonymous function into another pair of parentheses:
-(-&gt; &#34;/tmp/&#34; #(if (vector? %) % [%])) ;; =&gt; Syntax error (ClassCastException) compiling fn* at (simple4all.">
+<meta property="og:title" content="Bitten by Lazy Sequence of map" />
+<meta property="og:description" content="While impletenting the live reload feature for Clay a few weeks ago, unfortunately, I was bitten by the laziness of map. It seems quite obvious we all know that its result is a lazy sequence, but I just can&#39;t help fall into the &#34;trap&#34;.
+At that time I was adding a vector to keep track of all beholder instances watching file changes in user specified directories. So then when it&#39;s time to stop all the watchers, I used something like to achieve the goal:">
 <meta property="og:image" content="https://whatacold.io/img/avatar.png" />
-<meta property="og:url" content="https://whatacold.io/blog/2024-11-08-clojure-thread-macro-anonymous-function/" />
+<meta property="og:url" content="https://whatacold.io/blog/2024-11-10-clojure-lazy-seq-case/" />
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="whatacold&#39;s space" />
 
-  <meta name="twitter:title" content="Anonymous Functions in Thread Macros" />
-  <meta name="twitter:description" content="While adding the live reload feature to Clay, I encountered a problem of applying anonymous functions to thread macros. For example, below is a simple snippet trying to wrap the input directory as a …">
+  <meta name="twitter:title" content="Bitten by Lazy Sequence of map" />
+  <meta name="twitter:description" content="While impletenting the live reload feature for Clay a few weeks ago, unfortunately, I was bitten by the laziness of map. It seems quite obvious we all know that its result is a lazy sequence, but I …">
   <meta name="twitter:image" content="https://whatacold.io/img/avatar.png" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:site" content="@whatacold" />
@@ -258,7 +258,7 @@
           <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
             <div class="blog-heading">
               
-                <h1>Anonymous Functions in Thread Macros</h1>
+                <h1>Bitten by Lazy Sequence of map</h1>
               
               
                 <hr class="small">
@@ -280,34 +280,28 @@
     <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
       <article role="main" class="blog-post">
         <p>
-While adding <a href="https://github.com/scicloj/clay/pull/165">the live reload feature</a> to Clay, I encountered a problem
-of applying anonymous functions to thread macros. For example, below
-is a simple snippet trying to wrap the input directory as a vector
-with the help of thread macro, but surprisingly, it errors out. After
-some searching, I figured out that I need to put the anonymous
-function into another pair of parentheses:</p>
+While impletenting the live reload feature for <a href="https://github.com/scicloj/clay">Clay</a> a few weeks ago, unfortunately, I was bitten by the laziness of <a href="https://clojuredocs.org/clojure.core/map">map</a>. It seems quite obvious we all know that its result is a lazy sequence, but I just can&#39;t help fall into the &#34;trap&#34;.</p>
+<p>
+At that time I was adding a vector to keep track of all <a href="https://github.com/nextjournal/beholder">beholder</a> instances watching file changes in user specified directories. So then when it&#39;s time to stop all the watchers, I used something like to achieve the goal:</p>
 <div class="src src-clojure">
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-clojure" data-lang="clojure"><span class="line"><span class="cl"><span class="p">(</span><span class="nb">-&gt; </span><span class="s">&#34;/tmp/&#34;</span>
-</span></span><span class="line"><span class="cl">    <span class="o">#</span><span class="p">(</span><span class="k">if </span><span class="p">(</span><span class="nb">vector? </span><span class="nv">%</span><span class="p">)</span> <span class="nv">%</span> <span class="p">[</span><span class="nv">%</span><span class="p">]))</span>
-</span></span><span class="line"><span class="cl"><span class="c1">;; =&gt; Syntax error (ClassCastException) compiling fn* at (simple4all.clj:19:1).</span>
-</span></span><span class="line"><span class="cl"><span class="c1">;;    class java.lang.String cannot be cast to class clojure.lang.ISeq (java.lang.String is in module java.base of loader &#39;bootstrap&#39;; clojure.lang.ISeq is in unnamed module of loader &#39;app&#39;)</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="p">(</span><span class="nb">-&gt; </span><span class="s">&#34;/tmp/&#34;</span>
-</span></span><span class="line"><span class="cl">    <span class="p">(</span><span class="o">#</span><span class="p">(</span><span class="k">if </span><span class="p">(</span><span class="nb">vector? </span><span class="nv">%</span><span class="p">)</span> <span class="nv">%</span> <span class="p">[</span><span class="nv">%</span><span class="p">])))</span>
-</span></span><span class="line"><span class="cl"><span class="c1">;; =&gt; [&#34;/tmp/&#34;]</span></span></span></code></pre></div>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-clojure" data-lang="clojure"><span class="line"><span class="cl"><span class="p">(</span><span class="kd">defn </span><span class="nv">stop-watchers</span>
+</span></span><span class="line"><span class="cl">  <span class="s">&#34;Stop all directory watchers.&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">[]</span>
+</span></span><span class="line"><span class="cl">  <span class="p">(</span><span class="nb">map </span><span class="nv">beholder/stop</span>
+</span></span><span class="line"><span class="cl">    <span class="p">(</span><span class="ss">:watchers</span> <span class="o">@</span><span class="nv">*dir-watchers</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">  <span class="p">(</span><span class="nf">reset!</span> <span class="nv">*dir-watchers</span> <span class="nv">dir-watchers-initial</span><span class="p">))</span></span></span></code></pre></div>
 </div>
 <p>
-Paul has a nice explanation on <a href="https://stackoverflow.com/a/7838577">Stack Overflow</a>, <a href="https://clojuredocs.org/clojure.core/-%3E">thread macros</a> need the function forms to be lists, but anonymous functions are already lists, so the first expression, <code class="verbatim">&#34;/tmp/&#34;</code> in this example, will just be inserted into that list, just as illustrated below:</p>
+But the problem was the callback function got called multiple times, when a file got changed. It did trap me for some time, what made me even confused was that when I eval&#39;ed the <code class="verbatim">map</code> form via cider, it worked perfectly.</p>
+<p>
+After realizing it was due to the laziness, the solution was simple:</p>
 <div class="src src-clojure">
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-clojure" data-lang="clojure"><span class="line"><span class="cl"><span class="p">(</span><span class="nb">macroexpand </span><span class="o">&#39;#</span><span class="p">(</span><span class="k">if </span><span class="p">(</span><span class="nb">vector? </span><span class="nv">%</span><span class="p">)</span> <span class="nv">%</span> <span class="p">[</span><span class="nv">%</span><span class="p">]))</span>
-</span></span><span class="line"><span class="cl"><span class="c1">;; =&gt; (fn* [p1__11055#] (if (vector? p1__11055#) p1__11055# [p1__11055#]))</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="p">(</span><span class="nb">macroexpand </span><span class="o">&#39;</span><span class="p">(</span><span class="nb">-&gt; </span><span class="s">&#34;/tmp/&#34;</span>
-</span></span><span class="line"><span class="cl">                  <span class="o">#</span><span class="p">(</span><span class="k">if </span><span class="p">(</span><span class="nb">vector? </span><span class="nv">%</span><span class="p">)</span> <span class="nv">%</span> <span class="p">[</span><span class="nv">%</span><span class="p">])))</span>
-</span></span><span class="line"><span class="cl"><span class="c1">;; =&gt; (fn*</span>
-</span></span><span class="line"><span class="cl"><span class="c1">;;     &#34;/tmp/&#34;</span>
-</span></span><span class="line"><span class="cl"><span class="c1">;;     [p1__11079#]</span>
-</span></span><span class="line"><span class="cl"><span class="c1">;;     (if (vector? p1__11079#) p1__11079# [p1__11079#]))</span></span></span></code></pre></div>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-clojure" data-lang="clojure"><span class="line"><span class="cl"><span class="p">(</span><span class="kd">defn </span><span class="nv">stop-watchers</span>
+</span></span><span class="line"><span class="cl">  <span class="s">&#34;Stop all directory watchers.&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">[]</span>
+</span></span><span class="line"><span class="cl">  <span class="p">(</span><span class="nb">doseq </span><span class="p">[</span><span class="nv">w</span> <span class="p">(</span><span class="ss">:watchers</span> <span class="o">@</span><span class="nv">*dir-watchers</span><span class="p">)]</span>
+</span></span><span class="line"><span class="cl">    <span class="p">(</span><span class="nf">beholder/stop</span> <span class="nv">w</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">  <span class="p">(</span><span class="nf">reset!</span> <span class="nv">*dir-watchers</span> <span class="nv">dir-watchers-initial</span><span class="p">))</span></span></span></code></pre></div>
 </div>
 
 
@@ -331,42 +325,42 @@ Paul has a nice explanation on <a href="https://stackoverflow.com/a/7838577">Sta
     <ul class="share">
       
       <li>
-        <a href="//twitter.com/share?url=https%3a%2f%2fwhatacold.io%2fblog%2f2024-11-08-clojure-thread-macro-anonymous-function%2f&amp;text=Anonymous%20Functions%20in%20Thread%20Macros&amp;via=whatacold" target="_blank" title="Share on Twitter">
+        <a href="//twitter.com/share?url=https%3a%2f%2fwhatacold.io%2fblog%2f2024-11-10-clojure-lazy-seq-case%2f&amp;text=Bitten%20by%20Lazy%20Sequence%20of%20map&amp;via=whatacold" target="_blank" title="Share on Twitter">
           <i class="fab fa-twitter"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fwhatacold.io%2fblog%2f2024-11-08-clojure-thread-macro-anonymous-function%2f" target="_blank" title="Share on Facebook">
+        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fwhatacold.io%2fblog%2f2024-11-10-clojure-lazy-seq-case%2f" target="_blank" title="Share on Facebook">
           <i class="fab fa-facebook"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//reddit.com/submit?url=https%3a%2f%2fwhatacold.io%2fblog%2f2024-11-08-clojure-thread-macro-anonymous-function%2f&amp;title=Anonymous%20Functions%20in%20Thread%20Macros" target="_blank" title="Share on Reddit">
+        <a href="//reddit.com/submit?url=https%3a%2f%2fwhatacold.io%2fblog%2f2024-11-10-clojure-lazy-seq-case%2f&amp;title=Bitten%20by%20Lazy%20Sequence%20of%20map" target="_blank" title="Share on Reddit">
           <i class="fab fa-reddit"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fwhatacold.io%2fblog%2f2024-11-08-clojure-thread-macro-anonymous-function%2f&amp;title=Anonymous%20Functions%20in%20Thread%20Macros" target="_blank" title="Share on LinkedIn">
+        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fwhatacold.io%2fblog%2f2024-11-10-clojure-lazy-seq-case%2f&amp;title=Bitten%20by%20Lazy%20Sequence%20of%20map" target="_blank" title="Share on LinkedIn">
           <i class="fab fa-linkedin"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fwhatacold.io%2fblog%2f2024-11-08-clojure-thread-macro-anonymous-function%2f&amp;title=Anonymous%20Functions%20in%20Thread%20Macros" target="_blank" title="Share on StumbleUpon">
+        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fwhatacold.io%2fblog%2f2024-11-10-clojure-lazy-seq-case%2f&amp;title=Bitten%20by%20Lazy%20Sequence%20of%20map" target="_blank" title="Share on StumbleUpon">
           <i class="fab fa-stumbleupon"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fwhatacold.io%2fblog%2f2024-11-08-clojure-thread-macro-anonymous-function%2f&amp;description=Anonymous%20Functions%20in%20Thread%20Macros" target="_blank" title="Share on Pinterest">
+        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fwhatacold.io%2fblog%2f2024-11-10-clojure-lazy-seq-case%2f&amp;description=Bitten%20by%20Lazy%20Sequence%20of%20map" target="_blank" title="Share on Pinterest">
           <i class="fab fa-pinterest"></i>
         </a>
       </li>
@@ -390,7 +384,7 @@ Paul has a nice explanation on <a href="https://stackoverflow.com/a/7838577">Sta
                 
                     <li><a href="/blog/2024-11-09-clj-deps-cmdline/">Adding Clojure Dependencies from the Command Line</a></li>
                 
-                    <li><a href="/blog/2024-11-10-clojure-lazy-seq-case/">Bitten by Lazy Sequence of map</a></li>
+                    <li><a href="/blog/2024-11-08-clojure-thread-macro-anonymous-function/">Anonymous Functions in Thread Macros</a></li>
                 
                     <li><a href="/blog/2024-11-08-cider-clojure-repl-cmdline/">Start a Clojure nREPL in the Command Line for Cider</a></li>
                 
@@ -408,12 +402,12 @@ Paul has a nice explanation on <a href="https://stackoverflow.com/a/7838577">Sta
         <ul class="pager blog-pager">
           
             <li class="previous">
-              <a href="https://whatacold.io/blog/2024-11-08-cider-clojure-repl-cmdline/" data-toggle="tooltip" data-placement="top" title="Start a Clojure nREPL in the Command Line for Cider">&larr; Previous Post</a>
+              <a href="https://whatacold.io/blog/2024-11-08-clojure-thread-macro-anonymous-function/" data-toggle="tooltip" data-placement="top" title="Anonymous Functions in Thread Macros">&larr; Previous Post</a>
             </li>
           
           
             <li class="next">
-              <a href="https://whatacold.io/blog/2024-11-10-clojure-lazy-seq-case/" data-toggle="tooltip" data-placement="top" title="Bitten by Lazy Sequence of map">Next Post &rarr;</a>
+              <a href="https://whatacold.io/blog/2024-11-09-clj-deps-cmdline/" data-toggle="tooltip" data-placement="top" title="Adding Clojure Dependencies from the Command Line">Next Post &rarr;</a>
             </li>
           
         </ul>

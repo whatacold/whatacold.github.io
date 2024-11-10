@@ -229,6 +229,104 @@
         <div class="posts-list">
           
             <article class="post-preview">
+    <a href="https://whatacold.io/blog/2024-11-09-clj-deps-cmdline/">
+        <h2 class="post-title">Adding Clojure Dependencies from the Command Line</h2>
+        
+        
+        
+    </a>
+
+    <p class="post-meta">
+        <span class="post-meta">
+  
+  
+  <i class="fas fa-calendar"></i>&nbsp;Posted on 2024-11-09
+  
+    &nbsp;(Last modified on 2024-11-10)
+  
+  
+    &nbsp;|&nbsp;<i class="fas fa-clock"></i>&nbsp;1&nbsp;minutes
+  
+  
+    &nbsp;|&nbsp;<i class="fas fa-book"></i>&nbsp;84&nbsp;words
+  
+  
+  
+</span>
+
+
+    </p>
+    <div class="post-entry">
+        
+        While debugging a live reload issue of Clay a few days ago, I learned from Markus Agwin that we can actually add dependencies on the fly from the command line, just like this: clj -Sdeps &#34;{:deps {org.scicloj/clay {:mvn/version \&#34;2-beta21\&#34;}}}&#34;.
+Even better, we can add dependency from a Git repo and specify the commit hash: clj -Sdeps &#34;{:deps {io.github.scicloj/clay {:git/url \&#34;https://github.com/scicloj/clay.git\&#34; :git/sha \&#34;35a46541db66ae6b4e1af628b7c24c42d3be418f\&#34;}}}&#34;, which is really helpful for experimenting and verifying things.
+        <a href="https://whatacold.io/blog/2024-11-09-clj-deps-cmdline/" class="post-read-more">[Read More]</a>
+        
+    </div>
+
+    
+    <div class="blog-tags">
+        
+        <a href="https://whatacold.io//tags/clojure/">Clojure</a>&nbsp;
+        
+        <a href="https://whatacold.io//tags/tweet/">Tweet</a>&nbsp;
+        
+        <a href="https://whatacold.io//tags/clj/">clj</a>&nbsp;
+        
+    </div>
+    
+
+</article>
+          
+            <article class="post-preview">
+    <a href="https://whatacold.io/blog/2024-11-10-clojure-lazy-seq-case/">
+        <h2 class="post-title">Bitten by Lazy Sequence of map</h2>
+        
+        
+        
+    </a>
+
+    <p class="post-meta">
+        <span class="post-meta">
+  
+  
+  <i class="fas fa-calendar"></i>&nbsp;Posted on 2024-11-09
+  
+    &nbsp;(Last modified on 2024-11-10)
+  
+  
+    &nbsp;|&nbsp;<i class="fas fa-clock"></i>&nbsp;1&nbsp;minutes
+  
+  
+    &nbsp;|&nbsp;<i class="fas fa-book"></i>&nbsp;167&nbsp;words
+  
+  
+  
+</span>
+
+
+    </p>
+    <div class="post-entry">
+        
+        While impletenting the live reload feature for Clay a few weeks ago, unfortunately, I was bitten by the laziness of map. It seems quite obvious we all know that its result is a lazy sequence, but I just can&#39;t help fall into the &#34;trap&#34;.
+At that time I was adding a vector to keep track of all beholder instances watching file changes in user specified directories. So then when it&#39;s time to stop all the watchers, I used something like to achieve the goal:
+        <a href="https://whatacold.io/blog/2024-11-10-clojure-lazy-seq-case/" class="post-read-more">[Read More]</a>
+        
+    </div>
+
+    
+    <div class="blog-tags">
+        
+        <a href="https://whatacold.io//tags/clojure/">Clojure</a>&nbsp;
+        
+        <a href="https://whatacold.io//tags/tweet/">Tweet</a>&nbsp;
+        
+    </div>
+    
+
+</article>
+          
+            <article class="post-preview">
     <a href="https://whatacold.io/blog/2024-11-08-clojure-thread-macro-anonymous-function/">
         <h2 class="post-title">Anonymous Functions in Thread Macros</h2>
         
@@ -241,6 +339,8 @@
   
   
   <i class="fas fa-calendar"></i>&nbsp;Posted on 2024-11-08
+  
+    &nbsp;(Last modified on 2024-11-10)
   
   
     &nbsp;|&nbsp;<i class="fas fa-clock"></i>&nbsp;1&nbsp;minutes
@@ -288,11 +388,13 @@
   
   <i class="fas fa-calendar"></i>&nbsp;Posted on 2024-11-08
   
+    &nbsp;(Last modified on 2024-11-10)
+  
   
     &nbsp;|&nbsp;<i class="fas fa-clock"></i>&nbsp;1&nbsp;minutes
   
   
-    &nbsp;|&nbsp;<i class="fas fa-book"></i>&nbsp;94&nbsp;words
+    &nbsp;|&nbsp;<i class="fas fa-book"></i>&nbsp;135&nbsp;words
   
   
   

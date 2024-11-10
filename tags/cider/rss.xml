@@ -8,7 +8,7 @@
     <language>en</language>
     <managingEditor>whatacold@gmail.com (whatacold)</managingEditor>
     <webMaster>whatacold@gmail.com (whatacold)</webMaster>
-    <lastBuildDate>Fri, 08 Nov 2024 00:18:02 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 10 Nov 2024 23:52:55 +0800</lastBuildDate>
     <atom:link href="https://whatacold.io/tags/cider/rss.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Start a Clojure nREPL in the Command Line for Cider</title>

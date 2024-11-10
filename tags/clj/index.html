@@ -10,9 +10,8 @@
  
 
 
-      <title>Start a Clojure nREPL in the Command Line for Cider - Blog</title>
+      <title>Clj - Blog</title>
 
-  <meta name="description" content="While troubleshooting and fixing a live reload bug in Clay today, which requires to start a minimal Clojure environment, I figured out how to start a nREPL from the command line. Instead of using M-x cider-jack-in-clj directly from Emacs, actually we can manully bring up an nREPL with this: clj -Sdeps &#34;{:deps {org.scicloj/clay {:mvn/version \&#34;2-beta21\&#34;} cider/cider-nrepl {:mvn/version \&#34;0.50.2\&#34;}}}&#34; -m nrepl.cmdline --middleware &#39;[cider.nrepl/cider-middleware]&#39; (The clay part is only necessary for this debugging), and then connect to this nREPL using the Emacs command M-x cider-connect-clj.">
   <meta name="author" content="whatacold"/><script type="application/ld+json">
 {
     "@context": "http://schema.org",
@@ -33,64 +32,14 @@
   
 }
 </script>
-<script type="application/ld+json">
-{
-  "@context": "http://schema.org",
-  "@type": "BreadcrumbList",
-  "itemListElement": [{
-        "@type": "ListItem",
-        "position": 1,
-        "item": {
-          "@id": "https:\/\/whatacold.io\/",
-          "name": "home"
-        }
-    },{
-        "@type": "ListItem",
-        "position": 3,
-        "item": {
-          "@id": "https:\/\/whatacold.io\/blog\/2024-11-08-cider-clojure-repl-cmdline\/",
-          "name": "Start a clojure n repl in the command line for cider"
-        }
-    }]
-}
-</script><script type="application/ld+json">
-{
-  "@context": "http://schema.org",
-  "@type": "Article",
-  "author": {
-    "name" : "whatacold"
-  },
-  "headline": "Start a Clojure nREPL in the Command Line for Cider",
-  "description" : "While troubleshooting and fixing a live reload bug in Clay today, which requires to start a minimal Clojure environment, I figured out how to start a nREPL from the command line. Instead of using M-x cider-jack-in-clj directly from Emacs, actually we can manully bring up an nREPL with this: clj -Sdeps \u0026#34;{:deps {org.scicloj\/clay {:mvn\/version \\\u0026#34;2-beta21\\\u0026#34;} cider\/cider-nrepl {:mvn\/version \\\u0026#34;0.50.2\\\u0026#34;}}}\u0026#34; -m nrepl.cmdline --middleware \u0026#39;[cider.nrepl\/cider-middleware]\u0026#39; (The clay part is only necessary for this debugging), and then connect to this nREPL using the Emacs command M-x cider-connect-clj.",
-  "inLanguage" : "en",
-  "wordCount":  135 ,
-  "datePublished" : "2024-11-08T00:02:56",
-  "dateModified" : "2024-11-08T00:02:56",
-  "image" : "https:\/\/whatacold.io\/img\/avatar.png",
-  "keywords" : [ "Cider, Clojure, Tweet" ],
-  "mainEntityOfPage" : "https:\/\/whatacold.io\/blog\/2024-11-08-cider-clojure-repl-cmdline\/",
-  "publisher" : {
-    "@type": "Organization",
-    "name" : "https:\/\/whatacold.io\/",
-    "logo" : {
-        "@type" : "ImageObject",
-        "url" : "https:\/\/whatacold.io\/img\/avatar.png",
-        "height" :  60 ,
-        "width" :  60
-    }
-  }
-}
-</script>
 
-<meta property="og:title" content="Start a Clojure nREPL in the Command Line for Cider" />
-<meta property="og:description" content="While troubleshooting and fixing a live reload bug in Clay today, which requires to start a minimal Clojure environment, I figured out how to start a nREPL from the command line. Instead of using M-x cider-jack-in-clj directly from Emacs, actually we can manully bring up an nREPL with this: clj -Sdeps &#34;{:deps {org.scicloj/clay {:mvn/version \&#34;2-beta21\&#34;} cider/cider-nrepl {:mvn/version \&#34;0.50.2\&#34;}}}&#34; -m nrepl.cmdline --middleware &#39;[cider.nrepl/cider-middleware]&#39; (The clay part is only necessary for this debugging), and then connect to this nREPL using the Emacs command M-x cider-connect-clj.">
+<meta property="og:title" content="Clj" />
 <meta property="og:image" content="https://whatacold.io/img/avatar.png" />
-<meta property="og:url" content="https://whatacold.io/blog/2024-11-08-cider-clojure-repl-cmdline/" />
+<meta property="og:url" content="https://whatacold.io/tags/clj/" />
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="whatacold&#39;s space" />
 
-  <meta name="twitter:title" content="Start a Clojure nREPL in the Command Line for Cider" />
-  <meta name="twitter:description" content="While troubleshooting and fixing a live reload bug in Clay today, which requires to start a minimal Clojure environment, I figured out how to start a nREPL from the command line. Instead of using M-x …">
+  <meta name="twitter:title" content="Clj" />
   <meta name="twitter:image" content="https://whatacold.io/img/avatar.png" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:site" content="@whatacold" />
@@ -254,9 +203,9 @@
       <div class="container">
         <div class="row">
           <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-            <div class="blog-heading">
+            <div class="tags-heading">
               
-                <h1>Start a Clojure nREPL in the Command Line for Cider</h1>
+                <h1>Clj</h1>
               
               
                 <hr class="small">
@@ -273,167 +222,67 @@
 
 
     
-<div class="container" role="main">
-  <div class="row">
-    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-      <article role="main" class="blog-post">
-        <p>
-While troubleshooting and fixing a <a href="https://github.com/scicloj/clay/issues/176">live reload bug</a> in <a href="https://github.com/scicloj/clay">Clay</a> today, which requires to start a minimal Clojure environment, I figured out how to start a nREPL from the command line. Instead of using <code class="verbatim">M-x cider-jack-in-clj</code> directly from Emacs, actually we can manully bring up an nREPL with this: <code class="verbatim">clj -Sdeps &#34;{:deps {org.scicloj/clay {:mvn/version \&#34;2-beta21\&#34;} cider/cider-nrepl {:mvn/version \&#34;0.50.2\&#34;}}}&#34; -m nrepl.cmdline --middleware &#39;[cider.nrepl/cider-middleware]&#39;</code> (The clay part is only necessary for this debugging), and then connect to this nREPL using the Emacs command <code class="verbatim">M-x cider-connect-clj</code>.</p>
-<p>
-It&#39;s really great, life is much easier with a REPL :)</p>
-<p>
-—</p>
-<p>
-2024-11-09 UPDATE: Another cider nREPL related thing, that is, how to
-modify the cider repl parameters when jacking in? Yes, you&#39;re right,
-use the universal argument of Emacs. There you can, for example,
-<strong>prepend</strong> an extra parameter <code class="verbatim">-A:attach</code> for <a href="https://clojure-goes-fast.com/kb/profiling/clj-async-profiler/basic-usage/">clj-async-profiler</a>.</p>
-
-
+  <div class="container" role="main">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
         
-          <div class="blog-tags">
-            
-              <a href="https://whatacold.io//tags/cider/">Cider</a>&nbsp;
-            
-              <a href="https://whatacold.io//tags/clojure/">Clojure</a>&nbsp;
-            
-              <a href="https://whatacold.io//tags/tweet/">Tweet</a>&nbsp;
-            
-          </div>
+        <div class="posts-list">
+          
+            <article class="post-preview">
+    <a href="https://whatacold.io/blog/2024-11-09-clj-deps-cmdline/">
+        <h2 class="post-title">Adding Clojure Dependencies from the Command Line</h2>
         
-
         
-            <hr/>
-            <section id="social-share">
-              <div class="list-inline footer-links">
-                
+        
+    </a>
 
-<div class="share-box" aria-hidden="true">
-    <ul class="share">
-      
-      <li>
-        <a href="//twitter.com/share?url=https%3a%2f%2fwhatacold.io%2fblog%2f2024-11-08-cider-clojure-repl-cmdline%2f&amp;text=Start%20a%20Clojure%20nREPL%20in%20the%20Command%20Line%20for%20Cider&amp;via=whatacold" target="_blank" title="Share on Twitter">
-          <i class="fab fa-twitter"></i>
-        </a>
-      </li>
+    <p class="post-meta">
+        <span class="post-meta">
   
-      
-      <li>
-        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fwhatacold.io%2fblog%2f2024-11-08-cider-clojure-repl-cmdline%2f" target="_blank" title="Share on Facebook">
-          <i class="fab fa-facebook"></i>
-        </a>
-      </li>
   
-      
-      <li>
-        <a href="//reddit.com/submit?url=https%3a%2f%2fwhatacold.io%2fblog%2f2024-11-08-cider-clojure-repl-cmdline%2f&amp;title=Start%20a%20Clojure%20nREPL%20in%20the%20Command%20Line%20for%20Cider" target="_blank" title="Share on Reddit">
-          <i class="fab fa-reddit"></i>
-        </a>
-      </li>
+  <i class="fas fa-calendar"></i>&nbsp;Posted on 2024-11-09
   
-      
-      <li>
-        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fwhatacold.io%2fblog%2f2024-11-08-cider-clojure-repl-cmdline%2f&amp;title=Start%20a%20Clojure%20nREPL%20in%20the%20Command%20Line%20for%20Cider" target="_blank" title="Share on LinkedIn">
-          <i class="fab fa-linkedin"></i>
-        </a>
-      </li>
+    &nbsp;(Last modified on 2024-11-10)
   
-      
-      <li>
-        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fwhatacold.io%2fblog%2f2024-11-08-cider-clojure-repl-cmdline%2f&amp;title=Start%20a%20Clojure%20nREPL%20in%20the%20Command%20Line%20for%20Cider" target="_blank" title="Share on StumbleUpon">
-          <i class="fab fa-stumbleupon"></i>
-        </a>
-      </li>
   
-      
-      <li>
-        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fwhatacold.io%2fblog%2f2024-11-08-cider-clojure-repl-cmdline%2f&amp;description=Start%20a%20Clojure%20nREPL%20in%20the%20Command%20Line%20for%20Cider" target="_blank" title="Share on Pinterest">
-          <i class="fab fa-pinterest"></i>
-        </a>
-      </li>
-    </ul>
-  </div>
+    &nbsp;|&nbsp;<i class="fas fa-clock"></i>&nbsp;1&nbsp;minutes
   
+  
+    &nbsp;|&nbsp;<i class="fas fa-book"></i>&nbsp;84&nbsp;words
+  
+  
+  
+</span>
 
-              </div>
-            </section>
+
+    </p>
+    <div class="post-entry">
         
-
+        While debugging a live reload issue of Clay a few days ago, I learned from Markus Agwin that we can actually add dependencies on the fly from the command line, just like this: clj -Sdeps &#34;{:deps {org.scicloj/clay {:mvn/version \&#34;2-beta21\&#34;}}}&#34;.
+Even better, we can add dependency from a Git repo and specify the commit hash: clj -Sdeps &#34;{:deps {io.github.scicloj/clay {:git/url \&#34;https://github.com/scicloj/clay.git\&#34; :git/sha \&#34;35a46541db66ae6b4e1af628b7c24c42d3be418f\&#34;}}}&#34;, which is really helpful for experimenting and verifying things.
+        <a href="https://whatacold.io/blog/2024-11-09-clj-deps-cmdline/" class="post-read-more">[Read More]</a>
         
-          
-            
-          
+    </div>
 
-          
-                  <h4 class="see-also">See also</h4>
-                  <ul>
-                
-                
-                    <li><a href="/blog/2024-11-09-clj-deps-cmdline/">Adding Clojure Dependencies from the Command Line</a></li>
-                
-                    <li><a href="/blog/2024-11-10-clojure-lazy-seq-case/">Bitten by Lazy Sequence of map</a></li>
-                
-                    <li><a href="/blog/2024-11-08-clojure-thread-macro-anonymous-function/">Anonymous Functions in Thread Macros</a></li>
-                
-                    <li><a href="/blog/2021-09-19-clojure-reduce-text-processing/">Clojure reduce: one case for text processing</a></li>
-                
-                    <li><a href="/blog/2021-08-07-illustrate-clojure-snippet/">illustrate.clj to Illustrate Clojure Snippet</a></li>
-                
-              </ul>
-
-          
-        
-      </article>
-
-      
-        <ul class="pager blog-pager">
-          
-            <li class="previous">
-              <a href="https://whatacold.io/blog/2023-11-25-emacs-join-every-n-lines/" data-toggle="tooltip" data-placement="top" title="Join Every N Lines By A Separator in Emacs">&larr; Previous Post</a>
-            </li>
-          
-          
-            <li class="next">
-              <a href="https://whatacold.io/blog/2024-11-08-clojure-thread-macro-anonymous-function/" data-toggle="tooltip" data-placement="top" title="Anonymous Functions in Thread Macros">Next Post &rarr;</a>
-            </li>
-          
-        </ul>
-      
-
-
-      
-        
-          
-          <div class="disqus-comments">
-            <div id="disqus_thread"></div>
-<script>
-    window.disqus_config = function () {
     
-    
-    
-    };
-    (function() {
-        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
-            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
-            return;
-        }
-        var d = document, s = d.createElement('script'); s.async = true;
-        s.src = '//' + "whatacold" + '.disqus.com/embed.js';
-        s.setAttribute('data-timestamp', +new Date());
-        (d.head || d.body).appendChild(s);
-    })();
-</script>
-<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
-          </div>
-          
+    <div class="blog-tags">
         
+        <a href="https://whatacold.io//tags/clojure/">Clojure</a>&nbsp;
         
-      
+        <a href="https://whatacold.io//tags/tweet/">Tweet</a>&nbsp;
+        
+        <a href="https://whatacold.io//tags/clj/">clj</a>&nbsp;
+        
+    </div>
+    
 
+</article>
+          
+        </div>
+        
+      </div>
     </div>
   </div>
-</div>
 
       
 <footer>
@@ -504,6 +353,15 @@ use the universal argument of Emacs. There you can, for example,
                 </a>
               </li>
           
+          
+          <li>
+            <a href="/tags/clj/rss.xml" title="RSS">
+              <span class="fa-stack fa-lg">
+                <i class="fas fa-circle fa-stack-2x"></i>
+                <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
           
           
         </ul>

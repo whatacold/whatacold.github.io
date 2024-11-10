@@ -325,5 +325,7 @@
                 hreflang="zh-cn"
                 href="https://whatacold.io/zh-cn/categories/"
                 />
+  </url><url>
+    <loc>https://whatacold.io/zh-cn/slides/</loc>
   </url>
 </urlset>
