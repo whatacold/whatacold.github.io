@@ -233,6 +233,52 @@
         <div class="posts-list">
           
             <article class="post-preview">
+    <a href="https://whatacold.io/blog/2024-11-23-tailwindcss-docs-index/">
+        <h2 class="post-title">TailwindCSS Docs Index</h2>
+        
+        
+        
+    </a>
+
+    <p class="post-meta">
+        <span class="post-meta">
+  
+  
+  <i class="fas fa-calendar"></i>&nbsp;Posted on 2024-11-23
+  
+  
+    &nbsp;|&nbsp;<i class="fas fa-clock"></i>&nbsp;3&nbsp;minutes
+  
+  
+    &nbsp;|&nbsp;<i class="fas fa-book"></i>&nbsp;567&nbsp;words
+  
+  
+  
+</span>
+
+
+    </p>
+    <div class="post-entry">
+        
+        Just re-organize the TailwindCSS Docs index in a flatter and more searchable way.
+Getting Started Installation | Editor Setup | Using with Preprocessors | Optimizing for Production | Browser Support | Upgrade Guide
+Core Concepts Utility-First Fundamentals | Hover, Focus, and Other States | Responsive Design | Dark Mode | Reusing Styles | Adding Custom Styles | Functions &amp; Directives
+Customization Configuration | Content | Theme | Screens | Colors | Spacing | Plugins | Presets
+        <a href="https://whatacold.io/blog/2024-11-23-tailwindcss-docs-index/" class="post-read-more">[Read More]</a>
+        
+    </div>
+
+    
+    <div class="blog-tags">
+        
+        <a href="https://whatacold.io//tags/css/">CSS</a>&nbsp;
+        
+    </div>
+    
+
+</article>
+          
+            <article class="post-preview">
     <a href="https://whatacold.io/blog/2024-11-09-clj-deps-cmdline/">
         <h2 class="post-title">Adding Clojure Dependencies from the Command Line</h2>
         
@@ -392,13 +438,13 @@ At that time I was adding a vector to keep track of all beholder instances watch
   
   <i class="fas fa-calendar"></i>&nbsp;Posted on 2024-11-08
   
-    &nbsp;(Last modified on 2024-11-10)
+    &nbsp;(Last modified on 2024-11-12)
   
   
     &nbsp;|&nbsp;<i class="fas fa-clock"></i>&nbsp;1&nbsp;minutes
   
   
-    &nbsp;|&nbsp;<i class="fas fa-book"></i>&nbsp;135&nbsp;words
+    &nbsp;|&nbsp;<i class="fas fa-book"></i>&nbsp;174&nbsp;words
   
   
   
@@ -408,7 +454,7 @@ At that time I was adding a vector to keep track of all beholder instances watch
     </p>
     <div class="post-entry">
         
-        While troubleshooting and fixing a live reload bug in Clay today, which requires to start a minimal Clojure environment, I figured out how to start a nREPL from the command line. Instead of using M-x cider-jack-in-clj directly from Emacs, actually we can manully bring up an nREPL with this: clj -Sdeps &#34;{:deps {org.scicloj/clay {:mvn/version \&#34;2-beta21\&#34;} cider/cider-nrepl {:mvn/version \&#34;0.50.2\&#34;}}}&#34; -m nrepl.cmdline --middleware &#39;[cider.nrepl/cider-middleware]&#39; (The clay part is only necessary for this debugging), and then connect to this nREPL using the Emacs command M-x cider-connect-clj.
+        While troubleshooting and fixing a live reload bug in Clay today, which requires to start a minimal Clojure environment, I figured out how to start a nREPL from the command line. Instead of using M-x cider-jack-in-clj directly from Emacs, actually we can manully bring up an nREPL with this: clj -Sdeps &#34;{:deps {org.scicloj/clay {:mvn/version \&#34;2-beta21\&#34;} cider/cider-nrepl {:mvn/version \&#34;0.50.2\&#34;}}}&#34; -m nrepl.cmdline --middleware &#34;[cider.nrepl/cider-middleware]&#34; (The clay part is only necessary for this debugging), and then connect to this nREPL using the Emacs command M-x cider-connect-clj.
         <a href="https://whatacold.io/blog/2024-11-08-cider-clojure-repl-cmdline/" class="post-read-more">[Read More]</a>
         
     </div>
@@ -657,54 +703,6 @@ My most desirable feature is to use it to select tags easily when I start to wri
         <a href="https://whatacold.io//tags/hugo/">Hugo</a>&nbsp;
         
         <a href="https://whatacold.io//tags/yasnippet/">Yasnippet</a>&nbsp;
-        
-    </div>
-    
-
-</article>
-          
-            <article class="post-preview">
-    <a href="https://whatacold.io/blog/2022-09-10-emacs-beancount-account-files/">
-        <h2 class="post-title">Auto-complete Accounts From Other Beancount Files in Emacs</h2>
-        
-        
-        
-    </a>
-
-    <p class="post-meta">
-        <span class="post-meta">
-  
-  
-  <i class="fas fa-calendar"></i>&nbsp;Posted on 2022-09-10
-  
-    &nbsp;(Last modified on 2022-10-15)
-  
-  
-    &nbsp;|&nbsp;<i class="fas fa-clock"></i>&nbsp;2&nbsp;minutes
-  
-  
-    &nbsp;|&nbsp;<i class="fas fa-book"></i>&nbsp;230&nbsp;words
-  
-  
-  &nbsp;&bull;&nbsp;Other languages: <a href="https://whatacold.io/zh-cn/blog/2022-09-10-emacs-beancount-account-files/" lang="zh-cn">简体中文</a>
-</span>
-
-
-    </p>
-    <div class="post-entry">
-        
-        Auto-complete accounts from another accounts.bean file If you&#39;re using Beancount with Emacs, you may be using beancount-mode. It can auto-complete the accounts defined in the current buffer when we are typing in new transactions so that we can do it more efficiently.
-But it can only auto-complete the accounts from the current buffer, which makes it less useful when we have a stand-alone file or a few files of beancount accounts.
-        <a href="https://whatacold.io/blog/2022-09-10-emacs-beancount-account-files/" class="post-read-more">[Read More]</a>
-        
-    </div>
-
-    
-    <div class="blog-tags">
-        
-        <a href="https://whatacold.io//tags/emacs/">Emacs</a>&nbsp;
-        
-        <a href="https://whatacold.io//tags/beancount/">Beancount</a>&nbsp;
         
     </div>
     

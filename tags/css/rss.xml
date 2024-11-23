@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>CSS on whatacold&#39;s space</title>
+    <link>https://whatacold.io/tags/css/</link>
+    <description>Recent content in CSS on whatacold&#39;s space</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <managingEditor>whatacold@gmail.com (whatacold)</managingEditor>
+    <webMaster>whatacold@gmail.com (whatacold)</webMaster>
+    <lastBuildDate>Sat, 23 Nov 2024 20:10:57 +0800</lastBuildDate>
+    <atom:link href="https://whatacold.io/tags/css/rss.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>TailwindCSS Docs Index</title>
+      <link>https://whatacold.io/blog/2024-11-23-tailwindcss-docs-index/</link>
+      <pubDate>Sat, 23 Nov 2024 19:50:56 +0800</pubDate><author>whatacold@gmail.com (whatacold)</author>
+      <guid>https://whatacold.io/blog/2024-11-23-tailwindcss-docs-index/</guid>
+      <description>Just re-organize the TailwindCSS Docs index in a flatter and more searchable way.&#xA;Getting Started Installation | Editor Setup | Using with Preprocessors | Optimizing for Production | Browser Support | Upgrade Guide&#xA;Core Concepts Utility-First Fundamentals | Hover, Focus, and Other States | Responsive Design | Dark Mode | Reusing Styles | Adding Custom Styles | Functions &amp;amp; Directives&#xA;Customization Configuration | Content | Theme | Screens | Colors | Spacing | Plugins | Presets</description>
+    </item>
+  </channel>
+</rss>

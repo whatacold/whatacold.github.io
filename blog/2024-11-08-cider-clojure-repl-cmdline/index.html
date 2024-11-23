@@ -12,7 +12,7 @@
 
       <title>Start a Clojure nREPL in the Command Line for Cider - Blog</title>
 
-  <meta name="description" content="While troubleshooting and fixing a live reload bug in Clay today, which requires to start a minimal Clojure environment, I figured out how to start a nREPL from the command line. Instead of using M-x cider-jack-in-clj directly from Emacs, actually we can manully bring up an nREPL with this: clj -Sdeps &#34;{:deps {org.scicloj/clay {:mvn/version \&#34;2-beta21\&#34;} cider/cider-nrepl {:mvn/version \&#34;0.50.2\&#34;}}}&#34; -m nrepl.cmdline --middleware &#39;[cider.nrepl/cider-middleware]&#39; (The clay part is only necessary for this debugging), and then connect to this nREPL using the Emacs command M-x cider-connect-clj.">
+  <meta name="description" content="While troubleshooting and fixing a live reload bug in Clay today, which requires to start a minimal Clojure environment, I figured out how to start a nREPL from the command line. Instead of using M-x cider-jack-in-clj directly from Emacs, actually we can manully bring up an nREPL with this: clj -Sdeps &#34;{:deps {org.scicloj/clay {:mvn/version \&#34;2-beta21\&#34;} cider/cider-nrepl {:mvn/version \&#34;0.50.2\&#34;}}}&#34; -m nrepl.cmdline --middleware &#34;[cider.nrepl/cider-middleware]&#34; (The clay part is only necessary for this debugging), and then connect to this nREPL using the Emacs command M-x cider-connect-clj.">
   <meta name="author" content="whatacold"/><script type="application/ld+json">
 {
     "@context": "http://schema.org",
@@ -61,9 +61,9 @@
     "name" : "whatacold"
   },
   "headline": "Start a Clojure nREPL in the Command Line for Cider",
-  "description" : "While troubleshooting and fixing a live reload bug in Clay today, which requires to start a minimal Clojure environment, I figured out how to start a nREPL from the command line. Instead of using M-x cider-jack-in-clj directly from Emacs, actually we can manully bring up an nREPL with this: clj -Sdeps \u0026#34;{:deps {org.scicloj\/clay {:mvn\/version \\\u0026#34;2-beta21\\\u0026#34;} cider\/cider-nrepl {:mvn\/version \\\u0026#34;0.50.2\\\u0026#34;}}}\u0026#34; -m nrepl.cmdline --middleware \u0026#39;[cider.nrepl\/cider-middleware]\u0026#39; (The clay part is only necessary for this debugging), and then connect to this nREPL using the Emacs command M-x cider-connect-clj.",
+  "description" : "While troubleshooting and fixing a live reload bug in Clay today, which requires to start a minimal Clojure environment, I figured out how to start a nREPL from the command line. Instead of using M-x cider-jack-in-clj directly from Emacs, actually we can manully bring up an nREPL with this: clj -Sdeps \u0026#34;{:deps {org.scicloj\/clay {:mvn\/version \\\u0026#34;2-beta21\\\u0026#34;} cider\/cider-nrepl {:mvn\/version \\\u0026#34;0.50.2\\\u0026#34;}}}\u0026#34; -m nrepl.cmdline --middleware \u0026#34;[cider.nrepl\/cider-middleware]\u0026#34; (The clay part is only necessary for this debugging), and then connect to this nREPL using the Emacs command M-x cider-connect-clj.",
   "inLanguage" : "en",
-  "wordCount":  135 ,
+  "wordCount":  174 ,
   "datePublished" : "2024-11-08T00:02:56",
   "dateModified" : "2024-11-08T00:02:56",
   "image" : "https:\/\/whatacold.io\/img\/avatar.png",
@@ -83,7 +83,7 @@
 </script>
 
 <meta property="og:title" content="Start a Clojure nREPL in the Command Line for Cider" />
-<meta property="og:description" content="While troubleshooting and fixing a live reload bug in Clay today, which requires to start a minimal Clojure environment, I figured out how to start a nREPL from the command line. Instead of using M-x cider-jack-in-clj directly from Emacs, actually we can manully bring up an nREPL with this: clj -Sdeps &#34;{:deps {org.scicloj/clay {:mvn/version \&#34;2-beta21\&#34;} cider/cider-nrepl {:mvn/version \&#34;0.50.2\&#34;}}}&#34; -m nrepl.cmdline --middleware &#39;[cider.nrepl/cider-middleware]&#39; (The clay part is only necessary for this debugging), and then connect to this nREPL using the Emacs command M-x cider-connect-clj.">
+<meta property="og:description" content="While troubleshooting and fixing a live reload bug in Clay today, which requires to start a minimal Clojure environment, I figured out how to start a nREPL from the command line. Instead of using M-x cider-jack-in-clj directly from Emacs, actually we can manully bring up an nREPL with this: clj -Sdeps &#34;{:deps {org.scicloj/clay {:mvn/version \&#34;2-beta21\&#34;} cider/cider-nrepl {:mvn/version \&#34;0.50.2\&#34;}}}&#34; -m nrepl.cmdline --middleware &#34;[cider.nrepl/cider-middleware]&#34; (The clay part is only necessary for this debugging), and then connect to this nREPL using the Emacs command M-x cider-connect-clj.">
 <meta property="og:image" content="https://whatacold.io/img/avatar.png" />
 <meta property="og:url" content="https://whatacold.io/blog/2024-11-08-cider-clojure-repl-cmdline/" />
 <meta property="og:type" content="website" />
@@ -278,7 +278,7 @@
     <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
       <article role="main" class="blog-post">
         <p>
-While troubleshooting and fixing a <a href="https://github.com/scicloj/clay/issues/176">live reload bug</a> in <a href="https://github.com/scicloj/clay">Clay</a> today, which requires to start a minimal Clojure environment, I figured out how to start a nREPL from the command line. Instead of using <code class="verbatim">M-x cider-jack-in-clj</code> directly from Emacs, actually we can manully bring up an nREPL with this: <code class="verbatim">clj -Sdeps &#34;{:deps {org.scicloj/clay {:mvn/version \&#34;2-beta21\&#34;} cider/cider-nrepl {:mvn/version \&#34;0.50.2\&#34;}}}&#34; -m nrepl.cmdline --middleware &#39;[cider.nrepl/cider-middleware]&#39;</code> (The clay part is only necessary for this debugging), and then connect to this nREPL using the Emacs command <code class="verbatim">M-x cider-connect-clj</code>.</p>
+While troubleshooting and fixing a <a href="https://github.com/scicloj/clay/issues/176">live reload bug</a> in <a href="https://github.com/scicloj/clay">Clay</a> today, which requires to start a minimal Clojure environment, I figured out how to start a nREPL from the command line. Instead of using <code class="verbatim">M-x cider-jack-in-clj</code> directly from Emacs, actually we can manully bring up an nREPL with this: <code class="verbatim">clj -Sdeps &#34;{:deps {org.scicloj/clay {:mvn/version \&#34;2-beta21\&#34;} cider/cider-nrepl {:mvn/version \&#34;0.50.2\&#34;}}}&#34; -m nrepl.cmdline --middleware &#34;[cider.nrepl/cider-middleware]&#34;</code> (The clay part is only necessary for this debugging), and then connect to this nREPL using the Emacs command <code class="verbatim">M-x cider-connect-clj</code>.</p>
 <p>
 It&#39;s really great, life is much easier with a REPL :)</p>
 <p>
@@ -288,6 +288,9 @@ It&#39;s really great, life is much easier with a REPL :)</p>
 modify the cider repl parameters when jacking in? Yes, you&#39;re right,
 use the universal argument of Emacs. There you can, for example,
 <strong>prepend</strong> an extra parameter <code class="verbatim">-A:attach</code> for <a href="https://clojure-goes-fast.com/kb/profiling/clj-async-profiler/basic-usage/">clj-async-profiler</a>.</p>
+<p>
+2024-11-12 UPDATE: Here is how to start a nREPL from a deps.clj project root:
+<code class="verbatim">clojure -Sdeps \{\:deps\ \{nrepl/nrepl\ \{\:mvn/version\ \&#34;1.3.0\&#34;\}\ cider/cider-nrepl\ \{\:mvn/version\ \&#34;0.50.2\&#34;\}\}\ \:aliases\ \{\:cider/nrepl\ \{\:main-opts\ \[\&#34;-m\&#34;\ \&#34;nrepl.cmdline\&#34;\ \&#34;--middleware\&#34;\ \&#34;\[cider.nrepl/cider-middleware\]\&#34;\]\}\}\} -M:dev:cider/nrepl</code>, after observing how Cider itself jacks in one.</p>
 
 
         
