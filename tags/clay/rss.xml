@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Clay on whatacold&#39;s space</title>
+    <link>https://whatacold.io/tags/clay/</link>
+    <description>Recent content in Clay on whatacold&#39;s space</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <managingEditor>whatacold@gmail.com (whatacold)</managingEditor>
+    <webMaster>whatacold@gmail.com (whatacold)</webMaster>
+    <lastBuildDate>Fri, 29 Nov 2024 00:01:39 +0800</lastBuildDate>
+    <atom:link href="https://whatacold.io/tags/clay/rss.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>clj-async-profiler Rocks</title>
+      <link>https://whatacold.io/blog/2024-11-28-beholder-clj-async-profiler/</link>
+      <pubDate>Thu, 28 Nov 2024 22:23:32 +0800</pubDate><author>whatacold@gmail.com (whatacold)</author>
+      <guid>https://whatacold.io/blog/2024-11-28-beholder-clj-async-profiler/</guid>
+      <description>While developing the live reload feature for Clay, a minimalistic Clojure tool for data visualization and literate programming, I found that it constantly takes ~1 minute for beholder to watch a directory. After some code inspect, I was still having no idea why it happened.&#xA;So I decided to use a profiler to find out what&amp;#39;s going one under the hood, and Google immediately took me to clj-async-profiler. It&amp;#39;s easy to set up following its basic usage docs:</description>
+    </item>
+  </channel>
+</rss>
