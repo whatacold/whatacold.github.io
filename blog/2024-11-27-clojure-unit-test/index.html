@@ -10,10 +10,10 @@
  
 
 
-      <title>clj-async-profiler Rocks - Blog</title>
+      <title>Doing Unit test in Clojure Is Easy - Blog</title>
 
-  <meta name="description" content="While developing the live reload feature for Clay, a minimalistic Clojure tool for data visualization and literate programming, I found that it constantly takes ~1 minute for beholder to watch a directory. After some code inspect, I was still having no idea why it happened.
-So I decided to use a profiler to find out what&#39;s going one under the hood, and Google immediately took me to clj-async-profiler. It&#39;s easy to set up following its basic usage docs:">
+  <meta name="description" content="While refactoring the live reload feature of Clay, I realized I&#39;d better break long functions into smaller and functional ones (as many as I can), which is also a common practice in the clojure community.
+Small pure functions not only are easy to verify on the development process (using a REPL), but also are easy to test. And unit tests are easy to write in clojure, just use deftest from clojure.">
   <meta name="author" content="whatacold"/><script type="application/ld+json">
 {
     "@context": "http://schema.org",
@@ -49,8 +49,8 @@ So I decided to use a profiler to find out what&#39;s going one under the hood, 
         "@type": "ListItem",
         "position": 3,
         "item": {
-          "@id": "https:\/\/whatacold.io\/blog\/2024-11-28-beholder-clj-async-profiler\/",
-          "name": "Clj async profiler rocks"
+          "@id": "https:\/\/whatacold.io\/blog\/2024-11-27-clojure-unit-test\/",
+          "name": "Doing unit test in clojure is easy"
         }
     }]
 }
@@ -61,15 +61,15 @@ So I decided to use a profiler to find out what&#39;s going one under the hood, 
   "author": {
     "name" : "whatacold"
   },
-  "headline": "clj-async-profiler Rocks",
-  "description" : "While developing the live reload feature for Clay, a minimalistic Clojure tool for data visualization and literate programming, I found that it constantly takes ~1 minute for beholder to watch a directory. After some code inspect, I was still having no idea why it happened.\nSo I decided to use a profiler to find out what\u0026#39;s going one under the hood, and Google immediately took me to clj-async-profiler. It\u0026#39;s easy to set up following its basic usage docs:",
+  "headline": "Doing Unit test in Clojure Is Easy",
+  "description" : "While refactoring the live reload feature of Clay, I realized I\u0026#39;d better break long functions into smaller and functional ones (as many as I can), which is also a common practice in the clojure community.\nSmall pure functions not only are easy to verify on the development process (using a REPL), but also are easy to test. And unit tests are easy to write in clojure, just use deftest from clojure.",
   "inLanguage" : "en",
-  "wordCount":  369 ,
-  "datePublished" : "2024-11-28T22:23:32",
-  "dateModified" : "2024-11-28T22:23:32",
+  "wordCount":  165 ,
+  "datePublished" : "2024-11-28T23:10:56",
+  "dateModified" : "2024-11-28T23:10:56",
   "image" : "https:\/\/whatacold.io\/img\/avatar.png",
-  "keywords" : [ "Clojure, Clay" ],
-  "mainEntityOfPage" : "https:\/\/whatacold.io\/blog\/2024-11-28-beholder-clj-async-profiler\/",
+  "keywords" : [ "clojure, cider, clay, tweet" ],
+  "mainEntityOfPage" : "https:\/\/whatacold.io\/blog\/2024-11-27-clojure-unit-test\/",
   "publisher" : {
     "@type": "Organization",
     "name" : "https:\/\/whatacold.io\/",
@@ -83,16 +83,16 @@ So I decided to use a profiler to find out what&#39;s going one under the hood, 
 }
 </script>
 
-<meta property="og:title" content="clj-async-profiler Rocks" />
-<meta property="og:description" content="While developing the live reload feature for Clay, a minimalistic Clojure tool for data visualization and literate programming, I found that it constantly takes ~1 minute for beholder to watch a directory. After some code inspect, I was still having no idea why it happened.
-So I decided to use a profiler to find out what&#39;s going one under the hood, and Google immediately took me to clj-async-profiler. It&#39;s easy to set up following its basic usage docs:">
+<meta property="og:title" content="Doing Unit test in Clojure Is Easy" />
+<meta property="og:description" content="While refactoring the live reload feature of Clay, I realized I&#39;d better break long functions into smaller and functional ones (as many as I can), which is also a common practice in the clojure community.
+Small pure functions not only are easy to verify on the development process (using a REPL), but also are easy to test. And unit tests are easy to write in clojure, just use deftest from clojure.">
 <meta property="og:image" content="https://whatacold.io/img/avatar.png" />
-<meta property="og:url" content="https://whatacold.io/blog/2024-11-28-beholder-clj-async-profiler/" />
+<meta property="og:url" content="https://whatacold.io/blog/2024-11-27-clojure-unit-test/" />
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="whatacold&#39;s space" />
 
-  <meta name="twitter:title" content="clj-async-profiler Rocks" />
-  <meta name="twitter:description" content="While developing the live reload feature for Clay, a minimalistic Clojure tool for data visualization and literate programming, I found that it constantly takes ~1 minute for beholder to watch a …">
+  <meta name="twitter:title" content="Doing Unit test in Clojure Is Easy" />
+  <meta name="twitter:description" content="While refactoring the live reload feature of Clay, I realized I&#39;d better break long functions into smaller and functional ones (as many as I can), which is also a common practice in the clojure …">
   <meta name="twitter:image" content="https://whatacold.io/img/avatar.png" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:site" content="@whatacold" />
@@ -258,7 +258,7 @@ So I decided to use a profiler to find out what&#39;s going one under the hood, 
           <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
             <div class="blog-heading">
               
-                <h1>clj-async-profiler Rocks</h1>
+                <h1>Doing Unit test in Clojure Is Easy</h1>
               
               
                 <hr class="small">
@@ -280,71 +280,39 @@ So I decided to use a profiler to find out what&#39;s going one under the hood, 
     <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
       <article role="main" class="blog-post">
         <p>
-While developing the live reload feature for <a href="https://scicloj.github.io/clay/">Clay</a>, a minimalistic Clojure tool for data visualization and literate programming, I found that it constantly takes ~1 minute for <a href="https://github.com/nextjournal/beholder">beholder</a> to watch a directory. After some code inspect, I was still having no idea why it happened.</p>
+While refactoring the <a href="https://github.com/scicloj/clay/blob/main/src/scicloj/clay/v2/live_reload.clj">live reload</a> feature of <a href="https://github.com/scicloj/clay">Clay</a>, I realized I&#39;d better break long functions into smaller and functional ones (as many as I can), which is also a <a href="https://guide.clojure.style/#be-functional">common practice</a> in the clojure community.</p>
 <p>
-So I decided to use a profiler to find out what&#39;s going one under the hood, and Google immediately took me to <a href="https://clojure-goes-fast.com/kb/profiling/clj-async-profiler/">clj-async-profiler</a>. It&#39;s easy to set up following its <a href="https://clojure-goes-fast.com/kb/profiling/clj-async-profiler/basic-usage/">basic usage docs</a>:</p>
-<ol>
-<li>
-<p>Configure your system to allow profiling, and here&#39;s how on Linux:</p>
-<div class="src src-shell">
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">sudo sysctl -w kernel.perf_event_paranoid<span class="o">=</span><span class="m">1</span>
-</span></span><span class="line"><span class="cl">sudo sysctl -w kernel.kptr_restrict<span class="o">=</span><span class="m">0</span></span></span></code></pre></div>
-</div>
-</li>
-<li>
-<p>Add deps and jvm-opts:</p>
+Small pure functions not only are easy to verify on the development process (using a REPL), but also are easy to test. And unit tests are easy to write in clojure, just use <code class="verbatim">deftest</code> from <code class="verbatim">clojure.test</code>, a very basic one looks like this:</p>
 <div class="src src-clojure">
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-clojure" data-lang="clojure"><span class="line"><span class="cl"><span class="c1">;; add below to deps.edn</span>
-</span></span><span class="line"><span class="cl"><span class="p">{</span><span class="ss">:deps</span> <span class="p">{</span><span class="nv">com.clojure-goes-fast/clj-async-profiler</span> <span class="p">{</span><span class="ss">:mvn/version</span> <span class="s">&#34;1.4.0&#34;</span><span class="p">}}</span>
-</span></span><span class="line"><span class="cl"> <span class="ss">:aliases</span>
-</span></span><span class="line"><span class="cl"> <span class="p">{</span><span class="ss">:attach</span> <span class="p">{</span><span class="ss">:jvm-opts</span> <span class="p">[</span><span class="s">&#34;-Djdk.attach.allowAttachSelf&#34;</span><span class="p">]}}}</span></span></span></code></pre></div>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-clojure" data-lang="clojure"><span class="line"><span class="cl"><span class="p">(</span><span class="nf">deftest</span>
+</span></span><span class="line"><span class="cl">  <span class="p">(</span><span class="nf">is</span> <span class="p">(</span><span class="nb">= </span><span class="mi">3</span> <span class="p">(</span><span class="nf">my-sum</span> <span class="mi">1</span> <span class="mi">2</span><span class="p">))))</span></span></span></code></pre></div>
 </div>
-</li>
-<li>Start the REPL with the additional settings, if you&#39;re using Cider, type <code class="verbatim">C-u C-c C-j</code> and then add <code class="verbatim">-A:attach</code> to the clojure CLI command after the clojure binary, that is, <code class="verbatim">clojure -A:attach -Sdeps \{\:deps\ \{nrepl/nrepl\ \{\:mvn/version\ \&#34;1.3.0\&#34;\}\ cider/cider-nrepl\ \{\:mvn/version\ \&#34;0.50.1\&#34;\}\} ...</code></li>
-</ol>
-<p>Now, we can profile and show the result in a web browser running two steps in clojure, see this demo code below:</p>
-<div class="src src-clojure">
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-clojure" data-lang="clojure"><span class="line"><span class="cl"><span class="p">(</span><span class="kd">ns </span><span class="nv">beholder-profile</span>
-</span></span><span class="line"><span class="cl">  <span class="p">(</span><span class="ss">:require</span> <span class="p">[</span><span class="nv">nextjournal.beholder</span> <span class="ss">:as</span> <span class="nv">beholder</span><span class="p">]</span>
-</span></span><span class="line"><span class="cl">            <span class="p">[</span><span class="nv">clj-async-profiler.core</span> <span class="ss">:as</span> <span class="nv">prof</span><span class="p">]))</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="p">(</span><span class="kd">defn- </span><span class="nv">watch-and-stop</span> <span class="p">[</span><span class="nv">dir</span> <span class="nv">times</span><span class="p">]</span>
-</span></span><span class="line"><span class="cl">  <span class="p">(</span><span class="nb">dotimes </span><span class="p">[</span><span class="nv">_</span> <span class="nv">times</span><span class="p">]</span>
-</span></span><span class="line"><span class="cl">    <span class="p">(</span><span class="k">let </span><span class="p">[</span><span class="nv">beholder</span> <span class="p">(</span><span class="nf">beholder/watch</span> <span class="nb">prn </span><span class="nv">dir</span><span class="p">)]</span>
-</span></span><span class="line"><span class="cl">      <span class="p">(</span><span class="nf">beholder/stop</span> <span class="nv">beholder</span><span class="p">))))</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="p">(</span><span class="nf">comment</span>
-</span></span><span class="line"><span class="cl">  <span class="c1">;; step 1</span>
-</span></span><span class="line"><span class="cl">  <span class="p">(</span><span class="nf">prof/profile</span> <span class="p">(</span><span class="nf">watch-and-stop</span> <span class="s">&#34;/home/whatacold/tmp/&#34;</span> <span class="mi">2</span><span class="p">))</span>
-</span></span><span class="line"><span class="cl">  <span class="c1">;; step 2</span>
-</span></span><span class="line"><span class="cl">  <span class="p">(</span><span class="nf">prof/serve-ui</span> <span class="mi">8010</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">  <span class="p">)</span></span></span></code></pre></div>
-</div>
+<p>
+To run the test, we can just run it with <a href="https://cider.mx/">cider</a>. After reloading the code (<code class="verbatim">C-c C-k</code> cider-load-buffer), we can use the command cider-test-run-test (<code class="verbatim">C-c C-t t</code>) to run the test at point. It&#39;s really handy!</p>
 <figure>
-<img src="/img/2024-11-28-beholder-watch-flamegraph.png" alt="/img/2024-11-28-beholder-watch-flamegraph.png" title="/img/2024-11-28-beholder-watch-flamegraph.png" /><figcaption>
-The flamegraph for beholder
+<img src="/img/2024-12-07-cider-test-run-test.png" alt="/img/2024-12-07-cider-test-run-test.png" title="/img/2024-12-07-cider-test-run-test.png" /><figcaption>
+Run the test at point using cider
 </figcaption>
 </figure>
 <p>
-From the flamegraph, I immediately realized that the cause was that my directory has a lot of files and it took beholder a long time to traverse them!</p>
-<p>
-clj-async-profiler is really amazing, using it to troubleshoot performance problems is like a breeze! Thank you to <a href="https://github.com/alexander-yakushev">Oleksandr Yakushev</a> and all the contributors for this great tool!</p>
-<p>
-Notes:</p>
-<ol>
-<li>Use built-in <code class="verbatim">time</code> function to get a basic idea of how long of time a form takes, e.g. <code class="verbatim">(time (+ 1 2))</code></li>
-<li>If you want to save the flamegraph file to your computer, right-click on the link on its home page and save it from there.
-It doesn&#39;t work to directly save it from the flamegraph page, somehow, the resulting html file is different, it looks like it has been &#34;tempered&#34; by the browser aftering rendering.</li>
-<li>Beholder&#39;s current implementation needs to hash a files under a directory in order to watch changes, see <a href="https://github.com/nextjournal/beholder/issues/11">issue #11</a></li>
-</ol>
+And we would also like to use some test runners in the CI/CD pipeline, here there are some dedicated solutions:</p>
+<ul>
+<li><a href="https://github.com/lambdaisland/kaocha">kaocha</a></li>
+<li><a href="https://github.com/cognitect-labs/test-runner">cognitect-labs/test-runner</a></li>
+</ul>
+<p>Clay uses the later one, you can check it out at <a href="https://github.com/scicloj/clay/blob/main/build.clj">build.clj</a> if you&#39;re interested.</p>
 
 
         
           <div class="blog-tags">
             
-              <a href="https://whatacold.io//tags/clojure/">Clojure</a>&nbsp;
+              <a href="https://whatacold.io//tags/clojure/">clojure</a>&nbsp;
             
-              <a href="https://whatacold.io//tags/clay/">Clay</a>&nbsp;
+              <a href="https://whatacold.io//tags/cider/">cider</a>&nbsp;
+            
+              <a href="https://whatacold.io//tags/clay/">clay</a>&nbsp;
+            
+              <a href="https://whatacold.io//tags/tweet/">tweet</a>&nbsp;
             
           </div>
         
@@ -359,42 +327,42 @@ It doesn&#39;t work to directly save it from the flamegraph page, somehow, the r
     <ul class="share">
       
       <li>
-        <a href="//twitter.com/share?url=https%3a%2f%2fwhatacold.io%2fblog%2f2024-11-28-beholder-clj-async-profiler%2f&amp;text=clj-async-profiler%20Rocks&amp;via=whatacold" target="_blank" title="Share on Twitter">
+        <a href="//twitter.com/share?url=https%3a%2f%2fwhatacold.io%2fblog%2f2024-11-27-clojure-unit-test%2f&amp;text=Doing%20Unit%20test%20in%20Clojure%20Is%20Easy&amp;via=whatacold" target="_blank" title="Share on Twitter">
           <i class="fab fa-twitter"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fwhatacold.io%2fblog%2f2024-11-28-beholder-clj-async-profiler%2f" target="_blank" title="Share on Facebook">
+        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fwhatacold.io%2fblog%2f2024-11-27-clojure-unit-test%2f" target="_blank" title="Share on Facebook">
           <i class="fab fa-facebook"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//reddit.com/submit?url=https%3a%2f%2fwhatacold.io%2fblog%2f2024-11-28-beholder-clj-async-profiler%2f&amp;title=clj-async-profiler%20Rocks" target="_blank" title="Share on Reddit">
+        <a href="//reddit.com/submit?url=https%3a%2f%2fwhatacold.io%2fblog%2f2024-11-27-clojure-unit-test%2f&amp;title=Doing%20Unit%20test%20in%20Clojure%20Is%20Easy" target="_blank" title="Share on Reddit">
           <i class="fab fa-reddit"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fwhatacold.io%2fblog%2f2024-11-28-beholder-clj-async-profiler%2f&amp;title=clj-async-profiler%20Rocks" target="_blank" title="Share on LinkedIn">
+        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fwhatacold.io%2fblog%2f2024-11-27-clojure-unit-test%2f&amp;title=Doing%20Unit%20test%20in%20Clojure%20Is%20Easy" target="_blank" title="Share on LinkedIn">
           <i class="fab fa-linkedin"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fwhatacold.io%2fblog%2f2024-11-28-beholder-clj-async-profiler%2f&amp;title=clj-async-profiler%20Rocks" target="_blank" title="Share on StumbleUpon">
+        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fwhatacold.io%2fblog%2f2024-11-27-clojure-unit-test%2f&amp;title=Doing%20Unit%20test%20in%20Clojure%20Is%20Easy" target="_blank" title="Share on StumbleUpon">
           <i class="fab fa-stumbleupon"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fwhatacold.io%2fblog%2f2024-11-28-beholder-clj-async-profiler%2f&amp;description=clj-async-profiler%20Rocks" target="_blank" title="Share on Pinterest">
+        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fwhatacold.io%2fblog%2f2024-11-27-clojure-unit-test%2f&amp;description=Doing%20Unit%20test%20in%20Clojure%20Is%20Easy" target="_blank" title="Share on Pinterest">
           <i class="fab fa-pinterest"></i>
         </a>
       </li>
@@ -416,15 +384,7 @@ It doesn&#39;t work to directly save it from the flamegraph page, somehow, the r
                   <ul>
                 
                 
-                    <li><a href="/blog/2024-11-09-clj-deps-cmdline/">Adding Clojure Dependencies from the Command Line</a></li>
-                
-                    <li><a href="/blog/2024-11-10-clojure-lazy-seq-case/">Bitten by Lazy Sequence of map</a></li>
-                
-                    <li><a href="/blog/2024-11-08-clojure-thread-macro-anonymous-function/">Anonymous Functions in Thread Macros</a></li>
-                
-                    <li><a href="/blog/2024-11-08-cider-clojure-repl-cmdline/">Start a Clojure nREPL in the Command Line for Cider</a></li>
-                
-                    <li><a href="/blog/2021-09-19-clojure-reduce-text-processing/">Clojure reduce: one case for text processing</a></li>
+                    <li><a href="/blog/2024-12-07-babashka-fs-notes/">A Few Quick Notes About babashka/fs</a></li>
                 
               </ul>
 
@@ -436,12 +396,12 @@ It doesn&#39;t work to directly save it from the flamegraph page, somehow, the r
         <ul class="pager blog-pager">
           
             <li class="previous">
-              <a href="https://whatacold.io/blog/2024-11-23-tailwindcss-docs-index/" data-toggle="tooltip" data-placement="top" title="TailwindCSS Docs Index">&larr; Previous Post</a>
+              <a href="https://whatacold.io/blog/2024-11-28-beholder-clj-async-profiler/" data-toggle="tooltip" data-placement="top" title="clj-async-profiler Rocks">&larr; Previous Post</a>
             </li>
           
           
             <li class="next">
-              <a href="https://whatacold.io/blog/2024-11-27-clojure-unit-test/" data-toggle="tooltip" data-placement="top" title="Doing Unit test in Clojure Is Easy">Next Post &rarr;</a>
+              <a href="https://whatacold.io/blog/2024-12-07-babashka-fs-notes/" data-toggle="tooltip" data-placement="top" title="A Few Quick Notes About babashka/fs">Next Post &rarr;</a>
             </li>
           
         </ul>

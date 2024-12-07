@@ -8,8 +8,22 @@
     <language>en</language>
     <managingEditor>whatacold@gmail.com (whatacold)</managingEditor>
     <webMaster>whatacold@gmail.com (whatacold)</webMaster>
-    <lastBuildDate>Tue, 12 Nov 2024 22:21:56 +0800</lastBuildDate>
+    <lastBuildDate>Sat, 07 Dec 2024 22:38:07 +0800</lastBuildDate>
     <atom:link href="https://whatacold.io/tags/tweet/rss.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>A Few Quick Notes About babashka/fs</title>
+      <link>https://whatacold.io/blog/2024-12-07-babashka-fs-notes/</link>
+      <pubDate>Sat, 07 Dec 2024 22:24:41 +0800</pubDate><author>whatacold@gmail.com (whatacold)</author>
+      <guid>https://whatacold.io/blog/2024-12-07-babashka-fs-notes/</guid>
+      <description>Recently I&amp;#39;ve used babashka/fs a little bit, here are some quick notes for it:&#xA;Path vs File Use Path whenever possible, according to this SO answer to &amp;#34;Java: Path vs File&amp;#34;. This is actually Java related. It&amp;#39;s ok to use a path as a key for a clojure map. At my first try, I somehow came to the conclusion that it&amp;#39;s not ok, while I was refactoring the live reload for clay.</description>
+    </item>
+    <item>
+      <title>Doing Unit test in Clojure Is Easy</title>
+      <link>https://whatacold.io/blog/2024-11-27-clojure-unit-test/</link>
+      <pubDate>Thu, 28 Nov 2024 23:10:56 +0800</pubDate><author>whatacold@gmail.com (whatacold)</author>
+      <guid>https://whatacold.io/blog/2024-11-27-clojure-unit-test/</guid>
+      <description>While refactoring the live reload feature of Clay, I realized I&amp;#39;d better break long functions into smaller and functional ones (as many as I can), which is also a common practice in the clojure community.&#xA;Small pure functions not only are easy to verify on the development process (using a REPL), but also are easy to test. And unit tests are easy to write in clojure, just use deftest from clojure.</description>
+    </item>
     <item>
       <title>Adding Clojure Dependencies from the Command Line</title>
       <link>https://whatacold.io/blog/2024-11-09-clj-deps-cmdline/</link>
