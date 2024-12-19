@@ -13,7 +13,7 @@
       <title>A Few Quick Notes About babashka/fs - Blog</title>
 
   <meta name="description" content="Recently I&#39;ve used babashka/fs a little bit, here are some quick notes for it:
-Path vs File Use Path whenever possible, according to this SO answer to &#34;Java: Path vs File&#34;. This is actually Java related. It&#39;s ok to use a path as a key for a clojure map. At my first try, I somehow came to the conclusion that it&#39;s not ok, while I was refactoring the live reload for clay.">
+Path vs File. Use Path whenever possible, according to this SO answer to &#34;Java: Path vs File&#34;. This is actually Java related. It&#39;s ok to use a path as a key for a clojure map. At my first try, I somehow came to the conclusion that it&#39;s not ok, while I was refactoring the live reload for clay.">
   <meta name="author" content="Ken Huang"/><script type="application/ld+json">
 {
     "@context": "http://schema.org",
@@ -62,7 +62,7 @@ Path vs File Use Path whenever possible, according to this SO answer to &#34;Jav
     "name" : "Ken Huang"
   },
   "headline": "A Few Quick Notes About babashka\/fs",
-  "description" : "Recently I\u0026#39;ve used babashka\/fs a little bit, here are some quick notes for it:\nPath vs File Use Path whenever possible, according to this SO answer to \u0026#34;Java: Path vs File\u0026#34;. This is actually Java related. It\u0026#39;s ok to use a path as a key for a clojure map. At my first try, I somehow came to the conclusion that it\u0026#39;s not ok, while I was refactoring the live reload for clay.",
+  "description" : "Recently I\u0026#39;ve used babashka\/fs a little bit, here are some quick notes for it:\nPath vs File. Use Path whenever possible, according to this SO answer to \u0026#34;Java: Path vs File\u0026#34;. This is actually Java related. It\u0026#39;s ok to use a path as a key for a clojure map. At my first try, I somehow came to the conclusion that it\u0026#39;s not ok, while I was refactoring the live reload for clay.",
   "inLanguage" : "en",
   "wordCount":  149 ,
   "datePublished" : "2024-12-07T22:24:41",
@@ -85,7 +85,7 @@ Path vs File Use Path whenever possible, according to this SO answer to &#34;Jav
 
 <meta property="og:title" content="A Few Quick Notes About babashka/fs" />
 <meta property="og:description" content="Recently I&#39;ve used babashka/fs a little bit, here are some quick notes for it:
-Path vs File Use Path whenever possible, according to this SO answer to &#34;Java: Path vs File&#34;. This is actually Java related. It&#39;s ok to use a path as a key for a clojure map. At my first try, I somehow came to the conclusion that it&#39;s not ok, while I was refactoring the live reload for clay.">
+Path vs File. Use Path whenever possible, according to this SO answer to &#34;Java: Path vs File&#34;. This is actually Java related. It&#39;s ok to use a path as a key for a clojure map. At my first try, I somehow came to the conclusion that it&#39;s not ok, while I was refactoring the live reload for clay.">
 <meta property="og:image" content="https://whatacold.io/img/avatar.png" />
 <meta property="og:url" content="https://whatacold.io/blog/2024-12-07-babashka-fs-notes/" />
 <meta property="og:type" content="website" />
@@ -93,7 +93,7 @@ Path vs File Use Path whenever possible, according to this SO answer to &#34;Jav
 
   <meta name="twitter:title" content="A Few Quick Notes About babashka/fs" />
   <meta name="twitter:description" content="Recently I&#39;ve used babashka/fs a little bit, here are some quick notes for it:
-Path vs File Use Path whenever possible, according to this SO answer to &#34;Java: Path vs File&#34;. This is …">
+Path vs File. Use Path whenever possible, according to this SO answer to &#34;Java: Path vs File&#34;. This is …">
   <meta name="twitter:image" content="https://whatacold.io/img/avatar.png" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:site" content="@whatacold" />
@@ -283,12 +283,16 @@ Path vs File Use Path whenever possible, according to this SO answer to &#34;Jav
         <p>
 Recently I&#39;ve used <a href="https://github.com/babashka/fs/blob/master/API.md">babashka/fs</a> a little bit, here are some quick notes for it:</p>
 <ul>
-<li>Path vs File
+<li>Path vs File.
+
 Use Path whenever possible, according to <a href="https://stackoverflow.com/a/26658436">this SO answer to &#34;Java: Path vs File&#34;</a>.
+
 This is actually Java related.</li>
 <li>It&#39;s ok to use a <code class="verbatim">path</code> as a key for a clojure map.
+
 At my first try, I somehow came to the conclusion that it&#39;s not ok, while I was refactoring the <a href="https://github.com/scicloj/clay/blob/main/src/scicloj/clay/v2/live_reload.clj">live reload</a> for clay. And later I found that it&#39;s totally fine to use it as a key. 😞</li>
 <li>Use <a href="https://github.com/babashka/fs/blob/master/API.md#babashka.fs/path">fs/path</a> to construct file/directory paths, for example, <code class="verbatim">(fs/path &#34;/tmp&#34; &#34;foo&#34; &#34;bar&#34; &#34;baz.clj&#34;)</code> will result in a path object for <code class="verbatim">/tmp/foo/bar/baz.clj</code> on linux.
+
 If you&#39;re coming from Python, it might remind you of <a href="https://docs.python.org/3/library/os.path.html">os.path.join(path, *paths)</a>.</li>
 <li>Use <code class="verbatim">fs/createdirs</code> for <code class="verbatim">mkdir -p</code>, though its name is a bit misleading, I first thought it&#39;s for creating a few dirs.</li>
 <li><code class="verbatim">fs/with-temp-dir</code> is convenient for <a href="https://github.com/scicloj/clay/blob/main/test/scicloj/clay/v2/live_reload_test.clj">creating tests</a>.</li>
