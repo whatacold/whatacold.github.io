@@ -18,6 +18,19 @@
                 href="https://whatacold.io/zh-cn/blog/"
                 />
   </url><url>
+    <loc>https://whatacold.io/zh-cn/</loc>
+    <lastmod>2024-12-19T21:52:00+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://whatacold.io/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-cn"
+                href="https://whatacold.io/zh-cn/"
+                />
+  </url><url>
     <loc>https://whatacold.io/zh-cn/tags/</loc>
     <lastmod>2023-12-10T10:16:06+08:00</lastmod>
     <xhtml:link
@@ -29,19 +42,6 @@
                 rel="alternate"
                 hreflang="zh-cn"
                 href="https://whatacold.io/zh-cn/tags/"
-                />
-  </url><url>
-    <loc>https://whatacold.io/zh-cn/</loc>
-    <lastmod>2023-12-10T10:16:06+08:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://whatacold.io/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh-cn"
-                href="https://whatacold.io/zh-cn/"
                 />
   </url><url>
     <loc>https://whatacold.io/zh-cn/tags/%E8%8B%B1%E8%AF%AD/</loc>
@@ -154,7 +154,7 @@
                 />
   </url><url>
     <loc>https://whatacold.io/zh-cn/about/</loc>
-    <lastmod>2023-11-25T10:25:48+08:00</lastmod>
+    <lastmod>2024-12-19T21:52:00+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"

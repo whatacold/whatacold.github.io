@@ -1,33 +1,33 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Babashka on whatacold&#39;s space</title>
+    <title>Babashka on Ken Huang</title>
     <link>https://whatacold.io/tags/babashka/</link>
-    <description>Recent content in Babashka on whatacold&#39;s space</description>
+    <description>Recent content in Babashka on Ken Huang</description>
     <generator>Hugo</generator>
     <language>en</language>
-    <managingEditor>whatacold@gmail.com (whatacold)</managingEditor>
-    <webMaster>whatacold@gmail.com (whatacold)</webMaster>
+    <managingEditor>whatacold@gmail.com (Ken Huang)</managingEditor>
+    <webMaster>whatacold@gmail.com (Ken Huang)</webMaster>
     <lastBuildDate>Sat, 25 Nov 2023 12:44:53 +0800</lastBuildDate>
     <atom:link href="https://whatacold.io/tags/babashka/rss.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Clojure reduce: one case for text processing</title>
       <link>https://whatacold.io/blog/2021-09-19-clojure-reduce-text-processing/</link>
-      <pubDate>Sun, 19 Sep 2021 10:39:23 +0800</pubDate><author>whatacold@gmail.com (whatacold)</author>
+      <pubDate>Sun, 19 Sep 2021 10:39:23 +0800</pubDate><author>whatacold@gmail.com (Ken Huang)</author>
       <guid>https://whatacold.io/blog/2021-09-19-clojure-reduce-text-processing/</guid>
       <description>As a practice, I managed to illustrate Clojure files using illustrate.clj, but my original idea was to annotate org-mode files of blogs. It&amp;#39;s not uncommon that a blog post has some code snippets.&#xA;But it missed the feature until last night, as I wasn&amp;#39;t sure how to implement it appropriately before and didn&amp;#39;t have enough time.&#xA;For example, I may have an org-mode like this:&#xA;sum of two numbers: #+begin_src clojure (+ 1 2) #+end_src I want to have a result comment ((;; =&amp;gt; 3)) after each top-level form after using illustrate.</description>
     </item>
     <item>
       <title>illustrate.clj to Illustrate Clojure Snippet</title>
       <link>https://whatacold.io/blog/2021-08-07-illustrate-clojure-snippet/</link>
-      <pubDate>Sat, 07 Aug 2021 18:49:25 +0800</pubDate><author>whatacold@gmail.com (whatacold)</author>
+      <pubDate>Sat, 07 Aug 2021 18:49:25 +0800</pubDate><author>whatacold@gmail.com (Ken Huang)</author>
       <guid>https://whatacold.io/blog/2021-08-07-illustrate-clojure-snippet/</guid>
       <description>To get my hands dirty with Clojure, I am trying to find or implement Clojure&amp;#39;s string functions in the sense of Python. Python has powerful string APIs, and I also want to see how powerful Clojure could be in this field. That would be interesting.&#xA;As shown in the cheatsheet, Clojure has implemented most of them, and there are some that I have to implement myself, like title-case.&#xA;Along the way, I found it was a little cumbersome to append the evaluation result and the result of calling them, for example,</description>
     </item>
     <item>
       <title>A Random Password Generator in Babashka</title>
       <link>https://whatacold.io/blog/2021-07-11-babashka-random-password-generator/</link>
-      <pubDate>Sun, 11 Jul 2021 09:18:41 +0800</pubDate><author>whatacold@gmail.com (whatacold)</author>
+      <pubDate>Sun, 11 Jul 2021 09:18:41 +0800</pubDate><author>whatacold@gmail.com (Ken Huang)</author>
       <guid>https://whatacold.io/blog/2021-07-11-babashka-random-password-generator/</guid>
       <description>I&amp;#39;m used to learning by practicing, so when I learned Clojure, I always kept an eye on chances to write code in it.&#xA;Scripting is an excellent field to practice, but the experience is not so good. On the one hand, it&amp;#39;s too hacky to wrap Clojure code in a shell script with the shell bang. On the other hand, the startup time of JVM is too long to hurt the user experience.</description>
     </item>

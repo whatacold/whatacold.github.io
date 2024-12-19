@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Categories on whatacold 的空间</title>
+    <title>Categories on Ken Huang</title>
     <link>https://whatacold.io/zh-cn/categories/</link>
-    <description>Recent content in Categories on whatacold 的空间</description>
+    <description>Recent content in Categories on Ken Huang</description>
     <generator>Hugo</generator>
     <language>zh-cn</language>
-    <managingEditor>whatacold@gmail.com (whatacold)</managingEditor>
-    <webMaster>whatacold@gmail.com (whatacold)</webMaster>
+    <managingEditor>whatacold@gmail.com (Ken Huang)</managingEditor>
+    <webMaster>whatacold@gmail.com (Ken Huang)</webMaster>
     <atom:link href="https://whatacold.io/zh-cn/categories/rss.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>

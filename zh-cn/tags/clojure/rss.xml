@@ -1,26 +1,26 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Clojure on whatacold 的空间</title>
+    <title>Clojure on Ken Huang</title>
     <link>https://whatacold.io/zh-cn/tags/clojure/</link>
-    <description>Recent content in Clojure on whatacold 的空间</description>
+    <description>Recent content in Clojure on Ken Huang</description>
     <generator>Hugo</generator>
     <language>zh-cn</language>
-    <managingEditor>whatacold@gmail.com (whatacold)</managingEditor>
-    <webMaster>whatacold@gmail.com (whatacold)</webMaster>
+    <managingEditor>whatacold@gmail.com (Ken Huang)</managingEditor>
+    <webMaster>whatacold@gmail.com (Ken Huang)</webMaster>
     <lastBuildDate>Sat, 22 Oct 2022 09:29:19 +0800</lastBuildDate>
     <atom:link href="https://whatacold.io/zh-cn/tags/clojure/rss.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>lein 新建 reagent-frontend 工程失败问题</title>
       <link>https://whatacold.io/zh-cn/blog/2021-09-05-lein-reagent-frontend-shibai/</link>
-      <pubDate>Sun, 05 Sep 2021 10:39:33 +0800</pubDate><author>whatacold@gmail.com (whatacold)</author>
+      <pubDate>Sun, 05 Sep 2021 10:39:33 +0800</pubDate><author>whatacold@gmail.com (Ken Huang)</author>
       <guid>https://whatacold.io/zh-cn/blog/2021-09-05-lein-reagent-frontend-shibai/</guid>
       <description>最近打算用 ClojureScript 做点 web 应用，就准备实践下 Reagent ，它是一个 React.js 的极简封装（A minimalistic ClojureScript interface to React.js），通过官网的几个例子可以看到，确实很简洁。 看花容易</description>
     </item>
     <item>
       <title>Clojure Reduce 的两种用法</title>
       <link>https://whatacold.io/zh-cn/blog/2021-07-28-clojure-reduce-yongfang/</link>
-      <pubDate>Wed, 28 Jul 2021 00:01:15 +0800</pubDate><author>whatacold@gmail.com (whatacold)</author>
+      <pubDate>Wed, 28 Jul 2021 00:01:15 +0800</pubDate><author>whatacold@gmail.com (Ken Huang)</author>
       <guid>https://whatacold.io/zh-cn/blog/2021-07-28-clojure-reduce-yongfang/</guid>
       <description>map/reduce 在 Lisp 语言中是一种很常见的用法， Clojure 自然也不例外。 自上次 title-case 的练习之后，我以为自己对 reduce 已经有了较为深入的了解了；恰好最近在 StackOverflow 上刚好遇到一个类似的</description>
     </item>

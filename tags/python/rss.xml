@@ -1,82 +1,82 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Python on whatacold&#39;s space</title>
+    <title>Python on Ken Huang</title>
     <link>https://whatacold.io/tags/python/</link>
-    <description>Recent content in Python on whatacold&#39;s space</description>
+    <description>Recent content in Python on Ken Huang</description>
     <generator>Hugo</generator>
     <language>en</language>
-    <managingEditor>whatacold@gmail.com (whatacold)</managingEditor>
-    <webMaster>whatacold@gmail.com (whatacold)</webMaster>
+    <managingEditor>whatacold@gmail.com (Ken Huang)</managingEditor>
+    <webMaster>whatacold@gmail.com (Ken Huang)</webMaster>
     <lastBuildDate>Sat, 07 Dec 2024 22:33:10 +0800</lastBuildDate>
     <atom:link href="https://whatacold.io/tags/python/rss.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>A Few Quick Notes About babashka/fs</title>
       <link>https://whatacold.io/blog/2024-12-07-babashka-fs-notes/</link>
-      <pubDate>Sat, 07 Dec 2024 22:24:41 +0800</pubDate><author>whatacold@gmail.com (whatacold)</author>
+      <pubDate>Sat, 07 Dec 2024 22:24:41 +0800</pubDate><author>whatacold@gmail.com (Ken Huang)</author>
       <guid>https://whatacold.io/blog/2024-12-07-babashka-fs-notes/</guid>
       <description>Recently I&amp;#39;ve used babashka/fs a little bit, here are some quick notes for it:&#xA;Path vs File Use Path whenever possible, according to this SO answer to &amp;#34;Java: Path vs File&amp;#34;. This is actually Java related. It&amp;#39;s ok to use a path as a key for a clojure map. At my first try, I somehow came to the conclusion that it&amp;#39;s not ok, while I was refactoring the live reload for clay.</description>
     </item>
     <item>
       <title>How to append items to the CSV file without header row?</title>
       <link>https://whatacold.io/blog/2022-04-09-scrapy-csv-without-header/</link>
-      <pubDate>Sat, 09 Apr 2022 22:32:11 +0800</pubDate><author>whatacold@gmail.com (whatacold)</author>
+      <pubDate>Sat, 09 Apr 2022 22:32:11 +0800</pubDate><author>whatacold@gmail.com (Ken Huang)</author>
       <guid>https://whatacold.io/blog/2022-04-09-scrapy-csv-without-header/</guid>
       <description>Scrapy Architecture Scrapy provides a few item exporters by default to export items in commonly used file formats like CSV/JSON/XML. I usually use CSV to export items, it is pretty convenient, and it comes in two ways:&#xA;appending mode, for example, scrapy crawl foo -o test.csv overwriting mode with -O option, like scrapy crawl foo -O test.csv But in the appending mode, it&amp;#39;s a bit annoying that it always appends the header row before the newly scraped items, which is not correctly in terms of CSV format.</description>
     </item>
     <item>
       <title>Writing a Python Script in Emacs in 45 Minutes!</title>
       <link>https://whatacold.io/blog/2021-12-11-writing-python-in-emacs/</link>
-      <pubDate>Sat, 11 Dec 2021 09:24:53 +0800</pubDate><author>whatacold@gmail.com (whatacold)</author>
+      <pubDate>Sat, 11 Dec 2021 09:24:53 +0800</pubDate><author>whatacold@gmail.com (Ken Huang)</author>
       <guid>https://whatacold.io/blog/2021-12-11-writing-python-in-emacs/</guid>
       <description>Note: watch my live coding session of this article: Intro If you&amp;#39;ve heard some rumors of Emacs that it has a very steep learning curve (or that Emacs makes a computer slow), you may be too scared to look at it. It indeed has some learning curve (learning anything does have one), but it isn&amp;#39;t very steep. I learned this after getting my hands dirty with Emacs a few years ago.</description>
     </item>
     <item>
       <title>Beautiful Soup 4 Cheatsheet</title>
       <link>https://whatacold.io/blog/2021-12-05-beautifulsoup4-cheatsheet/</link>
-      <pubDate>Sat, 25 Sep 2021 23:01:40 +0800</pubDate><author>whatacold@gmail.com (whatacold)</author>
+      <pubDate>Sat, 25 Sep 2021 23:01:40 +0800</pubDate><author>whatacold@gmail.com (Ken Huang)</author>
       <guid>https://whatacold.io/blog/2021-12-05-beautifulsoup4-cheatsheet/</guid>
       <description>Beautiful Soup Detailed docs: the Beautiful Soup 4 Docs.&#xA;Assume t is an object of Tag.&#xA;Core concepts (classes) Tag, a Tag object corresponds to an XML or HTML tag. BeautifulSoup, the BeautifulSoup object represents the parsed document as a whole. You can treat it like a special Tag. It needs a parser to parse the document, a built-in parser is &amp;#34;html.parser&amp;#34;, e.g. soup = BeautifulSoup(&amp;#34;&amp;lt;html&amp;gt;a web page&amp;lt;/html&amp;gt;&amp;#34;, &amp;#39;html.parser&amp;#39;) NavigableString, a string corresponds to a bit of text (as you see it in the browser) within a tag.</description>
     </item>
     <item>
       <title>String Title Case in Clojure</title>
       <link>https://whatacold.io/blog/2021-07-25-clojure-string-title-case/</link>
-      <pubDate>Sun, 25 Jul 2021 11:51:39 +0800</pubDate><author>whatacold@gmail.com (whatacold)</author>
+      <pubDate>Sun, 25 Jul 2021 11:51:39 +0800</pubDate><author>whatacold@gmail.com (Ken Huang)</author>
       <guid>https://whatacold.io/blog/2021-07-25-clojure-string-title-case/</guid>
       <description>These days I like to write scripts for some tasks in Python instead of shell. One important reason I think that&amp;#39;s because Python is powerful at string manipulation.&#xA;Recently I&amp;#39;m learning Clojure, and I&amp;#39;m trying to find similar ways in Clojure, one of them is s.title() for getting a title-cased version of a string. For example,&#xA;&amp;gt;&amp;gt;&amp;gt; &amp;#39; Hello world&amp;#39;.title() &amp;#39; Hello World&amp;#39; How to do that in Clojure? To make the problem simple, let&amp;#39;s assume that the input string only has letters and spaces, that is, [a-zA-Z ] in regex pattern.</description>
     </item>
     <item>
       <title>String Manipulation in Clojure</title>
       <link>https://whatacold.io/blog/2021-07-22-clojure-string-manipulation/</link>
-      <pubDate>Thu, 22 Jul 2021 23:29:11 +0800</pubDate><author>whatacold@gmail.com (whatacold)</author>
+      <pubDate>Thu, 22 Jul 2021 23:29:11 +0800</pubDate><author>whatacold@gmail.com (Ken Huang)</author>
       <guid>https://whatacold.io/blog/2021-07-22-clojure-string-manipulation/</guid>
       <description>Python string APIs are powerful and concise, that is an important reason I use it to do a lot of scripting these days, join, split, strip, to name a few.&#xA;Since I am learning Clojure recently, I am wondering, how is string manipulation like in Clojure and how to implement equivalent ones?&#xA;I think it&amp;#39;s an excellent opportunity to get familiar with Clojure. Before diving into the implementation, how to declare a multi-line string?</description>
     </item>
     <item>
       <title>An Online Python re.findall Service</title>
       <link>https://whatacold.io/blog/2020-10-21-a-python-re.findall-service/</link>
-      <pubDate>Wed, 21 Oct 2020 22:51:00 +0800</pubDate><author>whatacold@gmail.com (whatacold)</author>
+      <pubDate>Wed, 21 Oct 2020 22:51:00 +0800</pubDate><author>whatacold@gmail.com (Ken Huang)</author>
       <guid>https://whatacold.io/blog/2020-10-21-a-python-re.findall-service/</guid>
       <description>As a programmer, I know that grep, sed and awk are powerful for processing text, but they sometimes aren&amp;#39;t that straight-forward for specific tasks, as I need to think about how to filter the lines and the columns out.&#xA;So I wonder if there is a handy way to do these tasks?&#xA;After using it for a while, I think using regex directly can help, so I launched a re.</description>
     </item>
     <item>
       <title>How To Run Bleeding-edge Qtile Within a Virtualenv</title>
       <link>https://whatacold.io/blog/2019-09-29-how-to-run-the-bleeding-edge-code-of-qtile/</link>
-      <pubDate>Sun, 29 Sep 2019 17:05:00 +0800</pubDate><author>whatacold@gmail.com (whatacold)</author>
+      <pubDate>Sun, 29 Sep 2019 17:05:00 +0800</pubDate><author>whatacold@gmail.com (Ken Huang)</author>
       <guid>https://whatacold.io/blog/2019-09-29-how-to-run-the-bleeding-edge-code-of-qtile/</guid>
       <description>For having been using GNOME for quite a long time, I was considering trying some tiling window managers to see what it&amp;#39;s like a few weeks ago. Along the way, I found a nice window manager written in Python: Qtile, what interests me most is that it&amp;#39;s a hackable window manager, which makes it flexible to extend or change its behaviors.&#xA;Well, switching to use a tiling window manager is far simpler than I thought.</description>
     </item>
     <item>
       <title>Generating org-mode Outlines for wikiHow Articles</title>
       <link>https://whatacold.io/blog/2019-07-20-generating-org-mode-outlines-for-wikihow-articles/</link>
-      <pubDate>Sat, 20 Jul 2019 20:04:00 +0800</pubDate><author>whatacold@gmail.com (whatacold)</author>
+      <pubDate>Sat, 20 Jul 2019 20:04:00 +0800</pubDate><author>whatacold@gmail.com (Ken Huang)</author>
       <guid>https://whatacold.io/blog/2019-07-20-generating-org-mode-outlines-for-wikihow-articles/</guid>
       <description>Recently I found some great articles on wikiHow, then I want to keep notes of them in org-mode files.&#xA;At first, I manually copied the ToC of articles, but soon I found it&amp;#39;s tedious and takes a lot of time. Today I wrote a requests-based Python script to help me extract the ToCs (Table of Content) into org-mode outlines. It takes two arguments, the first one is the URL, the second one is the containing heading&amp;#39;s level for the generated ToC in org-mode.</description>
     </item>
     <item>
       <title>ER Diagrams in Plain Text</title>
       <link>https://whatacold.io/blog/2019-07-06-render-erd-on-the-web/</link>
-      <pubDate>Sat, 06 Jul 2019 11:59:00 +0800</pubDate><author>whatacold@gmail.com (whatacold)</author>
+      <pubDate>Sat, 06 Jul 2019 11:59:00 +0800</pubDate><author>whatacold@gmail.com (Ken Huang)</author>
       <guid>https://whatacold.io/blog/2019-07-06-render-erd-on-the-web/</guid>
       <description>If you ever wonder how to plot ER diagrams in plain text, you may have already heard of erd. It&amp;#39;s a cool command line program written by Andrew Gallant in Haskell, to &amp;#34;compile&amp;#34; plain text files into nicely looking images, leveraging the power of GraphViz.&#xA;I&amp;#39;ve used erd for some time, it&amp;#39;s cool and the syntax is quite simple. It&amp;#39;s also quite simple to install it on Linux, just install GraphViz and erd itself, by following the instructions in the README page.</description>
     </item>

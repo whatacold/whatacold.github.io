@@ -1,47 +1,47 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Tiling-Wm on whatacold&#39;s space</title>
+    <title>Tiling-Wm on Ken Huang</title>
     <link>https://whatacold.io/tags/tiling-wm/</link>
-    <description>Recent content in Tiling-Wm on whatacold&#39;s space</description>
+    <description>Recent content in Tiling-Wm on Ken Huang</description>
     <generator>Hugo</generator>
     <language>en</language>
-    <managingEditor>whatacold@gmail.com (whatacold)</managingEditor>
-    <webMaster>whatacold@gmail.com (whatacold)</webMaster>
+    <managingEditor>whatacold@gmail.com (Ken Huang)</managingEditor>
+    <webMaster>whatacold@gmail.com (Ken Huang)</webMaster>
     <lastBuildDate>Sat, 15 Oct 2022 16:15:04 +0800</lastBuildDate>
     <atom:link href="https://whatacold.io/tags/tiling-wm/rss.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Adjust the laptop&#39;s screen brightness in Emacs</title>
       <link>https://whatacold.io/blog/2022-05-21-adjust-screen-brightness-emacs/</link>
-      <pubDate>Sat, 21 May 2022 11:50:25 +0800</pubDate><author>whatacold@gmail.com (whatacold)</author>
+      <pubDate>Sat, 21 May 2022 11:50:25 +0800</pubDate><author>whatacold@gmail.com (Ken Huang)</author>
       <guid>https://whatacold.io/blog/2022-05-21-adjust-screen-brightness-emacs/</guid>
       <description>Adjust the screen brightness in Emacs If you&amp;#39;re using i3wm on Linux, how do you adjust the laptop&amp;#39;s screen brightness?&#xA;Most of the time, I use the laptop with an external monitor. But when I am out, I have no monitors. And it seems no easy way to adjust the brightness in i3wm. Being too bright or dim is terrible for the eyes.&#xA;Recently, I found a command-line tool called brightnessctl, which can adjust the brightness in a terminal.</description>
     </item>
     <item>
       <title>Send Notifications from Emacs with i3wm and Dunst</title>
       <link>https://whatacold.io/blog/2021-07-17-emacs-i3wm-dunst/</link>
-      <pubDate>Sat, 17 Jul 2021 12:22:10 +0800</pubDate><author>whatacold@gmail.com (whatacold)</author>
+      <pubDate>Sat, 17 Jul 2021 12:22:10 +0800</pubDate><author>whatacold@gmail.com (Ken Huang)</author>
       <guid>https://whatacold.io/blog/2021-07-17-emacs-i3wm-dunst/</guid>
       <description>I barely use notifications, but recently I think it&amp;#39;s a valuable way to remind me things like helping me nurture habits, or to notify me of emergencies like a critically low laptop battery.&#xA;So I try to integrate notifications to org-mode and Emacs today.&#xA;The org-notify package from org-contrib (install it by (package-install &amp;#39;org-contrib) ) could do this job easily before, so I first test it in the minibuffer with (org-notify &amp;#34;test&amp;#34;).</description>
     </item>
     <item>
       <title>Manage SSH Connections with ~/.ssh/config</title>
       <link>https://whatacold.io/blog/2019-12-22-manage-ssh-connections-with-ssh-config/</link>
-      <pubDate>Sun, 22 Dec 2019 18:52:00 +0800</pubDate><author>whatacold@gmail.com (whatacold)</author>
+      <pubDate>Sun, 22 Dec 2019 18:52:00 +0800</pubDate><author>whatacold@gmail.com (Ken Huang)</author>
       <guid>https://whatacold.io/blog/2019-12-22-manage-ssh-connections-with-ssh-config/</guid>
       <description>I used to manage SSH connection with such GUI apps as MobaXterm, when I wrote code on Windows at work. As I changed my workflow to use a tiling window manager in a VirtualBox guest OS, I continued to improve my way of managing SSH connections, which I want to share here if you don&amp;#39;t know yet.&#xA;At first, I baked a helper Python script, which I named as qssh for &amp;#34;quick ssh&amp;#34;, to help me assemble ssh arguments for me(such as username, Ip, port, etc.</description>
     </item>
     <item>
       <title>Open New Urxvt from within Emacs</title>
       <link>https://whatacold.io/blog/2019-11-25-start-a-new-urxvt-terminal-on-emacs/</link>
-      <pubDate>Mon, 25 Nov 2019 22:47:00 +0800</pubDate><author>whatacold@gmail.com (whatacold)</author>
+      <pubDate>Mon, 25 Nov 2019 22:47:00 +0800</pubDate><author>whatacold@gmail.com (Ken Huang)</author>
       <guid>https://whatacold.io/blog/2019-11-25-start-a-new-urxvt-terminal-on-emacs/</guid>
       <description>I have been really enjoying the more concentration workflow qtile, a tiling window manager, brings me, since I started using it a few months ago. I am more focus on the current task now as all the windows I care about are laid out on the same screen.&#xA;As I get more used to qtile at every day&amp;#39;s work, I noticed that I became more depend on short-life terminal sessions.</description>
     </item>
     <item>
       <title>How To Run Bleeding-edge Qtile Within a Virtualenv</title>
       <link>https://whatacold.io/blog/2019-09-29-how-to-run-the-bleeding-edge-code-of-qtile/</link>
-      <pubDate>Sun, 29 Sep 2019 17:05:00 +0800</pubDate><author>whatacold@gmail.com (whatacold)</author>
+      <pubDate>Sun, 29 Sep 2019 17:05:00 +0800</pubDate><author>whatacold@gmail.com (Ken Huang)</author>
       <guid>https://whatacold.io/blog/2019-09-29-how-to-run-the-bleeding-edge-code-of-qtile/</guid>
       <description>For having been using GNOME for quite a long time, I was considering trying some tiling window managers to see what it&amp;#39;s like a few weeks ago. Along the way, I found a nice window manager written in Python: Qtile, what interests me most is that it&amp;#39;s a hackable window manager, which makes it flexible to extend or change its behaviors.&#xA;Well, switching to use a tiling window manager is far simpler than I thought.</description>
     </item>

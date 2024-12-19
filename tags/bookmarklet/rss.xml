@@ -1,26 +1,26 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Bookmarklet on whatacold&#39;s space</title>
+    <title>Bookmarklet on Ken Huang</title>
     <link>https://whatacold.io/tags/bookmarklet/</link>
-    <description>Recent content in Bookmarklet on whatacold&#39;s space</description>
+    <description>Recent content in Bookmarklet on Ken Huang</description>
     <generator>Hugo</generator>
     <language>en</language>
-    <managingEditor>whatacold@gmail.com (whatacold)</managingEditor>
-    <webMaster>whatacold@gmail.com (whatacold)</webMaster>
+    <managingEditor>whatacold@gmail.com (Ken Huang)</managingEditor>
+    <webMaster>whatacold@gmail.com (Ken Huang)</webMaster>
     <lastBuildDate>Sat, 25 Mar 2023 16:14:07 +0800</lastBuildDate>
     <atom:link href="https://whatacold.io/tags/bookmarklet/rss.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>A Bookmarklet for Copying a Link as an Org-mode Link</title>
       <link>https://whatacold.io/blog/2022-08-08-org-link-bookmarklet/</link>
-      <pubDate>Mon, 08 Aug 2022 23:33:05 +0800</pubDate><author>whatacold@gmail.com (whatacold)</author>
+      <pubDate>Mon, 08 Aug 2022 23:33:05 +0800</pubDate><author>whatacold@gmail.com (Ken Huang)</author>
       <guid>https://whatacold.io/blog/2022-08-08-org-link-bookmarklet/</guid>
       <description>In this blog post, I&amp;#39;d like to share a bookmarklet for copying a web page&amp;#39;s URL as an org-mode link on Firefox, Chrome, or whatever web browsers support bookmarklets.&#xA;It&amp;#39;s handy when the URL isn&amp;#39;t SEO-friendly, which means you can&amp;#39;t tell what its content is about at first glance of the URL. So a little description text on the link would help.&#xA;Here is the bookmarklet:&#xA;javascript:window.prompt(&amp;#34;Copy to clipboard: Ctrl+C, Esc&amp;#34;, &amp;#34;[[&amp;#34; + document.</description>
     </item>
     <item>
       <title>How to Change Web Page Titles Easily</title>
       <link>https://whatacold.io/blog/2019-08-18-how-to-rename-web-page-titles-in-a-lightweight-way/</link>
-      <pubDate>Sun, 18 Aug 2019 14:57:00 +0800</pubDate><author>whatacold@gmail.com (whatacold)</author>
+      <pubDate>Sun, 18 Aug 2019 14:57:00 +0800</pubDate><author>whatacold@gmail.com (Ken Huang)</author>
       <guid>https://whatacold.io/blog/2019-08-18-how-to-rename-web-page-titles-in-a-lightweight-way/</guid>
       <description>There are times that I need to open many web pages of some specific websites within a browser, and there are so many tabs that I can&amp;#39;t efficiently access one of them, as their favicons are all the same.&#xA;So I tried to find a way to rename their titles, preferably in a lightweight way, so that I can spot them quickly with my eyes.&#xA;The first thought came into my mind was to find some browser extensions to do the job.</description>
     </item>

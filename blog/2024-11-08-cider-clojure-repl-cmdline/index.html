@@ -13,11 +13,11 @@
       <title>Start a Clojure nREPL in the Command Line for Cider - Blog</title>
 
   <meta name="description" content="While troubleshooting and fixing a live reload bug in Clay today, which requires to start a minimal Clojure environment, I figured out how to start a nREPL from the command line. Instead of using M-x cider-jack-in-clj directly from Emacs, actually we can manully bring up an nREPL with this: clj -Sdeps &#34;{:deps {org.scicloj/clay {:mvn/version \&#34;2-beta21\&#34;} cider/cider-nrepl {:mvn/version \&#34;0.50.2\&#34;}}}&#34; -m nrepl.cmdline --middleware &#34;[cider.nrepl/cider-middleware]&#34; (The clay part is only necessary for this debugging), and then connect to this nREPL using the Emacs command M-x cider-connect-clj.">
-  <meta name="author" content="whatacold"/><script type="application/ld+json">
+  <meta name="author" content="Ken Huang"/><script type="application/ld+json">
 {
     "@context": "http://schema.org",
     "@type": "WebSite",
-    "name": "whatacold\u0027s space",
+    "name": "Ken Huang",
     
     "url": "https:\/\/whatacold.io\/"
 }
@@ -58,7 +58,7 @@
   "@context": "http://schema.org",
   "@type": "Article",
   "author": {
-    "name" : "whatacold"
+    "name" : "Ken Huang"
   },
   "headline": "Start a Clojure nREPL in the Command Line for Cider",
   "description" : "While troubleshooting and fixing a live reload bug in Clay today, which requires to start a minimal Clojure environment, I figured out how to start a nREPL from the command line. Instead of using M-x cider-jack-in-clj directly from Emacs, actually we can manully bring up an nREPL with this: clj -Sdeps \u0026#34;{:deps {org.scicloj\/clay {:mvn\/version \\\u0026#34;2-beta21\\\u0026#34;} cider\/cider-nrepl {:mvn\/version \\\u0026#34;0.50.2\\\u0026#34;}}}\u0026#34; -m nrepl.cmdline --middleware \u0026#34;[cider.nrepl\/cider-middleware]\u0026#34; (The clay part is only necessary for this debugging), and then connect to this nREPL using the Emacs command M-x cider-connect-clj.",
@@ -87,7 +87,7 @@
 <meta property="og:image" content="https://whatacold.io/img/avatar.png" />
 <meta property="og:url" content="https://whatacold.io/blog/2024-11-08-cider-clojure-repl-cmdline/" />
 <meta property="og:type" content="website" />
-<meta property="og:site_name" content="whatacold&#39;s space" />
+<meta property="og:site_name" content="Ken Huang" />
 
   <meta name="twitter:title" content="Start a Clojure nREPL in the Command Line for Cider" />
   <meta name="twitter:description" content="While troubleshooting and fixing a live reload bug in Clay today, which requires to start a minimal Clojure environment, I figured out how to start a nREPL from the command line. Instead of using M-x …">
@@ -97,7 +97,7 @@
   <meta name="twitter:creator" content="@whatacold" />
   <link href='https://whatacold.io/img/favicon.ico' rel='icon' type='image/x-icon'/>
   <meta name="generator" content="Hugo 0.126.2">
-  <link rel="alternate" href="https://whatacold.io/index.xml" type="application/rss+xml" title="whatacold&#39;s space"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/katex.min.css" integrity="sha384-3UiQGuEI4TTMaFmGIZumfRPtfKQ3trwQE2JgosJxCnGmQpL/lJdjpcHkaaFwHlcI" crossorigin="anonymous">
+  <link rel="alternate" href="https://whatacold.io/index.xml" type="application/rss+xml" title="Ken Huang"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/katex.min.css" integrity="sha384-3UiQGuEI4TTMaFmGIZumfRPtfKQ3trwQE2JgosJxCnGmQpL/lJdjpcHkaaFwHlcI" crossorigin="anonymous">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous"><link rel="stylesheet" href="https://whatacold.io/css/main.css" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
@@ -135,7 +135,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="https://whatacold.io/">whatacold&#39;s space</a>
+      <a class="navbar-brand" href="https://whatacold.io/">Ken Huang</a>
     </div>
 
     <div class="collapse navbar-collapse" id="main-navbar">
@@ -175,8 +175,8 @@
     
       <div class="avatar-container">
         <div class="avatar-img-border">
-          <a title="whatacold&#39;s space" href="https://whatacold.io/">
-            <img class="avatar-img" src="https://whatacold.io/img/avatar.png" alt="whatacold&#39;s space" />
+          <a title="Ken Huang" href="https://whatacold.io/">
+            <img class="avatar-img" src="https://whatacold.io/img/avatar.png" alt="Ken Huang" />
           </a>
         </div>
       </div>
@@ -478,27 +478,7 @@ use the universal argument of Emacs. There you can, for example,
               </li>
               <li>
 		
-		  <a href="https://reddit.com/u/whatacold" title="Reddit">
-		
-                  <span class="fa-stack fa-lg">
-                    <i class="fas fa-circle fa-stack-2x"></i>
-                    <i class="fab fa-reddit-alien fa-stack-1x fa-inverse"></i>
-                  </span>
-                </a>
-              </li>
-              <li>
-		
-		  <a href="https://stackoverflow.com/users/910978/whatacold" title="StackOverflow">
-		
-                  <span class="fa-stack fa-lg">
-                    <i class="fas fa-circle fa-stack-2x"></i>
-                    <i class="fab fa-stack-overflow fa-stack-1x fa-inverse"></i>
-                  </span>
-                </a>
-              </li>
-              <li>
-		
-		  <a href="https://www.youtube.com/@whatacold-emacs" title="Youtube">
+		  <a href="https://www.youtube.com/@kenhuang-tech" title="Youtube">
 		
                   <span class="fa-stack fa-lg">
                     <i class="fas fa-circle fa-stack-2x"></i>
@@ -513,7 +493,7 @@ use the universal argument of Emacs. There you can, for example,
         <p class="credits copyright text-muted">
           
             
-              whatacold
+              Ken Huang
             
           
 
@@ -524,7 +504,7 @@ use the universal argument of Emacs. There you can, for example,
 
           
             &nbsp;&bull;&nbsp;
-            <a href="https://whatacold.io/">whatacold&#39;s space</a>
+            <a href="https://whatacold.io/">Ken Huang</a>
           
         </p>
         

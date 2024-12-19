@@ -1,54 +1,54 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Tweet on whatacold&#39;s space</title>
+    <title>Tweet on Ken Huang</title>
     <link>https://whatacold.io/tags/tweet/</link>
-    <description>Recent content in Tweet on whatacold&#39;s space</description>
+    <description>Recent content in Tweet on Ken Huang</description>
     <generator>Hugo</generator>
     <language>en</language>
-    <managingEditor>whatacold@gmail.com (whatacold)</managingEditor>
-    <webMaster>whatacold@gmail.com (whatacold)</webMaster>
+    <managingEditor>whatacold@gmail.com (Ken Huang)</managingEditor>
+    <webMaster>whatacold@gmail.com (Ken Huang)</webMaster>
     <lastBuildDate>Sat, 07 Dec 2024 22:38:07 +0800</lastBuildDate>
     <atom:link href="https://whatacold.io/tags/tweet/rss.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>A Few Quick Notes About babashka/fs</title>
       <link>https://whatacold.io/blog/2024-12-07-babashka-fs-notes/</link>
-      <pubDate>Sat, 07 Dec 2024 22:24:41 +0800</pubDate><author>whatacold@gmail.com (whatacold)</author>
+      <pubDate>Sat, 07 Dec 2024 22:24:41 +0800</pubDate><author>whatacold@gmail.com (Ken Huang)</author>
       <guid>https://whatacold.io/blog/2024-12-07-babashka-fs-notes/</guid>
       <description>Recently I&amp;#39;ve used babashka/fs a little bit, here are some quick notes for it:&#xA;Path vs File Use Path whenever possible, according to this SO answer to &amp;#34;Java: Path vs File&amp;#34;. This is actually Java related. It&amp;#39;s ok to use a path as a key for a clojure map. At my first try, I somehow came to the conclusion that it&amp;#39;s not ok, while I was refactoring the live reload for clay.</description>
     </item>
     <item>
       <title>Doing Unit test in Clojure Is Easy</title>
       <link>https://whatacold.io/blog/2024-11-27-clojure-unit-test/</link>
-      <pubDate>Thu, 28 Nov 2024 23:10:56 +0800</pubDate><author>whatacold@gmail.com (whatacold)</author>
+      <pubDate>Thu, 28 Nov 2024 23:10:56 +0800</pubDate><author>whatacold@gmail.com (Ken Huang)</author>
       <guid>https://whatacold.io/blog/2024-11-27-clojure-unit-test/</guid>
       <description>While refactoring the live reload feature of Clay, I realized I&amp;#39;d better break long functions into smaller and functional ones (as many as I can), which is also a common practice in the clojure community.&#xA;Small pure functions not only are easy to verify on the development process (using a REPL), but also are easy to test. And unit tests are easy to write in clojure, just use deftest from clojure.</description>
     </item>
     <item>
       <title>Adding Clojure Dependencies from the Command Line</title>
       <link>https://whatacold.io/blog/2024-11-09-clj-deps-cmdline/</link>
-      <pubDate>Sat, 09 Nov 2024 21:02:56 +0800</pubDate><author>whatacold@gmail.com (whatacold)</author>
+      <pubDate>Sat, 09 Nov 2024 21:02:56 +0800</pubDate><author>whatacold@gmail.com (Ken Huang)</author>
       <guid>https://whatacold.io/blog/2024-11-09-clj-deps-cmdline/</guid>
       <description>While debugging a live reload issue of Clay a few days ago, I learned from Markus Agwin that we can actually add dependencies on the fly from the command line, just like this: clj -Sdeps &amp;#34;{:deps {org.scicloj/clay {:mvn/version \&amp;#34;2-beta21\&amp;#34;}}}&amp;#34;.&#xA;Even better, we can add dependency from a Git repo and specify the commit hash: clj -Sdeps &amp;#34;{:deps {io.github.scicloj/clay {:git/url \&amp;#34;https://github.com/scicloj/clay.git\&amp;#34; :git/sha \&amp;#34;35a46541db66ae6b4e1af628b7c24c42d3be418f\&amp;#34;}}}&amp;#34;, which is really helpful for experimenting and verifying things.</description>
     </item>
     <item>
       <title>Bitten by Lazy Sequence of map</title>
       <link>https://whatacold.io/blog/2024-11-10-clojure-lazy-seq-case/</link>
-      <pubDate>Sat, 09 Nov 2024 21:02:56 +0800</pubDate><author>whatacold@gmail.com (whatacold)</author>
+      <pubDate>Sat, 09 Nov 2024 21:02:56 +0800</pubDate><author>whatacold@gmail.com (Ken Huang)</author>
       <guid>https://whatacold.io/blog/2024-11-10-clojure-lazy-seq-case/</guid>
       <description>While impletenting the live reload feature for Clay a few weeks ago, unfortunately, I was bitten by the laziness of map. It seems quite obvious we all know that its result is a lazy sequence, but I just can&amp;#39;t help fall into the &amp;#34;trap&amp;#34;.&#xA;At that time I was adding a vector to keep track of all beholder instances watching file changes in user specified directories. So then when it&amp;#39;s time to stop all the watchers, I used something like to achieve the goal:</description>
     </item>
     <item>
       <title>Anonymous Functions in Thread Macros</title>
       <link>https://whatacold.io/blog/2024-11-08-clojure-thread-macro-anonymous-function/</link>
-      <pubDate>Fri, 08 Nov 2024 21:02:56 +0800</pubDate><author>whatacold@gmail.com (whatacold)</author>
+      <pubDate>Fri, 08 Nov 2024 21:02:56 +0800</pubDate><author>whatacold@gmail.com (Ken Huang)</author>
       <guid>https://whatacold.io/blog/2024-11-08-clojure-thread-macro-anonymous-function/</guid>
       <description>While adding the live reload feature to Clay, I encountered a problem of applying anonymous functions to thread macros. For example, below is a simple snippet trying to wrap the input directory as a vector with the help of thread macro, but surprisingly, it errors out. After some searching, I figured out that I need to put the anonymous function into another pair of parentheses:&#xA;(-&amp;gt; &amp;#34;/tmp/&amp;#34; #(if (vector? %) % [%])) ;; =&amp;gt; Syntax error (ClassCastException) compiling fn* at (simple4all.</description>
     </item>
     <item>
       <title>Start a Clojure nREPL in the Command Line for Cider</title>
       <link>https://whatacold.io/blog/2024-11-08-cider-clojure-repl-cmdline/</link>
-      <pubDate>Fri, 08 Nov 2024 00:02:56 +0800</pubDate><author>whatacold@gmail.com (whatacold)</author>
+      <pubDate>Fri, 08 Nov 2024 00:02:56 +0800</pubDate><author>whatacold@gmail.com (Ken Huang)</author>
       <guid>https://whatacold.io/blog/2024-11-08-cider-clojure-repl-cmdline/</guid>
       <description>While troubleshooting and fixing a live reload bug in Clay today, which requires to start a minimal Clojure environment, I figured out how to start a nREPL from the command line. Instead of using M-x cider-jack-in-clj directly from Emacs, actually we can manully bring up an nREPL with this: clj -Sdeps &amp;#34;{:deps {org.scicloj/clay {:mvn/version \&amp;#34;2-beta21\&amp;#34;} cider/cider-nrepl {:mvn/version \&amp;#34;0.50.2\&amp;#34;}}}&amp;#34; -m nrepl.cmdline --middleware &amp;#34;[cider.nrepl/cider-middleware]&amp;#34; (The clay part is only necessary for this debugging), and then connect to this nREPL using the Emacs command M-x cider-connect-clj.</description>
     </item>

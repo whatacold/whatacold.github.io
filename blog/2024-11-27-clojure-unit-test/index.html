@@ -14,11 +14,11 @@
 
   <meta name="description" content="While refactoring the live reload feature of Clay, I realized I&#39;d better break long functions into smaller and functional ones (as many as I can), which is also a common practice in the clojure community.
 Small pure functions not only are easy to verify on the development process (using a REPL), but also are easy to test. And unit tests are easy to write in clojure, just use deftest from clojure.">
-  <meta name="author" content="whatacold"/><script type="application/ld+json">
+  <meta name="author" content="Ken Huang"/><script type="application/ld+json">
 {
     "@context": "http://schema.org",
     "@type": "WebSite",
-    "name": "whatacold\u0027s space",
+    "name": "Ken Huang",
     
     "url": "https:\/\/whatacold.io\/"
 }
@@ -59,7 +59,7 @@ Small pure functions not only are easy to verify on the development process (usi
   "@context": "http://schema.org",
   "@type": "Article",
   "author": {
-    "name" : "whatacold"
+    "name" : "Ken Huang"
   },
   "headline": "Doing Unit test in Clojure Is Easy",
   "description" : "While refactoring the live reload feature of Clay, I realized I\u0026#39;d better break long functions into smaller and functional ones (as many as I can), which is also a common practice in the clojure community.\nSmall pure functions not only are easy to verify on the development process (using a REPL), but also are easy to test. And unit tests are easy to write in clojure, just use deftest from clojure.",
@@ -89,7 +89,7 @@ Small pure functions not only are easy to verify on the development process (usi
 <meta property="og:image" content="https://whatacold.io/img/avatar.png" />
 <meta property="og:url" content="https://whatacold.io/blog/2024-11-27-clojure-unit-test/" />
 <meta property="og:type" content="website" />
-<meta property="og:site_name" content="whatacold&#39;s space" />
+<meta property="og:site_name" content="Ken Huang" />
 
   <meta name="twitter:title" content="Doing Unit test in Clojure Is Easy" />
   <meta name="twitter:description" content="While refactoring the live reload feature of Clay, I realized I&#39;d better break long functions into smaller and functional ones (as many as I can), which is also a common practice in the clojure …">
@@ -99,7 +99,7 @@ Small pure functions not only are easy to verify on the development process (usi
   <meta name="twitter:creator" content="@whatacold" />
   <link href='https://whatacold.io/img/favicon.ico' rel='icon' type='image/x-icon'/>
   <meta name="generator" content="Hugo 0.126.2">
-  <link rel="alternate" href="https://whatacold.io/index.xml" type="application/rss+xml" title="whatacold&#39;s space"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/katex.min.css" integrity="sha384-3UiQGuEI4TTMaFmGIZumfRPtfKQ3trwQE2JgosJxCnGmQpL/lJdjpcHkaaFwHlcI" crossorigin="anonymous">
+  <link rel="alternate" href="https://whatacold.io/index.xml" type="application/rss+xml" title="Ken Huang"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/katex.min.css" integrity="sha384-3UiQGuEI4TTMaFmGIZumfRPtfKQ3trwQE2JgosJxCnGmQpL/lJdjpcHkaaFwHlcI" crossorigin="anonymous">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous"><link rel="stylesheet" href="https://whatacold.io/css/main.css" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
@@ -137,7 +137,7 @@ Small pure functions not only are easy to verify on the development process (usi
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="https://whatacold.io/">whatacold&#39;s space</a>
+      <a class="navbar-brand" href="https://whatacold.io/">Ken Huang</a>
     </div>
 
     <div class="collapse navbar-collapse" id="main-navbar">
@@ -177,8 +177,8 @@ Small pure functions not only are easy to verify on the development process (usi
     
       <div class="avatar-container">
         <div class="avatar-img-border">
-          <a title="whatacold&#39;s space" href="https://whatacold.io/">
-            <img class="avatar-img" src="https://whatacold.io/img/avatar.png" alt="whatacold&#39;s space" />
+          <a title="Ken Huang" href="https://whatacold.io/">
+            <img class="avatar-img" src="https://whatacold.io/img/avatar.png" alt="Ken Huang" />
           </a>
         </div>
       </div>
@@ -482,27 +482,7 @@ And we would also like to use some test runners in the CI/CD pipeline, here ther
               </li>
               <li>
 		
-		  <a href="https://reddit.com/u/whatacold" title="Reddit">
-		
-                  <span class="fa-stack fa-lg">
-                    <i class="fas fa-circle fa-stack-2x"></i>
-                    <i class="fab fa-reddit-alien fa-stack-1x fa-inverse"></i>
-                  </span>
-                </a>
-              </li>
-              <li>
-		
-		  <a href="https://stackoverflow.com/users/910978/whatacold" title="StackOverflow">
-		
-                  <span class="fa-stack fa-lg">
-                    <i class="fas fa-circle fa-stack-2x"></i>
-                    <i class="fab fa-stack-overflow fa-stack-1x fa-inverse"></i>
-                  </span>
-                </a>
-              </li>
-              <li>
-		
-		  <a href="https://www.youtube.com/@whatacold-emacs" title="Youtube">
+		  <a href="https://www.youtube.com/@kenhuang-tech" title="Youtube">
 		
                   <span class="fa-stack fa-lg">
                     <i class="fas fa-circle fa-stack-2x"></i>
@@ -517,7 +497,7 @@ And we would also like to use some test runners in the CI/CD pipeline, here ther
         <p class="credits copyright text-muted">
           
             
-              whatacold
+              Ken Huang
             
           
 
@@ -528,7 +508,7 @@ And we would also like to use some test runners in the CI/CD pipeline, here ther
 
           
             &nbsp;&bull;&nbsp;
-            <a href="https://whatacold.io/">whatacold&#39;s space</a>
+            <a href="https://whatacold.io/">Ken Huang</a>
           
         </p>
         

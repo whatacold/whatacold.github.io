@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Scrapy on whatacold&#39;s space</title>
+    <title>Scrapy on Ken Huang</title>
     <link>https://whatacold.io/tags/scrapy/</link>
-    <description>Recent content in Scrapy on whatacold&#39;s space</description>
+    <description>Recent content in Scrapy on Ken Huang</description>
     <generator>Hugo</generator>
     <language>en</language>
-    <managingEditor>whatacold@gmail.com (whatacold)</managingEditor>
-    <webMaster>whatacold@gmail.com (whatacold)</webMaster>
+    <managingEditor>whatacold@gmail.com (Ken Huang)</managingEditor>
+    <webMaster>whatacold@gmail.com (Ken Huang)</webMaster>
     <lastBuildDate>Sat, 09 Apr 2022 23:02:16 +0800</lastBuildDate>
     <atom:link href="https://whatacold.io/tags/scrapy/rss.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>How to append items to the CSV file without header row?</title>
       <link>https://whatacold.io/blog/2022-04-09-scrapy-csv-without-header/</link>
-      <pubDate>Sat, 09 Apr 2022 22:32:11 +0800</pubDate><author>whatacold@gmail.com (whatacold)</author>
+      <pubDate>Sat, 09 Apr 2022 22:32:11 +0800</pubDate><author>whatacold@gmail.com (Ken Huang)</author>
       <guid>https://whatacold.io/blog/2022-04-09-scrapy-csv-without-header/</guid>
       <description>Scrapy Architecture Scrapy provides a few item exporters by default to export items in commonly used file formats like CSV/JSON/XML. I usually use CSV to export items, it is pretty convenient, and it comes in two ways:&#xA;appending mode, for example, scrapy crawl foo -o test.csv overwriting mode with -O option, like scrapy crawl foo -O test.csv But in the appending mode, it&amp;#39;s a bit annoying that it always appends the header row before the newly scraped items, which is not correctly in terms of CSV format.</description>
     </item>

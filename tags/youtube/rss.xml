@@ -1,33 +1,33 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>YouTube on whatacold&#39;s space</title>
+    <title>YouTube on Ken Huang</title>
     <link>https://whatacold.io/tags/youtube/</link>
-    <description>Recent content in YouTube on whatacold&#39;s space</description>
+    <description>Recent content in YouTube on Ken Huang</description>
     <generator>Hugo</generator>
     <language>en</language>
-    <managingEditor>whatacold@gmail.com (whatacold)</managingEditor>
-    <webMaster>whatacold@gmail.com (whatacold)</webMaster>
+    <managingEditor>whatacold@gmail.com (Ken Huang)</managingEditor>
+    <webMaster>whatacold@gmail.com (Ken Huang)</webMaster>
     <lastBuildDate>Wed, 15 Mar 2023 22:18:41 +0800</lastBuildDate>
     <atom:link href="https://whatacold.io/tags/youtube/rss.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Eglot for Better Programming Experience in Emacs</title>
       <link>https://whatacold.io/blog/2022-01-22-emacs-eglot-lsp/</link>
-      <pubDate>Sat, 22 Jan 2022 11:36:18 +0800</pubDate><author>whatacold@gmail.com (whatacold)</author>
+      <pubDate>Sat, 22 Jan 2022 11:36:18 +0800</pubDate><author>whatacold@gmail.com (Ken Huang)</author>
       <guid>https://whatacold.io/blog/2022-01-22-emacs-eglot-lsp/</guid>
       <description>LSP, or Language Server Protocol, makes programming easier by introducing features like more precise auto-completion and definition lookup. It may have scratched your itches, and you may wonder what the experience is like in Emacs.&#xA;Emacs has mainly two LSP clients out there, eglot and lsp-mode. Eglot is lightweight, and it could almost run out of the box. So in this post I will briefly show you how to use eglot.</description>
     </item>
     <item>
       <title>Writing a Python Script in Emacs in 45 Minutes!</title>
       <link>https://whatacold.io/blog/2021-12-11-writing-python-in-emacs/</link>
-      <pubDate>Sat, 11 Dec 2021 09:24:53 +0800</pubDate><author>whatacold@gmail.com (whatacold)</author>
+      <pubDate>Sat, 11 Dec 2021 09:24:53 +0800</pubDate><author>whatacold@gmail.com (Ken Huang)</author>
       <guid>https://whatacold.io/blog/2021-12-11-writing-python-in-emacs/</guid>
       <description>Note: watch my live coding session of this article: Intro If you&amp;#39;ve heard some rumors of Emacs that it has a very steep learning curve (or that Emacs makes a computer slow), you may be too scared to look at it. It indeed has some learning curve (learning anything does have one), but it isn&amp;#39;t very steep. I learned this after getting my hands dirty with Emacs a few years ago.</description>
     </item>
     <item>
       <title>How To Revert a Series of Git Commits?</title>
       <link>https://whatacold.io/blog/2019-09-24-how-to-revert-a-series-of-commits-with-git/</link>
-      <pubDate>Tue, 24 Sep 2019 23:14:00 +0800</pubDate><author>whatacold@gmail.com (whatacold)</author>
+      <pubDate>Tue, 24 Sep 2019 23:14:00 +0800</pubDate><author>whatacold@gmail.com (Ken Huang)</author>
       <guid>https://whatacold.io/blog/2019-09-24-how-to-revert-a-series-of-commits-with-git/</guid>
       <description>Sometimes, I need to revert a series of commits that I&amp;#39;ve already pushed, doing a git hard reset (git reset --hard) is not an option, as someone may already have new commits based on mine.&#xA;For example, assume that I&amp;#39;ve made a few commits like below:&#xA;65a2c62 * commit 10 25cad43 * commit 9 72ad583 * commit 8 ceebf9a * commit 7 acf8a11 * commit 6 28d526f * commit 5 63af1e2 * commit 4 982c71c * commit 3 0fb4c2d * commit 2 acf9da1 * commit 1 b5f9933 * commit 0 For whatever reason, I need to &amp;#34;drop&amp;#34; the changes made by commit 6 to commit 10, that is, go back to &amp;#34;commit 5&amp;#34; without deleting these commits.</description>
     </item>

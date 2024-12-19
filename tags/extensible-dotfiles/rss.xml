@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Extensible-Dotfiles on whatacold&#39;s space</title>
+    <title>Extensible-Dotfiles on Ken Huang</title>
     <link>https://whatacold.io/tags/extensible-dotfiles/</link>
-    <description>Recent content in Extensible-Dotfiles on whatacold&#39;s space</description>
+    <description>Recent content in Extensible-Dotfiles on Ken Huang</description>
     <generator>Hugo</generator>
     <language>en</language>
-    <managingEditor>whatacold@gmail.com (whatacold)</managingEditor>
-    <webMaster>whatacold@gmail.com (whatacold)</webMaster>
+    <managingEditor>whatacold@gmail.com (Ken Huang)</managingEditor>
+    <webMaster>whatacold@gmail.com (Ken Huang)</webMaster>
     <lastBuildDate>Sat, 15 Oct 2022 08:03:58 +0800</lastBuildDate>
     <atom:link href="https://whatacold.io/tags/extensible-dotfiles/rss.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Send Notifications from Emacs with i3wm and Dunst</title>
       <link>https://whatacold.io/blog/2021-07-17-emacs-i3wm-dunst/</link>
-      <pubDate>Sat, 17 Jul 2021 12:22:10 +0800</pubDate><author>whatacold@gmail.com (whatacold)</author>
+      <pubDate>Sat, 17 Jul 2021 12:22:10 +0800</pubDate><author>whatacold@gmail.com (Ken Huang)</author>
       <guid>https://whatacold.io/blog/2021-07-17-emacs-i3wm-dunst/</guid>
       <description>I barely use notifications, but recently I think it&amp;#39;s a valuable way to remind me things like helping me nurture habits, or to notify me of emergencies like a critically low laptop battery.&#xA;So I try to integrate notifications to org-mode and Emacs today.&#xA;The org-notify package from org-contrib (install it by (package-install &amp;#39;org-contrib) ) could do this job easily before, so I first test it in the minibuffer with (org-notify &amp;#34;test&amp;#34;).</description>
     </item>

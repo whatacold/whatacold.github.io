@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Clj on whatacold&#39;s space</title>
+    <title>Clj on Ken Huang</title>
     <link>https://whatacold.io/tags/clj/</link>
-    <description>Recent content in Clj on whatacold&#39;s space</description>
+    <description>Recent content in Clj on Ken Huang</description>
     <generator>Hugo</generator>
     <language>en</language>
-    <managingEditor>whatacold@gmail.com (whatacold)</managingEditor>
-    <webMaster>whatacold@gmail.com (whatacold)</webMaster>
+    <managingEditor>whatacold@gmail.com (Ken Huang)</managingEditor>
+    <webMaster>whatacold@gmail.com (Ken Huang)</webMaster>
     <lastBuildDate>Sun, 10 Nov 2024 23:55:07 +0800</lastBuildDate>
     <atom:link href="https://whatacold.io/tags/clj/rss.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Adding Clojure Dependencies from the Command Line</title>
       <link>https://whatacold.io/blog/2024-11-09-clj-deps-cmdline/</link>
-      <pubDate>Sat, 09 Nov 2024 21:02:56 +0800</pubDate><author>whatacold@gmail.com (whatacold)</author>
+      <pubDate>Sat, 09 Nov 2024 21:02:56 +0800</pubDate><author>whatacold@gmail.com (Ken Huang)</author>
       <guid>https://whatacold.io/blog/2024-11-09-clj-deps-cmdline/</guid>
       <description>While debugging a live reload issue of Clay a few days ago, I learned from Markus Agwin that we can actually add dependencies on the fly from the command line, just like this: clj -Sdeps &amp;#34;{:deps {org.scicloj/clay {:mvn/version \&amp;#34;2-beta21\&amp;#34;}}}&amp;#34;.&#xA;Even better, we can add dependency from a Git repo and specify the commit hash: clj -Sdeps &amp;#34;{:deps {io.github.scicloj/clay {:git/url \&amp;#34;https://github.com/scicloj/clay.git\&amp;#34; :git/sha \&amp;#34;35a46541db66ae6b4e1af628b7c24c42d3be418f\&amp;#34;}}}&amp;#34;, which is really helpful for experimenting and verifying things.</description>
     </item>

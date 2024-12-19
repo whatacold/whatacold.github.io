@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Git on whatacold 的空间</title>
+    <title>Git on Ken Huang</title>
     <link>https://whatacold.io/zh-cn/tags/git/</link>
-    <description>Recent content in Git on whatacold 的空间</description>
+    <description>Recent content in Git on Ken Huang</description>
     <generator>Hugo</generator>
     <language>zh-cn</language>
-    <managingEditor>whatacold@gmail.com (whatacold)</managingEditor>
-    <webMaster>whatacold@gmail.com (whatacold)</webMaster>
+    <managingEditor>whatacold@gmail.com (Ken Huang)</managingEditor>
+    <webMaster>whatacold@gmail.com (Ken Huang)</webMaster>
     <lastBuildDate>Sun, 17 Feb 2019 16:07:00 +0800</lastBuildDate>
     <atom:link href="https://whatacold.io/zh-cn/tags/git/rss.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>如何理解 Git submodule</title>
       <link>https://whatacold.io/zh-cn/blog/2019-01-13-understand-git-submodule/</link>
-      <pubDate>Thu, 03 Jan 2019 16:07:00 +0800</pubDate><author>whatacold@gmail.com (whatacold)</author>
+      <pubDate>Thu, 03 Jan 2019 16:07:00 +0800</pubDate><author>whatacold@gmail.com (Ken Huang)</author>
       <guid>https://whatacold.io/zh-cn/blog/2019-01-13-understand-git-submodule/</guid>
       <description>Git 虽然很强大，但也有少数命令很难理解。 submodule 就是这么一个例子，其文档教程也不少，比如 Git - Submodules - git-scm.com ， 但我之前始终没有真正领悟到如何使用。 直到有天看了</description>
     </item>
