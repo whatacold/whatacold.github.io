@@ -8,8 +8,15 @@
     <language>en</language>
     <managingEditor>whatacold@gmail.com (Ken Huang)</managingEditor>
     <webMaster>whatacold@gmail.com (Ken Huang)</webMaster>
-    <lastBuildDate>Thu, 19 Dec 2024 22:13:25 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 22 Dec 2024 17:55:03 +0800</lastBuildDate>
     <atom:link href="https://whatacold.io/rss.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Getting Started with Cider for Clojure Programming</title>
+      <link>https://whatacold.io/blog/2024-12-22-getting-started-with-cider/</link>
+      <pubDate>Sun, 22 Dec 2024 17:17:15 +0800</pubDate><author>whatacold@gmail.com (Ken Huang)</author>
+      <guid>https://whatacold.io/blog/2024-12-22-getting-started-with-cider/</guid>
+      <description>Here is the outline for my cider tutorial on YouTube, covering basic things you need to know to get started with cider, and starting exploring the fun of clojure programming with the REPL-driven programming approach.&#xA;Jack In to a REPL C-c M-j (cider-jack-in-clj) start a nREPL and jack in. It works in a project or with a sole .clj file. M-x cider-connect-clj run the command and then fill in hostname and port.</description>
+    </item>
     <item>
       <title>A Few Quick Notes About babashka/fs</title>
       <link>https://whatacold.io/blog/2024-12-07-babashka-fs-notes/</link>

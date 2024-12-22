@@ -10,10 +10,10 @@
  
 
 
-      <title>Doing Unit test in Clojure Is Easy - Blog</title>
+      <title>Getting Started with Cider for Clojure Programming - Blog</title>
 
-  <meta name="description" content="While refactoring the live reload feature of Clay, I realized I&#39;d better break long functions into smaller and functional ones (as many as I can), which is also a common practice in the clojure community.
-Small pure functions not only are easy to verify on the development process (using a REPL), but also are easy to test. And unit tests are easy to write in clojure, just use deftest from clojure.">
+  <meta name="description" content="Here is the outline for my cider tutorial on YouTube, covering basic things you need to know to get started with cider, and starting exploring the fun of clojure programming with the REPL-driven programming approach.
+Jack In to a REPL C-c M-j (cider-jack-in-clj) start a nREPL and jack in. It works in a project or with a sole .clj file. M-x cider-connect-clj run the command and then fill in hostname and port.">
   <meta name="author" content="Ken Huang"/><script type="application/ld+json">
 {
     "@context": "http://schema.org",
@@ -49,8 +49,8 @@ Small pure functions not only are easy to verify on the development process (usi
         "@type": "ListItem",
         "position": 3,
         "item": {
-          "@id": "https:\/\/whatacold.io\/blog\/2024-11-27-clojure-unit-test\/",
-          "name": "Doing unit test in clojure is easy"
+          "@id": "https:\/\/whatacold.io\/blog\/2024-12-22-getting-started-with-cider\/",
+          "name": "Getting started with cider for clojure programming"
         }
     }]
 }
@@ -61,15 +61,15 @@ Small pure functions not only are easy to verify on the development process (usi
   "author": {
     "name" : "Ken Huang"
   },
-  "headline": "Doing Unit test in Clojure Is Easy",
-  "description" : "While refactoring the live reload feature of Clay, I realized I\u0026#39;d better break long functions into smaller and functional ones (as many as I can), which is also a common practice in the clojure community.\nSmall pure functions not only are easy to verify on the development process (using a REPL), but also are easy to test. And unit tests are easy to write in clojure, just use deftest from clojure.",
+  "headline": "Getting Started with Cider for Clojure Programming",
+  "description" : "Here is the outline for my cider tutorial on YouTube, covering basic things you need to know to get started with cider, and starting exploring the fun of clojure programming with the REPL-driven programming approach.\nJack In to a REPL C-c M-j (cider-jack-in-clj) start a nREPL and jack in. It works in a project or with a sole .clj file. M-x cider-connect-clj run the command and then fill in hostname and port.",
   "inLanguage" : "en",
-  "wordCount":  165 ,
-  "datePublished" : "2024-11-28T23:10:56",
-  "dateModified" : "2024-11-28T23:10:56",
+  "wordCount":  303 ,
+  "datePublished" : "2024-12-22T17:17:15",
+  "dateModified" : "2024-12-22T17:17:15",
   "image" : "https:\/\/whatacold.io\/img\/avatar.png",
-  "keywords" : [ "clojure, cider, clay, tweet" ],
-  "mainEntityOfPage" : "https:\/\/whatacold.io\/blog\/2024-11-27-clojure-unit-test\/",
+  "keywords" : [ "clojure, cider, emacs" ],
+  "mainEntityOfPage" : "https:\/\/whatacold.io\/blog\/2024-12-22-getting-started-with-cider\/",
   "publisher" : {
     "@type": "Organization",
     "name" : "https:\/\/whatacold.io\/",
@@ -83,16 +83,16 @@ Small pure functions not only are easy to verify on the development process (usi
 }
 </script>
 
-<meta property="og:title" content="Doing Unit test in Clojure Is Easy" />
-<meta property="og:description" content="While refactoring the live reload feature of Clay, I realized I&#39;d better break long functions into smaller and functional ones (as many as I can), which is also a common practice in the clojure community.
-Small pure functions not only are easy to verify on the development process (using a REPL), but also are easy to test. And unit tests are easy to write in clojure, just use deftest from clojure.">
+<meta property="og:title" content="Getting Started with Cider for Clojure Programming" />
+<meta property="og:description" content="Here is the outline for my cider tutorial on YouTube, covering basic things you need to know to get started with cider, and starting exploring the fun of clojure programming with the REPL-driven programming approach.
+Jack In to a REPL C-c M-j (cider-jack-in-clj) start a nREPL and jack in. It works in a project or with a sole .clj file. M-x cider-connect-clj run the command and then fill in hostname and port.">
 <meta property="og:image" content="https://whatacold.io/img/avatar.png" />
-<meta property="og:url" content="https://whatacold.io/blog/2024-11-27-clojure-unit-test/" />
+<meta property="og:url" content="https://whatacold.io/blog/2024-12-22-getting-started-with-cider/" />
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="Ken Huang" />
 
-  <meta name="twitter:title" content="Doing Unit test in Clojure Is Easy" />
-  <meta name="twitter:description" content="While refactoring the live reload feature of Clay, I realized I&#39;d better break long functions into smaller and functional ones (as many as I can), which is also a common practice in the clojure …">
+  <meta name="twitter:title" content="Getting Started with Cider for Clojure Programming" />
+  <meta name="twitter:description" content="Here is the outline for my cider tutorial on YouTube, covering basic things you need to know to get started with cider, and starting exploring the fun of clojure programming with the REPL-driven …">
   <meta name="twitter:image" content="https://whatacold.io/img/avatar.png" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:site" content="@whatacold" />
@@ -258,7 +258,7 @@ Small pure functions not only are easy to verify on the development process (usi
           <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
             <div class="blog-heading">
               
-                <h1>Doing Unit test in Clojure Is Easy</h1>
+                <h1>Getting Started with Cider for Clojure Programming</h1>
               
               
                 <hr class="small">
@@ -279,28 +279,148 @@ Small pure functions not only are easy to verify on the development process (usi
   <div class="row">
     <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
       <article role="main" class="blog-post">
-        <p>
-While refactoring the <a href="https://github.com/scicloj/clay/blob/main/src/scicloj/clay/v2/live_reload.clj">live reload</a> feature of <a href="https://github.com/scicloj/clay">Clay</a>, I realized I&#39;d better break long functions into smaller and functional ones (as many as I can), which is also a <a href="https://guide.clojure.style/#be-functional">common practice</a> in the clojure community.</p>
+        
 <p>
-Small pure functions not only are easy to verify on the development process (using a REPL), but also are easy to test. And unit tests are easy to write in clojure, just use <code class="verbatim">deftest</code> from <code class="verbatim">clojure.test</code>, a very basic one looks like this:</p>
-<div class="src src-clojure">
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-clojure" data-lang="clojure"><span class="line"><span class="cl"><span class="p">(</span><span class="nf">deftest</span>
-</span></span><span class="line"><span class="cl">  <span class="p">(</span><span class="nf">is</span> <span class="p">(</span><span class="nb">= </span><span class="mi">3</span> <span class="p">(</span><span class="nf">my-sum</span> <span class="mi">1</span> <span class="mi">2</span><span class="p">))))</span></span></span></code></pre></div>
+Here is the outline for my cider tutorial on YouTube, covering basic things you need to know to get started with cider, and starting exploring the fun of clojure programming with the REPL-driven programming approach.</p>
+<p>
+
+
+    
+    <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+      <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/evmRpr_DEBQ?autoplay=0&controls=1&end=0&loop=0&mute=0&start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"
+      ></iframe>
+    </div>
+</p>
+<div id="outline-container-headline-1" class="outline-2">
+<h2 id="headline-1">
+Jack In to a REPL
+</h2>
+<div id="outline-text-headline-1" class="outline-text-2">
+<dl>
+<dt>
+C-c M-j (cider-jack-in-clj)
+</dt>
+<dd>start a nREPL and jack in.
+
+It works in a project or with a <strong>sole .clj file</strong>.</dd>
+<dt>
+M-x cider-connect-clj
+</dt>
+<dd>run the command and then fill in hostname and port.
+
+It could be useful in some cases. e.g. on Windows, I can start the nREPL manually and then connect to it separately.</dd>
+</dl>
 </div>
-<p>
-To run the test, we can just run it with <a href="https://cider.mx/">cider</a>. After reloading the code (<code class="verbatim">C-c C-k</code> cider-load-buffer), we can use the command cider-test-run-test (<code class="verbatim">C-c C-t t</code>) to run the test at point. It&#39;s really handy!</p>
-<figure>
-<img src="/img/2024-12-07-cider-test-run-test.png" alt="/img/2024-12-07-cider-test-run-test.png" title="/img/2024-12-07-cider-test-run-test.png" /><figcaption>
-Run the test at point using cider
-</figcaption>
-</figure>
-<p>
-And we would also like to use some test runners in the CI/CD pipeline, here there are some dedicated solutions:</p>
+</div>
+<div id="outline-container-headline-2" class="outline-2">
+<h2 id="headline-2">
+Evaluate Things
+</h2>
+<div id="outline-text-headline-2" class="outline-text-2">
+<dl>
+<dt>
+C-M-x (cider-eval-defun-at-point)
+</dt>
+<dd>evaluate current top-level form.</dd>
+<dt>
+C-x C-e (cider-eval-last-sexp)
+</dt>
+<dd>evaluate the preceding form.</dd>
+<dt>
+C-c C-k (cider-load-buffer)
+</dt>
+<dd>evaluate/load the current buffer.</dd>
+<dt>
+C-c C-p (cider-pprint-eval-last-sexp)
+</dt>
+<dd>Pprint the result in a dedicated buffer.
+
+Great thing to do when the result is too large to fit in the echo area.</dd>
+</dl>
+<p>Note: I prefer to use the same key bindings as for Elisp, given that
+cider might bind a few keys to a single command!</p>
+</div>
+</div>
+<div id="outline-container-headline-3" class="outline-2">
+<h2 id="headline-3">
+Auto Completion
+</h2>
+<div id="outline-text-headline-3" class="outline-text-2">
 <ul>
-<li><a href="https://github.com/lambdaisland/kaocha">kaocha</a></li>
-<li><a href="https://github.com/cognitect-labs/test-runner">cognitect-labs/test-runner</a></li>
+<li>Type <code class="verbatim">TAB</code> or <code class="verbatim">M-TAB</code> to manually triger completion, which I <strong>rarely</strong> use</li>
+<li>Instead, use <code class="verbatim">company-mode</code> to do auto-completion</li>
 </ul>
-<p>Clay uses the later one, you can check it out at <a href="https://github.com/scicloj/clay/blob/main/build.clj">build.clj</a> if you&#39;re interested.</p>
+</div>
+</div>
+<div id="outline-container-headline-4" class="outline-2">
+<h2 id="headline-4">
+Definition Lookup
+</h2>
+<div id="outline-text-headline-4" class="outline-text-2">
+<p>These are based on the <code class="verbatim">xref</code> interface:</p>
+<dl>
+<dt>
+M-. (xref-find-definitions)
+</dt>
+<dd>jump into a symbol&#39;s definition</dd>
+<dt>
+M-, (xref-go-back)
+</dt>
+<dd>jump back</dd>
+</dl>
+</div>
+</div>
+<div id="outline-container-headline-5" class="outline-2">
+<h2 id="headline-5">
+Docstring Lookup
+</h2>
+<div id="outline-text-headline-5" class="outline-text-2">
+<p>Showing function signatures on the echo area (eldoc-mode)</p>
+<dl>
+<dt>
+C-c C-d C-d (cider-doc)
+</dt>
+<dd>lookup docs for the current symbol</dd>
+<dt>
+C-u C-c C-d C-d
+</dt>
+<dd>Prefix it with <code class="verbatim">C-u</code> to manually specify a symbol to look up</dd>
+</dl>
+</div>
+</div>
+<div id="outline-container-headline-6" class="outline-2">
+<h2 id="headline-6">
+Switching code and REPL buffers
+</h2>
+<div id="outline-text-headline-6" class="outline-text-2">
+<dl>
+<dt>
+C-c C-z (cider-switch-to-repl-buffer)
+</dt>
+<dd>switch back and forth between a code and the REPL buffers</dd>
+<dt>
+C-u C-c C-z
+</dt>
+<dd>prefix the command to change REPL&#39;s ns to the current buffer&#39;s as well.</dd>
+</dl>
+<p>We can also use <code class="verbatim">(comment ...)</code> to do some experiments.</p>
+</div>
+</div>
+<div id="outline-container-headline-7" class="outline-2">
+<h2 id="headline-7">
+Advanced Features
+</h2>
+<div id="outline-text-headline-7" class="outline-text-2">
+<ul>
+<li>Debugging</li>
+<li>Running Tests</li>
+<li>Code Reloading</li>
+<li>Pretty Printing</li>
+<li>JavaDoc/ClojureDoc lookup</li>
+</ul>
+<p>Head over <a href="https://cider.mx/">https://cider.mx/</a> for details.</p>
+</div>
+</div>
 
 
         
@@ -310,9 +430,7 @@ And we would also like to use some test runners in the CI/CD pipeline, here ther
             
               <a href="https://whatacold.io//tags/cider/">cider</a>&nbsp;
             
-              <a href="https://whatacold.io//tags/clay/">clay</a>&nbsp;
-            
-              <a href="https://whatacold.io//tags/tweet/">tweet</a>&nbsp;
+              <a href="https://whatacold.io//tags/emacs/">emacs</a>&nbsp;
             
           </div>
         
@@ -327,42 +445,42 @@ And we would also like to use some test runners in the CI/CD pipeline, here ther
     <ul class="share">
       
       <li>
-        <a href="//twitter.com/share?url=https%3a%2f%2fwhatacold.io%2fblog%2f2024-11-27-clojure-unit-test%2f&amp;text=Doing%20Unit%20test%20in%20Clojure%20Is%20Easy&amp;via=whatacold" target="_blank" title="Share on Twitter">
+        <a href="//twitter.com/share?url=https%3a%2f%2fwhatacold.io%2fblog%2f2024-12-22-getting-started-with-cider%2f&amp;text=Getting%20Started%20with%20Cider%20for%20Clojure%20Programming&amp;via=whatacold" target="_blank" title="Share on Twitter">
           <i class="fab fa-twitter"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fwhatacold.io%2fblog%2f2024-11-27-clojure-unit-test%2f" target="_blank" title="Share on Facebook">
+        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fwhatacold.io%2fblog%2f2024-12-22-getting-started-with-cider%2f" target="_blank" title="Share on Facebook">
           <i class="fab fa-facebook"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//reddit.com/submit?url=https%3a%2f%2fwhatacold.io%2fblog%2f2024-11-27-clojure-unit-test%2f&amp;title=Doing%20Unit%20test%20in%20Clojure%20Is%20Easy" target="_blank" title="Share on Reddit">
+        <a href="//reddit.com/submit?url=https%3a%2f%2fwhatacold.io%2fblog%2f2024-12-22-getting-started-with-cider%2f&amp;title=Getting%20Started%20with%20Cider%20for%20Clojure%20Programming" target="_blank" title="Share on Reddit">
           <i class="fab fa-reddit"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fwhatacold.io%2fblog%2f2024-11-27-clojure-unit-test%2f&amp;title=Doing%20Unit%20test%20in%20Clojure%20Is%20Easy" target="_blank" title="Share on LinkedIn">
+        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fwhatacold.io%2fblog%2f2024-12-22-getting-started-with-cider%2f&amp;title=Getting%20Started%20with%20Cider%20for%20Clojure%20Programming" target="_blank" title="Share on LinkedIn">
           <i class="fab fa-linkedin"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fwhatacold.io%2fblog%2f2024-11-27-clojure-unit-test%2f&amp;title=Doing%20Unit%20test%20in%20Clojure%20Is%20Easy" target="_blank" title="Share on StumbleUpon">
+        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fwhatacold.io%2fblog%2f2024-12-22-getting-started-with-cider%2f&amp;title=Getting%20Started%20with%20Cider%20for%20Clojure%20Programming" target="_blank" title="Share on StumbleUpon">
           <i class="fab fa-stumbleupon"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fwhatacold.io%2fblog%2f2024-11-27-clojure-unit-test%2f&amp;description=Doing%20Unit%20test%20in%20Clojure%20Is%20Easy" target="_blank" title="Share on Pinterest">
+        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fwhatacold.io%2fblog%2f2024-12-22-getting-started-with-cider%2f&amp;description=Getting%20Started%20with%20Cider%20for%20Clojure%20Programming" target="_blank" title="Share on Pinterest">
           <i class="fab fa-pinterest"></i>
         </a>
       </li>
@@ -384,9 +502,9 @@ And we would also like to use some test runners in the CI/CD pipeline, here ther
                   <ul>
                 
                 
-                    <li><a href="/blog/2024-12-22-getting-started-with-cider/">Getting Started with Cider for Clojure Programming</a></li>
-                
                     <li><a href="/blog/2024-12-07-babashka-fs-notes/">A Few Quick Notes About babashka/fs</a></li>
+                
+                    <li><a href="/blog/2024-11-27-clojure-unit-test/">Doing Unit test in Clojure Is Easy</a></li>
                 
               </ul>
 
@@ -398,13 +516,9 @@ And we would also like to use some test runners in the CI/CD pipeline, here ther
         <ul class="pager blog-pager">
           
             <li class="previous">
-              <a href="https://whatacold.io/blog/2024-11-28-beholder-clj-async-profiler/" data-toggle="tooltip" data-placement="top" title="clj-async-profiler Rocks">&larr; Previous Post</a>
+              <a href="https://whatacold.io/blog/2024-12-07-babashka-fs-notes/" data-toggle="tooltip" data-placement="top" title="A Few Quick Notes About babashka/fs">&larr; Previous Post</a>
             </li>
           
-          
-            <li class="next">
-              <a href="https://whatacold.io/blog/2024-12-07-babashka-fs-notes/" data-toggle="tooltip" data-placement="top" title="A Few Quick Notes About babashka/fs">Next Post &rarr;</a>
-            </li>
           
         </ul>
       
