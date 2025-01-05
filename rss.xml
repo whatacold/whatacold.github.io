@@ -8,8 +8,15 @@
     <language>en</language>
     <managingEditor>whatacold@gmail.com (Ken Huang)</managingEditor>
     <webMaster>whatacold@gmail.com (Ken Huang)</webMaster>
-    <lastBuildDate>Sun, 22 Dec 2024 17:55:03 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 05 Jan 2025 22:02:48 +0800</lastBuildDate>
     <atom:link href="https://whatacold.io/rss.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>How To Construct a Map Conditionally in Clojure</title>
+      <link>https://whatacold.io/blog/2025-01-05-construct-a-map-clojure/</link>
+      <pubDate>Sun, 05 Jan 2025 10:40:07 +0800</pubDate><author>whatacold@gmail.com (Ken Huang)</author>
+      <guid>https://whatacold.io/blog/2025-01-05-construct-a-map-clojure/</guid>
+      <description>I was wondering how to construct a multi-key map conditionally while I was coding in Clojure. Ideally, I would like to build it &amp;#34;in one pass&amp;#34; like {:bar 2 (when true :baz 3)}, but from what I had collected from Blue Sky, it seemed that&amp;#39;s impossible, or it&amp;#39;s just not an idiomatic way to program like that in Clojure. (Or, is this just a side effect of writing too much imperative code?</description>
+    </item>
     <item>
       <title>Getting Started with Cider for Clojure Programming</title>
       <link>https://whatacold.io/blog/2024-12-22-getting-started-with-cider/</link>
