@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="en" itemscope itemtype="http://schema.org/WebPage">
   <head>
@@ -65,8 +67,8 @@ Even better, we can add dependency from a Git repo and specify the commit hash: 
   "description" : "While debugging a live reload issue of Clay a few days ago, I learned from Markus Agwin that we can actually add dependencies on the fly from the command line, just like this: clj -Sdeps \u0026#34;{:deps {org.scicloj\/clay {:mvn\/version \\\u0026#34;2-beta21\\\u0026#34;}}}\u0026#34;.\nEven better, we can add dependency from a Git repo and specify the commit hash: clj -Sdeps \u0026#34;{:deps {io.github.scicloj\/clay {:git\/url \\\u0026#34;https:\/\/github.com\/scicloj\/clay.git\\\u0026#34; :git\/sha \\\u0026#34;35a46541db66ae6b4e1af628b7c24c42d3be418f\\\u0026#34;}}}\u0026#34;, which is really helpful for experimenting and verifying things.",
   "inLanguage" : "en",
   "wordCount":  84 ,
-  "datePublished" : "2024-11-09T21:02:56",
-  "dateModified" : "2024-11-09T21:02:56",
+  "datePublished" : "2024-11-09T21:02:56\u002b08:00",
+  "dateModified" : "2024-11-10T23:55:07\u002b08:00",
   "image" : "https:\/\/whatacold.io\/img\/avatar.png",
   "keywords" : [ "Clojure, Tweet, clj" ],
   "mainEntityOfPage" : "https:\/\/whatacold.io\/blog\/2024-11-09-clj-deps-cmdline\/",
@@ -82,6 +84,7 @@ Even better, we can add dependency from a Git repo and specify the commit hash: 
   }
 }
 </script>
+
 
 <meta property="og:title" content="Adding Clojure Dependencies from the Command Line" />
 <meta property="og:description" content="While debugging a live reload issue of Clay a few days ago, I learned from Markus Agwin that we can actually add dependencies on the fly from the command line, just like this: clj -Sdeps &#34;{:deps {org.scicloj/clay {:mvn/version \&#34;2-beta21\&#34;}}}&#34;.
@@ -100,7 +103,7 @@ Even better, we can add dependency from a Git repo and specify the commit hash: 
   <link href='https://whatacold.io/img/favicon.ico' rel='icon' type='image/x-icon'/>
   <meta name="generator" content="Hugo 0.126.2">
   <link rel="alternate" href="https://whatacold.io/index.xml" type="application/rss+xml" title="Ken Huang"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/katex.min.css" integrity="sha384-3UiQGuEI4TTMaFmGIZumfRPtfKQ3trwQE2JgosJxCnGmQpL/lJdjpcHkaaFwHlcI" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.6.0/css/all.css" integrity="sha384-h/hnnw1Bi4nbpD6kE7nYfCXzovi622sY5WBxww8ARKwpdLj5kUWjRuyiXaD1U2JT" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous"><link rel="stylesheet" href="https://whatacold.io/css/main.css" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
   <link rel="stylesheet" href="https://whatacold.io/css/highlight.min.css" /><link rel="stylesheet" href="https://whatacold.io/css/codeblock.css" /><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.css" integrity="sha384-h/L2W9KefUClHWaty3SLE5F/qvc4djlyR4qY3NUV5HGQBBW7stbcfff1+I/vmsHh" crossorigin="anonymous">
@@ -179,6 +182,7 @@ Even better, we can add dependency from a Git repo and specify the commit hash: 
         <div class="avatar-img-border">
           <a title="Ken Huang" href="https://whatacold.io/">
             <img class="avatar-img" src="https://whatacold.io/img/avatar.png" alt="Ken Huang" />
+           
           </a>
         </div>
       </div>
@@ -294,11 +298,14 @@ Some clj links (<code class="verbatim">clj --help</code> has a pointer for these
         
           <div class="blog-tags">
             
-              <a href="https://whatacold.io//tags/clojure/">Clojure</a>&nbsp;
+              
+              <a href="https://whatacold.io/tags/clojure/">Clojure</a>&nbsp;
             
-              <a href="https://whatacold.io//tags/tweet/">Tweet</a>&nbsp;
+              
+              <a href="https://whatacold.io/tags/tweet/">Tweet</a>&nbsp;
             
-              <a href="https://whatacold.io//tags/clj/">clj</a>&nbsp;
+              
+              <a href="https://whatacold.io/tags/clj/">clj</a>&nbsp;
             
           </div>
         
@@ -403,7 +410,10 @@ Some clj links (<code class="verbatim">clj --help</code> has a pointer for these
 
 
       
-        
+      
+      
+      
+      
           
           <div class="disqus-comments">
             <div id="disqus_thread"></div>
@@ -436,8 +446,7 @@ Some clj links (<code class="verbatim">clj --help</code> has a pointer for these
   </div>
 </div>
 
-      
-<footer>
+      <footer>
   <div class="container">
     
     <div class="row">
@@ -470,7 +479,7 @@ Some clj links (<code class="verbatim">clj --help</code> has a pointer for these
 		
                   <span class="fa-stack fa-lg">
                     <i class="fas fa-circle fa-stack-2x"></i>
-                    <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+                    <i class="fab fa-x-twitter fa-stack-1x fa-inverse"></i>
                   </span>
                 </a>
               </li>
@@ -481,6 +490,16 @@ Some clj links (<code class="verbatim">clj --help</code> has a pointer for these
                   <span class="fa-stack fa-lg">
                     <i class="fas fa-circle fa-stack-2x"></i>
                     <i class="fab fa-youtube fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+		
+		  <a href="https://bsky.app/profile/whatacold.bsky.social" title="Bluesky">
+		
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-bluesky fa-stack-1x fa-inverse"></i>
                   </span>
                 </a>
               </li>
@@ -523,6 +542,7 @@ Some clj links (<code class="verbatim">clj --help</code> has a pointer for these
 <script> hljs.initHighlightingOnLoad(); </script>
 <script> $(document).ready(function() {$("pre.chroma").css("padding","0");}); </script><script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.js" integrity="sha384-QELNnmcmU8IR9ZAykt67vGr9/rZJdHbiWi64V88fCPaOohUlHCqUD/unNN0BXSqy" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe-ui-default.min.js" integrity="sha384-m67o7SkQ1ALzKZIFh4CiTA8tmadaujiTa9Vu+nqPSwDOqHrDmxLezTdFln8077+q" crossorigin="anonymous"></script><script src="https://whatacold.io/js/load-photoswipe.js"></script>
+
 
 
 

@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="en" itemscope itemtype="http://schema.org/WebPage">
   <head>
@@ -64,8 +66,8 @@
   "description" : "While troubleshooting and fixing a live reload bug in Clay today, which requires to start a minimal Clojure environment, I figured out how to start a nREPL from the command line. Instead of using M-x cider-jack-in-clj directly from Emacs, actually we can manully bring up an nREPL with this: clj -Sdeps \u0026#34;{:deps {org.scicloj\/clay {:mvn\/version \\\u0026#34;2-beta21\\\u0026#34;} cider\/cider-nrepl {:mvn\/version \\\u0026#34;0.50.2\\\u0026#34;}}}\u0026#34; -m nrepl.cmdline --middleware \u0026#34;[cider.nrepl\/cider-middleware]\u0026#34; (The clay part is only necessary for this debugging), and then connect to this nREPL using the Emacs command M-x cider-connect-clj.",
   "inLanguage" : "en",
   "wordCount":  174 ,
-  "datePublished" : "2024-11-08T00:02:56",
-  "dateModified" : "2024-11-08T00:02:56",
+  "datePublished" : "2024-11-08T00:02:56\u002b08:00",
+  "dateModified" : "2024-11-12T22:21:56\u002b08:00",
   "image" : "https:\/\/whatacold.io\/img\/avatar.png",
   "keywords" : [ "Cider, Clojure, Tweet" ],
   "mainEntityOfPage" : "https:\/\/whatacold.io\/blog\/2024-11-08-cider-clojure-repl-cmdline\/",
@@ -81,6 +83,7 @@
   }
 }
 </script>
+
 
 <meta property="og:title" content="Start a Clojure nREPL in the Command Line for Cider" />
 <meta property="og:description" content="While troubleshooting and fixing a live reload bug in Clay today, which requires to start a minimal Clojure environment, I figured out how to start a nREPL from the command line. Instead of using M-x cider-jack-in-clj directly from Emacs, actually we can manully bring up an nREPL with this: clj -Sdeps &#34;{:deps {org.scicloj/clay {:mvn/version \&#34;2-beta21\&#34;} cider/cider-nrepl {:mvn/version \&#34;0.50.2\&#34;}}}&#34; -m nrepl.cmdline --middleware &#34;[cider.nrepl/cider-middleware]&#34; (The clay part is only necessary for this debugging), and then connect to this nREPL using the Emacs command M-x cider-connect-clj.">
@@ -98,7 +101,7 @@
   <link href='https://whatacold.io/img/favicon.ico' rel='icon' type='image/x-icon'/>
   <meta name="generator" content="Hugo 0.126.2">
   <link rel="alternate" href="https://whatacold.io/index.xml" type="application/rss+xml" title="Ken Huang"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/katex.min.css" integrity="sha384-3UiQGuEI4TTMaFmGIZumfRPtfKQ3trwQE2JgosJxCnGmQpL/lJdjpcHkaaFwHlcI" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.6.0/css/all.css" integrity="sha384-h/hnnw1Bi4nbpD6kE7nYfCXzovi622sY5WBxww8ARKwpdLj5kUWjRuyiXaD1U2JT" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous"><link rel="stylesheet" href="https://whatacold.io/css/main.css" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
   <link rel="stylesheet" href="https://whatacold.io/css/highlight.min.css" /><link rel="stylesheet" href="https://whatacold.io/css/codeblock.css" /><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.css" integrity="sha384-h/L2W9KefUClHWaty3SLE5F/qvc4djlyR4qY3NUV5HGQBBW7stbcfff1+I/vmsHh" crossorigin="anonymous">
@@ -177,6 +180,7 @@
         <div class="avatar-img-border">
           <a title="Ken Huang" href="https://whatacold.io/">
             <img class="avatar-img" src="https://whatacold.io/img/avatar.png" alt="Ken Huang" />
+           
           </a>
         </div>
       </div>
@@ -296,11 +300,14 @@ use the universal argument of Emacs. There you can, for example,
         
           <div class="blog-tags">
             
-              <a href="https://whatacold.io//tags/cider/">Cider</a>&nbsp;
+              
+              <a href="https://whatacold.io/tags/cider/">Cider</a>&nbsp;
             
-              <a href="https://whatacold.io//tags/clojure/">Clojure</a>&nbsp;
+              
+              <a href="https://whatacold.io/tags/clojure/">Clojure</a>&nbsp;
             
-              <a href="https://whatacold.io//tags/tweet/">Tweet</a>&nbsp;
+              
+              <a href="https://whatacold.io/tags/tweet/">Tweet</a>&nbsp;
             
           </div>
         
@@ -405,7 +412,10 @@ use the universal argument of Emacs. There you can, for example,
 
 
       
-        
+      
+      
+      
+      
           
           <div class="disqus-comments">
             <div id="disqus_thread"></div>
@@ -438,8 +448,7 @@ use the universal argument of Emacs. There you can, for example,
   </div>
 </div>
 
-      
-<footer>
+      <footer>
   <div class="container">
     
     <div class="row">
@@ -472,7 +481,7 @@ use the universal argument of Emacs. There you can, for example,
 		
                   <span class="fa-stack fa-lg">
                     <i class="fas fa-circle fa-stack-2x"></i>
-                    <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+                    <i class="fab fa-x-twitter fa-stack-1x fa-inverse"></i>
                   </span>
                 </a>
               </li>
@@ -483,6 +492,16 @@ use the universal argument of Emacs. There you can, for example,
                   <span class="fa-stack fa-lg">
                     <i class="fas fa-circle fa-stack-2x"></i>
                     <i class="fab fa-youtube fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+		
+		  <a href="https://bsky.app/profile/whatacold.bsky.social" title="Bluesky">
+		
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-bluesky fa-stack-1x fa-inverse"></i>
                   </span>
                 </a>
               </li>
@@ -525,6 +544,7 @@ use the universal argument of Emacs. There you can, for example,
 <script> hljs.initHighlightingOnLoad(); </script>
 <script> $(document).ready(function() {$("pre.chroma").css("padding","0");}); </script><script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.js" integrity="sha384-QELNnmcmU8IR9ZAykt67vGr9/rZJdHbiWi64V88fCPaOohUlHCqUD/unNN0BXSqy" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe-ui-default.min.js" integrity="sha384-m67o7SkQ1ALzKZIFh4CiTA8tmadaujiTa9Vu+nqPSwDOqHrDmxLezTdFln8077+q" crossorigin="anonymous"></script><script src="https://whatacold.io/js/load-photoswipe.js"></script>
+
 
 
 
