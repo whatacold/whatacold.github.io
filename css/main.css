@@ -168,7 +168,6 @@ figure:not(.dark) img, img.white {
 }
 
 .navbar-custom .nav li a {
-  text-transform: uppercase;
   font-size: 12px;
   letter-spacing: 1px;
 }
