@@ -8,7 +8,7 @@
     <language>zh-cn</language>
     <managingEditor>whatacold@gmail.com (Ken Huang)</managingEditor>
     <webMaster>whatacold@gmail.com (Ken Huang)</webMaster>
-    <lastBuildDate>Sat, 15 Feb 2025 13:04:12 +0800</lastBuildDate>
+    <lastBuildDate>Sat, 15 Feb 2025 16:02:46 +0800</lastBuildDate>
     <atom:link href="https://whatacold.io/zh-cn/rss.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>2023年最火的十大 TED 演讲</title>
@@ -60,11 +60,11 @@
       <description>折腾 Emacs 难免会遇到问题。 论坛里经常可以看到有同学遇到各种配置问题的，但却不知从何入手排查。这里我给大家简单地介绍一些常用的方法，当你下次遇到问</description>
     </item>
     <item>
-      <title>关于</title>
+      <title>关于我</title>
       <link>https://whatacold.io/zh-cn/about/</link>
       <pubDate>Fri, 12 Nov 2021 22:11:52 +0800</pubDate><author>whatacold@gmail.com (Ken Huang)</author>
       <guid>https://whatacold.io/zh-cn/about/</guid>
-      <description>Hello ，我是 Ken ，热衷折腾 Emacs Clojure Python 。 另外，我正在制作分享 Emacs 的视频，发布在油管频道、bilibili（B站）中，欢迎订阅、评论交流和分享转发。 贡献过的</description>
+      <description>你好，欢迎光临我的博客！ 我是 Ken ，一个对技术（尤其是 Clojure/ClojureScript, Emacs）有极大热情的终生学习者。在这里，我主要分享我折腾 Clojure, Emacs, Python 等等技术相关的内容，欢</description>
     </item>
     <item>
       <title>lein 新建 reagent-frontend 工程失败问题</title>
