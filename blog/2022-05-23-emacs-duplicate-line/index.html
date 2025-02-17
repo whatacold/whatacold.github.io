@@ -12,7 +12,7 @@
  
 
 
-      <title>Duplicate the current line in Emacs - (blog)</title>
+      <title>Duplicate the current line in Emacs - Ken Huang</title>
 
   <meta name="description" content="Duplicate the current in Emacs Duplicating the current line is frequent editing for me when I am coding. Initially, I copied a snippet as a command in Emacs from the Internet:
 (defun w/duplicate-line() &#34;Duplicate the current line.&#34; (interactive) (move-beginning-of-line 1) (kill-line) (yank) (open-line 1) (next-line 1) (yank)) Most of the time, I was happy with it, but it has mainly two drawbacks:

@@ -12,7 +12,7 @@
  
 
 
-      <title>Anonymous Functions in Thread Macros - (blog)</title>
+      <title>Anonymous Functions in Thread Macros - Ken Huang</title>
 
   <meta name="description" content="While adding the live reload feature to Clay, I encountered a problem of applying anonymous functions to thread macros. For example, below is a simple snippet trying to wrap the input directory as a vector with the help of thread macro, but surprisingly, it errors out. After some searching, I figured out that I need to put the anonymous function into another pair of parentheses:
 (-&gt; &#34;/tmp/&#34; #(if (vector? %) % [%])) ;; =&gt; Syntax error (ClassCastException) compiling fn* at (simple4all.">
