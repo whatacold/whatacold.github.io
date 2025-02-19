@@ -8,7 +8,7 @@
     <language>zh-cn</language>
     <managingEditor>whatacold@gmail.com (Ken Huang)</managingEditor>
     <webMaster>whatacold@gmail.com (Ken Huang)</webMaster>
-    <lastBuildDate>Wed, 19 Feb 2025 23:07:41 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 20 Feb 2025 01:18:39 +0800</lastBuildDate>
     <atom:link href="https://whatacold.io/zh-cn/blog/rss.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>2023年最火的十大 TED 演讲</title>
@@ -32,7 +32,7 @@
       <description>博客迁移 Hugo 也有一年多了，最近对 Beautiful Hugo 用的头图 Sphere 产生了审美疲劳，感觉它太过朴素，于是萌生了更换头图的念头。 旧版头图 那换什么图片好点呢？ 经过几秒钟</description>
     </item>
     <item>
-      <title>RIME 配置小鹤双拼教程</title>
+      <title>RIME 输入法小鹤双拼配置指南</title>
       <link>https://whatacold.io/zh-cn/blog/2022-10-04-rime-double-pinyin-flypy/</link>
       <pubDate>Tue, 04 Oct 2022 15:44:54 +0800</pubDate><author>whatacold@gmail.com (Ken Huang)</author>
       <guid>https://whatacold.io/zh-cn/blog/2022-10-04-rime-double-pinyin-flypy/</guid>

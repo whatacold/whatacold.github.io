@@ -12,7 +12,7 @@
  
 
 
-      <title>How To Construct a Map Conditionally in Clojure - Ken Huang</title>
+      <title>Constructing Clojure Maps Conditionally - Ken Huang</title>
 
   <meta name="description" content="I was wondering how to construct a multi-key map conditionally while I was coding in Clojure. Ideally, I would like to build it &#34;in one pass&#34; like {:bar 2 (when true :baz 3)}, but from what I had collected from Blue Sky, it seemed that&#39;s impossible, or it&#39;s just not an idiomatic way to program like that in Clojure. (Or, is this just a side effect of writing too much imperative code?">
   <meta name="author" content="Ken Huang"/><script type="application/ld+json">
@@ -51,7 +51,7 @@
         "position": 3,
         "item": {
           "@id": "https:\/\/whatacold.io\/blog\/2025-01-05-construct-a-map-clojure\/",
-          "name": "How to construct a map conditionally in clojure"
+          "name": "Constructing clojure maps conditionally"
         }
     }]
 }
@@ -62,12 +62,12 @@
   "author": {
     "name" : "Ken Huang"
   },
-  "headline": "How To Construct a Map Conditionally in Clojure",
+  "headline": "Constructing Clojure Maps Conditionally",
   "description" : "I was wondering how to construct a multi-key map conditionally while I was coding in Clojure. Ideally, I would like to build it \u0026#34;in one pass\u0026#34; like {:bar 2 (when true :baz 3)}, but from what I had collected from Blue Sky, it seemed that\u0026#39;s impossible, or it\u0026#39;s just not an idiomatic way to program like that in Clojure. (Or, is this just a side effect of writing too much imperative code?",
   "inLanguage" : "en",
   "wordCount":  190 ,
   "datePublished" : "2025-01-05T10:40:07\u002b08:00",
-  "dateModified" : "2025-01-05T22:02:48\u002b08:00",
+  "dateModified" : "2025-02-20T01:18:18\u002b08:00",
   "image" : "https:\/\/whatacold.io\/img\/2021-12-10-motor-helmet-180.jpg",
   "keywords" : [ "clojure, tweet" ],
   "mainEntityOfPage" : "https:\/\/whatacold.io\/blog\/2025-01-05-construct-a-map-clojure\/",
@@ -85,14 +85,14 @@
 </script>
 
 
-<meta property="og:title" content="How To Construct a Map Conditionally in Clojure" />
+<meta property="og:title" content="Constructing Clojure Maps Conditionally" />
 <meta property="og:description" content="I was wondering how to construct a multi-key map conditionally while I was coding in Clojure. Ideally, I would like to build it &#34;in one pass&#34; like {:bar 2 (when true :baz 3)}, but from what I had collected from Blue Sky, it seemed that&#39;s impossible, or it&#39;s just not an idiomatic way to program like that in Clojure. (Or, is this just a side effect of writing too much imperative code?">
 <meta property="og:image" content="https://whatacold.io/img/2021-12-10-motor-helmet-180.jpg" />
 <meta property="og:url" content="https://whatacold.io/blog/2025-01-05-construct-a-map-clojure/" />
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="Ken Huang" />
 
-  <meta name="twitter:title" content="How To Construct a Map Conditionally in Clojure" />
+  <meta name="twitter:title" content="Constructing Clojure Maps Conditionally" />
   <meta name="twitter:description" content="I was wondering how to construct a multi-key map conditionally while I was coding in Clojure. Ideally, I would like to build it &#34;in one pass&#34; like {:bar 2 (when true :baz 3)}, but from what I …">
   <meta name="twitter:image" content="https://whatacold.io/img/2021-12-10-motor-helmet-180.jpg" />
   <meta name="twitter:card" content="summary_large_image" />
@@ -260,7 +260,7 @@
           <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
             <div class="blog-heading">
               
-                <h1>How To Construct a Map Conditionally in Clojure</h1>
+                <h1>Constructing Clojure Maps Conditionally</h1>
               
               
                 <hr class="small">
@@ -334,7 +334,7 @@ Basically there are two ways, <code class="verbatim">assoc</code> / <code class=
     <ul class="share">
       
       <li>
-        <a href="//twitter.com/share?url=https%3a%2f%2fwhatacold.io%2fblog%2f2025-01-05-construct-a-map-clojure%2f&amp;text=How%20To%20Construct%20a%20Map%20Conditionally%20in%20Clojure&amp;via=whatacold" target="_blank" title="Share on Twitter">
+        <a href="//twitter.com/share?url=https%3a%2f%2fwhatacold.io%2fblog%2f2025-01-05-construct-a-map-clojure%2f&amp;text=Constructing%20Clojure%20Maps%20Conditionally&amp;via=whatacold" target="_blank" title="Share on Twitter">
           <i class="fab fa-twitter"></i>
         </a>
       </li>
@@ -348,28 +348,28 @@ Basically there are two ways, <code class="verbatim">assoc</code> / <code class=
   
       
       <li>
-        <a href="//reddit.com/submit?url=https%3a%2f%2fwhatacold.io%2fblog%2f2025-01-05-construct-a-map-clojure%2f&amp;title=How%20To%20Construct%20a%20Map%20Conditionally%20in%20Clojure" target="_blank" title="Share on Reddit">
+        <a href="//reddit.com/submit?url=https%3a%2f%2fwhatacold.io%2fblog%2f2025-01-05-construct-a-map-clojure%2f&amp;title=Constructing%20Clojure%20Maps%20Conditionally" target="_blank" title="Share on Reddit">
           <i class="fab fa-reddit"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fwhatacold.io%2fblog%2f2025-01-05-construct-a-map-clojure%2f&amp;title=How%20To%20Construct%20a%20Map%20Conditionally%20in%20Clojure" target="_blank" title="Share on LinkedIn">
+        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fwhatacold.io%2fblog%2f2025-01-05-construct-a-map-clojure%2f&amp;title=Constructing%20Clojure%20Maps%20Conditionally" target="_blank" title="Share on LinkedIn">
           <i class="fab fa-linkedin"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fwhatacold.io%2fblog%2f2025-01-05-construct-a-map-clojure%2f&amp;title=How%20To%20Construct%20a%20Map%20Conditionally%20in%20Clojure" target="_blank" title="Share on StumbleUpon">
+        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fwhatacold.io%2fblog%2f2025-01-05-construct-a-map-clojure%2f&amp;title=Constructing%20Clojure%20Maps%20Conditionally" target="_blank" title="Share on StumbleUpon">
           <i class="fab fa-stumbleupon"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fwhatacold.io%2fblog%2f2025-01-05-construct-a-map-clojure%2f&amp;description=How%20To%20Construct%20a%20Map%20Conditionally%20in%20Clojure" target="_blank" title="Share on Pinterest">
+        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fwhatacold.io%2fblog%2f2025-01-05-construct-a-map-clojure%2f&amp;description=Constructing%20Clojure%20Maps%20Conditionally" target="_blank" title="Share on Pinterest">
           <i class="fab fa-pinterest"></i>
         </a>
       </li>
