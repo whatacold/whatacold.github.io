@@ -12,11 +12,10 @@
  
 
 
-      <title>Emacs Debugging Basics - Ken Huang</title>
+      <title>Emacs Debugging Techniques - Ken Huang</title>
 
-  <meta name="description" content="If you are new to Emacs, you may run into some errors, especially after you absorb elisp snippets from the Internet or elsewhere.
-Don&#39;t panic. It happens. To ease your pain, in this post I will introduce some Emacs built-in features to help you solve the problems yourself.
-Start Emacs Without Any Configurations When you have some problems/errors with built-in features, the first thing you should do is to run emacs -Q to start another Emacs instance without any configurations from your emacs.">
+  <meta name="description" content="If you are new to Emacs, you may run into some errors, especially after you copied some elisp snippets from the Internet or elsewhere. Don&#39;t panic! It happens, it&#39;s just part of the learning process. Even an experienced Emacs user could run into there issues from time to time.
+But in order to ease the pain, I will introduce a bunch of Emacs built-in features to help you troubleshoot and eventually solve the problems by yourself in this post.">
   <meta name="author" content="Ken Huang"/><script type="application/ld+json">
 {
     "@context": "http://schema.org",
@@ -53,7 +52,7 @@ Start Emacs Without Any Configurations When you have some problems/errors with b
         "position": 3,
         "item": {
           "@id": "https:\/\/whatacold.io\/blog\/2022-07-17-emacs-elisp-debug\/",
-          "name": "Emacs debugging basics"
+          "name": "Emacs debugging techniques"
         }
     }]
 }
@@ -64,12 +63,12 @@ Start Emacs Without Any Configurations When you have some problems/errors with b
   "author": {
     "name" : "Ken Huang"
   },
-  "headline": "Emacs Debugging Basics",
-  "description" : "If you are new to Emacs, you may run into some errors, especially after you absorb elisp snippets from the Internet or elsewhere.\nDon\u0026#39;t panic. It happens. To ease your pain, in this post I will introduce some Emacs built-in features to help you solve the problems yourself.\nStart Emacs Without Any Configurations When you have some problems\/errors with built-in features, the first thing you should do is to run emacs -Q to start another Emacs instance without any configurations from your emacs.",
+  "headline": "Emacs Debugging Techniques",
+  "description" : "If you are new to Emacs, you may run into some errors, especially after you copied some elisp snippets from the Internet or elsewhere. Don\u0026#39;t panic! It happens, it\u0026#39;s just part of the learning process. Even an experienced Emacs user could run into there issues from time to time.\nBut in order to ease the pain, I will introduce a bunch of Emacs built-in features to help you troubleshoot and eventually solve the problems by yourself in this post.",
   "inLanguage" : "en",
-  "wordCount":  1026 ,
+  "wordCount":  1125 ,
   "datePublished" : "2022-07-17T09:57:31\u002b08:00",
-  "dateModified" : "2022-10-15T16:41:12\u002b08:00",
+  "dateModified" : "2025-02-19T23:41:30\u002b08:00",
   "image" : "https:\/\/whatacold.io\/img\/2021-12-10-motor-helmet-180.jpg",
   "keywords" : [ "Emacs, Debugging" ],
   "mainEntityOfPage" : "https:\/\/whatacold.io\/blog\/2022-07-17-emacs-elisp-debug\/",
@@ -87,18 +86,16 @@ Start Emacs Without Any Configurations When you have some problems/errors with b
 </script>
 
 
-<meta property="og:title" content="Emacs Debugging Basics" />
-<meta property="og:description" content="If you are new to Emacs, you may run into some errors, especially after you absorb elisp snippets from the Internet or elsewhere.
-Don&#39;t panic. It happens. To ease your pain, in this post I will introduce some Emacs built-in features to help you solve the problems yourself.
-Start Emacs Without Any Configurations When you have some problems/errors with built-in features, the first thing you should do is to run emacs -Q to start another Emacs instance without any configurations from your emacs.">
+<meta property="og:title" content="Emacs Debugging Techniques" />
+<meta property="og:description" content="If you are new to Emacs, you may run into some errors, especially after you copied some elisp snippets from the Internet or elsewhere. Don&#39;t panic! It happens, it&#39;s just part of the learning process. Even an experienced Emacs user could run into there issues from time to time.
+But in order to ease the pain, I will introduce a bunch of Emacs built-in features to help you troubleshoot and eventually solve the problems by yourself in this post.">
 <meta property="og:image" content="https://whatacold.io/img/2021-12-10-motor-helmet-180.jpg" />
 <meta property="og:url" content="https://whatacold.io/blog/2022-07-17-emacs-elisp-debug/" />
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="Ken Huang" />
 
-  <meta name="twitter:title" content="Emacs Debugging Basics" />
-  <meta name="twitter:description" content="If you are new to Emacs, you may run into some errors, especially after you absorb elisp snippets from the Internet or elsewhere.
-Don&#39;t panic. It happens. To ease your pain, in this post I will …">
+  <meta name="twitter:title" content="Emacs Debugging Techniques" />
+  <meta name="twitter:description" content="If you are new to Emacs, you may run into some errors, especially after you copied some elisp snippets from the Internet or elsewhere. Don&#39;t panic! It happens, it&#39;s just part of the learning …">
   <meta name="twitter:image" content="https://whatacold.io/img/2021-12-10-motor-helmet-180.jpg" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:site" content="@whatacold" />
@@ -269,7 +266,7 @@ Don&#39;t panic. It happens. To ease your pain, in this post I will …">
           <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
             <div class="blog-heading">
               
-                <h1>Emacs Debugging Basics</h1>
+                <h1>Emacs Debugging Techniques</h1>
               
               
                 <hr class="small">
@@ -292,21 +289,21 @@ Don&#39;t panic. It happens. To ease your pain, in this post I will …">
       <article role="main" class="blog-post">
         
 <p>
-If you are new to Emacs, you may run into some errors, especially after you absorb elisp snippets from the Internet or elsewhere.</p>
+If you are new to Emacs, you may run into some errors, especially after you copied some elisp snippets from the Internet or elsewhere. Don&#39;t panic! It happens, it&#39;s just part of the learning process. Even an experienced Emacs user could run into there issues from time to time.</p>
 <p>
-Don&#39;t panic. It happens. To ease your pain, in this post I will introduce some Emacs built-in features to help you solve the problems yourself.</p>
+But in order to ease the pain, I will introduce a bunch of Emacs built-in features to help you troubleshoot and eventually solve the problems by yourself in this post. Let&#39;s dive in!</p>
 <div id="outline-container-headline-1" class="outline-2">
 <h2 id="headline-1">
-Start Emacs Without Any Configurations
+Starting a Clean Emacs
 </h2>
 <div id="outline-text-headline-1" class="outline-text-2">
 <p>
-When you have some problems/errors with built-in features, the first thing you should do is to run <code>emacs -Q</code> to start another Emacs instance without any configurations from your <code>emacs.d</code>.</p>
+When you have some problems/errors with built-in features, the first thing you may need to do is to run <code>emacs -Q</code> to start another clean Emacs instance without any configurations from your <code>emacs.d</code>.</p>
 <p>
-Here is how to do it in detail if you are not familiar with the terminal:</p>
+Here is how to do it in details if you are not familiar with the terminal:</p>
 <ol>
 <li>
-<p>If you use Linux/macOS, open a terminal, then type the command <code>emacs -Q</code>.</p>
+<p>If you use Linux/macOS, open a terminal, then run the command <code>emacs -Q</code>.</p>
 <figure>
 <img src="/img/2022-07-17-emacs-q-linux.png" alt="/img/2022-07-17-emacs-q-linux.png" title="/img/2022-07-17-emacs-q-linux.png" /><figcaption>
 <code>emacs -Q</code> on Linux
@@ -315,7 +312,7 @@ Here is how to do it in detail if you are not familiar with the terminal:</p>
 <p>
 If you prefer to use Emacs in a terminal or run Emacs on a server, you can append an argument <code>-nw</code> to the command, that is, <code>emacs -Q -nw</code>.</p>
 <p>
-P.S. If you want to know more about the command line arguments, you can look it up in the <code class="verbatim">man</code> manual (type <code>man emacs</code> in the shell) or type <code>emacs --help</code> to see the help information, so as to get a better understanding of how to run Emacs from the command line.</p>
+P.S. If you want to know more about the command line arguments, you can look it up in the <code class="verbatim">man</code> manual (type <code>man emacs</code> in the terminal) or type <code>emacs --help</code> to see the help information, so as to get a better understanding of how to run Emacs from the command line.</p>
 </li>
 <li>
 <p>Or if you use Windows, you can run the <code>cmd</code> program first (type <code class="verbatim">Super+r cmd ENTER</code>), <code class="verbatim">cd</code> into the Emacs bin directory, then type <code>runemacs.exe -Q</code> to run it.</p>
@@ -330,16 +327,21 @@ P.S. If you want to know more about the command line arguments, you can look it 
 </div>
 <div id="outline-container-headline-2" class="outline-2">
 <h2 id="headline-2">
-Investigate the Faulty Package Within a Clean Emacs
+Troubleshooting a Problematic Package
 </h2>
 <div id="outline-text-headline-2" class="outline-text-2">
 <p>
 <code>emacs -Q</code> helps to debug built-in features. But when it comes to debugging third-party packages, like the ones you install from <a href="https://melpa.org/">melpa</a>, we need to do a bit more, as we need to load the package.</p>
 <p>
-There are roughly two ways to load it.</p>
+There are roughly two ways to do that:</p>
+<ol>
+<li>Using the <code class="verbatim">package</code> machinery,</li>
+<li>Loading directly from a specific directory.</li>
+</ol>
+<p>Whichever you take, the goal here is to <strong><strong>only load that specific package</strong></strong> so that there is zero possibility that it&#39;s introduced by other packages.</p>
 <div id="outline-container-headline-3" class="outline-3">
 <h3 id="headline-3">
-Using the <code class="verbatim">package</code> machinery
+Using the <code class="verbatim">package</code> Machinery
 </h3>
 <div id="outline-text-headline-3" class="outline-text-3">
 <p>
@@ -356,40 +358,40 @@ For example, if we now have a problem with my <a href="https://melpa.org/#/ppcom
 </span></span><span class="line"><span class="cl"><span class="p">(</span><span class="nb">require</span> <span class="ss">&#39;ppcompile</span><span class="p">)</span></span></span></code></pre></div>
 </div>
 <p>
-Now open up a terminal/cmd, type <code>emacs -Q -l /tmp/try-ppcompile.el</code>, and it will start a fairly clean Emacs with ppcompile loaded. From there, we can investigate further to see the problem.</p>
+Now open up a terminal/cmd, type <code>emacs -Q -l /tmp/try-ppcompile.el</code>, and it will start a clean Emacs with ppcompile loaded. From there, we can investigate further to see the problem.</p>
 </div>
 </div>
 <div id="outline-container-headline-4" class="outline-3">
 <h3 id="headline-4">
-Directly load from a specific directory
+Loading Directly From a Specific Directory
 </h3>
 <div id="outline-text-headline-4" class="outline-text-3">
 <p>
-There are times that you can&#39;t utilize the package machinery to load the package, for example, you git-clone a package and load it from your local file system directly. In that case, you can use Emacs&#39; <code class="verbatim">-L</code> argument to specify the directory.</p>
+There are times that you can&#39;t utilize the package machinery to load the package, for example, you git-clone a package and load it from your local file system directly. In that case, you can use Emacs&#39; <code class="verbatim">-L</code> argument to specify the directory and load the package.</p>
 <p>
 For example, type <code>emacs -Q -L /tmp/ppcompile/ --eval &#34;(require &#39;ppcompile)&#34;</code> to launch a new Emacs with the package and start debugging immediately.</p>
 <p>
-Note that you can specify more than one directory.</p>
+Note that you can specify more than one directory with more <code class="verbatim">-L</code>.</p>
 </div>
 </div>
 </div>
 </div>
 <div id="outline-container-headline-5" class="outline-2">
 <h2 id="headline-5">
-Use <code>--debug-init</code> To Debug Start-up Errors
+Using <code>--debug-init</code> To Debug Start-up Errors
 </h2>
 <div id="outline-text-headline-5" class="outline-text-2">
 <p>
-It&#39;s not uncommon that when you update your <code class="verbatim">emacs.d</code>, emacs errors when you run it next time.</p>
+It&#39;s not uncommon that after you updated your <code class="verbatim">emacs.d</code>, Emacs just errored out when you ran it again.</p>
 <figure>
 <img src="/img/2022-08-07-emacs-startup-error.png" alt="/img/2022-08-07-emacs-startup-error.png" title="/img/2022-08-07-emacs-startup-error.png" /><figcaption>
 Emacs errors out while starting up
 </figcaption>
 </figure>
 <p>
-Don&#39;t panic! Look carefully, and you will see that Emacs already tells you how to troubleshoot it. (Pay attention to the second red line on the above screenshot)</p>
+Don&#39;t panic! Look carefully, and you will notice that Emacs has already told you how to troubleshoot it. (Pay attention to the second red line in the above screenshot)</p>
 <p>
-Open a terminal, type <code>emacs --debug-init</code>, as Emacs tells us in the message, to start a new one. It will tell you where the error exactly comes from and the backtrace. Be patient and try to understand the problem, you will come up with a solution, hopefully! (The root cause in the screenshot is that the <code class="verbatim">a-bug-function</code> function is not defined)</p>
+Open a terminal, type <code>emacs --debug-init</code>, as Emacs tells us in the message, to start a new one. It will tell you where the error comes exactly from and the backtrace as well. Be patient and try to understand the problem, you will come up with a solution, hopefully! (The root cause in the screenshot is that the <code class="verbatim">a-bug-function</code> function is not defined)</p>
 <figure>
 <img src="/img/2022-08-07-emacs-debug-init.png" alt="/img/2022-08-07-emacs-debug-init.png" title="/img/2022-08-07-emacs-debug-init.png" /><figcaption>
 Append <code>--debug-init</code> to run Emacs
@@ -399,11 +401,9 @@ Append <code>--debug-init</code> to run Emacs
 </div>
 <div id="outline-container-headline-6" class="outline-2">
 <h2 id="headline-6">
-<code>M-x toggle-debug-on-error</code> to Enable Debugging
+Running <code>M-x toggle-debug-on-error</code> to Enable Debugging
 </h2>
 <div id="outline-text-headline-6" class="outline-text-2">
-<p>
-(In case you do not know yet, here is how to type <code>M-x toggle-debug-on-error</code> on the keyboard: <code>ALT+x toggle-debug-on-error RETURN</code>)</p>
 <p>
 You may see something like the below when you&#39;re using Emacs:</p>
 <figure>
@@ -421,19 +421,19 @@ To simulate such an error, for example, say we have a silly <code>welcome</code>
 <p>
 Now when you type <code>M-x welcome</code> to invoke the command, you will see the error as in the above screenshot.</p>
 <p>
-Now, type <code>M-x toggle-debug-on-error</code> to enable debugging, then it will bring up a new window with the backtrace when we <code>M-x welcome</code> once again.</p>
+Now, type <code>M-x toggle-debug-on-error</code> to enable debugging (in case you don&#39;t know yet, here is how to type <code>M-x toggle-debug-on-error</code> on the keyboard: <code>ALT+x toggle-debug-on-error RETURN</code>), then it will bring up a new window with the backtrace when we hit <code>M-x welcome</code> once again.</p>
 <figure>
 <img src="/img/2022-07-17-elisp-debugger-backtrace.png" alt="/img/2022-07-17-elisp-debugger-backtrace.png" title="/img/2022-07-17-elisp-debugger-backtrace.png" /><figcaption>
 elisp debugger backtrace 1: Symbol&#39;s function definition is void
 </figcaption>
 </figure>
 <p>
-From the backtrace, we can see that the error is because the function of <code>this-func-not-exist</code> does not exist, so the <code>welcome</code> command fails.</p>
+From the backtrace, we can see that the error is due to the function of <code>this-func-not-exist</code> does not exist.</p>
 </div>
 </div>
 <div id="outline-container-headline-7" class="outline-2">
 <h2 id="headline-7">
-Set the <code>debug-on-message</code> Variable
+Setting the <code>debug-on-message</code> Variable
 </h2>
 <div id="outline-text-headline-7" class="outline-text-2">
 <p>
@@ -448,7 +448,7 @@ For example, the below command will send out a message <code class="verbatim">we
 <p>
 Let&#39;s pretend that we now want to find out who print the nonsense message of <code class="verbatim">welcome who</code>, and we can utilize the <code>debug-on-message</code> variable to set up a regular expression, for instance, <code>(setq debug-on-message &#34;welcome who&#34;)</code>.</p>
 <p>
-Once there is a message that matches the regexp, Emacs will trap it into the debugger, and we will see who prints that message:</p>
+Once there is a message that matches the regexp, Emacs will show the backtrace, and we will find out who is the culprit there:</p>
 <figure>
 <img src="/img/2022-07-17-elisp-debugger-backtrace.png" alt="/img/2022-07-17-elisp-debugger-backtrace.png" title="/img/2022-07-17-elisp-debugger-backtrace.png" /><figcaption>
 elisp debugger backtrace 2
@@ -462,7 +462,7 @@ Other Debugging Helpers and Facilities
 </h2>
 <div id="outline-text-headline-8" class="outline-text-2">
 <p>
-Variable ways to look up help docs:</p>
+Here are variable ways to look up help docs in Emacs:</p>
 <ol>
 <li><code>C-h f</code> to look up a function(<code>C-h f</code> means to type <code class="verbatim">CTRL+h f</code> in the keyboard)</li>
 <li><code>C-h v</code> to look up a variable</li>
@@ -470,18 +470,12 @@ Variable ways to look up help docs:</p>
 <li><code>C-h m</code> to look up which major mode and minor modes are enabled in the current buffer</li>
 <li><code>C-h l</code> to view lossage, put it in another way, you will see the history of the invoked commands in a dedicated buffer</li>
 </ol>
-<p>Misc:</p>
+<p>Last but not least, Emacs also has other machineries to help debug:</p>
 <ol>
-<li><code>M-x describe-char</code> to see the properties of the character at point, for example, its font face.</li>
-<li><code>debug-on-entry</code> function
-
-Emacs starts the debugger automatically when your function has an error, also refer to <a href="https://www.gnu.org/software/emacs/manual/html_node/eintr/debug_002don_002dentry.html">debug-on-entry (Programming in Emacs Lisp) - www.gnu.org</a>.</li>
-<li><code>debug-on-quit</code> variable
-
-refer to <a href="https://www.gnu.org/software/emacs/manual/html_node/eintr/debug_002don_002dquit.html">debug-on-quit (Programming in Emacs Lisp) - www.gnu.org</a></li>
-<li><code>--init-directory</code>
-
-Emacs 29 adds a command line argument of <code>--init-directory</code> to specify a directory other than <code class="verbatim">~/.emacs.d/</code> to run Emacs, where we can put our debugging code to do the investigation separately.</li>
+<li>Running <code>M-x describe-char</code> to see the properties of the character at point, for example, its font face.</li>
+<li>Leveraging the <code>debug-on-entry</code> function. Emacs starts the debugger automatically when your function has an error, also refer to <a href="https://www.gnu.org/software/emacs/manual/html_node/eintr/debug_002don_002dentry.html">debug-on-entry (Programming in Emacs Lisp) - www.gnu.org</a>.</li>
+<li>Setting the <code>debug-on-quit</code> variable, please head over to <a href="https://www.gnu.org/software/emacs/manual/html_node/eintr/debug_002don_002dquit.html">debug-on-quit (Programming in Emacs Lisp) - www.gnu.org</a> for details.</li>
+<li>Specifying <code>--init-directory</code>. Emacs 29 adds a command line argument of <code>--init-directory</code> to specify a directory other than <code class="verbatim">~/.emacs.d/</code> to run Emacs, where we can put our debugging code to do the investigation separately.</li>
 </ol>
 </div>
 </div>
@@ -490,10 +484,10 @@ Emacs 29 adds a command line argument of <code>--init-directory</code> to specif
 References
 </h2>
 <div id="outline-text-headline-9" class="outline-text-2">
-<ul>
+<ol>
 <li><a href="https://www.math.utah.edu/docs/info/emacs-lisp-intro_18.html">Programming in Emacs Lisp - Debugging - www.math.utah.edu</a></li>
 <li><a href="https://github.com/Malabarba/elisp-bug-hunter">Malabarba/elisp-bug-hunter: Hunt down errors in elisp files. - github.com</a></li>
-</ul>
+</ol>
 </div>
 </div>
 
@@ -520,7 +514,7 @@ References
     <ul class="share">
       
       <li>
-        <a href="//twitter.com/share?url=https%3a%2f%2fwhatacold.io%2fblog%2f2022-07-17-emacs-elisp-debug%2f&amp;text=Emacs%20Debugging%20Basics&amp;via=whatacold" target="_blank" title="Share on Twitter">
+        <a href="//twitter.com/share?url=https%3a%2f%2fwhatacold.io%2fblog%2f2022-07-17-emacs-elisp-debug%2f&amp;text=Emacs%20Debugging%20Techniques&amp;via=whatacold" target="_blank" title="Share on Twitter">
           <i class="fab fa-twitter"></i>
         </a>
       </li>
@@ -534,28 +528,28 @@ References
   
       
       <li>
-        <a href="//reddit.com/submit?url=https%3a%2f%2fwhatacold.io%2fblog%2f2022-07-17-emacs-elisp-debug%2f&amp;title=Emacs%20Debugging%20Basics" target="_blank" title="Share on Reddit">
+        <a href="//reddit.com/submit?url=https%3a%2f%2fwhatacold.io%2fblog%2f2022-07-17-emacs-elisp-debug%2f&amp;title=Emacs%20Debugging%20Techniques" target="_blank" title="Share on Reddit">
           <i class="fab fa-reddit"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fwhatacold.io%2fblog%2f2022-07-17-emacs-elisp-debug%2f&amp;title=Emacs%20Debugging%20Basics" target="_blank" title="Share on LinkedIn">
+        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fwhatacold.io%2fblog%2f2022-07-17-emacs-elisp-debug%2f&amp;title=Emacs%20Debugging%20Techniques" target="_blank" title="Share on LinkedIn">
           <i class="fab fa-linkedin"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fwhatacold.io%2fblog%2f2022-07-17-emacs-elisp-debug%2f&amp;title=Emacs%20Debugging%20Basics" target="_blank" title="Share on StumbleUpon">
+        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fwhatacold.io%2fblog%2f2022-07-17-emacs-elisp-debug%2f&amp;title=Emacs%20Debugging%20Techniques" target="_blank" title="Share on StumbleUpon">
           <i class="fab fa-stumbleupon"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fwhatacold.io%2fblog%2f2022-07-17-emacs-elisp-debug%2f&amp;description=Emacs%20Debugging%20Basics" target="_blank" title="Share on Pinterest">
+        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fwhatacold.io%2fblog%2f2022-07-17-emacs-elisp-debug%2f&amp;description=Emacs%20Debugging%20Techniques" target="_blank" title="Share on Pinterest">
           <i class="fab fa-pinterest"></i>
         </a>
       </li>
@@ -579,7 +573,7 @@ References
                 
                     <li><a href="/blog/2023-11-25-emacs-join-every-n-lines/">Join Every N Lines By A Separator in Emacs</a></li>
                 
-                    <li><a href="/blog/2023-11-19-emacs-winner-mode/">Emacs winner-mode to restore your window layouts</a></li>
+                    <li><a href="/blog/2023-11-19-emacs-winner-mode/">Restore Emacs&#39; Window Layouts</a></li>
                 
                     <li><a href="/blog/2023-08-14-org-emphasis-dragging-mouse/">Emphasize Text By Dragging Mouse in Org-mode</a></li>
                 

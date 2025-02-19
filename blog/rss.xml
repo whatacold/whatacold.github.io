@@ -8,7 +8,7 @@
     <language>en</language>
     <managingEditor>whatacold@gmail.com (Ken Huang)</managingEditor>
     <webMaster>whatacold@gmail.com (Ken Huang)</webMaster>
-    <lastBuildDate>Sun, 05 Jan 2025 22:02:48 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 20 Feb 2025 00:04:05 +0800</lastBuildDate>
     <atom:link href="https://whatacold.io/blog/rss.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>How To Construct a Map Conditionally in Clojure</title>
@@ -74,11 +74,11 @@
       <description>While adding the live reload feature to Clay, I encountered a problem of applying anonymous functions to thread macros. For example, below is a simple snippet trying to wrap the input directory as a vector with the help of thread macro, but surprisingly, it errors out. After some searching, I figured out that I need to put the anonymous function into another pair of parentheses:&#xA;(-&amp;gt; &amp;#34;/tmp/&amp;#34; #(if (vector? %) % [%])) ;; =&amp;gt; Syntax error (ClassCastException) compiling fn* at (simple4all.</description>
     </item>
     <item>
-      <title>Start a Clojure nREPL in the Command Line for Cider</title>
+      <title>Starting a Clojure nREPL Manually for Cider</title>
       <link>https://whatacold.io/blog/2024-11-08-cider-clojure-repl-cmdline/</link>
       <pubDate>Fri, 08 Nov 2024 00:02:56 +0800</pubDate><author>whatacold@gmail.com (Ken Huang)</author>
       <guid>https://whatacold.io/blog/2024-11-08-cider-clojure-repl-cmdline/</guid>
-      <description>While troubleshooting and fixing a live reload bug in Clay today, which requires to start a minimal Clojure environment, I figured out how to start a nREPL from the command line. Instead of using M-x cider-jack-in-clj directly from Emacs, actually we can manully bring up an nREPL with this: clj -Sdeps &amp;#34;{:deps {org.scicloj/clay {:mvn/version \&amp;#34;2-beta21\&amp;#34;} cider/cider-nrepl {:mvn/version \&amp;#34;0.50.2\&amp;#34;}}}&amp;#34; -m nrepl.cmdline --middleware &amp;#34;[cider.nrepl/cider-middleware]&amp;#34; (The clay part is only necessary for this debugging), and then connect to this nREPL using the Emacs command M-x cider-connect-clj.</description>
+      <description>While troubleshooting and fixing a live reload bug in Clay today, which required to start a minimal Clojure environment, I figured out how to start a nREPL from the command line.&#xA;Instead of using M-x cider-jack-in-clj directly from Emacs, actually we can manully bring up an nREPL with this: clj -Sdeps &amp;#34;{:deps {org.scicloj/clay {:mvn/version \&amp;#34;2-beta21\&amp;#34;} cider/cider-nrepl {:mvn/version \&amp;#34;0.50.2\&amp;#34;}}}&amp;#34; -m nrepl.cmdline --middleware &amp;#34;[cider.nrepl/cider-middleware]&amp;#34; (The clay part is only necessary for this debugging), and then connect to this nREPL using the Emacs command M-x cider-connect-clj.</description>
     </item>
     <item>
       <title>Join Every N Lines By A Separator in Emacs</title>
@@ -88,11 +88,11 @@
       <description>It has been some time since I came along the idea of the w/join-lines command to join lines. After that, sometimes I found that it would be even better to join every a few lines.&#xA;Let&amp;#39;s see the example below, suppose we&amp;#39;ve copies some data from somewhere, and now we want to yank it into an Emacs buffer and slightly modify it to be like an matrix.&#xA;That is, make it from:</description>
     </item>
     <item>
-      <title>Emacs winner-mode to restore your window layouts</title>
+      <title>Restore Emacs&#39; Window Layouts</title>
       <link>https://whatacold.io/blog/2023-11-19-emacs-winner-mode/</link>
       <pubDate>Sun, 19 Nov 2023 13:02:42 +0800</pubDate><author>whatacold@gmail.com (Ken Huang)</author>
       <guid>https://whatacold.io/blog/2023-11-19-emacs-winner-mode/</guid>
-      <description>If you&amp;#39;ve been using Emacs for a while, I bet you must have encountered the annoying problem that your Emacs window layout gets messed up by some operations, such as looking for a help (e.g. C-h k), or checking things in magit.&#xA;It&amp;#39;s ok to me if I can get back to a previous used layout. Emacs has built in a package for this package: winner-mode. It&amp;#39;s very simple, it only has three commands:</description>
+      <description>If you&amp;#39;ve been using Emacs for a while, I bet you must have encountered the annoying problem that your Emacs window layout gets messed up after some operations, such as looking for a help (e.g. C-h k), or checking things in the magit status buffer.&#xA;I&amp;#39;m happy if I can just get back to the previous layout that I had before, and guess what? Emacs happens to have that capability built in – the winner-mode package, what a surprise!</description>
     </item>
     <item>
       <title>Emphasize Text By Dragging Mouse in Org-mode</title>
@@ -130,11 +130,11 @@
       <description>In this blog post, I&amp;#39;d like to share a bookmarklet for copying a web page&amp;#39;s URL as an org-mode link on Firefox, Chrome, or whatever web browsers support bookmarklets.&#xA;It&amp;#39;s handy when the URL isn&amp;#39;t SEO-friendly, which means you can&amp;#39;t tell what its content is about at first glance of the URL. So a little description text on the link would help.&#xA;Here is the bookmarklet:&#xA;javascript:window.prompt(&amp;#34;Copy to clipboard: Ctrl+C, Esc&amp;#34;, &amp;#34;[[&amp;#34; + document.</description>
     </item>
     <item>
-      <title>Emacs Debugging Basics</title>
+      <title>Emacs Debugging Techniques</title>
       <link>https://whatacold.io/blog/2022-07-17-emacs-elisp-debug/</link>
       <pubDate>Sun, 17 Jul 2022 09:57:31 +0800</pubDate><author>whatacold@gmail.com (Ken Huang)</author>
       <guid>https://whatacold.io/blog/2022-07-17-emacs-elisp-debug/</guid>
-      <description>If you are new to Emacs, you may run into some errors, especially after you absorb elisp snippets from the Internet or elsewhere.&#xA;Don&amp;#39;t panic. It happens. To ease your pain, in this post I will introduce some Emacs built-in features to help you solve the problems yourself.&#xA;Start Emacs Without Any Configurations When you have some problems/errors with built-in features, the first thing you should do is to run emacs -Q to start another Emacs instance without any configurations from your emacs.</description>
+      <description>If you are new to Emacs, you may run into some errors, especially after you copied some elisp snippets from the Internet or elsewhere. Don&amp;#39;t panic! It happens, it&amp;#39;s just part of the learning process. Even an experienced Emacs user could run into there issues from time to time.&#xA;But in order to ease the pain, I will introduce a bunch of Emacs built-in features to help you troubleshoot and eventually solve the problems by yourself in this post.</description>
     </item>
     <item>
       <title>Duplicate the current line in Emacs</title>
@@ -351,7 +351,7 @@
       <link>https://whatacold.io/blog/2019-07-06-render-erd-on-the-web/</link>
       <pubDate>Sat, 06 Jul 2019 11:59:00 +0800</pubDate><author>whatacold@gmail.com (Ken Huang)</author>
       <guid>https://whatacold.io/blog/2019-07-06-render-erd-on-the-web/</guid>
-      <description>If you ever wonder how to plot ER diagrams in plain text, you may have already heard of erd. It&amp;#39;s a cool command line program written by Andrew Gallant in Haskell, to &amp;#34;compile&amp;#34; plain text files into nicely looking images, leveraging the power of GraphViz.&#xA;I&amp;#39;ve used erd for some time, it&amp;#39;s cool and the syntax is quite simple. It&amp;#39;s also quite simple to install it on Linux, just install GraphViz and erd itself, by following the instructions in the README page.</description>
+      <description>(Sorry that I&amp;#39;ve taken this tool down, email me or leave a comment below you if need some help!)&#xA;If you ever wonder how to plot ER diagrams in plain text, you may have already heard of erd. It&amp;#39;s a cool command line program written by Andrew Gallant in Haskell, to &amp;#34;compile&amp;#34; plain text files into nicely looking images, leveraging the power of GraphViz.&#xA;I&amp;#39;ve used erd for some time, it&amp;#39;s cool and the syntax is quite simple.</description>
     </item>
     <item>
       <title>Fine-tune Curly Braces Style of Yasnippet Snippet on the Fly</title>

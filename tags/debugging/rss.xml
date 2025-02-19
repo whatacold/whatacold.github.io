@@ -8,14 +8,14 @@
     <language>en</language>
     <managingEditor>whatacold@gmail.com (Ken Huang)</managingEditor>
     <webMaster>whatacold@gmail.com (Ken Huang)</webMaster>
-    <lastBuildDate>Sat, 15 Oct 2022 16:41:12 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 19 Feb 2025 23:41:30 +0800</lastBuildDate>
     <atom:link href="https://whatacold.io/tags/debugging/rss.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Emacs Debugging Basics</title>
+      <title>Emacs Debugging Techniques</title>
       <link>https://whatacold.io/blog/2022-07-17-emacs-elisp-debug/</link>
       <pubDate>Sun, 17 Jul 2022 09:57:31 +0800</pubDate><author>whatacold@gmail.com (Ken Huang)</author>
       <guid>https://whatacold.io/blog/2022-07-17-emacs-elisp-debug/</guid>
-      <description>If you are new to Emacs, you may run into some errors, especially after you absorb elisp snippets from the Internet or elsewhere.&#xA;Don&amp;#39;t panic. It happens. To ease your pain, in this post I will introduce some Emacs built-in features to help you solve the problems yourself.&#xA;Start Emacs Without Any Configurations When you have some problems/errors with built-in features, the first thing you should do is to run emacs -Q to start another Emacs instance without any configurations from your emacs.</description>
+      <description>If you are new to Emacs, you may run into some errors, especially after you copied some elisp snippets from the Internet or elsewhere. Don&amp;#39;t panic! It happens, it&amp;#39;s just part of the learning process. Even an experienced Emacs user could run into there issues from time to time.&#xA;But in order to ease the pain, I will introduce a bunch of Emacs built-in features to help you troubleshoot and eventually solve the problems by yourself in this post.</description>
     </item>
     <item>
       <title>A Trick to Troubleshoot Emacs Subprocess Creating</title>

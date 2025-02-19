@@ -8,7 +8,7 @@
     <language>en</language>
     <managingEditor>whatacold@gmail.com (Ken Huang)</managingEditor>
     <webMaster>whatacold@gmail.com (Ken Huang)</webMaster>
-    <lastBuildDate>Sun, 05 Jan 2025 22:02:48 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 18 Feb 2025 00:31:14 +0800</lastBuildDate>
     <atom:link href="https://whatacold.io/tags/tweet/rss.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>How To Construct a Map Conditionally in Clojure</title>
@@ -53,11 +53,11 @@
       <description>While adding the live reload feature to Clay, I encountered a problem of applying anonymous functions to thread macros. For example, below is a simple snippet trying to wrap the input directory as a vector with the help of thread macro, but surprisingly, it errors out. After some searching, I figured out that I need to put the anonymous function into another pair of parentheses:&#xA;(-&amp;gt; &amp;#34;/tmp/&amp;#34; #(if (vector? %) % [%])) ;; =&amp;gt; Syntax error (ClassCastException) compiling fn* at (simple4all.</description>
     </item>
     <item>
-      <title>Start a Clojure nREPL in the Command Line for Cider</title>
+      <title>Starting a Clojure nREPL Manually for Cider</title>
       <link>https://whatacold.io/blog/2024-11-08-cider-clojure-repl-cmdline/</link>
       <pubDate>Fri, 08 Nov 2024 00:02:56 +0800</pubDate><author>whatacold@gmail.com (Ken Huang)</author>
       <guid>https://whatacold.io/blog/2024-11-08-cider-clojure-repl-cmdline/</guid>
-      <description>While troubleshooting and fixing a live reload bug in Clay today, which requires to start a minimal Clojure environment, I figured out how to start a nREPL from the command line. Instead of using M-x cider-jack-in-clj directly from Emacs, actually we can manully bring up an nREPL with this: clj -Sdeps &amp;#34;{:deps {org.scicloj/clay {:mvn/version \&amp;#34;2-beta21\&amp;#34;} cider/cider-nrepl {:mvn/version \&amp;#34;0.50.2\&amp;#34;}}}&amp;#34; -m nrepl.cmdline --middleware &amp;#34;[cider.nrepl/cider-middleware]&amp;#34; (The clay part is only necessary for this debugging), and then connect to this nREPL using the Emacs command M-x cider-connect-clj.</description>
+      <description>While troubleshooting and fixing a live reload bug in Clay today, which required to start a minimal Clojure environment, I figured out how to start a nREPL from the command line.&#xA;Instead of using M-x cider-jack-in-clj directly from Emacs, actually we can manully bring up an nREPL with this: clj -Sdeps &amp;#34;{:deps {org.scicloj/clay {:mvn/version \&amp;#34;2-beta21\&amp;#34;} cider/cider-nrepl {:mvn/version \&amp;#34;0.50.2\&amp;#34;}}}&amp;#34; -m nrepl.cmdline --middleware &amp;#34;[cider.nrepl/cider-middleware]&amp;#34; (The clay part is only necessary for this debugging), and then connect to this nREPL using the Emacs command M-x cider-connect-clj.</description>
     </item>
   </channel>
 </rss>

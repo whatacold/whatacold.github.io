@@ -8,7 +8,7 @@
     <language>zh-cn</language>
     <managingEditor>whatacold@gmail.com (Ken Huang)</managingEditor>
     <webMaster>whatacold@gmail.com (Ken Huang)</webMaster>
-    <lastBuildDate>Sat, 15 Feb 2025 13:04:12 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 19 Feb 2025 23:07:41 +0800</lastBuildDate>
     <atom:link href="https://whatacold.io/zh-cn/blog/rss.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>2023年最火的十大 TED 演讲</title>
@@ -32,11 +32,11 @@
       <description>博客迁移 Hugo 也有一年多了，最近对 Beautiful Hugo 用的头图 Sphere 产生了审美疲劳，感觉它太过朴素，于是萌生了更换头图的念头。 旧版头图 那换什么图片好点呢？ 经过几秒钟</description>
     </item>
     <item>
-      <title>RIME 小鹤双拼快速设置</title>
+      <title>RIME 配置小鹤双拼教程</title>
       <link>https://whatacold.io/zh-cn/blog/2022-10-04-rime-double-pinyin-flypy/</link>
       <pubDate>Tue, 04 Oct 2022 15:44:54 +0800</pubDate><author>whatacold@gmail.com (Ken Huang)</author>
       <guid>https://whatacold.io/zh-cn/blog/2022-10-04-rime-double-pinyin-flypy/</guid>
-      <description>RIME 输入引擎 如果你也使用 Linux 操作系统，那么 RIME 输入法基本是必备的。它开源、跨平台，支持各种输入方案；无服务器，不会泄漏你的输入数据。但同时相比各个</description>
+      <description>RIME 输入引擎（图源：RIME） 如果你也使用 Linux 操作系统，那么 RIME 输入法基本是必备的。它开源、跨平台，支持各种输入方案，甚至定制自己的输入方案；另一</description>
     </item>
     <item>
       <title>Emacs 中使用 smart-input-source 配合 Rime 进行流畅地中英文输入</title>

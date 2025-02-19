@@ -653,7 +653,7 @@ At that time I was adding a vector to keep track of all beholder instances watch
           
             <article class="post-preview">
     <a href="https://whatacold.io/blog/2024-11-08-cider-clojure-repl-cmdline/">
-        <h2 class="post-title">Start a Clojure nREPL in the Command Line for Cider</h2>
+        <h2 class="post-title">Starting a Clojure nREPL Manually for Cider</h2>
         
         
         
@@ -665,7 +665,7 @@ At that time I was adding a vector to keep track of all beholder instances watch
   
   <i class="fas fa-calendar"></i>&nbsp;Posted on 2024-11-08
   
-    &nbsp;(Last modified on 2024-11-12)
+    &nbsp;(Last modified on 2025-02-18)
   
   
     &nbsp;|&nbsp;<i class="fas fa-clock"></i>&nbsp;1&nbsp;minutes
@@ -681,7 +681,8 @@ At that time I was adding a vector to keep track of all beholder instances watch
     </p>
     <div class="post-entry">
         
-        While troubleshooting and fixing a live reload bug in Clay today, which requires to start a minimal Clojure environment, I figured out how to start a nREPL from the command line. Instead of using M-x cider-jack-in-clj directly from Emacs, actually we can manully bring up an nREPL with this: clj -Sdeps &#34;{:deps {org.scicloj/clay {:mvn/version \&#34;2-beta21\&#34;} cider/cider-nrepl {:mvn/version \&#34;0.50.2\&#34;}}}&#34; -m nrepl.cmdline --middleware &#34;[cider.nrepl/cider-middleware]&#34; (The clay part is only necessary for this debugging), and then connect to this nREPL using the Emacs command M-x cider-connect-clj.
+        While troubleshooting and fixing a live reload bug in Clay today, which required to start a minimal Clojure environment, I figured out how to start a nREPL from the command line.
+Instead of using M-x cider-jack-in-clj directly from Emacs, actually we can manully bring up an nREPL with this: clj -Sdeps &#34;{:deps {org.scicloj/clay {:mvn/version \&#34;2-beta21\&#34;} cider/cider-nrepl {:mvn/version \&#34;0.50.2\&#34;}}}&#34; -m nrepl.cmdline --middleware &#34;[cider.nrepl/cider-middleware]&#34; (The clay part is only necessary for this debugging), and then connect to this nREPL using the Emacs command M-x cider-connect-clj.
         <a href="https://whatacold.io/blog/2024-11-08-cider-clojure-repl-cmdline/" class="post-read-more">[Read More]</a>
         
     </div>

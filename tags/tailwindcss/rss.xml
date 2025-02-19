@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>CSS on Ken Huang</title>
-    <link>https://whatacold.io/tags/css/</link>
-    <description>Recent content in CSS on Ken Huang</description>
+    <title>TailwindCSS on Ken Huang</title>
+    <link>https://whatacold.io/tags/tailwindcss/</link>
+    <description>Recent content in TailwindCSS on Ken Huang</description>
     <generator>Hugo</generator>
     <language>en</language>
     <managingEditor>whatacold@gmail.com (Ken Huang)</managingEditor>
     <webMaster>whatacold@gmail.com (Ken Huang)</webMaster>
     <lastBuildDate>Tue, 18 Feb 2025 00:27:28 +0800</lastBuildDate>
-    <atom:link href="https://whatacold.io/tags/css/rss.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://whatacold.io/tags/tailwindcss/rss.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>TailwindCSS Docs Index</title>
       <link>https://whatacold.io/blog/2024-11-23-tailwindcss-docs-index/</link>

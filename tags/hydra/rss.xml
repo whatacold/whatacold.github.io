@@ -8,14 +8,14 @@
     <language>en</language>
     <managingEditor>whatacold@gmail.com (Ken Huang)</managingEditor>
     <webMaster>whatacold@gmail.com (Ken Huang)</webMaster>
-    <lastBuildDate>Sun, 10 Dec 2023 11:33:36 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 20 Feb 2025 00:04:05 +0800</lastBuildDate>
     <atom:link href="https://whatacold.io/tags/hydra/rss.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Emacs winner-mode to restore your window layouts</title>
+      <title>Restore Emacs&#39; Window Layouts</title>
       <link>https://whatacold.io/blog/2023-11-19-emacs-winner-mode/</link>
       <pubDate>Sun, 19 Nov 2023 13:02:42 +0800</pubDate><author>whatacold@gmail.com (Ken Huang)</author>
       <guid>https://whatacold.io/blog/2023-11-19-emacs-winner-mode/</guid>
-      <description>If you&amp;#39;ve been using Emacs for a while, I bet you must have encountered the annoying problem that your Emacs window layout gets messed up by some operations, such as looking for a help (e.g. C-h k), or checking things in magit.&#xA;It&amp;#39;s ok to me if I can get back to a previous used layout. Emacs has built in a package for this package: winner-mode. It&amp;#39;s very simple, it only has three commands:</description>
+      <description>If you&amp;#39;ve been using Emacs for a while, I bet you must have encountered the annoying problem that your Emacs window layout gets messed up after some operations, such as looking for a help (e.g. C-h k), or checking things in the magit status buffer.&#xA;I&amp;#39;m happy if I can just get back to the previous layout that I had before, and guess what? Emacs happens to have that capability built in – the winner-mode package, what a surprise!</description>
     </item>
   </channel>
 </rss>
