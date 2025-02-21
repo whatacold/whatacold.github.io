@@ -68,7 +68,7 @@
   "wordCount":  790 ,
   "datePublished" : "2021-02-16T16:08:00\u002b08:00",
   "dateModified" : "2022-10-15T16:21:09\u002b08:00",
-  "image" : "https:\/\/whatacold.io\/img\/2021-12-10-motor-helmet-180.jpg",
+  "image" : "https:\/\/whatacold.io\/img\/2021-12-10-motor-helmet-400.jpg",
   "keywords" : [ "C\u002b\u002b, Debugging" ],
   "mainEntityOfPage" : "https:\/\/whatacold.io\/zh-cn\/blog\/2021-02-16-doxygen-cpp-correct-callgraphs\/",
   "publisher" : {
@@ -76,7 +76,7 @@
     "name" : "https:\/\/whatacold.io\/",
     "logo" : {
         "@type" : "ImageObject",
-        "url" : "https:\/\/whatacold.io\/img\/2021-12-10-motor-helmet-180.jpg",
+        "url" : "https:\/\/whatacold.io\/img\/2021-12-10-motor-helmet-400.jpg",
         "height" :  60 ,
         "width" :  60
     }
@@ -87,14 +87,14 @@
 
 <meta property="og:title" content="Doxygen 终于可以正确生成函数调用图了！" />
 <meta property="og:description" content="大家都知道， Doxygen 可以用于提取代码的注释生成项目的文档，只要注释满足它规定的格式。我喜欢通过它生成类继承图（inheritance diagram">
-<meta property="og:image" content="https://whatacold.io/img/2021-12-10-motor-helmet-180.jpg" />
+<meta property="og:image" content="https://whatacold.io/img/2021-12-10-motor-helmet-400.jpg" />
 <meta property="og:url" content="https://whatacold.io/zh-cn/blog/2021-02-16-doxygen-cpp-correct-callgraphs/" />
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="Ken Huang" />
 
   <meta name="twitter:title" content="Doxygen 终于可以正确生成函数调用图了！" />
   <meta name="twitter:description" content="大家都知道， Doxygen 可以用于提取代码的注释生成项目的文档，只要注释满足它规定的格式。我喜欢通过它生成类继承图（inheritance diagram">
-  <meta name="twitter:image" content="https://whatacold.io/img/2021-12-10-motor-helmet-180.jpg" />
+  <meta name="twitter:image" content="https://whatacold.io/img/2021-12-10-motor-helmet-400.jpg" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:site" content="@whatacold" />
   <meta name="twitter:creator" content="@whatacold" />
@@ -179,7 +179,7 @@
       <div class="avatar-container">
         <div class="avatar-img-border">
           <a title="Ken Huang" href="https://whatacold.io/zh-cn/">
-            <img class="avatar-img" src="https://whatacold.io/img/2021-12-10-motor-helmet-180.jpg" alt="Ken Huang" />
+            <img class="avatar-img" src="https://whatacold.io/img/2021-12-10-motor-helmet-400.jpg" alt="Ken Huang" />
            
           </a>
         </div>
@@ -286,12 +286,12 @@
 <p>
 以 <a href="https://github.com/mysql/mysql-server">MySQL</a> 代码为例， Doxygen 生成的类继承图和调用图分别是这样的：</p>
 <figure>
-<img src="/img/2021-02-16-doxygen_innodb_classhandler__inherit__graph.png" alt="/img/2021-02-16-doxygen_innodb_classhandler__inherit__graph.png" title="/img/2021-02-16-doxygen_innodb_classhandler__inherit__graph.png" /><figcaption>
+<img src="/img/2021-02-16-doxygen_innodb_classhandler__inherit__graph.jpg" alt="/img/2021-02-16-doxygen_innodb_classhandler__inherit__graph.jpg" title="/img/2021-02-16-doxygen_innodb_classhandler__inherit__graph.jpg" /><figcaption>
 handler （存储引擎）类继承图
 </figcaption>
 </figure>
 <figure>
-<img src="/img/2021-02-16-doxygen_mysql_ha_recover_callgraph.png" alt="/img/2021-02-16-doxygen_mysql_ha_recover_callgraph.png" title="/img/2021-02-16-doxygen_mysql_ha_recover_callgraph.png" width="1000"/>
+<img src="/img/2021-02-16-doxygen_mysql_ha_recover_callgraph.jpg" alt="/img/2021-02-16-doxygen_mysql_ha_recover_callgraph.jpg" title="/img/2021-02-16-doxygen_mysql_ha_recover_callgraph.jpg" width="1000"/>
 <figcaption>
 ha_recover() crash recovery 函数调用图
 </figcaption>
@@ -366,7 +366,7 @@ test.cpp 代码
 <p>
 提了 <a href="https://github.com/doxygen/doxygen/pull/8376">PR</a> 修复了之后，前面的测试代码就能正确地生成如下的函数调用图了。</p>
 <figure>
-<img src="/img/2021-02-16-doxygen_fix_test_callgraph.png" alt="/img/2021-02-16-doxygen_fix_test_callgraph.png" title="/img/2021-02-16-doxygen_fix_test_callgraph.png" /><figcaption>
+<img src="/img/2021-02-16-doxygen_fix_test_callgraph.jpg" alt="/img/2021-02-16-doxygen_fix_test_callgraph.jpg" title="/img/2021-02-16-doxygen_fix_test_callgraph.jpg" /><figcaption>
 Test::foo() 的调用图
 </figcaption>
 </figure>

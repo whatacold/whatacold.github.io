@@ -68,7 +68,7 @@
   "wordCount":  1003 ,
   "datePublished" : "2021-02-27T10:27:00\u002b08:00",
   "dateModified" : "2021-02-27T10:27:00\u002b08:00",
-  "image" : "https:\/\/whatacold.io\/img\/2021-12-10-motor-helmet-180.jpg",
+  "image" : "https:\/\/whatacold.io\/img\/2021-12-10-motor-helmet-400.jpg",
   "keywords" : [ "C, Performance" ],
   "mainEntityOfPage" : "https:\/\/whatacold.io\/zh-cn\/blog\/2021-02-27-wrk-yuanli\/",
   "publisher" : {
@@ -76,7 +76,7 @@
     "name" : "https:\/\/whatacold.io\/",
     "logo" : {
         "@type" : "ImageObject",
-        "url" : "https:\/\/whatacold.io\/img\/2021-12-10-motor-helmet-180.jpg",
+        "url" : "https:\/\/whatacold.io\/img\/2021-12-10-motor-helmet-400.jpg",
         "height" :  60 ,
         "width" :  60
     }
@@ -87,14 +87,14 @@
 
 <meta property="og:title" content="HTTP压测工具wrk的实现原理" />
 <meta property="og:description" content="本文从源码角度分析 wrk 是如何实现的，以及它有哪些优点和局限……">
-<meta property="og:image" content="https://whatacold.io/img/2021-12-10-motor-helmet-180.jpg" />
+<meta property="og:image" content="https://whatacold.io/img/2021-12-10-motor-helmet-400.jpg" />
 <meta property="og:url" content="https://whatacold.io/zh-cn/blog/2021-02-27-wrk-yuanli/" />
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="Ken Huang" />
 
   <meta name="twitter:title" content="HTTP压测工具wrk的实现原理" />
   <meta name="twitter:description" content="本文从源码角度分析 wrk 是如何实现的，以及它有哪些优点和局限……">
-  <meta name="twitter:image" content="https://whatacold.io/img/2021-12-10-motor-helmet-180.jpg" />
+  <meta name="twitter:image" content="https://whatacold.io/img/2021-12-10-motor-helmet-400.jpg" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:site" content="@whatacold" />
   <meta name="twitter:creator" content="@whatacold" />
@@ -179,7 +179,7 @@
       <div class="avatar-container">
         <div class="avatar-img-border">
           <a title="Ken Huang" href="https://whatacold.io/zh-cn/">
-            <img class="avatar-img" src="https://whatacold.io/img/2021-12-10-motor-helmet-180.jpg" alt="Ken Huang" />
+            <img class="avatar-img" src="https://whatacold.io/img/2021-12-10-motor-helmet-400.jpg" alt="Ken Huang" />
            
           </a>
         </div>
@@ -326,7 +326,7 @@ wrk 是一个用 C 实现的 HTTP 压测工具，所有的参数都是通过命�
 <p>
 wrk 内部采用多线程结合IO多路复用的模型，整体如下。</p>
 <figure>
-<img src="/img/2021-02-27-wrk-internals.png" alt="/img/2021-02-27-wrk-internals.png" title="/img/2021-02-27-wrk-internals.png" /><figcaption>
+<img src="/img/2021-02-27-wrk-internals.jpg" alt="/img/2021-02-27-wrk-internals.jpg" title="/img/2021-02-27-wrk-internals.jpg" /><figcaption>
 wrk 内部架构图
 </figcaption>
 </figure>
@@ -354,12 +354,12 @@ wrk 内部架构图
 <p>
 通过 tcpdump 抓包并使用 Wireshark 查看，也能确认这两点。</p>
 <figure>
-<img src="/img/2021-02-27-wrk-establish-tcp-on-start.png" alt="/img/2021-02-27-wrk-establish-tcp-on-start.png" title="/img/2021-02-27-wrk-establish-tcp-on-start.png" /><figcaption>
+<img src="/img/2021-02-27-wrk-establish-tcp-on-start.jpg" alt="/img/2021-02-27-wrk-establish-tcp-on-start.jpg" title="/img/2021-02-27-wrk-establish-tcp-on-start.jpg" /><figcaption>
 wrk 启动时一次性建立了所有 TCP 连接
 </figcaption>
 </figure>
 <figure>
-<img src="/img/2021-02-27-wrk-reuse-tcp-connections.png" alt="/img/2021-02-27-wrk-reuse-tcp-connections.png" title="/img/2021-02-27-wrk-reuse-tcp-connections.png" /><figcaption>
+<img src="/img/2021-02-27-wrk-reuse-tcp-connections.jpg" alt="/img/2021-02-27-wrk-reuse-tcp-connections.jpg" title="/img/2021-02-27-wrk-reuse-tcp-connections.jpg" /><figcaption>
 一个 TCP 连接有多次 HTTP 会话
 </figcaption>
 </figure>

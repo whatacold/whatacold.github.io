@@ -68,7 +68,7 @@
   "wordCount":  1670 ,
   "datePublished" : "2022-07-17T09:57:31\u002b08:00",
   "dateModified" : "2022-10-15T16:43:20\u002b08:00",
-  "image" : "https:\/\/whatacold.io\/img\/2021-12-10-motor-helmet-180.jpg",
+  "image" : "https:\/\/whatacold.io\/img\/2021-12-10-motor-helmet-400.jpg",
   "keywords" : [ "Emacs, Debugging" ],
   "mainEntityOfPage" : "https:\/\/whatacold.io\/zh-cn\/blog\/2022-07-17-emacs-elisp-debug\/",
   "publisher" : {
@@ -76,7 +76,7 @@
     "name" : "https:\/\/whatacold.io\/",
     "logo" : {
         "@type" : "ImageObject",
-        "url" : "https:\/\/whatacold.io\/img\/2021-12-10-motor-helmet-180.jpg",
+        "url" : "https:\/\/whatacold.io\/img\/2021-12-10-motor-helmet-400.jpg",
         "height" :  60 ,
         "width" :  60
     }
@@ -87,14 +87,14 @@
 
 <meta property="og:title" content="Emacs 常用 debug 手段" />
 <meta property="og:description" content="折腾 Emacs 难免会遇到问题。 论坛里经常可以看到有同学遇到各种配置问题的，但却不知从何入手排查。这里我给大家简单地介绍一些常用的方法，当你下次遇到问">
-<meta property="og:image" content="https://whatacold.io/img/2021-12-10-motor-helmet-180.jpg" />
+<meta property="og:image" content="https://whatacold.io/img/2021-12-10-motor-helmet-400.jpg" />
 <meta property="og:url" content="https://whatacold.io/zh-cn/blog/2022-07-17-emacs-elisp-debug/" />
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="Ken Huang" />
 
   <meta name="twitter:title" content="Emacs 常用 debug 手段" />
   <meta name="twitter:description" content="折腾 Emacs 难免会遇到问题。 论坛里经常可以看到有同学遇到各种配置问题的，但却不知从何入手排查。这里我给大家简单地介绍一些常用的方法，当你下次遇到问">
-  <meta name="twitter:image" content="https://whatacold.io/img/2021-12-10-motor-helmet-180.jpg" />
+  <meta name="twitter:image" content="https://whatacold.io/img/2021-12-10-motor-helmet-400.jpg" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:site" content="@whatacold" />
   <meta name="twitter:creator" content="@whatacold" />
@@ -183,7 +183,7 @@
       <div class="avatar-container">
         <div class="avatar-img-border">
           <a title="Ken Huang" href="https://whatacold.io/zh-cn/">
-            <img class="avatar-img" src="https://whatacold.io/img/2021-12-10-motor-helmet-180.jpg" alt="Ken Huang" />
+            <img class="avatar-img" src="https://whatacold.io/img/2021-12-10-motor-helmet-400.jpg" alt="Ken Huang" />
            
           </a>
         </div>
@@ -303,7 +303,7 @@
 <li>
 <p>Linux/macOS 中打开终端，在终端中执行命令 <code>emacs -Q</code> 就可以了。</p>
 <figure>
-<img src="/img/2022-07-17-emacs-q-linux.png" alt="/img/2022-07-17-emacs-q-linux.png" title="/img/2022-07-17-emacs-q-linux.png" /><figcaption>
+<img src="/img/2022-07-17-emacs-q-linux.jpg" alt="/img/2022-07-17-emacs-q-linux.jpg" title="/img/2022-07-17-emacs-q-linux.jpg" /><figcaption>
 Linux 终端用 emacs -Q 启动 Emacs
 </figcaption>
 </figure>
@@ -315,7 +315,7 @@ P.S. 如果你想了解更多的命令行参数，可以通过查看 man 手册�
 <li>
 <p>Windows 上打开 cmd ，进入 Emacs bin 目录，然后执行 <code>runemacs.exe -Q</code></p>
 <figure>
-<img src="/img/2022-07-17-emacs-q-windows.png" alt="/img/2022-07-17-emacs-q-windows.png" title="/img/2022-07-17-emacs-q-windows.png" /><figcaption>
+<img src="/img/2022-07-17-emacs-q-windows.jpg" alt="/img/2022-07-17-emacs-q-windows.jpg" title="/img/2022-07-17-emacs-q-windows.jpg" /><figcaption>
 Windows cmd 用 emacs -Q 启动 Emacs
 </figcaption>
 </figure>
@@ -378,14 +378,14 @@ Windows cmd 用 emacs -Q 启动 Emacs
 <p>
 当你更新了配置之后，可能会出现 Emacs 启动的时候直接报错了，比如类似下边这样：</p>
 <figure>
-<img src="/img/2022-08-07-emacs-startup-error.png" alt="/img/2022-08-07-emacs-startup-error.png" title="/img/2022-08-07-emacs-startup-error.png" /><figcaption>
+<img src="/img/2022-08-07-emacs-startup-error.jpg" alt="/img/2022-08-07-emacs-startup-error.jpg" title="/img/2022-08-07-emacs-startup-error.jpg" /><figcaption>
 Emacs 启动报错
 </figcaption>
 </figure>
 <p>
 不要着急，其实 Emacs 已经告诉你怎么解决了（注意截图中的第二个红线处）。把当前的 Emacs 关了，打开终端，执行命令 <code>emacs --debug-init</code> 另起一个。她会告诉你报错的位置和调用堆栈，然后顺藤摸瓜，查看对应的文件代码来理解问题原因，再想办法解决就行（截图演示的错误是因为 <code class="verbatim">a-bug-function</code> 这个函数并未定义）。</p>
 <figure>
-<img src="/img/2022-08-07-emacs-debug-init.png" alt="/img/2022-08-07-emacs-debug-init.png" title="/img/2022-08-07-emacs-debug-init.png" /><figcaption>
+<img src="/img/2022-08-07-emacs-debug-init.jpg" alt="/img/2022-08-07-emacs-debug-init.jpg" title="/img/2022-08-07-emacs-debug-init.jpg" /><figcaption>
 加 –debug-init 参数启动 Emacs
 </figcaption>
 </figure>
@@ -401,7 +401,7 @@ Emacs 启动报错
 <p>
 有时候，在使用命令或者按键的时候，可能在底部的 echo area 会看到报错：</p>
 <figure>
-<img src="/img/2022-07-17-symbols-function-definition-is-void.png" alt="/img/2022-07-17-symbols-function-definition-is-void.png" title="/img/2022-07-17-symbols-function-definition-is-void.png" /><figcaption>
+<img src="/img/2022-07-17-symbols-function-definition-is-void.jpg" alt="/img/2022-07-17-symbols-function-definition-is-void.jpg" title="/img/2022-07-17-symbols-function-definition-is-void.jpg" /><figcaption>
 echo area 提示找不到函数定义
 </figcaption>
 </figure>
@@ -415,7 +415,7 @@ echo area 提示找不到函数定义
 <p>
 当你用 <code>M-x welcome</code> 发起命令的时候，就会看到有上述的报错。这时候执行 <code>M-x toggle-debug-on-error</code> 打开调试开关之后，再执行就会弹出出错时的调用栈。</p>
 <figure>
-<img src="/img/2022-07-17-elisp-debugger-backtrace.png" alt="/img/2022-07-17-elisp-debugger-backtrace.png" title="/img/2022-07-17-elisp-debugger-backtrace.png" /><figcaption>
+<img src="/img/2022-07-17-elisp-debugger-backtrace.jpg" alt="/img/2022-07-17-elisp-debugger-backtrace.jpg" title="/img/2022-07-17-elisp-debugger-backtrace.jpg" /><figcaption>
 elisp debugger backtrace 1: 函数未定义
 </figcaption>
 </figure>
@@ -442,7 +442,7 @@ elisp debugger backtrace 1: 函数未定义
 <p>
 一旦有人输出， Emacs 就会陷入 debugger ，我们就可以看到在哪里输出了对应的 message ：</p>
 <figure>
-<img src="/img/2022-07-17-elisp-debugger-backtrace.png" alt="/img/2022-07-17-elisp-debugger-backtrace.png" title="/img/2022-07-17-elisp-debugger-backtrace.png" /><figcaption>
+<img src="/img/2022-07-17-elisp-debugger-backtrace.jpg" alt="/img/2022-07-17-elisp-debugger-backtrace.jpg" title="/img/2022-07-17-elisp-debugger-backtrace.jpg" /><figcaption>
 elisp debugger backtrace 2: 命中 message 模式
 </figcaption>
 </figure>

@@ -68,8 +68,8 @@ But in order to ease the pain, I will introduce a bunch of Emacs built-in featur
   "inLanguage" : "en",
   "wordCount":  1125 ,
   "datePublished" : "2022-07-17T09:57:31\u002b08:00",
-  "dateModified" : "2025-02-19T23:41:30\u002b08:00",
-  "image" : "https:\/\/whatacold.io\/img\/2021-12-10-motor-helmet-180.jpg",
+  "dateModified" : "2025-02-21T21:42:36\u002b08:00",
+  "image" : "https:\/\/whatacold.io\/img\/2021-12-10-motor-helmet-400.jpg",
   "keywords" : [ "Emacs, Debugging" ],
   "mainEntityOfPage" : "https:\/\/whatacold.io\/blog\/2022-07-17-emacs-elisp-debug\/",
   "publisher" : {
@@ -77,7 +77,7 @@ But in order to ease the pain, I will introduce a bunch of Emacs built-in featur
     "name" : "https:\/\/whatacold.io\/",
     "logo" : {
         "@type" : "ImageObject",
-        "url" : "https:\/\/whatacold.io\/img\/2021-12-10-motor-helmet-180.jpg",
+        "url" : "https:\/\/whatacold.io\/img\/2021-12-10-motor-helmet-400.jpg",
         "height" :  60 ,
         "width" :  60
     }
@@ -89,14 +89,14 @@ But in order to ease the pain, I will introduce a bunch of Emacs built-in featur
 <meta property="og:title" content="Emacs Debugging Techniques" />
 <meta property="og:description" content="If you are new to Emacs, you may run into some errors, especially after you copied some elisp snippets from the Internet or elsewhere. Don&#39;t panic! It happens, it&#39;s just part of the learning process. Even an experienced Emacs user could run into there issues from time to time.
 But in order to ease the pain, I will introduce a bunch of Emacs built-in features to help you troubleshoot and eventually solve the problems by yourself in this post.">
-<meta property="og:image" content="https://whatacold.io/img/2021-12-10-motor-helmet-180.jpg" />
+<meta property="og:image" content="https://whatacold.io/img/2021-12-10-motor-helmet-400.jpg" />
 <meta property="og:url" content="https://whatacold.io/blog/2022-07-17-emacs-elisp-debug/" />
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="Ken Huang" />
 
   <meta name="twitter:title" content="Emacs Debugging Techniques" />
   <meta name="twitter:description" content="If you are new to Emacs, you may run into some errors, especially after you copied some elisp snippets from the Internet or elsewhere. Don&#39;t panic! It happens, it&#39;s just part of the learning …">
-  <meta name="twitter:image" content="https://whatacold.io/img/2021-12-10-motor-helmet-180.jpg" />
+  <meta name="twitter:image" content="https://whatacold.io/img/2021-12-10-motor-helmet-400.jpg" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:site" content="@whatacold" />
   <meta name="twitter:creator" content="@whatacold" />
@@ -185,7 +185,7 @@ But in order to ease the pain, I will introduce a bunch of Emacs built-in featur
       <div class="avatar-container">
         <div class="avatar-img-border">
           <a title="Ken Huang" href="https://whatacold.io/">
-            <img class="avatar-img" src="https://whatacold.io/img/2021-12-10-motor-helmet-180.jpg" alt="Ken Huang" />
+            <img class="avatar-img" src="https://whatacold.io/img/2021-12-10-motor-helmet-400.jpg" alt="Ken Huang" />
            
           </a>
         </div>
@@ -305,7 +305,7 @@ Here is how to do it in details if you are not familiar with the terminal:</p>
 <li>
 <p>If you use Linux/macOS, open a terminal, then run the command <code>emacs -Q</code>.</p>
 <figure>
-<img src="/img/2022-07-17-emacs-q-linux.png" alt="/img/2022-07-17-emacs-q-linux.png" title="/img/2022-07-17-emacs-q-linux.png" /><figcaption>
+<img src="/img/2022-07-17-emacs-q-linux.jpg" alt="/img/2022-07-17-emacs-q-linux.jpg" title="/img/2022-07-17-emacs-q-linux.jpg" /><figcaption>
 <code>emacs -Q</code> on Linux
 </figcaption>
 </figure>
@@ -317,7 +317,7 @@ P.S. If you want to know more about the command line arguments, you can look it 
 <li>
 <p>Or if you use Windows, you can run the <code>cmd</code> program first (type <code class="verbatim">Super+r cmd ENTER</code>), <code class="verbatim">cd</code> into the Emacs bin directory, then type <code>runemacs.exe -Q</code> to run it.</p>
 <figure>
-<img src="/img/2022-07-17-emacs-q-windows.png" alt="/img/2022-07-17-emacs-q-windows.png" title="/img/2022-07-17-emacs-q-windows.png" /><figcaption>
+<img src="/img/2022-07-17-emacs-q-windows.jpg" alt="/img/2022-07-17-emacs-q-windows.jpg" title="/img/2022-07-17-emacs-q-windows.jpg" /><figcaption>
 <code>emacs -Q</code> on Windows cmd
 </figcaption>
 </figure>
@@ -384,7 +384,7 @@ Using <code>--debug-init</code> To Debug Start-up Errors
 <p>
 It&#39;s not uncommon that after you updated your <code class="verbatim">emacs.d</code>, Emacs just errored out when you ran it again.</p>
 <figure>
-<img src="/img/2022-08-07-emacs-startup-error.png" alt="/img/2022-08-07-emacs-startup-error.png" title="/img/2022-08-07-emacs-startup-error.png" /><figcaption>
+<img src="/img/2022-08-07-emacs-startup-error.jpg" alt="/img/2022-08-07-emacs-startup-error.jpg" title="/img/2022-08-07-emacs-startup-error.jpg" /><figcaption>
 Emacs errors out while starting up
 </figcaption>
 </figure>
@@ -393,7 +393,7 @@ Don&#39;t panic! Look carefully, and you will notice that Emacs has already told
 <p>
 Open a terminal, type <code>emacs --debug-init</code>, as Emacs tells us in the message, to start a new one. It will tell you where the error comes exactly from and the backtrace as well. Be patient and try to understand the problem, you will come up with a solution, hopefully! (The root cause in the screenshot is that the <code class="verbatim">a-bug-function</code> function is not defined)</p>
 <figure>
-<img src="/img/2022-08-07-emacs-debug-init.png" alt="/img/2022-08-07-emacs-debug-init.png" title="/img/2022-08-07-emacs-debug-init.png" /><figcaption>
+<img src="/img/2022-08-07-emacs-debug-init.jpg" alt="/img/2022-08-07-emacs-debug-init.jpg" title="/img/2022-08-07-emacs-debug-init.jpg" /><figcaption>
 Append <code>--debug-init</code> to run Emacs
 </figcaption>
 </figure>
@@ -407,7 +407,7 @@ Running <code>M-x toggle-debug-on-error</code> to Enable Debugging
 <p>
 You may see something like the below when you&#39;re using Emacs:</p>
 <figure>
-<img src="/img/2022-07-17-symbols-function-definition-is-void.png" alt="/img/2022-07-17-symbols-function-definition-is-void.png" title="/img/2022-07-17-symbols-function-definition-is-void.png" /><figcaption>
+<img src="/img/2022-07-17-symbols-function-definition-is-void.jpg" alt="/img/2022-07-17-symbols-function-definition-is-void.jpg" title="/img/2022-07-17-symbols-function-definition-is-void.jpg" /><figcaption>
 No Function Definition Error in the Echo Area
 </figcaption>
 </figure>
@@ -423,7 +423,7 @@ Now when you type <code>M-x welcome</code> to invoke the command, you will see t
 <p>
 Now, type <code>M-x toggle-debug-on-error</code> to enable debugging (in case you don&#39;t know yet, here is how to type <code>M-x toggle-debug-on-error</code> on the keyboard: <code>ALT+x toggle-debug-on-error RETURN</code>), then it will bring up a new window with the backtrace when we hit <code>M-x welcome</code> once again.</p>
 <figure>
-<img src="/img/2022-07-17-elisp-debugger-backtrace.png" alt="/img/2022-07-17-elisp-debugger-backtrace.png" title="/img/2022-07-17-elisp-debugger-backtrace.png" /><figcaption>
+<img src="/img/2022-07-17-elisp-debugger-backtrace.jpg" alt="/img/2022-07-17-elisp-debugger-backtrace.jpg" title="/img/2022-07-17-elisp-debugger-backtrace.jpg" /><figcaption>
 elisp debugger backtrace 1: Symbol&#39;s function definition is void
 </figcaption>
 </figure>
@@ -450,7 +450,7 @@ Let&#39;s pretend that we now want to find out who print the nonsense message of
 <p>
 Once there is a message that matches the regexp, Emacs will show the backtrace, and we will find out who is the culprit there:</p>
 <figure>
-<img src="/img/2022-07-17-elisp-debugger-backtrace.png" alt="/img/2022-07-17-elisp-debugger-backtrace.png" title="/img/2022-07-17-elisp-debugger-backtrace.png" /><figcaption>
+<img src="/img/2022-07-17-elisp-debugger-backtrace.jpg" alt="/img/2022-07-17-elisp-debugger-backtrace.jpg" title="/img/2022-07-17-elisp-debugger-backtrace.jpg" /><figcaption>
 elisp debugger backtrace 2
 </figcaption>
 </figure>

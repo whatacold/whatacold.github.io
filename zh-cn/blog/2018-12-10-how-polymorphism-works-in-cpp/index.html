@@ -68,7 +68,7 @@
   "wordCount":  1399 ,
   "datePublished" : "2018-12-10T00:16:00\u002b08:00",
   "dateModified" : "2018-12-10T00:16:00\u002b08:00",
-  "image" : "https:\/\/whatacold.io\/img\/2021-12-10-motor-helmet-180.jpg",
+  "image" : "https:\/\/whatacold.io\/img\/2021-12-10-motor-helmet-400.jpg",
   "keywords" : [ "C\u002b\u002b, GDB" ],
   "mainEntityOfPage" : "https:\/\/whatacold.io\/zh-cn\/blog\/2018-12-10-how-polymorphism-works-in-cpp\/",
   "publisher" : {
@@ -76,7 +76,7 @@
     "name" : "https:\/\/whatacold.io\/",
     "logo" : {
         "@type" : "ImageObject",
-        "url" : "https:\/\/whatacold.io\/img\/2021-12-10-motor-helmet-180.jpg",
+        "url" : "https:\/\/whatacold.io\/img\/2021-12-10-motor-helmet-400.jpg",
         "height" :  60 ,
         "width" :  60
     }
@@ -87,14 +87,14 @@
 
 <meta property="og:title" content="C&#43;&#43; 多态是如何实现的？" />
 <meta property="og:description" content="本文使用 GDB 从汇编的角度来观察 C&#43;&#43; 多态究竟是如何实现的……">
-<meta property="og:image" content="https://whatacold.io/img/2021-12-10-motor-helmet-180.jpg" />
+<meta property="og:image" content="https://whatacold.io/img/2021-12-10-motor-helmet-400.jpg" />
 <meta property="og:url" content="https://whatacold.io/zh-cn/blog/2018-12-10-how-polymorphism-works-in-cpp/" />
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="Ken Huang" />
 
   <meta name="twitter:title" content="C&#43;&#43; 多态是如何实现的？" />
   <meta name="twitter:description" content="本文使用 GDB 从汇编的角度来观察 C&#43;&#43; 多态究竟是如何实现的……">
-  <meta name="twitter:image" content="https://whatacold.io/img/2021-12-10-motor-helmet-180.jpg" />
+  <meta name="twitter:image" content="https://whatacold.io/img/2021-12-10-motor-helmet-400.jpg" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:site" content="@whatacold" />
   <meta name="twitter:creator" content="@whatacold" />
@@ -179,7 +179,7 @@
       <div class="avatar-container">
         <div class="avatar-img-border">
           <a title="Ken Huang" href="https://whatacold.io/zh-cn/">
-            <img class="avatar-img" src="https://whatacold.io/img/2021-12-10-motor-helmet-180.jpg" alt="Ken Huang" />
+            <img class="avatar-img" src="https://whatacold.io/img/2021-12-10-motor-helmet-400.jpg" alt="Ken Huang" />
            
           </a>
         </div>
@@ -447,7 +447,7 @@
 </div>
 <p>
 综上，可以把相关的内存布局绘制成如下图：
-<img src="/img/2018-12-10-vtable.png" alt="/img/2018-12-10-vtable.png" title="/img/2018-12-10-vtable.png" /></p>
+<img src="/img/2018-12-10-vtable.jpg" alt="/img/2018-12-10-vtable.jpg" title="/img/2018-12-10-vtable.jpg" /></p>
 <p>
 从以上分析可以看出， vtable 确实存在，程序运行时根据 vtable 查找对应的函数（此过程叫做 dynamic dispatch ）。
 若在不必要的场景下定义了虚函数，一方面会使得对象占用的内存变大，
