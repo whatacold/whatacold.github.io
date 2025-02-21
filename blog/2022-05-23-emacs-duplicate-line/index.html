@@ -91,7 +91,7 @@ It cannot keep the column position when moving to the next line It messes up wit
 <meta property="og:description" content="Duplicate the current in Emacs Duplicating the current line is frequent editing for me when I am coding. Initially, I copied a snippet as a command in Emacs from the Internet:
 (defun w/duplicate-line() &#34;Duplicate the current line.&#34; (interactive) (move-beginning-of-line 1) (kill-line) (yank) (open-line 1) (next-line 1) (yank)) Most of the time, I was happy with it, but it has mainly two drawbacks:
 It cannot keep the column position when moving to the next line It messes up with the yank ring as it yanks the text under the hood So today, I took some time to fix these two problems, and I also want it to be capable of commenting the current line out if I prefix the command.">
-<meta property="og:image" content="https://whatacold.io/img/2021-12-10-motor-helmet-400.jpg" />
+<meta property="og:image" content="https://whatacold.io/img/2021-12-10-motor-helmet-og.jpg" />
 <meta property="og:url" content="https://whatacold.io/blog/2022-05-23-emacs-duplicate-line/" />
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="Ken Huang" />
@@ -99,7 +99,7 @@ It cannot keep the column position when moving to the next line It messes up wit
   <meta name="twitter:title" content="Duplicate the current line in Emacs" />
   <meta name="twitter:description" content="Duplicate the current in Emacs Duplicating the current line is frequent editing for me when I am coding. Initially, I copied a snippet as a command in Emacs from the Internet:
 (defun …">
-  <meta name="twitter:image" content="https://whatacold.io/img/2021-12-10-motor-helmet-400.jpg" />
+  <meta name="twitter:image" content="https://whatacold.io/img/2021-12-10-motor-helmet-og.jpg" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:site" content="@whatacold" />
   <meta name="twitter:creator" content="@whatacold" />
