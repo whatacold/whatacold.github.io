@@ -8,7 +8,7 @@
     <language>en</language>
     <managingEditor>whatacold@gmail.com (Ken Huang)</managingEditor>
     <webMaster>whatacold@gmail.com (Ken Huang)</webMaster>
-    <lastBuildDate>Sat, 22 Feb 2025 11:31:56 +0800</lastBuildDate>
+    <lastBuildDate>Sat, 22 Feb 2025 11:59:54 +0800</lastBuildDate>
     <atom:link href="https://whatacold.io/blog/rss.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Constructing Clojure Maps Conditionally</title>
@@ -88,7 +88,7 @@
       <description>It has been some time since I came along the idea of the w/join-lines command to join lines. After that, sometimes I found that it would be even better to join every a few lines.&#xA;Let&amp;#39;s see the example below, suppose we&amp;#39;ve copies some data from somewhere, and now we want to yank it into an Emacs buffer and slightly modify it to be like an matrix.&#xA;That is, make it from:</description>
     </item>
     <item>
-      <title>Restore Emacs&#39; Window Layouts</title>
+      <title>Restoring Emacs&#39; Window Layouts</title>
       <link>https://whatacold.io/blog/2023-11-19-emacs-winner-mode/</link>
       <pubDate>Sun, 19 Nov 2023 13:02:42 +0800</pubDate><author>whatacold@gmail.com (Ken Huang)</author>
       <guid>https://whatacold.io/blog/2023-11-19-emacs-winner-mode/</guid>
