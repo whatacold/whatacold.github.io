@@ -8,7 +8,7 @@
     <language>en</language>
     <managingEditor>whatacold@gmail.com (Ken Huang)</managingEditor>
     <webMaster>whatacold@gmail.com (Ken Huang)</webMaster>
-    <lastBuildDate>Fri, 21 Feb 2025 21:42:36 +0800</lastBuildDate>
+    <lastBuildDate>Sat, 22 Feb 2025 11:31:56 +0800</lastBuildDate>
     <atom:link href="https://whatacold.io/rss.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Constructing Clojure Maps Conditionally</title>
@@ -92,7 +92,7 @@
       <link>https://whatacold.io/blog/2023-11-19-emacs-winner-mode/</link>
       <pubDate>Sun, 19 Nov 2023 13:02:42 +0800</pubDate><author>whatacold@gmail.com (Ken Huang)</author>
       <guid>https://whatacold.io/blog/2023-11-19-emacs-winner-mode/</guid>
-      <description>If you&amp;#39;ve been using Emacs for a while, I bet you must have encountered the annoying problem that your Emacs window layout gets messed up after some operations, such as looking for a help (e.g. C-h k), or checking things in the magit status buffer.&#xA;I&amp;#39;m happy if I can just get back to the previous layout that I had before, and guess what? Emacs happens to have that capability built in – the winner-mode package, what a surprise!</description>
+      <description>If you&amp;#39;ve been using Emacs for a while, I bet you must have encountered the annoying problem that your Emacs window layout gets messed up after some operations, such as looking for a help (e.g. C-h k), or checking things in the magit status buffer.&#xA;Photo by R Mo on Unsplash I&amp;#39;m happy if I can just get back to the previous layout that I had before, and guess what?</description>
     </item>
     <item>
       <title>Emphasize Text By Dragging Mouse in Org-mode</title>
@@ -113,7 +113,7 @@
       <link>https://whatacold.io/blog/2022-10-10-emacs-hugo-blogging/</link>
       <pubDate>Mon, 10 Oct 2022 22:50:48 +0800</pubDate><author>whatacold@gmail.com (Ken Huang)</author>
       <guid>https://whatacold.io/blog/2022-10-10-emacs-hugo-blogging/</guid>
-      <description>When I started to use Hugo to write this blog last year, I noticed that there is an easy-hugo package of Emacs that there are many people use it. So I installed it that time, but I didn&amp;#39;t use many of its features along the way. The only command I used was easy-hugo-current-time. I used it to update the Hugo timestamps manually as in the format of 2022-10-15T09:45:35+08:00.&#xA;My most desirable feature is to use it to select tags easily when I start to write a new post, but I never got it to work.</description>
+      <description>When I started to use Hugo to write this blog last year, I noticed that there is an easy-hugo package of Emacs many people use. So I installed it at that time, but I didn&amp;#39;t use many of its features since then. In fact, the only command I used was easy-hugo-current-time. I used it to update the Hugo timestamps manually as in the format of 2022-10-15T09:45:35+08:00.&#xA;My most desirable feature is to use it to select tags easily when I start to write a new post, but I never got it to work.</description>
     </item>
     <item>
       <title>Auto-complete Accounts From Other Beancount Files in Emacs</title>
@@ -134,7 +134,7 @@
       <link>https://whatacold.io/blog/2022-07-17-emacs-elisp-debug/</link>
       <pubDate>Sun, 17 Jul 2022 09:57:31 +0800</pubDate><author>whatacold@gmail.com (Ken Huang)</author>
       <guid>https://whatacold.io/blog/2022-07-17-emacs-elisp-debug/</guid>
-      <description>If you are new to Emacs, you may run into some errors, especially after you copied some elisp snippets from the Internet or elsewhere. Don&amp;#39;t panic! It happens, it&amp;#39;s just part of the learning process. Even an experienced Emacs user could run into there issues from time to time.&#xA;But in order to ease the pain, I will introduce a bunch of Emacs built-in features to help you troubleshoot and eventually solve the problems by yourself in this post.</description>
+      <description>If you are new to Emacs, you may run into some errors, especially after you copied some elisp snippets from the Internet or elsewhere. Don&amp;#39;t panic! It happens, it&amp;#39;s just part of the learning process. Even an experienced Emacs user could run into there issues from time to time.&#xA;Photo by Mike Newbry on Unsplash But in order to ease the pain, I will introduce a bunch of Emacs built-in features to help you troubleshoot and eventually solve the problems by yourself in this post.</description>
     </item>
     <item>
       <title>Duplicate the current line in Emacs</title>
@@ -176,7 +176,7 @@
       <link>https://whatacold.io/blog/2022-01-22-emacs-eglot-lsp/</link>
       <pubDate>Sat, 22 Jan 2022 11:36:18 +0800</pubDate><author>whatacold@gmail.com (Ken Huang)</author>
       <guid>https://whatacold.io/blog/2022-01-22-emacs-eglot-lsp/</guid>
-      <description>LSP, or Language Server Protocol, makes programming easier by introducing features like more precise auto-completion and definition lookup. It may have scratched your itches, and you may wonder what the experience is like in Emacs.&#xA;Emacs has mainly two LSP clients out there, eglot and lsp-mode. Eglot is lightweight, and it could almost run out of the box. So in this post I will briefly show you how to use eglot.</description>
+      <description>LSP, or Language Server Protocol, makes programming easier by introducing features like more precise auto-completion and definition lookup. It may have scratched your itches, and you may wonder what the experience is like in Emacs.&#xA;Photo by Oskar Yildiz on Unsplash Emacs has mainly two LSP clients out there, eglot and lsp-mode. Eglot is lightweight, and it could almost run out of the box. So in this post I will briefly show you how to use eglot.</description>
     </item>
     <item>
       <title>How to Reload i3status config On the Fly</title>
