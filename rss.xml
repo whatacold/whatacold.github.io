@@ -169,7 +169,7 @@
       <link>https://whatacold.io/about/</link>
       <pubDate>Wed, 09 Mar 2022 12:37:20 +0800</pubDate><author>whatacold@gmail.com (Ken Huang)</author>
       <guid>https://whatacold.io/about/</guid>
-      <description>Hi there, welcome to my blog site!&#xA;This is Ken, who is passionate about technology and a lifelong learner. Here I share my experiments and thinking on technology, especially Clojure/ClojureScript and Emacs stuff. Bookmark this site or follow me on social media, the links are at the bottom.&#xA;Besides, I also make and post videos to my YouTube channel from time to time, please subscribe if you&amp;#39;re interested!❤️&#xA;Interesting OSS Projects I Contributed Clay is a note-taking and data visualization software written in Clojure, and it&amp;#39;s REPL friendly.</description>
+      <description>Hey, welcome to my blog site!&#xA;This is Ken, who is passionate about technology and a lifelong learner. Here I share my experiments and thinking on technology, especially Clojure/ClojureScript and Emacs stuff. Bookmark this site or follow me on social media, the links are at the bottom.&#xA;Besides, I also make and post videos to my YouTube channel from time to time, please subscribe if you&amp;#39;re interested!❤️&#xA;Interesting OSS Projects I Contributed Clay is a note-taking and data visualization software written in Clojure, and it&amp;#39;s REPL friendly.</description>
     </item>
     <item>
       <title>Eglot for Better Programming Experience in Emacs</title>
