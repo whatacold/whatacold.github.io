@@ -67,7 +67,7 @@
   "inLanguage" : "zh-cn",
   "wordCount":  790 ,
   "datePublished" : "2021-02-16T16:08:00\u002b08:00",
-  "dateModified" : "2022-10-15T16:21:09\u002b08:00",
+  "dateModified" : "2025-02-26T00:45:45\u002b08:00",
   "image" : "https:\/\/whatacold.io\/img\/2021-12-10-motor-helmet-400.jpg",
   "keywords" : [ "C\u002b\u002b, Debugging" ],
   "mainEntityOfPage" : "https:\/\/whatacold.io\/zh-cn\/blog\/2021-02-16-doxygen-cpp-correct-callgraphs\/",
@@ -287,7 +287,7 @@
           
           <p class="page-meta">
             
-            Published: 2021-02-16, Last Updated: 2022-10-15
+            Published: 2021-02-16, Last Updated: 2025-02-26
             
           </p>
         
@@ -297,12 +297,13 @@
 <p>
 以 <a href="https://github.com/mysql/mysql-server">MySQL</a> 代码为例， Doxygen 生成的类继承图和调用图分别是这样的：</p>
 <figure>
-<img src="/img/2021-02-16-doxygen_innodb_classhandler__inherit__graph.jpg" alt="/img/2021-02-16-doxygen_innodb_classhandler__inherit__graph.jpg" title="/img/2021-02-16-doxygen_innodb_classhandler__inherit__graph.jpg" /><figcaption>
+<img src="/img/2021-02-16-doxygen_innodb_classhandler__inherit__graph.jpg" alt="handler （存储引擎）类继承图" title="单击以放大图片"/>
+<figcaption>
 handler （存储引擎）类继承图
 </figcaption>
 </figure>
 <figure>
-<img src="/img/2021-02-16-doxygen_mysql_ha_recover_callgraph.jpg" alt="/img/2021-02-16-doxygen_mysql_ha_recover_callgraph.jpg" title="/img/2021-02-16-doxygen_mysql_ha_recover_callgraph.jpg" width="1000"/>
+<img src="/img/2021-02-16-doxygen_mysql_ha_recover_callgraph.jpg" alt="ha_recover() crash recovery 函数调用图" title="单击以放大图片" width="1000"/>
 <figcaption>
 ha_recover() crash recovery 函数调用图
 </figcaption>
@@ -377,7 +378,8 @@ test.cpp 代码
 <p>
 提了 <a href="https://github.com/doxygen/doxygen/pull/8376">PR</a> 修复了之后，前面的测试代码就能正确地生成如下的函数调用图了。</p>
 <figure>
-<img src="/img/2021-02-16-doxygen_fix_test_callgraph.jpg" alt="/img/2021-02-16-doxygen_fix_test_callgraph.jpg" title="/img/2021-02-16-doxygen_fix_test_callgraph.jpg" /><figcaption>
+<img src="/img/2021-02-16-doxygen_fix_test_callgraph.jpg" alt="Test::foo() 的调用图" title="单击以放大图片"/>
+<figcaption>
 Test::foo() 的调用图
 </figcaption>
 </figure>

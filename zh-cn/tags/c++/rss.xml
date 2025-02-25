@@ -8,7 +8,7 @@
     <language>zh-cn</language>
     <managingEditor>whatacold@gmail.com (Ken Huang)</managingEditor>
     <webMaster>whatacold@gmail.com (Ken Huang)</webMaster>
-    <lastBuildDate>Sat, 15 Oct 2022 16:21:09 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 26 Feb 2025 00:49:54 +0800</lastBuildDate>
     <atom:link href="https://whatacold.io/zh-cn/tags/c++/rss.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Doxygen 终于可以正确生成函数调用图了！</title>

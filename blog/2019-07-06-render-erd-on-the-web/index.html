@@ -14,9 +14,8 @@
 
       <title>ER Diagrams in Plain Text - Ken Huang</title>
 
-  <meta name="description" content="(Sorry that I&#39;ve taken this tool down, email me or leave a comment below you if need some help!)
-If you ever wonder how to plot ER diagrams in plain text, you may have already heard of erd. It&#39;s a cool command line program written by Andrew Gallant in Haskell, to &#34;compile&#34; plain text files into nicely looking images, leveraging the power of GraphViz.
-I&#39;ve used erd for some time, it&#39;s cool and the syntax is quite simple.">
+  <meta name="description" content="If you ever wonder how to plot ER diagrams in plain text, you may have already heard of erd. It&#39;s a cool command line program written by Andrew Gallant in Haskell, to &#34;compile&#34; plain text files into nicely looking images, leveraging the power of GraphViz.
+I&#39;ve used erd for some time, it&#39;s cool and the syntax is quite simple. It&#39;s also quite simple to install it on Linux, just install GraphViz and erd itself, by following the instructions in the README page.">
   <meta name="author" content="Ken Huang"/><script type="application/ld+json">
 {
     "@context": "http://schema.org",
@@ -65,11 +64,11 @@ I&#39;ve used erd for some time, it&#39;s cool and the syntax is quite simple.">
     "name" : "Ken Huang"
   },
   "headline": "ER Diagrams in Plain Text",
-  "description" : "(Sorry that I\u0026#39;ve taken this tool down, email me or leave a comment below you if need some help!)\nIf you ever wonder how to plot ER diagrams in plain text, you may have already heard of erd. It\u0026#39;s a cool command line program written by Andrew Gallant in Haskell, to \u0026#34;compile\u0026#34; plain text files into nicely looking images, leveraging the power of GraphViz.\nI\u0026#39;ve used erd for some time, it\u0026#39;s cool and the syntax is quite simple.",
+  "description" : "If you ever wonder how to plot ER diagrams in plain text, you may have already heard of erd. It\u0026#39;s a cool command line program written by Andrew Gallant in Haskell, to \u0026#34;compile\u0026#34; plain text files into nicely looking images, leveraging the power of GraphViz.\nI\u0026#39;ve used erd for some time, it\u0026#39;s cool and the syntax is quite simple. It\u0026#39;s also quite simple to install it on Linux, just install GraphViz and erd itself, by following the instructions in the README page.",
   "inLanguage" : "en",
   "wordCount":  539 ,
   "datePublished" : "2019-07-06T11:59:00\u002b08:00",
-  "dateModified" : "2025-02-21T21:38:15\u002b08:00",
+  "dateModified" : "2025-02-26T01:01:04\u002b08:00",
   "image" : "https:\/\/whatacold.io\/img\/2021-12-10-motor-helmet-400.jpg",
   "keywords" : [ "Python, Tools, texttoolkit" ],
   "mainEntityOfPage" : "https:\/\/whatacold.io\/blog\/2019-07-06-render-erd-on-the-web\/",
@@ -88,17 +87,15 @@ I&#39;ve used erd for some time, it&#39;s cool and the syntax is quite simple.">
 
 
 <meta property="og:title" content="ER Diagrams in Plain Text" />
-<meta property="og:description" content="(Sorry that I&#39;ve taken this tool down, email me or leave a comment below you if need some help!)
-If you ever wonder how to plot ER diagrams in plain text, you may have already heard of erd. It&#39;s a cool command line program written by Andrew Gallant in Haskell, to &#34;compile&#34; plain text files into nicely looking images, leveraging the power of GraphViz.
-I&#39;ve used erd for some time, it&#39;s cool and the syntax is quite simple.">
+<meta property="og:description" content="If you ever wonder how to plot ER diagrams in plain text, you may have already heard of erd. It&#39;s a cool command line program written by Andrew Gallant in Haskell, to &#34;compile&#34; plain text files into nicely looking images, leveraging the power of GraphViz.
+I&#39;ve used erd for some time, it&#39;s cool and the syntax is quite simple. It&#39;s also quite simple to install it on Linux, just install GraphViz and erd itself, by following the instructions in the README page.">
 <meta property="og:image" content="https://whatacold.io/img/2021-12-10-motor-helmet-og.jpg" />
 <meta property="og:url" content="https://whatacold.io/blog/2019-07-06-render-erd-on-the-web/" />
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="Ken Huang" />
 
   <meta name="twitter:title" content="ER Diagrams in Plain Text" />
-  <meta name="twitter:description" content="(Sorry that I&#39;ve taken this tool down, email me or leave a comment below you if need some help!)
-If you ever wonder how to plot ER diagrams in plain text, you may have already heard of erd. …">
+  <meta name="twitter:description" content="If you ever wonder how to plot ER diagrams in plain text, you may have already heard of erd. It&#39;s a cool command line program written by Andrew Gallant in Haskell, to &#34;compile&#34; plain text …">
   <meta name="twitter:image" content="https://whatacold.io/img/2021-12-10-motor-helmet-og.jpg" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:site" content="@whatacold" />
@@ -292,14 +289,12 @@ If you ever wonder how to plot ER diagrams in plain text, you may have already h
           
           <p class="page-meta">
             
-            Published: 2019-07-06, Last Updated: 2025-02-21
+            Published: 2019-07-06, Last Updated: 2025-02-26
             
           </p>
         
 
         <p>
-(Sorry that I&#39;ve taken this tool down, email me or leave a comment below you if need some help!)</p>
-<p>
 If you ever wonder how to plot <a href="https://en.wikipedia.org/wiki/Entity%E2%80%93relationship_model">ER diagrams</a> in plain text, you may have already heard of <a href="https://github.com/BurntSushi/erd">erd</a>.
 It&#39;s a cool command line program written by Andrew Gallant in Haskell, to &#34;compile&#34; plain text files into nicely looking images,
 leveraging the power of <a href="https://graphviz.org/">GraphViz</a>.</p>
@@ -314,10 +309,11 @@ But there are times that there isn&#39;t an erd environment at hand:</p>
 <li>I shared the plain text file with my teammates, but they didn&#39;t know how to convert it to an image.</li>
 </ul>
 <p>So I think maybe it&#39;s useful to have a web application that folks can try it out online,
-here it is: <a href="https://texttoolkit.com/erd-diagram">ERD Diagram</a>.</p>
+here it is: <a href="https://texttoolkit.com/erd-diagram">ERD Diagram</a>. (Sorry that I&#39;ve taken this tool down, email me or leave a comment below if you need some help!)</p>
 <figure>
-<img src="https://texttoolkit.com/static/img/erd-demo.jpg" alt="https://texttoolkit.com/static/img/erd-demo.jpg" title="https://texttoolkit.com/static/img/erd-demo.jpg" /><figcaption>
-A demo ER diagram
+<img src="/img/erd-demo.png" alt="An ER diagram demo" title="Click to enlarge the image"/>
+<figcaption>
+An ER diagram demo
 </figcaption>
 </figure>
 <p>

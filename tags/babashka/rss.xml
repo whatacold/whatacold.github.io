@@ -8,7 +8,7 @@
     <language>en</language>
     <managingEditor>whatacold@gmail.com (Ken Huang)</managingEditor>
     <webMaster>whatacold@gmail.com (Ken Huang)</webMaster>
-    <lastBuildDate>Sat, 25 Nov 2023 12:44:53 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 26 Feb 2025 00:11:19 +0800</lastBuildDate>
     <atom:link href="https://whatacold.io/tags/babashka/rss.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Clojure reduce: one case for text processing</title>

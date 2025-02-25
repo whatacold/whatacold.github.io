@@ -67,7 +67,7 @@
   "inLanguage" : "zh-cn",
   "wordCount":  1003 ,
   "datePublished" : "2021-02-27T10:27:00\u002b08:00",
-  "dateModified" : "2021-02-27T10:27:00\u002b08:00",
+  "dateModified" : "2025-02-26T00:45:45\u002b08:00",
   "image" : "https:\/\/whatacold.io\/img\/2021-12-10-motor-helmet-400.jpg",
   "keywords" : [ "C, Performance" ],
   "mainEntityOfPage" : "https:\/\/whatacold.io\/zh-cn\/blog\/2021-02-27-wrk-yuanli\/",
@@ -287,7 +287,7 @@
           
           <p class="page-meta">
             
-            Published: 2021-02-27
+            Published: 2021-02-27, Last Updated: 2025-02-26
             
           </p>
         
@@ -337,7 +337,8 @@ wrk 是一个用 C 实现的 HTTP 压测工具，所有的参数都是通过命�
 <p>
 wrk 内部采用多线程结合IO多路复用的模型，整体如下。</p>
 <figure>
-<img src="/img/2021-02-27-wrk-internals.jpg" alt="/img/2021-02-27-wrk-internals.jpg" title="/img/2021-02-27-wrk-internals.jpg" /><figcaption>
+<img src="/img/2021-02-27-wrk-internals.jpg" alt="wrk 内部架构图" title="单击以放大图片"/>
+<figcaption>
 wrk 内部架构图
 </figcaption>
 </figure>
@@ -365,12 +366,14 @@ wrk 内部架构图
 <p>
 通过 tcpdump 抓包并使用 Wireshark 查看，也能确认这两点。</p>
 <figure>
-<img src="/img/2021-02-27-wrk-establish-tcp-on-start.jpg" alt="/img/2021-02-27-wrk-establish-tcp-on-start.jpg" title="/img/2021-02-27-wrk-establish-tcp-on-start.jpg" /><figcaption>
+<img src="/img/2021-02-27-wrk-establish-tcp-on-start.jpg" alt="wrk 启动时一次性建立了所有 TCP 连接" title="单击以放大图片"/>
+<figcaption>
 wrk 启动时一次性建立了所有 TCP 连接
 </figcaption>
 </figure>
 <figure>
-<img src="/img/2021-02-27-wrk-reuse-tcp-connections.jpg" alt="/img/2021-02-27-wrk-reuse-tcp-connections.jpg" title="/img/2021-02-27-wrk-reuse-tcp-connections.jpg" /><figcaption>
+<img src="/img/2021-02-27-wrk-reuse-tcp-connections.jpg" alt="一个 TCP 连接有多次 HTTP 会话" title="单击以放大图片"/>
+<figcaption>
 一个 TCP 连接有多次 HTTP 会话
 </figcaption>
 </figure>

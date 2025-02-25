@@ -8,7 +8,7 @@
     <language>en</language>
     <managingEditor>whatacold@gmail.com (Ken Huang)</managingEditor>
     <webMaster>whatacold@gmail.com (Ken Huang)</webMaster>
-    <lastBuildDate>Sat, 15 Oct 2022 08:03:58 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 26 Feb 2025 00:11:19 +0800</lastBuildDate>
     <atom:link href="https://whatacold.io/tags/extensible-dotfiles/rss.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Send Notifications from Emacs with i3wm and Dunst</title>

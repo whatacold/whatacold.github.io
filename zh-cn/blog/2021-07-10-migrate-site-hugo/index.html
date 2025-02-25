@@ -65,9 +65,9 @@
   "headline": "博客从 org-static-blog 迁移 Hugo 小记",
   "description" : "我从 2018 年开始用 org-static-blog 写博客到现在也有几年时间了，写的文章比较少，总体上这个简单的静态网站生成方案都能够满足需求。 但中途也发现一些不够用的地方，比",
   "inLanguage" : "zh-cn",
-  "wordCount":  3027 ,
+  "wordCount":  3016 ,
   "datePublished" : "2021-07-10T20:37:11\u002b08:00",
-  "dateModified" : "2025-02-15T13:04:12\u002b08:00",
+  "dateModified" : "2025-02-26T00:45:45\u002b08:00",
   "image" : "https:\/\/whatacold.io\/img\/2021-12-10-motor-helmet-400.jpg",
   "keywords" : [ "org-mode, Hugo" ],
   "mainEntityOfPage" : "https:\/\/whatacold.io\/zh-cn\/blog\/2021-07-10-migrate-site-hugo\/",
@@ -287,7 +287,7 @@
           
           <p class="page-meta">
             
-            Published: 2021-07-10, Last Updated: 2025-02-15
+            Published: 2021-07-10, Last Updated: 2025-02-26
             
           </p>
         
@@ -298,12 +298,14 @@
 <p>
 但中途也发现一些不够用的地方，比如之前想要并贡献了一个生成 meta description 的 <a href="https://github.com/bastibe/org-static-blog/pull/94">PR</a> ，以便更好地在搜索引擎展示结果（ SEO ）；又比如中途一度有区分中英双语博客的需求（ index 列表、 RSS 等），但苦于没有想到很好的方法，就只能把两种文章都混杂在一起展示，但这样用户的阅读体验不好；另外之前的样式也差强人意，比如主页的链接带下划线，不利于阅读。</p>
 <figure>
-<img src="/img/2021-07-10-org-static-blog-homepage.jpg" alt="/img/2021-07-10-org-static-blog-homepage.jpg" title="/img/2021-07-10-org-static-blog-homepage.jpg" /><figcaption>
+<img src="/img/2021-07-10-org-static-blog-homepage.jpg" alt="旧主页样式" title="单击以放大图片"/>
+<figcaption>
 旧主页样式
 </figcaption>
 </figure>
 <figure>
-<img src="/img/2021-07-10-org-static-blog-post.jpg" alt="/img/2021-07-10-org-static-blog-post.jpg" title="/img/2021-07-10-org-static-blog-post.jpg" /><figcaption>
+<img src="/img/2021-07-10-org-static-blog-post.jpg" alt="旧博文样式" title="单击以放大图片"/>
+<figcaption>
 旧博文样式
 </figcaption>
 </figure>
@@ -362,7 +364,8 @@
 <p>
   到目前为止，整个过程都很顺滑，尤其是它的编译速度非常快，只要 100+ms ，这着实惊艳到我了！🤯而且 Hugo 支持实时加载（live reload），就是当你更新并保存了你的 org-mode 文件之后， Hugo 会自动重新编译并触发浏览器刷新当前页面，减少了人工操作，写作体验超级丝滑！</p>
 <figure>
-<img src="/img/2021-07-10-hugo-fast-build.jpg" alt="/img/2021-07-10-hugo-fast-build.jpg" title="/img/2021-07-10-hugo-fast-build.jpg" /><figcaption>
+<img src="/img/2021-07-10-hugo-fast-build.jpg" alt="编译只要 121ms ，非常快！" title="单击以放大图片"/>
+<figcaption>
 编译只要 121ms ，非常快！
 </figcaption>
 </figure>
@@ -512,12 +515,10 @@ TOML 语法及 Hugo 配置语法实在不怎么好用，故这里对我比较困
 <li>每一级标题无法使用编号，不利于阅读</li>
 <li>
 <p>beautifulhugo 页面性能较差，打开一片文章会发起 30+ 个 HTTP 请求</p>
-<figure>
-<img src="/img/2021-07-10-beautifulhugo-performance.jpg" alt="/img/2021-07-10-beautifulhugo-performance.jpg" title="/img/2021-07-10-beautifulhugo-performance.jpg" /><figcaption>
-Lighthouse 测评结果表明性能较慢
-</figcaption>
-</figure>
 </li>
+</ol>
+<img src="/img/2021-07-10-beautifulhugo-performance.jpg" alt="Lighthouse 测评结果表明性能较慢" title="单击以放大图片"/>
+<ol>
 <li>
 <p><del>本地预览版本也会启用 Google Analytics ，污染数据</del></p>
 <p>

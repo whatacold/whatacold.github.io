@@ -67,7 +67,7 @@
   "inLanguage" : "zh-cn",
   "wordCount":  1670 ,
   "datePublished" : "2022-07-17T09:57:31\u002b08:00",
-  "dateModified" : "2022-10-15T16:43:20\u002b08:00",
+  "dateModified" : "2025-02-26T00:45:45\u002b08:00",
   "image" : "https:\/\/whatacold.io\/img\/2021-12-10-motor-helmet-400.jpg",
   "keywords" : [ "Emacs, Debugging" ],
   "mainEntityOfPage" : "https:\/\/whatacold.io\/zh-cn\/blog\/2022-07-17-emacs-elisp-debug\/",
@@ -291,7 +291,7 @@
           
           <p class="page-meta">
             
-            Published: 2022-07-17, Last Updated: 2022-10-15
+            Published: 2022-07-17, Last Updated: 2025-02-26
             
           </p>
         
@@ -314,7 +314,8 @@
 <li>
 <p>Linux/macOS 中打开终端，在终端中执行命令 <code>emacs -Q</code> 就可以了。</p>
 <figure>
-<img src="/img/2022-07-17-emacs-q-linux.jpg" alt="/img/2022-07-17-emacs-q-linux.jpg" title="/img/2022-07-17-emacs-q-linux.jpg" /><figcaption>
+<img src="/img/2022-07-17-emacs-q-linux.jpg" alt="Linux 终端用 emacs -Q 启动 Emacs" title="单击以放大图片"/>
+<figcaption>
 Linux 终端用 emacs -Q 启动 Emacs
 </figcaption>
 </figure>
@@ -326,7 +327,8 @@ P.S. 如果你想了解更多的命令行参数，可以通过查看 man 手册�
 <li>
 <p>Windows 上打开 cmd ，进入 Emacs bin 目录，然后执行 <code>runemacs.exe -Q</code></p>
 <figure>
-<img src="/img/2022-07-17-emacs-q-windows.jpg" alt="/img/2022-07-17-emacs-q-windows.jpg" title="/img/2022-07-17-emacs-q-windows.jpg" /><figcaption>
+<img src="/img/2022-07-17-emacs-q-windows.jpg" alt="Windows cmd 用 emacs -Q 启动 Emacs" title="单击以放大图片"/>
+<figcaption>
 Windows cmd 用 emacs -Q 启动 Emacs
 </figcaption>
 </figure>
@@ -389,14 +391,16 @@ Windows cmd 用 emacs -Q 启动 Emacs
 <p>
 当你更新了配置之后，可能会出现 Emacs 启动的时候直接报错了，比如类似下边这样：</p>
 <figure>
-<img src="/img/2022-08-07-emacs-startup-error.jpg" alt="/img/2022-08-07-emacs-startup-error.jpg" title="/img/2022-08-07-emacs-startup-error.jpg" /><figcaption>
+<img src="/img/2022-08-07-emacs-startup-error.jpg" alt="Emacs 启动报错" title="单击以放大图片"/>
+<figcaption>
 Emacs 启动报错
 </figcaption>
 </figure>
 <p>
 不要着急，其实 Emacs 已经告诉你怎么解决了（注意截图中的第二个红线处）。把当前的 Emacs 关了，打开终端，执行命令 <code>emacs --debug-init</code> 另起一个。她会告诉你报错的位置和调用堆栈，然后顺藤摸瓜，查看对应的文件代码来理解问题原因，再想办法解决就行（截图演示的错误是因为 <code class="verbatim">a-bug-function</code> 这个函数并未定义）。</p>
 <figure>
-<img src="/img/2022-08-07-emacs-debug-init.jpg" alt="/img/2022-08-07-emacs-debug-init.jpg" title="/img/2022-08-07-emacs-debug-init.jpg" /><figcaption>
+<img src="/img/2022-08-07-emacs-debug-init.jpg" alt="加 --debug-init 参数启动 Emacs" title="单击以放大图片"/>
+<figcaption>
 加 –debug-init 参数启动 Emacs
 </figcaption>
 </figure>
@@ -412,7 +416,8 @@ Emacs 启动报错
 <p>
 有时候，在使用命令或者按键的时候，可能在底部的 echo area 会看到报错：</p>
 <figure>
-<img src="/img/2022-07-17-symbols-function-definition-is-void.jpg" alt="/img/2022-07-17-symbols-function-definition-is-void.jpg" title="/img/2022-07-17-symbols-function-definition-is-void.jpg" /><figcaption>
+<img src="/img/2022-07-17-symbols-function-definition-is-void.jpg" alt="echo area 提示找不到函数定义" title="单击以放大图片"/>
+<figcaption>
 echo area 提示找不到函数定义
 </figcaption>
 </figure>
@@ -426,7 +431,8 @@ echo area 提示找不到函数定义
 <p>
 当你用 <code>M-x welcome</code> 发起命令的时候，就会看到有上述的报错。这时候执行 <code>M-x toggle-debug-on-error</code> 打开调试开关之后，再执行就会弹出出错时的调用栈。</p>
 <figure>
-<img src="/img/2022-07-17-elisp-debugger-backtrace.jpg" alt="/img/2022-07-17-elisp-debugger-backtrace.jpg" title="/img/2022-07-17-elisp-debugger-backtrace.jpg" /><figcaption>
+<img src="/img/2022-07-17-elisp-debugger-backtrace.jpg" alt="elisp debugger backtrace 1: 函数未定义" title="单击以放大图片"/>
+<figcaption>
 elisp debugger backtrace 1: 函数未定义
 </figcaption>
 </figure>
@@ -453,7 +459,8 @@ elisp debugger backtrace 1: 函数未定义
 <p>
 一旦有人输出， Emacs 就会陷入 debugger ，我们就可以看到在哪里输出了对应的 message ：</p>
 <figure>
-<img src="/img/2022-07-17-elisp-debugger-backtrace.jpg" alt="/img/2022-07-17-elisp-debugger-backtrace.jpg" title="/img/2022-07-17-elisp-debugger-backtrace.jpg" /><figcaption>
+<img src="/img/2022-07-17-elisp-debugger-backtrace.jpg" alt="elisp debugger backtrace 2: 命中 message 模式" title="单击以放大图片"/>
+<figcaption>
 elisp debugger backtrace 2: 命中 message 模式
 </figcaption>
 </figure>

@@ -8,7 +8,7 @@
     <language>en</language>
     <managingEditor>whatacold@gmail.com (Ken Huang)</managingEditor>
     <webMaster>whatacold@gmail.com (Ken Huang)</webMaster>
-    <lastBuildDate>Fri, 21 Feb 2025 21:38:15 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 26 Feb 2025 01:01:04 +0800</lastBuildDate>
     <atom:link href="https://whatacold.io/tags/texttoolkit/rss.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>An Online Python re.findall Service</title>
@@ -22,7 +22,7 @@
       <link>https://whatacold.io/blog/2019-07-06-render-erd-on-the-web/</link>
       <pubDate>Sat, 06 Jul 2019 11:59:00 +0800</pubDate><author>whatacold@gmail.com (Ken Huang)</author>
       <guid>https://whatacold.io/blog/2019-07-06-render-erd-on-the-web/</guid>
-      <description>(Sorry that I&amp;#39;ve taken this tool down, email me or leave a comment below you if need some help!)&#xA;If you ever wonder how to plot ER diagrams in plain text, you may have already heard of erd. It&amp;#39;s a cool command line program written by Andrew Gallant in Haskell, to &amp;#34;compile&amp;#34; plain text files into nicely looking images, leveraging the power of GraphViz.&#xA;I&amp;#39;ve used erd for some time, it&amp;#39;s cool and the syntax is quite simple.</description>
+      <description>If you ever wonder how to plot ER diagrams in plain text, you may have already heard of erd. It&amp;#39;s a cool command line program written by Andrew Gallant in Haskell, to &amp;#34;compile&amp;#34; plain text files into nicely looking images, leveraging the power of GraphViz.&#xA;I&amp;#39;ve used erd for some time, it&amp;#39;s cool and the syntax is quite simple. It&amp;#39;s also quite simple to install it on Linux, just install GraphViz and erd itself, by following the instructions in the README page.</description>
     </item>
   </channel>
 </rss>
