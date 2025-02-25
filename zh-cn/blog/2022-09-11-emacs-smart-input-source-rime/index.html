@@ -12,7 +12,7 @@
  
 
 
-      <title>Emacs 中使用 smart-input-source 配合 Rime 进行流畅地中英文输入 - Ken Huang</title>
+      <title>smart-input-source 配合 RIME 进行完美地中英文输入 - Ken Huang</title>
 
   <meta name="description" content="Emacs 中文输入有不少方案，既可以用外置的输入法（比如 Rime, sogou 等）进行输入，还可以用内置的输入法（比如 pyim ）利用 Elisp 完成中文输入。作为中文用户，我们很难避">
   <meta name="author" content="Ken Huang"/><script type="application/ld+json">
@@ -51,7 +51,7 @@
         "position": 3,
         "item": {
           "@id": "https:\/\/whatacold.io\/zh-cn\/blog\/2022-09-11-emacs-smart-input-source-rime\/",
-          "name": "Emacs 中使用 smart input source 配合 rime 进行流畅地中英文输入"
+          "name": "Smart input source 配合 rime 进行完美地中英文输入"
         }
     }]
 }
@@ -62,12 +62,12 @@
   "author": {
     "name" : "Ken Huang"
   },
-  "headline": "Emacs 中使用 smart-input-source 配合 Rime 进行流畅地中英文输入",
+  "headline": "smart-input-source 配合 RIME 进行完美地中英文输入",
   "description" : "Emacs 中文输入有不少方案，既可以用外置的输入法（比如 Rime, sogou 等）进行输入，还可以用内置的输入法（比如 pyim ）利用 Elisp 完成中文输入。作为中文用户，我们很难避",
   "inLanguage" : "zh-cn",
-  "wordCount":  1645 ,
+  "wordCount":  1733 ,
   "datePublished" : "2022-09-11T15:50:29\u002b08:00",
-  "dateModified" : "2022-10-22T09:32:04\u002b08:00",
+  "dateModified" : "2025-02-25T22:51:29\u002b08:00",
   "image" : "https:\/\/whatacold.io\/img\/2021-12-10-motor-helmet-400.jpg",
   "keywords" : [ "Emacs, Rime, Linux" ],
   "mainEntityOfPage" : "https:\/\/whatacold.io\/zh-cn\/blog\/2022-09-11-emacs-smart-input-source-rime\/",
@@ -85,14 +85,14 @@
 </script>
 
 
-<meta property="og:title" content="Emacs 中使用 smart-input-source 配合 Rime 进行流畅地中英文输入" />
+<meta property="og:title" content="smart-input-source 配合 RIME 进行完美地中英文输入" />
 <meta property="og:description" content="Emacs 中文输入有不少方案，既可以用外置的输入法（比如 Rime, sogou 等）进行输入，还可以用内置的输入法（比如 pyim ）利用 Elisp 完成中文输入。作为中文用户，我们很难避">
 <meta property="og:image" content="https://whatacold.io/img/2021-12-10-motor-helmet-og.jpg" />
 <meta property="og:url" content="https://whatacold.io/zh-cn/blog/2022-09-11-emacs-smart-input-source-rime/" />
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="Ken Huang" />
 
-  <meta name="twitter:title" content="Emacs 中使用 smart-input-source 配合 Rime 进行流畅地中英文输入" />
+  <meta name="twitter:title" content="smart-input-source 配合 RIME 进行完美地中英文输入" />
   <meta name="twitter:description" content="Emacs 中文输入有不少方案，既可以用外置的输入法（比如 Rime, sogou 等）进行输入，还可以用内置的输入法（比如 pyim ）利用 Elisp 完成中文输入。作为中文用户，我们很难避">
   <meta name="twitter:image" content="https://whatacold.io/img/2021-12-10-motor-helmet-og.jpg" />
   <meta name="twitter:card" content="summary_large_image" />
@@ -260,7 +260,7 @@
           <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
             <div class="blog-heading">
               
-                <h1>Emacs 中使用 smart-input-source 配合 Rime 进行流畅地中英文输入</h1>
+                <h1>smart-input-source 配合 RIME 进行完美地中英文输入</h1>
               
               
                 <hr class="small">
@@ -287,21 +287,26 @@
           
           <p class="page-meta">
             
-            Published: 2022-09-11, Last Updated: 2022-10-22
+            Published: 2022-09-11, Last Updated: 2025-02-25
             
           </p>
         
 
         
 <p>
-Emacs 中文输入有不少方案，既可以用外置的输入法（比如 Rime, sogou 等）进行输入，还可以用内置的输入法（比如 pyim ）利用 Elisp 完成中文输入。作为中文用户，我们很难避免同时输入中英文（比如这篇博文到目前为止就有不少英文字符了），那么选用一个能自动进行流畅地中英文自动切换的输入方案能够极大地提升输入体验。</p>
+Emacs 中文输入有不少方案，既可以用外置的输入法（比如 Rime, sogou 等）进行输入，还可以用内置的输入法（比如 pyim ）利用 Elisp 完成中文输入。作为中文用户，我们很难避免需要同时输入中英文（比如到目前为止这篇博文我就打了不少英文字符了），那么选用一个能流畅地进行中英文打字的输入方案能够极大地提升使用体验。本文我们就来一起看下如何在 Linux + Emacs 的系统中，利用 RIME 及 Emacs 包配置一个完美的中英文输入方案。</p>
+<figure>
+<img src="/img/2022-10-04-rime.jpg" alt="/img/2022-10-04-rime.jpg" title="/img/2022-10-04-rime.jpg" /><figcaption>
+RIME 输入引擎（图源：RIME）
+</figcaption>
+</figure>
 <p>
-Rime 是比较成熟的开源中文输入法，但在 Emacs 中使用有几个问题：</p>
+Rime 是比较成熟的开源中文输入法，但在 Emacs 中使用它有几个问题：</p>
 <ol>
-<li>在输入过程中得按 Shift 来切换中英文输入状态，这会导致整体的输入流程比较卡顿；</li>
+<li>在输入过程中得来回按 Shift 来切换中英文输入状态，这会导致整体的输入流程比较卡顿；</li>
 <li>如果当前处于中文输入状态，敲 Emacs 命令的时候依然会以中文输入，比如执行 <code class="verbatim">C-x b</code> 切换 buffer 时，其中的 b 依然会被 Rime 当作中文输入来处理；</li>
 </ol>
-<p><a href="https://github.com/laishulu/emacs-smart-input-source">smart-input-source</a> （简称 sis ）就是为了解决这些问题应运而生的，但当前的文档还不是很完善，导致上手有一定的困难。我在入坑的过程中进行了一些摸索，这里对它进行一些补充，希望对其他 Emacs 都有会有帮助。</p>
+<p><a href="https://github.com/laishulu/emacs-smart-input-source">smart-input-source</a> （简称 sis ）就是为了解决这些问题应运而生的，但当前的文档还不是很完善，导致上手有一定的困难。我在入坑的过程中进行了一些摸索，这里对它进行一些补充，希望对需要进行比较多中英文输入的 Emacs 用户有帮助。</p>
 <figure>
 <img src="/img/2022-09-11-emacs-rime-smart-input-source.gif" alt="/img/2022-09-11-emacs-rime-smart-input-source.gif" title="/img/2022-09-11-emacs-rime-smart-input-source.gif" /><figcaption>
 通过 sis 来自动切换中英文输入
@@ -309,7 +314,7 @@ Rime 是比较成熟的开源中文输入法，但在 Emacs 中使用有几个�
 </figure>
 <div id="outline-container-headline-1" class="outline-2">
 <h2 id="headline-1">
-概念
+输入法的两个概念
 </h2>
 <div id="outline-text-headline-1" class="outline-text-2">
 <dl>
@@ -320,7 +325,7 @@ input source
 <dt>
 input source manager
 </dt>
-<dd>也叫 ISM ，用来切换不同的 input source ，比如 ibus 就是 Linux 上的一种 ISM</dd>
+<dd>简称 ISM ，用来切换不同的 input source ，比如 ibus 就是 Linux 上的一种 ISM</dd>
 </dl>
 </div>
 </div>
@@ -408,7 +413,7 @@ context mode 主要有 2 个配置变量：</p>
 </h2>
 <div id="outline-text-headline-6" class="outline-text-2">
 <p>
-虽然目前我还没有全部看完 sis 的代码，但如果我没理解错，它在 Linux 上的原理就是通过 <code>ibus engine &#34;rime&#34;</code> or <code>ibus engine &#34;xkb:us::eng&#34;</code> 来达到切换系统的输入法。</p>
+虽然目前我还没有全部看完 sis 的代码，但看起来它在 Linux 上的工作原理就是通过调用命令行 <code>ibus engine &#34;rime&#34;</code> 和 <code>ibus engine &#34;xkb:us::eng&#34;</code> 来达到切换系统的输入法的目的。</p>
 </div>
 </div>
 <div id="outline-container-headline-7" class="outline-2">
@@ -457,7 +462,7 @@ context mode 主要有 2 个配置变量：</p>
 <p>
 对功能的影响就是，如果 <code>w/sis--guess-context-by-prev-chars</code> 出错了，会导致自动中英文切换功能失效。遇到这种情况不要慌，执行 <code>M-x sis-global-context-mode</code> <strong>两次</strong> 来让 sis 把 hook 重新加上就好了。</p>
 <p>
-P.S. 这篇文章就是在 sis 的帮助下写的，我对目前的效果还比较满意 :)</p>
+P.S. 这篇文章就是在 sis 的帮助下写的，我对目前的效果还比较满意 :) 欢迎来一起折腾~</p>
 </div>
 </div>
 
@@ -487,7 +492,7 @@ P.S. 这篇文章就是在 sis 的帮助下写的，我对目前的效果还比�
     <ul class="share">
       
       <li>
-        <a href="//twitter.com/share?url=https%3a%2f%2fwhatacold.io%2fzh-cn%2fblog%2f2022-09-11-emacs-smart-input-source-rime%2f&amp;text=Emacs%20%e4%b8%ad%e4%bd%bf%e7%94%a8%20smart-input-source%20%e9%85%8d%e5%90%88%20Rime%20%e8%bf%9b%e8%a1%8c%e6%b5%81%e7%95%85%e5%9c%b0%e4%b8%ad%e8%8b%b1%e6%96%87%e8%be%93%e5%85%a5&amp;via=whatacold" target="_blank" title="Share on Twitter">
+        <a href="//twitter.com/share?url=https%3a%2f%2fwhatacold.io%2fzh-cn%2fblog%2f2022-09-11-emacs-smart-input-source-rime%2f&amp;text=smart-input-source%20%e9%85%8d%e5%90%88%20RIME%20%e8%bf%9b%e8%a1%8c%e5%ae%8c%e7%be%8e%e5%9c%b0%e4%b8%ad%e8%8b%b1%e6%96%87%e8%be%93%e5%85%a5&amp;via=whatacold" target="_blank" title="Share on Twitter">
           <i class="fab fa-twitter"></i>
         </a>
       </li>
@@ -501,28 +506,28 @@ P.S. 这篇文章就是在 sis 的帮助下写的，我对目前的效果还比�
   
       
       <li>
-        <a href="//reddit.com/submit?url=https%3a%2f%2fwhatacold.io%2fzh-cn%2fblog%2f2022-09-11-emacs-smart-input-source-rime%2f&amp;title=Emacs%20%e4%b8%ad%e4%bd%bf%e7%94%a8%20smart-input-source%20%e9%85%8d%e5%90%88%20Rime%20%e8%bf%9b%e8%a1%8c%e6%b5%81%e7%95%85%e5%9c%b0%e4%b8%ad%e8%8b%b1%e6%96%87%e8%be%93%e5%85%a5" target="_blank" title="Share on Reddit">
+        <a href="//reddit.com/submit?url=https%3a%2f%2fwhatacold.io%2fzh-cn%2fblog%2f2022-09-11-emacs-smart-input-source-rime%2f&amp;title=smart-input-source%20%e9%85%8d%e5%90%88%20RIME%20%e8%bf%9b%e8%a1%8c%e5%ae%8c%e7%be%8e%e5%9c%b0%e4%b8%ad%e8%8b%b1%e6%96%87%e8%be%93%e5%85%a5" target="_blank" title="Share on Reddit">
           <i class="fab fa-reddit"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fwhatacold.io%2fzh-cn%2fblog%2f2022-09-11-emacs-smart-input-source-rime%2f&amp;title=Emacs%20%e4%b8%ad%e4%bd%bf%e7%94%a8%20smart-input-source%20%e9%85%8d%e5%90%88%20Rime%20%e8%bf%9b%e8%a1%8c%e6%b5%81%e7%95%85%e5%9c%b0%e4%b8%ad%e8%8b%b1%e6%96%87%e8%be%93%e5%85%a5" target="_blank" title="Share on LinkedIn">
+        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fwhatacold.io%2fzh-cn%2fblog%2f2022-09-11-emacs-smart-input-source-rime%2f&amp;title=smart-input-source%20%e9%85%8d%e5%90%88%20RIME%20%e8%bf%9b%e8%a1%8c%e5%ae%8c%e7%be%8e%e5%9c%b0%e4%b8%ad%e8%8b%b1%e6%96%87%e8%be%93%e5%85%a5" target="_blank" title="Share on LinkedIn">
           <i class="fab fa-linkedin"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fwhatacold.io%2fzh-cn%2fblog%2f2022-09-11-emacs-smart-input-source-rime%2f&amp;title=Emacs%20%e4%b8%ad%e4%bd%bf%e7%94%a8%20smart-input-source%20%e9%85%8d%e5%90%88%20Rime%20%e8%bf%9b%e8%a1%8c%e6%b5%81%e7%95%85%e5%9c%b0%e4%b8%ad%e8%8b%b1%e6%96%87%e8%be%93%e5%85%a5" target="_blank" title="Share on StumbleUpon">
+        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fwhatacold.io%2fzh-cn%2fblog%2f2022-09-11-emacs-smart-input-source-rime%2f&amp;title=smart-input-source%20%e9%85%8d%e5%90%88%20RIME%20%e8%bf%9b%e8%a1%8c%e5%ae%8c%e7%be%8e%e5%9c%b0%e4%b8%ad%e8%8b%b1%e6%96%87%e8%be%93%e5%85%a5" target="_blank" title="Share on StumbleUpon">
           <i class="fab fa-stumbleupon"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fwhatacold.io%2fzh-cn%2fblog%2f2022-09-11-emacs-smart-input-source-rime%2f&amp;description=Emacs%20%e4%b8%ad%e4%bd%bf%e7%94%a8%20smart-input-source%20%e9%85%8d%e5%90%88%20Rime%20%e8%bf%9b%e8%a1%8c%e6%b5%81%e7%95%85%e5%9c%b0%e4%b8%ad%e8%8b%b1%e6%96%87%e8%be%93%e5%85%a5" target="_blank" title="Share on Pinterest">
+        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fwhatacold.io%2fzh-cn%2fblog%2f2022-09-11-emacs-smart-input-source-rime%2f&amp;description=smart-input-source%20%e9%85%8d%e5%90%88%20RIME%20%e8%bf%9b%e8%a1%8c%e5%ae%8c%e7%be%8e%e5%9c%b0%e4%b8%ad%e8%8b%b1%e6%96%87%e8%be%93%e5%85%a5" target="_blank" title="Share on Pinterest">
           <i class="fab fa-pinterest"></i>
         </a>
       </li>

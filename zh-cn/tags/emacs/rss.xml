@@ -8,10 +8,10 @@
     <language>zh-cn</language>
     <managingEditor>whatacold@gmail.com (Ken Huang)</managingEditor>
     <webMaster>whatacold@gmail.com (Ken Huang)</webMaster>
-    <lastBuildDate>Sat, 22 Oct 2022 09:32:04 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 25 Feb 2025 22:51:29 +0800</lastBuildDate>
     <atom:link href="https://whatacold.io/zh-cn/tags/emacs/rss.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Emacs 中使用 smart-input-source 配合 Rime 进行流畅地中英文输入</title>
+      <title>smart-input-source 配合 RIME 进行完美地中英文输入</title>
       <link>https://whatacold.io/zh-cn/blog/2022-09-11-emacs-smart-input-source-rime/</link>
       <pubDate>Sun, 11 Sep 2022 15:50:29 +0800</pubDate><author>whatacold@gmail.com (Ken Huang)</author>
       <guid>https://whatacold.io/zh-cn/blog/2022-09-11-emacs-smart-input-source-rime/</guid>
