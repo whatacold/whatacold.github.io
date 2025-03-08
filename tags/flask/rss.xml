@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Flask on Ken Huang</title>
+    <link>https://whatacold.io/tags/flask/</link>
+    <description>Recent content in Flask on Ken Huang</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <managingEditor>whatacold@gmail.com (Ken Huang)</managingEditor>
+    <webMaster>whatacold@gmail.com (Ken Huang)</webMaster>
+    <lastBuildDate>Sat, 08 Mar 2025 22:10:44 +0800</lastBuildDate>
+    <atom:link href="https://whatacold.io/tags/flask/rss.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Rewrite of a Flask Web App in Clojure</title>
+      <link>https://whatacold.io/blog/2025-02-22-flask-clojure-rewrite/</link>
+      <pubDate>Sat, 22 Feb 2025 22:46:05 +0800</pubDate><author>whatacold@gmail.com (Ken Huang)</author>
+      <guid>https://whatacold.io/blog/2025-02-22-flask-clojure-rewrite/</guid>
+      <description>Intro A few years ago, I made a simple web app in Flask to deal with some text processing problems from my daily work. It has two main features:&#xA;Feature #1: generating compile_commands.json for GNU Makefile projects written in C/C++ using the output of the make command. Because, unlike CMake, the make command can&amp;#39;t generate it. Feature #2: extract text using Python regex. It&amp;#39;s handy when I feel like sed/awk/grep&amp;#39;s line-oriented processing isn&amp;#39;t enough for the task at hand.</description>
+    </item>
+  </channel>
+</rss>

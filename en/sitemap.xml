@@ -3,7 +3,7 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://whatacold.io/blog/</loc>
-    <lastmod>2025-02-26T01:01:04+08:00</lastmod>
+    <lastmod>2025-03-08T22:12:53+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="zh-cn"
@@ -16,7 +16,7 @@
                 />
   </url><url>
     <loc>https://whatacold.io/tags/clojure/</loc>
-    <lastmod>2025-02-26T00:35:41+08:00</lastmod>
+    <lastmod>2025-03-08T22:10:44+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="zh-cn"
@@ -28,11 +28,24 @@
                 href="https://whatacold.io/tags/clojure/"
                 />
   </url><url>
-    <loc>https://whatacold.io/blog/2025-01-05-construct-a-map-clojure/</loc>
-    <lastmod>2025-02-20T01:18:18+08:00</lastmod>
+    <loc>https://whatacold.io/tags/clojurescript/</loc>
+    <lastmod>2025-03-08T22:10:44+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-cn"
+                href="https://whatacold.io/zh-cn/tags/clojurescript/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://whatacold.io/tags/clojurescript/"
+                />
+  </url><url>
+    <loc>https://whatacold.io/tags/flask/</loc>
+    <lastmod>2025-03-08T22:10:44+08:00</lastmod>
   </url><url>
     <loc>https://whatacold.io/</loc>
-    <lastmod>2025-02-26T01:01:04+08:00</lastmod>
+    <lastmod>2025-03-08T22:12:53+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="zh-cn"
@@ -44,8 +57,27 @@
                 href="https://whatacold.io/"
                 />
   </url><url>
+    <loc>https://whatacold.io/tags/reagent/</loc>
+    <lastmod>2025-03-08T22:10:44+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-cn"
+                href="https://whatacold.io/zh-cn/tags/reagent/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://whatacold.io/tags/reagent/"
+                />
+  </url><url>
+    <loc>https://whatacold.io/blog/2025-02-22-flask-clojure-rewrite/</loc>
+    <lastmod>2025-03-08T22:10:44+08:00</lastmod>
+  </url><url>
+    <loc>https://whatacold.io/tags/shadow-cljs/</loc>
+    <lastmod>2025-03-08T22:10:44+08:00</lastmod>
+  </url><url>
     <loc>https://whatacold.io/tags/</loc>
-    <lastmod>2025-02-26T01:01:04+08:00</lastmod>
+    <lastmod>2025-03-08T22:10:44+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="zh-cn"
@@ -56,6 +88,9 @@
                 hreflang="en"
                 href="https://whatacold.io/tags/"
                 />
+  </url><url>
+    <loc>https://whatacold.io/blog/2025-01-05-construct-a-map-clojure/</loc>
+    <lastmod>2025-02-20T01:18:18+08:00</lastmod>
   </url><url>
     <loc>https://whatacold.io/tags/tweet/</loc>
     <lastmod>2025-02-26T00:11:19+08:00</lastmod>

@@ -181,6 +181,16 @@
   </url><url>
     <loc>https://whatacold.io/zh-cn/tags/clojurescript/</loc>
     <lastmod>2022-10-22T09:29:19+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://whatacold.io/tags/clojurescript/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-cn"
+                href="https://whatacold.io/zh-cn/tags/clojurescript/"
+                />
   </url><url>
     <loc>https://whatacold.io/zh-cn/blog/2021-09-05-lein-reagent-frontend-shibai/</loc>
     <lastmod>2022-10-22T09:29:19+08:00</lastmod>
@@ -190,6 +200,16 @@
   </url><url>
     <loc>https://whatacold.io/zh-cn/tags/reagent/</loc>
     <lastmod>2022-10-22T09:29:19+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://whatacold.io/tags/reagent/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-cn"
+                href="https://whatacold.io/zh-cn/tags/reagent/"
+                />
   </url><url>
     <loc>https://whatacold.io/zh-cn/tags/i3wm/</loc>
     <lastmod>2022-10-22T09:29:41+08:00</lastmod>

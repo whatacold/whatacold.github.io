@@ -1,0 +1,1006 @@
+
+
+<!DOCTYPE html>
+<html lang="en" itemscope itemtype="http://schema.org/WebPage">
+  <head>
+    
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+ 
+
+
+      <title>Rewrite of a Flask Web App in Clojure - Ken Huang</title>
+
+  <meta name="description" content="Intro A few years ago, I made a simple web app in Flask to deal with some text processing problems from my daily work. It has two main features:
+Feature #1: generating compile_commands.json for GNU Makefile projects written in C/C&#43;&#43; using the output of the make command. Because, unlike CMake, the make command can&#39;t generate it. Feature #2: extract text using Python regex. It&#39;s handy when I feel like sed/awk/grep&#39;s line-oriented processing isn&#39;t enough for the task at hand.">
+  <meta name="author" content="Ken Huang"/><script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "WebSite",
+    "name": "Ken Huang",
+    
+    "url": "https:\/\/whatacold.io\/"
+}
+</script><script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Organization",
+  "name": "",
+  "url": "https:\/\/whatacold.io\/"
+  
+  
+  
+  
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "item": {
+          "@id": "https:\/\/whatacold.io\/",
+          "name": "home"
+        }
+    },{
+        "@type": "ListItem",
+        "position": 3,
+        "item": {
+          "@id": "https:\/\/whatacold.io\/blog\/2025-02-22-flask-clojure-rewrite\/",
+          "name": "Rewrite of a flask web app in clojure"
+        }
+    }]
+}
+</script><script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Article",
+  "author": {
+    "name" : "Ken Huang"
+  },
+  "headline": "Rewrite of a Flask Web App in Clojure",
+  "description" : "Intro A few years ago, I made a simple web app in Flask to deal with some text processing problems from my daily work. It has two main features:\nFeature #1: generating compile_commands.json for GNU Makefile projects written in C\/C\u002b\u002b using the output of the make command. Because, unlike CMake, the make command can\u0026#39;t generate it. Feature #2: extract text using Python regex. It\u0026#39;s handy when I feel like sed\/awk\/grep\u0026#39;s line-oriented processing isn\u0026#39;t enough for the task at hand.",
+  "inLanguage" : "en",
+  "wordCount":  2720 ,
+  "datePublished" : "2025-02-22T22:46:05\u002b08:00",
+  "dateModified" : "2025-03-08T22:10:44\u002b08:00",
+  "image" : "https:\/\/whatacold.io\/img\/2021-12-10-motor-helmet-400.jpg",
+  "keywords" : [ "Clojure, ClojureScript, Reagent, shadow-cljs, Flask" ],
+  "mainEntityOfPage" : "https:\/\/whatacold.io\/blog\/2025-02-22-flask-clojure-rewrite\/",
+  "publisher" : {
+    "@type": "Organization",
+    "name" : "https:\/\/whatacold.io\/",
+    "logo" : {
+        "@type" : "ImageObject",
+        "url" : "https:\/\/whatacold.io\/img\/2021-12-10-motor-helmet-400.jpg",
+        "height" :  60 ,
+        "width" :  60
+    }
+  }
+}
+</script>
+
+
+<meta property="og:title" content="Rewrite of a Flask Web App in Clojure" />
+<meta property="og:description" content="Intro A few years ago, I made a simple web app in Flask to deal with some text processing problems from my daily work. It has two main features:
+Feature #1: generating compile_commands.json for GNU Makefile projects written in C/C&#43;&#43; using the output of the make command. Because, unlike CMake, the make command can&#39;t generate it. Feature #2: extract text using Python regex. It&#39;s handy when I feel like sed/awk/grep&#39;s line-oriented processing isn&#39;t enough for the task at hand.">
+<meta property="og:image" content="https://whatacold.io/img/oskar-yildiz-cOkpTiJMGzA-unsplash-programming.jpg" />
+<meta property="og:url" content="https://whatacold.io/blog/2025-02-22-flask-clojure-rewrite/" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Ken Huang" />
+
+  <meta name="twitter:title" content="Rewrite of a Flask Web App in Clojure" />
+  <meta name="twitter:description" content="Intro A few years ago, I made a simple web app in Flask to deal with some text processing problems from my daily work. It has two main features:
+Feature #1: generating compile_commands.json for GNU …">
+  <meta name="twitter:image" content="https://whatacold.io/img/oskar-yildiz-cOkpTiJMGzA-unsplash-programming.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="@whatacold" />
+  <meta name="twitter:creator" content="@whatacold" />
+  <link href='https://whatacold.io/img/2021-12-10-motor-helmet-180.jpg' rel='icon' type='image/x-icon'/>
+  <meta name="generator" content="Hugo 0.126.2">
+  <link rel="alternate" href="https://whatacold.io/index.xml" type="application/rss+xml" title="Ken Huang"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/katex.min.css" integrity="sha384-3UiQGuEI4TTMaFmGIZumfRPtfKQ3trwQE2JgosJxCnGmQpL/lJdjpcHkaaFwHlcI" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.6.0/css/all.css" integrity="sha384-h/hnnw1Bi4nbpD6kE7nYfCXzovi622sY5WBxww8ARKwpdLj5kUWjRuyiXaD1U2JT" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous"><link rel="stylesheet" href="https://whatacold.io/css/main.css" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
+  <link rel="stylesheet" href="https://whatacold.io/css/highlight.min.css" /><link rel="stylesheet" href="https://whatacold.io/css/codeblock.css" /><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.css" integrity="sha384-h/L2W9KefUClHWaty3SLE5F/qvc4djlyR4qY3NUV5HGQBBW7stbcfff1+I/vmsHh" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/default-skin/default-skin.min.css" integrity="sha384-iD0dNku6PYSIQLyfTOpB06F2KCZJAKLOThS5HRe8b3ibhdEQ6eKsFf/EeFxdOt5R" crossorigin="anonymous">
+
+  
+    
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-5TGCG9ZG24"></script>
+      <script>
+        var doNotTrack = false;
+        if ( false ) {
+          var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+          var doNotTrack = (dnt == "1" || dnt == "yes");
+        }
+        if (!doNotTrack) {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-5TGCG9ZG24');
+        }
+      </script>
+    
+  
+
+
+  </head>
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://whatacold.io/">Ken Huang</a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+          
+            <li>
+              <a title="(blog)" href="/">(blog)</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="(tags)" href="/tags">(tags)</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="(about)" href="/about/">(about)</a>
+            </li>
+          
+        
+
+        
+          
+            <li>
+              
+            </li>
+          
+        
+
+        
+      </ul>
+    </div>
+
+    
+      <div class="avatar-container">
+        <div class="avatar-img-border">
+          <a title="Ken Huang" href="https://whatacold.io/">
+            <img class="avatar-img" src="https://whatacold.io/img/2021-12-10-motor-helmet-400.jpg" alt="Ken Huang" />
+           
+          </a>
+        </div>
+      </div>
+    
+
+  </div>
+</nav>
+
+
+
+
+    
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+  
+  
+  
+
+
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    
+    <div class="intro-header no-img">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <div class="blog-heading">
+              
+                <h1>Rewrite of a Flask Web App in Clojure</h1>
+              
+              
+                <hr class="small">
+              
+              
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+  </header>
+
+
+    
+<div class="container" role="main">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+      <article role="main" class="blog-post">
+
+        
+          
+          
+          <p class="page-meta">
+            
+            Published: 2025-02-22, Last Updated: 2025-03-08
+            
+          </p>
+        
+
+        
+<div id="outline-container-headline-1" class="outline-2">
+<h2 id="headline-1">
+Intro
+</h2>
+<div id="outline-text-headline-1" class="outline-text-2">
+<p>
+A few years ago, I made a simple web app in <a href="https://flask.palletsprojects.com/en/stable/">Flask</a> to deal with some text processing problems from my daily work. It has two main features:</p>
+<ul>
+<li>Feature #1: generating <code class="verbatim">compile_commands.json</code> for GNU Makefile projects written in C/C++ using the output of the <code class="verbatim">make</code> command. Because, unlike CMake, the make command can&#39;t generate it.</li>
+<li>Feature #2: extract text using Python regex. It&#39;s handy when I feel like sed/awk/grep&#39;s line-oriented processing isn&#39;t enough for the task at hand.</li>
+</ul>
+<p>Recently, I was thinking about adding some functionalities to it. But since I&#39;ve put more effort into <a href="https://clojure.org/">Clojure</a> these days, I&#39;d like to use Clojure to do it. So, I spent a few nights rewriting the web app in Clojure.</p>
+<p>
+In this post, I am going to share the journey and some thoughts on it.</p>
+<figure>
+<img src="/img/oskar-yildiz-cOkpTiJMGzA-unsplash-programming.jpg" alt="Photo by Oskar Yildiz on Unsplash" title="Click to enlarge the image"/>
+<figcaption>
+Photo by Oskar Yildiz on Unsplash
+</figcaption>
+</figure>
+</div>
+</div>
+<div id="outline-container-headline-2" class="outline-2">
+<h2 id="headline-2">
+The Flask Stack
+</h2>
+<div id="outline-text-headline-2" class="outline-text-2">
+<p>
+First and foremost, let&#39;s take a look at the &#34;old&#34; stack. The backend service was written using Flask, and Flask uses the <a href="https://flask.palletsprojects.com/en/stable/tutorial/templates/">Jinja</a> template library to render HTML to the frontend.</p>
+<p>
+The backend stack was simple; nothing special. But for the frontend, I used a hybrid stack: <a href="https://backbonejs.org/">Backbone.js</a> and <a href="https://jquery.com/">jQuery</a>. Backbone.js was used to write logic in the MVC way, and jQuery helped me manipulate the DOM easily.</p>
+<p>
+For CSS, I mainly used <a href="https://getbootstrap.com/">Bootstrap</a> to style UI elements.</p>
+</div>
+</div>
+<div id="outline-container-headline-3" class="outline-2">
+<h2 id="headline-3">
+Rewrite Plan
+</h2>
+<div id="outline-text-headline-3" class="outline-text-2">
+<p>
+In order to get it done as soon as possible, first, I needed to come up with a plan with executable tasks and prioritize them. The main idea is to move the whole &#34;ecosystem&#34; to <a href="https://clojure.org/">Clojure</a> and <a href="https://clojurescript.org/">ClojureScript</a> and then deploy the app to production as soon as possible. After that, I can gradually refactor remaining pieces and even add new features to it in small and quick iterations.</p>
+<p>
+So here was the plan:</p>
+<ol>
+<li>Think about what Clojure and ClojureScript technologies to use.</li>
+<li>Migrate the GET endpoint of feature #1.</li>
+<li>Migrate the POST endpoint of feature #1.</li>
+<li>Migrate feature #2 and remainings.</li>
+<li>Compare the performance of the two.</li>
+<li>Deploy to production</li>
+</ol>
+</div>
+</div>
+<div id="outline-container-headline-4" class="outline-2">
+<h2 id="headline-4">
+Clojure(Script) Stacks
+</h2>
+<div id="outline-text-headline-4" class="outline-text-2">
+<p>
+The Clojure community has roughly two flavors to do web development; some folks prefer to use frameworks like <a href="https://luminusweb.com/">Luminus</a> or <a href="https://biffweb.com/">Biff</a>, while others would rather roll up their sleeves and build the whole app using different libraries like playing Lego. For me, I&#39;m more into the latter, which lets me have more control and understand the technologies better.</p>
+<p>
+In the end, here were the stacks I came up with.</p>
+<p>
+Backend:</p>
+<ul>
+<li><a href="https://leiningen.org/">Leiningen</a> as the build tool, together with the <a href="https://github.com/weavejester/lein-ring">lein-ring</a> plugin.</li>
+<li><a href="https://github.com/ring-clojure/ring">Ring</a> to handle web requests and <a href="https://github.com/weavejester/compojure/wiki">Compojure</a> to define routes</li>
+<li><a href="https://github.com/dakrone/cheshire">Cheshire</a> to deal with JSON stuff</li>
+<li><a href="https://github.com/clj-python/libpython-clj">libpython-clj</a> to forward Python-specific logic to Python</li>
+<li><a href="https://github.com/yogthos/markdown-clj">markdown-clj</a> to render docs in markdown</li>
+</ul>
+<p>On the backend, since I must use Python&#39;s <code class="verbatim">re.findall</code> function to support Python regex, I decided to keep all POST handling logic in Python temporarily. And for the frontend side, I would like to go down a little deeper and use ClojureScript + Reagent to render the UI elements on the client side, but keep the Backbone.js logic as is and spit it out in strings from the GET Ring handlers.</p>
+<p>
+Frontend:</p>
+<ul>
+<li><a href="https://shadow-cljs.github.io/docs/UsersGuide.html">shadow-cljs</a> as the build tool</li>
+<li><a href="https://reagent-project.github.io/">Reagent</a> to render UI on the client side.</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-headline-5" class="outline-2">
+<h2 id="headline-5">
+Development
+</h2>
+<div id="outline-text-headline-5" class="outline-text-2">
+<p>
+The most beautiful thing about Clojure development is <strong>interactive development</strong>, which means we can leverage a REPL to quickly verify our thoughts, try out language features and libraries, etc. Here, not only does it mean that we can define a function or call a function in an interpreter shell of a programming language, but it also means we can, for example, evaluate any forms anywhere.</p>
+<p>
+For example, we can send over the preceding form to the REPL and get the result immediately when the cursor is at anywhere in the following code snippet, be it position 1, position 2, or position 3:</p>
+<div class="src src-clojure">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-clojure" data-lang="clojure"><span class="line"><span class="cl"><span class="p">(</span><span class="nf">*</span>
+</span></span><span class="line"><span class="cl"> <span class="p">(</span><span class="nb">+ </span><span class="mi">1</span> <span class="mi">2</span><span class="p">)</span>                                <span class="c1">; position 1</span>
+</span></span><span class="line"><span class="cl"> <span class="p">(</span><span class="nb">- </span><span class="mi">5</span> <span class="mi">4</span><span class="p">)</span>                                <span class="c1">; position 2</span>
+</span></span><span class="line"><span class="cl"> <span class="p">)</span>                                      <span class="c1">; position 3</span></span></span></code></pre></div>
+</div>
+<p>
+Another big advantage of using Clojure is that we can use Clojure(Script) for both the backend and the frontend; all the code can reside within the same project, and we can even share some logic in common files with the <code class="verbatim">.cljc</code> file extension.</p>
+<p>
+With Clojure and ClojureScript existing in the same project, ideally, I can bring up two REPLs for Clojure and ClojureScript <strong>in one go</strong> with <a href="https://cider.mx/">CIDER</a> in Emacs using the command <code class="verbatim">M-x cider-jack-in-clj&amp;cljs</code>, but it didn&#39;t work as expected, and I failed to figure it out in a short time. Instead, in order to accomplish my major task, migrating to the Clojure ecosystem as soon as possible, I suppressed my impulse to nail it down and just started up two REPLs separately, that is, running <code class="verbatim">M-x cider-jack-in-clj</code> and then <code class="verbatim">M-x cider-jack-in-cljs</code>.</p>
+<p>
+In order to quickly convert HTMLs to the <a href="https://github.com/weavejester/hiccup">hiccup</a> forms, I intended to use some help from conversion tools. There are a bunch of them out there, as listed on <a href="https://github.com/weavejester/hiccup/wiki/Converting-html-to-hiccup">Converting html to hiccup · weavejester/hiccup Wiki</a>.</p>
+<p>
+Finally, I used <a href="https://html2hiccup.dev/.">https://html2hiccup.dev/.</a> It&#39;s simple and intuitive to use and generally gets the task done, except there were a few corner cases relating to using them as Reagent components:</p>
+<ol>
+<li>
+<p>Incorrect capitalizations. Some noticeable examples are:</p>
+<ul>
+<li><code class="verbatim">:autofocus &#34;&#34;</code> should be <code class="verbatim">:autoFocus true</code></li>
+<li><code class="verbatim">:readonly &#34;&#34;</code> -&gt; <code class="verbatim">:readOnly true</code></li>
+<li><code class="verbatim">autocomplete &#34;on&#34;</code> -&gt; <code class="verbatim">autoComplete &#34;on&#34;</code></li>
+</ul>
+</li>
+<li><code class="verbatim">style</code>&#39;s value is a string, which is incorrect for Reagent. E.g. <code class="verbatim">{:style &#34;display:none;&#34;}</code> -&gt; <code class="verbatim">{:style {:display :none}}</code></li>
+<li>
+<p>Whitespaces around DOM elements are eliminated.</p>
+<div class="src src-clojure">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-clojure" data-lang="clojure"><span class="line"><span class="cl"><span class="p">[</span><span class="ss">:h1</span>
+</span></span><span class="line"><span class="cl"> <span class="s">&#34;Generate&#34;</span>
+</span></span><span class="line"><span class="cl"> <span class="s">&#34; &#34;</span> <span class="c1">; It should have a space before and after [:i]</span>
+</span></span><span class="line"><span class="cl"> <span class="p">[</span><span class="ss">:i</span> <span class="s">&#34;compile_commands.json&#34;</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"> <span class="s">&#34; &#34;</span>
+</span></span><span class="line"><span class="cl"> <span class="s">&#34;from GNU make output online&#34;</span><span class="p">]</span></span></span></code></pre></div>
+</div>
+</li>
+</ol>
+<div id="outline-container-headline-6" class="outline-3">
+<h3 id="headline-6">
+A libpython-clj Problem
+</h3>
+<div id="outline-text-headline-6" class="outline-text-3">
+<p>
+The development process went smoothly until I needed to return a list of dictionaries in Python for Cheshire to consume on Clojure side.</p>
+<p>
+This was my first time using libpython-clj, and I initially thought it would perfectly be able to return complex Python data structures to Clojure. After asking for help in the <a href="https://clojurians.zulipchat.com/#narrow/channel/215609-libpython-clj-dev">libpython-clj-dev</a> channel on Zulip, James Tolton kindly pointed out to me it&#39;s better to encode the result as a JSON string, which is compatible with Clojure strings, and the performance is better.</p>
+<p>
+For the record, here is <a href="https://github.com/clj-python/libpython-clj/issues/269">the issue</a> detailing the problem on GitHub, you can follow up there if you&#39;re interested.</p>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-headline-7" class="outline-2">
+<h2 id="headline-7">
+Performance
+</h2>
+<div id="outline-text-headline-7" class="outline-text-2">
+<p>
+After finishing the rewrite, it&#39;s a good chance to conduct some load tests to have a basic understanding of the performance of the Flask app and the Clojure one.</p>
+<p>
+Here I would like to use <a href="https://httpd.apache.org/docs/2.4/programs/ab.html">Apache Bench (ab)</a>, a simple benchmarking tool from Apache, to do the job. I used ab to establish 100 connections and send 10K requests for GET and POST handlers, respectively. Both server processes and ab ran on the same machine with 16GB memory and an 8-core 2.80GHz CPU.</p>
+<div id="outline-container-headline-8" class="outline-3">
+<h3 id="headline-8">
+GET Handlers
+</h3>
+<div id="outline-text-headline-8" class="outline-text-3">
+<p>
+First, let&#39;s test a GET handler with command <code class="verbatim">ab -n 10000 -c 100 $url</code>, and run it twice by replacing <code class="verbatim">$url</code> with each other&#39;s URL in turn.</p>
+<p>
+Below are the distilled outputs for both tests. We can see that Clojure&#39;s time per request is 156ms vs Flask&#39;s 126ms, while Flask&#39;s response is much bigger (2638 bytes vs. 7256 bytes), <strong>which indicates that Flask&#39;s performance is much better</strong>.</p>
+<div class="src src-text">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">######################### Clojure
+</span></span><span class="line"><span class="cl">$ ab -n 10000 -c 100 http://localhost:3000/
+</span></span><span class="line"><span class="cl">...
+</span></span><span class="line"><span class="cl">Document Path:          /
+</span></span><span class="line"><span class="cl">Document Length:        2638 bytes
+</span></span><span class="line"><span class="cl">Concurrency Level:      100
+</span></span><span class="line"><span class="cl">Time taken for tests:   15.610 seconds
+</span></span><span class="line"><span class="cl">Complete requests:      10000
+</span></span><span class="line"><span class="cl">Failed requests:        0
+</span></span><span class="line"><span class="cl">Total transferred:      27670000 bytes
+</span></span><span class="line"><span class="cl">HTML transferred:       26380000 bytes
+</span></span><span class="line"><span class="cl">Requests per second:    640.62 [#/sec] (mean)
+</span></span><span class="line"><span class="cl">Time per request:       156.100 [ms] (mean)
+</span></span><span class="line"><span class="cl">Time per request:       1.561 [ms] (mean, across all concurrent requests)
+</span></span><span class="line"><span class="cl">Transfer rate:          1731.04 [Kbytes/sec] received
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Connection Times (ms)
+</span></span><span class="line"><span class="cl">              min  mean[+/-sd] median   max
+</span></span><span class="line"><span class="cl">Connect:        0    2  44.9      0    1005
+</span></span><span class="line"><span class="cl">Processing:     5  153  41.0    153     270
+</span></span><span class="line"><span class="cl">Waiting:        4  153  41.0    153     270
+</span></span><span class="line"><span class="cl">Total:         11  155  61.4    153    1195
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">######################### Flask
+</span></span><span class="line"><span class="cl">$ ab -n 10000 -c 100 http://localhost:8000/
+</span></span><span class="line"><span class="cl">...
+</span></span><span class="line"><span class="cl">Document Path:          /
+</span></span><span class="line"><span class="cl">Document Length:        7256 bytes
+</span></span><span class="line"><span class="cl">Concurrency Level:      100
+</span></span><span class="line"><span class="cl">Time taken for tests:   12.557 seconds
+</span></span><span class="line"><span class="cl">Complete requests:      10000
+</span></span><span class="line"><span class="cl">Failed requests:        0
+</span></span><span class="line"><span class="cl">Total transferred:      74310000 bytes
+</span></span><span class="line"><span class="cl">HTML transferred:       72560000 bytes
+</span></span><span class="line"><span class="cl">Requests per second:    796.39 [#/sec] (mean)
+</span></span><span class="line"><span class="cl">Time per request:       125.567 [ms] (mean)
+</span></span><span class="line"><span class="cl">Time per request:       1.256 [ms] (mean, across all concurrent requests)
+</span></span><span class="line"><span class="cl">Transfer rate:          5779.25 [Kbytes/sec] received
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Connection Times (ms)
+</span></span><span class="line"><span class="cl">              min  mean[+/-sd] median   max
+</span></span><span class="line"><span class="cl">Connect:        0    0   0.6      0      11
+</span></span><span class="line"><span class="cl">Processing:    17  124  11.7    122     204
+</span></span><span class="line"><span class="cl">Waiting:        3  111  11.6    109     191
+</span></span><span class="line"><span class="cl">Total:         17  124  11.5    122     204
+</span></span><span class="line"><span class="cl">...</span></span></code></pre></div>
+</div>
+</div>
+</div>
+<div id="outline-container-headline-9" class="outline-3">
+<h3 id="headline-9">
+POST Handlers
+</h3>
+<div id="outline-text-headline-9" class="outline-text-3">
+<p>
+Second, for POST handlers, I ran a slightly different command to post JSON data: <code class="verbatim">ab -n 10000 -c 100 -T &#39;application/json&#39; -p ~/tmp/texttoolkit-ab-post.json $url</code>.</p>
+<p>
+With the distilled outputs below, we can see that both response lengths are almost the same, and similarly as above, Clojure&#39;s time per request is much higher (161ms vs vs. 91 ms) than Flask&#39;s.</p>
+<div class="src src-text">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">######################### Clojure
+</span></span><span class="line"><span class="cl">$ ab -n 10000 -c 100 -T &#39;application/json&#39; -p ~/tmp/texttoolkit-ab-post.json http://localhost:3000/compilation-database-generator
+</span></span><span class="line"><span class="cl">...
+</span></span><span class="line"><span class="cl">Document Path:          /compilation-database-generator
+</span></span><span class="line"><span class="cl">Document Length:        710 bytes
+</span></span><span class="line"><span class="cl">Concurrency Level:      100
+</span></span><span class="line"><span class="cl">Time taken for tests:   16.125 seconds
+</span></span><span class="line"><span class="cl">Complete requests:      10000
+</span></span><span class="line"><span class="cl">Failed requests:        0
+</span></span><span class="line"><span class="cl">Total transferred:      8310000 bytes
+</span></span><span class="line"><span class="cl">Total body sent:        6290000
+</span></span><span class="line"><span class="cl">HTML transferred:       7100000 bytes
+</span></span><span class="line"><span class="cl">Requests per second:    620.17 [#/sec] (mean)
+</span></span><span class="line"><span class="cl">Time per request:       161.246 [ms] (mean)
+</span></span><span class="line"><span class="cl">Time per request:       1.612 [ms] (mean, across all concurrent requests)
+</span></span><span class="line"><span class="cl">Transfer rate:          503.28 [Kbytes/sec] received
+</span></span><span class="line"><span class="cl">                        380.94 kb/s sent
+</span></span><span class="line"><span class="cl">                        884.23 kb/s total
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Connection Times (ms)
+</span></span><span class="line"><span class="cl">              min  mean[+/-sd] median   max
+</span></span><span class="line"><span class="cl">Connect:        0    0   0.8      0      13
+</span></span><span class="line"><span class="cl">Processing:     7  160  42.2    160     283
+</span></span><span class="line"><span class="cl">Waiting:        7  160  42.2    160     283
+</span></span><span class="line"><span class="cl">Total:         17  160  42.1    160     283
+</span></span><span class="line"><span class="cl">...
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">######################### Flask
+</span></span><span class="line"><span class="cl">$ ab -n 10000 -c 100 -T &#39;application/json&#39; -p ~/tmp/texttoolkit-ab-post.json http://localhost:8000/compilation-database-generator
+</span></span><span class="line"><span class="cl">...
+</span></span><span class="line"><span class="cl">Document Path:          /compilation-database-generator
+</span></span><span class="line"><span class="cl">Document Length:        711 bytes
+</span></span><span class="line"><span class="cl">Concurrency Level:      100
+</span></span><span class="line"><span class="cl">Time taken for tests:   9.144 seconds
+</span></span><span class="line"><span class="cl">Complete requests:      10000
+</span></span><span class="line"><span class="cl">Failed requests:        0
+</span></span><span class="line"><span class="cl">Total transferred:      8770000 bytes
+</span></span><span class="line"><span class="cl">Total body sent:        6290000
+</span></span><span class="line"><span class="cl">HTML transferred:       7110000 bytes
+</span></span><span class="line"><span class="cl">Requests per second:    1093.59 [#/sec] (mean)
+</span></span><span class="line"><span class="cl">Time per request:       91.442 [ms] (mean)
+</span></span><span class="line"><span class="cl">Time per request:       0.914 [ms] (mean, across all concurrent requests)
+</span></span><span class="line"><span class="cl">Transfer rate:          936.60 [Kbytes/sec] received
+</span></span><span class="line"><span class="cl">                        671.74 kb/s sent
+</span></span><span class="line"><span class="cl">                        1608.34 kb/s total
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Connection Times (ms)
+</span></span><span class="line"><span class="cl">              min  mean[+/-sd] median   max
+</span></span><span class="line"><span class="cl">Connect:        0    0   0.3      0       4
+</span></span><span class="line"><span class="cl">Processing:    32   91   4.2     91     110
+</span></span><span class="line"><span class="cl">Waiting:        1   79   4.1     79      99
+</span></span><span class="line"><span class="cl">Total:         33   91   4.0     91     112
+</span></span><span class="line"><span class="cl">...</span></span></code></pre></div>
+</div>
+</div>
+</div>
+<div id="outline-container-headline-13" class="outline-3">
+<h3 id="headline-13">
+Performance Recap
+</h3>
+<div id="outline-text-headline-13" class="outline-text-3">
+<p>
+The above data indicated that the Clojure version lagged behind the Flask one in performance, and I didn&#39;t see that coming.</p>
+<p>
+But since it doesn&#39;t have too much traffic at the moment, it was ok for me to just move on.</p>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-headline-14" class="outline-2">
+<h2 id="headline-14">
+Deployment
+</h2>
+<div id="outline-text-headline-14" class="outline-text-2">
+<p>
+Time to ship to production, finally!</p>
+<p>
+Leiningen really shines here; all I have to do is run a simple command <code class="verbatim">lein ring uberjar</code> (provided by the <code class="verbatim">lein-ring</code> plugin), and it will produce a single jar file for deployment. After uploading it to the production, I can start the server with <code class="verbatim">java -jar texttoolkit-0.1.0-SNAPSHOT-standalone.jar</code>.</p>
+<p>
+Why not use <a href="https://clojure.org/reference/deps_edn">deps.edn</a>? You may ask.</p>
+<p>
+Well, I noticed that people are moving towards deps.edn these days, but sometimes I feel like I just can&#39;t figure out how to get the job at hand done in a short time. It&#39;s not that it can&#39;t accomplish the task; it&#39;s just that it may take much more time to nail it down. In fact, I did start the project with deps.edn but fell back to leiningen later.</p>
+<p>
+<strong>Smoothing Traffic Migration.</strong> If I were to deploy this app with huge traffic, I would need to be really careful and think about a perfect solution to serve users uninterrupted. But this app doesn&#39;t have too much traffic yet; still, I would like to take cautions so that a user&#39;s chance to notice the downtime is as low as possible.</p>
+<p>
+So I first got my Clojure app up by firing <code class="verbatim">java -jar texttoolkit.jar</code> and verified if it worked perfectly by running <code class="verbatim">curl</code> against the Ring handlers. Unfortunately, I ran into a few issues.</p>
+<div id="outline-container-headline-15" class="outline-3">
+<h3 id="headline-15">
+1. Huge Startup Time
+</h3>
+<div id="outline-text-headline-15" class="outline-text-3">
+<p>
+The first problem I encountered was that it took <strong>nearly one minute</strong> to get the process up, which I totally didn&#39;t anticipate. Only after that, I came to notice that it also took around 25 seconds to get up in my dev machine.</p>
+<p>
+For comparison, the Flask app starts up instantly.</p>
+<p>
+It looked like a problem related to machine capacity, anyways, I decided to postpone troubleshooting until I have enough time in the future. I will come back to it, dig deeper, and find out what the culprit is.</p>
+</div>
+</div>
+<div id="outline-container-headline-16" class="outline-3">
+<h3 id="headline-16">
+2. Huge Memory Footprint
+</h3>
+<div id="outline-text-headline-16" class="outline-text-3">
+<p>
+At first, I didn&#39;t pay much attention to memory footprint during development. On production, I saw that the memory it consumed at startup was ~70MB, which was much higher than Flask&#39;s ~23MB, even though it was not a big deal.</p>
+<div class="src src-text">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl"># Pay attention to the RSS column.
+</span></span><span class="line"><span class="cl"># Clojure
+</span></span><span class="line"><span class="cl">$ ps aux
+</span></span><span class="line"><span class="cl">USER         PID %CPU %MEM     VSZ   RSS TTY      STAT START   TIME COMMAND
+</span></span><span class="line"><span class="cl">texttoo+   13537  227  6.9 2328144 71332 ?       Sl   22:06   0:04 java -jar texttoolkit-0.1.1-SNAPSHOT-standalone.jar
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"># Flask
+</span></span><span class="line"><span class="cl">$ ps aux
+</span></span><span class="line"><span class="cl">USER         PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
+</span></span><span class="line"><span class="cl">texttoo+   21896  3.6  2.2 224704 23356 pts/0    S+   13:32   0:00 python3 /path/to/venv/bin/gunicorn app:app --name texttoolbox --workers 3 --user=texttoolbox --group=texttoolbox --bind=localhost:1234 --log-level=error --log-file=-</span></span></code></pre></div>
+</div>
+<p>
+And my jaw dropped after I checked it out <strong>2 weeks later</strong>; it consumed nearly 350 MB of my limited memory, check this out:</p>
+<div class="src src-text">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">$ ps aux
+</span></span><span class="line"><span class="cl">texttoo+   13537  0.2 34.0 2834144 348000 ?      Sl   Feb17  27:46 java -jar texttoolkit-0.1.1-SNAPSHOT-standalone.jar</span></span></code></pre></div>
+</div>
+<p>
+It seems like this is a well-known problem for Java; you should pay attention to it if you&#39;re running Clojure or Java programs in a memory-constrained environment: <a href="https://dev.solita.fi/2022/03/18/running-clojure-on-constrained-memory.html">Running Clojure programs on constrained memory - /dev/solita</a>. But for now, it didn&#39;t really bother me, so I just moved on.</p>
+</div>
+</div>
+<div id="outline-container-headline-17" class="outline-3">
+<h3 id="headline-17">
+3. Resource Paths for libpython-clj
+</h3>
+<div id="outline-text-headline-17" class="outline-text-3">
+<p>
+Another problem arose in production when Clojure imported Python modules, which it had no problem at all in the development environment. It was a <code class="verbatim">ModuleNotFoundError</code> exception:</p>
+<div class="src src-text">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">Caused by: java.lang.Exception: ModuleNotFoundError: No module named &#39;cdg&#39;</span></span></code></pre></div>
+</div>
+<p>
+It clearly was an error when it was loading a Python module, and the code for that looked something like this:</p>
+<div class="src src-clojure">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-clojure" data-lang="clojure"><span class="line"><span class="cl"><span class="p">(</span><span class="kd">ns </span><span class="nv">texttoolkit.handler</span>
+</span></span><span class="line"><span class="cl">  <span class="p">(</span><span class="ss">:require</span> <span class="c1">; ...</span>
+</span></span><span class="line"><span class="cl">            <span class="p">[</span><span class="nv">libpython-clj2.python</span> <span class="ss">:as</span> <span class="nv">py</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">            <span class="c1">; ...</span>
+</span></span><span class="line"><span class="cl">            <span class="p">))</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">(</span><span class="nf">py/initialize!</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">(</span><span class="nf">py/run-simple-string</span> <span class="p">(</span><span class="nb">str </span><span class="s">&#34;import sys;&#34;</span>
+</span></span><span class="line"><span class="cl">                           <span class="s">&#34;sys.path.append(&#39;&#34;</span> <span class="p">(</span><span class="nf">io/resource</span> <span class="s">&#34;private/py/&#34;</span><span class="p">)</span> <span class="s">&#34;&#39;);&#34;</span>
+</span></span><span class="line"><span class="cl">                           <span class="s">&#34;print(&#39;python sys.path:&#39;, sys.path)&#34;</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">;; import a python module as a Clojure namespace</span>
+</span></span><span class="line"><span class="cl"><span class="p">(</span><span class="nf">py/import-as</span> <span class="s">&#34;cdg&#34;</span> <span class="nv">cdg</span><span class="p">)</span></span></span></code></pre></div>
+</div>
+<p>
+It seemed like the path provided by <a href="https://clojuredocs.org/clojure.java.io/resource">clojure.java.io/resource</a> wasn&#39;t effective, and I quickly verified that by finding out that <code class="verbatim">(io/resource &#34;private/py/&#34;)</code> actually translated to <code class="verbatim">jar:file:/path/to/texttoolkit/target/texttoolkit-0.1.0-SNAPSHOT-standalone.jar!/private/py/</code>, which by no means was a legit directory path.</p>
+<p>
+But I failed to Google useful information for this; in the end, I decided to work around it by copying these .py files out to the OS file system and then loading Python modules from there.</p>
+</div>
+</div>
+<div id="outline-container-headline-18" class="outline-3">
+<h3 id="headline-18">
+Monitor the Process and Then Make It Live.
+</h3>
+<div id="outline-text-headline-18" class="outline-text-3">
+<p>
+In order to recover from possible crashes, I used <a href="https://supervisord.org/">supervisord</a> to monitor the Java process. If something bad happens, it will bring up another process to serve requests.</p>
+<p>
+Finally, I can make it live now. So I changed the <code class="verbatim">upstream</code> settings in the conf and reloaded the Nginx config—easy peasy!</p>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-headline-19" class="outline-2">
+<h2 id="headline-19">
+Pros and Cons
+</h2>
+<div id="outline-text-headline-19" class="outline-text-2">
+<p>
+To recap, here are the pros and cons of Clojure development that I learned along the way.</p>
+<p>
+Pros:</p>
+<ol>
+<li>Development experience matters; it is fun to explore and write Clojure code interactively.</li>
+<li>The code for the backend and the frontend was both written in Clojure syntax; they are consistent and easy to write; for the common logic, we can <strong>truly</strong> <a href="https://en.wikipedia.org/wiki/Write_once,_run_anywhere">write once, run everywhere</a>.</li>
+<li>Plus, some logic that used to run in the backend now can be used to run in the frontend with a tiny effort.</li>
+<li>Easy to deploy with an uberjar.</li>
+<li>People are really nice in the Clojure community, don&#39;t hesitate to reach out if you have some problems or ideas.</li>
+</ol>
+<p>Cons:</p>
+<ol>
+<li>I would say one of the biggest cons is, to my surprise, a Clojure process (JVM) eats a lot of memory.</li>
+<li>Huge startup time.</li>
+<li>The performance is not good as Flask. I hope I&#39;ve made some mistakes here, and I will definitely come back to this in the future.</li>
+</ol>
+</div>
+</div>
+<div id="outline-container-headline-20" class="outline-2">
+<h2 id="headline-20">
+Outro
+</h2>
+<div id="outline-text-headline-20" class="outline-text-2">
+<p>
+That&#39;s it. In this blog post, I reflected in detail on the whole rewrite journey, from making a plan to production deployment at last. And I would like to keep exploring this web app on top of the Clojure ecosystem.</p>
+<p>
+In the meantime, it also raised some questions for me to explore and answer, like troubleshooting and exploring the performance of Ring handlers, learning how to improve the startup time of Clojure processes, and mastering more Java basics for Clojure.</p>
+<p>
+If you find something interesting or have related experience you&#39;ve gone through, or anything, please feel free to comment below. Thank you for reading!</p>
+</div>
+</div>
+
+
+        
+          <div class="blog-tags">
+            
+              
+              <a href="https://whatacold.io/tags/clojure/">Clojure</a>&nbsp;
+            
+              
+              <a href="https://whatacold.io/tags/clojurescript/">ClojureScript</a>&nbsp;
+            
+              
+              <a href="https://whatacold.io/tags/reagent/">Reagent</a>&nbsp;
+            
+              
+              <a href="https://whatacold.io/tags/shadow-cljs/">shadow-cljs</a>&nbsp;
+            
+              
+              <a href="https://whatacold.io/tags/flask/">Flask</a>&nbsp;
+            
+          </div>
+        
+
+        
+            <hr/>
+            <section id="social-share">
+              <div class="list-inline footer-links">
+                
+
+<div class="share-box" aria-hidden="true">
+    <ul class="share">
+      
+      <li>
+        <a href="//twitter.com/share?url=https%3a%2f%2fwhatacold.io%2fblog%2f2025-02-22-flask-clojure-rewrite%2f&amp;text=Rewrite%20of%20a%20Flask%20Web%20App%20in%20Clojure&amp;via=whatacold" target="_blank" title="Share on Twitter">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fwhatacold.io%2fblog%2f2025-02-22-flask-clojure-rewrite%2f" target="_blank" title="Share on Facebook">
+          <i class="fab fa-facebook"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//reddit.com/submit?url=https%3a%2f%2fwhatacold.io%2fblog%2f2025-02-22-flask-clojure-rewrite%2f&amp;title=Rewrite%20of%20a%20Flask%20Web%20App%20in%20Clojure" target="_blank" title="Share on Reddit">
+          <i class="fab fa-reddit"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fwhatacold.io%2fblog%2f2025-02-22-flask-clojure-rewrite%2f&amp;title=Rewrite%20of%20a%20Flask%20Web%20App%20in%20Clojure" target="_blank" title="Share on LinkedIn">
+          <i class="fab fa-linkedin"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fwhatacold.io%2fblog%2f2025-02-22-flask-clojure-rewrite%2f&amp;title=Rewrite%20of%20a%20Flask%20Web%20App%20in%20Clojure" target="_blank" title="Share on StumbleUpon">
+          <i class="fab fa-stumbleupon"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fwhatacold.io%2fblog%2f2025-02-22-flask-clojure-rewrite%2f&amp;description=Rewrite%20of%20a%20Flask%20Web%20App%20in%20Clojure" target="_blank" title="Share on Pinterest">
+          <i class="fab fa-pinterest"></i>
+        </a>
+      </li>
+    </ul>
+  </div>
+  
+
+              </div>
+            </section>
+        
+
+        
+          
+            
+          
+
+          
+                  <h4 class="see-also">See also</h4>
+                  <ul>
+                
+                
+                    <li><a href="/blog/2024-11-28-beholder-clj-async-profiler/">clj-async-profiler Rocks</a></li>
+                
+                    <li><a href="/blog/2024-11-09-clj-deps-cmdline/">Adding Clojure Dependencies from the Command Line</a></li>
+                
+                    <li><a href="/blog/2024-11-10-clojure-lazy-seq-case/">Bitten by Lazy Sequence of map</a></li>
+                
+                    <li><a href="/blog/2024-11-08-clojure-thread-macro-anonymous-function/">Anonymous Functions in Thread Macros</a></li>
+                
+                    <li><a href="/blog/2024-11-08-cider-clojure-repl-cmdline/">Starting a Clojure nREPL Manually for Cider</a></li>
+                
+              </ul>
+
+          
+        
+      </article>
+
+      
+        <ul class="pager blog-pager">
+          
+            <li class="previous">
+              <a href="https://whatacold.io/blog/2025-01-05-construct-a-map-clojure/" data-toggle="tooltip" data-placement="top" title="Constructing Clojure Maps Conditionally">&larr; Previous Post</a>
+            </li>
+          
+          
+        </ul>
+      
+
+
+      
+      
+      
+      
+      
+          
+          <div class="disqus-comments">
+            <div id="disqus_thread"></div>
+<script>
+    window.disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "whatacold" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+          </div>
+          
+        
+        
+      
+
+    </div>
+  </div>
+</div>
+
+      <footer>
+  <div class="container">
+    
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+          
+              <li>
+		
+		  <a href="mailto:whatacold@gmail.com" title="Email me">
+		
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fas fa-envelope fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+		
+		  <a href="https://github.com/whatacold" title="GitHub">
+		
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+		
+		  <a href="https://twitter.com/whatacold" title="Twitter">
+		
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-x-twitter fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+		
+		  <a href="https://linkedin.com/in/kenhuang-tech" title="LinkedIn">
+		
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+		
+		  <a href="https://www.youtube.com/@kenhuang-tech" title="Youtube">
+		
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-youtube fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+		
+		  <a href="https://bsky.app/profile/whatacold.bsky.social" title="Bluesky">
+		
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-bluesky fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+          
+          
+          
+        </ul>
+        <p class="credits copyright text-muted">
+          
+            
+              Ken Huang
+            
+          
+
+          &nbsp;&bull;&nbsp;&copy;
+          
+            2018 - 2025
+          
+
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://whatacold.io/">Ken Huang</a>
+          
+        </p>
+        
+        <p class="credits theme-by text-muted">
+          <a href="https://gohugo.io">Hugo v0.126.2</a> powered &nbsp;&bull;&nbsp; Theme <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> adapted from <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer><script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/katex.min.js" integrity="sha384-G0zcxDFp5LWZtDuRMnBkk3EphCK1lhEf4UEyEM693ka574TZGwo4IWwS6QLzM/2t" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
+<script src="https://code.jquery.com/jquery-3.7.0.slim.min.js" integrity="sha384-w5y/xIeYixWvfM+A1cEbmHPURnvyqmVg5eVENruEdDjcyRLUSNej7512JQGspFUr" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
+
+<script src="https://whatacold.io/js/main.js"></script>
+<script src="https://whatacold.io/js/highlight.min.js"></script>
+<script> hljs.initHighlightingOnLoad(); </script>
+<script> $(document).ready(function() {$("pre.chroma").css("padding","0");}); </script><script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.js" integrity="sha384-QELNnmcmU8IR9ZAykt67vGr9/rZJdHbiWi64V88fCPaOohUlHCqUD/unNN0BXSqy" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe-ui-default.min.js" integrity="sha384-m67o7SkQ1ALzKZIFh4CiTA8tmadaujiTa9Vu+nqPSwDOqHrDmxLezTdFln8077+q" crossorigin="anonymous"></script><script src="https://whatacold.io/js/load-photoswipe.js"></script>
+
+
+
+
+
+
+
+
+
+
+    
+  </body>
+</html>
+
