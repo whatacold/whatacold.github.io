@@ -66,9 +66,9 @@ Feature #1: generating compile_commands.json for GNU Makefile projects written i
   "headline": "Rewrite of a Flask Web App in Clojure",
   "description" : "Intro A few years ago, I made a simple web app in Flask to deal with some text processing problems from my daily work. It has two main features:\nFeature #1: generating compile_commands.json for GNU Makefile projects written in C\/C\u002b\u002b using the output of the make command. Because, unlike CMake, the make command can\u0026#39;t generate it. Feature #2: extract text using Python regex. It\u0026#39;s handy when I feel like sed\/awk\/grep\u0026#39;s line-oriented processing isn\u0026#39;t enough for the task at hand.",
   "inLanguage" : "en",
-  "wordCount":  2720 ,
+  "wordCount":  2838 ,
   "datePublished" : "2025-02-22T22:46:05\u002b08:00",
-  "dateModified" : "2025-03-08T22:10:44\u002b08:00",
+  "dateModified" : "2025-03-10T22:48:37\u002b08:00",
   "image" : "https:\/\/whatacold.io\/img\/2021-12-10-motor-helmet-400.jpg",
   "keywords" : [ "Clojure, ClojureScript, Reagent, shadow-cljs, Flask" ],
   "mainEntityOfPage" : "https:\/\/whatacold.io\/blog\/2025-02-22-flask-clojure-rewrite\/",
@@ -290,7 +290,7 @@ Feature #1: generating compile_commands.json for GNU …">
           
           <p class="page-meta">
             
-            Published: 2025-02-22, Last Updated: 2025-03-08
+            Published: 2025-02-22, Last Updated: 2025-03-10
             
           </p>
         
@@ -399,7 +399,7 @@ With Clojure and ClojureScript existing in the same project, ideally, I can brin
 <p>
 In order to quickly convert HTMLs to the <a href="https://github.com/weavejester/hiccup">hiccup</a> forms, I intended to use some help from conversion tools. There are a bunch of them out there, as listed on <a href="https://github.com/weavejester/hiccup/wiki/Converting-html-to-hiccup">Converting html to hiccup · weavejester/hiccup Wiki</a>.</p>
 <p>
-Finally, I used <a href="https://html2hiccup.dev/.">https://html2hiccup.dev/.</a> It&#39;s simple and intuitive to use and generally gets the task done, except there were a few corner cases relating to using them as Reagent components:</p>
+Finally, I used <a href="https://html2hiccup.dev/.">https://html2hiccup.dev/.</a> It&#39;s simple and intuitive to use and overall gets the task done, except there were a few corner cases relating to using them as Reagent components (It seems like these are differences between Reagent and hiccup):</p>
 <ol>
 <li>
 <p>Incorrect capitalizations. Some noticeable examples are:</p>
@@ -422,6 +422,22 @@ Finally, I used <a href="https://html2hiccup.dev/.">https://html2hiccup.dev/.</a
 </div>
 </li>
 </ol>
+<p>Update:</p>
+<p>
+Besides, there are also some editor-based solutions:</p>
+<ol>
+<li>An Emacs package: <a href="https://github.com/kwrooijen/hiccup-cli">https://github.com/kwrooijen/hiccup-cli</a></li>
+<li>
+<p>A VSCode extension: <a href="https://calva.io/hiccup.">https://calva.io/hiccup.</a> Thanks to <a href="https://github.com/PEZ">Peter Strömberg</a> for telling me over Slack that, calva can handle the above <code class="verbatim">style</code> issue properly with custom config in <code class="verbatim">settings.json</code>:</p>
+<div class="src src-js">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="s2">&#34;calva.html2HiccupOptions&#34;</span><span class="o">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;mapify-style?&#34;</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;kebab-attrs?&#34;</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;add-classes-to-tag-keyword?&#34;</span><span class="o">:</span> <span class="kc">true</span>
+</span></span><span class="line"><span class="cl"><span class="p">},</span></span></span></code></pre></div>
+</div>
+</li>
+</ol>
 <div id="outline-container-headline-6" class="outline-3">
 <h3 id="headline-6">
 A libpython-clj Problem
@@ -430,7 +446,7 @@ A libpython-clj Problem
 <p>
 The development process went smoothly until I needed to return a list of dictionaries in Python for Cheshire to consume on Clojure side.</p>
 <p>
-This was my first time using libpython-clj, and I initially thought it would perfectly be able to return complex Python data structures to Clojure. After asking for help in the <a href="https://clojurians.zulipchat.com/#narrow/channel/215609-libpython-clj-dev">libpython-clj-dev</a> channel on Zulip, James Tolton kindly pointed out to me it&#39;s better to encode the result as a JSON string, which is compatible with Clojure strings, and the performance is better.</p>
+This was my first time using libpython-clj, and I initially thought it would perfectly be able to return complex Python data structures to Clojure. After asking for help in the <a href="https://clojurians.zulipchat.com/#narrow/channel/215609-libpython-clj-dev">libpython-clj-dev</a> channel on Zulip, <a href="https://github.com/jjtolton">James Tolton</a> kindly pointed out to me it&#39;s better to encode the result as a JSON string, which is compatible with Clojure strings, and the performance is better.</p>
 <p>
 For the record, here is <a href="https://github.com/clj-python/libpython-clj/issues/269">the issue</a> detailing the problem on GitHub, you can follow up there if you&#39;re interested.</p>
 </div>
@@ -644,6 +660,10 @@ And my jaw dropped after I checked it out <strong>2 weeks later</strong>; it con
 </div>
 <p>
 It seems like this is a well-known problem for Java; you should pay attention to it if you&#39;re running Clojure or Java programs in a memory-constrained environment: <a href="https://dev.solita.fi/2022/03/18/running-clojure-on-constrained-memory.html">Running Clojure programs on constrained memory - /dev/solita</a>. But for now, it didn&#39;t really bother me, so I just moved on.</p>
+<p>
+Update:</p>
+<p>
+<a href="https://github.com/didibus">didibus</a> in <a href="https://clojurians.slack.com/archives/C8NUSGWG6/p1741519230921779">the Slack thread</a> kindly told me that the memory consumption is due to the thread pool in JVM, and I can set a memory cap with <code class="verbatim">-Xmx</code> and customize the pool size. These are really insightful, and I&#39;ll definitely look into it.</p>
 </div>
 </div>
 <div id="outline-container-headline-17" class="outline-3">
@@ -705,7 +725,8 @@ Pros:</p>
 <li>Development experience matters; it is fun to explore and write Clojure code interactively.</li>
 <li>The code for the backend and the frontend was both written in Clojure syntax; they are consistent and easy to write; for the common logic, we can <strong>truly</strong> <a href="https://en.wikipedia.org/wiki/Write_once,_run_anywhere">write once, run everywhere</a>.</li>
 <li>Plus, some logic that used to run in the backend now can be used to run in the frontend with a tiny effort.</li>
-<li>Easy to deploy with an uberjar.</li>
+<li>With Reagent and React, now I can do frontend dev in a much simpler way. </li>
+<li>Easier to deploy with an uberjar.</li>
 <li>People are really nice in the Clojure community, don&#39;t hesitate to reach out if you have some problems or ideas.</li>
 </ol>
 <p>Cons:</p>
