@@ -66,9 +66,9 @@ Feature #1: generating compile_commands.json for GNU Makefile projects written i
   "headline": "Rewrite of a Flask Web App in Clojure",
   "description" : "Intro A few years ago, I made a simple web app in Flask to deal with some text processing problems from my daily work. It has two main features:\nFeature #1: generating compile_commands.json for GNU Makefile projects written in C\/C\u002b\u002b using the output of the make command. Because, unlike CMake, the make command can\u0026#39;t generate it. Feature #2: extract text using Python regex. It\u0026#39;s handy when I feel like sed\/awk\/grep\u0026#39;s line-oriented processing isn\u0026#39;t enough for the task at hand.",
   "inLanguage" : "en",
-  "wordCount":  2838 ,
+  "wordCount":  3181 ,
   "datePublished" : "2025-02-22T22:46:05\u002b08:00",
-  "dateModified" : "2025-03-10T22:48:37\u002b08:00",
+  "dateModified" : "2025-03-22T22:08:56\u002b08:00",
   "image" : "https:\/\/whatacold.io\/img\/2021-12-10-motor-helmet-400.jpg",
   "keywords" : [ "Clojure, ClojureScript, Reagent, shadow-cljs, Flask" ],
   "mainEntityOfPage" : "https:\/\/whatacold.io\/blog\/2025-02-22-flask-clojure-rewrite\/",
@@ -290,7 +290,7 @@ Feature #1: generating compile_commands.json for GNU …">
           
           <p class="page-meta">
             
-            Published: 2025-02-22, Last Updated: 2025-03-10
+            Published: 2025-02-22, Last Updated: 2025-03-22
             
           </p>
         
@@ -464,16 +464,43 @@ After finishing the rewrite, it&#39;s a good chance to conduct some load tests t
 Here I would like to use <a href="https://httpd.apache.org/docs/2.4/programs/ab.html">Apache Bench (ab)</a>, a simple benchmarking tool from Apache, to do the job. I used ab to establish 100 connections and send 10K requests for GET and POST handlers, respectively. Both server processes and ab ran on the same machine with 16GB memory and an 8-core 2.80GHz CPU.</p>
 <div id="outline-container-headline-8" class="outline-3">
 <h3 id="headline-8">
-GET Handlers
+Clojure Dev Server vs. Production Build
 </h3>
 <div id="outline-text-headline-8" class="outline-text-3">
+<p>Update:
+When I first published this post, ab test results indicated that Clojure&#39;s version was less performant than Flask&#39;s. But a couple weeks later, I accidentallly found out that Clojure&#39;s production build (the uberjar) was <strong>way faster</strong>.</p>
 <p>
-First, let&#39;s test a GET handler with command <code class="verbatim">ab -n 10000 -c 100 $url</code>, and run it twice by replacing <code class="verbatim">$url</code> with each other&#39;s URL in turn.</p>
+How much faster? Let&#39;s first take a look at the stats of GET performance of the production build and the dev server.</p>
 <p>
-Below are the distilled outputs for both tests. We can see that Clojure&#39;s time per request is 156ms vs Flask&#39;s 126ms, while Flask&#39;s response is much bigger (2638 bytes vs. 7256 bytes), <strong>which indicates that Flask&#39;s performance is much better</strong>.</p>
+Production build: <code class="verbatim">java -jar target/texttoolkit-0.1.0-SNAPSHOT-standalone.jar</code></p>
 <div class="src src-text">
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">######################### Clojure
-</span></span><span class="line"><span class="cl">$ ab -n 10000 -c 100 http://localhost:3000/
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">$ ab -n 10000 -c 100 http://localhost:3000/
+</span></span><span class="line"><span class="cl">...
+</span></span><span class="line"><span class="cl">Document Path:          /
+</span></span><span class="line"><span class="cl">Document Length:        2580 bytes
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Concurrency Level:      100
+</span></span><span class="line"><span class="cl">Time taken for tests:   1.566 seconds
+</span></span><span class="line"><span class="cl">Complete requests:      10000
+</span></span><span class="line"><span class="cl">Failed requests:        0
+</span></span><span class="line"><span class="cl">Total transferred:      27070000 bytes
+</span></span><span class="line"><span class="cl">HTML transferred:       25800000 bytes
+</span></span><span class="line"><span class="cl">Requests per second:    6387.17 [#/sec] (mean)
+</span></span><span class="line"><span class="cl">Time per request:       15.656 [ms] (mean)
+</span></span><span class="line"><span class="cl">Time per request:       0.157 [ms] (mean, across all concurrent requests)
+</span></span><span class="line"><span class="cl">Transfer rate:          16884.83 [Kbytes/sec] received
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Connection Times (ms)
+</span></span><span class="line"><span class="cl">              min  mean[+/-sd] median   max
+</span></span><span class="line"><span class="cl">Connect:        0    8  73.8      3    1066
+</span></span><span class="line"><span class="cl">Processing:     1    7   4.4      6      54
+</span></span><span class="line"><span class="cl">Waiting:        1    6   4.5      5      54
+</span></span><span class="line"><span class="cl">Total:          1   15  73.8     10    1076</span></span></code></pre></div>
+</div>
+<p>
+Dev server: <code class="verbatim">lein ring server</code></p>
+<div class="src src-text">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">$ ab -n 10000 -c 100 http://localhost:3000/
 </span></span><span class="line"><span class="cl">...
 </span></span><span class="line"><span class="cl">Document Path:          /
 </span></span><span class="line"><span class="cl">Document Length:        2638 bytes
@@ -493,11 +520,52 @@ Below are the distilled outputs for both tests. We can see that Clojure&#39;s ti
 </span></span><span class="line"><span class="cl">Connect:        0    2  44.9      0    1005
 </span></span><span class="line"><span class="cl">Processing:     5  153  41.0    153     270
 </span></span><span class="line"><span class="cl">Waiting:        4  153  41.0    153     270
-</span></span><span class="line"><span class="cl">Total:         11  155  61.4    153    1195
+</span></span><span class="line"><span class="cl">Total:         11  155  61.4    153    1195</span></span></code></pre></div>
+</div>
+<p>
+Based on <code class="verbatim">Requests per second</code> above, we can see that the production one was nearly <strong>10x better</strong>.🤯</p>
+</div>
+</div>
+<div id="outline-container-headline-9" class="outline-3">
+<h3 id="headline-9">
+GET Handlers
+</h3>
+<div id="outline-text-headline-9" class="outline-text-3">
+<p>Update: The original Clojure data in the section was dev server&#39;s, now I&#39;ve updated to use the production server&#39;s.</p>
+<p>
+First, let&#39;s test a GET handler with command <code class="verbatim">ab -n 10000 -c 100 $url</code>, and run it twice in turn by replacing <code class="verbatim">$url</code> with each other&#39;s URL.</p>
+<p>
+Below are the distilled outputs for both tests. We can see that Clojure&#39;s <code class="verbatim">Time per request</code> is 15.6ms vs Flask&#39;s 126ms, while Flask&#39;s response is much bigger (2580 bytes vs. 7256 bytes), so Clojure&#39;s performance is much better.</p>
+<p>
+Clojure GET performance:</p>
+<div class="src src-text">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">$ ab -n 10000 -c 100 http://localhost:3000/
+</span></span><span class="line"><span class="cl">...
+</span></span><span class="line"><span class="cl">Document Path:          /
+</span></span><span class="line"><span class="cl">Document Length:        2580 bytes
 </span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Concurrency Level:      100
+</span></span><span class="line"><span class="cl">Time taken for tests:   1.566 seconds
+</span></span><span class="line"><span class="cl">Complete requests:      10000
+</span></span><span class="line"><span class="cl">Failed requests:        0
+</span></span><span class="line"><span class="cl">Total transferred:      27070000 bytes
+</span></span><span class="line"><span class="cl">HTML transferred:       25800000 bytes
+</span></span><span class="line"><span class="cl">Requests per second:    6387.17 [#/sec] (mean)
+</span></span><span class="line"><span class="cl">Time per request:       15.656 [ms] (mean)
+</span></span><span class="line"><span class="cl">Time per request:       0.157 [ms] (mean, across all concurrent requests)
+</span></span><span class="line"><span class="cl">Transfer rate:          16884.83 [Kbytes/sec] received
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">######################### Flask
-</span></span><span class="line"><span class="cl">$ ab -n 10000 -c 100 http://localhost:8000/
+</span></span><span class="line"><span class="cl">Connection Times (ms)
+</span></span><span class="line"><span class="cl">              min  mean[+/-sd] median   max
+</span></span><span class="line"><span class="cl">Connect:        0    8  73.8      3    1066
+</span></span><span class="line"><span class="cl">Processing:     1    7   4.4      6      54
+</span></span><span class="line"><span class="cl">Waiting:        1    6   4.5      5      54
+</span></span><span class="line"><span class="cl">Total:          1   15  73.8     10    1076</span></span></code></pre></div>
+</div>
+<p>
+Flask was run via <code class="verbatim">env FLASK_ENV=development flask run --debugger --host 0.0.0.0 --port 8000</code>, here is its GET performance:</p>
+<div class="src src-text">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">$ ab -n 10000 -c 100 http://localhost:8000/
 </span></span><span class="line"><span class="cl">...
 </span></span><span class="line"><span class="cl">Document Path:          /
 </span></span><span class="line"><span class="cl">Document Length:        7256 bytes
@@ -522,46 +590,53 @@ Below are the distilled outputs for both tests. We can see that Clojure&#39;s ti
 </div>
 </div>
 </div>
-<div id="outline-container-headline-9" class="outline-3">
-<h3 id="headline-9">
+<div id="outline-container-headline-10" class="outline-3">
+<h3 id="headline-10">
 POST Handlers
 </h3>
-<div id="outline-text-headline-9" class="outline-text-3">
+<div id="outline-text-headline-10" class="outline-text-3">
+<p>Update: The original Clojure data in the section was dev server&#39;s, now I&#39;ve updated to use the production server&#39;s.</p>
 <p>
 Second, for POST handlers, I ran a slightly different command to post JSON data: <code class="verbatim">ab -n 10000 -c 100 -T &#39;application/json&#39; -p ~/tmp/texttoolkit-ab-post.json $url</code>.</p>
 <p>
-With the distilled outputs below, we can see that both response lengths are almost the same, and similarly as above, Clojure&#39;s time per request is much higher (161ms vs vs. 91 ms) than Flask&#39;s.</p>
+With the distilled outputs below, we can see that both response lengths are almost the same, and similarly as above, Clojure&#39;s <code class="verbatim">Time per request</code> is much lower (39.8ms vs vs. 91 ms) than Flask&#39;s.</p>
+<p>
+Clojure POST performance:</p>
 <div class="src src-text">
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">######################### Clojure
-</span></span><span class="line"><span class="cl">$ ab -n 10000 -c 100 -T &#39;application/json&#39; -p ~/tmp/texttoolkit-ab-post.json http://localhost:3000/compilation-database-generator
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">$ ab -n 10000 -c 100 -T &#39;application/json&#39; -p ~/tmp/texttoolkit-ab-post.json http://localhost:3000/compilation-database-generator
 </span></span><span class="line"><span class="cl">...
+</span></span><span class="line"><span class="cl">Server Software:        Jetty(9.2.z-SNAPSHOT)
+</span></span><span class="line"><span class="cl">Server Hostname:        localhost
+</span></span><span class="line"><span class="cl">Server Port:            3000
+</span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">Document Path:          /compilation-database-generator
 </span></span><span class="line"><span class="cl">Document Length:        710 bytes
+</span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">Concurrency Level:      100
-</span></span><span class="line"><span class="cl">Time taken for tests:   16.125 seconds
+</span></span><span class="line"><span class="cl">Time taken for tests:   3.984 seconds
 </span></span><span class="line"><span class="cl">Complete requests:      10000
 </span></span><span class="line"><span class="cl">Failed requests:        0
-</span></span><span class="line"><span class="cl">Total transferred:      8310000 bytes
+</span></span><span class="line"><span class="cl">Total transferred:      8290000 bytes
 </span></span><span class="line"><span class="cl">Total body sent:        6290000
 </span></span><span class="line"><span class="cl">HTML transferred:       7100000 bytes
-</span></span><span class="line"><span class="cl">Requests per second:    620.17 [#/sec] (mean)
-</span></span><span class="line"><span class="cl">Time per request:       161.246 [ms] (mean)
-</span></span><span class="line"><span class="cl">Time per request:       1.612 [ms] (mean, across all concurrent requests)
-</span></span><span class="line"><span class="cl">Transfer rate:          503.28 [Kbytes/sec] received
-</span></span><span class="line"><span class="cl">                        380.94 kb/s sent
-</span></span><span class="line"><span class="cl">                        884.23 kb/s total
+</span></span><span class="line"><span class="cl">Requests per second:    2510.32 [#/sec] (mean)
+</span></span><span class="line"><span class="cl">Time per request:       39.836 [ms] (mean)
+</span></span><span class="line"><span class="cl">Time per request:       0.398 [ms] (mean, across all concurrent requests)
+</span></span><span class="line"><span class="cl">Transfer rate:          2032.28 [Kbytes/sec] received
+</span></span><span class="line"><span class="cl">                        1541.98 kb/s sent
+</span></span><span class="line"><span class="cl">                        3574.26 kb/s total
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">Connection Times (ms)
 </span></span><span class="line"><span class="cl">              min  mean[+/-sd] median   max
-</span></span><span class="line"><span class="cl">Connect:        0    0   0.8      0      13
-</span></span><span class="line"><span class="cl">Processing:     7  160  42.2    160     283
-</span></span><span class="line"><span class="cl">Waiting:        7  160  42.2    160     283
-</span></span><span class="line"><span class="cl">Total:         17  160  42.1    160     283
-</span></span><span class="line"><span class="cl">...
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">######################### Flask
-</span></span><span class="line"><span class="cl">$ ab -n 10000 -c 100 -T &#39;application/json&#39; -p ~/tmp/texttoolkit-ab-post.json http://localhost:8000/compilation-database-generator
+</span></span><span class="line"><span class="cl">Connect:        0    1  23.6      0    1057
+</span></span><span class="line"><span class="cl">Processing:     5   38  26.9     30     314
+</span></span><span class="line"><span class="cl">Waiting:        4   38  26.9     29     314
+</span></span><span class="line"><span class="cl">Total:         10   39  35.9     30    1165</span></span></code></pre></div>
+</div>
+<p>
+Flask POST performance:</p>
+<div class="src src-text">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">$ ab -n 10000 -c 100 -T &#39;application/json&#39; -p ~/tmp/texttoolkit-ab-post.json http://localhost:8000/compilation-database-generator
 </span></span><span class="line"><span class="cl">...
 </span></span><span class="line"><span class="cl">Document Path:          /compilation-database-generator
 </span></span><span class="line"><span class="cl">Document Length:        711 bytes
@@ -589,24 +664,21 @@ With the distilled outputs below, we can see that both response lengths are almo
 </div>
 </div>
 </div>
-<div id="outline-container-headline-13" class="outline-3">
-<h3 id="headline-13">
+<div id="outline-container-headline-14" class="outline-3">
+<h3 id="headline-14">
 Performance Recap
 </h3>
-<div id="outline-text-headline-13" class="outline-text-3">
-<p>
-The above data indicated that the Clojure version lagged behind the Flask one in performance, and I didn&#39;t see that coming.</p>
-<p>
-But since it doesn&#39;t have too much traffic at the moment, it was ok for me to just move on.</p>
+<div id="outline-text-headline-14" class="outline-text-3">
+<p>The above data indicated that the Clojure version ran faster than the Flask one in performance, which was what I expected.</p>
 </div>
 </div>
 </div>
 </div>
-<div id="outline-container-headline-14" class="outline-2">
-<h2 id="headline-14">
+<div id="outline-container-headline-15" class="outline-2">
+<h2 id="headline-15">
 Deployment
 </h2>
-<div id="outline-text-headline-14" class="outline-text-2">
+<div id="outline-text-headline-15" class="outline-text-2">
 <p>
 Time to ship to production, finally!</p>
 <p>
@@ -619,11 +691,11 @@ Well, I noticed that people are moving towards deps.edn these days, but sometime
 <strong>Smoothing Traffic Migration.</strong> If I were to deploy this app with huge traffic, I would need to be really careful and think about a perfect solution to serve users uninterrupted. But this app doesn&#39;t have too much traffic yet; still, I would like to take cautions so that a user&#39;s chance to notice the downtime is as low as possible.</p>
 <p>
 So I first got my Clojure app up by firing <code class="verbatim">java -jar texttoolkit.jar</code> and verified if it worked perfectly by running <code class="verbatim">curl</code> against the Ring handlers. Unfortunately, I ran into a few issues.</p>
-<div id="outline-container-headline-15" class="outline-3">
-<h3 id="headline-15">
+<div id="outline-container-headline-16" class="outline-3">
+<h3 id="headline-16">
 1. Huge Startup Time
 </h3>
-<div id="outline-text-headline-15" class="outline-text-3">
+<div id="outline-text-headline-16" class="outline-text-3">
 <p>
 The first problem I encountered was that it took <strong>nearly one minute</strong> to get the process up, which I totally didn&#39;t anticipate. Only after that, I came to notice that it also took around 25 seconds to get up in my dev machine.</p>
 <p>
@@ -632,11 +704,11 @@ For comparison, the Flask app starts up instantly.</p>
 It looked like a problem related to machine capacity, anyways, I decided to postpone troubleshooting until I have enough time in the future. I will come back to it, dig deeper, and find out what the culprit is.</p>
 </div>
 </div>
-<div id="outline-container-headline-16" class="outline-3">
-<h3 id="headline-16">
+<div id="outline-container-headline-17" class="outline-3">
+<h3 id="headline-17">
 2. Huge Memory Footprint
 </h3>
-<div id="outline-text-headline-16" class="outline-text-3">
+<div id="outline-text-headline-17" class="outline-text-3">
 <p>
 At first, I didn&#39;t pay much attention to memory footprint during development. On production, I saw that the memory it consumed at startup was ~70MB, which was much higher than Flask&#39;s ~23MB, even though it was not a big deal.</p>
 <div class="src src-text">
@@ -666,11 +738,11 @@ Update:</p>
 <a href="https://github.com/didibus">didibus</a> in <a href="https://clojurians.slack.com/archives/C8NUSGWG6/p1741519230921779">the Slack thread</a> kindly told me that the memory consumption is due to the thread pool in JVM, and I can set a memory cap with <code class="verbatim">-Xmx</code> and customize the pool size. These are really insightful, and I&#39;ll definitely look into it.</p>
 </div>
 </div>
-<div id="outline-container-headline-17" class="outline-3">
-<h3 id="headline-17">
+<div id="outline-container-headline-18" class="outline-3">
+<h3 id="headline-18">
 3. Resource Paths for libpython-clj
 </h3>
-<div id="outline-text-headline-17" class="outline-text-3">
+<div id="outline-text-headline-18" class="outline-text-3">
 <p>
 Another problem arose in production when Clojure imported Python modules, which it had no problem at all in the development environment. It was a <code class="verbatim">ModuleNotFoundError</code> exception:</p>
 <div class="src src-text">
@@ -699,11 +771,11 @@ It seemed like the path provided by <a href="https://clojuredocs.org/clojure.jav
 But I failed to Google useful information for this; in the end, I decided to work around it by copying these .py files out to the OS file system and then loading Python modules from there.</p>
 </div>
 </div>
-<div id="outline-container-headline-18" class="outline-3">
-<h3 id="headline-18">
+<div id="outline-container-headline-19" class="outline-3">
+<h3 id="headline-19">
 Monitor the Process and Then Make It Live.
 </h3>
-<div id="outline-text-headline-18" class="outline-text-3">
+<div id="outline-text-headline-19" class="outline-text-3">
 <p>
 In order to recover from possible crashes, I used <a href="https://supervisord.org/">supervisord</a> to monitor the Java process. If something bad happens, it will bring up another process to serve requests.</p>
 <p>
@@ -712,11 +784,11 @@ Finally, I can make it live now. So I changed the <code class="verbatim">upstrea
 </div>
 </div>
 </div>
-<div id="outline-container-headline-19" class="outline-2">
-<h2 id="headline-19">
+<div id="outline-container-headline-20" class="outline-2">
+<h2 id="headline-20">
 Pros and Cons
 </h2>
-<div id="outline-text-headline-19" class="outline-text-2">
+<div id="outline-text-headline-20" class="outline-text-2">
 <p>
 To recap, here are the pros and cons of Clojure development that I learned along the way.</p>
 <p>
@@ -733,15 +805,15 @@ Pros:</p>
 <ol>
 <li>I would say one of the biggest cons is, to my surprise, a Clojure process (JVM) eats a lot of memory.</li>
 <li>Huge startup time.</li>
-<li>The performance is not good as Flask. I hope I&#39;ve made some mistakes here, and I will definitely come back to this in the future.</li>
+<li><del>The performance is not good as Flask. I hope I&#39;ve made some mistakes here, and I will definitely come back to this in the future.</del> Update: Clojure&#39;s dev server was much slower than Flask&#39;s, but its production build was much better.</li>
 </ol>
 </div>
 </div>
-<div id="outline-container-headline-20" class="outline-2">
-<h2 id="headline-20">
+<div id="outline-container-headline-21" class="outline-2">
+<h2 id="headline-21">
 Outro
 </h2>
-<div id="outline-text-headline-20" class="outline-text-2">
+<div id="outline-text-headline-21" class="outline-text-2">
 <p>
 That&#39;s it. In this blog post, I reflected in detail on the whole rewrite journey, from making a plan to production deployment at last. And I would like to keep exploring this web app on top of the Clojure ecosystem.</p>
 <p>

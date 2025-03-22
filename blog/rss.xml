@@ -8,7 +8,7 @@
     <language>en</language>
     <managingEditor>whatacold@gmail.com (Ken Huang)</managingEditor>
     <webMaster>whatacold@gmail.com (Ken Huang)</webMaster>
-    <lastBuildDate>Mon, 10 Mar 2025 22:48:37 +0800</lastBuildDate>
+    <lastBuildDate>Sat, 22 Mar 2025 22:08:56 +0800</lastBuildDate>
     <atom:link href="https://whatacold.io/blog/rss.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Rewrite of a Flask Web App in Clojure</title>
