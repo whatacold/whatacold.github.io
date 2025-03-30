@@ -66,9 +66,9 @@ Feature #1: generating compile_commands.json for GNU Makefile projects written i
   "headline": "Rewrite of a Flask Web App in Clojure",
   "description" : "Intro A few years ago, I made a simple web app in Flask to deal with some text processing problems from my daily work. It has two main features:\nFeature #1: generating compile_commands.json for GNU Makefile projects written in C\/C\u002b\u002b using the output of the make command. Because, unlike CMake, the make command can\u0026#39;t generate it. Feature #2: extract text using Python regex. It\u0026#39;s handy when I feel like sed\/awk\/grep\u0026#39;s line-oriented processing isn\u0026#39;t enough for the task at hand.",
   "inLanguage" : "en",
-  "wordCount":  3181 ,
+  "wordCount":  3212 ,
   "datePublished" : "2025-02-22T22:46:05\u002b08:00",
-  "dateModified" : "2025-03-22T22:08:56\u002b08:00",
+  "dateModified" : "2025-03-30T22:30:20\u002b08:00",
   "image" : "https:\/\/whatacold.io\/img\/2021-12-10-motor-helmet-400.jpg",
   "keywords" : [ "Clojure, ClojureScript, Reagent, shadow-cljs, Flask" ],
   "mainEntityOfPage" : "https:\/\/whatacold.io\/blog\/2025-02-22-flask-clojure-rewrite\/",
@@ -290,7 +290,7 @@ Feature #1: generating compile_commands.json for GNU …">
           
           <p class="page-meta">
             
-            Published: 2025-02-22, Last Updated: 2025-03-22
+            Published: 2025-02-22, Last Updated: 2025-03-30
             
           </p>
         
@@ -462,6 +462,17 @@ Performance
 After finishing the rewrite, it&#39;s a good chance to conduct some load tests to have a basic understanding of the performance of the Flask app and the Clojure one.</p>
 <p>
 Here I would like to use <a href="https://httpd.apache.org/docs/2.4/programs/ab.html">Apache Bench (ab)</a>, a simple benchmarking tool from Apache, to do the job. I used ab to establish 100 connections and send 10K requests for GET and POST handlers, respectively. Both server processes and ab ran on the same machine with 16GB memory and an 8-core 2.80GHz CPU.</p>
+<p>
+Java and Python versions:</p>
+<div class="src src-shell">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">$ java --version
+</span></span><span class="line"><span class="cl">openjdk 21.0.6 2025-01-21
+</span></span><span class="line"><span class="cl">OpenJDK Runtime Environment <span class="o">(</span>Red_Hat-21.0.6.0.7-1<span class="o">)</span> <span class="o">(</span>build 21.0.6+7<span class="o">)</span>
+</span></span><span class="line"><span class="cl">OpenJDK 64-Bit Server VM <span class="o">(</span>Red_Hat-21.0.6.0.7-1<span class="o">)</span> <span class="o">(</span>build 21.0.6+7, mixed mode, sharing<span class="o">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">$ python --version
+</span></span><span class="line"><span class="cl">Python 3.13.2</span></span></code></pre></div>
+</div>
 <div id="outline-container-headline-8" class="outline-3">
 <h3 id="headline-8">
 Clojure Dev Server vs. Production Build
