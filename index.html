@@ -272,6 +272,58 @@
           
           
             <article class="post-preview">
+    <a href="https://whatacold.io/blog/2025-04-11-google-analytics-clojurescript/">
+        <h2 class="post-title">Collecting Events to Google Analytics using ClojureScript</h2>
+        
+        
+        
+    </a>
+
+    <p class="post-meta">
+        <span class="post-meta">
+  
+  
+  <i class="fas fa-calendar"></i>&nbsp;Posted on 2025-04-11
+  
+  
+    &nbsp;|&nbsp;<i class="fas fa-clock"></i>&nbsp;1&nbsp;minutes
+  
+  
+    &nbsp;|&nbsp;<i class="fas fa-book"></i>&nbsp;94&nbsp;words
+  
+  
+  
+</span>
+
+
+    </p>
+    <div class="post-entry">
+        
+        When you’re building a side project, chances are you need to collect user events so that you can understand user behaviors better and eventually improve your product.
+So recently I made a small ClojureScript library for that, it supports web apps or chrome extensions. Check it out at https://github.com/whatacold/google-analytics, it also contains a demo project using shadow-cljs as the build tool.
+Hope it helps, and give it a star ⭐ on GitHub and share it if it does, thanks!
+        <a href="https://whatacold.io/blog/2025-04-11-google-analytics-clojurescript/" class="post-read-more">[Read More]</a>
+        
+    </div>
+
+    
+    <div class="blog-tags">
+        
+       
+       <a href="https://whatacold.io/tags/clojurescript/">ClojureScript</a>&nbsp;
+        
+       
+       <a href="https://whatacold.io/tags/shadow-cljs/">shadow-cljs</a>&nbsp;
+        
+       
+       <a href="https://whatacold.io/tags/tweet/">tweet</a>&nbsp;
+         
+    </div>
+    
+
+</article>
+          
+            <article class="post-preview">
     <a href="https://whatacold.io/blog/2025-02-22-flask-clojure-rewrite/">
         <h2 class="post-title">Rewrite of a Flask Web App in Clojure</h2>
         
@@ -733,56 +785,6 @@ Even better, we can add dependency from a Git repo and specify the commit hash: 
         While impletenting the live reload feature for Clay a few weeks ago, unfortunately, I was bitten by the laziness of map. It seems quite obvious we all know that its result is a lazy sequence, but I just can&#39;t help fall into the &#34;trap&#34;.
 At that time I was adding a vector to keep track of all beholder instances watching file changes in user specified directories. So then when it&#39;s time to stop all the watchers, I used something like to achieve the goal:
         <a href="https://whatacold.io/blog/2024-11-10-clojure-lazy-seq-case/" class="post-read-more">[Read More]</a>
-        
-    </div>
-
-    
-    <div class="blog-tags">
-        
-       
-       <a href="https://whatacold.io/tags/clojure/">Clojure</a>&nbsp;
-        
-       
-       <a href="https://whatacold.io/tags/tweet/">Tweet</a>&nbsp;
-         
-    </div>
-    
-
-</article>
-          
-            <article class="post-preview">
-    <a href="https://whatacold.io/blog/2024-11-08-clojure-thread-macro-anonymous-function/">
-        <h2 class="post-title">Anonymous Functions in Thread Macros</h2>
-        
-        
-        
-    </a>
-
-    <p class="post-meta">
-        <span class="post-meta">
-  
-  
-  <i class="fas fa-calendar"></i>&nbsp;Posted on 2024-11-08
-  
-    &nbsp;(Last modified on 2024-11-10)
-  
-  
-    &nbsp;|&nbsp;<i class="fas fa-clock"></i>&nbsp;1&nbsp;minutes
-  
-  
-    &nbsp;|&nbsp;<i class="fas fa-book"></i>&nbsp;194&nbsp;words
-  
-  
-  
-</span>
-
-
-    </p>
-    <div class="post-entry">
-        
-        While adding the live reload feature to Clay, I encountered a problem of applying anonymous functions to thread macros. For example, below is a simple snippet trying to wrap the input directory as a vector with the help of thread macro, but surprisingly, it errors out. After some searching, I figured out that I need to put the anonymous function into another pair of parentheses:
-(-&gt; &#34;/tmp/&#34; #(if (vector? %) % [%])) ;; =&gt; Syntax error (ClassCastException) compiling fn* at (simple4all.
-        <a href="https://whatacold.io/blog/2024-11-08-clojure-thread-macro-anonymous-function/" class="post-read-more">[Read More]</a>
         
     </div>
 

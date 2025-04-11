@@ -8,8 +8,15 @@
     <language>en</language>
     <managingEditor>whatacold@gmail.com (Ken Huang)</managingEditor>
     <webMaster>whatacold@gmail.com (Ken Huang)</webMaster>
-    <lastBuildDate>Wed, 26 Feb 2025 00:11:19 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 11 Apr 2025 23:08:17 +0800</lastBuildDate>
     <atom:link href="https://whatacold.io/tags/tweet/rss.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Collecting Events to Google Analytics using ClojureScript</title>
+      <link>https://whatacold.io/blog/2025-04-11-google-analytics-clojurescript/</link>
+      <pubDate>Fri, 11 Apr 2025 22:49:27 +0800</pubDate><author>whatacold@gmail.com (Ken Huang)</author>
+      <guid>https://whatacold.io/blog/2025-04-11-google-analytics-clojurescript/</guid>
+      <description>When you’re building a side project, chances are you need to collect user events so that you can understand user behaviors better and eventually improve your product.&#xA;So recently I made a small ClojureScript library for that, it supports web apps or chrome extensions. Check it out at https://github.com/whatacold/google-analytics, it also contains a demo project using shadow-cljs as the build tool.&#xA;Hope it helps, and give it a star ⭐ on GitHub and share it if it does, thanks!</description>
+    </item>
     <item>
       <title>Constructing Clojure Maps Conditionally</title>
       <link>https://whatacold.io/blog/2025-01-05-construct-a-map-clojure/</link>

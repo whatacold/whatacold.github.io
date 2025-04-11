@@ -236,6 +236,56 @@
         <div class="posts-list">
           
             <article class="post-preview">
+    <a href="https://whatacold.io/blog/2024-11-08-clojure-thread-macro-anonymous-function/">
+        <h2 class="post-title">Anonymous Functions in Thread Macros</h2>
+        
+        
+        
+    </a>
+
+    <p class="post-meta">
+        <span class="post-meta">
+  
+  
+  <i class="fas fa-calendar"></i>&nbsp;Posted on 2024-11-08
+  
+    &nbsp;(Last modified on 2024-11-10)
+  
+  
+    &nbsp;|&nbsp;<i class="fas fa-clock"></i>&nbsp;1&nbsp;minutes
+  
+  
+    &nbsp;|&nbsp;<i class="fas fa-book"></i>&nbsp;194&nbsp;words
+  
+  
+  
+</span>
+
+
+    </p>
+    <div class="post-entry">
+        
+        While adding the live reload feature to Clay, I encountered a problem of applying anonymous functions to thread macros. For example, below is a simple snippet trying to wrap the input directory as a vector with the help of thread macro, but surprisingly, it errors out. After some searching, I figured out that I need to put the anonymous function into another pair of parentheses:
+(-&gt; &#34;/tmp/&#34; #(if (vector? %) % [%])) ;; =&gt; Syntax error (ClassCastException) compiling fn* at (simple4all.
+        <a href="https://whatacold.io/blog/2024-11-08-clojure-thread-macro-anonymous-function/" class="post-read-more">[Read More]</a>
+        
+    </div>
+
+    
+    <div class="blog-tags">
+        
+       
+       <a href="https://whatacold.io/tags/clojure/">Clojure</a>&nbsp;
+        
+       
+       <a href="https://whatacold.io/tags/tweet/">Tweet</a>&nbsp;
+         
+    </div>
+    
+
+</article>
+          
+            <article class="post-preview">
     <a href="https://whatacold.io/blog/2024-11-08-cider-clojure-repl-cmdline/">
         <h2 class="post-title">Starting a Clojure nREPL Manually for Cider</h2>
         
@@ -682,54 +732,6 @@ Photo by Mike Newbry on Unsplash But in order to ease the pain, I will introduce
         
        
        <a href="https://whatacold.io/tags/debugging/">Debugging</a>&nbsp;
-         
-    </div>
-    
-
-</article>
-          
-            <article class="post-preview">
-    <a href="https://whatacold.io/blog/2022-05-23-emacs-duplicate-line/">
-        <h2 class="post-title">Duplicate the current line in Emacs</h2>
-        
-        
-        
-    </a>
-
-    <p class="post-meta">
-        <span class="post-meta">
-  
-  
-  <i class="fas fa-calendar"></i>&nbsp;Posted on 2022-05-23
-  
-    &nbsp;(Last modified on 2025-02-26)
-  
-  
-    &nbsp;|&nbsp;<i class="fas fa-clock"></i>&nbsp;1&nbsp;minutes
-  
-  
-    &nbsp;|&nbsp;<i class="fas fa-book"></i>&nbsp;196&nbsp;words
-  
-  
-  
-</span>
-
-
-    </p>
-    <div class="post-entry">
-        
-        Duplicate the current in Emacs Duplicating the current line is frequent editing for me when I am coding. Initially, I copied a snippet as a command in Emacs from the Internet:
-(defun w/duplicate-line() &#34;Duplicate the current line.&#34; (interactive) (move-beginning-of-line 1) (kill-line) (yank) (open-line 1) (next-line 1) (yank)) Most of the time, I was happy with it, but it has mainly two drawbacks:
-It cannot keep the column position when moving to the next line It messes up with the yank ring as it yanks the text under the hood So today, I took some time to fix these two problems, and I also want it to be capable of commenting the current line out if I prefix the command.
-        <a href="https://whatacold.io/blog/2022-05-23-emacs-duplicate-line/" class="post-read-more">[Read More]</a>
-        
-    </div>
-
-    
-    <div class="blog-tags">
-        
-       
-       <a href="https://whatacold.io/tags/emacs/">Emacs</a>&nbsp;
          
     </div>
     

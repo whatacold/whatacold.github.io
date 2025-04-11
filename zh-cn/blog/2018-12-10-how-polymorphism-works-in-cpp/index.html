@@ -381,7 +381,7 @@
 </span></span><span class="line"><span class="cl">(gdb) b main
 </span></span><span class="line"><span class="cl">Breakpoint 1 at 0x40061f: file virtual-class-polymorphism.cpp, line 15.
 </span></span><span class="line"><span class="cl">(gdb) r
-</span></span><span class="line"><span class="cl">Starting program: /home/hgw/demo-code/cpp/vtable/a.out 
+</span></span><span class="line"><span class="cl">Starting program: /home/ken/demo-code/cpp/vtable/a.out 
 </span></span><span class="line"><span class="cl">Missing separate debuginfos, use: dnf debuginfo-install glibc-2.27-30.fc28.x86_64
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">Breakpoint 1, main () at virtual-class-polymorphism.cpp:15
@@ -423,10 +423,10 @@
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">;; 查看 &lt;vtable for Derived+16&gt; 地址中存储的内容，可以看到就是函数指针
 </span></span><span class="line"><span class="cl">(gdb) info symbol 0x400664
-</span></span><span class="line"><span class="cl">Derived::foo() in section .text of /home/hgw/demo-code/cpp/vtable/a.out
+</span></span><span class="line"><span class="cl">Derived::foo() in section .text of /home/ken/demo-code/cpp/vtable/a.out
 </span></span><span class="line"><span class="cl">;; 查看 &lt;vtable for Derived+8&gt; 地址中存储的内容，指向 typeinfo 内存位置
 </span></span><span class="line"><span class="cl">(gdb) info symbol 0x400760
-</span></span><span class="line"><span class="cl">typeinfo for Derived in section .rodata of /home/hgw/demo-code/cpp/vtable/a.out</span></span></code></pre></div>
+</span></span><span class="line"><span class="cl">typeinfo for Derived in section .rodata of /home/ken/demo-code/cpp/vtable/a.out</span></span></code></pre></div>
 </div>
 <p>
 现在再回过头来看静态的汇编代码，就容易理解了：</p>
