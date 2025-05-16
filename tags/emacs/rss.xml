@@ -8,10 +8,10 @@
     <language>en</language>
     <managingEditor>whatacold@gmail.com (Ken Huang)</managingEditor>
     <webMaster>whatacold@gmail.com (Ken Huang)</webMaster>
-    <lastBuildDate>Sat, 17 May 2025 04:58:41 +0800</lastBuildDate>
+    <lastBuildDate>Sat, 17 May 2025 05:15:47 +0800</lastBuildDate>
     <atom:link href="https://whatacold.io/tags/emacs/rss.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>🥷 Clojure Pro Tip 3: Cider ClojureDocs</title>
+      <title>🥷 Clojure Pro Tip 4: Cider ClojureDocs</title>
       <link>https://whatacold.io/blog/2025-04-29-clojure-tip-cider-clojuredocs/</link>
       <pubDate>Tue, 29 Apr 2025 12:49:27 +0800</pubDate><author>whatacold@gmail.com (Ken Huang)</author>
       <guid>https://whatacold.io/blog/2025-04-29-clojure-tip-cider-clojuredocs/</guid>

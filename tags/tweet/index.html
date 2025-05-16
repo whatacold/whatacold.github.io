@@ -233,7 +233,7 @@
           
             <article class="post-preview">
     <a href="https://whatacold.io/blog/2025-05-15-clojure-tip-hiccup-raw/">
-        <h2 class="post-title">🥷 Clojure Pro Tip 4: Hiccup Raw</h2>
+        <h2 class="post-title">🥷 Clojure Pro Tip 5: Hiccup Raw</h2>
         
         
         
@@ -284,7 +284,7 @@ Hiccup raw in action Looking back, I should’ve found this at the very beginnin
           
             <article class="post-preview">
     <a href="https://whatacold.io/blog/2025-04-29-clojure-tip-cider-clojuredocs/">
-        <h2 class="post-title">🥷 Clojure Pro Tip 3: Cider ClojureDocs</h2>
+        <h2 class="post-title">🥷 Clojure Pro Tip 4: Cider ClojureDocs</h2>
         
         
         
@@ -341,7 +341,7 @@ Running M-x cider-clojuredocs I happened to find this command recently. I bet I 
           
             <article class="post-preview">
     <a href="https://whatacold.io/blog/2025-04-23-clojure-tip-thread-as/">
-        <h2 class="post-title">🥷 Clojure Pro Tip 2: the Thread-As Macro</h2>
+        <h2 class="post-title">🥷 Clojure Pro Tip 3: the Thread-As Macro</h2>
         
         
         
@@ -379,6 +379,64 @@ Luckily, you can use <a href="https://clojuredocs.org/clojure_core/clojure.core/
 Lambda vs. thread-as
 </figcaption>
 </figure>
+
+        
+    </div>
+
+    
+    <div class="blog-tags">
+        
+       
+       <a href="https://whatacold.io/tags/clojure/">Clojure</a>&nbsp;
+        
+       
+       <a href="https://whatacold.io/tags/tweet/">tweet</a>&nbsp;
+         
+    </div>
+    
+
+</article>
+          
+            <article class="post-preview">
+    <a href="https://whatacold.io/blog/2025-04-18-clojure-group-by/">
+        <h2 class="post-title">🥷 Clojure Pro Tip 2: group-by</h2>
+        
+        
+        
+    </a>
+
+    <p class="post-meta">
+        <span class="post-meta">
+  
+  
+  <i class="fas fa-calendar"></i>&nbsp;Posted on 2025-04-18
+  
+    &nbsp;(Last modified on 2025-05-17)
+  
+  
+    &nbsp;|&nbsp;<i class="fas fa-clock"></i>&nbsp;1&nbsp;minutes
+  
+  
+    &nbsp;|&nbsp;<i class="fas fa-book"></i>&nbsp;47&nbsp;words
+  
+  
+  
+</span>
+
+
+    </p>
+    <div class="post-entry">
+        
+        <p>
+It&#39;s amazingly easy to group things in Clojure. The language core provides a <a href="https://clojuredocs.org/clojure_core/clojure.core/group-by">group-by</a> function directly. Together with many built-in functions or key functions, it creates a ton of possibilities, and we can also bake our grouping function if none is satisfying.</p>
+<figure>
+<img src="/img/clojure-group-by.jpg" alt="group-by" title="Click to enlarge the image"/>
+<figcaption>
+group-by
+</figcaption>
+</figure>
+<p>
+Example from <a href="https://github.com/functional-koans/clojure-koans">Clojure Koans</a>.</p>
 
         
     </div>
@@ -718,56 +776,6 @@ Even better, we can add dependency from a Git repo and specify the commit hash: 
         
        
        <a href="https://whatacold.io/tags/clj/">clj</a>&nbsp;
-         
-    </div>
-    
-
-</article>
-          
-            <article class="post-preview">
-    <a href="https://whatacold.io/blog/2024-11-10-clojure-lazy-seq-case/">
-        <h2 class="post-title">Bitten by Lazy Sequence of map</h2>
-        
-        
-        
-    </a>
-
-    <p class="post-meta">
-        <span class="post-meta">
-  
-  
-  <i class="fas fa-calendar"></i>&nbsp;Posted on 2024-11-09
-  
-    &nbsp;(Last modified on 2024-11-10)
-  
-  
-    &nbsp;|&nbsp;<i class="fas fa-clock"></i>&nbsp;1&nbsp;minutes
-  
-  
-    &nbsp;|&nbsp;<i class="fas fa-book"></i>&nbsp;167&nbsp;words
-  
-  
-  
-</span>
-
-
-    </p>
-    <div class="post-entry">
-        
-        While impletenting the live reload feature for Clay a few weeks ago, unfortunately, I was bitten by the laziness of map. It seems quite obvious we all know that its result is a lazy sequence, but I just can&#39;t help fall into the &#34;trap&#34;.
-At that time I was adding a vector to keep track of all beholder instances watching file changes in user specified directories. So then when it&#39;s time to stop all the watchers, I used something like to achieve the goal:
-        <a href="https://whatacold.io/blog/2024-11-10-clojure-lazy-seq-case/" class="post-read-more">[Read More]</a>
-        
-    </div>
-
-    
-    <div class="blog-tags">
-        
-       
-       <a href="https://whatacold.io/tags/clojure/">Clojure</a>&nbsp;
-        
-       
-       <a href="https://whatacold.io/tags/tweet/">Tweet</a>&nbsp;
          
     </div>
     

@@ -8,28 +8,35 @@
     <language>en</language>
     <managingEditor>whatacold@gmail.com (Ken Huang)</managingEditor>
     <webMaster>whatacold@gmail.com (Ken Huang)</webMaster>
-    <lastBuildDate>Sat, 17 May 2025 04:58:41 +0800</lastBuildDate>
+    <lastBuildDate>Sat, 17 May 2025 05:15:47 +0800</lastBuildDate>
     <atom:link href="https://whatacold.io/rss.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>🥷 Clojure Pro Tip 4: Hiccup Raw</title>
+      <title>🥷 Clojure Pro Tip 5: Hiccup Raw</title>
       <link>https://whatacold.io/blog/2025-05-15-clojure-tip-hiccup-raw/</link>
       <pubDate>Thu, 15 May 2025 12:49:27 +0800</pubDate><author>whatacold@gmail.com (Ken Huang)</author>
       <guid>https://whatacold.io/blog/2025-05-15-clojure-tip-hiccup-raw/</guid>
       <description>In case you don’t know it, we can use raw strings, like embedding JS code, in hiccup.&#xA;I just found out we can use raw to prevent strings from getting escaped. I used to have to define a dedicated app.js for that, which would need an extra HTTP request.&#xA;Hiccup raw in action Looking back, I should’ve found this at the very beginning, as it’s just mentioned on its GitHub homepage, but somehow I missed it.</description>
     </item>
     <item>
-      <title>🥷 Clojure Pro Tip 3: Cider ClojureDocs</title>
+      <title>🥷 Clojure Pro Tip 4: Cider ClojureDocs</title>
       <link>https://whatacold.io/blog/2025-04-29-clojure-tip-cider-clojuredocs/</link>
       <pubDate>Tue, 29 Apr 2025 12:49:27 +0800</pubDate><author>whatacold@gmail.com (Ken Huang)</author>
       <guid>https://whatacold.io/blog/2025-04-29-clojure-tip-cider-clojuredocs/</guid>
       <description>Sometimes, we may want a few examples of a Clojure API for inspiration while developing, especially when reading other people&amp;#39;s or open source code.&#xA;With Cider in Emacs, we can run M-x cider-doc to see the docstring for the symbol. We can even use M-x cider-clojuredocs for some examples if the symbol is from the language core.&#xA;Running M-x cider-clojuredocs I happened to find this command recently. I bet I was not the only one who didn&amp;#39;t know it, thus I&amp;#39;m sharing.</description>
     </item>
     <item>
-      <title>🥷 Clojure Pro Tip 2: the Thread-As Macro</title>
+      <title>🥷 Clojure Pro Tip 3: the Thread-As Macro</title>
       <link>https://whatacold.io/blog/2025-04-23-clojure-tip-thread-as/</link>
       <pubDate>Wed, 23 Apr 2025 12:49:27 +0800</pubDate><author>whatacold@gmail.com (Ken Huang)</author>
       <guid>https://whatacold.io/blog/2025-04-23-clojure-tip-thread-as/</guid>
       <description> So you&amp;#39;re more than excited to find out how Clojure&amp;#39;s thread macros can make code clean and concise, you just love it! But at some point you&amp;#39;ll be trapped a bit as the threaded argument&amp;#39;s positions are inconsistent using -&amp;gt; or -&amp;gt;&amp;gt;.&#xA;Luckily, you can use as-&amp;gt; to place the argument wherever you like:&#xA;Lambda vs. thread-as </description>
+    </item>
+    <item>
+      <title>🥷 Clojure Pro Tip 2: group-by</title>
+      <link>https://whatacold.io/blog/2025-04-18-clojure-group-by/</link>
+      <pubDate>Fri, 18 Apr 2025 12:49:27 +0800</pubDate><author>whatacold@gmail.com (Ken Huang)</author>
+      <guid>https://whatacold.io/blog/2025-04-18-clojure-group-by/</guid>
+      <description>It&amp;#39;s amazingly easy to group things in Clojure. The language core provides a group-by function directly. Together with many built-in functions or key functions, it creates a ton of possibilities, and we can also bake our grouping function if none is satisfying.&#xA;group-by Example from Clojure Koans.</description>
     </item>
     <item>
       <title>Collecting Events to Google Analytics using ClojureScript</title>

@@ -12,12 +12,10 @@
  
 
 
-      <title>Clojure reduce: one case for text processing - Ken Huang</title>
+      <title>🥷 Clojure Pro Tip 2: group-by - Ken Huang</title>
 
-  <meta name="description" content="As a practice, I managed to illustrate Clojure files using illustrate.clj, but my original idea was to annotate org-mode files of blogs. It&#39;s not uncommon that a blog post has some code snippets.
-But it missed the feature until last night, as I wasn&#39;t sure how to implement it appropriately before and didn&#39;t have enough time.
-For example, I may have an org-mode like this:
-sum of two numbers: #&#43;begin_src clojure (&#43; 1 2) #&#43;end_src I want to have a result comment ((;; =&gt; 3)) after each top-level form after using illustrate.">
+  <meta name="description" content="It&#39;s amazingly easy to group things in Clojure. The language core provides a group-by function directly. Together with many built-in functions or key functions, it creates a ton of possibilities, and we can also bake our grouping function if none is satisfying.
+group-by Example from Clojure Koans.">
   <meta name="author" content="Ken Huang"/><script type="application/ld+json">
 {
     "@context": "http://schema.org",
@@ -53,8 +51,8 @@ sum of two numbers: #&#43;begin_src clojure (&#43; 1 2) #&#43;end_src I want to 
         "@type": "ListItem",
         "position": 3,
         "item": {
-          "@id": "https:\/\/whatacold.io\/blog\/2021-09-19-clojure-reduce-text-processing\/",
-          "name": "Clojure reduce one case for text processing"
+          "@id": "https:\/\/whatacold.io\/blog\/2025-04-18-clojure-group-by\/",
+          "name": "Clojure pro tip 2 group by"
         }
     }]
 }
@@ -65,15 +63,15 @@ sum of two numbers: #&#43;begin_src clojure (&#43; 1 2) #&#43;end_src I want to 
   "author": {
     "name" : "Ken Huang"
   },
-  "headline": "Clojure reduce: one case for text processing",
-  "description" : "As a practice, I managed to illustrate Clojure files using illustrate.clj, but my original idea was to annotate org-mode files of blogs. It\u0026#39;s not uncommon that a blog post has some code snippets.\nBut it missed the feature until last night, as I wasn\u0026#39;t sure how to implement it appropriately before and didn\u0026#39;t have enough time.\nFor example, I may have an org-mode like this:\nsum of two numbers: #\u002bbegin_src clojure (\u002b 1 2) #\u002bend_src I want to have a result comment ((;; =\u0026gt; 3)) after each top-level form after using illustrate.",
+  "headline": "🥷 Clojure Pro Tip 2: group-by",
+  "description" : "It\u0026#39;s amazingly easy to group things in Clojure. The language core provides a group-by function directly. Together with many built-in functions or key functions, it creates a ton of possibilities, and we can also bake our grouping function if none is satisfying.\ngroup-by Example from Clojure Koans.",
   "inLanguage" : "en",
-  "wordCount":  331 ,
-  "datePublished" : "2021-09-19T10:39:23\u002b08:00",
-  "dateModified" : "2021-09-19T10:39:28\u002b08:00",
+  "wordCount":  47 ,
+  "datePublished" : "2025-04-18T12:49:27\u002b08:00",
+  "dateModified" : "2025-05-17T05:15:02\u002b08:00",
   "image" : "https:\/\/whatacold.io\/img\/2021-12-10-motor-helmet-400.jpg",
-  "keywords" : [ "Clojure, Babashka" ],
-  "mainEntityOfPage" : "https:\/\/whatacold.io\/blog\/2021-09-19-clojure-reduce-text-processing\/",
+  "keywords" : [ "Clojure, tweet" ],
+  "mainEntityOfPage" : "https:\/\/whatacold.io\/blog\/2025-04-18-clojure-group-by\/",
   "publisher" : {
     "@type": "Organization",
     "name" : "https:\/\/whatacold.io\/",
@@ -88,19 +86,17 @@ sum of two numbers: #&#43;begin_src clojure (&#43; 1 2) #&#43;end_src I want to 
 </script>
 
 
-<meta property="og:title" content="Clojure reduce: one case for text processing" />
-<meta property="og:description" content="As a practice, I managed to illustrate Clojure files using illustrate.clj, but my original idea was to annotate org-mode files of blogs. It&#39;s not uncommon that a blog post has some code snippets.
-But it missed the feature until last night, as I wasn&#39;t sure how to implement it appropriately before and didn&#39;t have enough time.
-For example, I may have an org-mode like this:
-sum of two numbers: #&#43;begin_src clojure (&#43; 1 2) #&#43;end_src I want to have a result comment ((;; =&gt; 3)) after each top-level form after using illustrate.">
-<meta property="og:image" content="https://whatacold.io/img/2021-12-10-motor-helmet-og.jpg" />
-<meta property="og:url" content="https://whatacold.io/blog/2021-09-19-clojure-reduce-text-processing/" />
+<meta property="og:title" content="🥷 Clojure Pro Tip 2: group-by" />
+<meta property="og:description" content="It&#39;s amazingly easy to group things in Clojure. The language core provides a group-by function directly. Together with many built-in functions or key functions, it creates a ton of possibilities, and we can also bake our grouping function if none is satisfying.
+group-by Example from Clojure Koans.">
+<meta property="og:image" content="https://whatacold.io/img/clojure-group-by.jpg" />
+<meta property="og:url" content="https://whatacold.io/blog/2025-04-18-clojure-group-by/" />
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="Ken Huang" />
 
-  <meta name="twitter:title" content="Clojure reduce: one case for text processing" />
-  <meta name="twitter:description" content="As a practice, I managed to illustrate Clojure files using illustrate.clj, but my original idea was to annotate org-mode files of blogs. It&#39;s not uncommon that a blog post has some code snippets. …">
-  <meta name="twitter:image" content="https://whatacold.io/img/2021-12-10-motor-helmet-og.jpg" />
+  <meta name="twitter:title" content="🥷 Clojure Pro Tip 2: group-by" />
+  <meta name="twitter:description" content="It&#39;s amazingly easy to group things in Clojure. The language core provides a group-by function directly. Together with many built-in functions or key functions, it creates a ton of possibilities, …">
+  <meta name="twitter:image" content="https://whatacold.io/img/clojure-group-by.jpg" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:site" content="@whatacold" />
   <meta name="twitter:creator" content="@whatacold" />
@@ -266,7 +262,7 @@ sum of two numbers: #&#43;begin_src clojure (&#43; 1 2) #&#43;end_src I want to 
           <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
             <div class="blog-heading">
               
-                <h1>Clojure reduce: one case for text processing</h1>
+                <h1>🥷 Clojure Pro Tip 2: group-by</h1>
               
               
                 <hr class="small">
@@ -293,79 +289,21 @@ sum of two numbers: #&#43;begin_src clojure (&#43; 1 2) #&#43;end_src I want to 
           
           <p class="page-meta">
             
-            Published: 2021-09-19
+            Published: 2025-04-18, Last Updated: 2025-05-17
             
           </p>
         
 
         <p>
-As a practice, I managed to illustrate <strong>Clojure files</strong> using <a href="/blog/2021-08-07-illustrate-clojure-snippet/">illustrate.clj</a>, but my original idea was to annotate org-mode files of blogs. It&#39;s not uncommon that a blog post has some code snippets.</p>
+It&#39;s amazingly easy to group things in Clojure. The language core provides a <a href="https://clojuredocs.org/clojure_core/clojure.core/group-by">group-by</a> function directly. Together with many built-in functions or key functions, it creates a ton of possibilities, and we can also bake our grouping function if none is satisfying.</p>
+<figure>
+<img src="/img/clojure-group-by.jpg" alt="group-by" title="Click to enlarge the image"/>
+<figcaption>
+group-by
+</figcaption>
+</figure>
 <p>
-But it missed the feature until last night, as I wasn&#39;t sure how to implement it appropriately before and didn&#39;t have enough time.</p>
-<p>
-For example, I may have an org-mode like this:</p>
-<div class="src src-org">
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-org" data-lang="org"><span class="line"><span class="cl">sum of two numbers:
-</span></span><span class="line"><span class="cl"><span class="c">#+begin_src </span><span class="cs">clojure</span><span class="c">
-</span></span></span><span class="line"><span class="cl"><span class="c"></span><span class="p">(</span><span class="nb">+ </span><span class="mi">1</span> <span class="mi">2</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="c">#+end_src</span></span></span></code></pre></div>
-</div>
-<p>
-I want to have a result comment (<code class="verbatim">(;; =&gt; 3)</code>) after each top-level form after using <code class="verbatim">illustrate.clj</code>:
-sum of two numbers:</p>
-<div class="src src-org">
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-org" data-lang="org"><span class="line"><span class="cl"><span class="c">#+begin_src </span><span class="cs">clojure</span><span class="c">
-</span></span></span><span class="line"><span class="cl"><span class="c"></span><span class="p">(</span><span class="nb">+ </span><span class="mi">1</span> <span class="mi">2</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="c1">;; =&gt; 3</span>
-</span></span><span class="line"><span class="cl"><span class="c">#+end_src</span></span></span></code></pre></div>
-</div>
-<p>
-As I come from a background of C++ and Python, the common way to do that in these languages would be:</p>
-<ol>
-<li>find the begin of source blocks (<code class="verbatim">#+begin_src</code>), and find their corresponding ends.</li>
-<li>extract and illustrate the source blocks</li>
-<li>join the newly source blocks back with the previous content</li>
-</ol>
-<p>The Clojure way here is similar, but using <code class="verbatim">reduce</code>:</p>
-<ol>
-<li>split the file content into lines</li>
-<li>reduct the lines to final content
-
-Use a state to carry the content before a block and the source block along the way. if a source block ends, call <code class="verbatim">(illustrate-string)</code> to illustrate it and append the result string to previous content.</li>
-</ol>
-<p>The function is like this:</p>
-<div class="src src-clojure">
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-clojure" data-lang="clojure"><span class="line"><span class="cl"><span class="p">(</span><span class="kd">defn </span><span class="nv">illustrate-org-file</span>
-</span></span><span class="line"><span class="cl">  <span class="s">&#34;Add illustration comments to an org-mode file&#34;</span>
-</span></span><span class="line"><span class="cl">  <span class="p">[</span><span class="nv">file</span> <span class="nv">new-file</span><span class="p">]</span>
-</span></span><span class="line"><span class="cl">  <span class="p">(</span><span class="k">let </span><span class="p">[</span><span class="nv">lines</span> <span class="p">(</span><span class="nf">clojure.string/split-lines</span> <span class="p">(</span><span class="nb">slurp </span><span class="nv">file</span><span class="p">))</span>
-</span></span><span class="line"><span class="cl">        <span class="nv">result</span> <span class="p">(</span><span class="nb">reduce </span><span class="p">(</span><span class="nf">fn</span>
-</span></span><span class="line"><span class="cl">                         <span class="p">[</span><span class="nv">state</span> <span class="nv">line</span><span class="p">]</span>
-</span></span><span class="line"><span class="cl">                         <span class="p">(</span><span class="k">let </span><span class="p">[</span><span class="nv">content</span> <span class="p">(</span><span class="nb">nth </span><span class="nv">state</span> <span class="mi">0</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">                               <span class="nv">prev-in-block?</span> <span class="p">(</span><span class="nb">nth </span><span class="nv">state</span> <span class="mi">1</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">                               <span class="nv">src-block</span> <span class="p">(</span><span class="nb">nth </span><span class="nv">state</span> <span class="mi">2</span><span class="p">)]</span>
-</span></span><span class="line"><span class="cl">                           <span class="p">(</span><span class="k">if </span><span class="nv">prev-in-block?</span>
-</span></span><span class="line"><span class="cl">                             <span class="p">(</span><span class="k">if </span><span class="p">(</span><span class="nb">re-matches </span><span class="o">#</span><span class="s">&#34;\s*#\+end_src&#34;</span> <span class="nv">line</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">                               <span class="p">[(</span><span class="nb">str </span><span class="nv">content</span> <span class="p">(</span><span class="nf">illustrate-string</span> <span class="nv">src-block</span><span class="p">)</span> <span class="nv">line</span> <span class="s">&#34;\n&#34;</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">                                <span class="nv">false</span>
-</span></span><span class="line"><span class="cl">                                <span class="s">&#34;&#34;</span><span class="p">]</span>
-</span></span><span class="line"><span class="cl">                               <span class="p">[</span><span class="nv">content</span>
-</span></span><span class="line"><span class="cl">                                <span class="nv">true</span>
-</span></span><span class="line"><span class="cl">                                <span class="p">(</span><span class="nb">str </span><span class="nv">src-block</span> <span class="nv">line</span> <span class="s">&#34;\n&#34;</span><span class="p">)])</span> <span class="c1">; append to the source block</span>
-</span></span><span class="line"><span class="cl">                             <span class="c1">;; not in a src block previously</span>
-</span></span><span class="line"><span class="cl">                             <span class="p">[(</span><span class="nb">str </span><span class="nv">content</span> <span class="nv">line</span> <span class="s">&#34;\n&#34;</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">                              <span class="p">(</span><span class="k">if </span><span class="p">(</span><span class="nb">re-matches </span><span class="o">#</span><span class="s">&#34;\s*#\+begin_src\s+clojure&#34;</span> <span class="nv">line</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">                                <span class="nv">true</span>
-</span></span><span class="line"><span class="cl">                                <span class="nv">false</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">                              <span class="s">&#34;&#34;</span><span class="p">])))</span>
-</span></span><span class="line"><span class="cl">                       <span class="p">[</span><span class="s">&#34;&#34;</span> <span class="nv">false</span> <span class="s">&#34;&#34;</span><span class="p">]</span>
-</span></span><span class="line"><span class="cl">                       <span class="nv">lines</span><span class="p">)]</span>
-</span></span><span class="line"><span class="cl">    <span class="p">(</span><span class="nf">spit</span> <span class="nv">new-file</span> <span class="p">(</span><span class="nb">nth </span><span class="nv">result</span> <span class="mi">0</span><span class="p">))))</span></span></span></code></pre></div>
-</div>
-<p>
-Although it works, it&#39;s not as concise and elegant as I expected. Maybe I would improve the code in the future.</p>
-<p>
-The complete code is at my <a href="https://github.com/whatacold/babashka-tools/blob/master/illustrate.clj">babashka-tools</a> repo.</p>
+Example from <a href="https://github.com/functional-koans/clojure-koans">Clojure Koans</a>.</p>
 
 
         
@@ -375,7 +313,7 @@ The complete code is at my <a href="https://github.com/whatacold/babashka-tools/
               <a href="https://whatacold.io/tags/clojure/">Clojure</a>&nbsp;
             
               
-              <a href="https://whatacold.io/tags/babashka/">Babashka</a>&nbsp;
+              <a href="https://whatacold.io/tags/tweet/">tweet</a>&nbsp;
             
           </div>
         
@@ -390,42 +328,42 @@ The complete code is at my <a href="https://github.com/whatacold/babashka-tools/
     <ul class="share">
       
       <li>
-        <a href="//twitter.com/share?url=https%3a%2f%2fwhatacold.io%2fblog%2f2021-09-19-clojure-reduce-text-processing%2f&amp;text=Clojure%20reduce%3a%20one%20case%20for%20text%20processing&amp;via=whatacold" target="_blank" title="Share on Twitter">
+        <a href="//twitter.com/share?url=https%3a%2f%2fwhatacold.io%2fblog%2f2025-04-18-clojure-group-by%2f&amp;text=%f0%9f%a5%b7%20Clojure%20Pro%20Tip%202%3a%20group-by&amp;via=whatacold" target="_blank" title="Share on Twitter">
           <i class="fab fa-twitter"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fwhatacold.io%2fblog%2f2021-09-19-clojure-reduce-text-processing%2f" target="_blank" title="Share on Facebook">
+        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fwhatacold.io%2fblog%2f2025-04-18-clojure-group-by%2f" target="_blank" title="Share on Facebook">
           <i class="fab fa-facebook"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//reddit.com/submit?url=https%3a%2f%2fwhatacold.io%2fblog%2f2021-09-19-clojure-reduce-text-processing%2f&amp;title=Clojure%20reduce%3a%20one%20case%20for%20text%20processing" target="_blank" title="Share on Reddit">
+        <a href="//reddit.com/submit?url=https%3a%2f%2fwhatacold.io%2fblog%2f2025-04-18-clojure-group-by%2f&amp;title=%f0%9f%a5%b7%20Clojure%20Pro%20Tip%202%3a%20group-by" target="_blank" title="Share on Reddit">
           <i class="fab fa-reddit"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fwhatacold.io%2fblog%2f2021-09-19-clojure-reduce-text-processing%2f&amp;title=Clojure%20reduce%3a%20one%20case%20for%20text%20processing" target="_blank" title="Share on LinkedIn">
+        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fwhatacold.io%2fblog%2f2025-04-18-clojure-group-by%2f&amp;title=%f0%9f%a5%b7%20Clojure%20Pro%20Tip%202%3a%20group-by" target="_blank" title="Share on LinkedIn">
           <i class="fab fa-linkedin"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fwhatacold.io%2fblog%2f2021-09-19-clojure-reduce-text-processing%2f&amp;title=Clojure%20reduce%3a%20one%20case%20for%20text%20processing" target="_blank" title="Share on StumbleUpon">
+        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fwhatacold.io%2fblog%2f2025-04-18-clojure-group-by%2f&amp;title=%f0%9f%a5%b7%20Clojure%20Pro%20Tip%202%3a%20group-by" target="_blank" title="Share on StumbleUpon">
           <i class="fab fa-stumbleupon"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fwhatacold.io%2fblog%2f2021-09-19-clojure-reduce-text-processing%2f&amp;description=Clojure%20reduce%3a%20one%20case%20for%20text%20processing" target="_blank" title="Share on Pinterest">
+        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fwhatacold.io%2fblog%2f2025-04-18-clojure-group-by%2f&amp;description=%f0%9f%a5%b7%20Clojure%20Pro%20Tip%202%3a%20group-by" target="_blank" title="Share on Pinterest">
           <i class="fab fa-pinterest"></i>
         </a>
       </li>
@@ -453,7 +391,7 @@ The complete code is at my <a href="https://github.com/whatacold/babashka-tools/
                 
                     <li><a href="/blog/2025-04-23-clojure-tip-thread-as/">🥷 Clojure Pro Tip 3: the Thread-As Macro</a></li>
                 
-                    <li><a href="/blog/2025-04-18-clojure-group-by/">🥷 Clojure Pro Tip 2: group-by</a></li>
+                    <li><a href="/blog/2025-04-11-google-analytics-clojurescript/">Collecting Events to Google Analytics using ClojureScript</a></li>
                 
                     <li><a href="/blog/2025-04-05-clojure-tip-discard-reader-symbol/">🥷 Clojure Pro Tip 1: the Discard Reader Symbol</a></li>
                 
@@ -467,12 +405,12 @@ The complete code is at my <a href="https://github.com/whatacold/babashka-tools/
         <ul class="pager blog-pager">
           
             <li class="previous">
-              <a href="https://whatacold.io/blog/2021-08-07-illustrate-clojure-snippet/" data-toggle="tooltip" data-placement="top" title="illustrate.clj to Illustrate Clojure Snippet">&larr; Previous Post</a>
+              <a href="https://whatacold.io/blog/2025-04-11-google-analytics-clojurescript/" data-toggle="tooltip" data-placement="top" title="Collecting Events to Google Analytics using ClojureScript">&larr; Previous Post</a>
             </li>
           
           
             <li class="next">
-              <a href="https://whatacold.io/blog/2021-12-05-beautifulsoup4-cheatsheet/" data-toggle="tooltip" data-placement="top" title="Beautiful Soup 4 Cheatsheet">Next Post &rarr;</a>
+              <a href="https://whatacold.io/blog/2025-04-23-clojure-tip-thread-as/" data-toggle="tooltip" data-placement="top" title="🥷 Clojure Pro Tip 3: the Thread-As Macro">Next Post &rarr;</a>
             </li>
           
         </ul>
