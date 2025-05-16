@@ -3,7 +3,7 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://whatacold.io/blog/</loc>
-    <lastmod>2025-04-11T23:08:17+08:00</lastmod>
+    <lastmod>2025-05-17T04:58:41+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="zh-cn"
@@ -14,6 +14,73 @@
                 hreflang="en"
                 href="https://whatacold.io/blog/"
                 />
+  </url><url>
+    <loc>https://whatacold.io/tags/clojure/</loc>
+    <lastmod>2025-05-17T04:58:41+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-cn"
+                href="https://whatacold.io/zh-cn/tags/clojure/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://whatacold.io/tags/clojure/"
+                />
+  </url><url>
+    <loc>https://whatacold.io/</loc>
+    <lastmod>2025-05-17T04:58:41+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-cn"
+                href="https://whatacold.io/zh-cn/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://whatacold.io/"
+                />
+  </url><url>
+    <loc>https://whatacold.io/tags/</loc>
+    <lastmod>2025-05-17T04:58:41+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-cn"
+                href="https://whatacold.io/zh-cn/tags/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://whatacold.io/tags/"
+                />
+  </url><url>
+    <loc>https://whatacold.io/tags/tweet/</loc>
+    <lastmod>2025-05-17T04:58:41+08:00</lastmod>
+  </url><url>
+    <loc>https://whatacold.io/blog/2025-05-15-clojure-tip-hiccup-raw/</loc>
+    <lastmod>2025-05-17T04:52:16+08:00</lastmod>
+  </url><url>
+    <loc>https://whatacold.io/tags/cider/</loc>
+    <lastmod>2025-05-17T04:58:41+08:00</lastmod>
+  </url><url>
+    <loc>https://whatacold.io/tags/emacs/</loc>
+    <lastmod>2025-05-17T04:58:41+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-cn"
+                href="https://whatacold.io/zh-cn/tags/emacs/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://whatacold.io/tags/emacs/"
+                />
+  </url><url>
+    <loc>https://whatacold.io/blog/2025-04-29-clojure-tip-cider-clojuredocs/</loc>
+    <lastmod>2025-05-17T04:58:41+08:00</lastmod>
+  </url><url>
+    <loc>https://whatacold.io/blog/2025-04-23-clojure-tip-thread-as/</loc>
+    <lastmod>2025-05-17T04:57:15+08:00</lastmod>
   </url><url>
     <loc>https://whatacold.io/tags/clojurescript/</loc>
     <lastmod>2025-04-11T23:08:17+08:00</lastmod>
@@ -31,50 +98,11 @@
     <loc>https://whatacold.io/blog/2025-04-11-google-analytics-clojurescript/</loc>
     <lastmod>2025-04-11T23:08:17+08:00</lastmod>
   </url><url>
-    <loc>https://whatacold.io/</loc>
-    <lastmod>2025-04-11T23:08:17+08:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh-cn"
-                href="https://whatacold.io/zh-cn/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://whatacold.io/"
-                />
-  </url><url>
     <loc>https://whatacold.io/tags/shadow-cljs/</loc>
     <lastmod>2025-04-11T23:08:17+08:00</lastmod>
   </url><url>
-    <loc>https://whatacold.io/tags/</loc>
-    <lastmod>2025-04-11T23:08:17+08:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh-cn"
-                href="https://whatacold.io/zh-cn/tags/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://whatacold.io/tags/"
-                />
-  </url><url>
-    <loc>https://whatacold.io/tags/tweet/</loc>
-    <lastmod>2025-04-11T23:08:17+08:00</lastmod>
-  </url><url>
-    <loc>https://whatacold.io/tags/clojure/</loc>
-    <lastmod>2025-03-30T22:30:20+08:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh-cn"
-                href="https://whatacold.io/zh-cn/tags/clojure/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://whatacold.io/tags/clojure/"
-                />
+    <loc>https://whatacold.io/blog/2025-04-05-clojure-tip-discard-reader-symbol/</loc>
+    <lastmod>2025-05-17T04:54:41+08:00</lastmod>
   </url><url>
     <loc>https://whatacold.io/tags/flask/</loc>
     <lastmod>2025-03-30T22:30:20+08:00</lastmod>
@@ -97,22 +125,6 @@
   </url><url>
     <loc>https://whatacold.io/blog/2025-01-05-construct-a-map-clojure/</loc>
     <lastmod>2025-02-20T01:18:18+08:00</lastmod>
-  </url><url>
-    <loc>https://whatacold.io/tags/cider/</loc>
-    <lastmod>2025-02-26T00:11:19+08:00</lastmod>
-  </url><url>
-    <loc>https://whatacold.io/tags/emacs/</loc>
-    <lastmod>2025-02-26T00:34:46+08:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh-cn"
-                href="https://whatacold.io/zh-cn/tags/emacs/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://whatacold.io/tags/emacs/"
-                />
   </url><url>
     <loc>https://whatacold.io/blog/2024-12-22-getting-started-with-cider/</loc>
     <lastmod>2024-12-22T17:55:03+08:00</lastmod>

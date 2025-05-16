@@ -12,9 +12,11 @@
  
 
 
-      <title>Constructing Clojure Maps Conditionally - Ken Huang</title>
+      <title>🥷 Clojure Pro Tip 2: the Thread-As Macro - Ken Huang</title>
 
-  <meta name="description" content="I was wondering how to construct a multi-key map conditionally while I was coding in Clojure. Ideally, I would like to build it &#34;in one pass&#34; like {:bar 2 (when true :baz 3)}, but from what I had collected from Blue Sky, it seemed that&#39;s impossible, or it&#39;s just not an idiomatic way to program like that in Clojure. (Or, is this just a side effect of writing too much imperative code?">
+  <meta name="description" content=" So you&#39;re more than excited to find out how Clojure&#39;s thread macros can make code clean and concise, you just love it! But at some point you&#39;ll be trapped a bit as the threaded argument&#39;s positions are inconsistent using -&gt; or -&gt;&gt;.
+Luckily, you can use as-&gt; to place the argument wherever you like:
+Lambda vs. thread-as ">
   <meta name="author" content="Ken Huang"/><script type="application/ld+json">
 {
     "@context": "http://schema.org",
@@ -50,8 +52,8 @@
         "@type": "ListItem",
         "position": 3,
         "item": {
-          "@id": "https:\/\/whatacold.io\/blog\/2025-01-05-construct-a-map-clojure\/",
-          "name": "Constructing clojure maps conditionally"
+          "@id": "https:\/\/whatacold.io\/blog\/2025-04-23-clojure-tip-thread-as\/",
+          "name": "Clojure pro tip 2 the thread as macro"
         }
     }]
 }
@@ -62,15 +64,15 @@
   "author": {
     "name" : "Ken Huang"
   },
-  "headline": "Constructing Clojure Maps Conditionally",
-  "description" : "I was wondering how to construct a multi-key map conditionally while I was coding in Clojure. Ideally, I would like to build it \u0026#34;in one pass\u0026#34; like {:bar 2 (when true :baz 3)}, but from what I had collected from Blue Sky, it seemed that\u0026#39;s impossible, or it\u0026#39;s just not an idiomatic way to program like that in Clojure. (Or, is this just a side effect of writing too much imperative code?",
+  "headline": "🥷 Clojure Pro Tip 2: the Thread-As Macro",
+  "description" : " So you\u0026#39;re more than excited to find out how Clojure\u0026#39;s thread macros can make code clean and concise, you just love it! But at some point you\u0026#39;ll be trapped a bit as the threaded argument\u0026#39;s positions are inconsistent using -\u0026gt; or -\u0026gt;\u0026gt;.\nLuckily, you can use as-\u0026gt; to place the argument wherever you like:\nLambda vs. thread-as ",
   "inLanguage" : "en",
-  "wordCount":  190 ,
-  "datePublished" : "2025-01-05T10:40:07\u002b08:00",
-  "dateModified" : "2025-02-20T01:18:18\u002b08:00",
+  "wordCount":  57 ,
+  "datePublished" : "2025-04-23T12:49:27\u002b08:00",
+  "dateModified" : "2025-05-17T04:57:15\u002b08:00",
   "image" : "https:\/\/whatacold.io\/img\/2021-12-10-motor-helmet-400.jpg",
-  "keywords" : [ "clojure, tweet" ],
-  "mainEntityOfPage" : "https:\/\/whatacold.io\/blog\/2025-01-05-construct-a-map-clojure\/",
+  "keywords" : [ "Clojure, tweet" ],
+  "mainEntityOfPage" : "https:\/\/whatacold.io\/blog\/2025-04-23-clojure-tip-thread-as\/",
   "publisher" : {
     "@type": "Organization",
     "name" : "https:\/\/whatacold.io\/",
@@ -85,16 +87,18 @@
 </script>
 
 
-<meta property="og:title" content="Constructing Clojure Maps Conditionally" />
-<meta property="og:description" content="I was wondering how to construct a multi-key map conditionally while I was coding in Clojure. Ideally, I would like to build it &#34;in one pass&#34; like {:bar 2 (when true :baz 3)}, but from what I had collected from Blue Sky, it seemed that&#39;s impossible, or it&#39;s just not an idiomatic way to program like that in Clojure. (Or, is this just a side effect of writing too much imperative code?">
-<meta property="og:image" content="https://whatacold.io/img/2021-12-10-motor-helmet-og.jpg" />
-<meta property="og:url" content="https://whatacold.io/blog/2025-01-05-construct-a-map-clojure/" />
+<meta property="og:title" content="🥷 Clojure Pro Tip 2: the Thread-As Macro" />
+<meta property="og:description" content=" So you&#39;re more than excited to find out how Clojure&#39;s thread macros can make code clean and concise, you just love it! But at some point you&#39;ll be trapped a bit as the threaded argument&#39;s positions are inconsistent using -&gt; or -&gt;&gt;.
+Luckily, you can use as-&gt; to place the argument wherever you like:
+Lambda vs. thread-as ">
+<meta property="og:image" content="https://whatacold.io/img/clojure-thread-as.jpg" />
+<meta property="og:url" content="https://whatacold.io/blog/2025-04-23-clojure-tip-thread-as/" />
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="Ken Huang" />
 
-  <meta name="twitter:title" content="Constructing Clojure Maps Conditionally" />
-  <meta name="twitter:description" content="I was wondering how to construct a multi-key map conditionally while I was coding in Clojure. Ideally, I would like to build it &#34;in one pass&#34; like {:bar 2 (when true :baz 3)}, but from what I …">
-  <meta name="twitter:image" content="https://whatacold.io/img/2021-12-10-motor-helmet-og.jpg" />
+  <meta name="twitter:title" content="🥷 Clojure Pro Tip 2: the Thread-As Macro" />
+  <meta name="twitter:description" content=" So you&#39;re more than excited to find out how Clojure&#39;s thread macros can make code clean and concise, you just love it! But at some point you&#39;ll be trapped a bit as the threaded …">
+  <meta name="twitter:image" content="https://whatacold.io/img/clojure-thread-as.jpg" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:site" content="@whatacold" />
   <meta name="twitter:creator" content="@whatacold" />
@@ -260,7 +264,7 @@
           <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
             <div class="blog-heading">
               
-                <h1>Constructing Clojure Maps Conditionally</h1>
+                <h1>🥷 Clojure Pro Tip 2: the Thread-As Macro</h1>
               
               
                 <hr class="small">
@@ -287,47 +291,28 @@
           
           <p class="page-meta">
             
-            Published: 2025-01-05, Last Updated: 2025-02-20
+            Published: 2025-04-23, Last Updated: 2025-05-17
             
           </p>
         
 
         <p>
-I was wondering how to construct a multi-key map conditionally while I was coding in Clojure. Ideally, I would like to build it &#34;in one pass&#34; like <code class="verbatim">{:bar 2 (when true :baz 3)}</code>, but from what I had collected from Blue Sky, it seemed that&#39;s impossible, or it&#39;s just not an idiomatic way to program like that in Clojure. (Or, is this just a side effect of writing too much imperative code?)</p>
+So you&#39;re more than excited to find out how Clojure&#39;s thread macros can make code clean and concise, you just love it! But at some point you&#39;ll be trapped a bit as the threaded argument&#39;s positions are inconsistent using <a href="https://clojuredocs.org/clojure_core/clojure.core/-%3E">-&gt;</a> or <a href="https://clojuredocs.org/clojure_core/clojure.core/-%3E%3E">-&gt;&gt;</a>.</p>
 <p>
-Basically there are two ways, <code class="verbatim">assoc</code> / <code class="verbatim">into</code> / <code class="verbatim">conj</code> for collection manipulation, and <code class="verbatim">cond-&gt;</code> (conditional thread-first) for general conditional operations.</p>
-<div class="src src-clojure">
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-clojure" data-lang="clojure"><span class="line"><span class="cl"><span class="c1">;;; Using into</span>
-</span></span><span class="line"><span class="cl"><span class="p">(</span><span class="nb">into </span><span class="p">{</span><span class="ss">:clojure</span> <span class="mi">1</span><span class="p">}</span> <span class="p">(</span><span class="nb">when </span><span class="nv">true</span> <span class="p">{</span><span class="ss">:elisp</span> <span class="mi">2</span><span class="p">}))</span>
-</span></span><span class="line"><span class="cl"><span class="c1">;; =&gt; {:clojure 1, :elisp 2}</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="p">(</span><span class="nb">into </span><span class="p">{</span><span class="ss">:clojure</span> <span class="mi">1</span><span class="p">}</span> <span class="p">(</span><span class="nb">when </span><span class="nv">false</span> <span class="p">{</span><span class="ss">:elisp</span> <span class="mi">2</span><span class="p">}))</span>
-</span></span><span class="line"><span class="cl"><span class="c1">;; =&gt; {:clojure 1}</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1">;;; Using conj</span>
-</span></span><span class="line"><span class="cl"><span class="p">(</span><span class="nb">conj </span><span class="p">{</span><span class="ss">:clojure</span> <span class="mi">1</span><span class="p">}</span> <span class="p">{</span><span class="ss">:elisp</span> <span class="mi">2</span><span class="p">}</span> <span class="p">{</span><span class="ss">:babashka</span> <span class="mi">3</span><span class="p">})</span>
-</span></span><span class="line"><span class="cl"><span class="c1">;; =&gt; {:clojure 1, :elisp 2, :babashka 3}</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="p">(</span><span class="nb">conj </span><span class="p">{</span><span class="ss">:clojure</span> <span class="mi">1</span><span class="p">}</span> <span class="p">(</span><span class="nb">when </span><span class="nv">false</span> <span class="p">{</span><span class="ss">:elisp</span> <span class="mi">2</span><span class="p">}))</span>
-</span></span><span class="line"><span class="cl"><span class="c1">;; =&gt; {:clojure 1}</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1">;;; Using cond-&gt; + assoc</span>
-</span></span><span class="line"><span class="cl"><span class="p">(</span><span class="nb">assoc </span><span class="p">{</span><span class="ss">:clojure</span> <span class="mi">1</span><span class="p">}</span> <span class="ss">:elisp</span> <span class="mi">2</span> <span class="ss">:babashka</span> <span class="mi">3</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="c1">;; =&gt; {:clojure 1, :elisp 2, :babashka 3}</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="p">(</span><span class="nf">cond-&gt;</span>
-</span></span><span class="line"><span class="cl">    <span class="p">{</span><span class="ss">:clojure</span> <span class="mi">1</span><span class="p">}</span>
-</span></span><span class="line"><span class="cl">  <span class="p">(</span><span class="nb">= </span><span class="mi">1</span> <span class="mi">1</span><span class="p">)</span> <span class="p">(</span><span class="nb">assoc </span><span class="ss">:elisp</span> <span class="mi">2</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">  <span class="p">(</span><span class="nb">= </span><span class="mi">2</span> <span class="mi">1</span><span class="p">)</span> <span class="p">(</span><span class="nb">assoc </span><span class="ss">:common-lisp</span> <span class="mi">3</span><span class="p">))</span>
-</span></span><span class="line"><span class="cl"><span class="c1">;; =&gt; {:clojure 1, :elisp 2}</span></span></span></code></pre></div>
-</div>
+Luckily, you can use <a href="https://clojuredocs.org/clojure_core/clojure.core/as-%3E">as-&gt;</a> to place the argument wherever you like:</p>
+<figure>
+<img src="/img/clojure-thread-as.jpg" alt="Lambda vs. thread-as" title="Click to enlarge the image"/>
+<figcaption>
+Lambda vs. thread-as
+</figcaption>
+</figure>
 
 
         
           <div class="blog-tags">
             
               
-              <a href="https://whatacold.io/tags/clojure/">clojure</a>&nbsp;
+              <a href="https://whatacold.io/tags/clojure/">Clojure</a>&nbsp;
             
               
               <a href="https://whatacold.io/tags/tweet/">tweet</a>&nbsp;
@@ -345,42 +330,42 @@ Basically there are two ways, <code class="verbatim">assoc</code> / <code class=
     <ul class="share">
       
       <li>
-        <a href="//twitter.com/share?url=https%3a%2f%2fwhatacold.io%2fblog%2f2025-01-05-construct-a-map-clojure%2f&amp;text=Constructing%20Clojure%20Maps%20Conditionally&amp;via=whatacold" target="_blank" title="Share on Twitter">
+        <a href="//twitter.com/share?url=https%3a%2f%2fwhatacold.io%2fblog%2f2025-04-23-clojure-tip-thread-as%2f&amp;text=%f0%9f%a5%b7%20Clojure%20Pro%20Tip%202%3a%20the%20Thread-As%20Macro&amp;via=whatacold" target="_blank" title="Share on Twitter">
           <i class="fab fa-twitter"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fwhatacold.io%2fblog%2f2025-01-05-construct-a-map-clojure%2f" target="_blank" title="Share on Facebook">
+        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fwhatacold.io%2fblog%2f2025-04-23-clojure-tip-thread-as%2f" target="_blank" title="Share on Facebook">
           <i class="fab fa-facebook"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//reddit.com/submit?url=https%3a%2f%2fwhatacold.io%2fblog%2f2025-01-05-construct-a-map-clojure%2f&amp;title=Constructing%20Clojure%20Maps%20Conditionally" target="_blank" title="Share on Reddit">
+        <a href="//reddit.com/submit?url=https%3a%2f%2fwhatacold.io%2fblog%2f2025-04-23-clojure-tip-thread-as%2f&amp;title=%f0%9f%a5%b7%20Clojure%20Pro%20Tip%202%3a%20the%20Thread-As%20Macro" target="_blank" title="Share on Reddit">
           <i class="fab fa-reddit"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fwhatacold.io%2fblog%2f2025-01-05-construct-a-map-clojure%2f&amp;title=Constructing%20Clojure%20Maps%20Conditionally" target="_blank" title="Share on LinkedIn">
+        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fwhatacold.io%2fblog%2f2025-04-23-clojure-tip-thread-as%2f&amp;title=%f0%9f%a5%b7%20Clojure%20Pro%20Tip%202%3a%20the%20Thread-As%20Macro" target="_blank" title="Share on LinkedIn">
           <i class="fab fa-linkedin"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fwhatacold.io%2fblog%2f2025-01-05-construct-a-map-clojure%2f&amp;title=Constructing%20Clojure%20Maps%20Conditionally" target="_blank" title="Share on StumbleUpon">
+        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fwhatacold.io%2fblog%2f2025-04-23-clojure-tip-thread-as%2f&amp;title=%f0%9f%a5%b7%20Clojure%20Pro%20Tip%202%3a%20the%20Thread-As%20Macro" target="_blank" title="Share on StumbleUpon">
           <i class="fab fa-stumbleupon"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fwhatacold.io%2fblog%2f2025-01-05-construct-a-map-clojure%2f&amp;description=Constructing%20Clojure%20Maps%20Conditionally" target="_blank" title="Share on Pinterest">
+        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fwhatacold.io%2fblog%2f2025-04-23-clojure-tip-thread-as%2f&amp;description=%f0%9f%a5%b7%20Clojure%20Pro%20Tip%202%3a%20the%20Thread-As%20Macro" target="_blank" title="Share on Pinterest">
           <i class="fab fa-pinterest"></i>
         </a>
       </li>
@@ -406,11 +391,11 @@ Basically there are two ways, <code class="verbatim">assoc</code> / <code class=
                 
                     <li><a href="/blog/2025-04-29-clojure-tip-cider-clojuredocs/">🥷 Clojure Pro Tip 3: Cider ClojureDocs</a></li>
                 
-                    <li><a href="/blog/2025-04-23-clojure-tip-thread-as/">🥷 Clojure Pro Tip 2: the Thread-As Macro</a></li>
-                
                     <li><a href="/blog/2025-04-11-google-analytics-clojurescript/">Collecting Events to Google Analytics using ClojureScript</a></li>
                 
                     <li><a href="/blog/2025-04-05-clojure-tip-discard-reader-symbol/">🥷 Clojure Pro Tip 1: the Discard Reader Symbol</a></li>
+                
+                    <li><a href="/blog/2025-02-22-flask-clojure-rewrite/">Rewrite of a Flask Web App in Clojure</a></li>
                 
               </ul>
 
@@ -422,12 +407,12 @@ Basically there are two ways, <code class="verbatim">assoc</code> / <code class=
         <ul class="pager blog-pager">
           
             <li class="previous">
-              <a href="https://whatacold.io/blog/2024-12-22-getting-started-with-cider/" data-toggle="tooltip" data-placement="top" title="Getting Started with Cider for Clojure Programming">&larr; Previous Post</a>
+              <a href="https://whatacold.io/blog/2025-04-11-google-analytics-clojurescript/" data-toggle="tooltip" data-placement="top" title="Collecting Events to Google Analytics using ClojureScript">&larr; Previous Post</a>
             </li>
           
           
             <li class="next">
-              <a href="https://whatacold.io/blog/2025-02-22-flask-clojure-rewrite/" data-toggle="tooltip" data-placement="top" title="Rewrite of a Flask Web App in Clojure">Next Post &rarr;</a>
+              <a href="https://whatacold.io/blog/2025-04-29-clojure-tip-cider-clojuredocs/" data-toggle="tooltip" data-placement="top" title="🥷 Clojure Pro Tip 3: Cider ClojureDocs">Next Post &rarr;</a>
             </li>
           
         </ul>

@@ -232,6 +232,172 @@
         <div class="posts-list">
           
             <article class="post-preview">
+    <a href="https://whatacold.io/blog/2025-05-15-clojure-tip-hiccup-raw/">
+        <h2 class="post-title">🥷 Clojure Pro Tip 4: Hiccup Raw</h2>
+        
+        
+        
+    </a>
+
+    <p class="post-meta">
+        <span class="post-meta">
+  
+  
+  <i class="fas fa-calendar"></i>&nbsp;Posted on 2025-05-15
+  
+    &nbsp;(Last modified on 2025-05-17)
+  
+  
+    &nbsp;|&nbsp;<i class="fas fa-clock"></i>&nbsp;1&nbsp;minutes
+  
+  
+    &nbsp;|&nbsp;<i class="fas fa-book"></i>&nbsp;76&nbsp;words
+  
+  
+  
+</span>
+
+
+    </p>
+    <div class="post-entry">
+        
+        In case you don’t know it, we can use raw strings, like embedding JS code, in hiccup.
+I just found out we can use raw to prevent strings from getting escaped. I used to have to define a dedicated app.js for that, which would need an extra HTTP request.
+Hiccup raw in action Looking back, I should’ve found this at the very beginning, as it’s just mentioned on its GitHub homepage, but somehow I missed it.
+        <a href="https://whatacold.io/blog/2025-05-15-clojure-tip-hiccup-raw/" class="post-read-more">[Read More]</a>
+        
+    </div>
+
+    
+    <div class="blog-tags">
+        
+       
+       <a href="https://whatacold.io/tags/clojure/">Clojure</a>&nbsp;
+        
+       
+       <a href="https://whatacold.io/tags/tweet/">tweet</a>&nbsp;
+         
+    </div>
+    
+
+</article>
+          
+            <article class="post-preview">
+    <a href="https://whatacold.io/blog/2025-04-29-clojure-tip-cider-clojuredocs/">
+        <h2 class="post-title">🥷 Clojure Pro Tip 3: Cider ClojureDocs</h2>
+        
+        
+        
+    </a>
+
+    <p class="post-meta">
+        <span class="post-meta">
+  
+  
+  <i class="fas fa-calendar"></i>&nbsp;Posted on 2025-04-29
+  
+    &nbsp;(Last modified on 2025-05-17)
+  
+  
+    &nbsp;|&nbsp;<i class="fas fa-clock"></i>&nbsp;1&nbsp;minutes
+  
+  
+    &nbsp;|&nbsp;<i class="fas fa-book"></i>&nbsp;82&nbsp;words
+  
+  
+  
+</span>
+
+
+    </p>
+    <div class="post-entry">
+        
+        Sometimes, we may want a few examples of a Clojure API for inspiration while developing, especially when reading other people&#39;s or open source code.
+With Cider in Emacs, we can run M-x cider-doc to see the docstring for the symbol. We can even use M-x cider-clojuredocs for some examples if the symbol is from the language core.
+Running M-x cider-clojuredocs I happened to find this command recently. I bet I was not the only one who didn&#39;t know it, thus I&#39;m sharing.
+        <a href="https://whatacold.io/blog/2025-04-29-clojure-tip-cider-clojuredocs/" class="post-read-more">[Read More]</a>
+        
+    </div>
+
+    
+    <div class="blog-tags">
+        
+       
+       <a href="https://whatacold.io/tags/clojure/">Clojure</a>&nbsp;
+        
+       
+       <a href="https://whatacold.io/tags/cider/">Cider</a>&nbsp;
+        
+       
+       <a href="https://whatacold.io/tags/emacs/">Emacs</a>&nbsp;
+        
+       
+       <a href="https://whatacold.io/tags/tweet/">tweet</a>&nbsp;
+         
+    </div>
+    
+
+</article>
+          
+            <article class="post-preview">
+    <a href="https://whatacold.io/blog/2025-04-23-clojure-tip-thread-as/">
+        <h2 class="post-title">🥷 Clojure Pro Tip 2: the Thread-As Macro</h2>
+        
+        
+        
+    </a>
+
+    <p class="post-meta">
+        <span class="post-meta">
+  
+  
+  <i class="fas fa-calendar"></i>&nbsp;Posted on 2025-04-23
+  
+    &nbsp;(Last modified on 2025-05-17)
+  
+  
+    &nbsp;|&nbsp;<i class="fas fa-clock"></i>&nbsp;1&nbsp;minutes
+  
+  
+    &nbsp;|&nbsp;<i class="fas fa-book"></i>&nbsp;57&nbsp;words
+  
+  
+  
+</span>
+
+
+    </p>
+    <div class="post-entry">
+        
+        <p>
+So you&#39;re more than excited to find out how Clojure&#39;s thread macros can make code clean and concise, you just love it! But at some point you&#39;ll be trapped a bit as the threaded argument&#39;s positions are inconsistent using <a href="https://clojuredocs.org/clojure_core/clojure.core/-%3E">-&gt;</a> or <a href="https://clojuredocs.org/clojure_core/clojure.core/-%3E%3E">-&gt;&gt;</a>.</p>
+<p>
+Luckily, you can use <a href="https://clojuredocs.org/clojure_core/clojure.core/as-%3E">as-&gt;</a> to place the argument wherever you like:</p>
+<figure>
+<img src="/img/clojure-thread-as.jpg" alt="Lambda vs. thread-as" title="Click to enlarge the image"/>
+<figcaption>
+Lambda vs. thread-as
+</figcaption>
+</figure>
+
+        
+    </div>
+
+    
+    <div class="blog-tags">
+        
+       
+       <a href="https://whatacold.io/tags/clojure/">Clojure</a>&nbsp;
+        
+       
+       <a href="https://whatacold.io/tags/tweet/">tweet</a>&nbsp;
+         
+    </div>
+    
+
+</article>
+          
+            <article class="post-preview">
     <a href="https://whatacold.io/blog/2025-04-11-google-analytics-clojurescript/">
         <h2 class="post-title">Collecting Events to Google Analytics using ClojureScript</h2>
         
@@ -274,6 +440,64 @@ Hope it helps, and give it a star ⭐ on GitHub and share it if it does, thanks!
         
        
        <a href="https://whatacold.io/tags/shadow-cljs/">shadow-cljs</a>&nbsp;
+        
+       
+       <a href="https://whatacold.io/tags/tweet/">tweet</a>&nbsp;
+         
+    </div>
+    
+
+</article>
+          
+            <article class="post-preview">
+    <a href="https://whatacold.io/blog/2025-04-05-clojure-tip-discard-reader-symbol/">
+        <h2 class="post-title">🥷 Clojure Pro Tip 1: the Discard Reader Symbol</h2>
+        
+        
+        
+    </a>
+
+    <p class="post-meta">
+        <span class="post-meta">
+  
+  
+  <i class="fas fa-calendar"></i>&nbsp;Posted on 2025-04-05
+  
+    &nbsp;(Last modified on 2025-05-17)
+  
+  
+    &nbsp;|&nbsp;<i class="fas fa-clock"></i>&nbsp;1&nbsp;minutes
+  
+  
+    &nbsp;|&nbsp;<i class="fas fa-book"></i>&nbsp;64&nbsp;words
+  
+  
+  
+</span>
+
+
+    </p>
+    <div class="post-entry">
+        
+        <p>
+In Clojure, we can use <a href="https://clojuredocs.org/clojure.core/comment">comment</a> (aka Rich Comment Blocks) for tests or experiments in development. However, since a comment evaluates to nil, you may run into surprising results or even errors if you misuse it.</p>
+<figure>
+<img src="/img/clojure-discard-reader-symbol.jpg" alt="Comment vs. Discard" title="Click to enlarge the image"/>
+<figcaption>
+Comment vs. Discard
+</figcaption>
+</figure>
+<p>
+In these scenarios, you may tend to use <code class="verbatim">;</code> to comment them out, but a better choice is to use the <a href="https://clojure.org/guides/weird_characters#_discard">discard reader symbol <code class="verbatim">#_</code></a>.</p>
+
+        
+    </div>
+
+    
+    <div class="blog-tags">
+        
+       
+       <a href="https://whatacold.io/tags/clojure/">Clojure</a>&nbsp;
         
        
        <a href="https://whatacold.io/tags/tweet/">tweet</a>&nbsp;
@@ -550,110 +774,16 @@ At that time I was adding a vector to keep track of all beholder instances watch
 
 </article>
           
-            <article class="post-preview">
-    <a href="https://whatacold.io/blog/2024-11-08-clojure-thread-macro-anonymous-function/">
-        <h2 class="post-title">Anonymous Functions in Thread Macros</h2>
-        
-        
-        
-    </a>
-
-    <p class="post-meta">
-        <span class="post-meta">
-  
-  
-  <i class="fas fa-calendar"></i>&nbsp;Posted on 2024-11-08
-  
-    &nbsp;(Last modified on 2024-11-10)
-  
-  
-    &nbsp;|&nbsp;<i class="fas fa-clock"></i>&nbsp;1&nbsp;minutes
-  
-  
-    &nbsp;|&nbsp;<i class="fas fa-book"></i>&nbsp;194&nbsp;words
-  
-  
-  
-</span>
-
-
-    </p>
-    <div class="post-entry">
-        
-        While adding the live reload feature to Clay, I encountered a problem of applying anonymous functions to thread macros. For example, below is a simple snippet trying to wrap the input directory as a vector with the help of thread macro, but surprisingly, it errors out. After some searching, I figured out that I need to put the anonymous function into another pair of parentheses:
-(-&gt; &#34;/tmp/&#34; #(if (vector? %) % [%])) ;; =&gt; Syntax error (ClassCastException) compiling fn* at (simple4all.
-        <a href="https://whatacold.io/blog/2024-11-08-clojure-thread-macro-anonymous-function/" class="post-read-more">[Read More]</a>
-        
-    </div>
-
-    
-    <div class="blog-tags">
-        
-       
-       <a href="https://whatacold.io/tags/clojure/">Clojure</a>&nbsp;
-        
-       
-       <a href="https://whatacold.io/tags/tweet/">Tweet</a>&nbsp;
-         
-    </div>
-    
-
-</article>
-          
-            <article class="post-preview">
-    <a href="https://whatacold.io/blog/2024-11-08-cider-clojure-repl-cmdline/">
-        <h2 class="post-title">Starting a Clojure nREPL Manually for Cider</h2>
-        
-        
-        
-    </a>
-
-    <p class="post-meta">
-        <span class="post-meta">
-  
-  
-  <i class="fas fa-calendar"></i>&nbsp;Posted on 2024-11-08
-  
-    &nbsp;(Last modified on 2025-02-18)
-  
-  
-    &nbsp;|&nbsp;<i class="fas fa-clock"></i>&nbsp;1&nbsp;minutes
-  
-  
-    &nbsp;|&nbsp;<i class="fas fa-book"></i>&nbsp;174&nbsp;words
-  
-  
-  
-</span>
-
-
-    </p>
-    <div class="post-entry">
-        
-        While troubleshooting and fixing a live reload bug in Clay today, which required to start a minimal Clojure environment, I figured out how to start a nREPL from the command line.
-Instead of using M-x cider-jack-in-clj directly from Emacs, actually we can manully bring up an nREPL with this: clj -Sdeps &#34;{:deps {org.scicloj/clay {:mvn/version \&#34;2-beta21\&#34;} cider/cider-nrepl {:mvn/version \&#34;0.50.2\&#34;}}}&#34; -m nrepl.cmdline --middleware &#34;[cider.nrepl/cider-middleware]&#34; (The clay part is only necessary for this debugging), and then connect to this nREPL using the Emacs command M-x cider-connect-clj.
-        <a href="https://whatacold.io/blog/2024-11-08-cider-clojure-repl-cmdline/" class="post-read-more">[Read More]</a>
-        
-    </div>
-
-    
-    <div class="blog-tags">
-        
-       
-       <a href="https://whatacold.io/tags/cider/">Cider</a>&nbsp;
-        
-       
-       <a href="https://whatacold.io/tags/clojure/">Clojure</a>&nbsp;
-        
-       
-       <a href="https://whatacold.io/tags/tweet/">Tweet</a>&nbsp;
-         
-    </div>
-    
-
-</article>
-          
         </div>
+        
+          <ul class="pager main-pager">
+            
+            
+              <li class="next">
+                <a href="https://whatacold.io/tags/tweet/page/2/">Older Posts &rarr;</a>
+              </li>
+            
+          </ul>
         
       </div>
     </div>

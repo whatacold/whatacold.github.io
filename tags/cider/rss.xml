@@ -8,8 +8,15 @@
     <language>en</language>
     <managingEditor>whatacold@gmail.com (Ken Huang)</managingEditor>
     <webMaster>whatacold@gmail.com (Ken Huang)</webMaster>
-    <lastBuildDate>Wed, 26 Feb 2025 00:11:19 +0800</lastBuildDate>
+    <lastBuildDate>Sat, 17 May 2025 04:58:41 +0800</lastBuildDate>
     <atom:link href="https://whatacold.io/tags/cider/rss.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>🥷 Clojure Pro Tip 3: Cider ClojureDocs</title>
+      <link>https://whatacold.io/blog/2025-04-29-clojure-tip-cider-clojuredocs/</link>
+      <pubDate>Tue, 29 Apr 2025 12:49:27 +0800</pubDate><author>whatacold@gmail.com (Ken Huang)</author>
+      <guid>https://whatacold.io/blog/2025-04-29-clojure-tip-cider-clojuredocs/</guid>
+      <description>Sometimes, we may want a few examples of a Clojure API for inspiration while developing, especially when reading other people&amp;#39;s or open source code.&#xA;With Cider in Emacs, we can run M-x cider-doc to see the docstring for the symbol. We can even use M-x cider-clojuredocs for some examples if the symbol is from the language core.&#xA;Running M-x cider-clojuredocs I happened to find this command recently. I bet I was not the only one who didn&amp;#39;t know it, thus I&amp;#39;m sharing.</description>
+    </item>
     <item>
       <title>Getting Started with Cider for Clojure Programming</title>
       <link>https://whatacold.io/blog/2024-12-22-getting-started-with-cider/</link>

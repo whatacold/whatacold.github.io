@@ -236,6 +236,211 @@
         <div class="posts-list">
           
             <article class="post-preview">
+    <a href="https://whatacold.io/blog/2024-11-28-beholder-clj-async-profiler/">
+        <h2 class="post-title">Clj-async-profiler Rocks</h2>
+        
+        
+        
+    </a>
+
+    <p class="post-meta">
+        <span class="post-meta">
+  
+  
+  <i class="fas fa-calendar"></i>&nbsp;Posted on 2024-11-28
+  
+    &nbsp;(Last modified on 2025-03-09)
+  
+  
+    &nbsp;|&nbsp;<i class="fas fa-clock"></i>&nbsp;2&nbsp;minutes
+  
+  
+    &nbsp;|&nbsp;<i class="fas fa-book"></i>&nbsp;369&nbsp;words
+  
+  
+  
+</span>
+
+
+    </p>
+    <div class="post-entry">
+        
+        While developing the live reload feature for Clay, a minimalistic Clojure tool for data visualization and literate programming, I found that it constantly takes ~1 minute for beholder to watch a directory. After some code inspect, I was still having no idea why it happened.
+So I decided to use a profiler to find out what&#39;s going one under the hood, and Google immediately took me to clj-async-profiler. It&#39;s easy to set up following its basic usage docs:
+        <a href="https://whatacold.io/blog/2024-11-28-beholder-clj-async-profiler/" class="post-read-more">[Read More]</a>
+        
+    </div>
+
+    
+    <div class="blog-tags">
+        
+       
+       <a href="https://whatacold.io/tags/clojure/">Clojure</a>&nbsp;
+        
+       
+       <a href="https://whatacold.io/tags/clay/">Clay</a>&nbsp;
+         
+    </div>
+    
+
+</article>
+          
+            <article class="post-preview">
+    <a href="https://whatacold.io/blog/2024-11-23-tailwindcss-docs-index/">
+        <h2 class="post-title">TailwindCSS Docs Index</h2>
+        
+        
+        
+    </a>
+
+    <p class="post-meta">
+        <span class="post-meta">
+  
+  
+  <i class="fas fa-calendar"></i>&nbsp;Posted on 2024-11-23
+  
+    &nbsp;(Last modified on 2025-02-18)
+  
+  
+    &nbsp;|&nbsp;<i class="fas fa-clock"></i>&nbsp;3&nbsp;minutes
+  
+  
+    &nbsp;|&nbsp;<i class="fas fa-book"></i>&nbsp;567&nbsp;words
+  
+  
+  
+</span>
+
+
+    </p>
+    <div class="post-entry">
+        
+        Just re-organize the TailwindCSS Docs index in a flatter and more searchable way.
+Getting Started Installation | Editor Setup | Using with Preprocessors | Optimizing for Production | Browser Support | Upgrade Guide
+Core Concepts Utility-First Fundamentals | Hover, Focus, and Other States | Responsive Design | Dark Mode | Reusing Styles | Adding Custom Styles | Functions &amp; Directives
+Customization Configuration | Content | Theme | Screens | Colors | Spacing | Plugins | Presets
+        <a href="https://whatacold.io/blog/2024-11-23-tailwindcss-docs-index/" class="post-read-more">[Read More]</a>
+        
+    </div>
+
+    
+    <div class="blog-tags">
+        
+       
+       <a href="https://whatacold.io/tags/css/">CSS</a>&nbsp;
+        
+       
+       <a href="https://whatacold.io/tags/tailwindcss/">TailwindCSS</a>&nbsp;
+         
+    </div>
+    
+
+</article>
+          
+            <article class="post-preview">
+    <a href="https://whatacold.io/blog/2024-11-09-clj-deps-cmdline/">
+        <h2 class="post-title">Adding Clojure Dependencies from the Command Line</h2>
+        
+        
+        
+    </a>
+
+    <p class="post-meta">
+        <span class="post-meta">
+  
+  
+  <i class="fas fa-calendar"></i>&nbsp;Posted on 2024-11-09
+  
+    &nbsp;(Last modified on 2024-11-10)
+  
+  
+    &nbsp;|&nbsp;<i class="fas fa-clock"></i>&nbsp;1&nbsp;minutes
+  
+  
+    &nbsp;|&nbsp;<i class="fas fa-book"></i>&nbsp;84&nbsp;words
+  
+  
+  
+</span>
+
+
+    </p>
+    <div class="post-entry">
+        
+        While debugging a live reload issue of Clay a few days ago, I learned from Markus Agwin that we can actually add dependencies on the fly from the command line, just like this: clj -Sdeps &#34;{:deps {org.scicloj/clay {:mvn/version \&#34;2-beta21\&#34;}}}&#34;.
+Even better, we can add dependency from a Git repo and specify the commit hash: clj -Sdeps &#34;{:deps {io.github.scicloj/clay {:git/url \&#34;https://github.com/scicloj/clay.git\&#34; :git/sha \&#34;35a46541db66ae6b4e1af628b7c24c42d3be418f\&#34;}}}&#34;, which is really helpful for experimenting and verifying things.
+        <a href="https://whatacold.io/blog/2024-11-09-clj-deps-cmdline/" class="post-read-more">[Read More]</a>
+        
+    </div>
+
+    
+    <div class="blog-tags">
+        
+       
+       <a href="https://whatacold.io/tags/clojure/">Clojure</a>&nbsp;
+        
+       
+       <a href="https://whatacold.io/tags/tweet/">Tweet</a>&nbsp;
+        
+       
+       <a href="https://whatacold.io/tags/clj/">clj</a>&nbsp;
+         
+    </div>
+    
+
+</article>
+          
+            <article class="post-preview">
+    <a href="https://whatacold.io/blog/2024-11-10-clojure-lazy-seq-case/">
+        <h2 class="post-title">Bitten by Lazy Sequence of map</h2>
+        
+        
+        
+    </a>
+
+    <p class="post-meta">
+        <span class="post-meta">
+  
+  
+  <i class="fas fa-calendar"></i>&nbsp;Posted on 2024-11-09
+  
+    &nbsp;(Last modified on 2024-11-10)
+  
+  
+    &nbsp;|&nbsp;<i class="fas fa-clock"></i>&nbsp;1&nbsp;minutes
+  
+  
+    &nbsp;|&nbsp;<i class="fas fa-book"></i>&nbsp;167&nbsp;words
+  
+  
+  
+</span>
+
+
+    </p>
+    <div class="post-entry">
+        
+        While impletenting the live reload feature for Clay a few weeks ago, unfortunately, I was bitten by the laziness of map. It seems quite obvious we all know that its result is a lazy sequence, but I just can&#39;t help fall into the &#34;trap&#34;.
+At that time I was adding a vector to keep track of all beholder instances watching file changes in user specified directories. So then when it&#39;s time to stop all the watchers, I used something like to achieve the goal:
+        <a href="https://whatacold.io/blog/2024-11-10-clojure-lazy-seq-case/" class="post-read-more">[Read More]</a>
+        
+    </div>
+
+    
+    <div class="blog-tags">
+        
+       
+       <a href="https://whatacold.io/tags/clojure/">Clojure</a>&nbsp;
+        
+       
+       <a href="https://whatacold.io/tags/tweet/">Tweet</a>&nbsp;
+         
+    </div>
+    
+
+</article>
+          
+            <article class="post-preview">
     <a href="https://whatacold.io/blog/2024-11-08-clojure-thread-macro-anonymous-function/">
         <h2 class="post-title">Anonymous Functions in Thread Macros</h2>
         
@@ -524,214 +729,6 @@ When I was in a rush in the past, I usually baked a keyboard macro temporarily a
         
        
        <a href="https://whatacold.io/tags/emacs/">Emacs</a>&nbsp;
-         
-    </div>
-    
-
-</article>
-          
-            <article class="post-preview">
-    <a href="https://whatacold.io/blog/2022-10-10-emacs-hugo-blogging/">
-        <h2 class="post-title">Hugo Blogging in Emacs</h2>
-        
-        
-        
-    </a>
-
-    <p class="post-meta">
-        <span class="post-meta">
-  
-  
-  <i class="fas fa-calendar"></i>&nbsp;Posted on 2022-10-10
-  
-    &nbsp;(Last modified on 2025-02-26)
-  
-  
-    &nbsp;|&nbsp;<i class="fas fa-clock"></i>&nbsp;6&nbsp;minutes
-  
-  
-    &nbsp;|&nbsp;<i class="fas fa-book"></i>&nbsp;1245&nbsp;words
-  
-  
-  
-</span>
-
-
-    </p>
-    <div class="post-entry">
-        
-        When I started to use Hugo to write this blog last year, I noticed that there is an easy-hugo package of Emacs many people use. So I installed it at that time, but I didn&#39;t use many of its features since then. In fact, the only command I used was easy-hugo-current-time. I used it to update the Hugo timestamps manually as in the format of 2022-10-15T09:45:35+08:00.
-My most desirable feature is to use it to select tags easily when I start to write a new post, but I never got it to work.
-        <a href="https://whatacold.io/blog/2022-10-10-emacs-hugo-blogging/" class="post-read-more">[Read More]</a>
-        
-    </div>
-
-    
-    <div class="blog-tags">
-        
-       
-       <a href="https://whatacold.io/tags/emacs/">Emacs</a>&nbsp;
-        
-       
-       <a href="https://whatacold.io/tags/hugo/">Hugo</a>&nbsp;
-        
-       
-       <a href="https://whatacold.io/tags/yasnippet/">Yasnippet</a>&nbsp;
-         
-    </div>
-    
-
-</article>
-          
-            <article class="post-preview">
-    <a href="https://whatacold.io/blog/2022-09-10-emacs-beancount-account-files/">
-        <h2 class="post-title">Auto-complete Accounts From Other Beancount Files in Emacs</h2>
-        
-        
-        
-    </a>
-
-    <p class="post-meta">
-        <span class="post-meta">
-  
-  
-  <i class="fas fa-calendar"></i>&nbsp;Posted on 2022-09-10
-  
-    &nbsp;(Last modified on 2025-02-26)
-  
-  
-    &nbsp;|&nbsp;<i class="fas fa-clock"></i>&nbsp;2&nbsp;minutes
-  
-  
-    &nbsp;|&nbsp;<i class="fas fa-book"></i>&nbsp;230&nbsp;words
-  
-  
-  &nbsp;&bull;&nbsp;Other languages: <a href="https://whatacold.io/zh-cn/blog/2022-09-10-emacs-beancount-account-files/" lang="zh-cn">(in &#34;中文&#34;)</a>
-</span>
-
-
-    </p>
-    <div class="post-entry">
-        
-        Auto-complete accounts from another accounts.bean file If you&#39;re using Beancount with Emacs, you may be using beancount-mode. It can auto-complete the accounts defined in the current buffer when we are typing in new transactions so that we can do it more efficiently.
-But it can only auto-complete the accounts from the current buffer, which makes it less useful when we have a stand-alone file or a few files of beancount accounts.
-        <a href="https://whatacold.io/blog/2022-09-10-emacs-beancount-account-files/" class="post-read-more">[Read More]</a>
-        
-    </div>
-
-    
-    <div class="blog-tags">
-        
-       
-       <a href="https://whatacold.io/tags/emacs/">Emacs</a>&nbsp;
-        
-       
-       <a href="https://whatacold.io/tags/beancount/">Beancount</a>&nbsp;
-         
-    </div>
-    
-
-</article>
-          
-            <article class="post-preview">
-    <a href="https://whatacold.io/blog/2022-08-08-org-link-bookmarklet/">
-        <h2 class="post-title">A Bookmarklet for Copying a Link as an Org-mode Link</h2>
-        
-        
-        
-    </a>
-
-    <p class="post-meta">
-        <span class="post-meta">
-  
-  
-  <i class="fas fa-calendar"></i>&nbsp;Posted on 2022-08-08
-  
-    &nbsp;(Last modified on 2025-02-26)
-  
-  
-    &nbsp;|&nbsp;<i class="fas fa-clock"></i>&nbsp;2&nbsp;minutes
-  
-  
-    &nbsp;|&nbsp;<i class="fas fa-book"></i>&nbsp;408&nbsp;words
-  
-  
-  
-</span>
-
-
-    </p>
-    <div class="post-entry">
-        
-        In this blog post, I&#39;d like to share a bookmarklet for copying a web page&#39;s URL as an org-mode link on Firefox, Chrome, or whatever web browsers support bookmarklets.
-It&#39;s handy when the URL isn&#39;t SEO-friendly, which means you can&#39;t tell what its content is about at first glance of the URL. So a little description text on the link would help.
-Here is the bookmarklet:
-javascript:window.prompt(&#34;Copy to clipboard: Ctrl+C, Esc&#34;, &#34;[[&#34; + document.
-        <a href="https://whatacold.io/blog/2022-08-08-org-link-bookmarklet/" class="post-read-more">[Read More]</a>
-        
-    </div>
-
-    
-    <div class="blog-tags">
-        
-       
-       <a href="https://whatacold.io/tags/emacs/">Emacs</a>&nbsp;
-        
-       
-       <a href="https://whatacold.io/tags/org-mode/">Org-mode</a>&nbsp;
-        
-       
-       <a href="https://whatacold.io/tags/bookmarklet/">Bookmarklet</a>&nbsp;
-         
-    </div>
-    
-
-</article>
-          
-            <article class="post-preview">
-    <a href="https://whatacold.io/blog/2022-07-17-emacs-elisp-debug/">
-        <h2 class="post-title">Emacs Debugging Techniques</h2>
-        
-        
-        
-    </a>
-
-    <p class="post-meta">
-        <span class="post-meta">
-  
-  
-  <i class="fas fa-calendar"></i>&nbsp;Posted on 2022-07-17
-  
-    &nbsp;(Last modified on 2025-02-26)
-  
-  
-    &nbsp;|&nbsp;<i class="fas fa-clock"></i>&nbsp;6&nbsp;minutes
-  
-  
-    &nbsp;|&nbsp;<i class="fas fa-book"></i>&nbsp;1131&nbsp;words
-  
-  
-  &nbsp;&bull;&nbsp;Other languages: <a href="https://whatacold.io/zh-cn/blog/2022-07-17-emacs-elisp-debug/" lang="zh-cn">(in &#34;中文&#34;)</a>
-</span>
-
-
-    </p>
-    <div class="post-entry">
-        
-        If you are new to Emacs, you may run into some errors, especially after you copied some elisp snippets from the Internet or elsewhere. Don&#39;t panic! It happens, it&#39;s just part of the learning process. Even an experienced Emacs user could run into there issues from time to time.
-Photo by Mike Newbry on Unsplash But in order to ease the pain, I will introduce a bunch of Emacs built-in features to help you troubleshoot and eventually solve the problems by yourself in this post.
-        <a href="https://whatacold.io/blog/2022-07-17-emacs-elisp-debug/" class="post-read-more">[Read More]</a>
-        
-    </div>
-
-    
-    <div class="blog-tags">
-        
-       
-       <a href="https://whatacold.io/tags/emacs/">Emacs</a>&nbsp;
-        
-       
-       <a href="https://whatacold.io/tags/debugging/">Debugging</a>&nbsp;
          
     </div>
     

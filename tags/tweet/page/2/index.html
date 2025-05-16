@@ -12,7 +12,7 @@
  
 
 
-      <title>Cider - Ken Huang</title>
+      <title>Tweet - Ken Huang</title>
 
   <meta name="author" content="Ken Huang"/><script type="application/ld+json">
 {
@@ -35,13 +35,13 @@
 }
 </script>
 
-<meta property="og:title" content="Cider" />
+<meta property="og:title" content="Tweet" />
 <meta property="og:image" content="https://whatacold.io/img/2021-12-10-motor-helmet-og.jpg" />
-<meta property="og:url" content="https://whatacold.io/tags/cider/" />
+<meta property="og:url" content="https://whatacold.io/tags/tweet/" />
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="Ken Huang" />
 
-  <meta name="twitter:title" content="Cider" />
+  <meta name="twitter:title" content="Tweet" />
   <meta name="twitter:image" content="https://whatacold.io/img/2021-12-10-motor-helmet-og.jpg" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:site" content="@whatacold" />
@@ -208,7 +208,7 @@
           <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
             <div class="tags-heading">
               
-                <h1>Cider</h1>
+                <h1>Tweet</h1>
               
               
                 <hr class="small">
@@ -232,8 +232,8 @@
         <div class="posts-list">
           
             <article class="post-preview">
-    <a href="https://whatacold.io/blog/2025-04-29-clojure-tip-cider-clojuredocs/">
-        <h2 class="post-title">🥷 Clojure Pro Tip 3: Cider ClojureDocs</h2>
+    <a href="https://whatacold.io/blog/2024-11-08-clojure-thread-macro-anonymous-function/">
+        <h2 class="post-title">Anonymous Functions in Thread Macros</h2>
         
         
         
@@ -243,15 +243,15 @@
         <span class="post-meta">
   
   
-  <i class="fas fa-calendar"></i>&nbsp;Posted on 2025-04-29
+  <i class="fas fa-calendar"></i>&nbsp;Posted on 2024-11-08
   
-    &nbsp;(Last modified on 2025-05-17)
+    &nbsp;(Last modified on 2024-11-10)
   
   
     &nbsp;|&nbsp;<i class="fas fa-clock"></i>&nbsp;1&nbsp;minutes
   
   
-    &nbsp;|&nbsp;<i class="fas fa-book"></i>&nbsp;82&nbsp;words
+    &nbsp;|&nbsp;<i class="fas fa-book"></i>&nbsp;194&nbsp;words
   
   
   
@@ -261,10 +261,9 @@
     </p>
     <div class="post-entry">
         
-        Sometimes, we may want a few examples of a Clojure API for inspiration while developing, especially when reading other people&#39;s or open source code.
-With Cider in Emacs, we can run M-x cider-doc to see the docstring for the symbol. We can even use M-x cider-clojuredocs for some examples if the symbol is from the language core.
-Running M-x cider-clojuredocs I happened to find this command recently. I bet I was not the only one who didn&#39;t know it, thus I&#39;m sharing.
-        <a href="https://whatacold.io/blog/2025-04-29-clojure-tip-cider-clojuredocs/" class="post-read-more">[Read More]</a>
+        While adding the live reload feature to Clay, I encountered a problem of applying anonymous functions to thread macros. For example, below is a simple snippet trying to wrap the input directory as a vector with the help of thread macro, but surprisingly, it errors out. After some searching, I figured out that I need to put the anonymous function into another pair of parentheses:
+(-&gt; &#34;/tmp/&#34; #(if (vector? %) % [%])) ;; =&gt; Syntax error (ClassCastException) compiling fn* at (simple4all.
+        <a href="https://whatacold.io/blog/2024-11-08-clojure-thread-macro-anonymous-function/" class="post-read-more">[Read More]</a>
         
     </div>
 
@@ -275,179 +274,7 @@ Running M-x cider-clojuredocs I happened to find this command recently. I bet I 
        <a href="https://whatacold.io/tags/clojure/">Clojure</a>&nbsp;
         
        
-       <a href="https://whatacold.io/tags/cider/">Cider</a>&nbsp;
-        
-       
-       <a href="https://whatacold.io/tags/emacs/">Emacs</a>&nbsp;
-        
-       
-       <a href="https://whatacold.io/tags/tweet/">tweet</a>&nbsp;
-         
-    </div>
-    
-
-</article>
-          
-            <article class="post-preview">
-    <a href="https://whatacold.io/blog/2024-12-22-getting-started-with-cider/">
-        <h2 class="post-title">Getting Started with Cider for Clojure Programming</h2>
-        
-        
-        
-    </a>
-
-    <p class="post-meta">
-        <span class="post-meta">
-  
-  
-  <i class="fas fa-calendar"></i>&nbsp;Posted on 2024-12-22
-  
-  
-    &nbsp;|&nbsp;<i class="fas fa-clock"></i>&nbsp;2&nbsp;minutes
-  
-  
-    &nbsp;|&nbsp;<i class="fas fa-book"></i>&nbsp;303&nbsp;words
-  
-  
-  
-</span>
-
-
-    </p>
-    <div class="post-entry">
-        
-        Here is the outline for my cider tutorial on YouTube, covering basic things you need to know to get started with cider, and starting exploring the fun of clojure programming with the REPL-driven programming approach.
-Jack In to a REPL C-c M-j (cider-jack-in-clj) start a nREPL and jack in. It works in a project or with a sole .clj file. M-x cider-connect-clj run the command and then fill in hostname and port.
-        <a href="https://whatacold.io/blog/2024-12-22-getting-started-with-cider/" class="post-read-more">[Read More]</a>
-        
-    </div>
-
-    
-    <div class="blog-tags">
-        
-       
-       <a href="https://whatacold.io/tags/clojure/">clojure</a>&nbsp;
-        
-       
-       <a href="https://whatacold.io/tags/cider/">cider</a>&nbsp;
-        
-       
-       <a href="https://whatacold.io/tags/emacs/">emacs</a>&nbsp;
-         
-    </div>
-    
-
-</article>
-          
-            <article class="post-preview">
-    <a href="https://whatacold.io/blog/2024-12-07-babashka-fs-notes/">
-        <h2 class="post-title">A Few Quick Notes About babashka/fs</h2>
-        
-        
-        
-    </a>
-
-    <p class="post-meta">
-        <span class="post-meta">
-  
-  
-  <i class="fas fa-calendar"></i>&nbsp;Posted on 2024-12-07
-  
-    &nbsp;(Last modified on 2024-12-19)
-  
-  
-    &nbsp;|&nbsp;<i class="fas fa-clock"></i>&nbsp;1&nbsp;minutes
-  
-  
-    &nbsp;|&nbsp;<i class="fas fa-book"></i>&nbsp;149&nbsp;words
-  
-  
-  
-</span>
-
-
-    </p>
-    <div class="post-entry">
-        
-        Recently I&#39;ve used babashka/fs a little bit, here are some quick notes for it:
-Path vs File. Use Path whenever possible, according to this SO answer to &#34;Java: Path vs File&#34;. This is actually Java related. It&#39;s ok to use a path as a key for a clojure map. At my first try, I somehow came to the conclusion that it&#39;s not ok, while I was refactoring the live reload for clay.
-        <a href="https://whatacold.io/blog/2024-12-07-babashka-fs-notes/" class="post-read-more">[Read More]</a>
-        
-    </div>
-
-    
-    <div class="blog-tags">
-        
-       
-       <a href="https://whatacold.io/tags/clojure/">clojure</a>&nbsp;
-        
-       
-       <a href="https://whatacold.io/tags/cider/">cider</a>&nbsp;
-        
-       
-       <a href="https://whatacold.io/tags/clay/">clay</a>&nbsp;
-        
-       
-       <a href="https://whatacold.io/tags/python/">python</a>&nbsp;
-        
-       
-       <a href="https://whatacold.io/tags/tweet/">tweet</a>&nbsp;
-         
-    </div>
-    
-
-</article>
-          
-            <article class="post-preview">
-    <a href="https://whatacold.io/blog/2024-11-27-clojure-unit-test/">
-        <h2 class="post-title">Doing Unit test in Clojure Is Easy</h2>
-        
-        
-        
-    </a>
-
-    <p class="post-meta">
-        <span class="post-meta">
-  
-  
-  <i class="fas fa-calendar"></i>&nbsp;Posted on 2024-11-28
-  
-    &nbsp;(Last modified on 2025-02-26)
-  
-  
-    &nbsp;|&nbsp;<i class="fas fa-clock"></i>&nbsp;1&nbsp;minutes
-  
-  
-    &nbsp;|&nbsp;<i class="fas fa-book"></i>&nbsp;165&nbsp;words
-  
-  
-  
-</span>
-
-
-    </p>
-    <div class="post-entry">
-        
-        While refactoring the live reload feature of Clay, I realized I&#39;d better break long functions into smaller and functional ones (as many as I can), which is also a common practice in the clojure community.
-Small pure functions not only are easy to verify on the development process (using a REPL), but also are easy to test. And unit tests are easy to write in clojure, just use deftest from clojure.
-        <a href="https://whatacold.io/blog/2024-11-27-clojure-unit-test/" class="post-read-more">[Read More]</a>
-        
-    </div>
-
-    
-    <div class="blog-tags">
-        
-       
-       <a href="https://whatacold.io/tags/clojure/">clojure</a>&nbsp;
-        
-       
-       <a href="https://whatacold.io/tags/cider/">cider</a>&nbsp;
-        
-       
-       <a href="https://whatacold.io/tags/clay/">clay</a>&nbsp;
-        
-       
-       <a href="https://whatacold.io/tags/tweet/">tweet</a>&nbsp;
+       <a href="https://whatacold.io/tags/tweet/">Tweet</a>&nbsp;
          
     </div>
     
@@ -508,6 +335,15 @@ Instead of using M-x cider-jack-in-clj directly from Emacs, actually we can manu
 </article>
           
         </div>
+        
+          <ul class="pager main-pager">
+            
+              <li class="previous">
+                <a href="https://whatacold.io/tags/tweet/page/1/">&larr; Newer Posts</a>
+              </li>
+            
+            
+          </ul>
         
       </div>
     </div>
@@ -583,7 +419,7 @@ Instead of using M-x cider-jack-in-clj directly from Emacs, actually we can manu
           
           
           <li>
-            <a href="/tags/cider/rss.xml" title="RSS">
+            <a href="/tags/tweet/rss.xml" title="RSS">
               <span class="fa-stack fa-lg">
                 <i class="fas fa-circle fa-stack-2x"></i>
                 <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
