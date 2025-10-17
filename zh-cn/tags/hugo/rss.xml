@@ -8,21 +8,21 @@
     <language>zh-cn</language>
     <managingEditor>whatacold@gmail.com (Ken Huang)</managingEditor>
     <webMaster>whatacold@gmail.com (Ken Huang)</webMaster>
-    <lastBuildDate>Wed, 26 Feb 2025 00:45:45 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 17 Oct 2025 19:54:07 +0800</lastBuildDate>
     <atom:link href="https://whatacold.io/zh-cn/tags/hugo/rss.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>修改 Beautiful Hugo Banner 头图</title>
       <link>https://whatacold.io/zh-cn/blog/2022-10-05-beautifulhugo-banner-image/</link>
       <pubDate>Wed, 05 Oct 2022 18:17:37 +0800</pubDate><author>whatacold@gmail.com (Ken Huang)</author>
       <guid>https://whatacold.io/zh-cn/blog/2022-10-05-beautifulhugo-banner-image/</guid>
-      <description>博客迁移 Hugo 也有一年多了，最近对 Beautiful Hugo 用的头图 Sphere 产生了审美疲劳，感觉它太过朴素，于是萌生了更换头图的念头。 旧版头图 那换什么图片好点呢？ 经过几秒钟</description>
+      <description>&lt;p&gt;&#xA;&lt;a href=&#34;https://whatacold.io/zh-cn/blog/2021-07-10-migrate-site-hugo/&#34;&gt;博客迁移 Hugo&lt;/a&gt; 也有一年多了，最近对 &lt;a href=&#34;https://github.com/halogenica/beautifulhugo&#34;&gt;Beautiful Hugo&lt;/a&gt; 用的头图 Sphere 产生了审美疲劳，感觉它太过朴素，于是萌生了更换头图的念头。&lt;/p&gt;&#xA;&lt;figure&gt;&#xA;&lt;img src=&#34;https://whatacold.io/img/sphere.jpg&#34; alt=&#34;旧版头图&#34; title=&#34;单击以放大图片&#34;/&gt;&#xA;&lt;figcaption&gt;&#xA;旧版头图&#xA;&lt;/figcaption&gt;&#xA;&lt;/figure&gt;&#xA;&lt;p&gt;&#xA;那换什么图片好点呢？&lt;/p&gt;&#xA;&lt;p&gt;&#xA;经过几秒钟的思考，我打算换一张太空的图片，让人有种浩瀚神秘之感，同时与我博客名字也契合。打定主意之后，我就打开 Unsplash 网站，花了几分钟时间选定其中的一张。但是 Unsplash 的图片像素一般都比较高，文件比较大，如果直接用的话，它会导致博客页面加载比较慢。&lt;/p&gt;</description>
     </item>
     <item>
       <title>博客从 org-static-blog 迁移 Hugo 小记</title>
       <link>https://whatacold.io/zh-cn/blog/2021-07-10-migrate-site-hugo/</link>
       <pubDate>Sat, 10 Jul 2021 20:37:11 +0800</pubDate><author>whatacold@gmail.com (Ken Huang)</author>
       <guid>https://whatacold.io/zh-cn/blog/2021-07-10-migrate-site-hugo/</guid>
-      <description>我从 2018 年开始用 org-static-blog 写博客到现在也有几年时间了，写的文章比较少，总体上这个简单的静态网站生成方案都能够满足需求。 但中途也发现一些不够用的地方，比</description>
+      <description>&lt;p&gt;&#xA;我从 2018 年开始用 &lt;a href=&#34;https://github.com/bastibe/org-static-blog&#34;&gt;org-static-blog&lt;/a&gt; 写博客到现在也有几年时间了，写的文章比较少，总体上这个简单的静态网站生成方案都能够满足需求。&lt;/p&gt;&#xA;&lt;p&gt;&#xA;但中途也发现一些不够用的地方，比如之前想要并贡献了一个生成 meta description 的 &lt;a href=&#34;https://github.com/bastibe/org-static-blog/pull/94&#34;&gt;PR&lt;/a&gt; ，以便更好地在搜索引擎展示结果（ SEO ）；又比如中途一度有区分中英双语博客的需求（ index 列表、 RSS 等），但苦于没有想到很好的方法，就只能把两种文章都混杂在一起展示，但这样用户的阅读体验不好；另外之前的样式也差强人意，比如主页的链接带下划线，不利于阅读。&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

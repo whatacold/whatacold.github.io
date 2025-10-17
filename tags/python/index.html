@@ -47,7 +47,7 @@
   <meta name="twitter:site" content="@whatacold" />
   <meta name="twitter:creator" content="@whatacold" />
   <link href='https://whatacold.io/img/2021-12-10-motor-helmet-180.jpg' rel='icon' type='image/x-icon'/>
-  <meta name="generator" content="Hugo 0.126.2">
+  <meta name="generator" content="Hugo 0.142.0">
   <link rel="alternate" href="https://whatacold.io/rss.xml" type="application/rss+xml" title="Ken Huang"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/katex.min.css" integrity="sha384-3UiQGuEI4TTMaFmGIZumfRPtfKQ3trwQE2JgosJxCnGmQpL/lJdjpcHkaaFwHlcI" crossorigin="anonymous">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.6.0/css/all.css" integrity="sha384-h/hnnw1Bi4nbpD6kE7nYfCXzovi622sY5WBxww8ARKwpdLj5kUWjRuyiXaD1U2JT" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous"><link rel="stylesheet" href="https://whatacold.io/css/main.css" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
@@ -55,8 +55,6 @@
   <link rel="stylesheet" href="https://whatacold.io/css/highlight.min.css" /><link rel="stylesheet" href="https://whatacold.io/css/codeblock.css" /><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.css" integrity="sha384-h/L2W9KefUClHWaty3SLE5F/qvc4djlyR4qY3NUV5HGQBBW7stbcfff1+I/vmsHh" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/default-skin/default-skin.min.css" integrity="sha384-iD0dNku6PYSIQLyfTOpB06F2KCZJAKLOThS5HRe8b3ibhdEQ6eKsFf/EeFxdOt5R" crossorigin="anonymous">
 
-  
-    
       <script async src="https://www.googletagmanager.com/gtag/js?id=G-5TGCG9ZG24"></script>
       <script>
         var doNotTrack = false;
@@ -71,10 +69,6 @@
           gtag('config', 'G-5TGCG9ZG24');
         }
       </script>
-    
-  
-
-
   </head>
   <body>
     <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
@@ -265,9 +259,24 @@
     </p>
     <div class="post-entry">
         
-        Recently I&#39;ve used babashka/fs a little bit, here are some quick notes for it:
-Path vs File. Use Path whenever possible, according to this SO answer to &#34;Java: Path vs File&#34;. This is actually Java related. It&#39;s ok to use a path as a key for a clojure map. At my first try, I somehow came to the conclusion that it&#39;s not ok, while I was refactoring the live reload for clay.
-        <a href="https://whatacold.io/blog/2024-12-07-babashka-fs-notes/" class="post-read-more">[Read More]</a>
+        <p>
+Recently I&#39;ve used <a href="https://github.com/babashka/fs/blob/master/API.md">babashka/fs</a> a little bit, here are some quick notes for it:</p>
+<ul>
+<li>Path vs File.
+
+Use Path whenever possible, according to <a href="https://stackoverflow.com/a/26658436">this SO answer to &#34;Java: Path vs File&#34;</a>.
+
+This is actually Java related.</li>
+<li>It&#39;s ok to use a <code class="verbatim">path</code> as a key for a clojure map.
+
+At my first try, I somehow came to the conclusion that it&#39;s not ok, while I was refactoring the <a href="https://github.com/scicloj/clay/blob/main/src/scicloj/clay/v2/live_reload.clj">live reload</a> for clay. And later I found that it&#39;s totally fine to use it as a key. 😞</li>
+<li>Use <a href="https://github.com/babashka/fs/blob/master/API.md#babashka.fs/path">fs/path</a> to construct file/directory paths, for example, <code class="verbatim">(fs/path &#34;/tmp&#34; &#34;foo&#34; &#34;bar&#34; &#34;baz.clj&#34;)</code> will result in a path object for <code class="verbatim">/tmp/foo/bar/baz.clj</code> on linux.
+
+If you&#39;re coming from Python, it might remind you of <a href="https://docs.python.org/3/library/os.path.html">os.path.join(path, *paths)</a>.</li>
+<li>Use <code class="verbatim">fs/createdirs</code> for <code class="verbatim">mkdir -p</code>, though its name is a bit misleading, I first thought it&#39;s for creating a few dirs.</li>
+<li><code class="verbatim">fs/with-temp-dir</code> is convenient for <a href="https://github.com/scicloj/clay/blob/main/test/scicloj/clay/v2/live_reload_test.clj">creating tests</a>.</li>
+</ul>
+
         
     </div>
 
@@ -324,8 +333,23 @@ Path vs File. Use Path whenever possible, according to this SO answer to &#34;Ja
     </p>
     <div class="post-entry">
         
-        Scrapy Architecture Scrapy provides a few item exporters by default to export items in commonly used file formats like CSV/JSON/XML. I usually use CSV to export items, it is pretty convenient, and it comes in two ways:
-appending mode, for example, scrapy crawl foo -o test.csv overwriting mode with -O option, like scrapy crawl foo -O test.csv But in the appending mode, it&#39;s a bit annoying that it always appends the header row before the newly scraped items, which is not correctly in terms of CSV format.
+        <figure>
+<img src="https://docs.scrapy.org/en/latest/_images/scrapy_architecture_02.jpg" alt="Scrapy Architecture" title="Click to enlarge the image"/>
+<figcaption>
+Scrapy Architecture
+</figcaption>
+</figure>
+<p>
+Scrapy provides a few <a href="https://docs.scrapy.org/en/latest/topics/exporters.html">item exporters</a> by default to export items in
+commonly used file formats like CSV/JSON/XML. I usually use CSV to
+export items, it is pretty convenient, and it comes in two ways:</p>
+<ul>
+<li>appending mode, for example, <code>scrapy crawl foo -o test.csv</code></li>
+<li>overwriting mode with <code class="verbatim">-O</code> option, like <code>scrapy crawl foo -O test.csv</code></li>
+</ul>
+<p>But in the appending mode, it&#39;s a bit annoying that it always appends
+the header row before the newly scraped items, which is not correctly
+in terms of CSV format.</p>
         <a href="https://whatacold.io/blog/2022-04-09-scrapy-csv-without-header/" class="post-read-more">[Read More]</a>
         
     </div>
@@ -372,7 +396,20 @@ appending mode, for example, scrapy crawl foo -o test.csv overwriting mode with 
     </p>
     <div class="post-entry">
         
-        Note: watch my live coding session of this article: Intro If you&#39;ve heard some rumors of Emacs that it has a very steep learning curve (or that Emacs makes a computer slow), you may be too scared to look at it. It indeed has some learning curve (learning anything does have one), but it isn&#39;t very steep. I learned this after getting my hands dirty with Emacs a few years ago.
+        <p>
+Note: watch my live coding session of this article:
+
+    <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+      <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/MXF81Q0a91M?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"></iframe>
+    </div>
+</p>
+<div id="outline-container-headline-1" class="outline-2">
+<h2 id="headline-1">
+Intro
+</h2>
+<div id="outline-text-headline-1" class="outline-text-2">
+<p>
+If you&#39;ve heard some rumors of Emacs that it has a very steep learning curve (or that Emacs makes a computer slow), you may be too scared to look at it. It indeed has some learning curve (learning anything does have one), but it isn&#39;t very steep. I learned this after getting my hands dirty with Emacs a few years ago.</p>
         <a href="https://whatacold.io/blog/2021-12-11-writing-python-in-emacs/" class="post-read-more">[Read More]</a>
         
     </div>
@@ -424,9 +461,41 @@ appending mode, for example, scrapy crawl foo -o test.csv overwriting mode with 
     </p>
     <div class="post-entry">
         
-        Beautiful Soup Detailed docs: the Beautiful Soup 4 Docs.
-Assume t is an object of Tag.
-Core concepts (classes) Tag, a Tag object corresponds to an XML or HTML tag. BeautifulSoup, the BeautifulSoup object represents the parsed document as a whole. You can treat it like a special Tag. It needs a parser to parse the document, a built-in parser is &#34;html.parser&#34;, e.g. soup = BeautifulSoup(&#34;&lt;html&gt;a web page&lt;/html&gt;&#34;, &#39;html.parser&#39;) NavigableString, a string corresponds to a bit of text (as you see it in the browser) within a tag.
+        <figure>
+<img src="https://www.crummy.com/software/BeautifulSoup/bs4/doc/_images/6.1.jpg" alt="Beautiful Soup" title="Click to enlarge the image"/>
+<figcaption>
+Beautiful Soup
+</figcaption>
+</figure>
+<p>
+Detailed docs: <a href="https://www.crummy.com/software/BeautifulSoup/bs4/doc/">the Beautiful Soup 4 Docs</a>.</p>
+<p>
+Assume <code class="verbatim">t</code> is an object of <code class="verbatim">Tag</code>.</p>
+<div id="outline-container-headline-1" class="outline-2">
+<h2 id="headline-1">
+Core concepts (classes)
+</h2>
+<div id="outline-text-headline-1" class="outline-text-2">
+<ul>
+<li><code class="verbatim">Tag</code>, a Tag object corresponds to an XML or HTML tag.</li>
+<li><code class="verbatim">BeautifulSoup</code>, the BeautifulSoup object represents the parsed document as a whole.
+
+You can treat it like a special Tag.
+
+It needs a parser to parse the document, a built-in parser is <code class="verbatim">&#34;html.parser&#34;</code>, e.g. <code>soup = BeautifulSoup(&#34;&lt;html&gt;a web page&lt;/html&gt;&#34;, &#39;html.parser&#39;)</code></li>
+<li><code class="verbatim">NavigableString</code>, a string corresponds to a bit of text (as you see it in the browser) within a tag.
+
+A NavigableString is just like a Python Unicode string, except that it also supports some of the features for navigating the tree and searching the tree.</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-headline-2" class="outline-2">
+<h2 id="headline-2">
+The <code class="verbatim">Tag</code> class
+</h2>
+<div id="outline-text-headline-2" class="outline-text-2">
+<p>
+Object attributes:</p>
         <a href="https://whatacold.io/blog/2021-12-05-beautifulsoup4-cheatsheet/" class="post-read-more">[Read More]</a>
         
     </div>
@@ -473,9 +542,16 @@ Core concepts (classes) Tag, a Tag object corresponds to an XML or HTML tag. Bea
     </p>
     <div class="post-entry">
         
-        These days I like to write scripts for some tasks in Python instead of shell. One important reason I think that&#39;s because Python is powerful at string manipulation.
-Recently I&#39;m learning Clojure, and I&#39;m trying to find similar ways in Clojure, one of them is s.title() for getting a title-cased version of a string. For example,
-&gt;&gt;&gt; &#39; Hello world&#39;.title() &#39; Hello World&#39; How to do that in Clojure? To make the problem simple, let&#39;s assume that the input string only has letters and spaces, that is, [a-zA-Z ] in regex pattern.
+        <p>
+These days I like to write scripts for some tasks in Python instead of shell. One important reason I think that&#39;s because Python is powerful at string manipulation.</p>
+<p>
+Recently I&#39;m learning Clojure, and I&#39;m trying to find similar ways in Clojure, one of them is <code class="verbatim">s.title()</code> for getting a title-cased version of a string. For example,</p>
+<div class="src src-text">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">&gt;&gt;&gt; &#39; Hello world&#39;.title()
+</span></span><span class="line"><span class="cl">&#39; Hello World&#39;</span></span></code></pre></div>
+</div>
+<p>
+How to do that in Clojure? To make the problem simple, let&#39;s assume that the input string only has letters and spaces, that is, <code class="verbatim">[a-zA-Z ]</code> in regex pattern.</p>
         <a href="https://whatacold.io/blog/2021-07-25-clojure-string-title-case/" class="post-read-more">[Read More]</a>
         
     </div>
@@ -524,9 +600,12 @@ Recently I&#39;m learning Clojure, and I&#39;m trying to find similar ways in Cl
     </p>
     <div class="post-entry">
         
-        Python string APIs are powerful and concise, that is an important reason I use it to do a lot of scripting these days, join, split, strip, to name a few.
-Since I am learning Clojure recently, I am wondering, how is string manipulation like in Clojure and how to implement equivalent ones?
-I think it&#39;s an excellent opportunity to get familiar with Clojure. Before diving into the implementation, how to declare a multi-line string?
+        <p>
+Python string APIs are powerful and concise, that is an important reason I use it to do a lot of scripting these days, <code class="verbatim">join</code>, <code class="verbatim">split</code>, <code class="verbatim">strip</code>, to name a few.</p>
+<p>
+Since I am learning Clojure recently, I am wondering, how is string manipulation like in Clojure and how to implement equivalent ones?</p>
+<p>
+I think it&#39;s an excellent opportunity to get familiar with Clojure. Before diving into the implementation, how to declare a multi-line string?</p>
         <a href="https://whatacold.io/blog/2021-07-22-clojure-string-manipulation/" class="post-read-more">[Read More]</a>
         
     </div>
@@ -575,9 +654,12 @@ I think it&#39;s an excellent opportunity to get familiar with Clojure. Before d
     </p>
     <div class="post-entry">
         
-        As a programmer, I know that grep, sed and awk are powerful for processing text, but they sometimes aren&#39;t that straight-forward for specific tasks, as I need to think about how to filter the lines and the columns out.
-So I wonder if there is a handy way to do these tasks?
-After using it for a while, I think using regex directly can help, so I launched a re.
+        <p>
+As a programmer, I know that <a href="https://www.gnu.org/s/grep/manual/grep.html">grep</a>, <a href="https://www.gnu.org/software/sed/manual/sed.html">sed</a> and <a href="https://www.gnu.org/software/gawk/manual/gawk.html">awk</a> are powerful for processing text, but they sometimes aren&#39;t that straight-forward for specific tasks, as I need to think about how to filter the lines and the columns out.</p>
+<p>
+So I wonder if there is a handy way to do these tasks?</p>
+<p>
+After using it for a while, I think using regex directly can help, so I launched a <a href="https://texttoolkit.com/re.findall">re.findall service</a> building on top of Python <code class="verbatim">re.findall</code> API.</p>
         <a href="https://whatacold.io/blog/2020-10-21-a-python-re.findall-service/" class="post-read-more">[Read More]</a>
         
     </div>
@@ -629,8 +711,10 @@ After using it for a while, I think using regex directly can help, so I launched
     </p>
     <div class="post-entry">
         
-        For having been using GNOME for quite a long time, I was considering trying some tiling window managers to see what it&#39;s like a few weeks ago. Along the way, I found a nice window manager written in Python: Qtile, what interests me most is that it&#39;s a hackable window manager, which makes it flexible to extend or change its behaviors.
-Well, switching to use a tiling window manager is far simpler than I thought.
+        <p>
+For having been using <a href="https://www.gnome.org/">GNOME</a> for quite a long time, I was considering trying some tiling window managers to see what it&#39;s like a few weeks ago. Along the way, I found a nice window manager written in Python: <a href="http://www.qtile.org">Qtile</a>, what interests me most is that it&#39;s a <strong>hackable</strong> window manager, which makes it flexible to extend or change its behaviors.</p>
+<p>
+Well, switching to use a tiling window manager is far simpler than I thought. There are two ways to have it:</p>
         <a href="https://whatacold.io/blog/2019-09-29-how-to-run-the-bleeding-edge-code-of-qtile/" class="post-read-more">[Read More]</a>
         
     </div>
@@ -677,8 +761,11 @@ Well, switching to use a tiling window manager is far simpler than I thought.
     </p>
     <div class="post-entry">
         
-        Recently I found some great articles on wikiHow, then I want to keep notes of them in org-mode files.
-At first, I manually copied the ToC of articles, but soon I found it&#39;s tedious and takes a lot of time. Today I wrote a requests-based Python script to help me extract the ToCs (Table of Content) into org-mode outlines. It takes two arguments, the first one is the URL, the second one is the containing heading&#39;s level for the generated ToC in org-mode.
+        <p>
+Recently I found some great articles on <a href="https://www.wikihow.com">wikiHow</a>, then I want to keep notes of them in <a href="https://orgmode.org/">org-mode</a> files.</p>
+<p>
+At first, I manually copied the ToC of articles, but soon I found it&#39;s tedious and takes a lot of time.
+Today I wrote a <a href="https://requests.readthedocs.io/">requests</a>-based Python script to help me extract the ToCs (Table of Content) into org-mode outlines. It takes two arguments, the first one is the URL, the second one is the containing heading&#39;s level for the generated ToC in org-mode.</p>
         <a href="https://whatacold.io/blog/2019-07-20-generating-org-mode-outlines-for-wikihow-articles/" class="post-read-more">[Read More]</a>
         
     </div>
@@ -730,8 +817,14 @@ At first, I manually copied the ToC of articles, but soon I found it&#39;s tedio
     </p>
     <div class="post-entry">
         
-        If you ever wonder how to plot ER diagrams in plain text, you may have already heard of erd. It&#39;s a cool command line program written by Andrew Gallant in Haskell, to &#34;compile&#34; plain text files into nicely looking images, leveraging the power of GraphViz.
-I&#39;ve used erd for some time, it&#39;s cool and the syntax is quite simple. It&#39;s also quite simple to install it on Linux, just install GraphViz and erd itself, by following the instructions in the README page.
+        <p>
+If you ever wonder how to plot <a href="https://en.wikipedia.org/wiki/Entity%E2%80%93relationship_model">ER diagrams</a> in plain text, you may have already heard of <a href="https://github.com/BurntSushi/erd">erd</a>.
+It&#39;s a cool command line program written by Andrew Gallant in Haskell, to &#34;compile&#34; plain text files into nicely looking images,
+leveraging the power of <a href="https://graphviz.org/">GraphViz</a>.</p>
+<p>
+I&#39;ve used erd for some time, it&#39;s cool and the syntax is quite simple.
+It&#39;s also quite simple to install it on Linux, just install GraphViz and erd itself,
+by following the instructions in the README page.</p>
         <a href="https://whatacold.io/blog/2019-07-06-render-erd-on-the-web/" class="post-read-more">[Read More]</a>
         
     </div>
@@ -858,7 +951,7 @@ I&#39;ve used erd for some time, it&#39;s cool and the syntax is quite simple. I
         </p>
         
         <p class="credits theme-by text-muted">
-          <a href="https://gohugo.io">Hugo v0.126.2</a> powered &nbsp;&bull;&nbsp; Theme <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> adapted from <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
+          <a href="https://gohugo.io">Hugo v0.142.0</a> powered &nbsp;&bull;&nbsp; Theme <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> adapted from <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
           
         </p>
       </div>

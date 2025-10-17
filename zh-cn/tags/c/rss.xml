@@ -15,7 +15,7 @@
       <link>https://whatacold.io/zh-cn/blog/2021-02-27-wrk-yuanli/</link>
       <pubDate>Sat, 27 Feb 2021 10:27:00 +0800</pubDate><author>whatacold@gmail.com (Ken Huang)</author>
       <guid>https://whatacold.io/zh-cn/blog/2021-02-27-wrk-yuanli/</guid>
-      <description>注：本文分析的是 wrk v4.1.0 的源码。 wrk 是一个用 C 实现的 HTTP 压测工具，所有的参数都是通过命令行传递，没有配置文件，很容易使用；编译产物只有一个二进制文件</description>
+      <description>&lt;p&gt;&#xA;注：本文分析的是 &lt;a href=&#34;https://github.com/wg/wrk/releases/tag/4.1.0&#34;&gt;wrk v4.1.0&lt;/a&gt; 的源码。&lt;/p&gt;&#xA;&lt;p&gt;&#xA;wrk 是一个用 C 实现的 HTTP 压测工具，所有的参数都是通过命令行传递，没有配置文件，很容易使用；编译产物只有一个二进制文件，部署简单。&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

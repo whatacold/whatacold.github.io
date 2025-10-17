@@ -8,14 +8,14 @@
     <language>en</language>
     <managingEditor>whatacold@gmail.com (Ken Huang)</managingEditor>
     <webMaster>whatacold@gmail.com (Ken Huang)</webMaster>
-    <lastBuildDate>Sun, 30 Mar 2025 22:30:20 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 17 Oct 2025 20:29:45 +0800</lastBuildDate>
     <atom:link href="https://whatacold.io/tags/reagent/rss.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Rewrite of a Flask Web App in Clojure</title>
       <link>https://whatacold.io/blog/2025-02-22-flask-clojure-rewrite/</link>
       <pubDate>Sat, 22 Feb 2025 22:46:05 +0800</pubDate><author>whatacold@gmail.com (Ken Huang)</author>
       <guid>https://whatacold.io/blog/2025-02-22-flask-clojure-rewrite/</guid>
-      <description>Intro A few years ago, I made a simple web app in Flask to deal with some text processing problems from my daily work. It has two main features:&#xA;Feature #1: generating compile_commands.json for GNU Makefile projects written in C/C++ using the output of the make command. Because, unlike CMake, the make command can&amp;#39;t generate it. Feature #2: extract text using Python regex. It&amp;#39;s handy when I feel like sed/awk/grep&amp;#39;s line-oriented processing isn&amp;#39;t enough for the task at hand.</description>
+      <description>&lt;div id=&#34;outline-container-headline-1&#34; class=&#34;outline-2&#34;&gt;&#xA;&lt;h2 id=&#34;headline-1&#34;&gt;&#xA;Intro&#xA;&lt;/h2&gt;&#xA;&lt;div id=&#34;outline-text-headline-1&#34; class=&#34;outline-text-2&#34;&gt;&#xA;&lt;p&gt;&#xA;A few years ago, I made a simple web app in &lt;a href=&#34;https://flask.palletsprojects.com/en/stable/&#34;&gt;Flask&lt;/a&gt; to deal with some text processing problems from my daily work. It has two main features:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Feature #1: generating &lt;code class=&#34;verbatim&#34;&gt;compile_commands.json&lt;/code&gt; for GNU Makefile projects written in C/C++ using the output of the &lt;code class=&#34;verbatim&#34;&gt;make&lt;/code&gt; command. Because, unlike CMake, the make command can&amp;#39;t generate it.&lt;/li&gt;&#xA;&lt;li&gt;Feature #2: extract text using Python regex. It&amp;#39;s handy when I feel like sed/awk/grep&amp;#39;s line-oriented processing isn&amp;#39;t enough for the task at hand.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;&lt;em&gt;BTW, I&amp;#39;m improving my English by watching YouTube videos every single day; If you&amp;#39;re also learning English, or any languages, LanguagePuppy can definitely help you. It&amp;#39;s a Chrome extension I developed using Clojure. Check it out:&lt;/em&gt;&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

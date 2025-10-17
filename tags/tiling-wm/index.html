@@ -47,7 +47,7 @@
   <meta name="twitter:site" content="@whatacold" />
   <meta name="twitter:creator" content="@whatacold" />
   <link href='https://whatacold.io/img/2021-12-10-motor-helmet-180.jpg' rel='icon' type='image/x-icon'/>
-  <meta name="generator" content="Hugo 0.126.2">
+  <meta name="generator" content="Hugo 0.142.0">
   <link rel="alternate" href="https://whatacold.io/rss.xml" type="application/rss+xml" title="Ken Huang"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/katex.min.css" integrity="sha384-3UiQGuEI4TTMaFmGIZumfRPtfKQ3trwQE2JgosJxCnGmQpL/lJdjpcHkaaFwHlcI" crossorigin="anonymous">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.6.0/css/all.css" integrity="sha384-h/hnnw1Bi4nbpD6kE7nYfCXzovi622sY5WBxww8ARKwpdLj5kUWjRuyiXaD1U2JT" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous"><link rel="stylesheet" href="https://whatacold.io/css/main.css" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
@@ -55,8 +55,6 @@
   <link rel="stylesheet" href="https://whatacold.io/css/highlight.min.css" /><link rel="stylesheet" href="https://whatacold.io/css/codeblock.css" /><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.css" integrity="sha384-h/L2W9KefUClHWaty3SLE5F/qvc4djlyR4qY3NUV5HGQBBW7stbcfff1+I/vmsHh" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/default-skin/default-skin.min.css" integrity="sha384-iD0dNku6PYSIQLyfTOpB06F2KCZJAKLOThS5HRe8b3ibhdEQ6eKsFf/EeFxdOt5R" crossorigin="anonymous">
 
-  
-    
       <script async src="https://www.googletagmanager.com/gtag/js?id=G-5TGCG9ZG24"></script>
       <script>
         var doNotTrack = false;
@@ -71,10 +69,6 @@
           gtag('config', 'G-5TGCG9ZG24');
         }
       </script>
-    
-  
-
-
   </head>
   <body>
     <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
@@ -261,9 +255,19 @@
     </p>
     <div class="post-entry">
         
-        Adjust the screen brightness in Emacs If you&#39;re using i3wm on Linux, how do you adjust the laptop&#39;s screen brightness?
-Most of the time, I use the laptop with an external monitor. But when I am out, I have no monitors. And it seems no easy way to adjust the brightness in i3wm. Being too bright or dim is terrible for the eyes.
-Recently, I found a command-line tool called brightnessctl, which can adjust the brightness in a terminal.
+        <figure>
+<img src="/img/2022-05-21-adjust-screen-brightness-emacs.jpg" alt="Adjust the screen brightness in Emacs" title="Click to enlarge the image"/>
+<figcaption>
+Adjust the screen brightness in Emacs
+</figcaption>
+</figure>
+<p>
+If you&#39;re using i3wm on Linux, how do you adjust the laptop&#39;s screen
+brightness?</p>
+<p>
+Most of the time, I use the laptop with an external monitor. But when
+I am out, I have no monitors. And it seems no easy way to adjust the
+brightness in i3wm. Being too bright or dim is terrible for the eyes.</p>
         <a href="https://whatacold.io/blog/2022-05-21-adjust-screen-brightness-emacs/" class="post-read-more">[Read More]</a>
         
     </div>
@@ -315,9 +319,14 @@ Recently, I found a command-line tool called brightnessctl, which can adjust the
     </p>
     <div class="post-entry">
         
-        I barely use notifications, but recently I think it&#39;s a valuable way to remind me things like helping me nurture habits, or to notify me of emergencies like a critically low laptop battery.
-So I try to integrate notifications to org-mode and Emacs today.
-The org-notify package from org-contrib (install it by (package-install &#39;org-contrib) ) could do this job easily before, so I first test it in the minibuffer with (org-notify &#34;test&#34;).
+        <p>
+I barely use notifications, but recently I think it&#39;s a valuable way to remind me things like helping me nurture habits, or to notify me of emergencies like a critically low laptop battery.</p>
+<p>
+So I try to integrate notifications to org-mode and Emacs today.</p>
+<p>
+The <code class="verbatim">org-notify</code> package from <code class="verbatim">org-contrib</code> (install it by <code class="verbatim">(package-install &#39;org-contrib)</code> ) could do this job easily before, so I first test it in the minibuffer with <code class="verbatim">(org-notify &#34;test&#34;)</code>.</p>
+<p>
+Unfortunately, it errors out:</p>
         <a href="https://whatacold.io/blog/2021-07-17-emacs-i3wm-dunst/" class="post-read-more">[Read More]</a>
         
     </div>
@@ -373,8 +382,10 @@ The org-notify package from org-contrib (install it by (package-install &#39;org
     </p>
     <div class="post-entry">
         
-        I used to manage SSH connection with such GUI apps as MobaXterm, when I wrote code on Windows at work. As I changed my workflow to use a tiling window manager in a VirtualBox guest OS, I continued to improve my way of managing SSH connections, which I want to share here if you don&#39;t know yet.
-At first, I baked a helper Python script, which I named as qssh for &#34;quick ssh&#34;, to help me assemble ssh arguments for me(such as username, Ip, port, etc.
+        <p>
+I used to manage <a href="https://en.wikipedia.org/wiki/SSH_(Secure_Shell)">SSH</a> connection with such GUI apps as <a href="https://mobaxterm.mobatek.net/">MobaXterm</a>, when I wrote code on Windows at work. As I changed my workflow to use a tiling window manager in a <a href="https://www.virtualbox.org/">VirtualBox</a> guest OS, I continued to improve my way of managing SSH connections, which I want to share here if you don&#39;t know yet.</p>
+<p>
+At first, I baked a helper Python script, which I named as qssh for &#34;quick ssh&#34;, to help me assemble ssh arguments for me(such as username, Ip, port, etc.), so that I can easily access a host by giving it only one argument, e.g. <code class="verbatim">qssh foo</code>.</p>
         <a href="https://whatacold.io/blog/2019-12-22-manage-ssh-connections-with-ssh-config/" class="post-read-more">[Read More]</a>
         
     </div>
@@ -423,8 +434,10 @@ At first, I baked a helper Python script, which I named as qssh for &#34;quick s
     </p>
     <div class="post-entry">
         
-        I have been really enjoying the more concentration workflow qtile, a tiling window manager, brings me, since I started using it a few months ago. I am more focus on the current task now as all the windows I care about are laid out on the same screen.
-As I get more used to qtile at every day&#39;s work, I noticed that I became more depend on short-life terminal sessions.
+        <p>
+I have been really enjoying the more concentration workflow <a href="http://www.qtile.org/">qtile</a>, a tiling window manager, brings me, since I started using it a few months ago. I am more focus on the current task now as all the windows I care about are laid out on the same screen.</p>
+<p>
+As I get more used to qtile at every day&#39;s work, I noticed that I became more depend on short-life terminal sessions. Sometimes I need to quickly execute some commands on the current buffer on <a href="https://www.gnu.org/software/emacs/">Emacs</a>, such as searching text which having many matches and quit that terminal after I&#39;m done. So I wondered what could be the best way to achieve that.</p>
         <a href="https://whatacold.io/blog/2019-11-25-start-a-new-urxvt-terminal-on-emacs/" class="post-read-more">[Read More]</a>
         
     </div>
@@ -476,8 +489,10 @@ As I get more used to qtile at every day&#39;s work, I noticed that I became mor
     </p>
     <div class="post-entry">
         
-        For having been using GNOME for quite a long time, I was considering trying some tiling window managers to see what it&#39;s like a few weeks ago. Along the way, I found a nice window manager written in Python: Qtile, what interests me most is that it&#39;s a hackable window manager, which makes it flexible to extend or change its behaviors.
-Well, switching to use a tiling window manager is far simpler than I thought.
+        <p>
+For having been using <a href="https://www.gnome.org/">GNOME</a> for quite a long time, I was considering trying some tiling window managers to see what it&#39;s like a few weeks ago. Along the way, I found a nice window manager written in Python: <a href="http://www.qtile.org">Qtile</a>, what interests me most is that it&#39;s a <strong>hackable</strong> window manager, which makes it flexible to extend or change its behaviors.</p>
+<p>
+Well, switching to use a tiling window manager is far simpler than I thought. There are two ways to have it:</p>
         <a href="https://whatacold.io/blog/2019-09-29-how-to-run-the-bleeding-edge-code-of-qtile/" class="post-read-more">[Read More]</a>
         
     </div>
@@ -601,7 +616,7 @@ Well, switching to use a tiling window manager is far simpler than I thought.
         </p>
         
         <p class="credits theme-by text-muted">
-          <a href="https://gohugo.io">Hugo v0.126.2</a> powered &nbsp;&bull;&nbsp; Theme <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> adapted from <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
+          <a href="https://gohugo.io">Hugo v0.142.0</a> powered &nbsp;&bull;&nbsp; Theme <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> adapted from <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
           
         </p>
       </div>

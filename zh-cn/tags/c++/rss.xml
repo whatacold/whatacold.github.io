@@ -15,21 +15,21 @@
       <link>https://whatacold.io/zh-cn/blog/2021-02-16-doxygen-cpp-correct-callgraphs/</link>
       <pubDate>Tue, 16 Feb 2021 16:08:00 +0800</pubDate><author>whatacold@gmail.com (Ken Huang)</author>
       <guid>https://whatacold.io/zh-cn/blog/2021-02-16-doxygen-cpp-correct-callgraphs/</guid>
-      <description>大家都知道， Doxygen 可以用于提取代码的注释生成项目的文档，只要注释满足它规定的格式。我喜欢通过它生成类继承图（inheritance diagram</description>
+      <description>&lt;p&gt;&#xA;大家都知道， &lt;a href=&#34;https://doxygen.nl/&#34;&gt;Doxygen&lt;/a&gt; 可以用于提取代码的注释生成项目的文档，只要注释满足它规定的格式。我喜欢通过它生成类继承图（inheritance diagram）和函数调用图（callgraph），有了他们能够加快对代码的理解。&lt;/p&gt;</description>
     </item>
     <item>
       <title>在 Emacs 中使用 LSP 开发 C/C&#43;&#43; 工程</title>
       <link>https://whatacold.io/zh-cn/blog/2018-12-22-c-cpp-devel-with-lsp-in-emacs/</link>
       <pubDate>Sat, 22 Dec 2018 20:24:00 +0800</pubDate><author>whatacold@gmail.com (Ken Huang)</author>
       <guid>https://whatacold.io/zh-cn/blog/2018-12-22-c-cpp-devel-with-lsp-in-emacs/</guid>
-      <description>写代码的时候，如果能够基于当前的上下文提示补全，不仅能提高写代码的效率，还能提升编程体验，有种行云流水的快感。 Emacs 中之前我用 GNU Global (gtags) 等静态的工具</description>
+      <description>&lt;p&gt;&#xA;写代码的时候，如果能够基于当前的上下文提示补全，不仅能提高写代码的效率，还能提升编程体验，有种行云流水的快感。&lt;/p&gt;&#xA;&lt;p&gt;&#xA;Emacs 中之前我用 &lt;a href=&#34;https://www.gnu.org/software/global/&#34;&gt;GNU Global (gtags)&lt;/a&gt; 等静态的工具来辅助写代码，最大的问题是无法根据上下文补全，体验不好。现在有了 LSP 协议之后， Emacs 中现在也能实现这个功能了，体验相当不错。&lt;/p&gt;</description>
     </item>
     <item>
       <title>C&#43;&#43; 多态是如何实现的？</title>
       <link>https://whatacold.io/zh-cn/blog/2018-12-10-how-polymorphism-works-in-cpp/</link>
       <pubDate>Mon, 10 Dec 2018 00:16:00 +0800</pubDate><author>whatacold@gmail.com (Ken Huang)</author>
       <guid>https://whatacold.io/zh-cn/blog/2018-12-10-how-polymorphism-works-in-cpp/</guid>
-      <description>对于 OOP 编程，相信大家对于多态（ polymorphism ）肯定都耳熟能详。 但是对于多态是如何实现的，我不知道大家是否清楚，但我发现自己并不是很了解， 只知道在运行时通</description>
+      <description>&lt;p&gt;&#xA;对于 OOP 编程，相信大家对于多态（ polymorphism ）肯定都耳熟能详。&#xA;但是对于多态是如何实现的，我不知道大家是否清楚，但我发现自己并不是很了解，&#xA;只知道在运行时通过一个 vtable 来确定应该调用哪个函数，&#xA;实际上 vtable 真的存在吗？它是如何起作用的？&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

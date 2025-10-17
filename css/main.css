@@ -997,3 +997,30 @@ h4.see-also {
 figure > figcaption {
   text-align: center;
 }
+
+.button-link {
+  /* Box model properties to shape the button */
+  display: inline-block;
+  margin: 10px;
+  padding: 10px 20px;
+  border-radius: 5px;
+
+  /* Visual properties for colors and text */
+  background-color: #007bff; /* A nice blue */
+  color: white;
+  text-decoration: none;
+
+  /* Font and cursor properties */
+  font-family: sans-serif;
+  font-weight: bold;
+  cursor: pointer;
+
+  /* Optional: Add hover and active states for user feedback */
+  transition: background-color 0.3s ease;
+}
+
+.button-link:hover {
+  background-color: #0056b3; /* A darker blue on hover */
+  color: white;
+  text-decoration: none;
+}

@@ -15,14 +15,14 @@
       <link>https://whatacold.io/zh-cn/blog/2021-09-05-lein-reagent-frontend-shibai/</link>
       <pubDate>Sun, 05 Sep 2021 10:39:33 +0800</pubDate><author>whatacold@gmail.com (Ken Huang)</author>
       <guid>https://whatacold.io/zh-cn/blog/2021-09-05-lein-reagent-frontend-shibai/</guid>
-      <description>最近打算用 ClojureScript 做点 web 应用，就准备实践下 Reagent ，它是一个 React.js 的极简封装（A minimalistic ClojureScript interface to React.js），通过官网的几个例子可以看到，确实很简洁。 看花容易</description>
+      <description>&lt;p&gt;&#xA;最近打算用 &lt;a href=&#34;https://clojurescript.org/&#34;&gt;ClojureScript&lt;/a&gt; 做点 web 应用，就准备实践下 &lt;a href=&#34;http://reagent-project.github.io/&#34;&gt;Reagent&lt;/a&gt; ，它是一个 &lt;a href=&#34;https://reactjs.org/&#34;&gt;React.js&lt;/a&gt; 的极简封装（A minimalistic ClojureScript interface to React.js），通过官网的几个例子可以看到，确实很简洁。&lt;/p&gt;&#xA;&lt;p&gt;&#xA;看花容易绣花难，那就先搞一个本地工程玩一下看。Leiningen 命令有两种：&lt;/p&gt;</description>
     </item>
     <item>
       <title>Clojure Reduce 的两种用法</title>
       <link>https://whatacold.io/zh-cn/blog/2021-07-28-clojure-reduce-yongfang/</link>
       <pubDate>Wed, 28 Jul 2021 00:01:15 +0800</pubDate><author>whatacold@gmail.com (Ken Huang)</author>
       <guid>https://whatacold.io/zh-cn/blog/2021-07-28-clojure-reduce-yongfang/</guid>
-      <description>map/reduce 在 Lisp 语言中是一种很常见的用法， Clojure 自然也不例外。 自上次 title-case 的练习之后，我以为自己对 reduce 已经有了较为深入的了解了；恰好最近在 StackOverflow 上刚好遇到一个类似的</description>
+      <description>&lt;p&gt;&#xA;map/reduce 在 Lisp 语言中是一种很常见的用法， Clojure 自然也不例外。&lt;/p&gt;&#xA;&lt;p&gt;&#xA;自上次 &lt;a href=&#34;https://whatacold.io/blog/2021-07-25-clojure-string-title-case/&#34;&gt;title-case&lt;/a&gt; 的练习之后，我以为自己对 reduce 已经有了较为深入的了解了；恰好最近在 StackOverflow 上刚好遇到一个&lt;a href=&#34;https://stackoverflow.com/questions/68384807/how-to-properly-split-a-string-into-n-number-of-pieces-in-clojure&#34;&gt;类似的问题&lt;/a&gt;，有个网友想把一个 list 转为一个字符串，就是 Python 中经常见到的 join 方法。&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

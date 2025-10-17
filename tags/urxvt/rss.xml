@@ -15,7 +15,7 @@
       <link>https://whatacold.io/blog/2019-11-25-start-a-new-urxvt-terminal-on-emacs/</link>
       <pubDate>Mon, 25 Nov 2019 22:47:00 +0800</pubDate><author>whatacold@gmail.com (Ken Huang)</author>
       <guid>https://whatacold.io/blog/2019-11-25-start-a-new-urxvt-terminal-on-emacs/</guid>
-      <description>I have been really enjoying the more concentration workflow qtile, a tiling window manager, brings me, since I started using it a few months ago. I am more focus on the current task now as all the windows I care about are laid out on the same screen.&#xA;As I get more used to qtile at every day&amp;#39;s work, I noticed that I became more depend on short-life terminal sessions.</description>
+      <description>&lt;p&gt;&#xA;I have been really enjoying the more concentration workflow &lt;a href=&#34;http://www.qtile.org/&#34;&gt;qtile&lt;/a&gt;, a tiling window manager, brings me, since I started using it a few months ago. I am more focus on the current task now as all the windows I care about are laid out on the same screen.&lt;/p&gt;&#xA;&lt;p&gt;&#xA;As I get more used to qtile at every day&amp;#39;s work, I noticed that I became more depend on short-life terminal sessions. Sometimes I need to quickly execute some commands on the current buffer on &lt;a href=&#34;https://www.gnu.org/software/emacs/&#34;&gt;Emacs&lt;/a&gt;, such as searching text which having many matches and quit that terminal after I&amp;#39;m done. So I wondered what could be the best way to achieve that.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

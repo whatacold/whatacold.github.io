@@ -15,7 +15,7 @@
       <link>https://whatacold.io/zh-cn/blog/2022-09-10-emacs-beancount-account-files/</link>
       <pubDate>Sat, 10 Sep 2022 11:13:38 +0800</pubDate><author>whatacold@gmail.com (Ken Huang)</author>
       <guid>https://whatacold.io/zh-cn/blog/2022-09-10-emacs-beancount-account-files/</guid>
-      <description>从单独的 accounts.bean 补全账户 如果你用 Emacs + Beancount 来记账，那你应该有用 beancount-mode 这个包。它可以帮助我们在记账的时候从当前 buffer 中提取出已定义的账户，当我们下达 M-x beancount-insert-account 命令的时</description>
+      <description>&lt;figure&gt;&#xA;&lt;img src=&#34;https://whatacold.io/img/2022-09-10-beancount-mode-comple-accounts-from-files.jpg&#34; alt=&#34;从单独的 accounts.bean 补全账户&#34; title=&#34;单击以放大图片&#34;/&gt;&#xA;&lt;figcaption&gt;&#xA;从单独的 accounts.bean 补全账户&#xA;&lt;/figcaption&gt;&#xA;&lt;/figure&gt;&#xA;&lt;p&gt;&#xA;如果你用 Emacs + Beancount 来记账，那你应该有用 &lt;a href=&#34;https://github.com/beancount/beancount-mode&#34;&gt;beancount-mode&lt;/a&gt; 这个包。它可以帮助我们在记账的时候从当前 buffer 中提取出已定义的账户，当我们下达 &lt;code class=&#34;verbatim&#34;&gt;M-x beancount-insert-account&lt;/code&gt; 命令的时候，它会弹出 minibuffer 来让我们模糊选择使用哪个账户，从而提高记账效率。&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

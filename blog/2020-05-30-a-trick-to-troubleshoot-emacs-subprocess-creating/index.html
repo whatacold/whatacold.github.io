@@ -14,8 +14,10 @@
 
       <title>A Trick to Troubleshoot Emacs Subprocess Creating - Ken Huang</title>
 
-  <meta name="description" content="There are many packages of Emacs that leverage subprocesses to do their jobs, Magit, eglot, elpy, to name a few. And there are times that a subprocess doesn&#39;t work as expected, for example, Magit is slow, and you&#39;re sure that it&#39;s ok when running git commands on shell. So how to spot these problems effectively and quickly?
-The problem is that we don&#39;t know what&#39;s going on exactly, so here I want to share a few Elisp advices to make the subprocess creating visible, and print the exact program and its arguments to the *Message* buffer.">
+  <meta name="description" content="
+There are many packages of Emacs that leverage subprocesses to do their jobs, Magit, eglot, elpy, to name a few. And there are times that a subprocess doesn&#39;t work as expected, for example, Magit is slow, and you&#39;re sure that it&#39;s ok when running git commands on shell. So how to spot these problems effectively and quickly?
+
+The problem is that we don&#39;t know what&#39;s going on exactly, so here I want to share a few Elisp advices to make the subprocess creating visible, and print the exact program and its arguments to the *Message* buffer. Visibility is the key.">
   <meta name="author" content="Ken Huang"/><script type="application/ld+json">
 {
     "@context": "http://schema.org",
@@ -64,7 +66,7 @@ The problem is that we don&#39;t know what&#39;s going on exactly, so here I wan
     "name" : "Ken Huang"
   },
   "headline": "A Trick to Troubleshoot Emacs Subprocess Creating",
-  "description" : "There are many packages of Emacs that leverage subprocesses to do their jobs, Magit, eglot, elpy, to name a few. And there are times that a subprocess doesn\u0026#39;t work as expected, for example, Magit is slow, and you\u0026#39;re sure that it\u0026#39;s ok when running git commands on shell. So how to spot these problems effectively and quickly?\nThe problem is that we don\u0026#39;t know what\u0026#39;s going on exactly, so here I want to share a few Elisp advices to make the subprocess creating visible, and print the exact program and its arguments to the *Message* buffer.",
+  "description" : " There are many packages of Emacs that leverage subprocesses to do their jobs, Magit, eglot, elpy, to name a few. And there are times that a subprocess doesn\u0026#39;t work as expected, for example, Magit is slow, and you\u0026#39;re sure that it\u0026#39;s ok when running git commands on shell. So how to spot these problems effectively and quickly?\nThe problem is that we don\u0026#39;t know what\u0026#39;s going on exactly, so here I want to share a few Elisp advices to make the subprocess creating visible, and print the exact program and its arguments to the *Message* buffer. Visibility is the key.\n",
   "inLanguage" : "en",
   "wordCount":  290 ,
   "datePublished" : "2020-05-30T11:52:00\u002b08:00",
@@ -87,21 +89,24 @@ The problem is that we don&#39;t know what&#39;s going on exactly, so here I wan
 
 
 <meta property="og:title" content="A Trick to Troubleshoot Emacs Subprocess Creating" />
-<meta property="og:description" content="There are many packages of Emacs that leverage subprocesses to do their jobs, Magit, eglot, elpy, to name a few. And there are times that a subprocess doesn&#39;t work as expected, for example, Magit is slow, and you&#39;re sure that it&#39;s ok when running git commands on shell. So how to spot these problems effectively and quickly?
-The problem is that we don&#39;t know what&#39;s going on exactly, so here I want to share a few Elisp advices to make the subprocess creating visible, and print the exact program and its arguments to the *Message* buffer.">
+<meta property="og:description" content="
+There are many packages of Emacs that leverage subprocesses to do their jobs, Magit, eglot, elpy, to name a few. And there are times that a subprocess doesn&#39;t work as expected, for example, Magit is slow, and you&#39;re sure that it&#39;s ok when running git commands on shell. So how to spot these problems effectively and quickly?
+
+The problem is that we don&#39;t know what&#39;s going on exactly, so here I want to share a few Elisp advices to make the subprocess creating visible, and print the exact program and its arguments to the *Message* buffer. Visibility is the key.">
 <meta property="og:image" content="https://whatacold.io/img/2021-12-10-motor-helmet-og.jpg" />
 <meta property="og:url" content="https://whatacold.io/blog/2020-05-30-a-trick-to-troubleshoot-emacs-subprocess-creating/" />
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="Ken Huang" />
 
   <meta name="twitter:title" content="A Trick to Troubleshoot Emacs Subprocess Creating" />
-  <meta name="twitter:description" content="There are many packages of Emacs that leverage subprocesses to do their jobs, Magit, eglot, elpy, to name a few. And there are times that a subprocess doesn&#39;t work as expected, for example, Magit …">
+  <meta name="twitter:description" content="
+There are many packages of Emacs that leverage subprocesses to do their jobs, Magit, eglot, elpy, to name a few. And there are times that a subprocess doesn&#39;t work as expected, for example, Magit …">
   <meta name="twitter:image" content="https://whatacold.io/img/2021-12-10-motor-helmet-og.jpg" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:site" content="@whatacold" />
   <meta name="twitter:creator" content="@whatacold" />
   <link href='https://whatacold.io/img/2021-12-10-motor-helmet-180.jpg' rel='icon' type='image/x-icon'/>
-  <meta name="generator" content="Hugo 0.126.2">
+  <meta name="generator" content="Hugo 0.142.0">
   <link rel="alternate" href="https://whatacold.io/rss.xml" type="application/rss+xml" title="Ken Huang"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/katex.min.css" integrity="sha384-3UiQGuEI4TTMaFmGIZumfRPtfKQ3trwQE2JgosJxCnGmQpL/lJdjpcHkaaFwHlcI" crossorigin="anonymous">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.6.0/css/all.css" integrity="sha384-h/hnnw1Bi4nbpD6kE7nYfCXzovi622sY5WBxww8ARKwpdLj5kUWjRuyiXaD1U2JT" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous"><link rel="stylesheet" href="https://whatacold.io/css/main.css" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
@@ -109,8 +114,6 @@ The problem is that we don&#39;t know what&#39;s going on exactly, so here I wan
   <link rel="stylesheet" href="https://whatacold.io/css/highlight.min.css" /><link rel="stylesheet" href="https://whatacold.io/css/codeblock.css" /><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.css" integrity="sha384-h/L2W9KefUClHWaty3SLE5F/qvc4djlyR4qY3NUV5HGQBBW7stbcfff1+I/vmsHh" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/default-skin/default-skin.min.css" integrity="sha384-iD0dNku6PYSIQLyfTOpB06F2KCZJAKLOThS5HRe8b3ibhdEQ6eKsFf/EeFxdOt5R" crossorigin="anonymous">
 
-  
-    
       <script async src="https://www.googletagmanager.com/gtag/js?id=G-5TGCG9ZG24"></script>
       <script>
         var doNotTrack = false;
@@ -125,10 +128,6 @@ The problem is that we don&#39;t know what&#39;s going on exactly, so here I wan
           gtag('config', 'G-5TGCG9ZG24');
         }
       </script>
-    
-  
-
-
   </head>
   <body>
     <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
@@ -579,7 +578,7 @@ With the help of these advice, I successfully resolved a performance issue of Ma
         </p>
         
         <p class="credits theme-by text-muted">
-          <a href="https://gohugo.io">Hugo v0.126.2</a> powered &nbsp;&bull;&nbsp; Theme <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> adapted from <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
+          <a href="https://gohugo.io">Hugo v0.142.0</a> powered &nbsp;&bull;&nbsp; Theme <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> adapted from <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
           
         </p>
       </div>

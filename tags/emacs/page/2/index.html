@@ -47,7 +47,7 @@
   <meta name="twitter:site" content="@whatacold" />
   <meta name="twitter:creator" content="@whatacold" />
   <link href='https://whatacold.io/img/2021-12-10-motor-helmet-180.jpg' rel='icon' type='image/x-icon'/>
-  <meta name="generator" content="Hugo 0.126.2">
+  <meta name="generator" content="Hugo 0.142.0">
   <link rel="alternate" href="https://whatacold.io/rss.xml" type="application/rss+xml" title="Ken Huang"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/katex.min.css" integrity="sha384-3UiQGuEI4TTMaFmGIZumfRPtfKQ3trwQE2JgosJxCnGmQpL/lJdjpcHkaaFwHlcI" crossorigin="anonymous">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.6.0/css/all.css" integrity="sha384-h/hnnw1Bi4nbpD6kE7nYfCXzovi622sY5WBxww8ARKwpdLj5kUWjRuyiXaD1U2JT" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous"><link rel="stylesheet" href="https://whatacold.io/css/main.css" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
@@ -55,8 +55,6 @@
   <link rel="stylesheet" href="https://whatacold.io/css/highlight.min.css" /><link rel="stylesheet" href="https://whatacold.io/css/codeblock.css" /><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.css" integrity="sha384-h/L2W9KefUClHWaty3SLE5F/qvc4djlyR4qY3NUV5HGQBBW7stbcfff1+I/vmsHh" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/default-skin/default-skin.min.css" integrity="sha384-iD0dNku6PYSIQLyfTOpB06F2KCZJAKLOThS5HRe8b3ibhdEQ6eKsFf/EeFxdOt5R" crossorigin="anonymous">
 
-  
-    
       <script async src="https://www.googletagmanager.com/gtag/js?id=G-5TGCG9ZG24"></script>
       <script>
         var doNotTrack = false;
@@ -71,10 +69,6 @@
           gtag('config', 'G-5TGCG9ZG24');
         }
       </script>
-    
-  
-
-
   </head>
   <body>
     <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
@@ -265,9 +259,36 @@
     </p>
     <div class="post-entry">
         
-        Duplicate the current in Emacs Duplicating the current line is frequent editing for me when I am coding. Initially, I copied a snippet as a command in Emacs from the Internet:
-(defun w/duplicate-line() &#34;Duplicate the current line.&#34; (interactive) (move-beginning-of-line 1) (kill-line) (yank) (open-line 1) (next-line 1) (yank)) Most of the time, I was happy with it, but it has mainly two drawbacks:
-It cannot keep the column position when moving to the next line It messes up with the yank ring as it yanks the text under the hood So today, I took some time to fix these two problems, and I also want it to be capable of commenting the current line out if I prefix the command.
+        <figure>
+<img src="/img/2022-05-23-emacs-duplicate-current-line.jpg" alt="Duplicate the current in Emacs" title="Click to enlarge the image"/>
+<figcaption>
+Duplicate the current in Emacs
+</figcaption>
+</figure>
+<p>
+Duplicating the current line is frequent editing for me when I am
+coding. Initially, I copied a snippet as a command in Emacs from the
+Internet:</p>
+<div class="src src-elisp">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-elisp" data-lang="elisp"><span class="line"><span class="cl"><span class="p">(</span><span class="nb">defun</span> <span class="nv">w/duplicate-line</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">  <span class="s">&#34;Duplicate the current line.&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">(</span><span class="nb">interactive</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="p">(</span><span class="nv">move-beginning-of-line</span> <span class="mi">1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="p">(</span><span class="nv">kill-line</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="p">(</span><span class="nv">yank</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="p">(</span><span class="nv">open-line</span> <span class="mi">1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="p">(</span><span class="nv">next-line</span> <span class="mi">1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="p">(</span><span class="nv">yank</span><span class="p">))</span></span></span></code></pre></div>
+</div>
+<p>
+Most of the time, I was happy with it, but it has mainly two drawbacks:</p>
+<ol>
+<li>It cannot keep the column position when moving to the next line</li>
+<li>It messes up with the yank ring as it yanks the text under the hood</li>
+</ol>
+<p>So today, I took some time to fix these two problems, and I also want
+it to be capable of commenting the current line out if I prefix the
+command.</p>
         <a href="https://whatacold.io/blog/2022-05-23-emacs-duplicate-line/" class="post-read-more">[Read More]</a>
         
     </div>
@@ -313,9 +334,19 @@ It cannot keep the column position when moving to the next line It messes up wit
     </p>
     <div class="post-entry">
         
-        Adjust the screen brightness in Emacs If you&#39;re using i3wm on Linux, how do you adjust the laptop&#39;s screen brightness?
-Most of the time, I use the laptop with an external monitor. But when I am out, I have no monitors. And it seems no easy way to adjust the brightness in i3wm. Being too bright or dim is terrible for the eyes.
-Recently, I found a command-line tool called brightnessctl, which can adjust the brightness in a terminal.
+        <figure>
+<img src="/img/2022-05-21-adjust-screen-brightness-emacs.jpg" alt="Adjust the screen brightness in Emacs" title="Click to enlarge the image"/>
+<figcaption>
+Adjust the screen brightness in Emacs
+</figcaption>
+</figure>
+<p>
+If you&#39;re using i3wm on Linux, how do you adjust the laptop&#39;s screen
+brightness?</p>
+<p>
+Most of the time, I use the laptop with an external monitor. But when
+I am out, I have no monitors. And it seems no easy way to adjust the
+brightness in i3wm. Being too bright or dim is terrible for the eyes.</p>
         <a href="https://whatacold.io/blog/2022-05-21-adjust-screen-brightness-emacs/" class="post-read-more">[Read More]</a>
         
     </div>
@@ -367,8 +398,24 @@ Recently, I found a command-line tool called brightnessctl, which can adjust the
     </p>
     <div class="post-entry">
         
-        Selecting Emacs windows using ace-window Recently I&#39;ve been building a simple Emacs config for myself, along the way I re-discovered some fantastic packages, for example, I found that ace-window is a simple yet powerful package to enhance the default other-window command to select other windows quickly when it has more than two windows in a frame.
-I replaced the key binding of other-window to ace-window by simply doing (global-set-key (kbd &#34;C-x o&#34;) #&#39;ace-window), then when there are &gt;2 windows, it will show a white-in-red number at the top-left corner for every window, hit the number (1, 2, 3, …) and then Emacs will select the corresponding window (as demonstrated in the above screenshot).
+        <figure>
+<img src="/img/2022-04-09-ace-window-selecting-window.jpg" alt="Selecting Emacs windows using ace-window" title="Click to enlarge the image"/>
+<figcaption>
+Selecting Emacs windows using ace-window
+</figcaption>
+</figure>
+<p>
+Recently I&#39;ve been building a simple Emacs config for myself, along
+the way I re-discovered some fantastic packages, for example, I found
+that <a href="https://github.com/abo-abo/ace-window">ace-window</a> is a simple yet powerful package to enhance
+the default <code class="verbatim">other-window</code> command to select other windows quickly
+when it has more than two windows in a frame.</p>
+<p>
+I replaced the key binding of <code class="verbatim">other-window</code> to ace-window by simply
+doing <code>(global-set-key (kbd &#34;C-x o&#34;) #&#39;ace-window)</code>, then when there are &gt;2
+windows, it will show a white-in-red number at the top-left corner for
+every window, hit the number (1, 2, 3, …) and then Emacs will select the
+corresponding window (as demonstrated in the above screenshot).</p>
         <a href="https://whatacold.io/blog/2022-04-09-emacs-kill-other-buffer/" class="post-read-more">[Read More]</a>
         
     </div>
@@ -398,13 +445,13 @@ I replaced the key binding of other-window to ace-window by simply doing (global
   
   <i class="fas fa-calendar"></i>&nbsp;Posted on 2022-01-22
   
-    &nbsp;(Last modified on 2025-02-26)
+    &nbsp;(Last modified on 2025-10-17)
   
   
     &nbsp;|&nbsp;<i class="fas fa-clock"></i>&nbsp;3&nbsp;minutes
   
   
-    &nbsp;|&nbsp;<i class="fas fa-book"></i>&nbsp;516&nbsp;words
+    &nbsp;|&nbsp;<i class="fas fa-book"></i>&nbsp;554&nbsp;words
   
   
   
@@ -414,8 +461,10 @@ I replaced the key binding of other-window to ace-window by simply doing (global
     </p>
     <div class="post-entry">
         
-        LSP, or Language Server Protocol, makes programming easier by introducing features like more precise auto-completion and definition lookup. It may have scratched your itches, and you may wonder what the experience is like in Emacs.
-Photo by Oskar Yildiz on Unsplash Emacs has mainly two LSP clients out there, eglot and lsp-mode. Eglot is lightweight, and it could almost run out of the box. So in this post I will briefly show you how to use eglot.
+        <p>
+<a href="https://microsoft.github.io/language-server-protocol/">LSP</a>, or Language Server Protocol, makes programming easier by introducing features like more precise auto-completion and definition lookup. It may have scratched your itches, and you may wonder what the experience is like in Emacs.</p>
+<p>
+<em>BTW, I&#39;m improving my English by watching YouTube videos every single day; If you&#39;re also learning English, or any languages, LanguagePuppy can definitely help you. It&#39;s a Chrome extension I developed using Clojure. Check it out:</em></p>
         <a href="https://whatacold.io/blog/2022-01-22-emacs-eglot-lsp/" class="post-read-more">[Read More]</a>
         
     </div>
@@ -467,8 +516,14 @@ Photo by Oskar Yildiz on Unsplash Emacs has mainly two LSP clients out there, eg
     </p>
     <div class="post-entry">
         
-        So I&#39;m trying to improve my English speaking skill by shadowing while watching TV episodes. The workflow before was to loop over video clips using mpv:
-hit l to mark the start of the loop play the video and wait for it to be at the end of the loop hit l again to mark the end Then mpv will loop over the clip, it basically works, but it&#39;s a bit hard and tedious to set the start and end precisely.
+        <p>
+So I&#39;m trying to improve my English speaking skill by shadowing while watching TV episodes. The workflow before was to loop over video clips using mpv:</p>
+<ol>
+<li>hit <code class="verbatim">l</code> to mark the start of the loop</li>
+<li>play the video and wait for it to be at the end of the loop</li>
+<li>hit <code class="verbatim">l</code> again to mark the end</li>
+</ol>
+<p>Then mpv will loop over the clip, it basically works, but it&#39;s a bit hard and tedious to set the start and end precisely.</p>
         <a href="https://whatacold.io/blog/2022-01-12-language-shadowing-with-subed-emacs/" class="post-read-more">[Read More]</a>
         
     </div>
@@ -515,7 +570,20 @@ hit l to mark the start of the loop play the video and wait for it to be at the 
     </p>
     <div class="post-entry">
         
-        Note: watch my live coding session of this article: Intro If you&#39;ve heard some rumors of Emacs that it has a very steep learning curve (or that Emacs makes a computer slow), you may be too scared to look at it. It indeed has some learning curve (learning anything does have one), but it isn&#39;t very steep. I learned this after getting my hands dirty with Emacs a few years ago.
+        <p>
+Note: watch my live coding session of this article:
+
+    <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+      <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/MXF81Q0a91M?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"></iframe>
+    </div>
+</p>
+<div id="outline-container-headline-1" class="outline-2">
+<h2 id="headline-1">
+Intro
+</h2>
+<div id="outline-text-headline-1" class="outline-text-2">
+<p>
+If you&#39;ve heard some rumors of Emacs that it has a very steep learning curve (or that Emacs makes a computer slow), you may be too scared to look at it. It indeed has some learning curve (learning anything does have one), but it isn&#39;t very steep. I learned this after getting my hands dirty with Emacs a few years ago.</p>
         <a href="https://whatacold.io/blog/2021-12-11-writing-python-in-emacs/" class="post-read-more">[Read More]</a>
         
     </div>
@@ -567,9 +635,14 @@ hit l to mark the start of the loop play the video and wait for it to be at the 
     </p>
     <div class="post-entry">
         
-        I barely use notifications, but recently I think it&#39;s a valuable way to remind me things like helping me nurture habits, or to notify me of emergencies like a critically low laptop battery.
-So I try to integrate notifications to org-mode and Emacs today.
-The org-notify package from org-contrib (install it by (package-install &#39;org-contrib) ) could do this job easily before, so I first test it in the minibuffer with (org-notify &#34;test&#34;).
+        <p>
+I barely use notifications, but recently I think it&#39;s a valuable way to remind me things like helping me nurture habits, or to notify me of emergencies like a critically low laptop battery.</p>
+<p>
+So I try to integrate notifications to org-mode and Emacs today.</p>
+<p>
+The <code class="verbatim">org-notify</code> package from <code class="verbatim">org-contrib</code> (install it by <code class="verbatim">(package-install &#39;org-contrib)</code> ) could do this job easily before, so I first test it in the minibuffer with <code class="verbatim">(org-notify &#34;test&#34;)</code>.</p>
+<p>
+Unfortunately, it errors out:</p>
         <a href="https://whatacold.io/blog/2021-07-17-emacs-i3wm-dunst/" class="post-read-more">[Read More]</a>
         
     </div>
@@ -625,9 +698,14 @@ The org-notify package from org-contrib (install it by (package-install &#39;org
     </p>
     <div class="post-entry">
         
-        Doxygen is a nice tool for generating documentations for well-annotated C/C++ projects, the one feature that I like most is generating call graphs and class diagrams, so that I can learn a project quickly by browsing the diagrams from a higher point of view.
-I take the following steps to generate call graphs for a project on terminals on Linux:
-cd /path/to/a/project/, and generate a template config file by doxygen -s -g doxygen.
+        <p>
+<a href="https://www.doxygen.nl/">Doxygen</a> is a nice tool for generating documentations for well-annotated C/C++ projects, the one feature that I like most is generating call graphs and class diagrams, so that I can learn a project quickly by browsing the diagrams from a higher point of view.</p>
+<p>
+I take the following steps to generate call graphs for a project on terminals on Linux:</p>
+<ol>
+<li><code class="verbatim">cd /path/to/a/project/</code>, and generate a template config file by <code class="verbatim">doxygen -s -g doxygen.conf</code> (Omit <code class="verbatim">-s</code> to generate it with detailed comments).</li>
+<li>
+<p>Tweak the file by specifying input and output directories, and set <code class="verbatim">HAVE_DOT</code> and <code>CALL_GRAPH</code> to <code class="verbatim">YES</code>.</p>
         <a href="https://whatacold.io/blog/2020-08-22-generate-call-graphs-using-doxygen-in-emacs/" class="post-read-more">[Read More]</a>
         
     </div>
@@ -673,8 +751,10 @@ cd /path/to/a/project/, and generate a template config file by doxygen -s -g dox
     </p>
     <div class="post-entry">
         
-        There are many packages of Emacs that leverage subprocesses to do their jobs, Magit, eglot, elpy, to name a few. And there are times that a subprocess doesn&#39;t work as expected, for example, Magit is slow, and you&#39;re sure that it&#39;s ok when running git commands on shell. So how to spot these problems effectively and quickly?
-The problem is that we don&#39;t know what&#39;s going on exactly, so here I want to share a few Elisp advices to make the subprocess creating visible, and print the exact program and its arguments to the *Message* buffer.
+        <p>
+There are many packages of Emacs that leverage subprocesses to do their jobs, <a href="https://magit.vc/">Magit</a>, <a href="https://github.com/joaotavora/eglot">eglot</a>, <a href="https://github.com/jorgenschaefer/elpy">elpy</a>, to name a few. And there are times that a subprocess doesn&#39;t work as expected, for example, Magit is slow, and you&#39;re sure that it&#39;s ok when running git commands on shell. So how to spot these problems effectively and quickly?</p>
+<p>
+The problem is that we don&#39;t know what&#39;s going on exactly, so here I want to share a few Elisp advices to make the subprocess creating visible, and print the exact program and its arguments to the <code class="verbatim">*Message*</code> buffer. Visibility is the key.</p>
         <a href="https://whatacold.io/blog/2020-05-30-a-trick-to-troubleshoot-emacs-subprocess-creating/" class="post-read-more">[Read More]</a>
         
     </div>
@@ -724,8 +804,10 @@ The problem is that we don&#39;t know what&#39;s going on exactly, so here I wan
     </p>
     <div class="post-entry">
         
-        If you are a C/C++ programmer like me, you may experience jumping around different machines to write and compile your code, or you may write code on different machines for different projects, and scp/rsync/ftp the projects around. It works, but it&#39;s a bit tedious and takes too much burden on our brains.
-For example, say I have two projects that should be compiled on their compiling machines respectively. There are two obvious workflows for writing code for them &#34;simultaneously&#34;:
+        <p>
+If you are a C/C++ programmer like me, you may experience jumping around different machines to write and compile your code, or you may write code on different machines for different projects, and scp/rsync/ftp the projects around. It works, but it&#39;s a bit tedious and takes too much burden on our brains.</p>
+<p>
+For example, say I have two projects that should be compiled on their compiling machines respectively. There are two obvious workflows for writing code for them &#34;simultaneously&#34;:</p>
         <a href="https://whatacold.io/blog/2020-03-07-ppcompile-to-help-stay-coding-locally/" class="post-read-more">[Read More]</a>
         
     </div>
@@ -859,7 +941,7 @@ For example, say I have two projects that should be compiled on their compiling 
         </p>
         
         <p class="credits theme-by text-muted">
-          <a href="https://gohugo.io">Hugo v0.126.2</a> powered &nbsp;&bull;&nbsp; Theme <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> adapted from <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
+          <a href="https://gohugo.io">Hugo v0.142.0</a> powered &nbsp;&bull;&nbsp; Theme <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> adapted from <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
           
         </p>
       </div>

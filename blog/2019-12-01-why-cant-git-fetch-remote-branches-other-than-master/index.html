@@ -65,9 +65,9 @@
   "headline": "Why Can\u0027t Git Fetch Remote Branches Other Than Master?",
   "description" : "Why can\u0027t you fetch non-master branches, and how to fix it...",
   "inLanguage" : "en",
-  "wordCount":  305 ,
+  "wordCount":  343 ,
   "datePublished" : "2019-12-01T16:00:00\u002b08:00",
-  "dateModified" : "2019-12-01T16:00:00\u002b08:00",
+  "dateModified" : "2025-10-17T20:27:26\u002b08:00",
   "image" : "https:\/\/whatacold.io\/img\/2021-12-10-motor-helmet-400.jpg",
   "keywords" : [ "Git" ],
   "mainEntityOfPage" : "https:\/\/whatacold.io\/blog\/2019-12-01-why-cant-git-fetch-remote-branches-other-than-master\/",
@@ -99,7 +99,7 @@
   <meta name="twitter:site" content="@whatacold" />
   <meta name="twitter:creator" content="@whatacold" />
   <link href='https://whatacold.io/img/2021-12-10-motor-helmet-180.jpg' rel='icon' type='image/x-icon'/>
-  <meta name="generator" content="Hugo 0.126.2">
+  <meta name="generator" content="Hugo 0.142.0">
   <link rel="alternate" href="https://whatacold.io/rss.xml" type="application/rss+xml" title="Ken Huang"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/katex.min.css" integrity="sha384-3UiQGuEI4TTMaFmGIZumfRPtfKQ3trwQE2JgosJxCnGmQpL/lJdjpcHkaaFwHlcI" crossorigin="anonymous">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.6.0/css/all.css" integrity="sha384-h/hnnw1Bi4nbpD6kE7nYfCXzovi622sY5WBxww8ARKwpdLj5kUWjRuyiXaD1U2JT" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous"><link rel="stylesheet" href="https://whatacold.io/css/main.css" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
@@ -107,8 +107,6 @@
   <link rel="stylesheet" href="https://whatacold.io/css/highlight.min.css" /><link rel="stylesheet" href="https://whatacold.io/css/codeblock.css" /><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.css" integrity="sha384-h/L2W9KefUClHWaty3SLE5F/qvc4djlyR4qY3NUV5HGQBBW7stbcfff1+I/vmsHh" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/default-skin/default-skin.min.css" integrity="sha384-iD0dNku6PYSIQLyfTOpB06F2KCZJAKLOThS5HRe8b3ibhdEQ6eKsFf/EeFxdOt5R" crossorigin="anonymous">
 
-  
-    
       <script async src="https://www.googletagmanager.com/gtag/js?id=G-5TGCG9ZG24"></script>
       <script>
         var doNotTrack = false;
@@ -123,10 +121,6 @@
           gtag('config', 'G-5TGCG9ZG24');
         }
       </script>
-    
-  
-
-
   </head>
   <body>
     <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
@@ -287,7 +281,7 @@
           
           <p class="page-meta">
             
-            Published: 2019-12-01
+            Published: 2019-12-01, Last Updated: 2025-10-17
             
           </p>
         
@@ -296,6 +290,9 @@
 Last week I came into a problem with Git, that I can&#39;t fetch the remote branch that I just pushed to. It was so weird because I can push it. It never happens before, and it happened when I was in a rush to rebase my code, as someone in my team pushed his code.</p>
 <p>
 After searching, it seemed that the configuration of <code class="verbatim">fetch</code> of that repo was different(this <a href="https://stackoverflow.com/questions/11623862/fetch-in-git-doesnt-get-all-branches">Stack Overflow</a> thread for example) than before, it was specified that only <code class="verbatim">master</code> can be fetched. It worked after I changed it to <code class="verbatim">+refs/heads/*:refs/remotes/origin/*</code>.</p>
+<p>
+<em>BTW, I&#39;m improving my English by watching YouTube videos every single day; If you&#39;re also learning English, or any languages, LanguagePuppy can definitely help you. It&#39;s a Chrome extension I developed using Clojure. Check it out:</em></p>
+<a href="https://chromewebstore.google.com/detail/cmbdcklgjemppkcmnoiaehnefhobgiin?utm_medium=web&utm_source=whatacold.io&utm_campaign=git.fetch" target="_blank" class="button-link">Install LanguagePuppy</a>
 <p>
 I reflected why it happened after work, the only difference I can remember was that I clone that repo with the option <code class="verbatim">--depth &lt;N&gt;</code>, that is, it was a shallow clone to save some disk space.</p>
 <p>
@@ -561,7 +558,7 @@ I don&#39;t know why <code class="verbatim">--single-branch</code> should be imp
         </p>
         
         <p class="credits theme-by text-muted">
-          <a href="https://gohugo.io">Hugo v0.126.2</a> powered &nbsp;&bull;&nbsp; Theme <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> adapted from <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
+          <a href="https://gohugo.io">Hugo v0.142.0</a> powered &nbsp;&bull;&nbsp; Theme <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> adapted from <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
           
         </p>
       </div>

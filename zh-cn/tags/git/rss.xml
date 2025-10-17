@@ -15,7 +15,7 @@
       <link>https://whatacold.io/zh-cn/blog/2019-01-13-understand-git-submodule/</link>
       <pubDate>Thu, 03 Jan 2019 16:07:00 +0800</pubDate><author>whatacold@gmail.com (Ken Huang)</author>
       <guid>https://whatacold.io/zh-cn/blog/2019-01-13-understand-git-submodule/</guid>
-      <description>Git 虽然很强大，但也有少数命令很难理解。 submodule 就是这么一个例子，其文档教程也不少，比如 Git - Submodules - git-scm.com ， 但我之前始终没有真正领悟到如何使用。 直到有天看了</description>
+      <description>&lt;p&gt;&#xA;Git 虽然很强大，但也有少数命令很难理解。&#xA;submodule 就是这么一个例子，其文档教程也不少，比如 &lt;a href=&#34;https://git-scm.com/book/en/v2/Git-Tools-Submodules&#34;&gt;Git - Submodules - git-scm.com&lt;/a&gt; ，&#xA;但我之前始终没有真正领悟到如何使用。&lt;/p&gt;&#xA;&lt;p&gt;&#xA;直到有天看了一条  &lt;a href=&#34;https://stackoverflow.com/a/5814351/910978&#34;&gt;StackOverflow Answer&lt;/a&gt; ，茅塞顿开，才真正理解了 submodule ，下面尝试用自己的语言来解释一下。&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

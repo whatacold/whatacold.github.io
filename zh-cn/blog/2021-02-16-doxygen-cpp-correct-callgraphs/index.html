@@ -14,7 +14,8 @@
 
       <title>Doxygen 终于可以正确生成函数调用图了！ - Ken Huang</title>
 
-  <meta name="description" content="大家都知道， Doxygen 可以用于提取代码的注释生成项目的文档，只要注释满足它规定的格式。我喜欢通过它生成类继承图（inheritance diagram">
+  <meta name="description" content="
+大家都知道， Doxygen 可以用于提取代码的注释生成项目的文档，只要注释满足它规定的格式。我喜欢通过它生成类继承图（inheritance diagram）和函数调用图（callgraph），有了他们能够加快对代码的理解。">
   <meta name="author" content="Ken Huang"/><script type="application/ld+json">
 {
     "@context": "http://schema.org",
@@ -63,7 +64,7 @@
     "name" : "Ken Huang"
   },
   "headline": "Doxygen 终于可以正确生成函数调用图了！",
-  "description" : "大家都知道， Doxygen 可以用于提取代码的注释生成项目的文档，只要注释满足它规定的格式。我喜欢通过它生成类继承图（inheritance diagram",
+  "description" : " 大家都知道， Doxygen 可以用于提取代码的注释生成项目的文档，只要注释满足它规定的格式。我喜欢通过它生成类继承图（inheritance diagram）和函数调用图（callgraph），有了他们能够加快对代码的理解。\n",
   "inLanguage" : "zh-cn",
   "wordCount":  790 ,
   "datePublished" : "2021-02-16T16:08:00\u002b08:00",
@@ -86,20 +87,22 @@
 
 
 <meta property="og:title" content="Doxygen 终于可以正确生成函数调用图了！" />
-<meta property="og:description" content="大家都知道， Doxygen 可以用于提取代码的注释生成项目的文档，只要注释满足它规定的格式。我喜欢通过它生成类继承图（inheritance diagram">
+<meta property="og:description" content="
+大家都知道， Doxygen 可以用于提取代码的注释生成项目的文档，只要注释满足它规定的格式。我喜欢通过它生成类继承图（inheritance diagram）和函数调用图（callgraph），有了他们能够加快对代码的理解。">
 <meta property="og:image" content="https://whatacold.io/img/2021-12-10-motor-helmet-og.jpg" />
 <meta property="og:url" content="https://whatacold.io/zh-cn/blog/2021-02-16-doxygen-cpp-correct-callgraphs/" />
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="Ken Huang" />
 
   <meta name="twitter:title" content="Doxygen 终于可以正确生成函数调用图了！" />
-  <meta name="twitter:description" content="大家都知道， Doxygen 可以用于提取代码的注释生成项目的文档，只要注释满足它规定的格式。我喜欢通过它生成类继承图（inheritance diagram">
+  <meta name="twitter:description" content="
+大家都知道， Doxygen 可以用于提取代码的注释生成项目的文档，只要注释满足它规定的格式。我喜欢通过它生成类继承图（inheritance diagram）和函数调用图（callgraph），有了他们能够加快对代码的理解。">
   <meta name="twitter:image" content="https://whatacold.io/img/2021-12-10-motor-helmet-og.jpg" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:site" content="@whatacold" />
   <meta name="twitter:creator" content="@whatacold" />
   <link href='https://whatacold.io/img/2021-12-10-motor-helmet-180.jpg' rel='icon' type='image/x-icon'/>
-  <meta name="generator" content="Hugo 0.126.2">
+  <meta name="generator" content="Hugo 0.142.0">
   <link rel="alternate" href="https://whatacold.io/zh-cn/rss.xml" type="application/rss+xml" title="Ken Huang"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/katex.min.css" integrity="sha384-3UiQGuEI4TTMaFmGIZumfRPtfKQ3trwQE2JgosJxCnGmQpL/lJdjpcHkaaFwHlcI" crossorigin="anonymous">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.6.0/css/all.css" integrity="sha384-h/hnnw1Bi4nbpD6kE7nYfCXzovi622sY5WBxww8ARKwpdLj5kUWjRuyiXaD1U2JT" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous"><link rel="stylesheet" href="https://whatacold.io/css/main.css" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
@@ -107,8 +110,6 @@
   <link rel="stylesheet" href="https://whatacold.io/css/highlight.min.css" /><link rel="stylesheet" href="https://whatacold.io/css/codeblock.css" /><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.css" integrity="sha384-h/L2W9KefUClHWaty3SLE5F/qvc4djlyR4qY3NUV5HGQBBW7stbcfff1+I/vmsHh" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/default-skin/default-skin.min.css" integrity="sha384-iD0dNku6PYSIQLyfTOpB06F2KCZJAKLOThS5HRe8b3ibhdEQ6eKsFf/EeFxdOt5R" crossorigin="anonymous">
 
-  
-    
       <script async src="https://www.googletagmanager.com/gtag/js?id=G-5TGCG9ZG24"></script>
       <script>
         var doNotTrack = false;
@@ -123,10 +124,6 @@
           gtag('config', 'G-5TGCG9ZG24');
         }
       </script>
-    
-  
-
-
   </head>
   <body>
     <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
@@ -625,7 +622,7 @@ Updates:</p>
         </p>
         
         <p class="credits theme-by text-muted">
-          由 <a href="https://gohugo.io">Hugo v0.126.2</a> 强力驱动 &nbsp;&bull;&nbsp; 主题 <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> 移植自 <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
+          由 <a href="https://gohugo.io">Hugo v0.142.0</a> 强力驱动 &nbsp;&bull;&nbsp; 主题 <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> 移植自 <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
           
         </p>
       </div>

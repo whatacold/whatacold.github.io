@@ -8,14 +8,14 @@
     <language>en</language>
     <managingEditor>whatacold@gmail.com (Ken Huang)</managingEditor>
     <webMaster>whatacold@gmail.com (Ken Huang)</webMaster>
-    <lastBuildDate>Wed, 26 Feb 2025 00:11:19 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 17 Oct 2025 20:28:15 +0800</lastBuildDate>
     <atom:link href="https://whatacold.io/tags/beancount/rss.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Auto-complete Accounts From Other Beancount Files in Emacs</title>
       <link>https://whatacold.io/blog/2022-09-10-emacs-beancount-account-files/</link>
       <pubDate>Sat, 10 Sep 2022 11:13:38 +0800</pubDate><author>whatacold@gmail.com (Ken Huang)</author>
       <guid>https://whatacold.io/blog/2022-09-10-emacs-beancount-account-files/</guid>
-      <description>Auto-complete accounts from another accounts.bean file If you&amp;#39;re using Beancount with Emacs, you may be using beancount-mode. It can auto-complete the accounts defined in the current buffer when we are typing in new transactions so that we can do it more efficiently.&#xA;But it can only auto-complete the accounts from the current buffer, which makes it less useful when we have a stand-alone file or a few files of beancount accounts.</description>
+      <description>&lt;figure&gt;&#xA;&lt;img src=&#34;https://whatacold.io/img/2022-09-10-beancount-mode-comple-accounts-from-files.jpg&#34; alt=&#34;Auto-complete accounts from another accounts.bean file&#34; title=&#34;Click to enlarge the image&#34;/&gt;&#xA;&lt;figcaption&gt;&#xA;Auto-complete accounts from another accounts.bean file&#xA;&lt;/figcaption&gt;&#xA;&lt;/figure&gt;&#xA;&lt;p&gt;&#xA;If you&amp;#39;re using Beancount with Emacs, you may be using &lt;a href=&#34;https://github.com/beancount/beancount-mode&#34;&gt;beancount-mode&lt;/a&gt;. It can auto-complete the accounts defined in the current buffer when we are typing in new transactions so that we can do it more efficiently.&lt;/p&gt;&#xA;&lt;p&gt;&#xA;But it can &lt;strong&gt;&lt;strong&gt;only&lt;/strong&gt;&lt;/strong&gt; auto-complete the accounts from the current buffer, which makes it less useful when we have a stand-alone file or a few files of beancount accounts.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

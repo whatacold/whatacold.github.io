@@ -47,7 +47,7 @@
   <meta name="twitter:site" content="@whatacold" />
   <meta name="twitter:creator" content="@whatacold" />
   <link href='https://whatacold.io/img/2021-12-10-motor-helmet-180.jpg' rel='icon' type='image/x-icon'/>
-  <meta name="generator" content="Hugo 0.126.2">
+  <meta name="generator" content="Hugo 0.142.0">
   <link rel="alternate" href="https://whatacold.io/zh-cn/rss.xml" type="application/rss+xml" title="Ken Huang"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/katex.min.css" integrity="sha384-3UiQGuEI4TTMaFmGIZumfRPtfKQ3trwQE2JgosJxCnGmQpL/lJdjpcHkaaFwHlcI" crossorigin="anonymous">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.6.0/css/all.css" integrity="sha384-h/hnnw1Bi4nbpD6kE7nYfCXzovi622sY5WBxww8ARKwpdLj5kUWjRuyiXaD1U2JT" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous"><link rel="stylesheet" href="https://whatacold.io/css/main.css" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
@@ -55,8 +55,6 @@
   <link rel="stylesheet" href="https://whatacold.io/css/highlight.min.css" /><link rel="stylesheet" href="https://whatacold.io/css/codeblock.css" /><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.css" integrity="sha384-h/L2W9KefUClHWaty3SLE5F/qvc4djlyR4qY3NUV5HGQBBW7stbcfff1+I/vmsHh" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/default-skin/default-skin.min.css" integrity="sha384-iD0dNku6PYSIQLyfTOpB06F2KCZJAKLOThS5HRe8b3ibhdEQ6eKsFf/EeFxdOt5R" crossorigin="anonymous">
 
-  
-    
       <script async src="https://www.googletagmanager.com/gtag/js?id=G-5TGCG9ZG24"></script>
       <script>
         var doNotTrack = false;
@@ -71,10 +69,6 @@
           gtag('config', 'G-5TGCG9ZG24');
         }
       </script>
-    
-  
-
-
   </head>
   <body>
     <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
@@ -299,7 +293,21 @@
     </p>
     <div class="post-entry">
         
-        前段时间做了一个使用 Python 正则提取文本的工具服务： https://texttoolkit.com/re.findall ，用于解决日常一些繁琐的查找文本的需求。 工具主界面 场景 1 日常开发工作中你可能也需要像我一样，
+        <p>
+前段时间做了一个使用 Python 正则提取文本的工具服务： <a href="https://texttoolkit.com/re.findall">https://texttoolkit.com/re.findall</a> ，用于解决日常一些繁琐的查找文本的需求。</p>
+<figure>
+<img src="/img/2021-07-11-re.findall.jpg" alt="工具主界面" title="单击以放大图片"/>
+<figcaption>
+工具主界面
+</figcaption>
+</figure>
+<div id="outline-container-headline-1" class="outline-2">
+<h2 id="headline-1">
+场景 1
+</h2>
+<div id="outline-text-headline-1" class="outline-text-2">
+<p>
+日常开发工作中你可能也需要像我一样，用各种内部管理系统，查看监控、日志、按机器 IP 过滤列表等等（我自嘲这是“面向浏览器开发”）。</p>
         <a href="https://whatacold.io/zh-cn/blog/2021-07-12-python-re-chazhao/" class="post-read-more">[阅读全文]</a>
         
     </div>
@@ -332,7 +340,7 @@
   
   <i class="fas fa-calendar"></i>&nbsp;发表于 2021-07-10
   
-    &nbsp;(上次修改时间 2025-02-26)
+    &nbsp;(上次修改时间 2025-10-17)
   
   
     &nbsp;|&nbsp;<i class="fas fa-clock"></i>&nbsp;7&nbsp;分钟
@@ -348,7 +356,10 @@
     </p>
     <div class="post-entry">
         
-        我从 2018 年开始用 org-static-blog 写博客到现在也有几年时间了，写的文章比较少，总体上这个简单的静态网站生成方案都能够满足需求。 但中途也发现一些不够用的地方，比
+        <p>
+我从 2018 年开始用 <a href="https://github.com/bastibe/org-static-blog">org-static-blog</a> 写博客到现在也有几年时间了，写的文章比较少，总体上这个简单的静态网站生成方案都能够满足需求。</p>
+<p>
+但中途也发现一些不够用的地方，比如之前想要并贡献了一个生成 meta description 的 <a href="https://github.com/bastibe/org-static-blog/pull/94">PR</a> ，以便更好地在搜索引擎展示结果（ SEO ）；又比如中途一度有区分中英双语博客的需求（ index 列表、 RSS 等），但苦于没有想到很好的方法，就只能把两种文章都混杂在一起展示，但这样用户的阅读体验不好；另外之前的样式也差强人意，比如主页的链接带下划线，不利于阅读。</p>
         <a href="https://whatacold.io/zh-cn/blog/2021-07-10-migrate-site-hugo/" class="post-read-more">[阅读全文]</a>
         
     </div>
@@ -397,7 +408,10 @@
     </p>
     <div class="post-entry">
         
-        注：本文分析的是 wrk v4.1.0 的源码。 wrk 是一个用 C 实现的 HTTP 压测工具，所有的参数都是通过命令行传递，没有配置文件，很容易使用；编译产物只有一个二进制文件
+        <p>
+注：本文分析的是 <a href="https://github.com/wg/wrk/releases/tag/4.1.0">wrk v4.1.0</a> 的源码。</p>
+<p>
+wrk 是一个用 C 实现的 HTTP 压测工具，所有的参数都是通过命令行传递，没有配置文件，很容易使用；编译产物只有一个二进制文件，部署简单。</p>
         <a href="https://whatacold.io/zh-cn/blog/2021-02-27-wrk-yuanli/" class="post-read-more">[阅读全文]</a>
         
     </div>
@@ -446,7 +460,8 @@
     </p>
     <div class="post-entry">
         
-        大家都知道， Doxygen 可以用于提取代码的注释生成项目的文档，只要注释满足它规定的格式。我喜欢通过它生成类继承图（inheritance diagram
+        <p>
+大家都知道， <a href="https://doxygen.nl/">Doxygen</a> 可以用于提取代码的注释生成项目的文档，只要注释满足它规定的格式。我喜欢通过它生成类继承图（inheritance diagram）和函数调用图（callgraph），有了他们能够加快对代码的理解。</p>
         <a href="https://whatacold.io/zh-cn/blog/2021-02-16-doxygen-cpp-correct-callgraphs/" class="post-read-more">[阅读全文]</a>
         
     </div>
@@ -493,7 +508,8 @@
     </p>
     <div class="post-entry">
         
-        不同于 Python 之类的项目， C/C++ 的项目需要有专门的编译环境，一般国内公司都会搭建特定的编译环境机器，把一些私有的库等依赖放在上面。而这些编译环境的工具
+        <p>
+不同于 Python 之类的项目， C/C++ 的项目需要有专门的编译环境，一般国内公司都会搭建特定的编译环境机器，把一些私有的库等依赖放在上面。而这些编译环境的工具链一般都比较老旧，有的编译环境可能还无法访问外网，甚至也没有提供代理间接访问外网。因此想要在这样的环境中使用 Emacs 开发代码着实不是一件容易的事。</p>
         <a href="https://whatacold.io/zh-cn/blog/2020-04-11-use-ppcompile-to-remote-compile-in-emacs/" class="post-read-more">[阅读全文]</a>
         
     </div>
@@ -537,7 +553,8 @@
     </p>
     <div class="post-entry">
         
-        不知道什么原因，我的网络有时候会很慢，而通过重启天翼路由器（版本 V1.0 ）大概率能够恢复。重启的次数多了之后会我觉得好麻烦，本着偷懒的原则，就想写
+        <p>
+不知道什么原因，我的网络有时候会很慢，而通过重启天翼路由器（版本 V1.0 ）大概率能够恢复。重启的次数多了之后会我觉得好麻烦，本着偷懒的原则，就想写一个脚本来自动重启，一劳永逸。</p>
         <a href="https://whatacold.io/zh-cn/blog/2019-10-01-reboot-tianyi-router-using-python-requests/" class="post-read-more">[阅读全文]</a>
         
     </div>
@@ -583,7 +600,10 @@
     </p>
     <div class="post-entry">
         
-        工作中不时地会使用 Emacs keyboard macro 来解决重复性的编辑任务， 但有时录制了再重放却出现输入的字符被重复了，导致出现非预期的结果。 一般此时为了赶进度，只好忍
+        <p>
+工作中不时地会使用 Emacs keyboard macro 来解决重复性的编辑任务，
+但有时录制了再重放却出现输入的字符被重复了，导致出现非预期的结果。
+一般此时为了赶进度，只好忍了，放弃使用 keyboard macro ，改用其他方式编辑代码。</p>
         <a href="https://whatacold.io/zh-cn/blog/2019-02-03-emacs-kmacro-characters-repeated-bug/" class="post-read-more">[阅读全文]</a>
         
     </div>
@@ -629,7 +649,12 @@
     </p>
     <div class="post-entry">
         
-        Git 虽然很强大，但也有少数命令很难理解。 submodule 就是这么一个例子，其文档教程也不少，比如 Git - Submodules - git-scm.com ， 但我之前始终没有真正领悟到如何使用。 直到有天看了
+        <p>
+Git 虽然很强大，但也有少数命令很难理解。
+submodule 就是这么一个例子，其文档教程也不少，比如 <a href="https://git-scm.com/book/en/v2/Git-Tools-Submodules">Git - Submodules - git-scm.com</a> ，
+但我之前始终没有真正领悟到如何使用。</p>
+<p>
+直到有天看了一条  <a href="https://stackoverflow.com/a/5814351/910978">StackOverflow Answer</a> ，茅塞顿开，才真正理解了 submodule ，下面尝试用自己的语言来解释一下。</p>
         <a href="https://whatacold.io/zh-cn/blog/2019-01-13-understand-git-submodule/" class="post-read-more">[阅读全文]</a>
         
     </div>
@@ -675,7 +700,10 @@
     </p>
     <div class="post-entry">
         
-        写代码的时候，如果能够基于当前的上下文提示补全，不仅能提高写代码的效率，还能提升编程体验，有种行云流水的快感。 Emacs 中之前我用 GNU Global (gtags) 等静态的工具
+        <p>
+写代码的时候，如果能够基于当前的上下文提示补全，不仅能提高写代码的效率，还能提升编程体验，有种行云流水的快感。</p>
+<p>
+Emacs 中之前我用 <a href="https://www.gnu.org/software/global/">GNU Global (gtags)</a> 等静态的工具来辅助写代码，最大的问题是无法根据上下文补全，体验不好。现在有了 LSP 协议之后， Emacs 中现在也能实现这个功能了，体验相当不错。</p>
         <a href="https://whatacold.io/zh-cn/blog/2018-12-22-c-cpp-devel-with-lsp-in-emacs/" class="post-read-more">[阅读全文]</a>
         
     </div>
@@ -727,7 +755,11 @@
     </p>
     <div class="post-entry">
         
-        对于 OOP 编程，相信大家对于多态（ polymorphism ）肯定都耳熟能详。 但是对于多态是如何实现的，我不知道大家是否清楚，但我发现自己并不是很了解， 只知道在运行时通
+        <p>
+对于 OOP 编程，相信大家对于多态（ polymorphism ）肯定都耳熟能详。
+但是对于多态是如何实现的，我不知道大家是否清楚，但我发现自己并不是很了解，
+只知道在运行时通过一个 vtable 来确定应该调用哪个函数，
+实际上 vtable 真的存在吗？它是如何起作用的？</p>
         <a href="https://whatacold.io/zh-cn/blog/2018-12-10-how-polymorphism-works-in-cpp/" class="post-read-more">[阅读全文]</a>
         
     </div>
@@ -861,7 +893,7 @@
         </p>
         
         <p class="credits theme-by text-muted">
-          由 <a href="https://gohugo.io">Hugo v0.126.2</a> 强力驱动 &nbsp;&bull;&nbsp; 主题 <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> 移植自 <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
+          由 <a href="https://gohugo.io">Hugo v0.142.0</a> 强力驱动 &nbsp;&bull;&nbsp; 主题 <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> 移植自 <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
           
         </p>
       </div>

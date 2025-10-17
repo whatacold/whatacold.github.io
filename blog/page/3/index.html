@@ -47,7 +47,7 @@
   <meta name="twitter:site" content="@whatacold" />
   <meta name="twitter:creator" content="@whatacold" />
   <link href='https://whatacold.io/img/2021-12-10-motor-helmet-180.jpg' rel='icon' type='image/x-icon'/>
-  <meta name="generator" content="Hugo 0.126.2">
+  <meta name="generator" content="Hugo 0.142.0">
   <link rel="alternate" href="https://whatacold.io/rss.xml" type="application/rss+xml" title="Ken Huang"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/katex.min.css" integrity="sha384-3UiQGuEI4TTMaFmGIZumfRPtfKQ3trwQE2JgosJxCnGmQpL/lJdjpcHkaaFwHlcI" crossorigin="anonymous">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.6.0/css/all.css" integrity="sha384-h/hnnw1Bi4nbpD6kE7nYfCXzovi622sY5WBxww8ARKwpdLj5kUWjRuyiXaD1U2JT" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous"><link rel="stylesheet" href="https://whatacold.io/css/main.css" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
@@ -55,8 +55,6 @@
   <link rel="stylesheet" href="https://whatacold.io/css/highlight.min.css" /><link rel="stylesheet" href="https://whatacold.io/css/codeblock.css" /><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.css" integrity="sha384-h/L2W9KefUClHWaty3SLE5F/qvc4djlyR4qY3NUV5HGQBBW7stbcfff1+I/vmsHh" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/default-skin/default-skin.min.css" integrity="sha384-iD0dNku6PYSIQLyfTOpB06F2KCZJAKLOThS5HRe8b3ibhdEQ6eKsFf/EeFxdOt5R" crossorigin="anonymous">
 
-  
-    
       <script async src="https://www.googletagmanager.com/gtag/js?id=G-5TGCG9ZG24"></script>
       <script>
         var doNotTrack = false;
@@ -71,10 +69,6 @@
           gtag('config', 'G-5TGCG9ZG24');
         }
       </script>
-    
-  
-
-
   </head>
   <body>
     <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
@@ -265,9 +259,17 @@
     </p>
     <div class="post-entry">
         
-        So sometimes I need to join a few lines by a separator while I&#39;m coding, for example, turn the below lines,
-foo bar baz into foo + bar + baz. (This is a silly example, I will update if I come up with a better one :-P )
-When I was in a rush in the past, I usually baked a keyboard macro temporarily and then applied it to achieve this goal, thought reliable, it&#39;s a little bit cumbersome to record it.
+        <p>
+So sometimes I need to join a few lines by a separator while I&#39;m coding, for example, turn the below lines,</p>
+<div class="src src-text">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">foo
+</span></span><span class="line"><span class="cl">bar
+</span></span><span class="line"><span class="cl">baz</span></span></code></pre></div>
+</div>
+<p>
+into <code class="verbatim">foo + bar + baz</code>. (This is a silly example, I will update if I come up with a better one :-P )</p>
+<p>
+When I was in a rush in the past, I usually baked a keyboard macro temporarily and then applied it to achieve this goal, thought reliable, it&#39;s a little bit cumbersome to record it. So I wonder maybe it would be a good idea to have a command for it.</p>
         <a href="https://whatacold.io/blog/2023-06-12-emacs-join-lines/" class="post-read-more">[Read More]</a>
         
     </div>
@@ -313,8 +315,10 @@ When I was in a rush in the past, I usually baked a keyboard macro temporarily a
     </p>
     <div class="post-entry">
         
-        When I started to use Hugo to write this blog last year, I noticed that there is an easy-hugo package of Emacs many people use. So I installed it at that time, but I didn&#39;t use many of its features since then. In fact, the only command I used was easy-hugo-current-time. I used it to update the Hugo timestamps manually as in the format of 2022-10-15T09:45:35+08:00.
-My most desirable feature is to use it to select tags easily when I start to write a new post, but I never got it to work.
+        <p>
+When I started to use <a href="https://gohugo.io/">Hugo</a> to write this blog last year, I noticed that there is an <a href="https://github.com/masasam/emacs-easy-hugo">easy-hugo</a> package of Emacs many people use. So I installed it at that time, but I didn&#39;t use many of its features since then. In fact, the only command I used was <code class="verbatim">easy-hugo-current-time</code>. I used it to update the Hugo timestamps manually as in the format of <code class="verbatim">2022-10-15T09:45:35+08:00</code>.</p>
+<p>
+My most desirable feature is to use it to select tags easily when I start to write a new post, but I never got it to work.</p>
         <a href="https://whatacold.io/blog/2022-10-10-emacs-hugo-blogging/" class="post-read-more">[Read More]</a>
         
     </div>
@@ -350,13 +354,13 @@ My most desirable feature is to use it to select tags easily when I start to wri
   
   <i class="fas fa-calendar"></i>&nbsp;Posted on 2022-09-10
   
-    &nbsp;(Last modified on 2025-02-26)
+    &nbsp;(Last modified on 2025-10-17)
   
   
     &nbsp;|&nbsp;<i class="fas fa-clock"></i>&nbsp;2&nbsp;minutes
   
   
-    &nbsp;|&nbsp;<i class="fas fa-book"></i>&nbsp;230&nbsp;words
+    &nbsp;|&nbsp;<i class="fas fa-book"></i>&nbsp;268&nbsp;words
   
   
   &nbsp;&bull;&nbsp;Other languages: <a href="https://whatacold.io/zh-cn/blog/2022-09-10-emacs-beancount-account-files/" lang="zh-cn">(in &#34;中文&#34;)</a>
@@ -366,8 +370,16 @@ My most desirable feature is to use it to select tags easily when I start to wri
     </p>
     <div class="post-entry">
         
-        Auto-complete accounts from another accounts.bean file If you&#39;re using Beancount with Emacs, you may be using beancount-mode. It can auto-complete the accounts defined in the current buffer when we are typing in new transactions so that we can do it more efficiently.
-But it can only auto-complete the accounts from the current buffer, which makes it less useful when we have a stand-alone file or a few files of beancount accounts.
+        <figure>
+<img src="/img/2022-09-10-beancount-mode-comple-accounts-from-files.jpg" alt="Auto-complete accounts from another accounts.bean file" title="Click to enlarge the image"/>
+<figcaption>
+Auto-complete accounts from another accounts.bean file
+</figcaption>
+</figure>
+<p>
+If you&#39;re using Beancount with Emacs, you may be using <a href="https://github.com/beancount/beancount-mode">beancount-mode</a>. It can auto-complete the accounts defined in the current buffer when we are typing in new transactions so that we can do it more efficiently.</p>
+<p>
+But it can <strong><strong>only</strong></strong> auto-complete the accounts from the current buffer, which makes it less useful when we have a stand-alone file or a few files of beancount accounts.</p>
         <a href="https://whatacold.io/blog/2022-09-10-emacs-beancount-account-files/" class="post-read-more">[Read More]</a>
         
     </div>
@@ -416,10 +428,20 @@ But it can only auto-complete the accounts from the current buffer, which makes 
     </p>
     <div class="post-entry">
         
-        In this blog post, I&#39;d like to share a bookmarklet for copying a web page&#39;s URL as an org-mode link on Firefox, Chrome, or whatever web browsers support bookmarklets.
-It&#39;s handy when the URL isn&#39;t SEO-friendly, which means you can&#39;t tell what its content is about at first glance of the URL. So a little description text on the link would help.
-Here is the bookmarklet:
-javascript:window.prompt(&#34;Copy to clipboard: Ctrl+C, Esc&#34;, &#34;[[&#34; + document.
+        <p>
+In this blog post, I&#39;d like to share a <a href="https://en.wikipedia.org/wiki/Bookmarklet">bookmarklet</a> for copying a web page&#39;s URL as an org-mode link on Firefox, Chrome, or whatever web browsers support bookmarklets.</p>
+<p>
+It&#39;s handy when the URL isn&#39;t SEO-friendly, which means you can&#39;t tell what its content is about at first glance of the URL. So a little description text on the link would help.</p>
+<p>
+Here is the bookmarklet:</p>
+<div class="src src-js">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="nx">javascript</span><span class="o">:</span><span class="nb">window</span><span class="p">.</span><span class="nx">prompt</span><span class="p">(</span><span class="s2">&#34;Copy to clipboard: Ctrl+C, Esc&#34;</span><span class="p">,</span> <span class="s2">&#34;[[&#34;</span> <span class="o">+</span> <span class="nb">document</span><span class="p">.</span><span class="nx">location</span><span class="p">.</span><span class="nx">href</span> <span class="o">+</span> <span class="s2">&#34;][&#34;</span> <span class="o">+</span> <span class="nb">document</span><span class="p">.</span><span class="nx">title</span> <span class="o">+</span> <span class="s2">&#34; - &#34;</span> <span class="o">+</span> <span class="nb">document</span><span class="p">.</span><span class="nx">location</span><span class="p">.</span><span class="nx">hostname</span> <span class="o">+</span> <span class="s2">&#34;]]&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// Don&#39;t know why the page becomes blank after using it on Firefox, so use alert instead.
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">javascript</span><span class="o">:</span><span class="nx">alert</span><span class="p">(</span><span class="s2">&#34;[[&#34;</span> <span class="o">+</span> <span class="nb">document</span><span class="p">.</span><span class="nx">location</span><span class="p">.</span><span class="nx">href</span> <span class="o">+</span> <span class="s2">&#34;][&#34;</span> <span class="o">+</span> <span class="nb">document</span><span class="p">.</span><span class="nx">title</span> <span class="o">+</span> <span class="s2">&#34; - &#34;</span> <span class="o">+</span> <span class="nb">document</span><span class="p">.</span><span class="nx">location</span><span class="p">.</span><span class="nx">hostname</span> <span class="o">+</span> <span class="s2">&#34;]]&#34;</span><span class="p">);</span></span></span></code></pre></div>
+</div>
+<p>
+Add a new bookmark on the browser, give it a name, such as <code>(org-link)</code>, and then copy and paste the content as URL, just like below on Firefox:</p>
         <a href="https://whatacold.io/blog/2022-08-08-org-link-bookmarklet/" class="post-read-more">[Read More]</a>
         
     </div>
@@ -455,13 +477,13 @@ javascript:window.prompt(&#34;Copy to clipboard: Ctrl+C, Esc&#34;, &#34;[[&#34; 
   
   <i class="fas fa-calendar"></i>&nbsp;Posted on 2022-07-17
   
-    &nbsp;(Last modified on 2025-02-26)
+    &nbsp;(Last modified on 2025-10-17)
   
   
     &nbsp;|&nbsp;<i class="fas fa-clock"></i>&nbsp;6&nbsp;minutes
   
   
-    &nbsp;|&nbsp;<i class="fas fa-book"></i>&nbsp;1131&nbsp;words
+    &nbsp;|&nbsp;<i class="fas fa-book"></i>&nbsp;1169&nbsp;words
   
   
   &nbsp;&bull;&nbsp;Other languages: <a href="https://whatacold.io/zh-cn/blog/2022-07-17-emacs-elisp-debug/" lang="zh-cn">(in &#34;中文&#34;)</a>
@@ -471,8 +493,10 @@ javascript:window.prompt(&#34;Copy to clipboard: Ctrl+C, Esc&#34;, &#34;[[&#34; 
     </p>
     <div class="post-entry">
         
-        If you are new to Emacs, you may run into some errors, especially after you copied some elisp snippets from the Internet or elsewhere. Don&#39;t panic! It happens, it&#39;s just part of the learning process. Even an experienced Emacs user could run into there issues from time to time.
-Photo by Mike Newbry on Unsplash But in order to ease the pain, I will introduce a bunch of Emacs built-in features to help you troubleshoot and eventually solve the problems by yourself in this post.
+        <p>
+If you are new to Emacs, you may run into some errors, especially after you copied some elisp snippets from the Internet or elsewhere. Don&#39;t panic! It happens, it&#39;s just part of the learning process. Even an experienced Emacs user could run into there issues from time to time.</p>
+<p>
+<em>BTW, I&#39;m improving my English by watching YouTube videos every single day; If you&#39;re also learning English, or any languages, LanguagePuppy can definitely help you. It&#39;s a Chrome extension I developed using Clojure. Check it out:</em></p>
         <a href="https://whatacold.io/blog/2022-07-17-emacs-elisp-debug/" class="post-read-more">[Read More]</a>
         
     </div>
@@ -521,9 +545,36 @@ Photo by Mike Newbry on Unsplash But in order to ease the pain, I will introduce
     </p>
     <div class="post-entry">
         
-        Duplicate the current in Emacs Duplicating the current line is frequent editing for me when I am coding. Initially, I copied a snippet as a command in Emacs from the Internet:
-(defun w/duplicate-line() &#34;Duplicate the current line.&#34; (interactive) (move-beginning-of-line 1) (kill-line) (yank) (open-line 1) (next-line 1) (yank)) Most of the time, I was happy with it, but it has mainly two drawbacks:
-It cannot keep the column position when moving to the next line It messes up with the yank ring as it yanks the text under the hood So today, I took some time to fix these two problems, and I also want it to be capable of commenting the current line out if I prefix the command.
+        <figure>
+<img src="/img/2022-05-23-emacs-duplicate-current-line.jpg" alt="Duplicate the current in Emacs" title="Click to enlarge the image"/>
+<figcaption>
+Duplicate the current in Emacs
+</figcaption>
+</figure>
+<p>
+Duplicating the current line is frequent editing for me when I am
+coding. Initially, I copied a snippet as a command in Emacs from the
+Internet:</p>
+<div class="src src-elisp">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-elisp" data-lang="elisp"><span class="line"><span class="cl"><span class="p">(</span><span class="nb">defun</span> <span class="nv">w/duplicate-line</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">  <span class="s">&#34;Duplicate the current line.&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">(</span><span class="nb">interactive</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="p">(</span><span class="nv">move-beginning-of-line</span> <span class="mi">1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="p">(</span><span class="nv">kill-line</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="p">(</span><span class="nv">yank</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="p">(</span><span class="nv">open-line</span> <span class="mi">1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="p">(</span><span class="nv">next-line</span> <span class="mi">1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="p">(</span><span class="nv">yank</span><span class="p">))</span></span></span></code></pre></div>
+</div>
+<p>
+Most of the time, I was happy with it, but it has mainly two drawbacks:</p>
+<ol>
+<li>It cannot keep the column position when moving to the next line</li>
+<li>It messes up with the yank ring as it yanks the text under the hood</li>
+</ol>
+<p>So today, I took some time to fix these two problems, and I also want
+it to be capable of commenting the current line out if I prefix the
+command.</p>
         <a href="https://whatacold.io/blog/2022-05-23-emacs-duplicate-line/" class="post-read-more">[Read More]</a>
         
     </div>
@@ -569,9 +620,19 @@ It cannot keep the column position when moving to the next line It messes up wit
     </p>
     <div class="post-entry">
         
-        Adjust the screen brightness in Emacs If you&#39;re using i3wm on Linux, how do you adjust the laptop&#39;s screen brightness?
-Most of the time, I use the laptop with an external monitor. But when I am out, I have no monitors. And it seems no easy way to adjust the brightness in i3wm. Being too bright or dim is terrible for the eyes.
-Recently, I found a command-line tool called brightnessctl, which can adjust the brightness in a terminal.
+        <figure>
+<img src="/img/2022-05-21-adjust-screen-brightness-emacs.jpg" alt="Adjust the screen brightness in Emacs" title="Click to enlarge the image"/>
+<figcaption>
+Adjust the screen brightness in Emacs
+</figcaption>
+</figure>
+<p>
+If you&#39;re using i3wm on Linux, how do you adjust the laptop&#39;s screen
+brightness?</p>
+<p>
+Most of the time, I use the laptop with an external monitor. But when
+I am out, I have no monitors. And it seems no easy way to adjust the
+brightness in i3wm. Being too bright or dim is terrible for the eyes.</p>
         <a href="https://whatacold.io/blog/2022-05-21-adjust-screen-brightness-emacs/" class="post-read-more">[Read More]</a>
         
     </div>
@@ -623,8 +684,24 @@ Recently, I found a command-line tool called brightnessctl, which can adjust the
     </p>
     <div class="post-entry">
         
-        Selecting Emacs windows using ace-window Recently I&#39;ve been building a simple Emacs config for myself, along the way I re-discovered some fantastic packages, for example, I found that ace-window is a simple yet powerful package to enhance the default other-window command to select other windows quickly when it has more than two windows in a frame.
-I replaced the key binding of other-window to ace-window by simply doing (global-set-key (kbd &#34;C-x o&#34;) #&#39;ace-window), then when there are &gt;2 windows, it will show a white-in-red number at the top-left corner for every window, hit the number (1, 2, 3, …) and then Emacs will select the corresponding window (as demonstrated in the above screenshot).
+        <figure>
+<img src="/img/2022-04-09-ace-window-selecting-window.jpg" alt="Selecting Emacs windows using ace-window" title="Click to enlarge the image"/>
+<figcaption>
+Selecting Emacs windows using ace-window
+</figcaption>
+</figure>
+<p>
+Recently I&#39;ve been building a simple Emacs config for myself, along
+the way I re-discovered some fantastic packages, for example, I found
+that <a href="https://github.com/abo-abo/ace-window">ace-window</a> is a simple yet powerful package to enhance
+the default <code class="verbatim">other-window</code> command to select other windows quickly
+when it has more than two windows in a frame.</p>
+<p>
+I replaced the key binding of <code class="verbatim">other-window</code> to ace-window by simply
+doing <code>(global-set-key (kbd &#34;C-x o&#34;) #&#39;ace-window)</code>, then when there are &gt;2
+windows, it will show a white-in-red number at the top-left corner for
+every window, hit the number (1, 2, 3, …) and then Emacs will select the
+corresponding window (as demonstrated in the above screenshot).</p>
         <a href="https://whatacold.io/blog/2022-04-09-emacs-kill-other-buffer/" class="post-read-more">[Read More]</a>
         
     </div>
@@ -670,8 +747,23 @@ I replaced the key binding of other-window to ace-window by simply doing (global
     </p>
     <div class="post-entry">
         
-        Scrapy Architecture Scrapy provides a few item exporters by default to export items in commonly used file formats like CSV/JSON/XML. I usually use CSV to export items, it is pretty convenient, and it comes in two ways:
-appending mode, for example, scrapy crawl foo -o test.csv overwriting mode with -O option, like scrapy crawl foo -O test.csv But in the appending mode, it&#39;s a bit annoying that it always appends the header row before the newly scraped items, which is not correctly in terms of CSV format.
+        <figure>
+<img src="https://docs.scrapy.org/en/latest/_images/scrapy_architecture_02.jpg" alt="Scrapy Architecture" title="Click to enlarge the image"/>
+<figcaption>
+Scrapy Architecture
+</figcaption>
+</figure>
+<p>
+Scrapy provides a few <a href="https://docs.scrapy.org/en/latest/topics/exporters.html">item exporters</a> by default to export items in
+commonly used file formats like CSV/JSON/XML. I usually use CSV to
+export items, it is pretty convenient, and it comes in two ways:</p>
+<ul>
+<li>appending mode, for example, <code>scrapy crawl foo -o test.csv</code></li>
+<li>overwriting mode with <code class="verbatim">-O</code> option, like <code>scrapy crawl foo -O test.csv</code></li>
+</ul>
+<p>But in the appending mode, it&#39;s a bit annoying that it always appends
+the header row before the newly scraped items, which is not correctly
+in terms of CSV format.</p>
         <a href="https://whatacold.io/blog/2022-04-09-scrapy-csv-without-header/" class="post-read-more">[Read More]</a>
         
     </div>
@@ -704,13 +796,13 @@ appending mode, for example, scrapy crawl foo -o test.csv overwriting mode with 
   
   <i class="fas fa-calendar"></i>&nbsp;Posted on 2022-01-22
   
-    &nbsp;(Last modified on 2025-02-26)
+    &nbsp;(Last modified on 2025-10-17)
   
   
     &nbsp;|&nbsp;<i class="fas fa-clock"></i>&nbsp;3&nbsp;minutes
   
   
-    &nbsp;|&nbsp;<i class="fas fa-book"></i>&nbsp;516&nbsp;words
+    &nbsp;|&nbsp;<i class="fas fa-book"></i>&nbsp;554&nbsp;words
   
   
   
@@ -720,8 +812,10 @@ appending mode, for example, scrapy crawl foo -o test.csv overwriting mode with 
     </p>
     <div class="post-entry">
         
-        LSP, or Language Server Protocol, makes programming easier by introducing features like more precise auto-completion and definition lookup. It may have scratched your itches, and you may wonder what the experience is like in Emacs.
-Photo by Oskar Yildiz on Unsplash Emacs has mainly two LSP clients out there, eglot and lsp-mode. Eglot is lightweight, and it could almost run out of the box. So in this post I will briefly show you how to use eglot.
+        <p>
+<a href="https://microsoft.github.io/language-server-protocol/">LSP</a>, or Language Server Protocol, makes programming easier by introducing features like more precise auto-completion and definition lookup. It may have scratched your itches, and you may wonder what the experience is like in Emacs.</p>
+<p>
+<em>BTW, I&#39;m improving my English by watching YouTube videos every single day; If you&#39;re also learning English, or any languages, LanguagePuppy can definitely help you. It&#39;s a Chrome extension I developed using Clojure. Check it out:</em></p>
         <a href="https://whatacold.io/blog/2022-01-22-emacs-eglot-lsp/" class="post-read-more">[Read More]</a>
         
     </div>
@@ -861,7 +955,7 @@ Photo by Oskar Yildiz on Unsplash Emacs has mainly two LSP clients out there, eg
         </p>
         
         <p class="credits theme-by text-muted">
-          <a href="https://gohugo.io">Hugo v0.126.2</a> powered &nbsp;&bull;&nbsp; Theme <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> adapted from <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
+          <a href="https://gohugo.io">Hugo v0.142.0</a> powered &nbsp;&bull;&nbsp; Theme <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> adapted from <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
           
         </p>
       </div>

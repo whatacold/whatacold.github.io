@@ -15,7 +15,7 @@
       <link>https://whatacold.io/zh-cn/blog/2021-09-05-lein-reagent-frontend-shibai/</link>
       <pubDate>Sun, 05 Sep 2021 10:39:33 +0800</pubDate><author>whatacold@gmail.com (Ken Huang)</author>
       <guid>https://whatacold.io/zh-cn/blog/2021-09-05-lein-reagent-frontend-shibai/</guid>
-      <description>最近打算用 ClojureScript 做点 web 应用，就准备实践下 Reagent ，它是一个 React.js 的极简封装（A minimalistic ClojureScript interface to React.js），通过官网的几个例子可以看到，确实很简洁。 看花容易</description>
+      <description>&lt;p&gt;&#xA;最近打算用 &lt;a href=&#34;https://clojurescript.org/&#34;&gt;ClojureScript&lt;/a&gt; 做点 web 应用，就准备实践下 &lt;a href=&#34;http://reagent-project.github.io/&#34;&gt;Reagent&lt;/a&gt; ，它是一个 &lt;a href=&#34;https://reactjs.org/&#34;&gt;React.js&lt;/a&gt; 的极简封装（A minimalistic ClojureScript interface to React.js），通过官网的几个例子可以看到，确实很简洁。&lt;/p&gt;&#xA;&lt;p&gt;&#xA;看花容易绣花难，那就先搞一个本地工程玩一下看。Leiningen 命令有两种：&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

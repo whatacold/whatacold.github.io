@@ -8,21 +8,21 @@
     <language>zh-cn</language>
     <managingEditor>whatacold@gmail.com (Ken Huang)</managingEditor>
     <webMaster>whatacold@gmail.com (Ken Huang)</webMaster>
-    <lastBuildDate>Wed, 26 Feb 2025 00:45:45 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 17 Oct 2025 20:13:21 +0800</lastBuildDate>
     <atom:link href="https://whatacold.io/zh-cn/tags/rime/rss.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>RIME 输入法小鹤双拼配置指南</title>
       <link>https://whatacold.io/zh-cn/blog/2022-10-04-rime-double-pinyin-flypy/</link>
       <pubDate>Tue, 04 Oct 2022 15:44:54 +0800</pubDate><author>whatacold@gmail.com (Ken Huang)</author>
       <guid>https://whatacold.io/zh-cn/blog/2022-10-04-rime-double-pinyin-flypy/</guid>
-      <description>如果你也使用 Linux 操作系统，那么 RIME 输入法基本是必备的。它开源、跨平台，支持各种输入方案，甚至定制自己的输入方案；另一方面，它不需要服务器，这意味</description>
+      <description>&lt;p&gt;&#xA;如果你也使用 Linux 操作系统，那么 &lt;a href=&#34;https://rime.im/&#34;&gt;RIME 输入法&lt;/a&gt;基本是必备的。它开源、跨平台，支持各种输入方案，甚至定制自己的输入方案；另一方面，它不需要服务器，这意味着它不会泄漏你的输入数据。但同时相比各个商业公司的输入法方案来说，它的配置会比较麻烦一点，因为它没有图形界面，我曾经也一度不会配置；另外就是它默认词汇很少，也不会实时更新，这样会对我们的输入效率有一定影响。&lt;/p&gt;</description>
     </item>
     <item>
       <title>smart-input-source 配合 RIME 进行完美地中英文输入</title>
       <link>https://whatacold.io/zh-cn/blog/2022-09-11-emacs-smart-input-source-rime/</link>
       <pubDate>Sun, 11 Sep 2022 15:50:29 +0800</pubDate><author>whatacold@gmail.com (Ken Huang)</author>
       <guid>https://whatacold.io/zh-cn/blog/2022-09-11-emacs-smart-input-source-rime/</guid>
-      <description>Emacs 中文输入有不少方案，既可以用外置的输入法（比如 Rime, sogou 等）进行输入，还可以用内置的输入法（比如 pyim ）利用 Elisp 完成中文输入。作为中文用户，我们很难避</description>
+      <description>&lt;p&gt;&#xA;Emacs 中文输入有不少方案，既可以用外置的输入法（比如 Rime, sogou 等）进行输入，还可以用内置的输入法（比如 pyim ）利用 Elisp 完成中文输入。作为中文用户，我们很难避免需要同时输入中英文（比如到目前为止这篇博文我就打了不少英文字符了），那么选用一个能流畅地进行中英文打字的输入方案能够极大地提升使用体验。本文我们就来一起看下如何在 Linux + Emacs 的系统中，利用 RIME 及 Emacs 包配置一个完美的中英文输入方案。&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

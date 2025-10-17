@@ -15,7 +15,7 @@
       <link>https://whatacold.io/blog/2020-06-25-is-it-safe-to-use-redis-as-a-data-store/</link>
       <pubDate>Thu, 25 Jun 2020 22:37:00 +0800</pubDate><author>whatacold@gmail.com (Ken Huang)</author>
       <guid>https://whatacold.io/blog/2020-06-25-is-it-safe-to-use-redis-as-a-data-store/</guid>
-      <description>Traditionally we are used to storing data in an RDBMS like MySQL, and avoid using in-memory solutions such as Redis, to have a confidence of no data loss. Sometimes I find that we are so stubborn with MySQL that ending up with a complicated design, and I&amp;#39;ve even seen a solution that stores data in MySQL and then using Redis as a cache for it to improve read performance in the meanwhile.</description>
+      <description>&lt;p&gt;&#xA;Traditionally we are used to storing data in an RDBMS like MySQL, and avoid using in-memory solutions such as Redis, to have a confidence of no data loss. Sometimes I find that we are so stubborn with MySQL that ending up with a complicated design, and I&amp;#39;ve even seen a solution that stores data in MySQL and then using Redis as a cache for it to improve read performance in the meanwhile. And to make the data in the cache as consistent as possible with the data in MySQL, it introduces other mechanisms, but the result is still not 100% consistent.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

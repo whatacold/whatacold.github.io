@@ -15,7 +15,7 @@
       <link>https://whatacold.io/blog/2021-07-17-emacs-i3wm-dunst/</link>
       <pubDate>Sat, 17 Jul 2021 12:22:10 +0800</pubDate><author>whatacold@gmail.com (Ken Huang)</author>
       <guid>https://whatacold.io/blog/2021-07-17-emacs-i3wm-dunst/</guid>
-      <description>I barely use notifications, but recently I think it&amp;#39;s a valuable way to remind me things like helping me nurture habits, or to notify me of emergencies like a critically low laptop battery.&#xA;So I try to integrate notifications to org-mode and Emacs today.&#xA;The org-notify package from org-contrib (install it by (package-install &amp;#39;org-contrib) ) could do this job easily before, so I first test it in the minibuffer with (org-notify &amp;#34;test&amp;#34;).</description>
+      <description>&lt;p&gt;&#xA;I barely use notifications, but recently I think it&amp;#39;s a valuable way to remind me things like helping me nurture habits, or to notify me of emergencies like a critically low laptop battery.&lt;/p&gt;&#xA;&lt;p&gt;&#xA;So I try to integrate notifications to org-mode and Emacs today.&lt;/p&gt;&#xA;&lt;p&gt;&#xA;The &lt;code class=&#34;verbatim&#34;&gt;org-notify&lt;/code&gt; package from &lt;code class=&#34;verbatim&#34;&gt;org-contrib&lt;/code&gt; (install it by &lt;code class=&#34;verbatim&#34;&gt;(package-install &amp;#39;org-contrib)&lt;/code&gt; ) could do this job easily before, so I first test it in the minibuffer with &lt;code class=&#34;verbatim&#34;&gt;(org-notify &amp;#34;test&amp;#34;)&lt;/code&gt;.&lt;/p&gt;&#xA;&lt;p&gt;&#xA;Unfortunately, it errors out:&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

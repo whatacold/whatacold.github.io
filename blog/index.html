@@ -47,7 +47,7 @@
   <meta name="twitter:site" content="@whatacold" />
   <meta name="twitter:creator" content="@whatacold" />
   <link href='https://whatacold.io/img/2021-12-10-motor-helmet-180.jpg' rel='icon' type='image/x-icon'/>
-  <meta name="generator" content="Hugo 0.126.2">
+  <meta name="generator" content="Hugo 0.142.0">
   <link rel="alternate" href="https://whatacold.io/rss.xml" type="application/rss+xml" title="Ken Huang"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/katex.min.css" integrity="sha384-3UiQGuEI4TTMaFmGIZumfRPtfKQ3trwQE2JgosJxCnGmQpL/lJdjpcHkaaFwHlcI" crossorigin="anonymous">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.6.0/css/all.css" integrity="sha384-h/hnnw1Bi4nbpD6kE7nYfCXzovi622sY5WBxww8ARKwpdLj5kUWjRuyiXaD1U2JT" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous"><link rel="stylesheet" href="https://whatacold.io/css/main.css" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
@@ -55,8 +55,6 @@
   <link rel="stylesheet" href="https://whatacold.io/css/highlight.min.css" /><link rel="stylesheet" href="https://whatacold.io/css/codeblock.css" /><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.css" integrity="sha384-h/L2W9KefUClHWaty3SLE5F/qvc4djlyR4qY3NUV5HGQBBW7stbcfff1+I/vmsHh" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/default-skin/default-skin.min.css" integrity="sha384-iD0dNku6PYSIQLyfTOpB06F2KCZJAKLOThS5HRe8b3ibhdEQ6eKsFf/EeFxdOt5R" crossorigin="anonymous">
 
-  
-    
       <script async src="https://www.googletagmanager.com/gtag/js?id=G-5TGCG9ZG24"></script>
       <script>
         var doNotTrack = false;
@@ -71,10 +69,6 @@
           gtag('config', 'G-5TGCG9ZG24');
         }
       </script>
-    
-  
-
-
   </head>
   <body>
     <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
@@ -265,9 +259,18 @@
     </p>
     <div class="post-entry">
         
-        In case you don’t know it, we can use raw strings, like embedding JS code, in hiccup.
-I just found out we can use raw to prevent strings from getting escaped. I used to have to define a dedicated app.js for that, which would need an extra HTTP request.
-Hiccup raw in action Looking back, I should’ve found this at the very beginning, as it’s just mentioned on its GitHub homepage, but somehow I missed it.
+        <p>
+In case you don’t know it, we can use raw strings, like embedding JS code, in hiccup.</p>
+<p>
+I just found out we can use <a href="https://weavejester.github.io/hiccup/hiccup2.core.html#var-raw">raw</a> to prevent strings from getting escaped. I used to have to define a dedicated app.js for that, which would need an extra HTTP request.</p>
+<figure>
+<img src="/img/clojure-hiccup-raw.jpg" alt="Hiccup raw in action" title="Click to enlarge the image"/>
+<figcaption>
+Hiccup raw in action
+</figcaption>
+</figure>
+<p>
+Looking back, I should’ve found this at the very beginning, as it’s just mentioned on <a href="https://github.com/weavejester/hiccup">its GitHub homepage</a>, but somehow I missed it.</p>
         <a href="https://whatacold.io/blog/2025-05-15-clojure-tip-hiccup-raw/" class="post-read-more">[Read More]</a>
         
     </div>
@@ -316,9 +319,18 @@ Hiccup raw in action Looking back, I should’ve found this at the very beginnin
     </p>
     <div class="post-entry">
         
-        Sometimes, we may want a few examples of a Clojure API for inspiration while developing, especially when reading other people&#39;s or open source code.
-With Cider in Emacs, we can run M-x cider-doc to see the docstring for the symbol. We can even use M-x cider-clojuredocs for some examples if the symbol is from the language core.
-Running M-x cider-clojuredocs I happened to find this command recently. I bet I was not the only one who didn&#39;t know it, thus I&#39;m sharing.
+        <p>
+Sometimes, we may want a few examples of a Clojure API for inspiration while developing, especially when reading other people&#39;s or open source code.</p>
+<p>
+With <a href="https://cider.mx/">Cider</a> in <a href="https://www.gnu.org/software/emacs/">Emacs</a>, we can run <code class="verbatim">M-x cider-doc</code> to see the docstring for the symbol. We can even use <code class="verbatim">M-x cider-clojuredocs</code> for some examples if the symbol is from the language core.</p>
+<figure>
+<img src="/img/clojure-cider-clojuredocs.jpg" alt="Running M-x cider-clojuredocs" title="Click to enlarge the image"/>
+<figcaption>
+Running M-x cider-clojuredocs
+</figcaption>
+</figure>
+<p>
+I happened to find this command recently. I bet I was not the only one who didn&#39;t know it, thus I&#39;m sharing.</p>
         <a href="https://whatacold.io/blog/2025-04-29-clojure-tip-cider-clojuredocs/" class="post-read-more">[Read More]</a>
         
     </div>
@@ -487,9 +499,13 @@ Example from <a href="https://github.com/functional-koans/clojure-koans">Clojure
     </p>
     <div class="post-entry">
         
-        When you’re building a side project, chances are you need to collect user events so that you can understand user behaviors better and eventually improve your product.
-So recently I made a small ClojureScript library for that, it supports web apps or chrome extensions. Check it out at https://github.com/whatacold/google-analytics, it also contains a demo project using shadow-cljs as the build tool.
-Hope it helps, and give it a star ⭐ on GitHub and share it if it does, thanks!
+        <p>
+When you’re building a side project, chances are you need to collect user events so that you can understand user behaviors better and eventually improve your product.</p>
+<p>
+So recently I made a small ClojureScript library for that, it supports web apps or chrome extensions.
+Check it out at <a href="https://github.com/whatacold/google-analytics,">https://github.com/whatacold/google-analytics,</a> it also contains a <a href="https://github.com/whatacold/google-analytics/tree/master/demo">demo project</a> using <a href="https://shadow-cljs.github.io/docs/UsersGuide.html">shadow-cljs</a> as the build tool.</p>
+<p>
+Hope it helps, and give it a star ⭐ on GitHub and share it if it does, thanks!</p>
         <a href="https://whatacold.io/blog/2025-04-11-google-analytics-clojurescript/" class="post-read-more">[Read More]</a>
         
     </div>
@@ -583,13 +599,13 @@ In these scenarios, you may tend to use <code class="verbatim">;</code> to comme
   
   <i class="fas fa-calendar"></i>&nbsp;Posted on 2025-02-22
   
-    &nbsp;(Last modified on 2025-03-30)
+    &nbsp;(Last modified on 2025-10-17)
   
   
     &nbsp;|&nbsp;<i class="fas fa-clock"></i>&nbsp;16&nbsp;minutes
   
   
-    &nbsp;|&nbsp;<i class="fas fa-book"></i>&nbsp;3212&nbsp;words
+    &nbsp;|&nbsp;<i class="fas fa-book"></i>&nbsp;3250&nbsp;words
   
   
   
@@ -599,8 +615,18 @@ In these scenarios, you may tend to use <code class="verbatim">;</code> to comme
     </p>
     <div class="post-entry">
         
-        Intro A few years ago, I made a simple web app in Flask to deal with some text processing problems from my daily work. It has two main features:
-Feature #1: generating compile_commands.json for GNU Makefile projects written in C/C++ using the output of the make command. Because, unlike CMake, the make command can&#39;t generate it. Feature #2: extract text using Python regex. It&#39;s handy when I feel like sed/awk/grep&#39;s line-oriented processing isn&#39;t enough for the task at hand.
+        <div id="outline-container-headline-1" class="outline-2">
+<h2 id="headline-1">
+Intro
+</h2>
+<div id="outline-text-headline-1" class="outline-text-2">
+<p>
+A few years ago, I made a simple web app in <a href="https://flask.palletsprojects.com/en/stable/">Flask</a> to deal with some text processing problems from my daily work. It has two main features:</p>
+<ul>
+<li>Feature #1: generating <code class="verbatim">compile_commands.json</code> for GNU Makefile projects written in C/C++ using the output of the <code class="verbatim">make</code> command. Because, unlike CMake, the make command can&#39;t generate it.</li>
+<li>Feature #2: extract text using Python regex. It&#39;s handy when I feel like sed/awk/grep&#39;s line-oriented processing isn&#39;t enough for the task at hand.</li>
+</ul>
+<p><em>BTW, I&#39;m improving my English by watching YouTube videos every single day; If you&#39;re also learning English, or any languages, LanguagePuppy can definitely help you. It&#39;s a Chrome extension I developed using Clojure. Check it out:</em></p>
         <a href="https://whatacold.io/blog/2025-02-22-flask-clojure-rewrite/" class="post-read-more">[Read More]</a>
         
     </div>
@@ -658,7 +684,8 @@ Feature #1: generating compile_commands.json for GNU Makefile projects written i
     </p>
     <div class="post-entry">
         
-        I was wondering how to construct a multi-key map conditionally while I was coding in Clojure. Ideally, I would like to build it &#34;in one pass&#34; like {:bar 2 (when true :baz 3)}, but from what I had collected from Blue Sky, it seemed that&#39;s impossible, or it&#39;s just not an idiomatic way to program like that in Clojure. (Or, is this just a side effect of writing too much imperative code?
+        <p>
+I was wondering how to construct a multi-key map conditionally while I was coding in Clojure. Ideally, I would like to build it &#34;in one pass&#34; like <code class="verbatim">{:bar 2 (when true :baz 3)}</code>, but from what I had collected from Blue Sky, it seemed that&#39;s impossible, or it&#39;s just not an idiomatic way to program like that in Clojure. (Or, is this just a side effect of writing too much imperative code?)</p>
         <a href="https://whatacold.io/blog/2025-01-05-construct-a-map-clojure/" class="post-read-more">[Read More]</a>
         
     </div>
@@ -705,8 +732,62 @@ Feature #1: generating compile_commands.json for GNU Makefile projects written i
     </p>
     <div class="post-entry">
         
-        Here is the outline for my cider tutorial on YouTube, covering basic things you need to know to get started with cider, and starting exploring the fun of clojure programming with the REPL-driven programming approach.
-Jack In to a REPL C-c M-j (cider-jack-in-clj) start a nREPL and jack in. It works in a project or with a sole .clj file. M-x cider-connect-clj run the command and then fill in hostname and port.
+        <p>
+Here is the outline for my cider tutorial on YouTube, covering basic things you need to know to get started with cider, and starting exploring the fun of clojure programming with the REPL-driven programming approach.</p>
+<p>
+
+    <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+      <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/evmRpr_DEBQ?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"></iframe>
+    </div>
+</p>
+<div id="outline-container-headline-1" class="outline-2">
+<h2 id="headline-1">
+Jack In to a REPL
+</h2>
+<div id="outline-text-headline-1" class="outline-text-2">
+<dl>
+<dt>
+C-c M-j (cider-jack-in-clj)
+</dt>
+<dd>start a nREPL and jack in.
+
+It works in a project or with a <strong>sole .clj file</strong>.</dd>
+<dt>
+M-x cider-connect-clj
+</dt>
+<dd>run the command and then fill in hostname and port.
+
+It could be useful in some cases. e.g. on Windows, I can start the nREPL manually and then connect to it separately.</dd>
+</dl>
+</div>
+</div>
+<div id="outline-container-headline-2" class="outline-2">
+<h2 id="headline-2">
+Evaluate Things
+</h2>
+<div id="outline-text-headline-2" class="outline-text-2">
+<dl>
+<dt>
+C-M-x (cider-eval-defun-at-point)
+</dt>
+<dd>evaluate current top-level form.</dd>
+<dt>
+C-x C-e (cider-eval-last-sexp)
+</dt>
+<dd>evaluate the preceding form.</dd>
+<dt>
+C-c C-k (cider-load-buffer)
+</dt>
+<dd>evaluate/load the current buffer.</dd>
+<dt>
+C-c C-p (cider-pprint-eval-last-sexp)
+</dt>
+<dd>Pprint the result in a dedicated buffer.
+
+Great thing to do when the result is too large to fit in the echo area.</dd>
+</dl>
+<p>Note: I prefer to use the same key bindings as for Elisp, given that
+cider might bind a few keys to a single command!</p>
         <a href="https://whatacold.io/blog/2024-12-22-getting-started-with-cider/" class="post-read-more">[Read More]</a>
         
     </div>
@@ -758,9 +839,24 @@ Jack In to a REPL C-c M-j (cider-jack-in-clj) start a nREPL and jack in. It work
     </p>
     <div class="post-entry">
         
-        Recently I&#39;ve used babashka/fs a little bit, here are some quick notes for it:
-Path vs File. Use Path whenever possible, according to this SO answer to &#34;Java: Path vs File&#34;. This is actually Java related. It&#39;s ok to use a path as a key for a clojure map. At my first try, I somehow came to the conclusion that it&#39;s not ok, while I was refactoring the live reload for clay.
-        <a href="https://whatacold.io/blog/2024-12-07-babashka-fs-notes/" class="post-read-more">[Read More]</a>
+        <p>
+Recently I&#39;ve used <a href="https://github.com/babashka/fs/blob/master/API.md">babashka/fs</a> a little bit, here are some quick notes for it:</p>
+<ul>
+<li>Path vs File.
+
+Use Path whenever possible, according to <a href="https://stackoverflow.com/a/26658436">this SO answer to &#34;Java: Path vs File&#34;</a>.
+
+This is actually Java related.</li>
+<li>It&#39;s ok to use a <code class="verbatim">path</code> as a key for a clojure map.
+
+At my first try, I somehow came to the conclusion that it&#39;s not ok, while I was refactoring the <a href="https://github.com/scicloj/clay/blob/main/src/scicloj/clay/v2/live_reload.clj">live reload</a> for clay. And later I found that it&#39;s totally fine to use it as a key. 😞</li>
+<li>Use <a href="https://github.com/babashka/fs/blob/master/API.md#babashka.fs/path">fs/path</a> to construct file/directory paths, for example, <code class="verbatim">(fs/path &#34;/tmp&#34; &#34;foo&#34; &#34;bar&#34; &#34;baz.clj&#34;)</code> will result in a path object for <code class="verbatim">/tmp/foo/bar/baz.clj</code> on linux.
+
+If you&#39;re coming from Python, it might remind you of <a href="https://docs.python.org/3/library/os.path.html">os.path.join(path, *paths)</a>.</li>
+<li>Use <code class="verbatim">fs/createdirs</code> for <code class="verbatim">mkdir -p</code>, though its name is a bit misleading, I first thought it&#39;s for creating a few dirs.</li>
+<li><code class="verbatim">fs/with-temp-dir</code> is convenient for <a href="https://github.com/scicloj/clay/blob/main/test/scicloj/clay/v2/live_reload_test.clj">creating tests</a>.</li>
+</ul>
+
         
     </div>
 
@@ -901,7 +997,7 @@ Path vs File. Use Path whenever possible, according to this SO answer to &#34;Ja
         </p>
         
         <p class="credits theme-by text-muted">
-          <a href="https://gohugo.io">Hugo v0.126.2</a> powered &nbsp;&bull;&nbsp; Theme <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> adapted from <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
+          <a href="https://gohugo.io">Hugo v0.142.0</a> powered &nbsp;&bull;&nbsp; Theme <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> adapted from <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
           
         </p>
       </div>

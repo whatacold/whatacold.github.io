@@ -8,278 +8,278 @@
     <language>en</language>
     <managingEditor>whatacold@gmail.com (Ken Huang)</managingEditor>
     <webMaster>whatacold@gmail.com (Ken Huang)</webMaster>
-    <lastBuildDate>Sat, 17 May 2025 05:15:47 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 17 Oct 2025 20:29:45 +0800</lastBuildDate>
     <atom:link href="https://whatacold.io/tags/rss.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Clojure</title>
       <link>https://whatacold.io/tags/clojure/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>whatacold@gmail.com (Ken Huang)</author>
+      <pubDate>Thu, 15 May 2025 12:49:27 +0800</pubDate><author>whatacold@gmail.com (Ken Huang)</author>
       <guid>https://whatacold.io/tags/clojure/</guid>
       <description></description>
     </item>
     <item>
       <title>Tweet</title>
       <link>https://whatacold.io/tags/tweet/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>whatacold@gmail.com (Ken Huang)</author>
+      <pubDate>Thu, 15 May 2025 12:49:27 +0800</pubDate><author>whatacold@gmail.com (Ken Huang)</author>
       <guid>https://whatacold.io/tags/tweet/</guid>
       <description></description>
     </item>
     <item>
       <title>Cider</title>
       <link>https://whatacold.io/tags/cider/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>whatacold@gmail.com (Ken Huang)</author>
+      <pubDate>Tue, 29 Apr 2025 12:49:27 +0800</pubDate><author>whatacold@gmail.com (Ken Huang)</author>
       <guid>https://whatacold.io/tags/cider/</guid>
       <description></description>
     </item>
     <item>
       <title>Emacs</title>
       <link>https://whatacold.io/tags/emacs/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>whatacold@gmail.com (Ken Huang)</author>
+      <pubDate>Tue, 29 Apr 2025 12:49:27 +0800</pubDate><author>whatacold@gmail.com (Ken Huang)</author>
       <guid>https://whatacold.io/tags/emacs/</guid>
       <description></description>
     </item>
     <item>
       <title>ClojureScript</title>
       <link>https://whatacold.io/tags/clojurescript/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>whatacold@gmail.com (Ken Huang)</author>
+      <pubDate>Fri, 11 Apr 2025 22:49:27 +0800</pubDate><author>whatacold@gmail.com (Ken Huang)</author>
       <guid>https://whatacold.io/tags/clojurescript/</guid>
       <description></description>
     </item>
     <item>
       <title>Shadow-Cljs</title>
       <link>https://whatacold.io/tags/shadow-cljs/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>whatacold@gmail.com (Ken Huang)</author>
+      <pubDate>Fri, 11 Apr 2025 22:49:27 +0800</pubDate><author>whatacold@gmail.com (Ken Huang)</author>
       <guid>https://whatacold.io/tags/shadow-cljs/</guid>
       <description></description>
     </item>
     <item>
       <title>Flask</title>
       <link>https://whatacold.io/tags/flask/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>whatacold@gmail.com (Ken Huang)</author>
+      <pubDate>Sat, 22 Feb 2025 22:46:05 +0800</pubDate><author>whatacold@gmail.com (Ken Huang)</author>
       <guid>https://whatacold.io/tags/flask/</guid>
       <description></description>
     </item>
     <item>
       <title>Reagent</title>
       <link>https://whatacold.io/tags/reagent/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>whatacold@gmail.com (Ken Huang)</author>
+      <pubDate>Sat, 22 Feb 2025 22:46:05 +0800</pubDate><author>whatacold@gmail.com (Ken Huang)</author>
       <guid>https://whatacold.io/tags/reagent/</guid>
       <description></description>
     </item>
     <item>
       <title>Clay</title>
       <link>https://whatacold.io/tags/clay/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>whatacold@gmail.com (Ken Huang)</author>
+      <pubDate>Sat, 07 Dec 2024 22:24:41 +0800</pubDate><author>whatacold@gmail.com (Ken Huang)</author>
       <guid>https://whatacold.io/tags/clay/</guid>
       <description></description>
     </item>
     <item>
       <title>Python</title>
       <link>https://whatacold.io/tags/python/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>whatacold@gmail.com (Ken Huang)</author>
+      <pubDate>Sat, 07 Dec 2024 22:24:41 +0800</pubDate><author>whatacold@gmail.com (Ken Huang)</author>
       <guid>https://whatacold.io/tags/python/</guid>
       <description></description>
     </item>
     <item>
       <title>CSS</title>
       <link>https://whatacold.io/tags/css/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>whatacold@gmail.com (Ken Huang)</author>
+      <pubDate>Sat, 23 Nov 2024 19:50:56 +0800</pubDate><author>whatacold@gmail.com (Ken Huang)</author>
       <guid>https://whatacold.io/tags/css/</guid>
       <description></description>
     </item>
     <item>
       <title>TailwindCSS</title>
       <link>https://whatacold.io/tags/tailwindcss/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>whatacold@gmail.com (Ken Huang)</author>
+      <pubDate>Sat, 23 Nov 2024 19:50:56 +0800</pubDate><author>whatacold@gmail.com (Ken Huang)</author>
       <guid>https://whatacold.io/tags/tailwindcss/</guid>
       <description></description>
     </item>
     <item>
       <title>Clj</title>
       <link>https://whatacold.io/tags/clj/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>whatacold@gmail.com (Ken Huang)</author>
+      <pubDate>Sat, 09 Nov 2024 21:02:56 +0800</pubDate><author>whatacold@gmail.com (Ken Huang)</author>
       <guid>https://whatacold.io/tags/clj/</guid>
       <description></description>
     </item>
     <item>
       <title>Hydra</title>
       <link>https://whatacold.io/tags/hydra/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>whatacold@gmail.com (Ken Huang)</author>
+      <pubDate>Sun, 19 Nov 2023 13:02:42 +0800</pubDate><author>whatacold@gmail.com (Ken Huang)</author>
       <guid>https://whatacold.io/tags/hydra/</guid>
       <description></description>
     </item>
     <item>
       <title>Org-Mode</title>
       <link>https://whatacold.io/tags/org-mode/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>whatacold@gmail.com (Ken Huang)</author>
+      <pubDate>Mon, 14 Aug 2023 22:48:20 +0800</pubDate><author>whatacold@gmail.com (Ken Huang)</author>
       <guid>https://whatacold.io/tags/org-mode/</guid>
       <description></description>
     </item>
     <item>
       <title>Hugo</title>
       <link>https://whatacold.io/tags/hugo/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>whatacold@gmail.com (Ken Huang)</author>
+      <pubDate>Mon, 10 Oct 2022 22:50:48 +0800</pubDate><author>whatacold@gmail.com (Ken Huang)</author>
       <guid>https://whatacold.io/tags/hugo/</guid>
       <description></description>
     </item>
     <item>
       <title>Yasnippet</title>
       <link>https://whatacold.io/tags/yasnippet/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>whatacold@gmail.com (Ken Huang)</author>
+      <pubDate>Mon, 10 Oct 2022 22:50:48 +0800</pubDate><author>whatacold@gmail.com (Ken Huang)</author>
       <guid>https://whatacold.io/tags/yasnippet/</guid>
       <description></description>
     </item>
     <item>
       <title>Beancount</title>
       <link>https://whatacold.io/tags/beancount/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>whatacold@gmail.com (Ken Huang)</author>
+      <pubDate>Sat, 10 Sep 2022 11:13:38 +0800</pubDate><author>whatacold@gmail.com (Ken Huang)</author>
       <guid>https://whatacold.io/tags/beancount/</guid>
       <description></description>
     </item>
     <item>
       <title>Bookmarklet</title>
       <link>https://whatacold.io/tags/bookmarklet/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>whatacold@gmail.com (Ken Huang)</author>
+      <pubDate>Mon, 08 Aug 2022 23:33:05 +0800</pubDate><author>whatacold@gmail.com (Ken Huang)</author>
       <guid>https://whatacold.io/tags/bookmarklet/</guid>
       <description></description>
     </item>
     <item>
       <title>Debugging</title>
       <link>https://whatacold.io/tags/debugging/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>whatacold@gmail.com (Ken Huang)</author>
+      <pubDate>Sun, 17 Jul 2022 09:57:31 +0800</pubDate><author>whatacold@gmail.com (Ken Huang)</author>
       <guid>https://whatacold.io/tags/debugging/</guid>
       <description></description>
     </item>
     <item>
       <title>Linux</title>
       <link>https://whatacold.io/tags/linux/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>whatacold@gmail.com (Ken Huang)</author>
+      <pubDate>Sat, 21 May 2022 11:50:25 +0800</pubDate><author>whatacold@gmail.com (Ken Huang)</author>
       <guid>https://whatacold.io/tags/linux/</guid>
       <description></description>
     </item>
     <item>
       <title>Tiling-Wm</title>
       <link>https://whatacold.io/tags/tiling-wm/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>whatacold@gmail.com (Ken Huang)</author>
+      <pubDate>Sat, 21 May 2022 11:50:25 +0800</pubDate><author>whatacold@gmail.com (Ken Huang)</author>
       <guid>https://whatacold.io/tags/tiling-wm/</guid>
       <description></description>
     </item>
     <item>
       <title>Scrapy</title>
       <link>https://whatacold.io/tags/scrapy/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>whatacold@gmail.com (Ken Huang)</author>
+      <pubDate>Sat, 09 Apr 2022 22:32:11 +0800</pubDate><author>whatacold@gmail.com (Ken Huang)</author>
       <guid>https://whatacold.io/tags/scrapy/</guid>
       <description></description>
     </item>
     <item>
       <title>Eglot</title>
       <link>https://whatacold.io/tags/eglot/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>whatacold@gmail.com (Ken Huang)</author>
+      <pubDate>Sat, 22 Jan 2022 11:36:18 +0800</pubDate><author>whatacold@gmail.com (Ken Huang)</author>
       <guid>https://whatacold.io/tags/eglot/</guid>
       <description></description>
     </item>
     <item>
       <title>YouTube</title>
       <link>https://whatacold.io/tags/youtube/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>whatacold@gmail.com (Ken Huang)</author>
+      <pubDate>Sat, 22 Jan 2022 11:36:18 +0800</pubDate><author>whatacold@gmail.com (Ken Huang)</author>
       <guid>https://whatacold.io/tags/youtube/</guid>
       <description></description>
     </item>
     <item>
       <title>I3wm</title>
       <link>https://whatacold.io/tags/i3wm/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>whatacold@gmail.com (Ken Huang)</author>
+      <pubDate>Fri, 14 Jan 2022 22:36:13 +0800</pubDate><author>whatacold@gmail.com (Ken Huang)</author>
       <guid>https://whatacold.io/tags/i3wm/</guid>
       <description></description>
     </item>
     <item>
       <title>English</title>
       <link>https://whatacold.io/tags/english/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>whatacold@gmail.com (Ken Huang)</author>
+      <pubDate>Wed, 12 Jan 2022 21:41:54 +0800</pubDate><author>whatacold@gmail.com (Ken Huang)</author>
       <guid>https://whatacold.io/tags/english/</guid>
       <description></description>
     </item>
     <item>
       <title>BeautifulSoup</title>
       <link>https://whatacold.io/tags/beautifulsoup/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>whatacold@gmail.com (Ken Huang)</author>
+      <pubDate>Sat, 25 Sep 2021 23:01:40 +0800</pubDate><author>whatacold@gmail.com (Ken Huang)</author>
       <guid>https://whatacold.io/tags/beautifulsoup/</guid>
       <description></description>
     </item>
     <item>
       <title>Babashka</title>
       <link>https://whatacold.io/tags/babashka/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>whatacold@gmail.com (Ken Huang)</author>
+      <pubDate>Sun, 19 Sep 2021 10:39:23 +0800</pubDate><author>whatacold@gmail.com (Ken Huang)</author>
       <guid>https://whatacold.io/tags/babashka/</guid>
       <description></description>
     </item>
     <item>
       <title>Extensible-Dotfiles</title>
       <link>https://whatacold.io/tags/extensible-dotfiles/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>whatacold@gmail.com (Ken Huang)</author>
+      <pubDate>Sat, 17 Jul 2021 12:22:10 +0800</pubDate><author>whatacold@gmail.com (Ken Huang)</author>
       <guid>https://whatacold.io/tags/extensible-dotfiles/</guid>
       <description></description>
     </item>
     <item>
       <title>Texttoolkit</title>
       <link>https://whatacold.io/tags/texttoolkit/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>whatacold@gmail.com (Ken Huang)</author>
+      <pubDate>Wed, 21 Oct 2020 22:51:00 +0800</pubDate><author>whatacold@gmail.com (Ken Huang)</author>
       <guid>https://whatacold.io/tags/texttoolkit/</guid>
       <description></description>
     </item>
     <item>
       <title>Tools</title>
       <link>https://whatacold.io/tags/tools/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>whatacold@gmail.com (Ken Huang)</author>
+      <pubDate>Wed, 21 Oct 2020 22:51:00 +0800</pubDate><author>whatacold@gmail.com (Ken Huang)</author>
       <guid>https://whatacold.io/tags/tools/</guid>
       <description></description>
     </item>
     <item>
       <title>MySQL</title>
       <link>https://whatacold.io/tags/mysql/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>whatacold@gmail.com (Ken Huang)</author>
+      <pubDate>Thu, 25 Jun 2020 22:37:00 +0800</pubDate><author>whatacold@gmail.com (Ken Huang)</author>
       <guid>https://whatacold.io/tags/mysql/</guid>
       <description></description>
     </item>
     <item>
       <title>Redis</title>
       <link>https://whatacold.io/tags/redis/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>whatacold@gmail.com (Ken Huang)</author>
+      <pubDate>Thu, 25 Jun 2020 22:37:00 +0800</pubDate><author>whatacold@gmail.com (Ken Huang)</author>
       <guid>https://whatacold.io/tags/redis/</guid>
       <description></description>
     </item>
     <item>
       <title>Troubleshooting</title>
       <link>https://whatacold.io/tags/troubleshooting/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>whatacold@gmail.com (Ken Huang)</author>
+      <pubDate>Sat, 30 May 2020 11:52:00 +0800</pubDate><author>whatacold@gmail.com (Ken Huang)</author>
       <guid>https://whatacold.io/tags/troubleshooting/</guid>
       <description></description>
     </item>
     <item>
       <title>Git</title>
       <link>https://whatacold.io/tags/git/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>whatacold@gmail.com (Ken Huang)</author>
+      <pubDate>Tue, 04 Feb 2020 18:48:00 +0800</pubDate><author>whatacold@gmail.com (Ken Huang)</author>
       <guid>https://whatacold.io/tags/git/</guid>
       <description></description>
     </item>
     <item>
       <title>Urxvt</title>
       <link>https://whatacold.io/tags/urxvt/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>whatacold@gmail.com (Ken Huang)</author>
+      <pubDate>Mon, 25 Nov 2019 22:47:00 +0800</pubDate><author>whatacold@gmail.com (Ken Huang)</author>
       <guid>https://whatacold.io/tags/urxvt/</guid>
       <description></description>
     </item>
     <item>
       <title>Docker</title>
       <link>https://whatacold.io/tags/docker/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>whatacold@gmail.com (Ken Huang)</author>
+      <pubDate>Mon, 07 Oct 2019 13:25:00 +0800</pubDate><author>whatacold@gmail.com (Ken Huang)</author>
       <guid>https://whatacold.io/tags/docker/</guid>
       <description></description>
     </item>
     <item>
       <title>Magit</title>
       <link>https://whatacold.io/tags/magit/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>whatacold@gmail.com (Ken Huang)</author>
+      <pubDate>Tue, 24 Sep 2019 23:14:00 +0800</pubDate><author>whatacold@gmail.com (Ken Huang)</author>
       <guid>https://whatacold.io/tags/magit/</guid>
       <description></description>
     </item>

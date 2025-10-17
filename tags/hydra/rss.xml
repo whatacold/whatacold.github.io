@@ -15,7 +15,7 @@
       <link>https://whatacold.io/blog/2023-11-19-emacs-winner-mode/</link>
       <pubDate>Sun, 19 Nov 2023 13:02:42 +0800</pubDate><author>whatacold@gmail.com (Ken Huang)</author>
       <guid>https://whatacold.io/blog/2023-11-19-emacs-winner-mode/</guid>
-      <description>If you&amp;#39;ve been using Emacs for a while, I bet you must have encountered the annoying problem that your Emacs window layout gets messed up after some operations, such as looking for a help (e.g. C-h k), or checking things in the magit status buffer.&#xA;Photo by R Mo on Unsplash I&amp;#39;m happy if I can just get back to the previous layout that I had before, and guess what?</description>
+      <description>&lt;p&gt;&#xA;If you&amp;#39;ve been using Emacs for a while, I bet you must have encountered the annoying problem that your Emacs window layout gets messed up after some operations, such as looking for a help (e.g. &lt;code class=&#34;verbatim&#34;&gt;C-h k&lt;/code&gt;), or checking things in the magit status buffer.&lt;/p&gt;&#xA;&lt;figure&gt;&#xA;&lt;img src=&#34;https://whatacold.io/img/r-mo-w-_iZqdviAo-unsplash-window.jpg&#34; alt=&#34;Photo by R Mo on Unsplash&#34; title=&#34;Click to enlarge the image&#34;/&gt;&#xA;&lt;figcaption&gt;&#xA;Photo by R Mo on Unsplash&#xA;&lt;/figcaption&gt;&#xA;&lt;/figure&gt;&#xA;&lt;p&gt;&#xA;I&amp;#39;m happy if I can just get back to the previous layout that I had before, and guess what? Emacs happens to have that capability built in – the &lt;a href=&#34;https://www.gnu.org/software/emacs/manual/html_node/emacs/Window-Convenience.html&#34;&gt;winner-mode&lt;/a&gt; package, what a surprise!&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

@@ -14,9 +14,41 @@
 
       <title>Beautiful Soup 4 Cheatsheet - Ken Huang</title>
 
-  <meta name="description" content="Beautiful Soup Detailed docs: the Beautiful Soup 4 Docs.
+  <meta name="description" content="
+
+
+Beautiful Soup
+
+
+
+Detailed docs: the Beautiful Soup 4 Docs.
+
 Assume t is an object of Tag.
-Core concepts (classes) Tag, a Tag object corresponds to an XML or HTML tag. BeautifulSoup, the BeautifulSoup object represents the parsed document as a whole. You can treat it like a special Tag. It needs a parser to parse the document, a built-in parser is &#34;html.parser&#34;, e.g. soup = BeautifulSoup(&#34;&lt;html&gt;a web page&lt;/html&gt;&#34;, &#39;html.parser&#39;) NavigableString, a string corresponds to a bit of text (as you see it in the browser) within a tag.">
+
+
+Core concepts (classes)
+
+
+
+Tag, a Tag object corresponds to an XML or HTML tag.
+BeautifulSoup, the BeautifulSoup object represents the parsed document as a whole.
+
+You can treat it like a special Tag.
+
+It needs a parser to parse the document, a built-in parser is &#34;html.parser&#34;, e.g. soup = BeautifulSoup(&#34;&lt;html&gt;a web page&lt;/html&gt;&#34;, &#39;html.parser&#39;)
+NavigableString, a string corresponds to a bit of text (as you see it in the browser) within a tag.
+
+A NavigableString is just like a Python Unicode string, except that it also supports some of the features for navigating the tree and searching the tree.
+
+
+
+
+
+The Tag class
+
+
+
+Object attributes:">
   <meta name="author" content="Ken Huang"/><script type="application/ld+json">
 {
     "@context": "http://schema.org",
@@ -65,7 +97,7 @@ Core concepts (classes) Tag, a Tag object corresponds to an XML or HTML tag. Bea
     "name" : "Ken Huang"
   },
   "headline": "Beautiful Soup 4 Cheatsheet",
-  "description" : "Beautiful Soup Detailed docs: the Beautiful Soup 4 Docs.\nAssume t is an object of Tag.\nCore concepts (classes) Tag, a Tag object corresponds to an XML or HTML tag. BeautifulSoup, the BeautifulSoup object represents the parsed document as a whole. You can treat it like a special Tag. It needs a parser to parse the document, a built-in parser is \u0026#34;html.parser\u0026#34;, e.g. soup = BeautifulSoup(\u0026#34;\u0026lt;html\u0026gt;a web page\u0026lt;\/html\u0026gt;\u0026#34;, \u0026#39;html.parser\u0026#39;) NavigableString, a string corresponds to a bit of text (as you see it in the browser) within a tag.",
+  "description" : " Beautiful Soup Detailed docs: the Beautiful Soup 4 Docs.\nAssume t is an object of Tag.\nCore concepts (classes) Tag, a Tag object corresponds to an XML or HTML tag. BeautifulSoup, the BeautifulSoup object represents the parsed document as a whole. You can treat it like a special Tag. It needs a parser to parse the document, a built-in parser is \u0026#34;html.parser\u0026#34;, e.g. soup = BeautifulSoup(\u0026#34;\u0026lt;html\u0026gt;a web page\u0026lt;\/html\u0026gt;\u0026#34;, \u0026#39;html.parser\u0026#39;) NavigableString, a string corresponds to a bit of text (as you see it in the browser) within a tag. A NavigableString is just like a Python Unicode string, except that it also supports some of the features for navigating the tree and searching the tree. The Tag class Object attributes:\n",
   "inLanguage" : "en",
   "wordCount":  313 ,
   "datePublished" : "2021-09-25T23:01:40\u002b08:00",
@@ -88,24 +120,71 @@ Core concepts (classes) Tag, a Tag object corresponds to an XML or HTML tag. Bea
 
 
 <meta property="og:title" content="Beautiful Soup 4 Cheatsheet" />
-<meta property="og:description" content="Beautiful Soup Detailed docs: the Beautiful Soup 4 Docs.
+<meta property="og:description" content="
+
+
+Beautiful Soup
+
+
+
+Detailed docs: the Beautiful Soup 4 Docs.
+
 Assume t is an object of Tag.
-Core concepts (classes) Tag, a Tag object corresponds to an XML or HTML tag. BeautifulSoup, the BeautifulSoup object represents the parsed document as a whole. You can treat it like a special Tag. It needs a parser to parse the document, a built-in parser is &#34;html.parser&#34;, e.g. soup = BeautifulSoup(&#34;&lt;html&gt;a web page&lt;/html&gt;&#34;, &#39;html.parser&#39;) NavigableString, a string corresponds to a bit of text (as you see it in the browser) within a tag.">
+
+
+Core concepts (classes)
+
+
+
+Tag, a Tag object corresponds to an XML or HTML tag.
+BeautifulSoup, the BeautifulSoup object represents the parsed document as a whole.
+
+You can treat it like a special Tag.
+
+It needs a parser to parse the document, a built-in parser is &#34;html.parser&#34;, e.g. soup = BeautifulSoup(&#34;&lt;html&gt;a web page&lt;/html&gt;&#34;, &#39;html.parser&#39;)
+NavigableString, a string corresponds to a bit of text (as you see it in the browser) within a tag.
+
+A NavigableString is just like a Python Unicode string, except that it also supports some of the features for navigating the tree and searching the tree.
+
+
+
+
+
+The Tag class
+
+
+
+Object attributes:">
 <meta property="og:image" content="https://whatacold.io/img/2021-12-10-motor-helmet-og.jpg" />
 <meta property="og:url" content="https://whatacold.io/blog/2021-12-05-beautifulsoup4-cheatsheet/" />
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="Ken Huang" />
 
   <meta name="twitter:title" content="Beautiful Soup 4 Cheatsheet" />
-  <meta name="twitter:description" content="Beautiful Soup Detailed docs: the Beautiful Soup 4 Docs.
+  <meta name="twitter:description" content="
+
+
+Beautiful Soup
+
+
+
+Detailed docs: the Beautiful Soup 4 Docs.
+
 Assume t is an object of Tag.
-Core concepts (classes) Tag, a Tag object corresponds to an XML or HTML tag. BeautifulSoup, the BeautifulSoup …">
+
+
+Core concepts (classes)
+
+
+
+Tag, a Tag object corresponds to an XML or HTML tag.
+BeautifulSoup, the …">
   <meta name="twitter:image" content="https://whatacold.io/img/2021-12-10-motor-helmet-og.jpg" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:site" content="@whatacold" />
   <meta name="twitter:creator" content="@whatacold" />
   <link href='https://whatacold.io/img/2021-12-10-motor-helmet-180.jpg' rel='icon' type='image/x-icon'/>
-  <meta name="generator" content="Hugo 0.126.2">
+  <meta name="generator" content="Hugo 0.142.0">
   <link rel="alternate" href="https://whatacold.io/rss.xml" type="application/rss+xml" title="Ken Huang"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/katex.min.css" integrity="sha384-3UiQGuEI4TTMaFmGIZumfRPtfKQ3trwQE2JgosJxCnGmQpL/lJdjpcHkaaFwHlcI" crossorigin="anonymous">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.6.0/css/all.css" integrity="sha384-h/hnnw1Bi4nbpD6kE7nYfCXzovi622sY5WBxww8ARKwpdLj5kUWjRuyiXaD1U2JT" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous"><link rel="stylesheet" href="https://whatacold.io/css/main.css" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
@@ -113,8 +192,6 @@ Core concepts (classes) Tag, a Tag object corresponds to an XML or HTML tag. Bea
   <link rel="stylesheet" href="https://whatacold.io/css/highlight.min.css" /><link rel="stylesheet" href="https://whatacold.io/css/codeblock.css" /><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.css" integrity="sha384-h/L2W9KefUClHWaty3SLE5F/qvc4djlyR4qY3NUV5HGQBBW7stbcfff1+I/vmsHh" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/default-skin/default-skin.min.css" integrity="sha384-iD0dNku6PYSIQLyfTOpB06F2KCZJAKLOThS5HRe8b3ibhdEQ6eKsFf/EeFxdOt5R" crossorigin="anonymous">
 
-  
-    
       <script async src="https://www.googletagmanager.com/gtag/js?id=G-5TGCG9ZG24"></script>
       <script>
         var doNotTrack = false;
@@ -129,10 +206,6 @@ Core concepts (classes) Tag, a Tag object corresponds to an XML or HTML tag. Bea
           gtag('config', 'G-5TGCG9ZG24');
         }
       </script>
-    
-  
-
-
   </head>
   <body>
     <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
@@ -635,7 +708,7 @@ Debugging
         </p>
         
         <p class="credits theme-by text-muted">
-          <a href="https://gohugo.io">Hugo v0.126.2</a> powered &nbsp;&bull;&nbsp; Theme <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> adapted from <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
+          <a href="https://gohugo.io">Hugo v0.142.0</a> powered &nbsp;&bull;&nbsp; Theme <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> adapted from <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
           
         </p>
       </div>

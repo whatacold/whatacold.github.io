@@ -8,35 +8,35 @@
     <language>en</language>
     <managingEditor>whatacold@gmail.com (Ken Huang)</managingEditor>
     <webMaster>whatacold@gmail.com (Ken Huang)</webMaster>
-    <lastBuildDate>Wed, 26 Feb 2025 00:11:19 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 17 Oct 2025 20:29:14 +0800</lastBuildDate>
     <atom:link href="https://whatacold.io/tags/linux/rss.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Adjust the laptop&#39;s screen brightness in Emacs</title>
       <link>https://whatacold.io/blog/2022-05-21-adjust-screen-brightness-emacs/</link>
       <pubDate>Sat, 21 May 2022 11:50:25 +0800</pubDate><author>whatacold@gmail.com (Ken Huang)</author>
       <guid>https://whatacold.io/blog/2022-05-21-adjust-screen-brightness-emacs/</guid>
-      <description>Adjust the screen brightness in Emacs If you&amp;#39;re using i3wm on Linux, how do you adjust the laptop&amp;#39;s screen brightness?&#xA;Most of the time, I use the laptop with an external monitor. But when I am out, I have no monitors. And it seems no easy way to adjust the brightness in i3wm. Being too bright or dim is terrible for the eyes.&#xA;Recently, I found a command-line tool called brightnessctl, which can adjust the brightness in a terminal.</description>
+      <description>&lt;figure&gt;&#xA;&lt;img src=&#34;https://whatacold.io/img/2022-05-21-adjust-screen-brightness-emacs.jpg&#34; alt=&#34;Adjust the screen brightness in Emacs&#34; title=&#34;Click to enlarge the image&#34;/&gt;&#xA;&lt;figcaption&gt;&#xA;Adjust the screen brightness in Emacs&#xA;&lt;/figcaption&gt;&#xA;&lt;/figure&gt;&#xA;&lt;p&gt;&#xA;If you&amp;#39;re using i3wm on Linux, how do you adjust the laptop&amp;#39;s screen&#xA;brightness?&lt;/p&gt;&#xA;&lt;p&gt;&#xA;Most of the time, I use the laptop with an external monitor. But when&#xA;I am out, I have no monitors. And it seems no easy way to adjust the&#xA;brightness in i3wm. Being too bright or dim is terrible for the eyes.&lt;/p&gt;</description>
     </item>
     <item>
       <title>How to Reload i3status config On the Fly</title>
       <link>https://whatacold.io/blog/2022-01-14-i3wm-i3status-reload-config/</link>
       <pubDate>Fri, 14 Jan 2022 22:36:13 +0800</pubDate><author>whatacold@gmail.com (Ken Huang)</author>
       <guid>https://whatacold.io/blog/2022-01-14-i3wm-i3status-reload-config/</guid>
-      <description>Sometimes I want to change the status (i3status) of i3wm temporarily, but it seems that i3wm doesn&amp;#39;t support it directly, although reloading the config for i3wm itself is a piece of cake (bindsym $mod+Shift+c reload in the config, or i3-msg -t command reload in the command line).&#xA;But this issue scratched my itch, and I swear that I must solve it today.&#xA;Following this Reddit post, it looks like it can be done by restarting the process of i3bar:</description>
+      <description>&lt;p&gt;&#xA;Sometimes I want to change the status (&lt;code class=&#34;verbatim&#34;&gt;i3status&lt;/code&gt;) of &lt;code class=&#34;verbatim&#34;&gt;i3wm&lt;/code&gt; temporarily, but it seems that &lt;code class=&#34;verbatim&#34;&gt;i3wm&lt;/code&gt; doesn&amp;#39;t support it directly, although reloading the config for &lt;code class=&#34;verbatim&#34;&gt;i3wm&lt;/code&gt; itself is a piece of cake (&lt;code class=&#34;verbatim&#34;&gt;bindsym $mod+Shift+c reload&lt;/code&gt; in the config, or &lt;code class=&#34;verbatim&#34;&gt;i3-msg -t command reload&lt;/code&gt; in the command line).&lt;/p&gt;&#xA;&lt;p&gt;&#xA;But this issue scratched my itch, and I swear that I must solve it today.&lt;/p&gt;&#xA;&lt;p&gt;&#xA;&lt;em&gt;BTW, I&amp;#39;m improving my English by watching YouTube videos every single day; If you&amp;#39;re also learning English, or any languages, LanguagePuppy can definitely help you. It&amp;#39;s a Chrome extension I developed using Clojure. Check it out:&lt;/em&gt;&lt;/p&gt;</description>
     </item>
     <item>
       <title>Send Notifications from Emacs with i3wm and Dunst</title>
       <link>https://whatacold.io/blog/2021-07-17-emacs-i3wm-dunst/</link>
       <pubDate>Sat, 17 Jul 2021 12:22:10 +0800</pubDate><author>whatacold@gmail.com (Ken Huang)</author>
       <guid>https://whatacold.io/blog/2021-07-17-emacs-i3wm-dunst/</guid>
-      <description>I barely use notifications, but recently I think it&amp;#39;s a valuable way to remind me things like helping me nurture habits, or to notify me of emergencies like a critically low laptop battery.&#xA;So I try to integrate notifications to org-mode and Emacs today.&#xA;The org-notify package from org-contrib (install it by (package-install &amp;#39;org-contrib) ) could do this job easily before, so I first test it in the minibuffer with (org-notify &amp;#34;test&amp;#34;).</description>
+      <description>&lt;p&gt;&#xA;I barely use notifications, but recently I think it&amp;#39;s a valuable way to remind me things like helping me nurture habits, or to notify me of emergencies like a critically low laptop battery.&lt;/p&gt;&#xA;&lt;p&gt;&#xA;So I try to integrate notifications to org-mode and Emacs today.&lt;/p&gt;&#xA;&lt;p&gt;&#xA;The &lt;code class=&#34;verbatim&#34;&gt;org-notify&lt;/code&gt; package from &lt;code class=&#34;verbatim&#34;&gt;org-contrib&lt;/code&gt; (install it by &lt;code class=&#34;verbatim&#34;&gt;(package-install &amp;#39;org-contrib)&lt;/code&gt; ) could do this job easily before, so I first test it in the minibuffer with &lt;code class=&#34;verbatim&#34;&gt;(org-notify &amp;#34;test&amp;#34;)&lt;/code&gt;.&lt;/p&gt;&#xA;&lt;p&gt;&#xA;Unfortunately, it errors out:&lt;/p&gt;</description>
     </item>
     <item>
       <title>Open New Urxvt from within Emacs</title>
       <link>https://whatacold.io/blog/2019-11-25-start-a-new-urxvt-terminal-on-emacs/</link>
       <pubDate>Mon, 25 Nov 2019 22:47:00 +0800</pubDate><author>whatacold@gmail.com (Ken Huang)</author>
       <guid>https://whatacold.io/blog/2019-11-25-start-a-new-urxvt-terminal-on-emacs/</guid>
-      <description>I have been really enjoying the more concentration workflow qtile, a tiling window manager, brings me, since I started using it a few months ago. I am more focus on the current task now as all the windows I care about are laid out on the same screen.&#xA;As I get more used to qtile at every day&amp;#39;s work, I noticed that I became more depend on short-life terminal sessions.</description>
+      <description>&lt;p&gt;&#xA;I have been really enjoying the more concentration workflow &lt;a href=&#34;http://www.qtile.org/&#34;&gt;qtile&lt;/a&gt;, a tiling window manager, brings me, since I started using it a few months ago. I am more focus on the current task now as all the windows I care about are laid out on the same screen.&lt;/p&gt;&#xA;&lt;p&gt;&#xA;As I get more used to qtile at every day&amp;#39;s work, I noticed that I became more depend on short-life terminal sessions. Sometimes I need to quickly execute some commands on the current buffer on &lt;a href=&#34;https://www.gnu.org/software/emacs/&#34;&gt;Emacs&lt;/a&gt;, such as searching text which having many matches and quit that terminal after I&amp;#39;m done. So I wondered what could be the best way to achieve that.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>
