@@ -8,8 +8,15 @@
     <language>en</language>
     <managingEditor>whatacold@gmail.com (Ken Huang)</managingEditor>
     <webMaster>whatacold@gmail.com (Ken Huang)</webMaster>
-    <lastBuildDate>Fri, 17 Oct 2025 20:29:45 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 10 Mar 2026 23:16:20 +0800</lastBuildDate>
     <atom:link href="https://whatacold.io/tags/clojure/rss.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Your Screenshots Deserve Better. Introducing Backdrop.</title>
+      <link>https://whatacold.io/blog/2026-03-10-backdrop-intro/</link>
+      <pubDate>Tue, 10 Mar 2026 22:49:27 +0800</pubDate><author>whatacold@gmail.com (Ken Huang)</author>
+      <guid>https://whatacold.io/blog/2026-03-10-backdrop-intro/</guid>
+      <description>&lt;p&gt;&#xA;Have you ever been there? You&amp;#39;ve just finished a brilliant piece of code, designed a slick UI, or found the perfect example for a tutorial. You take a screenshot to share your work, but when you look at it… it&amp;#39;s just… plain.&lt;/p&gt;&#xA;&lt;p&gt;&#xA;You could share it as is, but it lacks professionalism. Or, you could spend the next 15 minutes wrestling with a heavy-duty design tool, carefully placing it on a background, adding a shadow, and rounding the corners, all for a single image.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>🥷 Clojure Pro Tip 5: Hiccup Raw</title>
       <link>https://whatacold.io/blog/2025-05-15-clojure-tip-hiccup-raw/</link>

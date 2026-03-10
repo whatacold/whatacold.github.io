@@ -230,6 +230,56 @@
         <div class="posts-list">
           
             <article class="post-preview">
+    <a href="https://whatacold.io/blog/2026-03-10-backdrop-intro/">
+        <h2 class="post-title">Your Screenshots Deserve Better. Introducing Backdrop.</h2>
+        
+        
+        
+    </a>
+
+    <p class="post-meta">
+        <span class="post-meta">
+  
+  
+  <i class="fas fa-calendar"></i>&nbsp;Posted on 2026-03-10
+  
+  
+    &nbsp;|&nbsp;<i class="fas fa-clock"></i>&nbsp;2&nbsp;minutes
+  
+  
+    &nbsp;|&nbsp;<i class="fas fa-book"></i>&nbsp;365&nbsp;words
+  
+  
+  
+</span>
+
+
+    </p>
+    <div class="post-entry">
+        
+        <p>
+Have you ever been there? You&#39;ve just finished a brilliant piece of code, designed a slick UI, or found the perfect example for a tutorial. You take a screenshot to share your work, but when you look at it… it&#39;s just… plain.</p>
+<p>
+You could share it as is, but it lacks professionalism. Or, you could spend the next 15 minutes wrestling with a heavy-duty design tool, carefully placing it on a background, adding a shadow, and rounding the corners, all for a single image.</p>
+        <a href="https://whatacold.io/blog/2026-03-10-backdrop-intro/" class="post-read-more">[Read More]</a>
+        
+    </div>
+
+    
+    <div class="blog-tags">
+        
+       
+       <a href="https://whatacold.io/tags/clojure/">Clojure</a>&nbsp;
+        
+       
+       <a href="https://whatacold.io/tags/projects/">Projects</a>&nbsp;
+         
+    </div>
+    
+
+</article>
+          
+            <article class="post-preview">
     <a href="https://whatacold.io/blog/2025-05-15-clojure-tip-hiccup-raw/">
         <h2 class="post-title">🥷 Clojure Pro Tip 5: Hiccup Raw</h2>
         
@@ -809,80 +859,6 @@ cider might bind a few keys to a single command!</p>
 
 </article>
           
-            <article class="post-preview">
-    <a href="https://whatacold.io/blog/2024-12-07-babashka-fs-notes/">
-        <h2 class="post-title">A Few Quick Notes About babashka/fs</h2>
-        
-        
-        
-    </a>
-
-    <p class="post-meta">
-        <span class="post-meta">
-  
-  
-  <i class="fas fa-calendar"></i>&nbsp;Posted on 2024-12-07
-  
-    &nbsp;(Last modified on 2024-12-19)
-  
-  
-    &nbsp;|&nbsp;<i class="fas fa-clock"></i>&nbsp;1&nbsp;minutes
-  
-  
-    &nbsp;|&nbsp;<i class="fas fa-book"></i>&nbsp;149&nbsp;words
-  
-  
-  
-</span>
-
-
-    </p>
-    <div class="post-entry">
-        
-        <p>
-Recently I&#39;ve used <a href="https://github.com/babashka/fs/blob/master/API.md">babashka/fs</a> a little bit, here are some quick notes for it:</p>
-<ul>
-<li>Path vs File.
-
-Use Path whenever possible, according to <a href="https://stackoverflow.com/a/26658436">this SO answer to &#34;Java: Path vs File&#34;</a>.
-
-This is actually Java related.</li>
-<li>It&#39;s ok to use a <code class="verbatim">path</code> as a key for a clojure map.
-
-At my first try, I somehow came to the conclusion that it&#39;s not ok, while I was refactoring the <a href="https://github.com/scicloj/clay/blob/main/src/scicloj/clay/v2/live_reload.clj">live reload</a> for clay. And later I found that it&#39;s totally fine to use it as a key. 😞</li>
-<li>Use <a href="https://github.com/babashka/fs/blob/master/API.md#babashka.fs/path">fs/path</a> to construct file/directory paths, for example, <code class="verbatim">(fs/path &#34;/tmp&#34; &#34;foo&#34; &#34;bar&#34; &#34;baz.clj&#34;)</code> will result in a path object for <code class="verbatim">/tmp/foo/bar/baz.clj</code> on linux.
-
-If you&#39;re coming from Python, it might remind you of <a href="https://docs.python.org/3/library/os.path.html">os.path.join(path, *paths)</a>.</li>
-<li>Use <code class="verbatim">fs/createdirs</code> for <code class="verbatim">mkdir -p</code>, though its name is a bit misleading, I first thought it&#39;s for creating a few dirs.</li>
-<li><code class="verbatim">fs/with-temp-dir</code> is convenient for <a href="https://github.com/scicloj/clay/blob/main/test/scicloj/clay/v2/live_reload_test.clj">creating tests</a>.</li>
-</ul>
-
-        
-    </div>
-
-    
-    <div class="blog-tags">
-        
-       
-       <a href="https://whatacold.io/tags/clojure/">clojure</a>&nbsp;
-        
-       
-       <a href="https://whatacold.io/tags/cider/">cider</a>&nbsp;
-        
-       
-       <a href="https://whatacold.io/tags/clay/">clay</a>&nbsp;
-        
-       
-       <a href="https://whatacold.io/tags/python/">python</a>&nbsp;
-        
-       
-       <a href="https://whatacold.io/tags/tweet/">tweet</a>&nbsp;
-         
-    </div>
-    
-
-</article>
-          
         </div>
         
           <ul class="pager main-pager">
@@ -987,7 +963,7 @@ If you&#39;re coming from Python, it might remind you of <a href="https://docs.p
 
           &nbsp;&bull;&nbsp;&copy;
           
-            2018 - 2025
+            2018 - 2026
           
 
           

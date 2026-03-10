@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Projects on Ken Huang</title>
+    <link>https://whatacold.io/tags/projects/</link>
+    <description>Recent content in Projects on Ken Huang</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <managingEditor>whatacold@gmail.com (Ken Huang)</managingEditor>
+    <webMaster>whatacold@gmail.com (Ken Huang)</webMaster>
+    <lastBuildDate>Tue, 10 Mar 2026 23:16:20 +0800</lastBuildDate>
+    <atom:link href="https://whatacold.io/tags/projects/rss.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Your Screenshots Deserve Better. Introducing Backdrop.</title>
+      <link>https://whatacold.io/blog/2026-03-10-backdrop-intro/</link>
+      <pubDate>Tue, 10 Mar 2026 22:49:27 +0800</pubDate><author>whatacold@gmail.com (Ken Huang)</author>
+      <guid>https://whatacold.io/blog/2026-03-10-backdrop-intro/</guid>
+      <description>&lt;p&gt;&#xA;Have you ever been there? You&amp;#39;ve just finished a brilliant piece of code, designed a slick UI, or found the perfect example for a tutorial. You take a screenshot to share your work, but when you look at it… it&amp;#39;s just… plain.&lt;/p&gt;&#xA;&lt;p&gt;&#xA;You could share it as is, but it lacks professionalism. Or, you could spend the next 15 minutes wrestling with a heavy-duty design tool, carefully placing it on a background, adding a shadow, and rounding the corners, all for a single image.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>
